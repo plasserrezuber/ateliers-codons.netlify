@@ -1,5 +1,5 @@
 ---
-title: "ateliers-codons.netlify"
+title: "Ateliers codons"
 listing:
   contents: posts
   sort: "date desc"
