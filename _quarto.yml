@@ -2,7 +2,7 @@ project:
   type: website
 
 website:
-  title: "ateliers-codons.netlify"
+  title: "Ateliers codons"
   navbar:
     right:
       - about.qmd
