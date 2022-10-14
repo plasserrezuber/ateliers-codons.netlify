@@ -188,4 +188,3 @@ Pour commencer, ajoutons des informations en haut de notre script :
 Pour commenter ou dé-commenter une ligne de code, utilisez la combinaison **Ctrl + Shift + C**.
 
 :::
-
