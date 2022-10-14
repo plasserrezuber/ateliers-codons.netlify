@@ -147,7 +147,7 @@ Pour ouvrir un nouveau script, cliquez sur le "plus" dans le coin supérieur gau
 
 ![](img/rstudio_09.png){width="100%"}
 
-::: {.callout-caption icon="true"}
+::: {.callout-tip icon="true"}
 
 ## Raccourcis clavier : nouveau script
 
