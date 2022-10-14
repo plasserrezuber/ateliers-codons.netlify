@@ -243,3 +243,11 @@ Exécutez cette fonction en plaçant le curseur sur la ligne et en cliquant sur 
 Pour exécuter une ou plusieurs lignes de code, sélectionnez les lignes et utilisez la combinaison **Ctrl + Entrée**
 
 :::
+
+Notre environnement contient maintenant un objet **oiseaux**, et vous pouvez voir l'indication `172 obs. of 4 variables` : le jeu de données contient 172 observations (lignes) et 4 variables (colonnes).
+
+![](img/rstudio_12.png){width="100%"}
+
+En cliquant sur la flèche bleue à gauche du nom de l'objet, vous aurez accès à plus d'informations : 
+
+![](img/rstudio_13.png){width="100%"}
