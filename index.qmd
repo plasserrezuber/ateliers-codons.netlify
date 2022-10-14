@@ -4,8 +4,10 @@ page-layout: article
 
 ::: {.callout-note collapse="true" icon="false"}
 ## Installation
+[![](img/banniere_installer_r_rstudio.png){width="50%"}](https://ateliers-codons.netlify.app/posts/01-installer-r-et-rstudio/)
+:::
 
-<!-- ![](img/banniere_installer_r_rstudio.png){width="50%"} -->
-
-[![](img/banniere_installer_r_rstudio.png){width="50%"}](https://ateliers-codons.netlify.app/posts/01-installer-r-et-rstudio/) <!-- ![](img/banniere_installer_r_rstudio.png){width="50%"}(https://codons.netlify.app/posts/premiers-pas-avec-r/) -->
+::: {.callout-tip collapse="true" icon="false"}
+## R - initiation
+[![](img/banniere_installer_r_rstudio.png){width="50%"}](https://ateliers-codons.netlify.app/posts/01-installer-r-et-rstudio/)
 :::
