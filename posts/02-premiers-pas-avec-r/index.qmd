@@ -32,21 +32,25 @@ Pour savoir comment installer R et RStudio, cliquez [ici](https://ateliers-codon
 
 <br>
 
-En ouvrant RStudio, vous verrez une fenêtre comme celle ci-dessous : 
+En ouvrant RStudio, vous verrez une fenêtre comme celle ci-dessous, qui se divise en trois panneaux : 
 
 ![](img/rstudio_01.png){width="100%"}
 
 <br>
 
-Cette fenêtre peut être séparées en trois panneaux : 
+## La console
 
-- **La console** : vous pouvez y taper du code et l'exécuter en appuyant sur `Entrée`. Lors du lancement d'une session RStudio, elle affiche également des informations comme la version de R présente sur votre ordinateur et des indications sur la manière d'obtenir de l'aide.
+Vous pouvez y taper du code et l'exécuter en appuyant sur `Entrée`. 
+
+Lors du lancement d'une session RStudio, elle affiche également des informations comme la version de R présente sur votre ordinateur et des indications sur la manière d'obtenir de l'aide.
 
 ::: {.callout-tip icon="true"}
 
 ## L'invite de commande
 
 Dans la console, une ligne commence par `>` : c'est ce qu'on appelle l'**invite de commande**. Cela indique que R est prêt à recevoir vos instructions !
+
+Tapez `2+2` puis appuyez sur `Entrée` : la console affiche le résultat.
 
 :::
 
