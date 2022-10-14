@@ -1,7 +1,7 @@
 [
   {
-    "objectID": "about.html",
-    "href": "about.html",
+    "objectID": "glossary.html",
+    "href": "glossary.html",
     "title": "Glossaire",
     "section": "",
     "text": "A\nArgument : élément d’une fonction, essentiel ou optionnel, qui précise ou modifie la façon dont la fonction est exécutée.\n\n\nB\n\n\nC\nCasse : R différencie les lettres minuscules des lettres majuscules.\nChemin absolu : chemin vers un fichier à partir de la racine (ex : C:/).\nChemin relatif : chemin vers un fichier à partir du répertoire de travail.\nClasse : type de données contenues dans une variable (le plus souvent des caractères ou des valeurs numériques).\nCommande : morceau de code qui exécute une action et qui contient généralement une ou plusieurs fonctions.\nCommentaire : partie d’un script qui ne sera pas exécutée (commence par un #).\nConsole : fenêtre dans RStudio où l’on peut écrire et exécuter du code.\n\n\nD\nData frame : objet à deux dimensions (lignes et colonnes) dont les éléments peuvent être de différents types.\n\n\nE\nEnvironnement : contient votre espace de travail (données importées, objets, fonctions, …)\n\n\nF\nFacteur : vecteur contenant une structure interne définie par des niveaux.\nFonction : code qui exécute une action.\n\n\nG\n\n\nH\n\n\nI\n\n\nJ\n\n\nK\n\n\nL\n\n\nM\nMatrice : objet à deux dimensions dont les éléments sont de même type.\n\n\nN\n\n\nO\nObjet : tout élément manipulé ou créé dans R (on parle d’un langage orienté objet).\n\n\nP\nPackage : ensemble de fonctionnalités supplémentaires qui peuvent être chargées dans R.\n\n\nQ\n\n\nR\nRépertoire de travail : dossier qui contient tout ce qui concerne votre session actuelle.\n\n\nS\nScript : à la façon d’un document texte, permet de rédiger et de sauvegarder du code.\n\n\nT\n\n\nU\n\n\nV\nVecteur : objet à une dimension, dont les éléments sont de même type.\n\n\nW\n\n\nX\n\n\nY\n\n\nZ"
@@ -44,6 +44,41 @@
   {
     "objectID": "posts/01-installer-r-et-rstudio/index.html#installer-rstudio",
     "href": "posts/01-installer-r-et-rstudio/index.html#installer-rstudio",
+    "title": "Installer R et RStudio",
+    "section": "Installer RStudio",
+    "text": "Installer RStudio\nNaviguez jusqu’à l’emplacement de sauvegarde (Téléchargements par exemple) et double-cliquez sur le fichier RStudio-…exe\n\n\n\n\n\n\nDans la fenêtre Installation de RStudio qui s’ouvre, cliquez sur Suivant.\n\n\n\n\n\n\nChoisissez le dossier dans lequel sera installé RStudio (Program Files par exemple) et cliquez sur Suivant.\n\n\n\n\n\n\nDans le menu Choisissez un dossier dans le menu Démarrer, laissez la valeur par défaut (RStudio) et cliquez sur Installer.\n\n\n\n\n\n\nUne fois RStudio installé, cliquez sur Fermer."
+  },
+  {
+    "objectID": "posts/02-premiers-pas-avec-r/index.html",
+    "href": "posts/02-premiers-pas-avec-r/index.html",
+    "title": "Installer R et RStudio",
+    "section": "",
+    "text": "Ce tutoriel est adapté de Getting started with R and RStudio du site Our Coding Club."
+  },
+  {
+    "objectID": "posts/02-premiers-pas-avec-r/index.html#télécharger-r",
+    "href": "posts/02-premiers-pas-avec-r/index.html#télécharger-r",
+    "title": "Installer R et RStudio",
+    "section": "Télécharger R",
+    "text": "Télécharger R\nNaviguez jusqu’au site internet du CRAN (The Comprehensive R Archive Network) et choisissez Download R for Windows.\n\n\n\n\n\n\nCliquez sur base puis sur Download R-… for Windows.\n \n\nChoisissez l’emplacement de sauvegarde puis téléchargez le fichier."
+  },
+  {
+    "objectID": "posts/02-premiers-pas-avec-r/index.html#installer-r",
+    "href": "posts/02-premiers-pas-avec-r/index.html#installer-r",
+    "title": "Installer R et RStudio",
+    "section": "Installer R",
+    "text": "Installer R\nNaviguez jusqu’à l’emplacement de sauvegarde (Téléchargements par exemple) et double-cliquez sur le fichier R-…-win.exe\n\n\n\n\n\n\nChoisissez la langue pour l’installation puis cliquez sur OK\n\n\n\n\n\n\nParcourez les Informations puis cliquez sur Suivant.\n\n\n\n\n\n\nChoisissez le dossier dans lequel sera installé R (Program Files par exemple).\n\n\n\n\n\n\nDans les Composants à installer, laissez les valeurs par défaut puis cliquez sur Suivant.\n\n\n\n\n\n\nDans les Options de démarrage, laissez les valeurs par défauts puis cliquez sur Suivant.\n\n\n\n\n\n\nDans les Tâches supplémentaires, vous pouvez choisir de créer une icône sur le Bureau et/ou dans la barre de lancement rapide.\n\n\n\n\n\n\nNote\n\n\n\nNous utilisons rarement R de manière isolée, vous pouvez donc laisser les valeurs par défaut.\n\n\n\n\n\n\n\n\nUne fois R installé, cliquez sur Terminer.\n\n\n\n\n\n\nNote\n\n\n\nLa plupart des utilisateurs interagissent avec R à l’aide d’une interface graphique, dont la plus connue est RStudio."
+  },
+  {
+    "objectID": "posts/02-premiers-pas-avec-r/index.html#télécharger-rstudio",
+    "href": "posts/02-premiers-pas-avec-r/index.html#télécharger-rstudio",
+    "title": "Installer R et RStudio",
+    "section": "Télécharger RStudio",
+    "text": "Télécharger RStudio\nNaviguez jusqu’au site internet de RStudio et cliquez sur Products puis sur RStudio.\n\n\n\n\n\n\nChoisissez RStudio Desktop\n\n\n\n\n\n\nCliquez sur Download RStudio Desktop\n\n\n\n\n\n\nChoisissez RStudio Desktop FREE puis cliquez sur Download.\n\n\n\n\n\n\nCliquez sur Download RStudio for Windows et choisissez l’emplacement de sauvegarde."
+  },
+  {
+    "objectID": "posts/02-premiers-pas-avec-r/index.html#installer-rstudio",
+    "href": "posts/02-premiers-pas-avec-r/index.html#installer-rstudio",
     "title": "Installer R et RStudio",
     "section": "Installer RStudio",
     "text": "Installer RStudio\nNaviguez jusqu’à l’emplacement de sauvegarde (Téléchargements par exemple) et double-cliquez sur le fichier RStudio-…exe\n\n\n\n\n\n\nDans la fenêtre Installation de RStudio qui s’ouvre, cliquez sur Suivant.\n\n\n\n\n\n\nChoisissez le dossier dans lequel sera installé RStudio (Program Files par exemple) et cliquez sur Suivant.\n\n\n\n\n\n\nDans le menu Choisissez un dossier dans le menu Démarrer, laissez la valeur par défaut (RStudio) et cliquez sur Installer.\n\n\n\n\n\n\nUne fois RStudio installé, cliquez sur Fermer."
