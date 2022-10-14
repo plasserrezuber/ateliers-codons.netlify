@@ -64,11 +64,15 @@ Contrairement à d'autres logiciels de statistiques comme Minitab ou SPSS, R peu
 
 <br>
 
-Voici quelques avantages de R :
+::: {.callout-tip icon="true"}
+
+## Quelques avantages de R
 
 -   C'est un outil **libre et open source** (tout le monde peut utiliser le code et voir comment il fonctionne)\
 -   C'est un langage de programmation plutôt qu'une interface graphique, ce qui permet à l'utilisateur de sauvegarder facilement des **scripts** sous forme de texte pour les ré-utiliser ou les partager\
 -   Beaucoup de personnes l'utilisent dans beaucoup de domaines différents - **il est rare d'être confronté à un problème qui n'a jamais été résolu !**
+
+:::
 
 <br>
 
