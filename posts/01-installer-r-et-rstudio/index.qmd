@@ -18,8 +18,6 @@ format:
 
 <br>
 
-Dans ce tutoriel, nous allons voir comment télécharger et installer R.
-
 ::: {.callout-note icon="true"}
 
 ## Note
@@ -27,12 +25,6 @@ Dans ce tutoriel, nous allons voir comment télécharger et installer R.
 Ce tutoriel vous permettra d'installer R et RStudio sous **Windows**
 
 :::
-
-<br>
-
-1.  [Qu'est-ce que R ?](#r_intro)
-2.  [Télécharger et installer R](#download_install_r)
-3.  [Télécharger et installer RStudio](#download_install_rstudio)
 
 <br>
 
@@ -46,11 +38,19 @@ Il a été développé par **Ross Ihaka** et **Robert Gentleman**, du Départeme
 
 <br>
 
+::: {.callout-tip icon="true"}
+
+## Quelques dates
+
 |      |                                                                                                                                     |
 |------------|------------------------------------------------------------|
 | 1991 | Création du langage R                                                                                                               |
 | 1993 | R est dévoilé au public                                                                                                             |
 | 1996 | [Article dans le *Journal of Computational and Graphical Statistics*](https://www.stat.auckland.ac.nz/~ihaka/downloads/R-paper.pdf) |
+
+:::
+
+
 
 <br>
 
