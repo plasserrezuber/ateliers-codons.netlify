@@ -1,9 +1,12 @@
 ---
 title: "Installer R et RStudio"
-author: "Jonathan Kitt"
+author:
+  - Gergana Daskalova
+  - Jonathan Kitt (adaptation)
 date: "2022-10-13"
 categories: [R, RStudio, bases]
 # image: "pexels-marta-branco-1194713.jpg"
+toc: true
 ---
 
 This is a post with executable code.
