@@ -3,6 +3,7 @@ project:
 
 website:
   title: "Ateliers codons"
+  site-url: "https://ateliers-codons.netlify.app"
   navbar:
     right:
       - about.qmd
