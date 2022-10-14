@@ -75,6 +75,22 @@ Ce navigateur vous permet de navigeur dans vos dossiers, de copier, renommer ou 
 
 Les autres onglets permettent de visualiser les graphiques ou encore d'afficher l'aide.
 
+# Créer un projet
+
+Pour éviter de perdre du temps à chercher des fichiers dont on a oublié le nom et l'emplacement, il est utile d'organiser son travail à l'aide de **projets**. 
+
+Pour créer un projet, cliquez sur **File** puis **New project...** : 
+
+![](img/rstudio_02.png){width="100%"}
+
+::: {.callout-caution icon="true"}
+
+## Bonne pratiques : les projets
+
+Un projet vous permet de sauvegarder tous vos fichiers, votre code et vos résultats dans un seul dossier. 
+
+:::
+
 ::: {.callout-important icon="true"}
 
 ## Les scripts
