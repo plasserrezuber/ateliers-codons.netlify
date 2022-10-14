@@ -76,17 +76,25 @@ Contrairement à d'autres logiciels de statistiques comme Minitab ou SPSS, R peu
 
 <br>
 
-# Télécharger et installer R pour Windows {#download_install_r}
+# Télécharger et installer R {#download_install_r}
+
+<br>
 
 ## Télécharger R
 
+<br>
+
 Naviguez jusqu'au site internet du [**CRAN (*The Comprehensive R Archive Network*)**](https://cran.r-project.org/) et choisissez **Download R for Windows**.
 
-[![CRAN_01](img/cran_01.png){width="100%"}](https://cran.r-project.org/)
+[![](img/cran_01.png){width="100%"}](https://cran.r-project.org/)
+
+<br>
 
 Cliquez sur **base** puis sur **Download R-... for Windows**.
 
-[![CRAN_02](img/cran_02.png){width="100%"}](https://cran.r-project.org/) [![CRAN_03](img/cran_03.png){width="100%"}](https://cran.r-project.org/)
+[![](img/cran_02.png){width="100%"}](https://cran.r-project.org/) [![](img/cran_03.png){width="100%"}](https://cran.r-project.org/)
+
+<br>
 
 Choisissez l'**emplacement de sauvegarde** puis téléchargez le fichier.
 
