@@ -22,13 +22,13 @@ format:
 
 ## Note
 
-Pour savoir comment installer R et RStudion cliquez [ici](https://ateliers-codons.netlify.app/posts/01-installer-r-et-rstudio/)
+Pour savoir comment installer R et RStudio, cliquez [ici](https://ateliers-codons.netlify.app/posts/01-installer-r-et-rstudio/)
 
 :::
 
 <br>
 
-# Qu'est-ce que R ? {#r_intro}
+# Naviguez dans RStudio {#naviguer_rstudio}
 
 <br>
 
