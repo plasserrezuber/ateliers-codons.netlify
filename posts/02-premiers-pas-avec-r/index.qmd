@@ -129,7 +129,7 @@ L'organisation proposée ci-dessous est utilisable dans une très grande majorit
 - **R** : contient le code utilisé pour manipuler les données, générer les figures, rédiger les rapports, ... 
 - **resultats** : contient les fichiers de résultats issus de l'analyse.
 - **figures** : contient les graphiques et figures générées lors de l'analyse.  
-- **docs** : contient les rapports rédigés au cours de l'analyse, les présentations de résultats, des articles en lien avec l'analyse, les documents concernant les outils utlisés, ...
-
-
-- 
+- **docs** : contient les rapports rédigés au cours de l'analyse, les présentations de résultats, des articles en lien avec l'analyse, les documents concernant les outils utlisés, ...  
+  
+  
+![](img/rstudio_08.png){width="100%"}
