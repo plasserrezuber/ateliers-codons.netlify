@@ -146,13 +146,22 @@ Nous utilisons rarement R de manière isolée, vous pouvez donc laisser les vale
 
 :::
 
-[![CRAN_10](img/cran_10.png){width="50%"}](https://cran.r-project.org/)
+[![](img/cran_10.png){width="50%"}](https://cran.r-project.org/)
+
+<br>
 
 Une fois R installé, cliquez sur **Terminer**.
 
+::: {.callout-note icon="true"}
+
+## Note
+
 La plupart des utilisateurs interagissent avec R à l'aide d'une **interface graphique**, dont la plus connue est **RStudio**.
 
-# Télécharger et installer RStudio pour Windows {#download_install_rstudio}
+:::
+
+
+# Télécharger et installer RStudio {#download_install_rstudio}
 
 ## Télécharger RStudio
 
