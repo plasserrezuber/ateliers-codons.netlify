@@ -54,6 +54,37 @@ Tapez `2+2` puis appuyez sur `Entrée` : la console affiche le résultat.
 
 :::
 
+
+## L'environnement
+
+L'environnement affiche le contenu de votre espace de travail : données importées, objets créés, fonctions définies, ...
+
+::: {.callout-tip icon="true"}
+
+## Un langage orienté objet
+
+R est un langage orienté objet, ce qui veut dire que tout ce que vous manipulez dans R est stocké dans un objet.
+
+:::
+
+D'autres onglets vous permettent d'accéder à l'historique des commandes ou encore à des tutoriels (pour les versions les plus récentes de RStudio).
+
+## Le navigateur
+
+Ce navigateur vous permet de navigeur dans vos dossiers, de copier, renommer ou supprimer des fichiers, à la manière d'un explorateur classique.
+
+Les autres onglets permettent de visualiser les graphiques ou encore d'afficher l'aide.
+
+::: {.callout-important icon="true"}
+
+## Les scripts
+
+La console vous permet d'exécuter du code et d'afficher les résultats. Ce code ne sera pas sauvegardé par R et ne sera plus accessible quand vous quitterez votre session. Un script permet de sauvegarder votre code (pour continuer à l'écrire plus tard ou le partager), un peu comme un document Word. 
+
+:::
+
+
+
 R est un **langage de programmation statistique** qui a rapidement gagné en popularité dans de nombreux domaines scientifiques.
 
 Il a été développé par **Ross Ihaka** et **Robert Gentleman**, du Département de Statistiques de l'Université d'Auckland, comme **implémentation libre du langage de programmation S**.
