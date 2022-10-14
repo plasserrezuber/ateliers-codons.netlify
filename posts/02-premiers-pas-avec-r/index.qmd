@@ -34,7 +34,7 @@ Pour savoir comment installer R et RStudio, cliquez [ici](https://ateliers-codon
 
 En ouvrant RStudio, vous verrez une fenêtre comme celle ci-dessous : 
 
-[!(img/rstudio_01.png){width="100%"}]
+[![](img/rstudio_01.png){width="100%"}]
 
 <br>
 
