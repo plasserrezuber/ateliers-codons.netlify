@@ -1,6 +1,6 @@
 ---
 title: "Premiers pas avec R"
-subtitle: "Apprendre à prendre en main R"
+subtitle: "Se familiariser avec R et manipuler des données"
 author:
   - Gergana Daskalova
   - Jonathan Kitt (adaptation)
@@ -22,7 +22,7 @@ format:
 
 ## Note
 
-Ce tutoriel vous permettra d'installer R et RStudio sous **Windows**
+Pour savoir comment installer R et RStudion cliquez [ici](https://ateliers-codons.netlify.app/posts/01-installer-r-et-rstudio/)
 
 :::
 
