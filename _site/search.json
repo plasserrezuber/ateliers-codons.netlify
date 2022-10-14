@@ -1,5 +1,12 @@
 [
   {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Glossaire",
+    "section": "",
+    "text": "A\nArgument : élément d’une fonction, essentiel ou optionnel, qui précise ou modifie la façon dont la fonction est exécutée.\n\n\nB\n\n\nC\nCasse : R différencie les lettres minuscules des lettres majuscules.\nChemin absolu : chemin vers un fichier à partir de la racine (ex : C:/).\nChemin relatif : chemin vers un fichier à partir du répertoire de travail.\nClasse : type de données contenues dans une variable (le plus souvent des caractères ou des valeurs numériques).\nCommande : morceau de code qui exécute une action et qui contient généralement une ou plusieurs fonctions.\nCommentaire : partie d’un script qui ne sera pas exécutée (commence par un #).\nConsole : fenêtre dans RStudio où l’on peut écrire et exécuter du code.\n\n\nD\nData frame : objet à deux dimensions (lignes et colonnes) dont les éléments peuvent être de différents types.\n\n\nE\nEnvironnement : contient votre espace de travail (données importées, objets, fonctions, …)\n\n\nF\nFacteur : vecteur contenant une structure interne définie par des niveaux.\nFonction : code qui exécute une action.\n\n\nG\n\n\nH\n\n\nI\n\n\nJ\n\n\nK\n\n\nL\n\n\nM\nMatrice : objet à deux dimensions dont les éléments sont de même type.\n\n\nN\n\n\nO\nObjet : tout élément manipulé ou créé dans R (on parle d’un langage orienté objet).\n\n\nP\nPackage : ensemble de fonctionnalités supplémentaires qui peuvent être chargées dans R.\n\n\nQ\n\n\nR\nRépertoire de travail : dossier qui contient tout ce qui concerne votre session actuelle.\n\n\nS\nScript : à la façon d’un document texte, permet de rédiger et de sauvegarder du code.\n\n\nT\n\n\nU\n\n\nV\nVecteur : objet à une dimension, dont les éléments sont de même type.\n\n\nW\n\n\nX\n\n\nY\n\n\nZ"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Ateliers codons",
