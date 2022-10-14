@@ -149,7 +149,7 @@ Pour ouvrir un nouveau script, cliquez sur le "plus" dans le coin supérieur gau
 
 ::: {.callout-caption icon="true"}
 
-### Raccourcis clavier : nouveau script
+## Raccourcis clavier : nouveau script
 
 Pour ouvrir un nouveau script, utilisez la combinaison **Ctrl + Shift + N**
 
