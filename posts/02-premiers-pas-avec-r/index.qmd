@@ -188,3 +188,21 @@ Pour commencer, ajoutons des informations en haut de notre script :
 Pour commenter ou dé-commenter une ligne de code, utilisez la combinaison **Ctrl + Shift + C**.
 
 :::
+
+# Manipuler des données 
+
+## Importer un jeu de données
+
+Nous allons analyser une liste d'espèces d'oiseaux menacées en Auvergne (données de 2015 obtenues sur le site de la [DREAL](https://www.auvergne-rhone-alpes.developpement-durable.gouv.fr/liste-rouge-des-oiseaux-d-auvergne-a9939.html)).
+
+Ces données se trouvent dans un fichier appelé `oiseaux.csv`, disponible en ligne, que nous allons télécharger.
+
+Nous allons pour cela utiliser une **fonction** de R. Une fonction permet d'exécuter une action : calculer une somme, importer ou exporter un fichier, ajouter une colonne dans un tableau, ... 
+
+Toutes les fonctions se présentent de la façon suivante : 
+
+```{r, echo=TRUE, eval=FALSE}
+ma_fonction(data, arguments, ...)
+```
+
+On fait appel à la fonction en tapant son nom, puis on précise les arguments de la fonction entre parenthèses. Un argument peut être obligatoire ou optionnel, et modifie la façon dont la fonction est exécutée.
