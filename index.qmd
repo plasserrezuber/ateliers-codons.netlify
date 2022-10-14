@@ -5,5 +5,5 @@ page-layout: full
 ::: {.callout-note collapse="true" icon="false"}
 ## Installation
 
-![](img/pexels-marta-branco-1194713.jpg){width="20%"}{fig-align="left"}{fig-alt="Installer R et RStudio"}
+![](img/banniere_installer_r_rstudio.png){width="50%"}
 :::
