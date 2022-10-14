@@ -1,6 +1,9 @@
 ---
 title: "Glossaire"
-sutitle: "Les termes les plus utilisés et leurs définitions"
+subtitle: "Les termes les plus utilisés et leurs définitions"
+format: 
+  html: 
+    toc: true
+    toc-depth: 1
+    toc-title: "Lettre"
 ---
-
-About this blog
