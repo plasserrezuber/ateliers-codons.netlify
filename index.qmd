@@ -2,10 +2,8 @@
 page-layout: full
 ---
 
-::: {.callout-caution collapse="true"}
-## Astuce
+::: {.callout-note collapse="true" icon="false"}
+## Installation
 
-A lot of the steps that I explain in this post can be used to create other outputs with Quarto, such as websites, presentations, and books.
-
-[![Marta Branco](img/pexels-marta-branco-1194713.jpg){width="25%"}](https://www.pexels.com/fr-fr/photo/photo-gros-plan-du-clavier-noir-et-bleu-1194713/)
+![](img/pexels-marta-branco-1194713.jpg){width="20%"}{fig-align="left"}{fig-alt="Installer R et RStudio"}
 :::

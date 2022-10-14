@@ -11,7 +11,7 @@
     "href": "index.html",
     "title": "Ateliers codons",
     "section": "",
-    "text": "Astuce\n\n\n\n\n\nA lot of the steps that I explain in this post can be used to create other outputs with Quarto, such as websites, presentations, and books.\n\n\n\nMarta Branco"
+    "text": "Installation\n\n\n\n\n\n{fig-align=“left”}{fig-alt=“Installer R et RStudio”}"
   },
   {
     "objectID": "posts/01-installer-r-et-rstudio/index.html",
