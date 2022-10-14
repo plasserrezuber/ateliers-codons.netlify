@@ -1,0 +1,4 @@
+- source: project
+  netlify:
+    - id: a996e9f6-658a-4f60-b5f7-e5ddfa5784fe
+      url: 'https://dulcet-beijinho-bf27aa.netlify.app'
