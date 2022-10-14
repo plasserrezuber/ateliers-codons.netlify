@@ -6,7 +6,10 @@ author:
 date: "2022-10-13"
 categories: [R, RStudio, bases]
 # image: "pexels-marta-branco-1194713.jpg"
-toc: true
+format: 
+  html: 
+    toc: true
+    toc-title: "Sommaire"
 ---
 
 This is a post with executable code.
