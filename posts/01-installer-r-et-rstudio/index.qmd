@@ -9,16 +9,18 @@ categories: [R, RStudio, bases]
 format: 
   html: 
     toc: true
+    toc-depth: 1
     toc-title: "Sommaire"
 ---
 
-This is a post with executable code.
+::: {.callout-note collapse="false" icon="true"}
 
-```{r}
-1 + 1
-```
+## Note
 
-::: callout-tip
+Ce tutoriel vous permettra d'installer R et RStudio sous Windows
+
+:::
+
 ## Astuce
 
 A lot of the steps that I explain in this post can be used to create other outputs with Quarto, such as websites, presentations, and books.
