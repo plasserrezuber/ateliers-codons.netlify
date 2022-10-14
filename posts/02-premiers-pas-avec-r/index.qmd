@@ -280,6 +280,8 @@ Choisissez le dossier où sera sauvegardé votre script - **R** dans notre cas, 
 
 ![](img/rstudio_19.png){width="100%"}
 
+::: {.callout-tip icon="true"}
+
 ## Raccourcis clavier : sauvegarder un script
 
 Pour sauvegarder un script, uilisez la combinaison **Ctrl + S**
