@@ -6,7 +6,7 @@ website:
   site-url: "https://ateliers-codons.netlify.app"
   navbar:
     right:
-      - about.qmd
+      - glossary.qmd
       - icon: github
         href: https://github.com/codons-blog/
       - icon: twitter
