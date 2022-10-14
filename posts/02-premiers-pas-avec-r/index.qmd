@@ -1,6 +1,6 @@
 ---
-title: "Installer R et RStudio"
-subtitle: "Guide pour installer R et RStudio sur votre ordinateur"
+title: "Premiers pas avec R"
+subtitle: "Apprendre à prendre en main R"
 author:
   - Gergana Daskalova
   - Jonathan Kitt (adaptation)
