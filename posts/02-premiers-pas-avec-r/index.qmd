@@ -83,6 +83,14 @@ Pour créer un projet, cliquez sur **File** puis **New project...** :
 
 ![](img/rstudio_02.png){width="100%"}
 
+![](img/rstudio_03.png){width="100%"}
+
+![](img/rstudio_04.png){width="100%"}
+
+![](img/rstudio_05.png){width="100%"}
+
+![](img/rstudio_06.png){width="100%"}
+
 ::: {.callout-caution icon="true"}
 
 ## Bonne pratiques : les projets
