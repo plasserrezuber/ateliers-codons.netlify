@@ -1,12 +1,11 @@
 ---
-title: "Ateliers codons"
-listing:
-  contents: posts
-  sort: "date desc"
-  type: default
-  categories: true
-  sort-ui: false
-  filter-ui: false
 page-layout: full
-title-block-banner: true
 ---
+
+::: {.callout-caution collapse="true"}
+## Astuce
+
+A lot of the steps that I explain in this post can be used to create other outputs with Quarto, such as websites, presentations, and books.
+
+[![Marta Branco](img/pexels-marta-branco-1194713.jpg){width="25%"}](https://www.pexels.com/fr-fr/photo/photo-gros-plan-du-clavier-noir-et-bleu-1194713/)
+:::
