@@ -18,7 +18,6 @@ This is a post with executable code.
 A lot of the steps that I explain in this post can be used to create other outputs with Quarto, such as websites, presentations, and books.
 :::
 
-
 *Ce tutoriel est adapté de [Getting started with R and RStudio](https://ourcodingclub.github.io/tutorials/intro-to-r/) du site [Our Coding Club](https://ourcodingclub.github.io/).*
 
 [![Marta Branco](img/pexels-marta-branco-1194713.jpg){width="100%"}](https://www.pexels.com/fr-fr/photo/photo-gros-plan-du-clavier-noir-et-bleu-1194713/)
@@ -43,33 +42,33 @@ Il a été développé par **Ross Ihaka** et **Robert Gentleman**, du Départeme
 
 <br>
 
-|      |                                                                                                                                   |
-|------|-----------------------------------------------------------------------------------------------------------------------------------|
-| 1991 | Création du langage R                                                                                                             |
-| 1993 | R est dévoilé au public                                                                                                           |
+|      |                                                                                                                                     |
+|------|-------------------------------------------------------------------------------------------------------------------------------------|
+| 1991 | Création du langage R                                                                                                               |
+| 1993 | R est dévoilé au public                                                                                                             |
 | 1996 | [Article dans le *Journal of Computational and Graphical Statistics*](https://www.stat.auckland.ac.nz/~ihaka/downloads/R-paper.pdf) |
 
 <br>
 
-R désigne également le **logiciel** qui utilise ce langage pour des calculs statistiques (et tout un tas d'autres applications !). 
+R désigne également le **logiciel** qui utilise ce langage pour des calculs statistiques (et tout un tas d'autres applications !).
 
-Il dispose d'une **communauté** en ligne très active ainsi que d'**extensions** pour presque tous les domaines et applications possibles et imaginables. 
-  
-<br>
-
-Contrairement à d'autres logiciels de statistiques comme Minitab ou SPSS, R peut être exécuté entièrement en **ligne de commande** et ne nécessite pas d'interface graphique, ce qui lui confère une **grande flexibilité**.  
-
-<br>  
-
-Voici quelques avantages de R :  
-
-- C'est un outil **libre et open source** (tout le monde peut utiliser le code et voir comment il fonctionne)  
-- C'est un langage de programmation plutôt qu'une interface graphique, ce qui permet à l'utilisateur de sauvegarder facilement des **scripts** sous forme de texte pour les ré-utiliser ou les partager  
-- Beaucoup de personnes l'utilisent dans beaucoup de domaines différents - **il est rare d'être confronté à un problème qui n'a jamais été résolu !**
+Il dispose d'une **communauté** en ligne très active ainsi que d'**extensions** pour presque tous les domaines et applications possibles et imaginables.
 
 <br>
 
-# Télécharger et installer R pour Windows {#download_install_r}  
+Contrairement à d'autres logiciels de statistiques comme Minitab ou SPSS, R peut être exécuté entièrement en **ligne de commande** et ne nécessite pas d'interface graphique, ce qui lui confère une **grande flexibilité**.
+
+<br>
+
+Voici quelques avantages de R :
+
+-   C'est un outil **libre et open source** (tout le monde peut utiliser le code et voir comment il fonctionne)\
+-   C'est un langage de programmation plutôt qu'une interface graphique, ce qui permet à l'utilisateur de sauvegarder facilement des **scripts** sous forme de texte pour les ré-utiliser ou les partager\
+-   Beaucoup de personnes l'utilisent dans beaucoup de domaines différents - **il est rare d'être confronté à un problème qui n'a jamais été résolu !**
+
+<br>
+
+# Télécharger et installer R pour Windows {#download_install_r}
 
 ## Télécharger R
 
@@ -77,12 +76,11 @@ Naviguez jusqu'au site internet du [**CRAN (*The Comprehensive R Archive Network
 
 [![CRAN_01](img/cran_01.png){width="100%"}](https://cran.r-project.org/)
 
-Cliquez sur **base** puis sur **Download R-... for Windows**.  
+Cliquez sur **base** puis sur **Download R-... for Windows**.
 
-[![CRAN_02](img/cran_02.png){width="100%"}](https://cran.r-project.org/)
-[![CRAN_03](img/cran_03.png){width="100%"}](https://cran.r-project.org/)
+[![CRAN_02](img/cran_02.png){width="100%"}](https://cran.r-project.org/) [![CRAN_03](img/cran_03.png){width="100%"}](https://cran.r-project.org/)
 
-Choisissez l'**emplacement de sauvegarde** puis téléchargez le fichier.  
+Choisissez l'**emplacement de sauvegarde** puis téléchargez le fichier.
 
 ## Installer R
 
@@ -110,15 +108,15 @@ Dans les **Options de démarrage**, laissez les valeurs par défauts puis clique
 
 [![CRAN_09](img/cran_09.png){width="50%"}](https://cran.r-project.org/)
 
-Dans les **Tâches supplémentaires**, vous pouvez choisir de créer une icône sur le Bureau et/ou dans la barre de lancement rapide. Nous utilisons rarement R de manière isolée, vous pouvez donc laisser les valeurs par défaut 
+Dans les **Tâches supplémentaires**, vous pouvez choisir de créer une icône sur le Bureau et/ou dans la barre de lancement rapide. Nous utilisons rarement R de manière isolée, vous pouvez donc laisser les valeurs par défaut
 
 [![CRAN_10](img/cran_10.png){width="50%"}](https://cran.r-project.org/)
 
 Une fois R installé, cliquez sur **Terminer**.
 
-La plupart des utilisateurs interagissent avec R à l'aide  d'une **interface graphique**, dont la plus connue est **RStudio**.
+La plupart des utilisateurs interagissent avec R à l'aide d'une **interface graphique**, dont la plus connue est **RStudio**.
 
-# Télécharger et installer RStudio pour Windows {#download_install_rstudio} 
+# Télécharger et installer RStudio pour Windows {#download_install_rstudio}
 
 ## Télécharger RStudio
 
@@ -130,7 +128,7 @@ Choisissez **RStudio Desktop**
 
 [![RSTUDIO_02](img/rstudio_02.png){width="50%"}](https://www.rstudio.com/)
 
-Cliquez sur **Download RStudio Desktop
+Cliquez sur \*\*Download RStudio Desktop
 
 [![RSTUDIO_03](img/rstudio_03.png){width="50%"}](https://www.rstudio.com/)
 
@@ -161,4 +159,3 @@ Dans le menu **Choisissez un dossier dans le menu Démarrer**, laissez la valeur
 [![RSTUDIO_09](img/rstudio_09.png){width="50%"}](https://www.rstudio.com/)
 
 Une fois RStudio installé, cliquez sur **Fermer**.
-
