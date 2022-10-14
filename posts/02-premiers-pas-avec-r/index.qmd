@@ -83,13 +83,35 @@ Pour créer un projet, cliquez sur **File** puis **New project...** :
 
 ![](img/rstudio_02.png){width="100%"}
 
+Choisissez **New Directory** puis **New Project**
+
 ![](img/rstudio_03.png){width="100%"}
 
 ![](img/rstudio_04.png){width="100%"}
 
+Dans la fenêtre **Create New Project**, attribuez un nom et un emplacement au projet, puis cliquez sur **Create project**
+
 ![](img/rstudio_05.png){width="100%"}
 
+## Bonne pratiques : nommer ses fichiers
+
+Pour vous simplifier la vie, voici quelques recommandations : 
+
+- privilégiez les noms courts et explicites (à éviter : *fichier_2e_version_a_verifier.txt*)
+- ne mettez ni espace ni caractères spéciaux (accents, symboles, ...)  
+- pour les dates, privilégiez le format **AAAAMMJJ** (année, mois, jour)
+- mettez l'élément le plus important en premier (par exemple : *projet_date_contenu*)  
+- optez pour l'une de ces deux conventions d'écritre : **camel case** (*MonProjet*) ou **snake case** (*mon_projet*)
+
+Une fois que vous avez trouvé une façon de procéder, utlisez-la pour l'ensemble de vos fichiers afin de rester cohérent !
+
+:::
+
+Quand vous voudrez travailler à nouveau sur ces données, il vous suffira de double-cliquer sur le fichier `.Rproj` pour ouvrir le projet et accéder à tout ce qu'il contient.
+
 ![](img/rstudio_06.png){width="100%"}
+
+
 
 ::: {.callout-caution icon="true"}
 
