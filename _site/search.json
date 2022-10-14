@@ -18,14 +18,7 @@
     "href": "posts/01-installer-r-et-rstudio/index.html",
     "title": "Installer R et RStudio",
     "section": "",
-    "text": "Note\n\n\n\n\n\nCe tutoriel vous permettra d’installer R et RStudio sous Windows"
-  },
-  {
-    "objectID": "posts/01-installer-r-et-rstudio/index.html#astuce",
-    "href": "posts/01-installer-r-et-rstudio/index.html#astuce",
-    "title": "Installer R et RStudio",
-    "section": "Astuce",
-    "text": "Astuce\nA lot of the steps that I explain in this post can be used to create other outputs with Quarto, such as websites, presentations, and books. :::\nCe tutoriel est adapté de Getting started with R and RStudio du site Our Coding Club.\n\n\n\nMarta Branco\n\n\n\nDans ce tutoriel, nous allons voir comment télécharger et installer R.\n\nQu’est-ce que R ?\nTélécharger et installer R pour Windows\nTélécharger et installer RStudio pour Windows"
+    "text": "Ce tutoriel est adapté de Getting started with R and RStudio du site Our Coding Club.\nDans ce tutoriel, nous allons voir comment télécharger et installer R."
   },
   {
     "objectID": "posts/01-installer-r-et-rstudio/index.html#télécharger-r",

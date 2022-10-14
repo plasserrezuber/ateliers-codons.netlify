@@ -1,5 +1,6 @@
 ---
 title: "Installer R et RStudio"
+subtitle: "Guide pour installer R et RStudio sur votre ordinateur"
 author:
   - Gergana Daskalova
   - Jonathan Kitt (adaptation)
@@ -13,30 +14,25 @@ format:
     toc-title: "Sommaire"
 ---
 
-::: {.callout-note collapse="false" icon="true"}
-
-## Note
-
-Ce tutoriel vous permettra d'installer R et RStudio sous Windows
-
-:::
-
-## Astuce
-
-A lot of the steps that I explain in this post can be used to create other outputs with Quarto, such as websites, presentations, and books.
-:::
-
 *Ce tutoriel est adapté de [Getting started with R and RStudio](https://ourcodingclub.github.io/tutorials/intro-to-r/) du site [Our Coding Club](https://ourcodingclub.github.io/).*
-
-[![Marta Branco](img/pexels-marta-branco-1194713.jpg){width="100%"}](https://www.pexels.com/fr-fr/photo/photo-gros-plan-du-clavier-noir-et-bleu-1194713/)
 
 <br>
 
 Dans ce tutoriel, nous allons voir comment télécharger et installer R.
 
+::: {.callout-note icon="true"}
+
+## Note
+
+Ce tutoriel vous permettra d'installer R et RStudio sous **Windows**
+
+:::
+
+<br>
+
 1.  [Qu'est-ce que R ?](#r_intro)
-2.  [Télécharger et installer R pour Windows](#download_install_r)
-3.  [Télécharger et installer RStudio pour Windows](#download_install_rstudio)
+2.  [Télécharger et installer R](#download_install_r)
+3.  [Télécharger et installer RStudio](#download_install_rstudio)
 
 <br>
 
