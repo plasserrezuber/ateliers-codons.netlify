@@ -181,3 +181,11 @@ Pour commencer, ajoutons des informations en haut de notre script :
 # 2022-10-14
 ```
 
+::: {.callout-tip icon="true"}
+
+## Raccourcis clavier : commentaires
+
+Pour commenter ou dé-commenter une ligne de code, utilisez la combinaison **Ctrl + Shift + C**.
+
+:::
+
