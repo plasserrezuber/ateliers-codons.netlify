@@ -158,3 +158,26 @@ Pour ouvrir un nouveau script, utilisez la combinaison **Ctrl + Shift + N**
 Un nouveau panneau s'affiche : 
 
 ![](img/rstudio_10.png){width="100%"}
+
+::: {.callout-caution icon="true"}
+
+## Bonne pratiques : commenter ses scripts
+
+Prenez dès maintenant l'habitude de commenter vos scripts. Il s'agit de rédiger des commentaires qui expliquent ce que fait votre code, pour le rendre plus compréhensible par vos collègues - et par vous-même quand vous reviendrez sur un script après un certain temps ! Pour ajouter un commentaire, utiliser un `#` au début d'une ligne puis rédigez votre commentaire. Dans R, un code placé après un `#` n'est pas exécuté : 
+
+```{r, echo=TRUE, eval=FALSE}
+# Ceci est un commentaire qui ne sera pas exécuté
+# La ligne suivante sera exécutée
+2 + 2
+```
+
+:::
+
+Pour commencer, ajoutons des informations en haut de notre script : 
+
+```{r, echo=TRUE, eval=FALSE}
+# Ateliers codons
+# 01 - Premiers pas avec R
+# 2022-10-14
+```
+
