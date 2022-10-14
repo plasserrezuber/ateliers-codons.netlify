@@ -9,5 +9,5 @@ page-layout: article
 
 ::: {.callout-tip collapse="true" icon="false"}
 ## R - initiation
-[![](img/banniere_installer_r_rstudio.png){width="50%"}](https://ateliers-codons.netlify.app/posts/01-installer-r-et-rstudio/)
+[![](img/banniere_installer_r_rstudio.png){width="50%"}](https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/)
 :::
