@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Harlow Malloc">
+<meta name="dcterms.date" content="2022-10-13">
+
+<title>Ateliers codons - Installer R et RStudio</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Ateliers codons</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">About</a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/"><i class="bi bi-github" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com"><i class="bi bi-twitter" role="img">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Installer R et RStudio</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">R</div>
+                <div class="quarto-category">RStudio</div>
+                <div class="quarto-category">bases</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Harlow Malloc </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">October 13, 2022</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<p>This is a post with executable code.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2</code></pre>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Astuce
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A lot of the steps that I explain in this post can be used to create other outputs with Quarto, such as websites, presentations, and books.</p>
+</div>
+</div>
+<p><em>Ce tutoriel est adapté de <a href="https://ourcodingclub.github.io/tutorials/intro-to-r/">Getting started with R and RStudio</a> du site <a href="https://ourcodingclub.github.io/">Our Coding Club</a>.</em></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://www.pexels.com/fr-fr/photo/photo-gros-plan-du-clavier-noir-et-bleu-1194713/"><img src="img/pexels-marta-branco-1194713.jpg" class="img-fluid figure-img" style="width:100.0%"></a></p>
+<p></p><figcaption class="figure-caption">Marta Branco</figcaption><p></p>
+</figure>
+</div>
+<p><br></p>
+<p>Dans ce tutoriel, nous allons voir comment télécharger et installer R.</p>
+<ol type="1">
+<li><a href="#r_intro">Qu’est-ce que R ?</a></li>
+<li><a href="#download_install_r">Télécharger et installer R pour Windows</a></li>
+<li><a href="#download_install_rstudio">Télécharger et installer RStudio pour Windows</a></li>
+</ol>
+<p><br></p>
+<section id="r_intro" class="level1">
+<h1>Qu’est-ce que R ?</h1>
+<p><br></p>
+<p>R est un <strong>langage de programmation statistique</strong> qui a rapidement gagné en popularité dans de nombreux domaines scientifiques.</p>
+<p>Il a été développé par <strong>Ross Ihaka</strong> et <strong>Robert Gentleman</strong>, du Département de Statistiques de l’Université d’Auckland, comme <strong>implémentation libre du langage de programmation S</strong>.</p>
+<p><br></p>
+<table class="table">
+<tbody>
+<tr class="odd">
+<td>1991</td>
+<td>Création du langage R</td>
+</tr>
+<tr class="even">
+<td>1993</td>
+<td>R est dévoilé au public</td>
+</tr>
+<tr class="odd">
+<td>1996</td>
+<td><a href="https://www.stat.auckland.ac.nz/~ihaka/downloads/R-paper.pdf">Article dans le <em>Journal of Computational and Graphical Statistics</em></a></td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p>R désigne également le <strong>logiciel</strong> qui utilise ce langage pour des calculs statistiques (et tout un tas d’autres applications !).</p>
+<p>Il dispose d’une <strong>communauté</strong> en ligne très active ainsi que d’<strong>extensions</strong> pour presque tous les domaines et applications possibles et imaginables.</p>
+<p><br></p>
+<p>Contrairement à d’autres logiciels de statistiques comme Minitab ou SPSS, R peut être exécuté entièrement en <strong>ligne de commande</strong> et ne nécessite pas d’interface graphique, ce qui lui confère une <strong>grande flexibilité</strong>.</p>
+<p><br></p>
+<p>Voici quelques avantages de R :</p>
+<ul>
+<li>C’est un outil <strong>libre et open source</strong> (tout le monde peut utiliser le code et voir comment il fonctionne)<br>
+</li>
+<li>C’est un langage de programmation plutôt qu’une interface graphique, ce qui permet à l’utilisateur de sauvegarder facilement des <strong>scripts</strong> sous forme de texte pour les ré-utiliser ou les partager<br>
+</li>
+<li>Beaucoup de personnes l’utilisent dans beaucoup de domaines différents - <strong>il est rare d’être confronté à un problème qui n’a jamais été résolu !</strong></li>
+</ul>
+<p><br></p>
+</section>
+<section id="download_install_r" class="level1">
+<h1>Télécharger et installer R pour Windows</h1>
+<section id="télécharger-r" class="level2">
+<h2 class="anchored" data-anchor-id="télécharger-r">Télécharger R</h2>
+<p>Naviguez jusqu’au site internet du <a href="https://cran.r-project.org/"><strong>CRAN (<em>The Comprehensive R Archive Network</em>)</strong></a> et choisissez <strong>Download R for Windows</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://cran.r-project.org/"><img src="img/cran_01.png" class="img-fluid figure-img" style="width:100.0%"></a></p>
+<p></p><figcaption class="figure-caption">CRAN_01</figcaption><p></p>
+</figure>
+</div>
+<p>Cliquez sur <strong>base</strong> puis sur <strong>Download R-… for Windows</strong>.</p>
+<p><a href="https://cran.r-project.org/"><img src="img/cran_02.png" class="img-fluid" style="width:100.0%" alt="CRAN_02"></a> <a href="https://cran.r-project.org/"><img src="img/cran_03.png" class="img-fluid" style="width:100.0%" alt="CRAN_03"></a></p>
+<p>Choisissez l’<strong>emplacement de sauvegarde</strong> puis téléchargez le fichier.</p>
+</section>
+<section id="installer-r" class="level2">
+<h2 class="anchored" data-anchor-id="installer-r">Installer R</h2>
+<p>Naviguez jusqu’à cet emplacement (<em>Téléchargements</em> par exemple) et double-cliquez sur le fichier <strong>R-…-win.exe</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://cran.r-project.org/"><img src="img/cran_04.png" class="img-fluid figure-img" style="width:100.0%"></a></p>
+<p></p><figcaption class="figure-caption">CRAN_04</figcaption><p></p>
+</figure>
+</div>
+<p>Choisissez la <strong>langue</strong> pour l’installation puis cliquez sur <strong>OK</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://cran.r-project.org/"><img src="img/cran_05.png" class="img-fluid figure-img" style="width:50.0%"></a></p>
+<p></p><figcaption class="figure-caption">CRAN_05</figcaption><p></p>
+</figure>
+</div>
+<p>Parcourez les <strong>Informations</strong> puis cliquez sur <strong>Suivant</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://cran.r-project.org/"><img src="img/cran_06.png" class="img-fluid figure-img" style="width:50.0%"></a></p>
+<p></p><figcaption class="figure-caption">CRAN_06</figcaption><p></p>
+</figure>
+</div>
+<p>Choisissez le <strong>dossier dans lequel sera installé R</strong> (<em>Program Files</em> par exemple).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://cran.r-project.org/"><img src="img/cran_07.png" class="img-fluid figure-img" style="width:50.0%"></a></p>
+<p></p><figcaption class="figure-caption">CRAN_07</figcaption><p></p>
+</figure>
+</div>
+<p>Dans les <strong>Composants à installer</strong>, laissez les valeurs par défaut puis cliquez sur <strong>Suivant</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://cran.r-project.org/"><img src="img/cran_08.png" class="img-fluid figure-img" style="width:50.0%"></a></p>
+<p></p><figcaption class="figure-caption">CRAN_08</figcaption><p></p>
+</figure>
+</div>
+<p>Dans les <strong>Options de démarrage</strong>, laissez les valeurs par défauts puis cliquez sur <strong>Suivant</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://cran.r-project.org/"><img src="img/cran_09.png" class="img-fluid figure-img" style="width:50.0%"></a></p>
+<p></p><figcaption class="figure-caption">CRAN_09</figcaption><p></p>
+</figure>
+</div>
+<p>Dans les <strong>Tâches supplémentaires</strong>, vous pouvez choisir de créer une icône sur le Bureau et/ou dans la barre de lancement rapide. Nous utilisons rarement R de manière isolée, vous pouvez donc laisser les valeurs par défaut</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://cran.r-project.org/"><img src="img/cran_10.png" class="img-fluid figure-img" style="width:50.0%"></a></p>
+<p></p><figcaption class="figure-caption">CRAN_10</figcaption><p></p>
+</figure>
+</div>
+<p>Une fois R installé, cliquez sur <strong>Terminer</strong>.</p>
+<p>La plupart des utilisateurs interagissent avec R à l’aide d’une <strong>interface graphique</strong>, dont la plus connue est <strong>RStudio</strong>.</p>
+</section>
+</section>
+<section id="download_install_rstudio" class="level1">
+<h1>Télécharger et installer RStudio pour Windows</h1>
+<section id="télécharger-rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="télécharger-rstudio">Télécharger RStudio</h2>
+<p>Naviguez jusqu’au site internet de <a href="https://www.rstudio.com"><strong>RStudio</strong></a> et cliquez sur <strong>Products</strong> puis sur <strong>RStudio</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://www.rstudio.com/"><img src="img/rstudio_01.png" class="img-fluid figure-img" style="width:75.0%"></a></p>
+<p></p><figcaption class="figure-caption">RSTUDIO_01</figcaption><p></p>
+</figure>
+</div>
+<p>Choisissez <strong>RStudio Desktop</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://www.rstudio.com/"><img src="img/rstudio_02.png" class="img-fluid figure-img" style="width:50.0%"></a></p>
+<p></p><figcaption class="figure-caption">RSTUDIO_02</figcaption><p></p>
+</figure>
+</div>
+<p>Cliquez sur **Download RStudio Desktop</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://www.rstudio.com/"><img src="img/rstudio_03.png" class="img-fluid figure-img" style="width:50.0%"></a></p>
+<p></p><figcaption class="figure-caption">RSTUDIO_03</figcaption><p></p>
+</figure>
+</div>
+<p>Choisissez <strong>RStudio Desktop FREE</strong> puis cliquez sur <strong>Download</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://www.rstudio.com/"><img src="img/rstudio_04.png" class="img-fluid figure-img" style="width:50.0%"></a></p>
+<p></p><figcaption class="figure-caption">RSTUDIO_04</figcaption><p></p>
+</figure>
+</div>
+<p>Cliquez sur <strong>Download RStudio for Windows</strong> et choisissez l’emplacement de sauvegarde.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://www.rstudio.com/"><img src="img/rstudio_05.png" class="img-fluid figure-img" style="width:50.0%"></a></p>
+<p></p><figcaption class="figure-caption">RSTUDIO_05</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="installer-rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="installer-rstudio">Installer RStudio</h2>
+<p>Naviguez jusqu’à cet emplacement (<em>Téléchargements</em> par exemple) et double-cliquez sur le fichier <strong>RStudio-…exe</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://www.rstudio.com/"><img src="img/rstudio_06.png" class="img-fluid figure-img" style="width:50.0%"></a></p>
+<p></p><figcaption class="figure-caption">RSTUDIO_06</figcaption><p></p>
+</figure>
+</div>
+<p>Dans la fenêtre <strong>Installation de RStudio</strong> qui s’ouvre, cliquez sur <strong>Suivant</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://www.rstudio.com/"><img src="img/rstudio_07.png" class="img-fluid figure-img" style="width:50.0%"></a></p>
+<p></p><figcaption class="figure-caption">RSTUDIO_07</figcaption><p></p>
+</figure>
+</div>
+<p>Choisissez le <strong>dossier dans lequel sera installé RStudio</strong> (<em>Program Files</em> par exemple) et cliquez sur <strong>Suivant</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://www.rstudio.com/"><img src="img/rstudio_08.png" class="img-fluid figure-img" style="width:50.0%"></a></p>
+<p></p><figcaption class="figure-caption">RSTUDIO_08</figcaption><p></p>
+</figure>
+</div>
+<p>Dans le menu <strong>Choisissez un dossier dans le menu Démarrer</strong>, laissez la valeur par défaut (<em>RStudio</em>) et cliquez sur <strong>Installer</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://www.rstudio.com/"><img src="img/rstudio_09.png" class="img-fluid figure-img" style="width:50.0%"></a></p>
+<p></p><figcaption class="figure-caption">RSTUDIO_09</figcaption><p></p>
+</figure>
+</div>
+<p>Une fois RStudio installé, cliquez sur <strong>Fermer</strong>.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
