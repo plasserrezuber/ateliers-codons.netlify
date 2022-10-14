@@ -82,8 +82,6 @@ Contrairement à d'autres logiciels de statistiques comme Minitab ou SPSS, R peu
 
 ## Télécharger R
 
-<br>
-
 Naviguez jusqu'au site internet du [**CRAN (*The Comprehensive R Archive Network*)**](https://cran.r-project.org/) et choisissez **Download R for Windows**.
 
 [![](img/cran_01.png){width="100%"}](https://cran.r-project.org/)
@@ -98,33 +96,55 @@ Cliquez sur **base** puis sur **Download R-... for Windows**.
 
 Choisissez l'**emplacement de sauvegarde** puis téléchargez le fichier.
 
+<br>
+
 ## Installer R
 
-Naviguez jusqu'à cet emplacement (*Téléchargements* par exemple) et double-cliquez sur le fichier **R-...-win.exe**
+Naviguez jusqu'à l'emplacement de sauvegarde (*Téléchargements* par exemple) et double-cliquez sur le fichier **R-...-win.exe**
 
-[![CRAN_04](img/cran_04.png){width="100%"}](https://cran.r-project.org/)
+[![](img/cran_04.png){width="100%"}](https://cran.r-project.org/)
+
+<br>
 
 Choisissez la **langue** pour l'installation puis cliquez sur **OK**
 
-[![CRAN_05](img/cran_05.png){width="50%"}](https://cran.r-project.org/)
+[![](img/cran_05.png){width="50%"}](https://cran.r-project.org/)
+
+<br>
 
 Parcourez les **Informations** puis cliquez sur **Suivant**.
 
-[![CRAN_06](img/cran_06.png){width="50%"}](https://cran.r-project.org/)
+[![](img/cran_06.png){width="50%"}](https://cran.r-project.org/)
+
+<br>
 
 Choisissez le **dossier dans lequel sera installé R** (*Program Files* par exemple).
 
-[![CRAN_07](img/cran_07.png){width="50%"}](https://cran.r-project.org/)
+[![](img/cran_07.png){width="50%"}](https://cran.r-project.org/)
+
+<br>
 
 Dans les **Composants à installer**, laissez les valeurs par défaut puis cliquez sur **Suivant**.
 
-[![CRAN_08](img/cran_08.png){width="50%"}](https://cran.r-project.org/)
+[![](img/cran_08.png){width="50%"}](https://cran.r-project.org/)
+
+<br>
 
 Dans les **Options de démarrage**, laissez les valeurs par défauts puis cliquez sur **Suivant**.
 
-[![CRAN_09](img/cran_09.png){width="50%"}](https://cran.r-project.org/)
+[![](img/cran_09.png){width="50%"}](https://cran.r-project.org/)
 
-Dans les **Tâches supplémentaires**, vous pouvez choisir de créer une icône sur le Bureau et/ou dans la barre de lancement rapide. Nous utilisons rarement R de manière isolée, vous pouvez donc laisser les valeurs par défaut
+<br>
+
+Dans les **Tâches supplémentaires**, vous pouvez choisir de créer une icône sur le Bureau et/ou dans la barre de lancement rapide.
+
+::: {.callout-note icon="true"}
+
+## Note
+
+Nous utilisons rarement R de manière isolée, vous pouvez donc laisser les valeurs par défaut.
+
+:::
 
 [![CRAN_10](img/cran_10.png){width="50%"}](https://cran.r-project.org/)
 
