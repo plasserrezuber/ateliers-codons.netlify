@@ -206,3 +206,11 @@ ma_fonction(data, arguments, ...)
 ```
 
 On fait appel à la fonction en tapant son nom, puis on précise les arguments de la fonction entre parenthèses. Un argument peut être obligatoire ou optionnel, et modifie la façon dont la fonction est exécutée.
+
+Notre première ligne de code va donc télécharger le fichier `oiseaux.csv` et stocker ce fichier dans un objet de notre environnement R : nous assignons le fichier à l'objet. Cette opération s'effectue à l'aide de la flèche d'assignation `<-` : 
+
+```{r, echo=TRUE, eval=TRUE}
+# Importer la liste d'especes d'oiseaux menacees en Auvergne
+oiseaux <- read.csv("https://raw.githubusercontent.com/codons-blog/C-01-PremiersPas/main/oiseaux.csv")
+```
+
