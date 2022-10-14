@@ -28,9 +28,13 @@ Pour savoir comment installer R et RStudio, cliquez [ici](https://ateliers-codon
 
 <br>
 
-# Naviguez dans RStudio {#naviguer_rstudio}
+# Naviguer dans RStudio {#naviguer_rstudio}
 
 <br>
+
+En ouvrant RStudio, vous verrez une fenêtre comme celle ci-dessous : 
+
+[![](img/rstudio_01.png){width="100%"}]
 
 R est un **langage de programmation statistique** qui a rapidement gagné en popularité dans de nombreux domaines scientifiques.
 
