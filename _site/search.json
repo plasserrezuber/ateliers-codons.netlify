@@ -11,7 +11,7 @@
     "href": "index.html",
     "title": "Ateliers codons",
     "section": "",
-    "text": "R\n\n\nRStudio\n\n\nbases\n\n\n\n\n\n\n\n\n\n\n\nOct 13, 2022\n\n\nHarlow Malloc\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nR\n\n\nRStudio\n\n\nbases\n\n\n\n\n\n\n\n\n\n\n\nOct 13, 2022\n\n\nHarlow Malloc\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nOct 13, 2022\n\n\nHarlow Malloc\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nOct 10, 2022\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
+    "text": "R\n\n\nRStudio\n\n\nbases\n\n\n\n\n\n\n\n\n\n\n\nOct 13, 2022\n\n\nHarlow Malloc\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nOct 13, 2022\n\n\nHarlow Malloc\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nOct 10, 2022\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/01-installer-r-et-rstudio/index.html",
@@ -44,41 +44,6 @@
   {
     "objectID": "posts/01-installer-r-et-rstudio/index.html#installer-rstudio",
     "href": "posts/01-installer-r-et-rstudio/index.html#installer-rstudio",
-    "title": "Installer R et RStudio",
-    "section": "Installer RStudio",
-    "text": "Installer RStudio\nNaviguez jusqu’à cet emplacement (Téléchargements par exemple) et double-cliquez sur le fichier RStudio-…exe\n\n\n\nRSTUDIO_06\n\n\nDans la fenêtre Installation de RStudio qui s’ouvre, cliquez sur Suivant.\n\n\n\nRSTUDIO_07\n\n\nChoisissez le dossier dans lequel sera installé RStudio (Program Files par exemple) et cliquez sur Suivant.\n\n\n\nRSTUDIO_08\n\n\nDans le menu Choisissez un dossier dans le menu Démarrer, laissez la valeur par défaut (RStudio) et cliquez sur Installer.\n\n\n\nRSTUDIO_09\n\n\nUne fois RStudio installé, cliquez sur Fermer."
-  },
-  {
-    "objectID": "posts/installer-r-et-rstudio/index.html",
-    "href": "posts/installer-r-et-rstudio/index.html",
-    "title": "Installer R et RStudio",
-    "section": "",
-    "text": "This is a post with executable code.\nCe tutoriel est adapté de Getting started with R and RStudio du site Our Coding Club.\nDans ce tutoriel, nous allons voir comment télécharger et installer R."
-  },
-  {
-    "objectID": "posts/installer-r-et-rstudio/index.html#télécharger-r",
-    "href": "posts/installer-r-et-rstudio/index.html#télécharger-r",
-    "title": "Installer R et RStudio",
-    "section": "Télécharger R",
-    "text": "Télécharger R\nNaviguez jusqu’au site internet du CRAN (The Comprehensive R Archive Network) et choisissez Download R for Windows.\n\n\n\nCRAN_01\n\n\nCliquez sur base puis sur Download R-… for Windows.\n \nChoisissez l’emplacement de sauvegarde puis téléchargez le fichier."
-  },
-  {
-    "objectID": "posts/installer-r-et-rstudio/index.html#installer-r",
-    "href": "posts/installer-r-et-rstudio/index.html#installer-r",
-    "title": "Installer R et RStudio",
-    "section": "Installer R",
-    "text": "Installer R\nNaviguez jusqu’à cet emplacement (Téléchargements par exemple) et double-cliquez sur le fichier R-…-win.exe\n\n\n\nCRAN_04\n\n\nChoisissez la langue pour l’installation puis cliquez sur OK\n\n\n\nCRAN_05\n\n\nParcourez les Informations puis cliquez sur Suivant.\n\n\n\nCRAN_06\n\n\nChoisissez le dossier dans lequel sera installé R (Program Files par exemple).\n\n\n\nCRAN_07\n\n\nDans les Composants à installer, laissez les valeurs par défaut puis cliquez sur Suivant.\n\n\n\nCRAN_08\n\n\nDans les Options de démarrage, laissez les valeurs par défauts puis cliquez sur Suivant.\n\n\n\nCRAN_09\n\n\nDans les Tâches supplémentaires, vous pouvez choisir de créer une icône sur le Bureau et/ou dans la barre de lancement rapide. Nous utilisons rarement R de manière isolée, vous pouvez donc laisser les valeurs par défaut\n\n\n\nCRAN_10\n\n\nUne fois R installé, cliquez sur Terminer.\nLa plupart des utilisateurs interagissent avec R à l’aide d’une interface graphique, dont la plus connue est RStudio."
-  },
-  {
-    "objectID": "posts/installer-r-et-rstudio/index.html#télécharger-rstudio",
-    "href": "posts/installer-r-et-rstudio/index.html#télécharger-rstudio",
-    "title": "Installer R et RStudio",
-    "section": "Télécharger RStudio",
-    "text": "Télécharger RStudio\nNaviguez jusqu’au site internet de RStudio et cliquez sur Products puis sur RStudio.\n\n\n\nRSTUDIO_01\n\n\nChoisissez RStudio Desktop\n\n\n\nRSTUDIO_02\n\n\nCliquez sur **Download RStudio Desktop\n\n\n\nRSTUDIO_03\n\n\nChoisissez RStudio Desktop FREE puis cliquez sur Download.\n\n\n\nRSTUDIO_04\n\n\nCliquez sur Download RStudio for Windows et choisissez l’emplacement de sauvegarde.\n\n\n\nRSTUDIO_05"
-  },
-  {
-    "objectID": "posts/installer-r-et-rstudio/index.html#installer-rstudio",
-    "href": "posts/installer-r-et-rstudio/index.html#installer-rstudio",
     "title": "Installer R et RStudio",
     "section": "Installer RStudio",
     "text": "Installer RStudio\nNaviguez jusqu’à cet emplacement (Téléchargements par exemple) et double-cliquez sur le fichier RStudio-…exe\n\n\n\nRSTUDIO_06\n\n\nDans la fenêtre Installation de RStudio qui s’ouvre, cliquez sur Suivant.\n\n\n\nRSTUDIO_07\n\n\nChoisissez le dossier dans lequel sera installé RStudio (Program Files par exemple) et cliquez sur Suivant.\n\n\n\nRSTUDIO_08\n\n\nDans le menu Choisissez un dossier dans le menu Démarrer, laissez la valeur par défaut (RStudio) et cliquez sur Installer.\n\n\n\nRSTUDIO_09\n\n\nUne fois RStudio installé, cliquez sur Fermer."
