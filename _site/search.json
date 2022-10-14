@@ -91,6 +91,13 @@
     "text": "Créer une arborescence\nIl est toujours préférable de passer un peu de temps à bien organiser un projet lors de sa création, plutôt que de passer beaucoup de temps par la suite à déplacer des fichiers, les renommer, les rechercher, …\nPour créer un nouveau dossier dans votre projet, cliquez sur New Folder dans l’onglet Files du navigateur : \nL’organisation proposée ci-dessous est utilisable dans une très grande majorité de cas :\n\nraw : contient les données brutes qui seront utilisées mais laisées en l’état.\n\ndata : contient les données issues de la manipulation des données brutes (sous-ensembles, données corrigées, renommées, nouvelles variables calculées, …)\n\nR : contient le code utilisé pour manipuler les données, générer les figures, rédiger les rapports, …\nresultats : contient les fichiers de résultats issus de l’analyse.\nfigures : contient les graphiques et figures générées lors de l’analyse.\n\ndocs : contient les rapports rédigés au cours de l’analyse, les présentations de résultats, des articles en lien avec l’analyse, les documents concernant les outils utlisés, …"
   },
   {
+    "objectID": "posts/02-premiers-pas-avec-r/index.html#importer-un-jeu-de-données",
+    "href": "posts/02-premiers-pas-avec-r/index.html#importer-un-jeu-de-données",
+    "title": "Premiers pas avec R",
+    "section": "Importer un jeu de données",
+    "text": "Importer un jeu de données\nNous allons analyser une liste d’espèces d’oiseaux menacées en Auvergne (données de 2015 obtenues sur le site de la DREAL).\nCes données se trouvent dans un fichier appelé oiseaux.csv, disponible en ligne, que nous allons télécharger.\nNous allons pour cela utiliser une fonction de R. Une fonction permet d’exécuter une action : calculer une somme, importer ou exporter un fichier, ajouter une colonne dans un tableau, …\nToutes les fonctions se présentent de la façon suivante :\n\nma_fonction(data, arguments, ...)\n\nOn fait appel à la fonction en tapant son nom, puis on précise les arguments de la fonction entre parenthèses. Un argument peut être obligatoire ou optionnel, et modifie la façon dont la fonction est exécutée."
+  },
+  {
     "objectID": "posts/post-with-code/index.html",
     "href": "posts/post-with-code/index.html",
     "title": "Post With Code",

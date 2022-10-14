@@ -203,6 +203,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#naviguer_rstudio" id="toc-naviguer_rstudio" class="nav-link active" data-scroll-target="#naviguer_rstudio">Naviguer dans RStudio</a></li>
   <li><a href="#organiser-ses-fichiers" id="toc-organiser-ses-fichiers" class="nav-link" data-scroll-target="#organiser-ses-fichiers">Organiser ses fichiers</a></li>
   <li><a href="#utiliser-un-script" id="toc-utiliser-un-script" class="nav-link" data-scroll-target="#utiliser-un-script">Utiliser un script</a></li>
+  <li><a href="#manipuler-des-données" id="toc-manipuler-des-données" class="nav-link" data-scroll-target="#manipuler-des-données">Manipuler des données</a></li>
   </ul>
 </nav>
     </div>
@@ -390,8 +391,35 @@ Bonne pratiques : commenter ses scripts
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 01 - Premiers pas avec R</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 2022-10-14</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Raccourcis clavier : commentaires
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Pour commenter ou dé-commenter une ligne de code, utilisez la combinaison <strong>Ctrl + Shift + C</strong>.</p>
+</div>
+</div>
+</section>
+<section id="manipuler-des-données" class="level1">
+<h1>Manipuler des données</h1>
+<section id="importer-un-jeu-de-données" class="level2">
+<h2 class="anchored" data-anchor-id="importer-un-jeu-de-données">Importer un jeu de données</h2>
+<p>Nous allons analyser une liste d’espèces d’oiseaux menacées en Auvergne (données de 2015 obtenues sur le site de la <a href="https://www.auvergne-rhone-alpes.developpement-durable.gouv.fr/liste-rouge-des-oiseaux-d-auvergne-a9939.html">DREAL</a>).</p>
+<p>Ces données se trouvent dans un fichier appelé <code>oiseaux.csv</code>, disponible en ligne, que nous allons télécharger.</p>
+<p>Nous allons pour cela utiliser une <strong>fonction</strong> de R. Une fonction permet d’exécuter une action : calculer une somme, importer ou exporter un fichier, ajouter une colonne dans un tableau, …</p>
+<p>Toutes les fonctions se présentent de la façon suivante :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ma_fonction</span>(data, arguments, ...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>On fait appel à la fonction en tapant son nom, puis on précise les arguments de la fonction entre parenthèses. Un argument peut être obligatoire ou optionnel, et modifie la façon dont la fonction est exécutée.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
