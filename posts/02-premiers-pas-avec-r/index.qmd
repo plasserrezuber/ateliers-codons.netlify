@@ -75,6 +75,8 @@ Ce navigateur vous permet de navigeur dans vos dossiers, de copier, renommer ou 
 
 Les autres onglets permettent de visualiser les graphiques ou encore d'afficher l'aide.
 
+# Organiser ses fichiers
+
 # Créer un projet
 
 Pour éviter de perdre du temps à chercher des fichiers dont on a oublié le nom et l'emplacement, il est utile d'organiser son travail à l'aide de **projets**. 
@@ -113,3 +115,21 @@ Quand vous voudrez travailler à nouveau sur ces données, il vous suffira de do
 
 ![](img/rstudio_06.png){width="100%"}
 
+## Créer une arborescence
+
+Il est toujours préférable de passer un peu de temps à bien organiser un projet lors de sa création, plutôt que de passer beaucoup de temps par la suite à déplacer des fichiers, les renommer, les rechercher, ...
+
+Pour créer un nouveau dossier dans votre projet, cliquez sur **New Folder** dans l'onglet **Files** du navigateur : 
+![](img/rstudio_07.png){width="100%"}
+
+L'organisation proposée ci-dessous est utilisable dans une très grande majorité de cas : 
+
+- **raw** : contient les données brutes qui seront utilisées mais laisées en l'état.  
+- **data** : contient les données issues de la manipulation des données brutes (sous-ensembles, données corrigées, renommées, nouvelles variables calculées, ...)  
+- **R** : contient le code utilisé pour manipuler les données, générer les figures, rédiger les rapports, ... 
+- **resultats** : contient les fichiers de résultats issus de l'analyse.
+- **figures** : contient les graphiques et figures générées lors de l'analyse.  
+- **docs** : contient les rapports rédigés au cours de l'analyse, les présentations de résultats, des articles en lien avec l'analyse, les documents concernant les outils utlisés, ...
+
+
+- 

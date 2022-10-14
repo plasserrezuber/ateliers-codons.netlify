@@ -77,6 +77,13 @@
     "text": "Le navigateur\nCe navigateur vous permet de navigeur dans vos dossiers, de copier, renommer ou supprimer des fichiers, à la manière d’un explorateur classique.\nLes autres onglets permettent de visualiser les graphiques ou encore d’afficher l’aide."
   },
   {
+    "objectID": "posts/02-premiers-pas-avec-r/index.html#créer-une-arborescence",
+    "href": "posts/02-premiers-pas-avec-r/index.html#créer-une-arborescence",
+    "title": "Premiers pas avec R",
+    "section": "Créer une arborescence",
+    "text": "Créer une arborescence\nIl est toujours préférable de passer un peu de temps à bien organiser un projet lors de sa création, plutôt que de passer beaucoup de temps par la suite à déplacer des fichiers, les renommer, les rechercher, …\nPour créer un nouveau dossier dans votre projet, cliquez sur New Folder dans l’onglet Files du navigateur : \nL’organisation proposée ci-dessous est utilisable dans une très grande majorité de cas :\n\nraw : contient les données brutes qui seront utilisées mais laisées en l’état.\n\ndata : contient les données issues de la manipulation des données brutes (sous-ensembles, données corrigées, renommées, nouvelles variables calculées, …)\n\nR : contient le code utilisé pour manipuler les données, générer les figures, rédiger les rapports, …\nresultats : contient les fichiers de résultats issus de l’analyse.\nfigures : contient les graphiques et figures générées lors de l’analyse.\n\ndocs : contient les rapports rédigés au cours de l’analyse, les présentations de résultats, des articles en lien avec l’analyse, les documents concernant les outils utlisés, …"
+  },
+  {
     "objectID": "posts/post-with-code/index.html",
     "href": "posts/post-with-code/index.html",
     "title": "Post With Code",
