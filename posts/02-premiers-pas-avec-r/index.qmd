@@ -214,3 +214,32 @@ Notre première ligne de code va donc télécharger le fichier `oiseaux.csv` et 
 oiseaux <- read.csv("https://raw.githubusercontent.com/codons-blog/C-01-PremiersPas/main/oiseaux.csv")
 ```
 
+Notez la présence des guillemets autour du lien vers le fichier : utlisez toujours des guillements lorsque vous indiquez un chemin vers un fichier. 
+
+::: {.callout-caution icon="true"}
+
+## Bonne pratiques : auto-complétion
+
+R vous aide à compléter votre code : tapez `re` puis **Tab**, et vous verrez s'afficher une liste de fonctions ou d'objets commençant par ces deux lettres. Vous pouvez naviguer à l'aide des flèches haut et bas et valider votre choix en appuyant à nouveau sur **Tab**. Cette fonctionnalité de R est particulièrement utile lorsque vous manipulez des fichiers ou objets ayant un nom complexe.
+
+:::
+
+::: {.callout-tip icon="true"}
+
+## Raccourcis clavier : flèche d'assignation
+
+Pour insérer une flèche d'assignation, utilisez la combinaison **ALt + "-"** (tiret du 6).
+
+:::
+
+Exécutez cette fonction en plaçant le curseur sur la ligne et en cliquant sur **Run** : 
+
+![](img/rstudio_11.png){width="100%"}
+
+::: {.callout-tip icon="true"}
+
+## Raccourcis clavier : exécuter du code
+
+Pour exécuter une ou plusieurs lignes de code, sélectionnez les lignes et utilisez la combinaison **Ctrl + Entrée**
+
+:::
