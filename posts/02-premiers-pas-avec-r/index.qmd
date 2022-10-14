@@ -77,7 +77,7 @@ Les autres onglets permettent de visualiser les graphiques ou encore d'afficher 
 
 # Organiser ses fichiers
 
-# Créer un projet
+## Créer un projet
 
 Pour éviter de perdre du temps à chercher des fichiers dont on a oublié le nom et l'emplacement, il est utile d'organiser son travail à l'aide de **projets**. 
 
@@ -131,5 +131,30 @@ L'organisation proposée ci-dessous est utilisable dans une très grande majorit
 - **figures** : contient les graphiques et figures générées lors de l'analyse.  
 - **docs** : contient les rapports rédigés au cours de l'analyse, les présentations de résultats, des articles en lien avec l'analyse, les documents concernant les outils utlisés, ...  
   
-  
 ![](img/rstudio_08.png){width="100%"}
+
+# Utiliser un script 
+
+::: {.callout-important icon="true"}
+
+### Important
+
+Le code tapé et exécuté dans la console ne sera plus disponible quand vous quitterez votre session RStudio. A la manière d'un document Word, un script vous permet de sauvegarder votre code afin d'y accéder ultérieurement ou de le partager.
+
+:::
+
+Pour ouvrir un nouveau script, cliquez sur le "plus" dans le coin supérieur gauche de la fenêtre RStudio puis sur **R Script**.
+
+![](img/rstudio_09.png){width="100%"}
+
+::: {.callout-caption icon="true"}
+
+### Raccourcis clavier : nouveau script
+
+Pour ouvrir un nouveau script, utilisez la combinaison **Ctrl + Shift + N**
+
+:::
+
+Un nouveau panneau s'affiche : 
+
+![](img/rstudio_10.png){width="100%"}
