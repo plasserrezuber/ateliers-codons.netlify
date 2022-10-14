@@ -93,6 +93,8 @@ Dans la fenêtre **Create New Project**, attribuez un nom et un emplacement au p
 
 ![](img/rstudio_05.png){width="100%"}
 
+::: {.callout-caution icon="true"}
+
 ## Bonne pratiques : nommer ses fichiers
 
 Pour vous simplifier la vie, voici quelques recommandations : 
