@@ -39,14 +39,14 @@
     "href": "posts/01-installer-r-et-rstudio/index.html#télécharger-rstudio",
     "title": "Installer R et RStudio",
     "section": "Télécharger RStudio",
-    "text": "Télécharger RStudio\nNaviguez jusqu’au site internet de RStudio et cliquez sur Products puis sur RStudio.\n\n\n\nRSTUDIO_01\n\n\nChoisissez RStudio Desktop\n\n\n\nRSTUDIO_02\n\n\nCliquez sur **Download RStudio Desktop\n\n\n\nRSTUDIO_03\n\n\nChoisissez RStudio Desktop FREE puis cliquez sur Download.\n\n\n\nRSTUDIO_04\n\n\nCliquez sur Download RStudio for Windows et choisissez l’emplacement de sauvegarde.\n\n\n\nRSTUDIO_05"
+    "text": "Télécharger RStudio\nNaviguez jusqu’au site internet de RStudio et cliquez sur Products puis sur RStudio.\n\n\n\n\n\n\nChoisissez RStudio Desktop\n\n\n\n\n\n\nCliquez sur Download RStudio Desktop\n\n\n\n\n\n\nChoisissez RStudio Desktop FREE puis cliquez sur Download.\n\n\n\n\n\n\nCliquez sur Download RStudio for Windows et choisissez l’emplacement de sauvegarde."
   },
   {
     "objectID": "posts/01-installer-r-et-rstudio/index.html#installer-rstudio",
     "href": "posts/01-installer-r-et-rstudio/index.html#installer-rstudio",
     "title": "Installer R et RStudio",
     "section": "Installer RStudio",
-    "text": "Installer RStudio\nNaviguez jusqu’à cet emplacement (Téléchargements par exemple) et double-cliquez sur le fichier RStudio-…exe\n\n\n\nRSTUDIO_06\n\n\nDans la fenêtre Installation de RStudio qui s’ouvre, cliquez sur Suivant.\n\n\n\nRSTUDIO_07\n\n\nChoisissez le dossier dans lequel sera installé RStudio (Program Files par exemple) et cliquez sur Suivant.\n\n\n\nRSTUDIO_08\n\n\nDans le menu Choisissez un dossier dans le menu Démarrer, laissez la valeur par défaut (RStudio) et cliquez sur Installer.\n\n\n\nRSTUDIO_09\n\n\nUne fois RStudio installé, cliquez sur Fermer."
+    "text": "Installer RStudio\nNaviguez jusqu’à l’emplacement de sauvegarde (Téléchargements par exemple) et double-cliquez sur le fichier RStudio-…exe\n\n\n\n\n\n\nDans la fenêtre Installation de RStudio qui s’ouvre, cliquez sur Suivant.\n\n\n\n\n\n\nChoisissez le dossier dans lequel sera installé RStudio (Program Files par exemple) et cliquez sur Suivant.\n\n\n\n\n\n\nDans le menu Choisissez un dossier dans le menu Démarrer, laissez la valeur par défaut (RStudio) et cliquez sur Installer.\n\n\n\n\n\n\nUne fois RStudio installé, cliquez sur Fermer."
   },
   {
     "objectID": "posts/post-with-code/index.html",
