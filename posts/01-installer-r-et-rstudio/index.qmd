@@ -1,9 +1,9 @@
 ---
 title: "Installer R et RStudio"
-author: "Harlow Malloc"
+author: "Jonathan Kitt"
 date: "2022-10-13"
 categories: [R, RStudio, bases]
-image: "pexels-marta-branco-1194713.jpg"
+# image: "pexels-marta-branco-1194713.jpg"
 ---
 
 This is a post with executable code.
