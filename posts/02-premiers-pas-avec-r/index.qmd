@@ -271,3 +271,17 @@ Vous pouvez afficher le tableau en cliquant sur l'icône à droite :
 Cela ouvre un nouvel onglet à côté de de votre script : 
 
 ![](img/rstudio_17.png){width="100%"}
+
+Il est important de sauvegarder régulièrement votre script pour ne pas perdre votre travail. Pour cela, cliquez sur l'icône disquette en haut de votre script : 
+
+![](img/rstudio_18.png){width="100%"}
+
+Choisissez le dossier où sera sauvegardé votre script - **R** dans notre cas, et nommez votre script puis cliquez sur **Save** : 
+
+![](img/rstudio_19.png){width="100%"}
+
+## Raccourcis clavier : sauvegarder un script
+
+Pour sauvegarder un script, uilisez la combinaison **Ctrl + S**
+
+:::
