@@ -19,14 +19,15 @@ format:
 <br>
 
 ::: {.callout-note icon="true"}
-## Note
+#### Note
 
 Pour savoir comment installer R et RStudio, cliquez [ici](https://ateliers-codons.netlify.app/posts/01-installer-r-et-rstudio/)
 :::
 
 <br>
 
-# Qu'est-ce que R ? {#r_intro}
+# Introduction {#r_intro}
+## Qu'est-ce que R ?
 
 <br>
 
