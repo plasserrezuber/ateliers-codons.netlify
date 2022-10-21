@@ -244,15 +244,15 @@ Voyons ce que fait la fonction `read.csv()`. Nous allons préciser deux argument
 - le chemin vers le fichier à importer, **entre guillemets** :`"raw/pingouins.csv"`  
 - l'argument `check.names = FALSE` pour garder les noms de colonnes tels quels
 
-
 ```{r, echo=TRUE, eval=FALSE}
-read.csv("raw/pingouins.csv")
+read.csv(file = "raw/pingouins.csv", check.names = FALSE)
 ```
 
-```{r, echo=FALSE, eval=TRUE}
-read.csv("../../raw/pingouins.csv")
+```{r, echo=FALSE, eval=TRUE, message=FALSE, warning=FALSE}
+read.csv("../../raw/pingouins.csv", check.names = FALSE)
 ```
 
+![](img/rstudio_20.png){width="100%"}
 
 Sauvegardez votre script (et pensez à le faire régulièrement !) en cliquant sur l'icône disquette en haut de votre script :
 
