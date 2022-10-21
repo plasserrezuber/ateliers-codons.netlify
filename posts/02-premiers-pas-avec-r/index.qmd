@@ -283,7 +283,42 @@ Exécutez cette fonction en plaçant le curseur sur la ligne et en cliquant sur 
 ## Raccourcis clavier : exécuter du code
 
 Pour exécuter une ou plusieurs lignes de code, sélectionnez les lignes et utilisez la combinaison **Ctrl + Entrée**
-:::Sauvegardez votre script (et pensez à le faire régulièrement !) en cliquant sur l'icône disquette en haut de votre script :
+:::
+
+Notre environnement contient maintenant un objet **pingouins**, et vous pouvez voir l'indication `344 obs. of 9 variables` : le jeu de données contient 344 observations (lignes) et 9 variables (colonnes).
+
+![](img/rstudio_12.png){width="100%"}
+
+En cliquant sur la flèche bleue à gauche du nom de l'objet, vous aurez accès à plus d'informations :
+
+![](img/rstudio_13.png){width="100%"}
+
+- **Noms des variables** : le tableau contient 9 variables dont les noms sont précédés du signe **$**. 
+
+::: {.callout-tip icon="true"}
+## L'opérateur **$**
+
+Cet opérateur permet de sélectionner la colonne d'un tableau. Dans la console, tapez `pingouins$` et appuyez sur **Tab**.
+
+![](img/rstudio_15.png){width="100%"}
+Vous pouvez choisir la variable qui vous intéresse à l'aide des **flèches haut et bas** (*Espece* par exemple) puis appuyer à nouveau sur **Tab** pour valider. Vous verrez alors s'afficher les 344 observations de cette variable.
+![](img/rstudio_16.png){width="100%"}
+
+:::
+
+- **Types des variables** : indique s'il s'agit d'une variable de type **caractère (`chr`)**, d'une variable contenant des **nombres entiers (`int`)** ou des **nombres décimaux (`num`)**. Une variable peut également être de type **logique (`log`)** (*TRUE* ou *FALSE*).  
+
+- **Premiers éléments de chaque variable**.
+
+Vous pouvez afficher le tableau en cliquant sur l'icône à droite du nom de l'objet dans l'environnement :
+
+![](img/rstudio_14.png){width="100%"}
+
+Cela ouvre un nouvel onglet à côté de de votre script :
+
+![](img/rstudio_17.png){width="100%"}
+
+Avant d'aller plus loin, sauvegardez votre script en cliquant sur l'icône disquette en haut de votre script :
 
 ![](img/rstudio_18.png){width="100%"}
 
@@ -296,44 +331,3 @@ Choisissez le dossier où sera sauvegardé votre script - **scripts** dans notre
 
 Pour sauvegarder un script, uilisez la combinaison **Ctrl + S**
 :::
-
-
-
-
-
-
-
-
-
-
-
-
-Notre environnement contient maintenant un objet **oiseaux**, et vous pouvez voir l'indication `172 obs. of 4 variables` : le jeu de données contient 172 observations (lignes) et 4 variables (colonnes).
-
-![](img/rstudio_12.png){width="100%"}
-
-En cliquant sur la flèche bleue à gauche du nom de l'objet, vous aurez accès à plus d'informations :
-
-![](img/rstudio_13.png){width="100%"}
-
-**Nom des variables** : le tableau contient 4 variables nommées *description*, *categorie*, *nom_francais* et *nom_latin*. Le signe $** devant les noms de variables indique qu'il s'agit de colonnes : l'opérateur dollar permet de sélectionner une colonne dans un tableau. Essayez en tapant dans la console **oiseaux$ et appuyez sur **Tab** :
-
-![](img/rstudio_15.png){width="100%"}
-
-Choisissez la première colonne *description* et appuyez sur **Tab** : vous verrez s'afficher les 172 observations de la colonne en question :
-
-![](img/rstudio_16.png){width="100%"}
-
-**Type de variable** : à la suite du nom de variable, **chr** indique qu'il s'agit d'une variable de type caractère. D'autres types de variables fréquemment rencontrés sont les variables **numériques** (nombres entiers ou décimaux) et les variables **logiques** (vrai ou faux).
-
-**Premiers éléments de chaque variable** : à la suite du type de variable, vous pouvez voir les premiers éléments de chacune des variables.
-
-Vous pouvez afficher le tableau en cliquant sur l'icône à droite :
-
-![](img/rstudio_14.png){width="100%"}
-
-Cela ouvre un nouvel onglet à côté de de votre script :
-
-![](img/rstudio_17.png){width="100%"}
-
-Il est important de sauvegarder régulièrement votre script pour ne pas perdre votre travail. 
