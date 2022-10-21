@@ -10,7 +10,7 @@ categories: [R, RStudio, bases]
 format: 
   html: 
     toc: true
-    toc-depth: 1
+    toc-depth: 2
     toc-title: "Sommaire"
 ---
 
@@ -27,7 +27,7 @@ Pour savoir comment installer R et RStudio, cliquez [ici](https://ateliers-codon
 <br>
 
 # Introduction {#r_intro}
-## Qu'est-ce que R ?
+## Qu'est-ce que R ? {#r_def}
 
 <br>
 
@@ -38,7 +38,7 @@ Il a été développé par **Ross Ihaka** et **Robert Gentleman**, du Départeme
 <br>
 
 ::: {.callout-tip icon="true"}
-## Quelques dates
+#### Quelques dates
 
 |      |                                                                                                                                     |
 |------------|------------------------------------------------------------|
@@ -60,7 +60,7 @@ Contrairement à d'autres logiciels de statistiques comme Minitab ou SPSS, R peu
 <br>
 
 ::: {.callout-tip icon="true"}
-## Quelques avantages de R
+#### Quelques avantages de R
 
 -   C'est un outil **libre et open source** (tout le monde peut utiliser le code et voir comment il fonctionne)\
 -   C'est un langage de programmation plutôt qu'une interface graphique, ce qui permet à l'utilisateur de sauvegarder facilement des **scripts** sous forme de texte pour les ré-utiliser ou les partager\
@@ -69,8 +69,7 @@ Contrairement à d'autres logiciels de statistiques comme Minitab ou SPSS, R peu
 
 <br>
 
-
-# Naviguer dans RStudio {#naviguer_rstudio}
+## Naviguer dans RStudio {#naviguer_rstudio}
 
 <br>
 
