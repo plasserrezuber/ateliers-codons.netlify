@@ -6,14 +6,14 @@ website:
   site-url: "https://ateliers-codons.netlify.app"
   navbar:
     right:
-      - about.qmd
+      - glossary.qmd
       - icon: github
         href: https://github.com/codons-blog/
       - icon: twitter
-        href: https://twitter.com/AteliersCodons
+        href: https://twitter.com/AteliersCodons/
 format:
   html:
-    theme: cosmo
+    theme: flatly
     css: styles.css
 
 editor: visual

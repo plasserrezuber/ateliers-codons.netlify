@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Gergana Daskalova">
+<meta name="author" content="Jonathan Kitt (adaptation)">
+<meta name="dcterms.date" content="2022-10-13">
+
+<title>Ateliers codons - Premiers pas avec R</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Ateliers codons</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../glossary.html">Glossaire</a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/codons-blog/"><i class="bi bi-github" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/AteliersCodons/"><i class="bi bi-twitter" role="img">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Premiers pas avec R</h1>
+            <p class="subtitle lead">Se familiariser avec R et manipuler des données</p>
+                                <div class="quarto-categories">
+                <div class="quarto-category">R</div>
+                <div class="quarto-category">RStudio</div>
+                <div class="quarto-category">bases</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Authors</div>
+      <div class="quarto-title-meta-contents">
+               <p>Gergana Daskalova </p>
+               <p>Jonathan Kitt (adaptation) </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">October 13, 2022</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Sommaire</h2>
+   
+  <ul>
+  <li><a href="#naviguer_rstudio" id="toc-naviguer_rstudio" class="nav-link active" data-scroll-target="#naviguer_rstudio">Naviguer dans RStudio</a></li>
+  <li><a href="#organiser-ses-fichiers" id="toc-organiser-ses-fichiers" class="nav-link" data-scroll-target="#organiser-ses-fichiers">Organiser ses fichiers</a></li>
+  <li><a href="#utiliser-un-script" id="toc-utiliser-un-script" class="nav-link" data-scroll-target="#utiliser-un-script">Utiliser un script</a></li>
+  <li><a href="#manipuler-des-données" id="toc-manipuler-des-données" class="nav-link" data-scroll-target="#manipuler-des-données">Manipuler des données</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<p><em>Ce tutoriel est adapté de <a href="https://ourcodingclub.github.io/tutorials/intro-to-r/">Getting started with R and RStudio</a> du site <a href="https://ourcodingclub.github.io/">Our Coding Club</a>.</em></p>
+<p><br></p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Pour savoir comment installer R et RStudio, cliquez <a href="https://ateliers-codons.netlify.app/posts/01-installer-r-et-rstudio/">ici</a></p>
+</div>
+</div>
+<p><br></p>
+<section id="naviguer_rstudio" class="level1">
+<h1>Naviguer dans RStudio</h1>
+<p><br></p>
+<p>En ouvrant RStudio, vous verrez une fenêtre comme celle ci-dessous, qui se divise en trois panneaux :</p>
+<p><img src="img/rstudio_01.png" class="img-fluid" style="width:100.0%"></p>
+<p><br></p>
+<section id="la-console" class="level2">
+<h2 class="anchored" data-anchor-id="la-console">La console</h2>
+<p>Vous pouvez y taper du code et l’exécuter en appuyant sur <code>Entrée</code>.</p>
+<p>Lors du lancement d’une session RStudio, elle affiche également des informations comme la version de R présente sur votre ordinateur et des indications sur la manière d’obtenir de l’aide.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+L’invite de commande
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Dans la console, une ligne commence par <code>&gt;</code> : c’est ce qu’on appelle l’<strong>invite de commande</strong>. Cela indique que R est prêt à recevoir vos instructions !</p>
+<p>Tapez <code>2+2</code> puis appuyez sur <code>Entrée</code> : la console affiche le résultat.</p>
+</div>
+</div>
+</section>
+<section id="lenvironnement" class="level2">
+<h2 class="anchored" data-anchor-id="lenvironnement">L’environnement</h2>
+<p>L’environnement affiche le contenu de votre espace de travail : données importées, objets créés, fonctions définies, …</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Un langage orienté objet
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>R est un langage orienté objet, ce qui veut dire que tout ce que vous manipulez dans R est stocké dans un objet.</p>
+</div>
+</div>
+<p>D’autres onglets vous permettent d’accéder à l’historique des commandes ou encore à des tutoriels (pour les versions les plus récentes de RStudio).</p>
+</section>
+<section id="le-navigateur" class="level2">
+<h2 class="anchored" data-anchor-id="le-navigateur">Le navigateur</h2>
+<p>Ce navigateur vous permet de navigeur dans vos dossiers, de copier, renommer ou supprimer des fichiers, à la manière d’un explorateur classique.</p>
+<p>Les autres onglets permettent de visualiser les graphiques ou encore d’afficher l’aide.</p>
+</section>
+</section>
+<section id="organiser-ses-fichiers" class="level1">
+<h1>Organiser ses fichiers</h1>
+<section id="créer-un-projet" class="level2">
+<h2 class="anchored" data-anchor-id="créer-un-projet">Créer un projet</h2>
+<p>Pour éviter de perdre du temps à chercher des fichiers dont on a oublié le nom et l’emplacement, il est utile d’organiser son travail à l’aide de <strong>projets</strong>.</p>
+<p>Pour créer un projet, cliquez sur <strong>File</strong> puis <strong>New project…</strong> :</p>
+<p><img src="img/rstudio_02.png" class="img-fluid" style="width:100.0%"></p>
+<p>Choisissez <strong>New Directory</strong> puis <strong>New Project</strong></p>
+<p><img src="img/rstudio_03.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="img/rstudio_04.png" class="img-fluid" style="width:100.0%"></p>
+<p>Dans la fenêtre <strong>Create New Project</strong>, attribuez un nom et un emplacement au projet, puis cliquez sur <strong>Create project</strong></p>
+<p><img src="img/rstudio_05.png" class="img-fluid" style="width:100.0%"></p>
+<div class="callout-caution callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Bonne pratiques : nommer ses fichiers
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Pour vous simplifier la vie, voici quelques recommandations :</p>
+<ul>
+<li>privilégiez les noms courts et explicites (à éviter : <em>fichier_2e_version_a_verifier.txt</em>)</li>
+<li>ne mettez ni espace ni caractères spéciaux (accents, symboles, …)<br>
+</li>
+<li>pour les dates, privilégiez le format <strong>AAAAMMJJ</strong> (année, mois, jour)</li>
+<li>mettez l’élément le plus important en premier (par exemple : <em>projet_date_contenu</em>)<br>
+</li>
+<li>optez pour l’une de ces deux conventions d’écritre : <strong>camel case</strong> (<em>MonProjet</em>) ou <strong>snake case</strong> (<em>mon_projet</em>)</li>
+</ul>
+<p>Une fois que vous avez trouvé une façon de procéder, utlisez-la pour l’ensemble de vos fichiers afin de rester cohérent !</p>
+</div>
+</div>
+<p>Quand vous voudrez travailler à nouveau sur ces données, il vous suffira de double-cliquer sur le fichier <code>.Rproj</code> pour ouvrir le projet et accéder à tout ce qu’il contient.</p>
+<p><img src="img/rstudio_06.png" class="img-fluid" style="width:100.0%"></p>
+</section>
+<section id="créer-une-arborescence" class="level2">
+<h2 class="anchored" data-anchor-id="créer-une-arborescence">Créer une arborescence</h2>
+<p>Il est toujours préférable de passer un peu de temps à bien organiser un projet lors de sa création, plutôt que de passer beaucoup de temps par la suite à déplacer des fichiers, les renommer, les rechercher, …</p>
+<p>Pour créer un nouveau dossier dans votre projet, cliquez sur <strong>New Folder</strong> dans l’onglet <strong>Files</strong> du navigateur : <img src="img/rstudio_07.png" class="img-fluid" style="width:100.0%"></p>
+<p>L’organisation proposée ci-dessous est utilisable dans une très grande majorité de cas :</p>
+<ul>
+<li><strong>raw</strong> : contient les données brutes qui seront utilisées mais laisées en l’état.<br>
+</li>
+<li><strong>data</strong> : contient les données issues de la manipulation des données brutes (sous-ensembles, données corrigées, renommées, nouvelles variables calculées, …)<br>
+</li>
+<li><strong>R</strong> : contient le code utilisé pour manipuler les données, générer les figures, rédiger les rapports, …</li>
+<li><strong>resultats</strong> : contient les fichiers de résultats issus de l’analyse.</li>
+<li><strong>figures</strong> : contient les graphiques et figures générées lors de l’analyse.<br>
+</li>
+<li><strong>docs</strong> : contient les rapports rédigés au cours de l’analyse, les présentations de résultats, des articles en lien avec l’analyse, les documents concernant les outils utlisés, …</li>
+</ul>
+<p><img src="img/rstudio_08.png" class="img-fluid" style="width:100.0%"></p>
+</section>
+</section>
+<section id="utiliser-un-script" class="level1">
+<h1>Utiliser un script</h1>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Le code tapé et exécuté dans la console ne sera plus disponible quand vous quitterez votre session RStudio. A la manière d’un document Word, un script vous permet de sauvegarder votre code afin d’y accéder ultérieurement ou de le partager.</p>
+</div>
+</div>
+<p>Pour ouvrir un nouveau script, cliquez sur le “plus” dans le coin supérieur gauche de la fenêtre RStudio puis sur <strong>R Script</strong>.</p>
+<p><img src="img/rstudio_09.png" class="img-fluid" style="width:100.0%"></p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Raccourcis clavier : nouveau script
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Pour ouvrir un nouveau script, utilisez la combinaison <strong>Ctrl + Shift + N</strong></p>
+</div>
+</div>
+<p>Un nouveau panneau s’affiche :</p>
+<p><img src="img/rstudio_10.png" class="img-fluid" style="width:100.0%"></p>
+<div class="callout-caution callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Bonne pratiques : commenter ses scripts
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Prenez dès maintenant l’habitude de commenter vos scripts. Il s’agit de rédiger des commentaires qui expliquent ce que fait votre code, pour le rendre plus compréhensible par vos collègues - et par vous-même quand vous reviendrez sur un script après un certain temps ! Pour ajouter un commentaire, utiliser un <code>#</code> au début d’une ligne puis rédigez votre commentaire. Dans R, un code placé après un <code>#</code> n’est pas exécuté :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ceci est un commentaire qui ne sera pas exécuté</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># La ligne suivante sera exécutée</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>Pour commencer, ajoutons des informations en haut de notre script :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ateliers codons</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 01 - Premiers pas avec R</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 2022-10-14</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Raccourcis clavier : commentaires
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Pour commenter ou dé-commenter une ligne de code, utilisez la combinaison <strong>Ctrl + Shift + C</strong>.</p>
+</div>
+</div>
+</section>
+<section id="manipuler-des-données" class="level1">
+<h1>Manipuler des données</h1>
+<section id="importer-un-jeu-de-données" class="level2">
+<h2 class="anchored" data-anchor-id="importer-un-jeu-de-données">Importer un jeu de données</h2>
+<p>Nous allons analyser une liste d’espèces d’oiseaux menacées en Auvergne (données de 2015 obtenues sur le site de la <a href="https://www.auvergne-rhone-alpes.developpement-durable.gouv.fr/liste-rouge-des-oiseaux-d-auvergne-a9939.html">DREAL</a>).</p>
+<p>Ces données se trouvent dans un fichier appelé <code>oiseaux.csv</code>, disponible en ligne, que nous allons télécharger.</p>
+<p>Nous allons pour cela utiliser une <strong>fonction</strong> de R. Une fonction permet d’exécuter une action : calculer une somme, importer ou exporter un fichier, ajouter une colonne dans un tableau, …</p>
+<p>Toutes les fonctions se présentent de la façon suivante :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ma_fonction</span>(data, arguments, ...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>On fait appel à la fonction en tapant son nom, puis on précise les arguments de la fonction entre parenthèses. Un argument peut être obligatoire ou optionnel, et modifie la façon dont la fonction est exécutée.</p>
+<p>Notre première ligne de code va donc télécharger le fichier <code>oiseaux.csv</code> et stocker ce fichier dans un objet de notre environnement R : nous assignons le fichier à l’objet. Cette opération s’effectue à l’aide de la flèche d’assignation <code>&lt;-</code> :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Importer la liste d'especes d'oiseaux menacees en Auvergne</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>oiseaux <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://raw.githubusercontent.com/codons-blog/C-01-PremiersPas/main/oiseaux.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Notez la présence des guillemets autour du lien vers le fichier : utlisez toujours des guillements lorsque vous indiquez un chemin vers un fichier.</p>
+<div class="callout-caution callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Bonne pratiques : auto-complétion
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>R vous aide à compléter votre code : tapez <code>re</code> puis <strong>Tab</strong>, et vous verrez s’afficher une liste de fonctions ou d’objets commençant par ces deux lettres. Vous pouvez naviguer à l’aide des flèches haut et bas et valider votre choix en appuyant à nouveau sur <strong>Tab</strong>. Cette fonctionnalité de R est particulièrement utile lorsque vous manipulez des fichiers ou objets ayant un nom complexe.</p>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Raccourcis clavier : flèche d’assignation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Pour insérer une flèche d’assignation, utilisez la combinaison <strong>ALt + “-”</strong> (tiret du 6).</p>
+</div>
+</div>
+<p>Exécutez cette fonction en plaçant le curseur sur la ligne et en cliquant sur <strong>Run</strong> :</p>
+<p><img src="img/rstudio_11.png" class="img-fluid" style="width:100.0%"></p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Raccourcis clavier : exécuter du code
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Pour exécuter une ou plusieurs lignes de code, sélectionnez les lignes et utilisez la combinaison <strong>Ctrl + Entrée</strong></p>
+</div>
+</div>
+<p>Notre environnement contient maintenant un objet <strong>oiseaux</strong>, et vous pouvez voir l’indication <code>172 obs. of 4 variables</code> : le jeu de données contient 172 observations (lignes) et 4 variables (colonnes).</p>
+<p><img src="img/rstudio_12.png" class="img-fluid" style="width:100.0%"></p>
+<p>En cliquant sur la flèche bleue à gauche du nom de l’objet, vous aurez accès à plus d’informations :</p>
+<p><img src="img/rstudio_13.png" class="img-fluid" style="width:100.0%"></p>
+<p><strong>Nom des variables</strong> : le tableau contient 4 variables nommées <em>description</em>, <em>categorie</em>, <em>nom_francais</em> et <em>nom_latin</em>. Le signe <strong><span class="math inline">\(** devant les noms de variables indique qu'il s'agit de colonnes : l'opérateur dollar permet de sélectionner une colonne dans un tableau. Essayez en tapant dans la console **oiseaux\)</span></strong> et appuyez sur <strong>Tab</strong> :</p>
+<p><img src="img/rstudio_15.png" class="img-fluid" style="width:100.0%"></p>
+<p>Choisissez la première colonne <em>description</em> et appuyez sur <strong>Tab</strong> : vous verrez s’afficher les 172 observations de la colonne en question :</p>
+<p><img src="img/rstudio_16.png" class="img-fluid" style="width:100.0%"></p>
+<p><strong>Type de variable</strong> : à la suite du nom de variable, <strong>chr</strong> indique qu’il s’agit d’une variable de type caractère. D’autres types de variables fréquemment rencontrés sont les variables <strong>numériques</strong> (nombres entiers ou décimaux) et les variables <strong>logiques</strong> (vrai ou faux).</p>
+<p><strong>Premiers éléments de chaque variable</strong> : à la suite du type de variable, vous pouvez voir les premiers éléments de chacune des variables.</p>
+<p>Vous pouvez afficher le tableau en cliquant sur l’icône à droite :</p>
+<p><img src="img/rstudio_14.png" class="img-fluid" style="width:100.0%"></p>
+<p>Cela ouvre un nouvel onglet à côté de de votre script :</p>
+<p><img src="img/rstudio_17.png" class="img-fluid" style="width:100.0%"></p>
+<p>Il est important de sauvegarder régulièrement votre script pour ne pas perdre votre travail. Pour cela, cliquez sur l’icône disquette en haut de votre script :</p>
+<p><img src="img/rstudio_18.png" class="img-fluid" style="width:100.0%"></p>
+<p>Choisissez le dossier où sera sauvegardé votre script - <strong>R</strong> dans notre cas, et nommez votre script puis cliquez sur <strong>Save</strong> :</p>
+<p><img src="img/rstudio_19.png" class="img-fluid" style="width:100.0%"></p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Raccourcis clavier : sauvegarder un script
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Pour sauvegarder un script, uilisez la combinaison <strong>Ctrl + S</strong></p>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

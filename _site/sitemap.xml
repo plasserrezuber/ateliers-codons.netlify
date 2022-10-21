@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://ateliers-codons.netlify.app/about.html</loc>
-    <lastmod>2022-10-14T07:11:47.858Z</lastmod>
+    <loc>https://ateliers-codons.netlify.app/glossary.html</loc>
+    <lastmod>2022-10-17T09:04:03.802Z</lastmod>
   </url>
   <url>
     <loc>https://ateliers-codons.netlify.app/index.html</loc>
-    <lastmod>2022-10-14T07:11:48.516Z</lastmod>
+    <lastmod>2022-10-17T09:04:04.406Z</lastmod>
   </url>
   <url>
     <loc>https://ateliers-codons.netlify.app/posts/01-installer-r-et-rstudio/index.html</loc>
-    <lastmod>2022-10-14T07:11:49.410Z</lastmod>
+    <lastmod>2022-10-17T09:04:04.977Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/index.html</loc>
+    <lastmod>2022-10-17T09:04:05.756Z</lastmod>
   </url>
   <url>
     <loc>https://ateliers-codons.netlify.app/posts/post-with-code/index.html</loc>
-    <lastmod>2022-10-14T07:11:50.096Z</lastmod>
+    <lastmod>2022-10-17T09:04:06.320Z</lastmod>
   </url>
   <url>
     <loc>https://ateliers-codons.netlify.app/posts/welcome/index.html</loc>
-    <lastmod>2022-10-14T07:11:50.495Z</lastmod>
+    <lastmod>2022-10-17T09:04:06.721Z</lastmod>
   </url>
 </urlset>

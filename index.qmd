@@ -1,12 +1,10 @@
 ---
-title: "Ateliers codons"
-listing:
-  contents: posts
-  sort: "date desc"
-  type: default
-  categories: true
-  sort-ui: false
-  filter-ui: false
-page-layout: full
-title-block-banner: true
+page-layout: article
 ---
+
+::: {.callout-tip collapse="true" icon="false"}
+## R - initiation
+[![](img/banniere_installer_r_rstudio.png){width="50%"}](https://ateliers-codons.netlify.app/posts/01-installer-r-et-rstudio/)
+
+[![](img/banniere_premiers_pas_avec_r.png){width="50%"}](https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/)
+:::

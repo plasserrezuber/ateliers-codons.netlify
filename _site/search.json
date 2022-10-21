@@ -1,52 +1,101 @@
 [
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "glossary.html",
+    "href": "glossary.html",
+    "title": "Glossaire",
     "section": "",
-    "text": "About this blog"
+    "text": "A\nArgument : élément d’une fonction, essentiel ou optionnel, qui précise ou modifie la façon dont la fonction est exécutée.\n\n\nB\n\n\nC\nCasse : R différencie les lettres minuscules des lettres majuscules.\nChemin absolu : chemin vers un fichier à partir de la racine (ex : C:/).\nChemin relatif : chemin vers un fichier à partir du répertoire de travail.\nClasse : type de données contenues dans une variable (le plus souvent des caractères ou des valeurs numériques).\nCommande : morceau de code qui exécute une action et qui contient généralement une ou plusieurs fonctions.\nCommentaire : partie d’un script qui ne sera pas exécutée (commence par un #).\nConsole : fenêtre dans RStudio où l’on peut écrire et exécuter du code.\n\n\nD\nData frame : objet à deux dimensions (lignes et colonnes) dont les éléments peuvent être de différents types.\n\n\nE\nEnvironnement : contient votre espace de travail (données importées, objets, fonctions, …)\n\n\nF\nFacteur : vecteur contenant une structure interne définie par des niveaux.\nFonction : code qui exécute une action.\n\n\nG\n\n\nH\n\n\nI\n\n\nJ\n\n\nK\n\n\nL\n\n\nM\nMatrice : objet à deux dimensions dont les éléments sont de même type.\n\n\nN\n\n\nO\nObjet : tout élément manipulé ou créé dans R (on parle d’un langage orienté objet).\n\n\nP\nPackage : ensemble de fonctionnalités supplémentaires qui peuvent être chargées dans R.\n\n\nQ\n\n\nR\nRépertoire de travail : dossier qui contient tout ce qui concerne votre session actuelle.\n\n\nS\nScript : à la façon d’un document texte, permet de rédiger et de sauvegarder du code.\n\n\nT\n\n\nU\n\n\nV\nVecteur : objet à une dimension, dont les éléments sont de même type.\n\n\nW\n\n\nX\n\n\nY\n\n\nZ"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Ateliers codons",
     "section": "",
-    "text": "R\n\n\nRStudio\n\n\nbases\n\n\n\n\n\n\n\n\n\n\n\nOct 13, 2022\n\n\nHarlow Malloc\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nOct 13, 2022\n\n\nHarlow Malloc\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nOct 10, 2022\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
+    "text": "R - initiation"
   },
   {
     "objectID": "posts/01-installer-r-et-rstudio/index.html",
     "href": "posts/01-installer-r-et-rstudio/index.html",
     "title": "Installer R et RStudio",
     "section": "",
-    "text": "This is a post with executable code.\nCe tutoriel est adapté de Getting started with R and RStudio du site Our Coding Club.\nDans ce tutoriel, nous allons voir comment télécharger et installer R."
+    "text": "Ce tutoriel est adapté de Getting started with R and RStudio du site Our Coding Club."
   },
   {
     "objectID": "posts/01-installer-r-et-rstudio/index.html#télécharger-r",
     "href": "posts/01-installer-r-et-rstudio/index.html#télécharger-r",
     "title": "Installer R et RStudio",
     "section": "Télécharger R",
-    "text": "Télécharger R\nNaviguez jusqu’au site internet du CRAN (The Comprehensive R Archive Network) et choisissez Download R for Windows.\n\n\n\nCRAN_01\n\n\nCliquez sur base puis sur Download R-… for Windows.\n \nChoisissez l’emplacement de sauvegarde puis téléchargez le fichier."
+    "text": "Télécharger R\nNaviguez jusqu’au site internet du CRAN (The Comprehensive R Archive Network) et choisissez Download R for Windows.\n\n\n\n\n\n\nCliquez sur base puis sur Download R-… for Windows.\n \n\nChoisissez l’emplacement de sauvegarde puis téléchargez le fichier."
   },
   {
     "objectID": "posts/01-installer-r-et-rstudio/index.html#installer-r",
     "href": "posts/01-installer-r-et-rstudio/index.html#installer-r",
     "title": "Installer R et RStudio",
     "section": "Installer R",
-    "text": "Installer R\nNaviguez jusqu’à cet emplacement (Téléchargements par exemple) et double-cliquez sur le fichier R-…-win.exe\n\n\n\nCRAN_04\n\n\nChoisissez la langue pour l’installation puis cliquez sur OK\n\n\n\nCRAN_05\n\n\nParcourez les Informations puis cliquez sur Suivant.\n\n\n\nCRAN_06\n\n\nChoisissez le dossier dans lequel sera installé R (Program Files par exemple).\n\n\n\nCRAN_07\n\n\nDans les Composants à installer, laissez les valeurs par défaut puis cliquez sur Suivant.\n\n\n\nCRAN_08\n\n\nDans les Options de démarrage, laissez les valeurs par défauts puis cliquez sur Suivant.\n\n\n\nCRAN_09\n\n\nDans les Tâches supplémentaires, vous pouvez choisir de créer une icône sur le Bureau et/ou dans la barre de lancement rapide. Nous utilisons rarement R de manière isolée, vous pouvez donc laisser les valeurs par défaut\n\n\n\nCRAN_10\n\n\nUne fois R installé, cliquez sur Terminer.\nLa plupart des utilisateurs interagissent avec R à l’aide d’une interface graphique, dont la plus connue est RStudio."
+    "text": "Installer R\nNaviguez jusqu’à l’emplacement de sauvegarde (Téléchargements par exemple) et double-cliquez sur le fichier R-…-win.exe\n\n\n\n\n\n\nChoisissez la langue pour l’installation puis cliquez sur OK\n\n\n\n\n\n\nParcourez les Informations puis cliquez sur Suivant.\n\n\n\n\n\n\nChoisissez le dossier dans lequel sera installé R (Program Files par exemple).\n\n\n\n\n\n\nDans les Composants à installer, laissez les valeurs par défaut puis cliquez sur Suivant.\n\n\n\n\n\n\nDans les Options de démarrage, laissez les valeurs par défauts puis cliquez sur Suivant.\n\n\n\n\n\n\nDans les Tâches supplémentaires, vous pouvez choisir de créer une icône sur le Bureau et/ou dans la barre de lancement rapide.\n\n\n\n\n\n\nNote\n\n\n\nNous utilisons rarement R de manière isolée, vous pouvez donc laisser les valeurs par défaut.\n\n\n\n\n\n\n\n\nUne fois R installé, cliquez sur Terminer.\n\n\n\n\n\n\nNote\n\n\n\nLa plupart des utilisateurs interagissent avec R à l’aide d’une interface graphique, dont la plus connue est RStudio."
   },
   {
     "objectID": "posts/01-installer-r-et-rstudio/index.html#télécharger-rstudio",
     "href": "posts/01-installer-r-et-rstudio/index.html#télécharger-rstudio",
     "title": "Installer R et RStudio",
     "section": "Télécharger RStudio",
-    "text": "Télécharger RStudio\nNaviguez jusqu’au site internet de RStudio et cliquez sur Products puis sur RStudio.\n\n\n\nRSTUDIO_01\n\n\nChoisissez RStudio Desktop\n\n\n\nRSTUDIO_02\n\n\nCliquez sur **Download RStudio Desktop\n\n\n\nRSTUDIO_03\n\n\nChoisissez RStudio Desktop FREE puis cliquez sur Download.\n\n\n\nRSTUDIO_04\n\n\nCliquez sur Download RStudio for Windows et choisissez l’emplacement de sauvegarde.\n\n\n\nRSTUDIO_05"
+    "text": "Télécharger RStudio\nNaviguez jusqu’au site internet de RStudio et cliquez sur Products puis sur RStudio.\n\n\n\n\n\n\nChoisissez RStudio Desktop\n\n\n\n\n\n\nCliquez sur Download RStudio Desktop\n\n\n\n\n\n\nChoisissez RStudio Desktop FREE puis cliquez sur Download.\n\n\n\n\n\n\nCliquez sur Download RStudio for Windows et choisissez l’emplacement de sauvegarde."
   },
   {
     "objectID": "posts/01-installer-r-et-rstudio/index.html#installer-rstudio",
     "href": "posts/01-installer-r-et-rstudio/index.html#installer-rstudio",
     "title": "Installer R et RStudio",
     "section": "Installer RStudio",
-    "text": "Installer RStudio\nNaviguez jusqu’à cet emplacement (Téléchargements par exemple) et double-cliquez sur le fichier RStudio-…exe\n\n\n\nRSTUDIO_06\n\n\nDans la fenêtre Installation de RStudio qui s’ouvre, cliquez sur Suivant.\n\n\n\nRSTUDIO_07\n\n\nChoisissez le dossier dans lequel sera installé RStudio (Program Files par exemple) et cliquez sur Suivant.\n\n\n\nRSTUDIO_08\n\n\nDans le menu Choisissez un dossier dans le menu Démarrer, laissez la valeur par défaut (RStudio) et cliquez sur Installer.\n\n\n\nRSTUDIO_09\n\n\nUne fois RStudio installé, cliquez sur Fermer."
+    "text": "Installer RStudio\nNaviguez jusqu’à l’emplacement de sauvegarde (Téléchargements par exemple) et double-cliquez sur le fichier RStudio-…exe\n\n\n\n\n\n\nDans la fenêtre Installation de RStudio qui s’ouvre, cliquez sur Suivant.\n\n\n\n\n\n\nChoisissez le dossier dans lequel sera installé RStudio (Program Files par exemple) et cliquez sur Suivant.\n\n\n\n\n\n\nDans le menu Choisissez un dossier dans le menu Démarrer, laissez la valeur par défaut (RStudio) et cliquez sur Installer.\n\n\n\n\n\n\nUne fois RStudio installé, cliquez sur Fermer."
+  },
+  {
+    "objectID": "posts/02-premiers-pas-avec-r/index.html",
+    "href": "posts/02-premiers-pas-avec-r/index.html",
+    "title": "Premiers pas avec R",
+    "section": "",
+    "text": "Ce tutoriel est adapté de Getting started with R and RStudio du site Our Coding Club."
+  },
+  {
+    "objectID": "posts/02-premiers-pas-avec-r/index.html#la-console",
+    "href": "posts/02-premiers-pas-avec-r/index.html#la-console",
+    "title": "Premiers pas avec R",
+    "section": "La console",
+    "text": "La console\nVous pouvez y taper du code et l’exécuter en appuyant sur Entrée.\nLors du lancement d’une session RStudio, elle affiche également des informations comme la version de R présente sur votre ordinateur et des indications sur la manière d’obtenir de l’aide.\n\n\n\n\n\n\nL’invite de commande\n\n\n\nDans la console, une ligne commence par > : c’est ce qu’on appelle l’invite de commande. Cela indique que R est prêt à recevoir vos instructions !\nTapez 2+2 puis appuyez sur Entrée : la console affiche le résultat."
+  },
+  {
+    "objectID": "posts/02-premiers-pas-avec-r/index.html#lenvironnement",
+    "href": "posts/02-premiers-pas-avec-r/index.html#lenvironnement",
+    "title": "Premiers pas avec R",
+    "section": "L’environnement",
+    "text": "L’environnement\nL’environnement affiche le contenu de votre espace de travail : données importées, objets créés, fonctions définies, …\n\n\n\n\n\n\nUn langage orienté objet\n\n\n\nR est un langage orienté objet, ce qui veut dire que tout ce que vous manipulez dans R est stocké dans un objet.\n\n\nD’autres onglets vous permettent d’accéder à l’historique des commandes ou encore à des tutoriels (pour les versions les plus récentes de RStudio)."
+  },
+  {
+    "objectID": "posts/02-premiers-pas-avec-r/index.html#le-navigateur",
+    "href": "posts/02-premiers-pas-avec-r/index.html#le-navigateur",
+    "title": "Premiers pas avec R",
+    "section": "Le navigateur",
+    "text": "Le navigateur\nCe navigateur vous permet de navigeur dans vos dossiers, de copier, renommer ou supprimer des fichiers, à la manière d’un explorateur classique.\nLes autres onglets permettent de visualiser les graphiques ou encore d’afficher l’aide."
+  },
+  {
+    "objectID": "posts/02-premiers-pas-avec-r/index.html#créer-un-projet",
+    "href": "posts/02-premiers-pas-avec-r/index.html#créer-un-projet",
+    "title": "Premiers pas avec R",
+    "section": "Créer un projet",
+    "text": "Créer un projet\nPour éviter de perdre du temps à chercher des fichiers dont on a oublié le nom et l’emplacement, il est utile d’organiser son travail à l’aide de projets.\nPour créer un projet, cliquez sur File puis New project… :\n\nChoisissez New Directory puis New Project\n\n\nDans la fenêtre Create New Project, attribuez un nom et un emplacement au projet, puis cliquez sur Create project\n\n\n\n\n\n\n\nBonne pratiques : nommer ses fichiers\n\n\n\nPour vous simplifier la vie, voici quelques recommandations :\n\nprivilégiez les noms courts et explicites (à éviter : fichier_2e_version_a_verifier.txt)\nne mettez ni espace ni caractères spéciaux (accents, symboles, …)\n\npour les dates, privilégiez le format AAAAMMJJ (année, mois, jour)\nmettez l’élément le plus important en premier (par exemple : projet_date_contenu)\n\noptez pour l’une de ces deux conventions d’écritre : camel case (MonProjet) ou snake case (mon_projet)\n\nUne fois que vous avez trouvé une façon de procéder, utlisez-la pour l’ensemble de vos fichiers afin de rester cohérent !\n\n\nQuand vous voudrez travailler à nouveau sur ces données, il vous suffira de double-cliquer sur le fichier .Rproj pour ouvrir le projet et accéder à tout ce qu’il contient."
+  },
+  {
+    "objectID": "posts/02-premiers-pas-avec-r/index.html#créer-une-arborescence",
+    "href": "posts/02-premiers-pas-avec-r/index.html#créer-une-arborescence",
+    "title": "Premiers pas avec R",
+    "section": "Créer une arborescence",
+    "text": "Créer une arborescence\nIl est toujours préférable de passer un peu de temps à bien organiser un projet lors de sa création, plutôt que de passer beaucoup de temps par la suite à déplacer des fichiers, les renommer, les rechercher, …\nPour créer un nouveau dossier dans votre projet, cliquez sur New Folder dans l’onglet Files du navigateur : \nL’organisation proposée ci-dessous est utilisable dans une très grande majorité de cas :\n\nraw : contient les données brutes qui seront utilisées mais laisées en l’état.\n\ndata : contient les données issues de la manipulation des données brutes (sous-ensembles, données corrigées, renommées, nouvelles variables calculées, …)\n\nR : contient le code utilisé pour manipuler les données, générer les figures, rédiger les rapports, …\nresultats : contient les fichiers de résultats issus de l’analyse.\nfigures : contient les graphiques et figures générées lors de l’analyse.\n\ndocs : contient les rapports rédigés au cours de l’analyse, les présentations de résultats, des articles en lien avec l’analyse, les documents concernant les outils utlisés, …"
+  },
+  {
+    "objectID": "posts/02-premiers-pas-avec-r/index.html#importer-un-jeu-de-données",
+    "href": "posts/02-premiers-pas-avec-r/index.html#importer-un-jeu-de-données",
+    "title": "Premiers pas avec R",
+    "section": "Importer un jeu de données",
+    "text": "Importer un jeu de données\nNous allons analyser une liste d’espèces d’oiseaux menacées en Auvergne (données de 2015 obtenues sur le site de la DREAL).\nCes données se trouvent dans un fichier appelé oiseaux.csv, disponible en ligne, que nous allons télécharger.\nNous allons pour cela utiliser une fonction de R. Une fonction permet d’exécuter une action : calculer une somme, importer ou exporter un fichier, ajouter une colonne dans un tableau, …\nToutes les fonctions se présentent de la façon suivante :\n\nma_fonction(data, arguments, ...)\n\nOn fait appel à la fonction en tapant son nom, puis on précise les arguments de la fonction entre parenthèses. Un argument peut être obligatoire ou optionnel, et modifie la façon dont la fonction est exécutée.\nNotre première ligne de code va donc télécharger le fichier oiseaux.csv et stocker ce fichier dans un objet de notre environnement R : nous assignons le fichier à l’objet. Cette opération s’effectue à l’aide de la flèche d’assignation <- :\n\n# Importer la liste d'especes d'oiseaux menacees en Auvergne\noiseaux <- read.csv(\"https://raw.githubusercontent.com/codons-blog/C-01-PremiersPas/main/oiseaux.csv\")\n\nNotez la présence des guillemets autour du lien vers le fichier : utlisez toujours des guillements lorsque vous indiquez un chemin vers un fichier.\n\n\n\n\n\n\nBonne pratiques : auto-complétion\n\n\n\nR vous aide à compléter votre code : tapez re puis Tab, et vous verrez s’afficher une liste de fonctions ou d’objets commençant par ces deux lettres. Vous pouvez naviguer à l’aide des flèches haut et bas et valider votre choix en appuyant à nouveau sur Tab. Cette fonctionnalité de R est particulièrement utile lorsque vous manipulez des fichiers ou objets ayant un nom complexe.\n\n\n\n\n\n\n\n\nRaccourcis clavier : flèche d’assignation\n\n\n\nPour insérer une flèche d’assignation, utilisez la combinaison ALt + “-” (tiret du 6).\n\n\nExécutez cette fonction en plaçant le curseur sur la ligne et en cliquant sur Run :\n\n\n\n\n\n\n\nRaccourcis clavier : exécuter du code\n\n\n\nPour exécuter une ou plusieurs lignes de code, sélectionnez les lignes et utilisez la combinaison Ctrl + Entrée\n\n\nNotre environnement contient maintenant un objet oiseaux, et vous pouvez voir l’indication 172 obs. of 4 variables : le jeu de données contient 172 observations (lignes) et 4 variables (colonnes).\n\nEn cliquant sur la flèche bleue à gauche du nom de l’objet, vous aurez accès à plus d’informations :\n\nNom des variables : le tableau contient 4 variables nommées description, categorie, nom_francais et nom_latin. Le signe \\(** devant les noms de variables indique qu'il s'agit de colonnes : l'opérateur dollar permet de sélectionner une colonne dans un tableau. Essayez en tapant dans la console **oiseaux\\) et appuyez sur Tab :\n\nChoisissez la première colonne description et appuyez sur Tab : vous verrez s’afficher les 172 observations de la colonne en question :\n\nType de variable : à la suite du nom de variable, chr indique qu’il s’agit d’une variable de type caractère. D’autres types de variables fréquemment rencontrés sont les variables numériques (nombres entiers ou décimaux) et les variables logiques (vrai ou faux).\nPremiers éléments de chaque variable : à la suite du type de variable, vous pouvez voir les premiers éléments de chacune des variables.\nVous pouvez afficher le tableau en cliquant sur l’icône à droite :\n\nCela ouvre un nouvel onglet à côté de de votre script :\n\nIl est important de sauvegarder régulièrement votre script pour ne pas perdre votre travail. Pour cela, cliquez sur l’icône disquette en haut de votre script :\n\nChoisissez le dossier où sera sauvegardé votre script - R dans notre cas, et nommez votre script puis cliquez sur Save :\n\n\n\n\n\n\n\nRaccourcis clavier : sauvegarder un script\n\n\n\nPour sauvegarder un script, uilisez la combinaison Ctrl + S"
   },
   {
     "objectID": "posts/post-with-code/index.html",
