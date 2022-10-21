@@ -241,14 +241,17 @@ Entre **parenthèses** :
 
 Voyons ce que fait la fonction `read.csv()`. Nous allons préciser deux arguments :
 
-- le chemin vers le fichier à importer, **entre guillemets** :  
-  - chemin vers l'emplacement du fichier si vous l'avez téléchargé (`"raw/pingouins.csv"`)  
-  - ou lien vers le fichier en ligne (`"https://raw.githubusercontent.com/codons-blog/C-01-PremiersPas/main/pingouins.csv"`)
+- le chemin vers le fichier à importer, **entre guillemets** :`"raw/pingouins.csv"`  
+- l'argument `check.names = FALSE` pour garder les noms de colonnes tels quels
 
-```{r, echo=TRUE, eval=TRUE}
-read.csv("https://raw.githubusercontent.com/codons-blog/C-01-PremiersPas/main/pingouins.csv")
+
+```{r, echo=TRUE, eval=FALSE}
+read.csv("raw/pingouins.csv")
 ```
 
+```{r, echo=FALSE, eval=TRUE}
+read.csv("../../raw/pingouins.csv")
+```
 
 
 Sauvegardez votre script (et pensez à le faire régulièrement !) en cliquant sur l'icône disquette en haut de votre script :
