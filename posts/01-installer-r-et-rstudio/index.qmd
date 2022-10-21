@@ -19,62 +19,13 @@ format:
 <br>
 
 ::: {.callout-note icon="true"}
-
 ## Note
 
 Ce tutoriel vous permettra d'installer R et RStudio sous **Windows**
-
 :::
 
 <br>
 
-# Qu'est-ce que R ? {#r_intro}
-
-<br>
-
-R est un **langage de programmation statistique** qui a rapidement gagné en popularité dans de nombreux domaines scientifiques.
-
-Il a été développé par **Ross Ihaka** et **Robert Gentleman**, du Département de Statistiques de l'Université d'Auckland, comme **implémentation libre du langage de programmation S**.
-
-<br>
-
-::: {.callout-tip icon="true"}
-
-## Quelques dates
-
-|      |                                                                                                                                     |
-|------------|------------------------------------------------------------|
-| 1991 | Création du langage R                                                                                                               |
-| 1993 | R est dévoilé au public                                                                                                             |
-| 1996 | [Article dans le *Journal of Computational and Graphical Statistics*](https://www.stat.auckland.ac.nz/~ihaka/downloads/R-paper.pdf) |
-
-:::
-
-
-
-<br>
-
-R désigne également le **logiciel** qui utilise ce langage pour des calculs statistiques (et tout un tas d'autres applications !).
-
-Il dispose d'une **communauté** en ligne très active ainsi que d'**extensions** pour presque tous les domaines et applications possibles et imaginables.
-
-<br>
-
-Contrairement à d'autres logiciels de statistiques comme Minitab ou SPSS, R peut être exécuté entièrement en **ligne de commande** et ne nécessite pas d'interface graphique, ce qui lui confère une **grande flexibilité**.
-
-<br>
-
-::: {.callout-tip icon="true"}
-
-## Quelques avantages de R
-
--   C'est un outil **libre et open source** (tout le monde peut utiliser le code et voir comment il fonctionne)\
--   C'est un langage de programmation plutôt qu'une interface graphique, ce qui permet à l'utilisateur de sauvegarder facilement des **scripts** sous forme de texte pour les ré-utiliser ou les partager\
--   Beaucoup de personnes l'utilisent dans beaucoup de domaines différents - **il est rare d'être confronté à un problème qui n'a jamais été résolu !**
-
-:::
-
-<br>
 
 # Télécharger et installer R {#download_install_r}
 
@@ -139,11 +90,9 @@ Dans les **Options de démarrage**, laissez les valeurs par défauts puis clique
 Dans les **Tâches supplémentaires**, vous pouvez choisir de créer une icône sur le Bureau et/ou dans la barre de lancement rapide.
 
 ::: {.callout-note icon="true"}
-
 ## Note
 
 Nous utilisons rarement R de manière isolée, vous pouvez donc laisser les valeurs par défaut.
-
 :::
 
 [![](img/cran_10.png){width="50%"}](https://cran.r-project.org/)
@@ -153,11 +102,9 @@ Nous utilisons rarement R de manière isolée, vous pouvez donc laisser les vale
 Une fois R installé, cliquez sur **Terminer**.
 
 ::: {.callout-note icon="true"}
-
 ## Note
 
 La plupart des utilisateurs interagissent avec R à l'aide d'une **interface graphique**, dont la plus connue est **RStudio**.
-
 :::
 
 <br>

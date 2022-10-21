@@ -19,20 +19,61 @@ format:
 <br>
 
 ::: {.callout-note icon="true"}
-
 ## Note
 
 Pour savoir comment installer R et RStudio, cliquez [ici](https://ateliers-codons.netlify.app/posts/01-installer-r-et-rstudio/)
-
 :::
 
 <br>
+
+# Qu'est-ce que R ? {#r_intro}
+
+<br>
+
+R est un **langage de programmation statistique** qui a rapidement gagné en popularité dans de nombreux domaines scientifiques.
+
+Il a été développé par **Ross Ihaka** et **Robert Gentleman**, du Département de Statistiques de l'Université d'Auckland, comme **implémentation libre du langage de programmation S**.
+
+<br>
+
+::: {.callout-tip icon="true"}
+## Quelques dates
+
+|      |                                                                                                                                     |
+|------------|------------------------------------------------------------|
+| 1991 | Création du langage R                                                                                                               |
+| 1993 | R est dévoilé au public                                                                                                             |
+| 1996 | [Article dans le *Journal of Computational and Graphical Statistics*](https://www.stat.auckland.ac.nz/~ihaka/downloads/R-paper.pdf) |
+:::
+
+<br>
+
+R désigne également le **logiciel** qui utilise ce langage pour des calculs statistiques (et tout un tas d'autres applications !).
+
+Il dispose d'une **communauté** en ligne très active ainsi que d'**extensions** pour presque tous les domaines et applications possibles et imaginables.
+
+<br>
+
+Contrairement à d'autres logiciels de statistiques comme Minitab ou SPSS, R peut être exécuté entièrement en **ligne de commande** et ne nécessite pas d'interface graphique, ce qui lui confère une **grande flexibilité**.
+
+<br>
+
+::: {.callout-tip icon="true"}
+## Quelques avantages de R
+
+-   C'est un outil **libre et open source** (tout le monde peut utiliser le code et voir comment il fonctionne)\
+-   C'est un langage de programmation plutôt qu'une interface graphique, ce qui permet à l'utilisateur de sauvegarder facilement des **scripts** sous forme de texte pour les ré-utiliser ou les partager\
+-   Beaucoup de personnes l'utilisent dans beaucoup de domaines différents - **il est rare d'être confronté à un problème qui n'a jamais été résolu !**
+:::
+
+<br>
+
 
 # Naviguer dans RStudio {#naviguer_rstudio}
 
 <br>
 
-En ouvrant RStudio, vous verrez une fenêtre comme celle ci-dessous, qui se divise en trois panneaux : 
+En ouvrant RStudio, vous verrez une fenêtre comme celle ci-dessous, qui se divise en trois panneaux :
 
 ![](img/rstudio_01.png){width="100%"}
 
@@ -40,31 +81,26 @@ En ouvrant RStudio, vous verrez une fenêtre comme celle ci-dessous, qui se divi
 
 ## La console
 
-Vous pouvez y taper du code et l'exécuter en appuyant sur `Entrée`. 
+Vous pouvez y taper du code et l'exécuter en appuyant sur `Entrée`.
 
 Lors du lancement d'une session RStudio, elle affiche également des informations comme la version de R présente sur votre ordinateur et des indications sur la manière d'obtenir de l'aide.
 
 ::: {.callout-tip icon="true"}
-
 ## L'invite de commande
 
 Dans la console, une ligne commence par `>` : c'est ce qu'on appelle l'**invite de commande**. Cela indique que R est prêt à recevoir vos instructions !
 
 Tapez `2+2` puis appuyez sur `Entrée` : la console affiche le résultat.
-
 :::
-
 
 ## L'environnement
 
 L'environnement affiche le contenu de votre espace de travail : données importées, objets créés, fonctions définies, ...
 
 ::: {.callout-tip icon="true"}
-
 ## Un langage orienté objet
 
 R est un langage orienté objet, ce qui veut dire que tout ce que vous manipulez dans R est stocké dans un objet.
-
 :::
 
 D'autres onglets vous permettent d'accéder à l'historique des commandes ou encore à des tutoriels (pour les versions les plus récentes de RStudio).
@@ -79,9 +115,9 @@ Les autres onglets permettent de visualiser les graphiques ou encore d'afficher 
 
 ## Créer un projet
 
-Pour éviter de perdre du temps à chercher des fichiers dont on a oublié le nom et l'emplacement, il est utile d'organiser son travail à l'aide de **projets**. 
+Pour éviter de perdre du temps à chercher des fichiers dont on a oublié le nom et l'emplacement, il est utile d'organiser son travail à l'aide de **projets**.
 
-Pour créer un projet, cliquez sur **File** puis **New project...** : 
+Pour créer un projet, cliquez sur **File** puis **New project...** :
 
 ![](img/rstudio_02.png){width="100%"}
 
@@ -96,19 +132,17 @@ Dans la fenêtre **Create New Project**, attribuez un nom et un emplacement au p
 ![](img/rstudio_05.png){width="100%"}
 
 ::: {.callout-caution icon="true"}
-
 ## Bonne pratiques : nommer ses fichiers
 
-Pour vous simplifier la vie, voici quelques recommandations : 
+Pour vous simplifier la vie, voici quelques recommandations :
 
-- privilégiez les noms courts et explicites (à éviter : *fichier_2e_version_a_verifier.txt*)
-- ne mettez ni espace ni caractères spéciaux (accents, symboles, ...)  
-- pour les dates, privilégiez le format **AAAAMMJJ** (année, mois, jour)
-- mettez l'élément le plus important en premier (par exemple : *projet_date_contenu*)  
-- optez pour l'une de ces deux conventions d'écritre : **camel case** (*MonProjet*) ou **snake case** (*mon_projet*)
+-   privilégiez les noms courts et explicites (à éviter : *fichier_2e_version_a\_verifier.txt*)
+-   ne mettez ni espace ni caractères spéciaux (accents, symboles, ...)\
+-   pour les dates, privilégiez le format **AAAAMMJJ** (année, mois, jour)
+-   mettez l'élément le plus important en premier (par exemple : *projet_date_contenu*)\
+-   optez pour l'une de ces deux conventions d'écritre : **camel case** (*MonProjet*) ou **snake case** (*mon_projet*)
 
 Une fois que vous avez trouvé une façon de procéder, utlisez-la pour l'ensemble de vos fichiers afin de rester cohérent !
-
 :::
 
 Quand vous voudrez travailler à nouveau sur ces données, il vous suffira de double-cliquer sur le fichier `.Rproj` pour ouvrir le projet et accéder à tout ce qu'il contient.
@@ -119,28 +153,25 @@ Quand vous voudrez travailler à nouveau sur ces données, il vous suffira de do
 
 Il est toujours préférable de passer un peu de temps à bien organiser un projet lors de sa création, plutôt que de passer beaucoup de temps par la suite à déplacer des fichiers, les renommer, les rechercher, ...
 
-Pour créer un nouveau dossier dans votre projet, cliquez sur **New Folder** dans l'onglet **Files** du navigateur : 
-![](img/rstudio_07.png){width="100%"}
+Pour créer un nouveau dossier dans votre projet, cliquez sur **New Folder** dans l'onglet **Files** du navigateur : ![](img/rstudio_07.png){width="100%"}
 
-L'organisation proposée ci-dessous est utilisable dans une très grande majorité de cas : 
+L'organisation proposée ci-dessous est utilisable dans une très grande majorité de cas :
 
-- **raw** : contient les données brutes qui seront utilisées mais laisées en l'état.  
-- **data** : contient les données issues de la manipulation des données brutes (sous-ensembles, données corrigées, renommées, nouvelles variables calculées, ...)  
-- **R** : contient le code utilisé pour manipuler les données, générer les figures, rédiger les rapports, ... 
-- **resultats** : contient les fichiers de résultats issus de l'analyse.
-- **figures** : contient les graphiques et figures générées lors de l'analyse.  
-- **docs** : contient les rapports rédigés au cours de l'analyse, les présentations de résultats, des articles en lien avec l'analyse, les documents concernant les outils utlisés, ...  
-  
+-   **raw** : contient les données brutes qui seront utilisées mais laisées en l'état.\
+-   **data** : contient les données issues de la manipulation des données brutes (sous-ensembles, données corrigées, renommées, nouvelles variables calculées, ...)\
+-   **R** : contient le code utilisé pour manipuler les données, générer les figures, rédiger les rapports, ...
+-   **resultats** : contient les fichiers de résultats issus de l'analyse.
+-   **figures** : contient les graphiques et figures générées lors de l'analyse.\
+-   **docs** : contient les rapports rédigés au cours de l'analyse, les présentations de résultats, des articles en lien avec l'analyse, les documents concernant les outils utlisés, ...
+
 ![](img/rstudio_08.png){width="100%"}
 
-# Utiliser un script 
+# Utiliser un script
 
 ::: {.callout-important icon="true"}
-
 ### Important
 
 Le code tapé et exécuté dans la console ne sera plus disponible quand vous quitterez votre session RStudio. A la manière d'un document Word, un script vous permet de sauvegarder votre code afin d'y accéder ultérieurement ou de le partager.
-
 :::
 
 Pour ouvrir un nouveau script, cliquez sur le "plus" dans le coin supérieur gauche de la fenêtre RStudio puis sur **R Script**.
@@ -148,32 +179,28 @@ Pour ouvrir un nouveau script, cliquez sur le "plus" dans le coin supérieur gau
 ![](img/rstudio_09.png){width="100%"}
 
 ::: {.callout-tip icon="true"}
-
 ## Raccourcis clavier : nouveau script
 
 Pour ouvrir un nouveau script, utilisez la combinaison **Ctrl + Shift + N**
-
 :::
 
-Un nouveau panneau s'affiche : 
+Un nouveau panneau s'affiche :
 
 ![](img/rstudio_10.png){width="100%"}
 
 ::: {.callout-caution icon="true"}
-
 ## Bonne pratiques : commenter ses scripts
 
-Prenez dès maintenant l'habitude de commenter vos scripts. Il s'agit de rédiger des commentaires qui expliquent ce que fait votre code, pour le rendre plus compréhensible par vos collègues - et par vous-même quand vous reviendrez sur un script après un certain temps ! Pour ajouter un commentaire, utiliser un `#` au début d'une ligne puis rédigez votre commentaire. Dans R, un code placé après un `#` n'est pas exécuté : 
+Prenez dès maintenant l'habitude de commenter vos scripts. Il s'agit de rédiger des commentaires qui expliquent ce que fait votre code, pour le rendre plus compréhensible par vos collègues - et par vous-même quand vous reviendrez sur un script après un certain temps ! Pour ajouter un commentaire, utiliser un `#` au début d'une ligne puis rédigez votre commentaire. Dans R, un code placé après un `#` n'est pas exécuté :
 
 ```{r, echo=TRUE, eval=FALSE}
 # Ceci est un commentaire qui ne sera pas exécuté
 # La ligne suivante sera exécutée
 2 + 2
 ```
-
 :::
 
-Pour commencer, ajoutons des informations en haut de notre script : 
+Pour commencer, ajoutons des informations en haut de notre script :
 
 ```{r, echo=TRUE, eval=FALSE}
 # Ateliers codons
@@ -182,14 +209,12 @@ Pour commencer, ajoutons des informations en haut de notre script :
 ```
 
 ::: {.callout-tip icon="true"}
-
 ## Raccourcis clavier : commentaires
 
 Pour commenter ou dé-commenter une ligne de code, utilisez la combinaison **Ctrl + Shift + C**.
-
 :::
 
-# Manipuler des données 
+# Manipuler des données
 
 ## Importer un jeu de données
 
@@ -197,9 +222,9 @@ Nous allons analyser une liste d'espèces d'oiseaux menacées en Auvergne (donn�
 
 Ces données se trouvent dans un fichier appelé `oiseaux.csv`, disponible en ligne, que nous allons télécharger.
 
-Nous allons pour cela utiliser une **fonction** de R. Une fonction permet d'exécuter une action : calculer une somme, importer ou exporter un fichier, ajouter une colonne dans un tableau, ... 
+Nous allons pour cela utiliser une **fonction** de R. Une fonction permet d'exécuter une action : calculer une somme, importer ou exporter un fichier, ajouter une colonne dans un tableau, ...
 
-Toutes les fonctions se présentent de la façon suivante : 
+Toutes les fonctions se présentent de la façon suivante :
 
 ```{r, echo=TRUE, eval=FALSE}
 ma_fonction(data, arguments, ...)
@@ -207,56 +232,50 @@ ma_fonction(data, arguments, ...)
 
 On fait appel à la fonction en tapant son nom, puis on précise les arguments de la fonction entre parenthèses. Un argument peut être obligatoire ou optionnel, et modifie la façon dont la fonction est exécutée.
 
-Notre première ligne de code va donc télécharger le fichier `oiseaux.csv` et stocker ce fichier dans un objet de notre environnement R : nous assignons le fichier à l'objet. Cette opération s'effectue à l'aide de la flèche d'assignation `<-` : 
+Notre première ligne de code va donc télécharger le fichier `oiseaux.csv` et stocker ce fichier dans un objet de notre environnement R : nous assignons le fichier à l'objet. Cette opération s'effectue à l'aide de la flèche d'assignation `<-` :
 
 ```{r, echo=TRUE, eval=TRUE}
 # Importer la liste d'especes d'oiseaux menacees en Auvergne
 oiseaux <- read.csv("https://raw.githubusercontent.com/codons-blog/C-01-PremiersPas/main/oiseaux.csv")
 ```
 
-Notez la présence des guillemets autour du lien vers le fichier : utlisez toujours des guillements lorsque vous indiquez un chemin vers un fichier. 
+Notez la présence des guillemets autour du lien vers le fichier : utlisez toujours des guillements lorsque vous indiquez un chemin vers un fichier.
 
 ::: {.callout-caution icon="true"}
-
 ## Bonne pratiques : auto-complétion
 
 R vous aide à compléter votre code : tapez `re` puis **Tab**, et vous verrez s'afficher une liste de fonctions ou d'objets commençant par ces deux lettres. Vous pouvez naviguer à l'aide des flèches haut et bas et valider votre choix en appuyant à nouveau sur **Tab**. Cette fonctionnalité de R est particulièrement utile lorsque vous manipulez des fichiers ou objets ayant un nom complexe.
-
 :::
 
 ::: {.callout-tip icon="true"}
-
 ## Raccourcis clavier : flèche d'assignation
 
 Pour insérer une flèche d'assignation, utilisez la combinaison **ALt + "-"** (tiret du 6).
-
 :::
 
-Exécutez cette fonction en plaçant le curseur sur la ligne et en cliquant sur **Run** : 
+Exécutez cette fonction en plaçant le curseur sur la ligne et en cliquant sur **Run** :
 
 ![](img/rstudio_11.png){width="100%"}
 
 ::: {.callout-tip icon="true"}
-
 ## Raccourcis clavier : exécuter du code
 
 Pour exécuter une ou plusieurs lignes de code, sélectionnez les lignes et utilisez la combinaison **Ctrl + Entrée**
-
 :::
 
 Notre environnement contient maintenant un objet **oiseaux**, et vous pouvez voir l'indication `172 obs. of 4 variables` : le jeu de données contient 172 observations (lignes) et 4 variables (colonnes).
 
 ![](img/rstudio_12.png){width="100%"}
 
-En cliquant sur la flèche bleue à gauche du nom de l'objet, vous aurez accès à plus d'informations : 
+En cliquant sur la flèche bleue à gauche du nom de l'objet, vous aurez accès à plus d'informations :
 
 ![](img/rstudio_13.png){width="100%"}
 
-**Nom des variables** : le tableau contient 4 variables nommées *description*, *categorie*, *nom_francais* et *nom_latin*. Le signe **$** devant les noms de variables indique qu'il s'agit de colonnes : l'opérateur dollar permet de sélectionner une colonne dans un tableau. Essayez en tapant dans la console **oiseaux$** et appuyez sur **Tab** : 
+**Nom des variables** : le tableau contient 4 variables nommées *description*, *categorie*, *nom_francais* et *nom_latin*. Le signe $** devant les noms de variables indique qu'il s'agit de colonnes : l'opérateur dollar permet de sélectionner une colonne dans un tableau. Essayez en tapant dans la console **oiseaux$ et appuyez sur **Tab** :
 
 ![](img/rstudio_15.png){width="100%"}
 
-Choisissez la première colonne *description* et appuyez sur **Tab** : vous verrez s'afficher les 172 observations de la colonne en question : 
+Choisissez la première colonne *description* et appuyez sur **Tab** : vous verrez s'afficher les 172 observations de la colonne en question :
 
 ![](img/rstudio_16.png){width="100%"}
 
@@ -264,26 +283,24 @@ Choisissez la première colonne *description* et appuyez sur **Tab** : vous verr
 
 **Premiers éléments de chaque variable** : à la suite du type de variable, vous pouvez voir les premiers éléments de chacune des variables.
 
-Vous pouvez afficher le tableau en cliquant sur l'icône à droite : 
+Vous pouvez afficher le tableau en cliquant sur l'icône à droite :
 
 ![](img/rstudio_14.png){width="100%"}
 
-Cela ouvre un nouvel onglet à côté de de votre script : 
+Cela ouvre un nouvel onglet à côté de de votre script :
 
 ![](img/rstudio_17.png){width="100%"}
 
-Il est important de sauvegarder régulièrement votre script pour ne pas perdre votre travail. Pour cela, cliquez sur l'icône disquette en haut de votre script : 
+Il est important de sauvegarder régulièrement votre script pour ne pas perdre votre travail. Pour cela, cliquez sur l'icône disquette en haut de votre script :
 
 ![](img/rstudio_18.png){width="100%"}
 
-Choisissez le dossier où sera sauvegardé votre script - **R** dans notre cas, et nommez votre script puis cliquez sur **Save** : 
+Choisissez le dossier où sera sauvegardé votre script - **R** dans notre cas, et nommez votre script puis cliquez sur **Save** :
 
 ![](img/rstudio_19.png){width="100%"}
 
 ::: {.callout-tip icon="true"}
-
 ## Raccourcis clavier : sauvegarder un script
 
 Pour sauvegarder un script, uilisez la combinaison **Ctrl + S**
-
 :::
