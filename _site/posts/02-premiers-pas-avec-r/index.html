@@ -201,7 +201,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Sommaire</h2>
    
   <ul>
-  <li><a href="#naviguer_rstudio" id="toc-naviguer_rstudio" class="nav-link active" data-scroll-target="#naviguer_rstudio">Naviguer dans RStudio</a></li>
+  <li><a href="#r_intro" id="toc-r_intro" class="nav-link active" data-scroll-target="#r_intro">Qu’est-ce que R ?</a></li>
+  <li><a href="#naviguer_rstudio" id="toc-naviguer_rstudio" class="nav-link" data-scroll-target="#naviguer_rstudio">Naviguer dans RStudio</a></li>
   <li><a href="#organiser-ses-fichiers" id="toc-organiser-ses-fichiers" class="nav-link" data-scroll-target="#organiser-ses-fichiers">Organiser ses fichiers</a></li>
   <li><a href="#utiliser-un-script" id="toc-utiliser-un-script" class="nav-link" data-scroll-target="#utiliser-un-script">Utiliser un script</a></li>
   <li><a href="#manipuler-des-données" id="toc-manipuler-des-données" class="nav-link" data-scroll-target="#manipuler-des-données">Manipuler des données</a></li>
@@ -230,6 +231,67 @@ Note
 </div>
 </div>
 <p><br></p>
+<section id="r_intro" class="level1">
+<h1>Qu’est-ce que R ?</h1>
+<p><br></p>
+<p>R est un <strong>langage de programmation statistique</strong> qui a rapidement gagné en popularité dans de nombreux domaines scientifiques.</p>
+<p>Il a été développé par <strong>Ross Ihaka</strong> et <strong>Robert Gentleman</strong>, du Département de Statistiques de l’Université d’Auckland, comme <strong>implémentation libre du langage de programmation S</strong>.</p>
+<p><br></p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Quelques dates
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<table class="table">
+<tbody>
+<tr class="odd">
+<td>1991</td>
+<td>Création du langage R</td>
+</tr>
+<tr class="even">
+<td>1993</td>
+<td>R est dévoilé au public</td>
+</tr>
+<tr class="odd">
+<td>1996</td>
+<td><a href="https://www.stat.auckland.ac.nz/~ihaka/downloads/R-paper.pdf">Article dans le <em>Journal of Computational and Graphical Statistics</em></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><br></p>
+<p>R désigne également le <strong>logiciel</strong> qui utilise ce langage pour des calculs statistiques (et tout un tas d’autres applications !).</p>
+<p>Il dispose d’une <strong>communauté</strong> en ligne très active ainsi que d’<strong>extensions</strong> pour presque tous les domaines et applications possibles et imaginables.</p>
+<p><br></p>
+<p>Contrairement à d’autres logiciels de statistiques comme Minitab ou SPSS, R peut être exécuté entièrement en <strong>ligne de commande</strong> et ne nécessite pas d’interface graphique, ce qui lui confère une <strong>grande flexibilité</strong>.</p>
+<p><br></p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Quelques avantages de R
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>C’est un outil <strong>libre et open source</strong> (tout le monde peut utiliser le code et voir comment il fonctionne)<br>
+</li>
+<li>C’est un langage de programmation plutôt qu’une interface graphique, ce qui permet à l’utilisateur de sauvegarder facilement des <strong>scripts</strong> sous forme de texte pour les ré-utiliser ou les partager<br>
+</li>
+<li>Beaucoup de personnes l’utilisent dans beaucoup de domaines différents - <strong>il est rare d’être confronté à un problème qui n’a jamais été résolu !</strong></li>
+</ul>
+</div>
+</div>
+<p><br></p>
+</section>
 <section id="naviguer_rstudio" class="level1">
 <h1>Naviguer dans RStudio</h1>
 <p><br></p>
@@ -469,7 +531,7 @@ Raccourcis clavier : exécuter du code
 <p><img src="img/rstudio_12.png" class="img-fluid" style="width:100.0%"></p>
 <p>En cliquant sur la flèche bleue à gauche du nom de l’objet, vous aurez accès à plus d’informations :</p>
 <p><img src="img/rstudio_13.png" class="img-fluid" style="width:100.0%"></p>
-<p><strong>Nom des variables</strong> : le tableau contient 4 variables nommées <em>description</em>, <em>categorie</em>, <em>nom_francais</em> et <em>nom_latin</em>. Le signe <strong><span class="math inline">\(** devant les noms de variables indique qu'il s'agit de colonnes : l'opérateur dollar permet de sélectionner une colonne dans un tableau. Essayez en tapant dans la console **oiseaux\)</span></strong> et appuyez sur <strong>Tab</strong> :</p>
+<p><strong>Nom des variables</strong> : le tableau contient 4 variables nommées <em>description</em>, <em>categorie</em>, <em>nom_francais</em> et <em>nom_latin</em>. Le signe <span class="math inline">\(** devant les noms de variables indique qu'il s'agit de colonnes : l'opérateur dollar permet de sélectionner une colonne dans un tableau. Essayez en tapant dans la console **oiseaux\)</span> et appuyez sur <strong>Tab</strong> :</p>
 <p><img src="img/rstudio_15.png" class="img-fluid" style="width:100.0%"></p>
 <p>Choisissez la première colonne <em>description</em> et appuyez sur <strong>Tab</strong> : vous verrez s’afficher les 172 observations de la colonne en question :</p>
 <p><img src="img/rstudio_16.png" class="img-fluid" style="width:100.0%"></p>
