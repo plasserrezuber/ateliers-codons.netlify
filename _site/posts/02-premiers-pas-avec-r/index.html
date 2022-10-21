@@ -212,10 +212,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#créer-une-arborescence" id="toc-créer-une-arborescence" class="nav-link" data-scroll-target="#créer-une-arborescence">Créer une arborescence</a></li>
   <li><a href="#importer-les-données" id="toc-importer-les-données" class="nav-link" data-scroll-target="#importer-les-données">Importer les données</a></li>
   </ul></li>
-  <li><a href="#manipuler-des-données" id="toc-manipuler-des-données" class="nav-link" data-scroll-target="#manipuler-des-données">Manipuler des données</a>
-  <ul class="collapse">
-  <li><a href="#importer-un-jeu-de-données" id="toc-importer-un-jeu-de-données" class="nav-link" data-scroll-target="#importer-un-jeu-de-données">Importer un jeu de données</a></li>
-  </ul></li>
   </ul>
 </nav>
     </div>
@@ -503,8 +499,9 @@ Raccourcis clavier : commentaires
 <ul>
 <li>le chemin vers le fichier à importer, <strong>entre guillemets</strong> :<code>"raw/pingouins.csv"</code><br>
 </li>
-<li>l’argument <code>check.names = FALSE</code> pour garder les noms de colonnes tels quels</li>
+<li>l’argument <code>check.names = FALSE</code> pour garder les noms de colonnes tels quels.</li>
 </ul>
+<p>Tapez le code suivant dans la console et appuyez sur <strong>Entrée</strong> :</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read.csv</span>(<span class="at">file =</span> <span class="st">"raw/pingouins.csv"</span>, <span class="at">check.names =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -512,7 +509,40 @@ Raccourcis clavier : commentaires
 
 </div>
 <p><img src="img/rstudio_20.png" class="img-fluid" style="width:100.0%"></p>
-<p>Sauvegardez votre script (et pensez à le faire régulièrement !) en cliquant sur l’icône disquette en haut de votre script :</p>
+<div class="callout-caution callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Bonne pratiques : auto-complétion
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>R vous aide à compléter votre code : tapez <code>re</code> puis <strong>Tab</strong>, et vous verrez s’afficher une liste de fonctions ou d’objets commençant par ces deux lettres. Vous pouvez naviguer à l’aide des flèches haut et bas et valider votre choix en appuyant à nouveau sur <strong>Tab</strong>. Cette fonctionnalité de R est particulièrement utile lorsque vous manipulez des fichiers ou objets ayant des noms complexes.</p>
+</div>
+</div>
+<p>Le fichier a effectivement été importé dans R, mais il n’est pour l’instant pas stocké dans notre environnement. Nous allons pour cela stocker le contenu du fichier dans un objet à l’aide de la <strong>flèche d’assignation <code>&lt;-</code></strong>. Placez-vous dans votre script et tapez le code suivant :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>pingouins <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="at">file =</span> <span class="st">"raw/pingouins.csv"</span>, <span class="at">check.names =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Raccourcis clavier : flèche d’assignation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Pour insérer une flèche d’assignation, utilisez la combinaison <strong>Alt + “-”</strong> (tiret du 6).</p>
+</div>
+</div>
+<p>Exécutez cette fonction en plaçant le curseur sur la ligne et en cliquant sur <strong>Run</strong> :</p>
+<p><img src="img/rstudio_11.png" class="img-fluid" style="width:100.0%"></p>
+<p>::: {.callout-tip icon=“true”} ## Raccourcis clavier : exécuter du code</p>
+<p>Pour exécuter une ou plusieurs lignes de code, sélectionnez les lignes et utilisez la combinaison <strong>Ctrl + Entrée</strong> :::Sauvegardez votre script (et pensez à le faire régulièrement !) en cliquant sur l’icône disquette en haut de votre script :</p>
 <p><img src="img/rstudio_18.png" class="img-fluid" style="width:100.0%"></p>
 <p>Choisissez le dossier où sera sauvegardé votre script - <strong>scripts</strong> dans notre cas, et nommez votre script puis cliquez sur <strong>Save</strong> :</p>
 <p><img src="img/rstudio_19.png" class="img-fluid" style="width:100.0%"></p>
@@ -527,67 +557,6 @@ Raccourcis clavier : sauvegarder un script
 </div>
 <div class="callout-body-container callout-body">
 <p>Pour sauvegarder un script, uilisez la combinaison <strong>Ctrl + S</strong></p>
-</div>
-</div>
-</section>
-</section>
-<section id="manipuler-des-données" class="level1">
-<h1>Manipuler des données</h1>
-<section id="importer-un-jeu-de-données" class="level2">
-<h2 class="anchored" data-anchor-id="importer-un-jeu-de-données">Importer un jeu de données</h2>
-<p>Nous allons analyser une liste d’espèces d’oiseaux menacées en Auvergne (données de 2015 obtenues sur le site de la <a href="https://www.auvergne-rhone-alpes.developpement-durable.gouv.fr/liste-rouge-des-oiseaux-d-auvergne-a9939.html">DREAL</a>).</p>
-<p>Ces données se trouvent dans un fichier appelé <code>oiseaux.csv</code>, disponible en ligne, que nous allons télécharger.</p>
-<p>Nous allons pour cela utiliser une <strong>fonction</strong> de R. Une fonction permet d’exécuter une action : calculer une somme, importer ou exporter un fichier, ajouter une colonne dans un tableau, …</p>
-<p>Toutes les fonctions se présentent de la façon suivante :</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ma_fonction</span>(data, arguments, ...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>On fait appel à la fonction en tapant son nom, puis on précise les arguments de la fonction entre parenthèses. Un argument peut être obligatoire ou optionnel, et modifie la façon dont la fonction est exécutée.</p>
-<p>Notre première ligne de code va donc télécharger le fichier <code>oiseaux.csv</code> et stocker ce fichier dans un objet de notre environnement R : nous assignons le fichier à l’objet. Cette opération s’effectue à l’aide de la flèche d’assignation <code>&lt;-</code> :</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Importer la liste d'especes d'oiseaux menacees en Auvergne</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>oiseaux <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://raw.githubusercontent.com/codons-blog/C-01-PremiersPas/main/oiseaux.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Notez la présence des guillemets autour du lien vers le fichier : utlisez toujours des guillements lorsque vous indiquez un chemin vers un fichier.</p>
-<div class="callout-caution callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Bonne pratiques : auto-complétion
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>R vous aide à compléter votre code : tapez <code>re</code> puis <strong>Tab</strong>, et vous verrez s’afficher une liste de fonctions ou d’objets commençant par ces deux lettres. Vous pouvez naviguer à l’aide des flèches haut et bas et valider votre choix en appuyant à nouveau sur <strong>Tab</strong>. Cette fonctionnalité de R est particulièrement utile lorsque vous manipulez des fichiers ou objets ayant un nom complexe.</p>
-</div>
-</div>
-<div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Raccourcis clavier : flèche d’assignation
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Pour insérer une flèche d’assignation, utilisez la combinaison <strong>ALt + “-”</strong> (tiret du 6).</p>
-</div>
-</div>
-<p>Exécutez cette fonction en plaçant le curseur sur la ligne et en cliquant sur <strong>Run</strong> :</p>
-<p><img src="img/rstudio_11.png" class="img-fluid" style="width:100.0%"></p>
-<div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Raccourcis clavier : exécuter du code
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Pour exécuter une ou plusieurs lignes de code, sélectionnez les lignes et utilisez la combinaison <strong>Ctrl + Entrée</strong></p>
 </div>
 </div>
 <p>Notre environnement contient maintenant un objet <strong>oiseaux</strong>, et vous pouvez voir l’indication <code>172 obs. of 4 variables</code> : le jeu de données contient 172 observations (lignes) et 4 variables (colonnes).</p>
