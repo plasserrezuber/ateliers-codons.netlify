@@ -248,7 +248,7 @@ Voyons ce que fait la fonction `read.csv()`. Nous allons préciser deux argument
 read.csv(file = "raw/pingouins.csv", check.names = FALSE)
 ```
 
-```{r, echo=FALSE, eval=TRUE, message=FALSE, warning=FALSE}
+```{r, echo=FALSE, eval=TRUE, message=FALSE, warning=FALSE, results='hide'}
 read.csv("../../raw/pingouins.csv", check.names = FALSE)
 ```
 
