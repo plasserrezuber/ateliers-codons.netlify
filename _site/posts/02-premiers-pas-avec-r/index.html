@@ -506,11 +506,11 @@ Raccourcis clavier : commentaires
 <li>l’argument <code>check.names = FALSE</code> pour garder les noms de colonnes tels quels</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read.csv</span>(<span class="st">"raw/pingouins.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read.csv</span>(<span class="at">file =</span> <span class="st">"raw/pingouins.csv"</span>, <span class="at">check.names =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>    etudeNumero Echantillon.Numero                                    Espece
+<pre><code>    etudeNumero Echantillon Numero                                    Espece
 1       PAL0708                  1       Adelie Penguin (Pygoscelis adeliae)
 2       PAL0708                  2       Adelie Penguin (Pygoscelis adeliae)
 3       PAL0708                  3       Adelie Penguin (Pygoscelis adeliae)
@@ -855,7 +855,7 @@ Raccourcis clavier : commentaires
 342     PAL0910                 66 Chinstrap penguin (Pygoscelis antarctica)
 343     PAL0910                 67 Chinstrap penguin (Pygoscelis antarctica)
 344     PAL0910                 68 Chinstrap penguin (Pygoscelis antarctica)
-          Ile ID.Individu Longueur.Bec..mm. Hauteur.Bec..mm. Longueur.Aile..mm.
+          Ile ID Individu Longueur Bec (mm) Hauteur Bec (mm) Longueur Aile (mm)
 1   Torgersen        N1A1              39.1             18.7                181
 2   Torgersen        N1A2              39.5             17.4                186
 3   Torgersen        N2A1              40.3             18.0                195
@@ -1200,7 +1200,7 @@ Raccourcis clavier : commentaires
 342     Dream       N99A2              49.6             18.2                193
 343     Dream      N100A1              50.8             19.0                210
 344     Dream      N100A2              50.2             18.7                198
-    Masse.corporelle..g.
+    Masse corporelle (g)
 1                   3750
 2                   3800
 3                   3250
@@ -1547,6 +1547,7 @@ Raccourcis clavier : commentaires
 344                 3775</code></pre>
 </div>
 </div>
+<p><img src="img/rstudio_20.png" class="img-fluid" style="width:100.0%"></p>
 <p>Sauvegardez votre script (et pensez à le faire régulièrement !) en cliquant sur l’icône disquette en haut de votre script :</p>
 <p><img src="img/rstudio_18.png" class="img-fluid" style="width:100.0%"></p>
 <p>Choisissez le dossier où sera sauvegardé votre script - <strong>scripts</strong> dans notre cas, et nommez votre script puis cliquez sur <strong>Save</strong> :</p>
