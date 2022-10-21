@@ -484,6 +484,1070 @@ Raccourcis clavier : commentaires
 <p>Pour commenter ou dé-commenter une ligne de code, utilisez la combinaison <strong>Ctrl + Shift + C</strong>.</p>
 </div>
 </div>
+<p>Le jeu de données que nous allons utiliser contient des mesures pour <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0090081">trois espèces de pingouins vivant sur l’archipel Palmer en Antarctique</a>.</p>
+<p>Pour importer ces données, nous allons faire appel à la <strong>fonction <code>read.csv()</code></strong> qui, comme son nom l’indique, permet de lire un fichier au format <em>.csv</em>. Une fonction permet d’exécuter une action comme calculer une somme, importer ou exporter un fichier.</p>
+<p>Toutes les fonctions s’utilisent de la même façon :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fonction</span>(x, arguments)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>un appel à la fonction en tapant son nom</li>
+</ul>
+<p>Entre <strong>parenthèses</strong> :</p>
+<ul>
+<li>les données sur lesquelles appliquer la fonction (<strong>x</strong>)<br>
+</li>
+<li>les <strong>arguments</strong>, obligatoires ou optionnels, qui vont modifier la manière dont la fonction sera exécutée.</li>
+</ul>
+<p>Voyons ce que fait la fonction <code>read.csv()</code>. Nous allons préciser deux arguments :</p>
+<ul>
+<li>le chemin vers le fichier à importer, <strong>entre guillemets</strong> :
+<ul>
+<li>chemin vers l’emplacement du fichier si vous l’avez téléchargé (<code>"raw/pingouins.csv"</code>)<br>
+</li>
+<li>ou lien vers le fichier en ligne (<code>"https://raw.githubusercontent.com/codons-blog/C-01-PremiersPas/main/pingouins.csv"</code>)</li>
+</ul></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read.csv</span>(<span class="st">"https://raw.githubusercontent.com/codons-blog/C-01-PremiersPas/main/pingouins.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    etudeNumero Echantillon.Numero                                    Espece
+1       PAL0708                  1       Adelie Penguin (Pygoscelis adeliae)
+2       PAL0708                  2       Adelie Penguin (Pygoscelis adeliae)
+3       PAL0708                  3       Adelie Penguin (Pygoscelis adeliae)
+4       PAL0708                  4       Adelie Penguin (Pygoscelis adeliae)
+5       PAL0708                  5       Adelie Penguin (Pygoscelis adeliae)
+6       PAL0708                  6       Adelie Penguin (Pygoscelis adeliae)
+7       PAL0708                  7       Adelie Penguin (Pygoscelis adeliae)
+8       PAL0708                  8       Adelie Penguin (Pygoscelis adeliae)
+9       PAL0708                  9       Adelie Penguin (Pygoscelis adeliae)
+10      PAL0708                 10       Adelie Penguin (Pygoscelis adeliae)
+11      PAL0708                 11       Adelie Penguin (Pygoscelis adeliae)
+12      PAL0708                 12       Adelie Penguin (Pygoscelis adeliae)
+13      PAL0708                 13       Adelie Penguin (Pygoscelis adeliae)
+14      PAL0708                 14       Adelie Penguin (Pygoscelis adeliae)
+15      PAL0708                 15       Adelie Penguin (Pygoscelis adeliae)
+16      PAL0708                 16       Adelie Penguin (Pygoscelis adeliae)
+17      PAL0708                 17       Adelie Penguin (Pygoscelis adeliae)
+18      PAL0708                 18       Adelie Penguin (Pygoscelis adeliae)
+19      PAL0708                 19       Adelie Penguin (Pygoscelis adeliae)
+20      PAL0708                 20       Adelie Penguin (Pygoscelis adeliae)
+21      PAL0708                 21       Adelie Penguin (Pygoscelis adeliae)
+22      PAL0708                 22       Adelie Penguin (Pygoscelis adeliae)
+23      PAL0708                 23       Adelie Penguin (Pygoscelis adeliae)
+24      PAL0708                 24       Adelie Penguin (Pygoscelis adeliae)
+25      PAL0708                 25       Adelie Penguin (Pygoscelis adeliae)
+26      PAL0708                 26       Adelie Penguin (Pygoscelis adeliae)
+27      PAL0708                 27       Adelie Penguin (Pygoscelis adeliae)
+28      PAL0708                 28       Adelie Penguin (Pygoscelis adeliae)
+29      PAL0708                 29       Adelie Penguin (Pygoscelis adeliae)
+30      PAL0708                 30       Adelie Penguin (Pygoscelis adeliae)
+31      PAL0708                 31       Adelie Penguin (Pygoscelis adeliae)
+32      PAL0708                 32       Adelie Penguin (Pygoscelis adeliae)
+33      PAL0708                 33       Adelie Penguin (Pygoscelis adeliae)
+34      PAL0708                 34       Adelie Penguin (Pygoscelis adeliae)
+35      PAL0708                 35       Adelie Penguin (Pygoscelis adeliae)
+36      PAL0708                 36       Adelie Penguin (Pygoscelis adeliae)
+37      PAL0708                 37       Adelie Penguin (Pygoscelis adeliae)
+38      PAL0708                 38       Adelie Penguin (Pygoscelis adeliae)
+39      PAL0708                 39       Adelie Penguin (Pygoscelis adeliae)
+40      PAL0708                 40       Adelie Penguin (Pygoscelis adeliae)
+41      PAL0708                 41       Adelie Penguin (Pygoscelis adeliae)
+42      PAL0708                 42       Adelie Penguin (Pygoscelis adeliae)
+43      PAL0708                 43       Adelie Penguin (Pygoscelis adeliae)
+44      PAL0708                 44       Adelie Penguin (Pygoscelis adeliae)
+45      PAL0708                 45       Adelie Penguin (Pygoscelis adeliae)
+46      PAL0708                 46       Adelie Penguin (Pygoscelis adeliae)
+47      PAL0708                 47       Adelie Penguin (Pygoscelis adeliae)
+48      PAL0708                 48       Adelie Penguin (Pygoscelis adeliae)
+49      PAL0708                 49       Adelie Penguin (Pygoscelis adeliae)
+50      PAL0708                 50       Adelie Penguin (Pygoscelis adeliae)
+51      PAL0809                 51       Adelie Penguin (Pygoscelis adeliae)
+52      PAL0809                 52       Adelie Penguin (Pygoscelis adeliae)
+53      PAL0809                 53       Adelie Penguin (Pygoscelis adeliae)
+54      PAL0809                 54       Adelie Penguin (Pygoscelis adeliae)
+55      PAL0809                 55       Adelie Penguin (Pygoscelis adeliae)
+56      PAL0809                 56       Adelie Penguin (Pygoscelis adeliae)
+57      PAL0809                 57       Adelie Penguin (Pygoscelis adeliae)
+58      PAL0809                 58       Adelie Penguin (Pygoscelis adeliae)
+59      PAL0809                 59       Adelie Penguin (Pygoscelis adeliae)
+60      PAL0809                 60       Adelie Penguin (Pygoscelis adeliae)
+61      PAL0809                 61       Adelie Penguin (Pygoscelis adeliae)
+62      PAL0809                 62       Adelie Penguin (Pygoscelis adeliae)
+63      PAL0809                 63       Adelie Penguin (Pygoscelis adeliae)
+64      PAL0809                 64       Adelie Penguin (Pygoscelis adeliae)
+65      PAL0809                 65       Adelie Penguin (Pygoscelis adeliae)
+66      PAL0809                 66       Adelie Penguin (Pygoscelis adeliae)
+67      PAL0809                 67       Adelie Penguin (Pygoscelis adeliae)
+68      PAL0809                 68       Adelie Penguin (Pygoscelis adeliae)
+69      PAL0809                 69       Adelie Penguin (Pygoscelis adeliae)
+70      PAL0809                 70       Adelie Penguin (Pygoscelis adeliae)
+71      PAL0809                 71       Adelie Penguin (Pygoscelis adeliae)
+72      PAL0809                 72       Adelie Penguin (Pygoscelis adeliae)
+73      PAL0809                 73       Adelie Penguin (Pygoscelis adeliae)
+74      PAL0809                 74       Adelie Penguin (Pygoscelis adeliae)
+75      PAL0809                 75       Adelie Penguin (Pygoscelis adeliae)
+76      PAL0809                 76       Adelie Penguin (Pygoscelis adeliae)
+77      PAL0809                 77       Adelie Penguin (Pygoscelis adeliae)
+78      PAL0809                 78       Adelie Penguin (Pygoscelis adeliae)
+79      PAL0809                 79       Adelie Penguin (Pygoscelis adeliae)
+80      PAL0809                 80       Adelie Penguin (Pygoscelis adeliae)
+81      PAL0809                 81       Adelie Penguin (Pygoscelis adeliae)
+82      PAL0809                 82       Adelie Penguin (Pygoscelis adeliae)
+83      PAL0809                 83       Adelie Penguin (Pygoscelis adeliae)
+84      PAL0809                 84       Adelie Penguin (Pygoscelis adeliae)
+85      PAL0809                 85       Adelie Penguin (Pygoscelis adeliae)
+86      PAL0809                 86       Adelie Penguin (Pygoscelis adeliae)
+87      PAL0809                 87       Adelie Penguin (Pygoscelis adeliae)
+88      PAL0809                 88       Adelie Penguin (Pygoscelis adeliae)
+89      PAL0809                 89       Adelie Penguin (Pygoscelis adeliae)
+90      PAL0809                 90       Adelie Penguin (Pygoscelis adeliae)
+91      PAL0809                 91       Adelie Penguin (Pygoscelis adeliae)
+92      PAL0809                 92       Adelie Penguin (Pygoscelis adeliae)
+93      PAL0809                 93       Adelie Penguin (Pygoscelis adeliae)
+94      PAL0809                 94       Adelie Penguin (Pygoscelis adeliae)
+95      PAL0809                 95       Adelie Penguin (Pygoscelis adeliae)
+96      PAL0809                 96       Adelie Penguin (Pygoscelis adeliae)
+97      PAL0809                 97       Adelie Penguin (Pygoscelis adeliae)
+98      PAL0809                 98       Adelie Penguin (Pygoscelis adeliae)
+99      PAL0809                 99       Adelie Penguin (Pygoscelis adeliae)
+100     PAL0809                100       Adelie Penguin (Pygoscelis adeliae)
+101     PAL0910                101       Adelie Penguin (Pygoscelis adeliae)
+102     PAL0910                102       Adelie Penguin (Pygoscelis adeliae)
+103     PAL0910                103       Adelie Penguin (Pygoscelis adeliae)
+104     PAL0910                104       Adelie Penguin (Pygoscelis adeliae)
+105     PAL0910                105       Adelie Penguin (Pygoscelis adeliae)
+106     PAL0910                106       Adelie Penguin (Pygoscelis adeliae)
+107     PAL0910                107       Adelie Penguin (Pygoscelis adeliae)
+108     PAL0910                108       Adelie Penguin (Pygoscelis adeliae)
+109     PAL0910                109       Adelie Penguin (Pygoscelis adeliae)
+110     PAL0910                110       Adelie Penguin (Pygoscelis adeliae)
+111     PAL0910                111       Adelie Penguin (Pygoscelis adeliae)
+112     PAL0910                112       Adelie Penguin (Pygoscelis adeliae)
+113     PAL0910                113       Adelie Penguin (Pygoscelis adeliae)
+114     PAL0910                114       Adelie Penguin (Pygoscelis adeliae)
+115     PAL0910                115       Adelie Penguin (Pygoscelis adeliae)
+116     PAL0910                116       Adelie Penguin (Pygoscelis adeliae)
+117     PAL0910                117       Adelie Penguin (Pygoscelis adeliae)
+118     PAL0910                118       Adelie Penguin (Pygoscelis adeliae)
+119     PAL0910                119       Adelie Penguin (Pygoscelis adeliae)
+120     PAL0910                120       Adelie Penguin (Pygoscelis adeliae)
+121     PAL0910                121       Adelie Penguin (Pygoscelis adeliae)
+122     PAL0910                122       Adelie Penguin (Pygoscelis adeliae)
+123     PAL0910                123       Adelie Penguin (Pygoscelis adeliae)
+124     PAL0910                124       Adelie Penguin (Pygoscelis adeliae)
+125     PAL0910                125       Adelie Penguin (Pygoscelis adeliae)
+126     PAL0910                126       Adelie Penguin (Pygoscelis adeliae)
+127     PAL0910                127       Adelie Penguin (Pygoscelis adeliae)
+128     PAL0910                128       Adelie Penguin (Pygoscelis adeliae)
+129     PAL0910                129       Adelie Penguin (Pygoscelis adeliae)
+130     PAL0910                130       Adelie Penguin (Pygoscelis adeliae)
+131     PAL0910                131       Adelie Penguin (Pygoscelis adeliae)
+132     PAL0910                132       Adelie Penguin (Pygoscelis adeliae)
+133     PAL0910                133       Adelie Penguin (Pygoscelis adeliae)
+134     PAL0910                134       Adelie Penguin (Pygoscelis adeliae)
+135     PAL0910                135       Adelie Penguin (Pygoscelis adeliae)
+136     PAL0910                136       Adelie Penguin (Pygoscelis adeliae)
+137     PAL0910                137       Adelie Penguin (Pygoscelis adeliae)
+138     PAL0910                138       Adelie Penguin (Pygoscelis adeliae)
+139     PAL0910                139       Adelie Penguin (Pygoscelis adeliae)
+140     PAL0910                140       Adelie Penguin (Pygoscelis adeliae)
+141     PAL0910                141       Adelie Penguin (Pygoscelis adeliae)
+142     PAL0910                142       Adelie Penguin (Pygoscelis adeliae)
+143     PAL0910                143       Adelie Penguin (Pygoscelis adeliae)
+144     PAL0910                144       Adelie Penguin (Pygoscelis adeliae)
+145     PAL0910                145       Adelie Penguin (Pygoscelis adeliae)
+146     PAL0910                146       Adelie Penguin (Pygoscelis adeliae)
+147     PAL0910                147       Adelie Penguin (Pygoscelis adeliae)
+148     PAL0910                148       Adelie Penguin (Pygoscelis adeliae)
+149     PAL0910                149       Adelie Penguin (Pygoscelis adeliae)
+150     PAL0910                150       Adelie Penguin (Pygoscelis adeliae)
+151     PAL0910                151       Adelie Penguin (Pygoscelis adeliae)
+152     PAL0910                152       Adelie Penguin (Pygoscelis adeliae)
+153     PAL0708                  1         Gentoo penguin (Pygoscelis papua)
+154     PAL0708                  2         Gentoo penguin (Pygoscelis papua)
+155     PAL0708                  3         Gentoo penguin (Pygoscelis papua)
+156     PAL0708                  4         Gentoo penguin (Pygoscelis papua)
+157     PAL0708                  5         Gentoo penguin (Pygoscelis papua)
+158     PAL0708                  6         Gentoo penguin (Pygoscelis papua)
+159     PAL0708                  7         Gentoo penguin (Pygoscelis papua)
+160     PAL0708                  8         Gentoo penguin (Pygoscelis papua)
+161     PAL0708                  9         Gentoo penguin (Pygoscelis papua)
+162     PAL0708                 10         Gentoo penguin (Pygoscelis papua)
+163     PAL0708                 11         Gentoo penguin (Pygoscelis papua)
+164     PAL0708                 12         Gentoo penguin (Pygoscelis papua)
+165     PAL0708                 13         Gentoo penguin (Pygoscelis papua)
+166     PAL0708                 14         Gentoo penguin (Pygoscelis papua)
+167     PAL0708                 15         Gentoo penguin (Pygoscelis papua)
+168     PAL0708                 16         Gentoo penguin (Pygoscelis papua)
+169     PAL0708                 17         Gentoo penguin (Pygoscelis papua)
+170     PAL0708                 18         Gentoo penguin (Pygoscelis papua)
+171     PAL0708                 19         Gentoo penguin (Pygoscelis papua)
+172     PAL0708                 20         Gentoo penguin (Pygoscelis papua)
+173     PAL0708                 21         Gentoo penguin (Pygoscelis papua)
+174     PAL0708                 22         Gentoo penguin (Pygoscelis papua)
+175     PAL0708                 23         Gentoo penguin (Pygoscelis papua)
+176     PAL0708                 24         Gentoo penguin (Pygoscelis papua)
+177     PAL0708                 25         Gentoo penguin (Pygoscelis papua)
+178     PAL0708                 26         Gentoo penguin (Pygoscelis papua)
+179     PAL0708                 27         Gentoo penguin (Pygoscelis papua)
+180     PAL0708                 28         Gentoo penguin (Pygoscelis papua)
+181     PAL0708                 29         Gentoo penguin (Pygoscelis papua)
+182     PAL0708                 30         Gentoo penguin (Pygoscelis papua)
+183     PAL0708                 31         Gentoo penguin (Pygoscelis papua)
+184     PAL0708                 32         Gentoo penguin (Pygoscelis papua)
+185     PAL0708                 33         Gentoo penguin (Pygoscelis papua)
+186     PAL0708                 34         Gentoo penguin (Pygoscelis papua)
+187     PAL0809                 35         Gentoo penguin (Pygoscelis papua)
+188     PAL0809                 36         Gentoo penguin (Pygoscelis papua)
+189     PAL0809                 37         Gentoo penguin (Pygoscelis papua)
+190     PAL0809                 38         Gentoo penguin (Pygoscelis papua)
+191     PAL0809                 39         Gentoo penguin (Pygoscelis papua)
+192     PAL0809                 40         Gentoo penguin (Pygoscelis papua)
+193     PAL0809                 41         Gentoo penguin (Pygoscelis papua)
+194     PAL0809                 42         Gentoo penguin (Pygoscelis papua)
+195     PAL0809                 43         Gentoo penguin (Pygoscelis papua)
+196     PAL0809                 44         Gentoo penguin (Pygoscelis papua)
+197     PAL0809                 45         Gentoo penguin (Pygoscelis papua)
+198     PAL0809                 46         Gentoo penguin (Pygoscelis papua)
+199     PAL0809                 47         Gentoo penguin (Pygoscelis papua)
+200     PAL0809                 48         Gentoo penguin (Pygoscelis papua)
+201     PAL0809                 49         Gentoo penguin (Pygoscelis papua)
+202     PAL0809                 50         Gentoo penguin (Pygoscelis papua)
+203     PAL0809                 51         Gentoo penguin (Pygoscelis papua)
+204     PAL0809                 52         Gentoo penguin (Pygoscelis papua)
+205     PAL0809                 53         Gentoo penguin (Pygoscelis papua)
+206     PAL0809                 54         Gentoo penguin (Pygoscelis papua)
+207     PAL0809                 55         Gentoo penguin (Pygoscelis papua)
+208     PAL0809                 56         Gentoo penguin (Pygoscelis papua)
+209     PAL0809                 57         Gentoo penguin (Pygoscelis papua)
+210     PAL0809                 58         Gentoo penguin (Pygoscelis papua)
+211     PAL0809                 59         Gentoo penguin (Pygoscelis papua)
+212     PAL0809                 60         Gentoo penguin (Pygoscelis papua)
+213     PAL0809                 61         Gentoo penguin (Pygoscelis papua)
+214     PAL0809                 62         Gentoo penguin (Pygoscelis papua)
+215     PAL0809                 63         Gentoo penguin (Pygoscelis papua)
+216     PAL0809                 64         Gentoo penguin (Pygoscelis papua)
+217     PAL0809                 65         Gentoo penguin (Pygoscelis papua)
+218     PAL0809                 66         Gentoo penguin (Pygoscelis papua)
+219     PAL0809                 67         Gentoo penguin (Pygoscelis papua)
+220     PAL0809                 68         Gentoo penguin (Pygoscelis papua)
+221     PAL0809                 69         Gentoo penguin (Pygoscelis papua)
+222     PAL0809                 70         Gentoo penguin (Pygoscelis papua)
+223     PAL0809                 71         Gentoo penguin (Pygoscelis papua)
+224     PAL0809                 72         Gentoo penguin (Pygoscelis papua)
+225     PAL0809                 73         Gentoo penguin (Pygoscelis papua)
+226     PAL0809                 74         Gentoo penguin (Pygoscelis papua)
+227     PAL0809                 75         Gentoo penguin (Pygoscelis papua)
+228     PAL0809                 76         Gentoo penguin (Pygoscelis papua)
+229     PAL0809                 77         Gentoo penguin (Pygoscelis papua)
+230     PAL0809                 78         Gentoo penguin (Pygoscelis papua)
+231     PAL0809                 79         Gentoo penguin (Pygoscelis papua)
+232     PAL0809                 80         Gentoo penguin (Pygoscelis papua)
+233     PAL0910                 81         Gentoo penguin (Pygoscelis papua)
+234     PAL0910                 82         Gentoo penguin (Pygoscelis papua)
+235     PAL0910                 83         Gentoo penguin (Pygoscelis papua)
+236     PAL0910                 84         Gentoo penguin (Pygoscelis papua)
+237     PAL0910                 85         Gentoo penguin (Pygoscelis papua)
+238     PAL0910                 86         Gentoo penguin (Pygoscelis papua)
+239     PAL0910                 87         Gentoo penguin (Pygoscelis papua)
+240     PAL0910                 88         Gentoo penguin (Pygoscelis papua)
+241     PAL0910                 89         Gentoo penguin (Pygoscelis papua)
+242     PAL0910                 90         Gentoo penguin (Pygoscelis papua)
+243     PAL0910                 91         Gentoo penguin (Pygoscelis papua)
+244     PAL0910                 92         Gentoo penguin (Pygoscelis papua)
+245     PAL0910                 93         Gentoo penguin (Pygoscelis papua)
+246     PAL0910                 94         Gentoo penguin (Pygoscelis papua)
+247     PAL0910                 95         Gentoo penguin (Pygoscelis papua)
+248     PAL0910                 96         Gentoo penguin (Pygoscelis papua)
+249     PAL0910                 97         Gentoo penguin (Pygoscelis papua)
+250     PAL0910                 98         Gentoo penguin (Pygoscelis papua)
+251     PAL0910                 99         Gentoo penguin (Pygoscelis papua)
+252     PAL0910                100         Gentoo penguin (Pygoscelis papua)
+253     PAL0910                101         Gentoo penguin (Pygoscelis papua)
+254     PAL0910                102         Gentoo penguin (Pygoscelis papua)
+255     PAL0910                103         Gentoo penguin (Pygoscelis papua)
+256     PAL0910                104         Gentoo penguin (Pygoscelis papua)
+257     PAL0910                105         Gentoo penguin (Pygoscelis papua)
+258     PAL0910                106         Gentoo penguin (Pygoscelis papua)
+259     PAL0910                107         Gentoo penguin (Pygoscelis papua)
+260     PAL0910                108         Gentoo penguin (Pygoscelis papua)
+261     PAL0910                109         Gentoo penguin (Pygoscelis papua)
+262     PAL0910                110         Gentoo penguin (Pygoscelis papua)
+263     PAL0910                111         Gentoo penguin (Pygoscelis papua)
+264     PAL0910                112         Gentoo penguin (Pygoscelis papua)
+265     PAL0910                113         Gentoo penguin (Pygoscelis papua)
+266     PAL0910                114         Gentoo penguin (Pygoscelis papua)
+267     PAL0910                115         Gentoo penguin (Pygoscelis papua)
+268     PAL0910                116         Gentoo penguin (Pygoscelis papua)
+269     PAL0910                117         Gentoo penguin (Pygoscelis papua)
+270     PAL0910                118         Gentoo penguin (Pygoscelis papua)
+271     PAL0910                119         Gentoo penguin (Pygoscelis papua)
+272     PAL0910                120         Gentoo penguin (Pygoscelis papua)
+273     PAL0910                121         Gentoo penguin (Pygoscelis papua)
+274     PAL0910                122         Gentoo penguin (Pygoscelis papua)
+275     PAL0910                123         Gentoo penguin (Pygoscelis papua)
+276     PAL0910                124         Gentoo penguin (Pygoscelis papua)
+277     PAL0708                  1 Chinstrap penguin (Pygoscelis antarctica)
+278     PAL0708                  2 Chinstrap penguin (Pygoscelis antarctica)
+279     PAL0708                  3 Chinstrap penguin (Pygoscelis antarctica)
+280     PAL0708                  4 Chinstrap penguin (Pygoscelis antarctica)
+281     PAL0708                  5 Chinstrap penguin (Pygoscelis antarctica)
+282     PAL0708                  6 Chinstrap penguin (Pygoscelis antarctica)
+283     PAL0708                  7 Chinstrap penguin (Pygoscelis antarctica)
+284     PAL0708                  8 Chinstrap penguin (Pygoscelis antarctica)
+285     PAL0708                  9 Chinstrap penguin (Pygoscelis antarctica)
+286     PAL0708                 10 Chinstrap penguin (Pygoscelis antarctica)
+287     PAL0708                 11 Chinstrap penguin (Pygoscelis antarctica)
+288     PAL0708                 12 Chinstrap penguin (Pygoscelis antarctica)
+289     PAL0708                 13 Chinstrap penguin (Pygoscelis antarctica)
+290     PAL0708                 14 Chinstrap penguin (Pygoscelis antarctica)
+291     PAL0708                 15 Chinstrap penguin (Pygoscelis antarctica)
+292     PAL0708                 16 Chinstrap penguin (Pygoscelis antarctica)
+293     PAL0708                 17 Chinstrap penguin (Pygoscelis antarctica)
+294     PAL0708                 18 Chinstrap penguin (Pygoscelis antarctica)
+295     PAL0708                 19 Chinstrap penguin (Pygoscelis antarctica)
+296     PAL0708                 20 Chinstrap penguin (Pygoscelis antarctica)
+297     PAL0708                 21 Chinstrap penguin (Pygoscelis antarctica)
+298     PAL0708                 22 Chinstrap penguin (Pygoscelis antarctica)
+299     PAL0708                 23 Chinstrap penguin (Pygoscelis antarctica)
+300     PAL0708                 24 Chinstrap penguin (Pygoscelis antarctica)
+301     PAL0708                 25 Chinstrap penguin (Pygoscelis antarctica)
+302     PAL0708                 26 Chinstrap penguin (Pygoscelis antarctica)
+303     PAL0809                 27 Chinstrap penguin (Pygoscelis antarctica)
+304     PAL0809                 28 Chinstrap penguin (Pygoscelis antarctica)
+305     PAL0809                 29 Chinstrap penguin (Pygoscelis antarctica)
+306     PAL0809                 30 Chinstrap penguin (Pygoscelis antarctica)
+307     PAL0809                 31 Chinstrap penguin (Pygoscelis antarctica)
+308     PAL0809                 32 Chinstrap penguin (Pygoscelis antarctica)
+309     PAL0809                 33 Chinstrap penguin (Pygoscelis antarctica)
+310     PAL0809                 34 Chinstrap penguin (Pygoscelis antarctica)
+311     PAL0809                 35 Chinstrap penguin (Pygoscelis antarctica)
+312     PAL0809                 36 Chinstrap penguin (Pygoscelis antarctica)
+313     PAL0809                 37 Chinstrap penguin (Pygoscelis antarctica)
+314     PAL0809                 38 Chinstrap penguin (Pygoscelis antarctica)
+315     PAL0809                 39 Chinstrap penguin (Pygoscelis antarctica)
+316     PAL0809                 40 Chinstrap penguin (Pygoscelis antarctica)
+317     PAL0809                 41 Chinstrap penguin (Pygoscelis antarctica)
+318     PAL0809                 42 Chinstrap penguin (Pygoscelis antarctica)
+319     PAL0809                 43 Chinstrap penguin (Pygoscelis antarctica)
+320     PAL0809                 44 Chinstrap penguin (Pygoscelis antarctica)
+321     PAL0910                 45 Chinstrap penguin (Pygoscelis antarctica)
+322     PAL0910                 46 Chinstrap penguin (Pygoscelis antarctica)
+323     PAL0910                 47 Chinstrap penguin (Pygoscelis antarctica)
+324     PAL0910                 48 Chinstrap penguin (Pygoscelis antarctica)
+325     PAL0910                 49 Chinstrap penguin (Pygoscelis antarctica)
+326     PAL0910                 50 Chinstrap penguin (Pygoscelis antarctica)
+327     PAL0910                 51 Chinstrap penguin (Pygoscelis antarctica)
+328     PAL0910                 52 Chinstrap penguin (Pygoscelis antarctica)
+329     PAL0910                 53 Chinstrap penguin (Pygoscelis antarctica)
+330     PAL0910                 54 Chinstrap penguin (Pygoscelis antarctica)
+331     PAL0910                 55 Chinstrap penguin (Pygoscelis antarctica)
+332     PAL0910                 56 Chinstrap penguin (Pygoscelis antarctica)
+333     PAL0910                 57 Chinstrap penguin (Pygoscelis antarctica)
+334     PAL0910                 58 Chinstrap penguin (Pygoscelis antarctica)
+335     PAL0910                 59 Chinstrap penguin (Pygoscelis antarctica)
+336     PAL0910                 60 Chinstrap penguin (Pygoscelis antarctica)
+337     PAL0910                 61 Chinstrap penguin (Pygoscelis antarctica)
+338     PAL0910                 62 Chinstrap penguin (Pygoscelis antarctica)
+339     PAL0910                 63 Chinstrap penguin (Pygoscelis antarctica)
+340     PAL0910                 64 Chinstrap penguin (Pygoscelis antarctica)
+341     PAL0910                 65 Chinstrap penguin (Pygoscelis antarctica)
+342     PAL0910                 66 Chinstrap penguin (Pygoscelis antarctica)
+343     PAL0910                 67 Chinstrap penguin (Pygoscelis antarctica)
+344     PAL0910                 68 Chinstrap penguin (Pygoscelis antarctica)
+          Ile ID.Individu Longueur.Bec..mm. Hauteur.Bec..mm. Longueur.Aile..mm.
+1   Torgersen        N1A1              39.1             18.7                181
+2   Torgersen        N1A2              39.5             17.4                186
+3   Torgersen        N2A1              40.3             18.0                195
+4   Torgersen        N2A2                NA               NA                 NA
+5   Torgersen        N3A1              36.7             19.3                193
+6   Torgersen        N3A2              39.3             20.6                190
+7   Torgersen        N4A1              38.9             17.8                181
+8   Torgersen        N4A2              39.2             19.6                195
+9   Torgersen        N5A1              34.1             18.1                193
+10  Torgersen        N5A2              42.0             20.2                190
+11  Torgersen        N6A1              37.8             17.1                186
+12  Torgersen        N6A2              37.8             17.3                180
+13  Torgersen        N7A1              41.1             17.6                182
+14  Torgersen        N7A2              38.6             21.2                191
+15  Torgersen        N8A1              34.6             21.1                198
+16  Torgersen        N8A2              36.6             17.8                185
+17  Torgersen        N9A1              38.7             19.0                195
+18  Torgersen        N9A2              42.5             20.7                197
+19  Torgersen       N10A1              34.4             18.4                184
+20  Torgersen       N10A2              46.0             21.5                194
+21     Biscoe       N11A1              37.8             18.3                174
+22     Biscoe       N11A2              37.7             18.7                180
+23     Biscoe       N12A1              35.9             19.2                189
+24     Biscoe       N12A2              38.2             18.1                185
+25     Biscoe       N13A1              38.8             17.2                180
+26     Biscoe       N13A2              35.3             18.9                187
+27     Biscoe       N17A1              40.6             18.6                183
+28     Biscoe       N17A2              40.5             17.9                187
+29     Biscoe       N18A1              37.9             18.6                172
+30     Biscoe       N18A2              40.5             18.9                180
+31      Dream       N21A1              39.5             16.7                178
+32      Dream       N21A2              37.2             18.1                178
+33      Dream       N22A1              39.5             17.8                188
+34      Dream       N22A2              40.9             18.9                184
+35      Dream       N23A1              36.4             17.0                195
+36      Dream       N23A2              39.2             21.1                196
+37      Dream       N24A1              38.8             20.0                190
+38      Dream       N24A2              42.2             18.5                180
+39      Dream       N25A1              37.6             19.3                181
+40      Dream       N25A2              39.8             19.1                184
+41      Dream       N26A1              36.5             18.0                182
+42      Dream       N26A2              40.8             18.4                195
+43      Dream       N27A1              36.0             18.5                186
+44      Dream       N27A2              44.1             19.7                196
+45      Dream       N28A1              37.0             16.9                185
+46      Dream       N28A2              39.6             18.8                190
+47      Dream       N29A1              41.1             19.0                182
+48      Dream       N29A2              37.5             18.9                179
+49      Dream       N30A1              36.0             17.9                190
+50      Dream       N30A2              42.3             21.2                191
+51     Biscoe       N21A1              39.6             17.7                186
+52     Biscoe       N21A2              40.1             18.9                188
+53     Biscoe       N22A1              35.0             17.9                190
+54     Biscoe       N22A2              42.0             19.5                200
+55     Biscoe       N23A1              34.5             18.1                187
+56     Biscoe       N23A2              41.4             18.6                191
+57     Biscoe       N24A1              39.0             17.5                186
+58     Biscoe       N24A2              40.6             18.8                193
+59     Biscoe       N25A1              36.5             16.6                181
+60     Biscoe       N25A2              37.6             19.1                194
+61     Biscoe       N27A1              35.7             16.9                185
+62     Biscoe       N27A2              41.3             21.1                195
+63     Biscoe       N28A1              37.6             17.0                185
+64     Biscoe       N28A2              41.1             18.2                192
+65     Biscoe       N29A1              36.4             17.1                184
+66     Biscoe       N29A2              41.6             18.0                192
+67     Biscoe       N30A1              35.5             16.2                195
+68     Biscoe       N30A2              41.1             19.1                188
+69  Torgersen       N32A1              35.9             16.6                190
+70  Torgersen       N32A2              41.8             19.4                198
+71  Torgersen       N34A1              33.5             19.0                190
+72  Torgersen       N34A2              39.7             18.4                190
+73  Torgersen       N35A1              39.6             17.2                196
+74  Torgersen       N35A2              45.8             18.9                197
+75  Torgersen       N36A1              35.5             17.5                190
+76  Torgersen       N36A2              42.8             18.5                195
+77  Torgersen       N37A1              40.9             16.8                191
+78  Torgersen       N37A2              37.2             19.4                184
+79  Torgersen       N38A1              36.2             16.1                187
+80  Torgersen       N38A2              42.1             19.1                195
+81  Torgersen       N39A1              34.6             17.2                189
+82  Torgersen       N39A2              42.9             17.6                196
+83  Torgersen       N40A1              36.7             18.8                187
+84  Torgersen       N40A2              35.1             19.4                193
+85      Dream       N41A1              37.3             17.8                191
+86      Dream       N41A2              41.3             20.3                194
+87      Dream       N42A1              36.3             19.5                190
+88      Dream       N42A2              36.9             18.6                189
+89      Dream       N44A1              38.3             19.2                189
+90      Dream       N44A2              38.9             18.8                190
+91      Dream       N45A1              35.7             18.0                202
+92      Dream       N45A2              41.1             18.1                205
+93      Dream       N46A1              34.0             17.1                185
+94      Dream       N46A2              39.6             18.1                186
+95      Dream       N48A1              36.2             17.3                187
+96      Dream       N48A2              40.8             18.9                208
+97      Dream       N49A1              38.1             18.6                190
+98      Dream       N49A2              40.3             18.5                196
+99      Dream       N50A1              33.1             16.1                178
+100     Dream       N50A2              43.2             18.5                192
+101    Biscoe       N47A1              35.0             17.9                192
+102    Biscoe       N47A2              41.0             20.0                203
+103    Biscoe       N49A1              37.7             16.0                183
+104    Biscoe       N49A2              37.8             20.0                190
+105    Biscoe       N51A1              37.9             18.6                193
+106    Biscoe       N51A2              39.7             18.9                184
+107    Biscoe       N53A1              38.6             17.2                199
+108    Biscoe       N53A2              38.2             20.0                190
+109    Biscoe       N55A1              38.1             17.0                181
+110    Biscoe       N55A2              43.2             19.0                197
+111    Biscoe       N58A1              38.1             16.5                198
+112    Biscoe       N58A2              45.6             20.3                191
+113    Biscoe       N60A1              39.7             17.7                193
+114    Biscoe       N60A2              42.2             19.5                197
+115    Biscoe       N61A1              39.6             20.7                191
+116    Biscoe       N61A2              42.7             18.3                196
+117 Torgersen       N63A1              38.6             17.0                188
+118 Torgersen       N63A2              37.3             20.5                199
+119 Torgersen       N64A1              35.7             17.0                189
+120 Torgersen       N64A2              41.1             18.6                189
+121 Torgersen       N66A1              36.2             17.2                187
+122 Torgersen       N66A2              37.7             19.8                198
+123 Torgersen       N67A1              40.2             17.0                176
+124 Torgersen       N67A2              41.4             18.5                202
+125 Torgersen       N69A1              35.2             15.9                186
+126 Torgersen       N69A2              40.6             19.0                199
+127 Torgersen       N71A1              38.8             17.6                191
+128 Torgersen       N71A2              41.5             18.3                195
+129 Torgersen       N72A1              39.0             17.1                191
+130 Torgersen       N72A2              44.1             18.0                210
+131 Torgersen       N73A1              38.5             17.9                190
+132 Torgersen       N73A2              43.1             19.2                197
+133     Dream       N76A1              36.8             18.5                193
+134     Dream       N76A2              37.5             18.5                199
+135     Dream       N77A1              38.1             17.6                187
+136     Dream       N77A2              41.1             17.5                190
+137     Dream       N78A1              35.6             17.5                191
+138     Dream       N78A2              40.2             20.1                200
+139     Dream       N79A1              37.0             16.5                185
+140     Dream       N79A2              39.7             17.9                193
+141     Dream       N80A1              40.2             17.1                193
+142     Dream       N80A2              40.6             17.2                187
+143     Dream       N81A1              32.1             15.5                188
+144     Dream       N81A2              40.7             17.0                190
+145     Dream       N82A1              37.3             16.8                192
+146     Dream       N82A2              39.0             18.7                185
+147     Dream       N83A1              39.2             18.6                190
+148     Dream       N83A2              36.6             18.4                184
+149     Dream       N84A1              36.0             17.8                195
+150     Dream       N84A2              37.8             18.1                193
+151     Dream       N85A1              36.0             17.1                187
+152     Dream       N85A2              41.5             18.5                201
+153    Biscoe       N31A1              46.1             13.2                211
+154    Biscoe       N31A2              50.0             16.3                230
+155    Biscoe       N32A1              48.7             14.1                210
+156    Biscoe       N32A2              50.0             15.2                218
+157    Biscoe       N33A1              47.6             14.5                215
+158    Biscoe       N33A2              46.5             13.5                210
+159    Biscoe       N34A1              45.4             14.6                211
+160    Biscoe       N34A2              46.7             15.3                219
+161    Biscoe       N35A1              43.3             13.4                209
+162    Biscoe       N35A2              46.8             15.4                215
+163    Biscoe       N36A1              40.9             13.7                214
+164    Biscoe       N36A2              49.0             16.1                216
+165    Biscoe       N37A1              45.5             13.7                214
+166    Biscoe       N37A2              48.4             14.6                213
+167    Biscoe       N38A1              45.8             14.6                210
+168    Biscoe       N38A2              49.3             15.7                217
+169    Biscoe       N39A1              42.0             13.5                210
+170    Biscoe       N39A2              49.2             15.2                221
+171    Biscoe       N40A1              46.2             14.5                209
+172    Biscoe       N40A2              48.7             15.1                222
+173    Biscoe       N41A1              50.2             14.3                218
+174    Biscoe       N41A2              45.1             14.5                215
+175    Biscoe       N42A1              46.5             14.5                213
+176    Biscoe       N42A2              46.3             15.8                215
+177    Biscoe       N44A1              42.9             13.1                215
+178    Biscoe       N44A2              46.1             15.1                215
+179    Biscoe       N46A1              44.5             14.3                216
+180    Biscoe       N46A2              47.8             15.0                215
+181    Biscoe       N47A1              48.2             14.3                210
+182    Biscoe       N47A2              50.0             15.3                220
+183    Biscoe       N50A1              47.3             15.3                222
+184    Biscoe       N50A2              42.8             14.2                209
+185    Biscoe       N56A1              45.1             14.5                207
+186    Biscoe       N56A2              59.6             17.0                230
+187    Biscoe        N2A1              49.1             14.8                220
+188    Biscoe        N2A2              48.4             16.3                220
+189    Biscoe        N4A1              42.6             13.7                213
+190    Biscoe        N4A2              44.4             17.3                219
+191    Biscoe        N5A1              44.0             13.6                208
+192    Biscoe        N5A2              48.7             15.7                208
+193    Biscoe        N6A1              42.7             13.7                208
+194    Biscoe        N6A2              49.6             16.0                225
+195    Biscoe        N7A1              45.3             13.7                210
+196    Biscoe        N7A2              49.6             15.0                216
+197    Biscoe        N8A1              50.5             15.9                222
+198    Biscoe        N8A2              43.6             13.9                217
+199    Biscoe       N11A1              45.5             13.9                210
+200    Biscoe       N11A2              50.5             15.9                225
+201    Biscoe       N12A1              44.9             13.3                213
+202    Biscoe       N12A2              45.2             15.8                215
+203    Biscoe       N13A1              46.6             14.2                210
+204    Biscoe       N13A2              48.5             14.1                220
+205    Biscoe       N14A1              45.1             14.4                210
+206    Biscoe       N14A2              50.1             15.0                225
+207    Biscoe       N15A1              46.5             14.4                217
+208    Biscoe       N15A2              45.0             15.4                220
+209    Biscoe       N16A1              43.8             13.9                208
+210    Biscoe       N16A2              45.5             15.0                220
+211    Biscoe       N17A1              43.2             14.5                208
+212    Biscoe       N17A2              50.4             15.3                224
+213    Biscoe       N18A1              45.3             13.8                208
+214    Biscoe       N18A2              46.2             14.9                221
+215    Biscoe       N19A1              45.7             13.9                214
+216    Biscoe       N19A2              54.3             15.7                231
+217    Biscoe       N20A1              45.8             14.2                219
+218    Biscoe       N20A2              49.8             16.8                230
+219    Biscoe       N51A1              46.2             14.4                214
+220    Biscoe       N51A2              49.5             16.2                229
+221    Biscoe       N53A1              43.5             14.2                220
+222    Biscoe       N53A2              50.7             15.0                223
+223    Biscoe       N54A1              47.7             15.0                216
+224    Biscoe       N54A2              46.4             15.6                221
+225    Biscoe       N55A1              48.2             15.6                221
+226    Biscoe       N55A2              46.5             14.8                217
+227    Biscoe       N56A1              46.4             15.0                216
+228    Biscoe       N56A2              48.6             16.0                230
+229    Biscoe       N58A1              47.5             14.2                209
+230    Biscoe       N58A2              51.1             16.3                220
+231    Biscoe       N60A1              45.2             13.8                215
+232    Biscoe       N60A2              45.2             16.4                223
+233    Biscoe        N1A1              49.1             14.5                212
+234    Biscoe        N1A2              52.5             15.6                221
+235    Biscoe        N6A1              47.4             14.6                212
+236    Biscoe        N6A2              50.0             15.9                224
+237    Biscoe        N8A1              44.9             13.8                212
+238    Biscoe        N8A2              50.8             17.3                228
+239    Biscoe       N13A1              43.4             14.4                218
+240    Biscoe       N13A2              51.3             14.2                218
+241    Biscoe       N14A1              47.5             14.0                212
+242    Biscoe       N14A2              52.1             17.0                230
+243    Biscoe       N15A1              47.5             15.0                218
+244    Biscoe       N15A2              52.2             17.1                228
+245    Biscoe       N18A1              45.5             14.5                212
+246    Biscoe       N18A2              49.5             16.1                224
+247    Biscoe       N19A1              44.5             14.7                214
+248    Biscoe       N19A2              50.8             15.7                226
+249    Biscoe       N20A1              49.4             15.8                216
+250    Biscoe       N20A2              46.9             14.6                222
+251    Biscoe       N21A1              48.4             14.4                203
+252    Biscoe       N21A2              51.1             16.5                225
+253    Biscoe       N22A1              48.5             15.0                219
+254    Biscoe       N22A2              55.9             17.0                228
+255    Biscoe       N23A1              47.2             15.5                215
+256    Biscoe       N23A2              49.1             15.0                228
+257    Biscoe       N24A1              47.3             13.8                216
+258    Biscoe       N24A2              46.8             16.1                215
+259    Biscoe       N28A1              41.7             14.7                210
+260    Biscoe       N28A2              53.4             15.8                219
+261    Biscoe       N29A1              43.3             14.0                208
+262    Biscoe       N29A2              48.1             15.1                209
+263    Biscoe       N32A1              50.5             15.2                216
+264    Biscoe       N32A2              49.8             15.9                229
+265    Biscoe       N34A1              43.5             15.2                213
+266    Biscoe       N34A2              51.5             16.3                230
+267    Biscoe       N35A1              46.2             14.1                217
+268    Biscoe       N35A2              55.1             16.0                230
+269    Biscoe       N36A1              44.5             15.7                217
+270    Biscoe       N36A2              48.8             16.2                222
+271    Biscoe       N38A1              47.2             13.7                214
+272    Biscoe       N38A2                NA               NA                 NA
+273    Biscoe       N39A1              46.8             14.3                215
+274    Biscoe       N39A2              50.4             15.7                222
+275    Biscoe       N43A1              45.2             14.8                212
+276    Biscoe       N43A2              49.9             16.1                213
+277     Dream       N61A1              46.5             17.9                192
+278     Dream       N61A2              50.0             19.5                196
+279     Dream       N62A1              51.3             19.2                193
+280     Dream       N62A2              45.4             18.7                188
+281     Dream       N64A1              52.7             19.8                197
+282     Dream       N64A2              45.2             17.8                198
+283     Dream       N66A1              46.1             18.2                178
+284     Dream       N66A2              51.3             18.2                197
+285     Dream       N67A1              46.0             18.9                195
+286     Dream       N67A2              51.3             19.9                198
+287     Dream       N68A1              46.6             17.8                193
+288     Dream       N68A2              51.7             20.3                194
+289     Dream       N69A1              47.0             17.3                185
+290     Dream       N69A2              52.0             18.1                201
+291     Dream       N70A1              45.9             17.1                190
+292     Dream       N70A2              50.5             19.6                201
+293     Dream       N71A1              50.3             20.0                197
+294     Dream       N71A2              58.0             17.8                181
+295     Dream       N72A1              46.4             18.6                190
+296     Dream       N72A2              49.2             18.2                195
+297     Dream       N73A1              42.4             17.3                181
+298     Dream       N73A2              48.5             17.5                191
+299     Dream       N85A1              43.2             16.6                187
+300     Dream       N85A2              50.6             19.4                193
+301     Dream       N89A1              46.7             17.9                195
+302     Dream       N89A2              52.0             19.0                197
+303     Dream       N61A1              50.5             18.4                200
+304     Dream       N61A2              49.5             19.0                200
+305     Dream       N62A1              46.4             17.8                191
+306     Dream       N62A2              52.8             20.0                205
+307     Dream       N63A1              40.9             16.6                187
+308     Dream       N63A2              54.2             20.8                201
+309     Dream       N65A1              42.5             16.7                187
+310     Dream       N65A2              51.0             18.8                203
+311     Dream       N67A1              49.7             18.6                195
+312     Dream       N67A2              47.5             16.8                199
+313     Dream       N69A1              47.6             18.3                195
+314     Dream       N69A2              52.0             20.7                210
+315     Dream       N72A1              46.9             16.6                192
+316     Dream       N72A2              53.5             19.9                205
+317     Dream       N74A1              49.0             19.5                210
+318     Dream       N74A2              46.2             17.5                187
+319     Dream       N75A1              50.9             19.1                196
+320     Dream       N75A2              45.5             17.0                196
+321     Dream       N86A1              50.9             17.9                196
+322     Dream       N86A2              50.8             18.5                201
+323     Dream       N87A1              50.1             17.9                190
+324     Dream       N87A2              49.0             19.6                212
+325     Dream       N88A1              51.5             18.7                187
+326     Dream       N88A2              49.8             17.3                198
+327     Dream       N90A1              48.1             16.4                199
+328     Dream       N90A2              51.4             19.0                201
+329     Dream       N92A1              45.7             17.3                193
+330     Dream       N92A2              50.7             19.7                203
+331     Dream       N93A1              42.5             17.3                187
+332     Dream       N93A2              52.2             18.8                197
+333     Dream       N94A1              45.2             16.6                191
+334     Dream       N94A2              49.3             19.9                203
+335     Dream       N95A1              50.2             18.8                202
+336     Dream       N95A2              45.6             19.4                194
+337     Dream       N96A1              51.9             19.5                206
+338     Dream       N96A2              46.8             16.5                189
+339     Dream       N98A1              45.7             17.0                195
+340     Dream       N98A2              55.8             19.8                207
+341     Dream       N99A1              43.5             18.1                202
+342     Dream       N99A2              49.6             18.2                193
+343     Dream      N100A1              50.8             19.0                210
+344     Dream      N100A2              50.2             18.7                198
+    Masse.corporelle..g.
+1                   3750
+2                   3800
+3                   3250
+4                     NA
+5                   3450
+6                   3650
+7                   3625
+8                   4675
+9                   3475
+10                  4250
+11                  3300
+12                  3700
+13                  3200
+14                  3800
+15                  4400
+16                  3700
+17                  3450
+18                  4500
+19                  3325
+20                  4200
+21                  3400
+22                  3600
+23                  3800
+24                  3950
+25                  3800
+26                  3800
+27                  3550
+28                  3200
+29                  3150
+30                  3950
+31                  3250
+32                  3900
+33                  3300
+34                  3900
+35                  3325
+36                  4150
+37                  3950
+38                  3550
+39                  3300
+40                  4650
+41                  3150
+42                  3900
+43                  3100
+44                  4400
+45                  3000
+46                  4600
+47                  3425
+48                  2975
+49                  3450
+50                  4150
+51                  3500
+52                  4300
+53                  3450
+54                  4050
+55                  2900
+56                  3700
+57                  3550
+58                  3800
+59                  2850
+60                  3750
+61                  3150
+62                  4400
+63                  3600
+64                  4050
+65                  2850
+66                  3950
+67                  3350
+68                  4100
+69                  3050
+70                  4450
+71                  3600
+72                  3900
+73                  3550
+74                  4150
+75                  3700
+76                  4250
+77                  3700
+78                  3900
+79                  3550
+80                  4000
+81                  3200
+82                  4700
+83                  3800
+84                  4200
+85                  3350
+86                  3550
+87                  3800
+88                  3500
+89                  3950
+90                  3600
+91                  3550
+92                  4300
+93                  3400
+94                  4450
+95                  3300
+96                  4300
+97                  3700
+98                  4350
+99                  2900
+100                 4100
+101                 3725
+102                 4725
+103                 3075
+104                 4250
+105                 2925
+106                 3550
+107                 3750
+108                 3900
+109                 3175
+110                 4775
+111                 3825
+112                 4600
+113                 3200
+114                 4275
+115                 3900
+116                 4075
+117                 2900
+118                 3775
+119                 3350
+120                 3325
+121                 3150
+122                 3500
+123                 3450
+124                 3875
+125                 3050
+126                 4000
+127                 3275
+128                 4300
+129                 3050
+130                 4000
+131                 3325
+132                 3500
+133                 3500
+134                 4475
+135                 3425
+136                 3900
+137                 3175
+138                 3975
+139                 3400
+140                 4250
+141                 3400
+142                 3475
+143                 3050
+144                 3725
+145                 3000
+146                 3650
+147                 4250
+148                 3475
+149                 3450
+150                 3750
+151                 3700
+152                 4000
+153                 4500
+154                 5700
+155                 4450
+156                 5700
+157                 5400
+158                 4550
+159                 4800
+160                 5200
+161                 4400
+162                 5150
+163                 4650
+164                 5550
+165                 4650
+166                 5850
+167                 4200
+168                 5850
+169                 4150
+170                 6300
+171                 4800
+172                 5350
+173                 5700
+174                 5000
+175                 4400
+176                 5050
+177                 5000
+178                 5100
+179                 4100
+180                 5650
+181                 4600
+182                 5550
+183                 5250
+184                 4700
+185                 5050
+186                 6050
+187                 5150
+188                 5400
+189                 4950
+190                 5250
+191                 4350
+192                 5350
+193                 3950
+194                 5700
+195                 4300
+196                 4750
+197                 5550
+198                 4900
+199                 4200
+200                 5400
+201                 5100
+202                 5300
+203                 4850
+204                 5300
+205                 4400
+206                 5000
+207                 4900
+208                 5050
+209                 4300
+210                 5000
+211                 4450
+212                 5550
+213                 4200
+214                 5300
+215                 4400
+216                 5650
+217                 4700
+218                 5700
+219                 4650
+220                 5800
+221                 4700
+222                 5550
+223                 4750
+224                 5000
+225                 5100
+226                 5200
+227                 4700
+228                 5800
+229                 4600
+230                 6000
+231                 4750
+232                 5950
+233                 4625
+234                 5450
+235                 4725
+236                 5350
+237                 4750
+238                 5600
+239                 4600
+240                 5300
+241                 4875
+242                 5550
+243                 4950
+244                 5400
+245                 4750
+246                 5650
+247                 4850
+248                 5200
+249                 4925
+250                 4875
+251                 4625
+252                 5250
+253                 4850
+254                 5600
+255                 4975
+256                 5500
+257                 4725
+258                 5500
+259                 4700
+260                 5500
+261                 4575
+262                 5500
+263                 5000
+264                 5950
+265                 4650
+266                 5500
+267                 4375
+268                 5850
+269                 4875
+270                 6000
+271                 4925
+272                   NA
+273                 4850
+274                 5750
+275                 5200
+276                 5400
+277                 3500
+278                 3900
+279                 3650
+280                 3525
+281                 3725
+282                 3950
+283                 3250
+284                 3750
+285                 4150
+286                 3700
+287                 3800
+288                 3775
+289                 3700
+290                 4050
+291                 3575
+292                 4050
+293                 3300
+294                 3700
+295                 3450
+296                 4400
+297                 3600
+298                 3400
+299                 2900
+300                 3800
+301                 3300
+302                 4150
+303                 3400
+304                 3800
+305                 3700
+306                 4550
+307                 3200
+308                 4300
+309                 3350
+310                 4100
+311                 3600
+312                 3900
+313                 3850
+314                 4800
+315                 2700
+316                 4500
+317                 3950
+318                 3650
+319                 3550
+320                 3500
+321                 3675
+322                 4450
+323                 3400
+324                 4300
+325                 3250
+326                 3675
+327                 3325
+328                 3950
+329                 3600
+330                 4050
+331                 3350
+332                 3450
+333                 3250
+334                 4050
+335                 3800
+336                 3525
+337                 3950
+338                 3650
+339                 3650
+340                 4000
+341                 3400
+342                 3775
+343                 4100
+344                 3775</code></pre>
+</div>
+</div>
 <p>Sauvegardez votre script (et pensez à le faire régulièrement !) en cliquant sur l’icône disquette en haut de votre script :</p>
 <p><img src="img/rstudio_18.png" class="img-fluid" style="width:100.0%"></p>
 <p>Choisissez le dossier où sera sauvegardé votre script - <strong>scripts</strong> dans notre cas, et nommez votre script puis cliquez sur <strong>Save</strong> :</p>
@@ -512,13 +1576,13 @@ Raccourcis clavier : sauvegarder un script
 <p>Nous allons pour cela utiliser une <strong>fonction</strong> de R. Une fonction permet d’exécuter une action : calculer une somme, importer ou exporter un fichier, ajouter une colonne dans un tableau, …</p>
 <p>Toutes les fonctions se présentent de la façon suivante :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ma_fonction</span>(data, arguments, ...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ma_fonction</span>(data, arguments, ...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>On fait appel à la fonction en tapant son nom, puis on précise les arguments de la fonction entre parenthèses. Un argument peut être obligatoire ou optionnel, et modifie la façon dont la fonction est exécutée.</p>
 <p>Notre première ligne de code va donc télécharger le fichier <code>oiseaux.csv</code> et stocker ce fichier dans un objet de notre environnement R : nous assignons le fichier à l’objet. Cette opération s’effectue à l’aide de la flèche d’assignation <code>&lt;-</code> :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Importer la liste d'especes d'oiseaux menacees en Auvergne</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>oiseaux <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://raw.githubusercontent.com/codons-blog/C-01-PremiersPas/main/oiseaux.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Importer la liste d'especes d'oiseaux menacees en Auvergne</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>oiseaux <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://raw.githubusercontent.com/codons-blog/C-01-PremiersPas/main/oiseaux.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Notez la présence des guillemets autour du lien vers le fichier : utlisez toujours des guillements lorsque vous indiquez un chemin vers un fichier.</p>
 <div class="callout-caution callout callout-style-default callout-captioned">
