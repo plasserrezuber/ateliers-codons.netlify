@@ -501,15 +501,14 @@ Raccourcis clavier : commentaires
 </ul>
 <p>Voyons ce que fait la fonction <code>read.csv()</code>. Nous allons préciser deux arguments :</p>
 <ul>
-<li>le chemin vers le fichier à importer, <strong>entre guillemets</strong> :
-<ul>
-<li>chemin vers l’emplacement du fichier si vous l’avez téléchargé (<code>"raw/pingouins.csv"</code>)<br>
+<li>le chemin vers le fichier à importer, <strong>entre guillemets</strong> :<code>"raw/pingouins.csv"</code><br>
 </li>
-<li>ou lien vers le fichier en ligne (<code>"https://raw.githubusercontent.com/codons-blog/C-01-PremiersPas/main/pingouins.csv"</code>)</li>
-</ul></li>
+<li>l’argument <code>check.names = FALSE</code> pour garder les noms de colonnes tels quels</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read.csv</span>(<span class="st">"https://raw.githubusercontent.com/codons-blog/C-01-PremiersPas/main/pingouins.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read.csv</span>(<span class="st">"raw/pingouins.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>    etudeNumero Echantillon.Numero                                    Espece
 1       PAL0708                  1       Adelie Penguin (Pygoscelis adeliae)
