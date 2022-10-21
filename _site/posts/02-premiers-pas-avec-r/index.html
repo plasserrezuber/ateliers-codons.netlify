@@ -210,7 +210,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul class="collapse">
   <li><a href="#créer-un-projet" id="toc-créer-un-projet" class="nav-link" data-scroll-target="#créer-un-projet">Créer un projet</a></li>
   <li><a href="#créer-une-arborescence" id="toc-créer-une-arborescence" class="nav-link" data-scroll-target="#créer-une-arborescence">Créer une arborescence</a></li>
-  <li><a href="#bonne-pratiques-commenter-ses-scripts" id="toc-bonne-pratiques-commenter-ses-scripts" class="nav-link" data-scroll-target="#bonne-pratiques-commenter-ses-scripts">Bonne pratiques : commenter ses scripts</a></li>
+  <li><a href="#ouvrir-un-script" id="toc-ouvrir-un-script" class="nav-link" data-scroll-target="#ouvrir-un-script">Ouvrir un script</a></li>
   </ul></li>
   <li><a href="#manipuler-des-données" id="toc-manipuler-des-données" class="nav-link" data-scroll-target="#manipuler-des-données">Manipuler des données</a>
   <ul class="collapse">
@@ -400,6 +400,8 @@ Raccourcis clavier : nouveau script
 <p><img src="img/rstudio_04.png" class="img-fluid" style="width:100.0%"></p>
 <p>Dans la fenêtre <strong>Create New Project</strong>, attribuez un nom et un emplacement au projet, puis cliquez sur <strong>Create project</strong></p>
 <p><img src="img/rstudio_05.png" class="img-fluid" style="width:100.0%"></p>
+<p>Quand vous voudrez travailler à nouveau sur ces données, il vous suffira de double-cliquer sur le fichier <code>.Rproj</code> pour ouvrir le projet et accéder à tout ce qu’il contient.</p>
+<p><img src="img/rstudio_06.png" class="img-fluid" style="width:100.0%"></p>
 <div class="callout-caution callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -423,8 +425,6 @@ Bonne pratiques : nommer ses fichiers et dossiers
 <p>Une fois que vous avez trouvé une façon de procéder, utlisez-la pour l’ensemble de vos fichiers afin de rester cohérent !</p>
 </div>
 </div>
-<p>Quand vous voudrez travailler à nouveau sur ces données, il vous suffira de double-cliquer sur le fichier <code>.Rproj</code> pour ouvrir le projet et accéder à tout ce qu’il contient.</p>
-<p><img src="img/rstudio_06.png" class="img-fluid" style="width:100.0%"></p>
 </section>
 <section id="créer-une-arborescence" class="level2">
 <h2 class="anchored" data-anchor-id="créer-une-arborescence">Créer une arborescence</h2>
@@ -436,28 +436,56 @@ Bonne pratiques : nommer ses fichiers et dossiers
 </li>
 <li><strong>data</strong> : contient les données issues de la manipulation des données brutes (sous-ensembles, données corrigées, renommées, nouvelles variables calculées, …)<br>
 </li>
-<li><strong>R</strong> : contient le code utilisé pour manipuler les données, générer les figures, rédiger les rapports, …</li>
+<li><strong>scripts</strong> : contient le code utilisé pour manipuler les données, générer les figures, rédiger les rapports, …</li>
 <li><strong>resultats</strong> : contient les fichiers de résultats issus de l’analyse.</li>
 <li><strong>figures</strong> : contient les graphiques et figures générées lors de l’analyse.<br>
 </li>
 <li><strong>docs</strong> : contient les rapports rédigés au cours de l’analyse, les présentations de résultats, des articles en lien avec l’analyse, les documents concernant les outils utlisés, …</li>
 </ul>
-<p><img src="img/rstudio_08.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="img/rstudio_08.png" class="img-fluid" style="width:100.0%"> # Flux de travail</p>
 </section>
-<section id="bonne-pratiques-commenter-ses-scripts" class="level2">
-<h2 class="anchored" data-anchor-id="bonne-pratiques-commenter-ses-scripts">Bonne pratiques : commenter ses scripts</h2>
+<section id="ouvrir-un-script" class="level2">
+<h2 class="anchored" data-anchor-id="ouvrir-un-script">Ouvrir un script</h2>
+<p>Si ce n’est pas encore fait, ouvrez un nouveau script et sauvegardez-le en cliquant sur l’icône disquette en haut de votre script :</p>
+<p><img src="img/rstudio_18.png" class="img-fluid" style="width:100.0%"></p>
+<p>Choisissez le dossier où sera sauvegardé votre script - <strong>scripts</strong> dans notre cas, et nommez votre script puis cliquez sur <strong>Save</strong> :</p>
+<p><img src="img/rstudio_19.png" class="img-fluid" style="width:100.0%"></p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Raccourcis clavier : sauvegarder un script
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Pour sauvegarder un script, uilisez la combinaison <strong>Ctrl + S</strong></p>
+</div>
+</div>
+<div class="callout-caution callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Bonne pratiques : commenter ses scripts
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Prenez dès maintenant l’habitude de commenter vos scripts. Il s’agit de rédiger des commentaires qui expliquent ce que fait votre code, pour le rendre plus compréhensible par vos collègues - et par vous-même quand vous reviendrez sur un script après un certain temps ! Pour ajouter un commentaire, utiliser un <code>#</code> au début d’une ligne puis rédigez votre commentaire. Dans R, un code placé après un <code>#</code> n’est pas exécuté :</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ceci est un commentaire qui ne sera pas exécuté</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># La ligne suivante sera exécutée</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>:::</p>
+</div>
+</div>
 <p>Pour commencer, ajoutons des informations en haut de notre script :</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ateliers codons</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 01 - Premiers pas avec R</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 2022-10-14</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 2022-11-07</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -547,23 +575,7 @@ Raccourcis clavier : exécuter du code
 <p><img src="img/rstudio_14.png" class="img-fluid" style="width:100.0%"></p>
 <p>Cela ouvre un nouvel onglet à côté de de votre script :</p>
 <p><img src="img/rstudio_17.png" class="img-fluid" style="width:100.0%"></p>
-<p>Il est important de sauvegarder régulièrement votre script pour ne pas perdre votre travail. Pour cela, cliquez sur l’icône disquette en haut de votre script :</p>
-<p><img src="img/rstudio_18.png" class="img-fluid" style="width:100.0%"></p>
-<p>Choisissez le dossier où sera sauvegardé votre script - <strong>R</strong> dans notre cas, et nommez votre script puis cliquez sur <strong>Save</strong> :</p>
-<p><img src="img/rstudio_19.png" class="img-fluid" style="width:100.0%"></p>
-<div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Raccourcis clavier : sauvegarder un script
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Pour sauvegarder un script, uilisez la combinaison <strong>Ctrl + S</strong></p>
-</div>
-</div>
+<p>Il est important de sauvegarder régulièrement votre script pour ne pas perdre votre travail.</p>
 
 
 </section>
