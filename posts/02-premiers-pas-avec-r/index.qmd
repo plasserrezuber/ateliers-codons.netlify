@@ -19,7 +19,7 @@ format:
 <br>
 
 ::: {.callout-note icon="true"}
-#### Note
+## Note
 
 Pour savoir comment installer R et RStudio, cliquez [ici](https://ateliers-codons.netlify.app/posts/01-installer-r-et-rstudio/)
 :::
@@ -38,7 +38,7 @@ Il a été développé par **Ross Ihaka** et **Robert Gentleman**, du Départeme
 <br>
 
 ::: {.callout-tip icon="true"}
-#### Quelques dates
+## Quelques dates
 
 |      |                                                                                                                                     |
 |------------|------------------------------------------------------------|
@@ -60,7 +60,7 @@ Contrairement à d'autres logiciels de statistiques comme Minitab ou SPSS, R peu
 <br>
 
 ::: {.callout-tip icon="true"}
-#### Quelques avantages de R
+## Quelques avantages de R
 
 -   C'est un outil **libre et open source** (tout le monde peut utiliser le code et voir comment il fonctionne)\
 -   C'est un langage de programmation plutôt qu'une interface graphique, ce qui permet à l'utilisateur de sauvegarder facilement des **scripts** sous forme de texte pour les ré-utiliser ou les partager\
@@ -79,7 +79,7 @@ En ouvrant RStudio, vous verrez une fenêtre comme celle ci-dessous, qui se divi
 
 <br>
 
-## La console
+### La console
 
 Vous pouvez y taper du code et l'exécuter en appuyant sur `Entrée`.
 
@@ -93,7 +93,7 @@ Dans la console, une ligne commence par `>` : c'est ce qu'on appelle l'**invite 
 Tapez `2+2` puis appuyez sur `Entrée` : la console affiche le résultat.
 :::
 
-## L'environnement
+### L'environnement
 
 L'environnement affiche le contenu de votre espace de travail : données importées, objets créés, fonctions définies, ...
 
@@ -105,11 +105,35 @@ R est un langage orienté objet, ce qui veut dire que tout ce que vous manipulez
 
 D'autres onglets vous permettent d'accéder à l'historique des commandes ou encore à des tutoriels (pour les versions les plus récentes de RStudio).
 
-## Le navigateur
+### Le navigateur
 
 Ce navigateur vous permet de navigeur dans vos dossiers, de copier, renommer ou supprimer des fichiers, à la manière d'un explorateur classique.
 
 Les autres onglets permettent de visualiser les graphiques ou encore d'afficher l'aide.
+
+### Le script
+
+::: {.callout-important icon="true"}
+## Important
+
+Le code tapé et exécuté dans la console ne sera plus disponible quand vous quitterez votre session RStudio. A la manière d'un document Word, un script vous permet de sauvegarder votre code afin d'y accéder ultérieurement ou de le partager.
+:::
+
+Pour ouvrir un nouveau script, cliquez sur le "plus" dans le coin supérieur gauche de la fenêtre RStudio puis sur **R Script**.
+
+![](img/rstudio_09.png){width="100%"}
+
+::: {.callout-tip icon="true"}
+## Raccourcis clavier : nouveau script
+
+Pour ouvrir un nouveau script, utilisez la combinaison **Ctrl + Shift + N**
+:::
+
+Un nouveau panneau s'affiche :
+
+![](img/rstudio_10.png){width="100%"}
+
+::: {.callout-caution icon="true"}
 
 # Organiser ses fichiers
 
@@ -166,29 +190,7 @@ L'organisation proposée ci-dessous est utilisable dans une très grande majorit
 
 ![](img/rstudio_08.png){width="100%"}
 
-# Utiliser un script
 
-::: {.callout-important icon="true"}
-### Important
-
-Le code tapé et exécuté dans la console ne sera plus disponible quand vous quitterez votre session RStudio. A la manière d'un document Word, un script vous permet de sauvegarder votre code afin d'y accéder ultérieurement ou de le partager.
-:::
-
-Pour ouvrir un nouveau script, cliquez sur le "plus" dans le coin supérieur gauche de la fenêtre RStudio puis sur **R Script**.
-
-![](img/rstudio_09.png){width="100%"}
-
-::: {.callout-tip icon="true"}
-## Raccourcis clavier : nouveau script
-
-Pour ouvrir un nouveau script, utilisez la combinaison **Ctrl + Shift + N**
-:::
-
-Un nouveau panneau s'affiche :
-
-![](img/rstudio_10.png){width="100%"}
-
-::: {.callout-caution icon="true"}
 ## Bonne pratiques : commenter ses scripts
 
 Prenez dès maintenant l'habitude de commenter vos scripts. Il s'agit de rédiger des commentaires qui expliquent ce que fait votre code, pour le rendre plus compréhensible par vos collègues - et par vous-même quand vous reviendrez sur un script après un certain temps ! Pour ajouter un commentaire, utiliser un `#` au début d'une ligne puis rédigez votre commentaire. Dans R, un code placé après un `#` n'est pas exécuté :
