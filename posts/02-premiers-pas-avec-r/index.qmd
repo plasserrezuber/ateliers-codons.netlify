@@ -192,21 +192,9 @@ L'organisation proposée ci-dessous est utilisable dans une très grande majorit
 ![](img/rstudio_08.png){width="100%"}
 # Flux de travail
 
-## Ouvrir un script
+## Importer les données
 
-Si ce n'est pas encore fait, ouvrez un nouveau script et sauvegardez-le en cliquant sur l'icône disquette en haut de votre script :
-
-![](img/rstudio_18.png){width="100%"}
-
-Choisissez le dossier où sera sauvegardé votre script - **scripts** dans notre cas, et nommez votre script puis cliquez sur **Save** :
-
-![](img/rstudio_19.png){width="100%"}
-
-::: {.callout-tip icon="true"}
-## Raccourcis clavier : sauvegarder un script
-
-Pour sauvegarder un script, uilisez la combinaison **Ctrl + S**
-:::
+Si ce n'est pas encore fait, ouvrez un nouveau script.
 
 ::: {.callout-caution icon="true"}
 ## Bonne pratiques : commenter ses scripts
@@ -233,6 +221,24 @@ Pour commencer, ajoutons des informations en haut de notre script :
 
 Pour commenter ou dé-commenter une ligne de code, utilisez la combinaison **Ctrl + Shift + C**.
 :::
+
+Sauvegardez votre script (et pensez à le faire régulièrement !) en cliquant sur l'icône disquette en haut de votre script :
+
+![](img/rstudio_18.png){width="100%"}
+
+Choisissez le dossier où sera sauvegardé votre script - **scripts** dans notre cas, et nommez votre script puis cliquez sur **Save** :
+
+![](img/rstudio_19.png){width="100%"}
+
+::: {.callout-tip icon="true"}
+## Raccourcis clavier : sauvegarder un script
+
+Pour sauvegarder un script, uilisez la combinaison **Ctrl + S**
+:::
+
+
+
+
 
 # Manipuler des données
 
