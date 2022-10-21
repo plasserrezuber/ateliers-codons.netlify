@@ -120,7 +120,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   }
 }</script>
 
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -541,8 +540,49 @@ Raccourcis clavier : flèche d’assignation
 </div>
 <p>Exécutez cette fonction en plaçant le curseur sur la ligne et en cliquant sur <strong>Run</strong> :</p>
 <p><img src="img/rstudio_11.png" class="img-fluid" style="width:100.0%"></p>
-<p>::: {.callout-tip icon=“true”} ## Raccourcis clavier : exécuter du code</p>
-<p>Pour exécuter une ou plusieurs lignes de code, sélectionnez les lignes et utilisez la combinaison <strong>Ctrl + Entrée</strong> :::Sauvegardez votre script (et pensez à le faire régulièrement !) en cliquant sur l’icône disquette en haut de votre script :</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Raccourcis clavier : exécuter du code
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Pour exécuter une ou plusieurs lignes de code, sélectionnez les lignes et utilisez la combinaison <strong>Ctrl + Entrée</strong></p>
+</div>
+</div>
+<p>Notre environnement contient maintenant un objet <strong>pingouins</strong>, et vous pouvez voir l’indication <code>344 obs. of 9 variables</code> : le jeu de données contient 344 observations (lignes) et 9 variables (colonnes).</p>
+<p><img src="img/rstudio_12.png" class="img-fluid" style="width:100.0%"></p>
+<p>En cliquant sur la flèche bleue à gauche du nom de l’objet, vous aurez accès à plus d’informations :</p>
+<p><img src="img/rstudio_13.png" class="img-fluid" style="width:100.0%"></p>
+<ul>
+<li><strong>Noms des variables</strong> : le tableau contient 9 variables dont les noms sont précédés du signe <strong>$</strong>.</li>
+</ul>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+L’opérateur <strong>$</strong>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Cet opérateur permet de sélectionner la colonne d’un tableau. Dans la console, tapez <code>pingouins$</code> et appuyez sur <strong>Tab</strong>.</p>
+<p><img src="img/rstudio_15.png" class="img-fluid" style="width:100.0%"> Vous pouvez choisir la variable qui vous intéresse à l’aide des <strong>flèches haut et bas</strong> (<em>Espece</em> par exemple) puis appuyer à nouveau sur <strong>Tab</strong> pour valider. Vous verrez alors s’afficher les 344 observations de cette variable. <img src="img/rstudio_16.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
+<ul>
+<li><p><strong>Types des variables</strong> : indique s’il s’agit d’une variable de type <strong>caractère (<code>chr</code>)</strong>, d’une variable contenant des <strong>nombres entiers (<code>int</code>)</strong> ou des <strong>nombres décimaux (<code>num</code>)</strong>. Une variable peut également être de type <strong>logique (<code>log</code>)</strong> (<em>TRUE</em> ou <em>FALSE</em>).</p></li>
+<li><p><strong>Premiers éléments de chaque variable</strong>.</p></li>
+</ul>
+<p>Vous pouvez afficher le tableau en cliquant sur l’icône à droite du nom de l’objet dans l’environnement :</p>
+<p><img src="img/rstudio_14.png" class="img-fluid" style="width:100.0%"></p>
+<p>Cela ouvre un nouvel onglet à côté de de votre script :</p>
+<p><img src="img/rstudio_17.png" class="img-fluid" style="width:100.0%"></p>
+<p>Avant d’aller plus loin, sauvegardez votre script en cliquant sur l’icône disquette en haut de votre script :</p>
 <p><img src="img/rstudio_18.png" class="img-fluid" style="width:100.0%"></p>
 <p>Choisissez le dossier où sera sauvegardé votre script - <strong>scripts</strong> dans notre cas, et nommez votre script puis cliquez sur <strong>Save</strong> :</p>
 <p><img src="img/rstudio_19.png" class="img-fluid" style="width:100.0%"></p>
@@ -559,21 +599,6 @@ Raccourcis clavier : sauvegarder un script
 <p>Pour sauvegarder un script, uilisez la combinaison <strong>Ctrl + S</strong></p>
 </div>
 </div>
-<p>Notre environnement contient maintenant un objet <strong>oiseaux</strong>, et vous pouvez voir l’indication <code>172 obs. of 4 variables</code> : le jeu de données contient 172 observations (lignes) et 4 variables (colonnes).</p>
-<p><img src="img/rstudio_12.png" class="img-fluid" style="width:100.0%"></p>
-<p>En cliquant sur la flèche bleue à gauche du nom de l’objet, vous aurez accès à plus d’informations :</p>
-<p><img src="img/rstudio_13.png" class="img-fluid" style="width:100.0%"></p>
-<p><strong>Nom des variables</strong> : le tableau contient 4 variables nommées <em>description</em>, <em>categorie</em>, <em>nom_francais</em> et <em>nom_latin</em>. Le signe <span class="math inline">\(** devant les noms de variables indique qu'il s'agit de colonnes : l'opérateur dollar permet de sélectionner une colonne dans un tableau. Essayez en tapant dans la console **oiseaux\)</span> et appuyez sur <strong>Tab</strong> :</p>
-<p><img src="img/rstudio_15.png" class="img-fluid" style="width:100.0%"></p>
-<p>Choisissez la première colonne <em>description</em> et appuyez sur <strong>Tab</strong> : vous verrez s’afficher les 172 observations de la colonne en question :</p>
-<p><img src="img/rstudio_16.png" class="img-fluid" style="width:100.0%"></p>
-<p><strong>Type de variable</strong> : à la suite du nom de variable, <strong>chr</strong> indique qu’il s’agit d’une variable de type caractère. D’autres types de variables fréquemment rencontrés sont les variables <strong>numériques</strong> (nombres entiers ou décimaux) et les variables <strong>logiques</strong> (vrai ou faux).</p>
-<p><strong>Premiers éléments de chaque variable</strong> : à la suite du type de variable, vous pouvez voir les premiers éléments de chacune des variables.</p>
-<p>Vous pouvez afficher le tableau en cliquant sur l’icône à droite :</p>
-<p><img src="img/rstudio_14.png" class="img-fluid" style="width:100.0%"></p>
-<p>Cela ouvre un nouvel onglet à côté de de votre script :</p>
-<p><img src="img/rstudio_17.png" class="img-fluid" style="width:100.0%"></p>
-<p>Il est important de sauvegarder régulièrement votre script pour ne pas perdre votre travail.</p>
 
 
 </section>
