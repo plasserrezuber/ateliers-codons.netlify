@@ -42,7 +42,7 @@ Il a été développé par **Ross Ihaka** et **Robert Gentleman**, du Départeme
 ## Quelques dates
 
 |      |                                                                                                                                     |
-|------------------|------------------------------------------------------|
+|-------------------|-----------------------------------------------------|
 | 1991 | Création du langage R                                                                                                               |
 | 1993 | R est dévoilé au public                                                                                                             |
 | 1996 | [Article dans le *Journal of Computational and Graphical Statistics*](https://www.stat.auckland.ac.nz/~ihaka/downloads/R-paper.pdf) |
@@ -333,9 +333,9 @@ Pour sauvegarder un script, uilisez la combinaison **Ctrl + S**
 
 Une des premières choses à faire est de vous assurer que vos données ont été correctement importées. Les outils proposés par R vous permettent d'effectuer des analyses, mais c'est à vous de vous assurer que vos données sont au bon format.
 
-Pour cette étape d'exploration des données, vous pouvez taper le code directement dans la console. 
+Pour cette étape d'exploration des données, vous pouvez taper le code directement dans la console.
 
-Plusieurs fonctions vous permettent d'explorer rapidement vos données : 
+Plusieurs fonctions vous permettent d'explorer rapidement vos données :
 
 ```{r, echo=TRUE, eval=FALSE}
 # Afficher les premieres lignes du tableau
@@ -353,28 +353,26 @@ Vous remarquerez que la fonction `str(pingouins)` affiche des informations très
 ::: {.callout-tip icon="true"}
 ## Afficher l'aide d'une fonction
 
-Vous pouvez afficher l'aide d'une fonction de deux manières :  
-- taper `help(fonction)` (pensez à l'auto-complétion !) 
-- taper `?fonction`
+Vous pouvez afficher l'aide d'une fonction de deux manières :\
+- taper `help(fonction)` (pensez à l'auto-complétion !) - taper `?fonction`
 
 Essayez en tapant dans la console `?he` puis appuyez sur **Tab** : R vous propose une liste de fonctions commençant par **he**. Utilisez les flèches haut et bas pour choisir la fonction **head**. Une petite fenêtre vous donne un aperçu du contenu de l'aide pour la fonction (utile quand vous hésitez entre plusieurs fonctions). Une fois la fonction sélectionnée, appuyez sur la touche **F1** pour afficher l'aide complète dans l'onglet **Help**.
 
-L'aide d'une fonction contient plusieurs paragraphes :  
+L'aide d'une fonction contient plusieurs paragraphes :
 
-- une **description** de la fonction  
-- **comment utiliser** la fonction  
-- les **arguments** de la fonction  
-- les **détails** de la fonction (quel type de données en entrée, des précisions sur les arguments, ...)  
-- ce que la fonction retourne en **sortie**  
-- des **notes** additionnelles  
-- les **auteurs** qui ont contribué à l'écriture du code de la fonction  
-- des **exemples** sur l'utilisation de la fonction (avec possibilité d'exécuter ces exemples)
+-   une **description** de la fonction\
+-   **comment utiliser** la fonction\
+-   les **arguments** de la fonction\
+-   les **détails** de la fonction (quel type de données en entrée, des précisions sur les arguments, ...)\
+-   ce que la fonction retourne en **sortie**\
+-   des **notes** additionnelles\
+-   les **auteurs** qui ont contribué à l'écriture du code de la fonction\
+-   des **exemples** sur l'utilisation de la fonction (avec possibilité d'exécuter ces exemples)
 
 Dans le cas de `head()`, vous pouvez voir que par défaut, la fonction retournera les 6 premières lignes (`n = 6L`, **L** indiquant qu'il s'agit d'un nombre entier). Pour afficher uniquement les deux premières lignes du tableau *pingouins*, il vous faudrait modifier cet argument : `head(pingouins, n = 2L)`
-
 :::
 
-Vous pouvez explorer une variable d'intérêt : 
+Vous pouvez explorer une variable d'intérêt :
 
 ```{r, echo=TRUE, eval=FALSE}
 # Afficher les premiers elements d'une variable
@@ -393,7 +391,7 @@ typeof(pingouins$`Masse corporelle (g)`)
 ::: {.callout-tip icon="true"}
 ## Les données manquantes
 
-Si vous tapez `head(pingouins$`Masse corporelle (g)`)` dans la console, vous verrez un élément **NA**. Il s'agit d'une donnée manquante (**Not Available**) : aucune mesure n'a été relevée chez cet individu pour cette variable. 
+Si vous tapez `head(pingouins$`Masse corporelle (g)`)` dans la console, vous verrez un élément **NA**. Il s'agit d'une donnée manquante (**Not Available**) : aucune mesure n'a été relevée chez cet individu pour cette variable.
 
 Cette valeur **NA** est à différencier de la valeur **NaN (Not a Number)** également rencontrée dans R. Il s'agit alors du résultat d'une opération arithmétique invalide, telle que 0/0.
 :::
@@ -403,11 +401,11 @@ La fonction `dim(pingouins)` permet d'afficher les **dimensions** du tableau (**
 ::: {.callout-tip icon="true"}
 ## Sélectionner des données
 
-Dans R, la sélection de données, que ce soit une cellule, une ligne ou une colonne d'un tableau, ou encore un élément dans une chaîne, s'effectue à l'aide des **crochets []**. 
-  
-- Dans le cas d'un objet à **deux dimensions**, la sélection s'effectue en précisant deux paramètres séparés par une virgule : la ou les ligne(s) et la ou les colonne(s). Pour sélectionner l'ensemble d'une des deux dimensions, on utilise un espace vide d'un côté ou de l'autre de la virgule. Pour sélectionner plusieurs lignes ou colonnes, vous pouvez utiliser soit l'opérateur `:` si les lignes ou les colonnes se suivent, soit l'opérateur de concaténation `c()` (vous pouvez combiner les deux).
+Dans R, la sélection de données, que ce soit une cellule, une ligne ou une colonne d'un tableau, ou encore un élément dans une chaîne, s'effectue à l'aide des **crochets \[\]**.
 
-- Pour un objet à **une seule dimension**, un seul paramètre est nécessaire (de la même façon, vous pouvez combiner les éléments avec les opérateurs `:` et `c()`) :
+-   Dans le cas d'un objet à **deux dimensions**, la sélection s'effectue en précisant deux paramètres séparés par une virgule : la ou les ligne(s) et la ou les colonne(s). Pour sélectionner l'ensemble d'une des deux dimensions, on utilise un espace vide d'un côté ou de l'autre de la virgule. Pour sélectionner plusieurs lignes ou colonnes, vous pouvez utiliser soit l'opérateur `:` si les lignes ou les colonnes se suivent, soit l'opérateur de concaténation `c()` (vous pouvez combiner les deux).
+
+-   Pour un objet à **une seule dimension**, un seul paramètre est nécessaire (de la même façon, vous pouvez combiner les éléments avec les opérateurs `:` et `c()`) :
 
 ```{r, echo=TRUE, eval=FALSE}
 # Selectionner la 3e ligne et la 5e colonne : 
@@ -432,7 +430,6 @@ pingouins[c(50, 100:105), ]
 pingouins$Ile[45]
 
 ```
-
 :::
 
 ## Corriger des données
@@ -441,23 +438,22 @@ La fonction `summary(pingouins)` est particulièrement intéressante pour avoir 
 
 ![](img/rstudio_22.png){width="100%"}
 
-Les informations affichées à l'aide de cette fonction dépendent du type de variable : 
+Les informations affichées à l'aide de cette fonction dépendent du type de variable :
 
-- **nombre d'éléments** pour les variables de type **caractère**  
-- **statistiques** pour les variables de type **numérique**
+-   **nombre d'éléments** pour les variables de type **caractère**\
+-   **statistiques** pour les variables de type **numérique**
 
-Il peut arriver que certaines variables soient mal catégorisées. Les deux cas de figure les plus répandus sont les suivants : 
+Il peut arriver que certaines variables soient mal catégorisées. Les deux cas de figure les plus répandus sont les suivants :
 
-- les catégories d'une variable sont représentées par des valeurs numériques et R considère cette variable comme étant numérique (par exemple *Echantillon Numero*)  
-- les catégories d'une variable ne sont pas prises en compte et R considère cette variable comme étant simplement une chaîne de caractères (par exemple **Espece** et **Ile**) ou de valeurs numériques.
+-   les catégories d'une variable sont représentées par des valeurs numériques et R considère cette variable comme étant numérique (par exemple *Echantillon Numero*)\
+-   les catégories d'une variable ne sont pas prises en compte et R considère cette variable comme étant simplement une chaîne de caractères (par exemple **Espece** et **Ile**) ou de valeurs numériques.
 
 ::: {.callout-tip icon="true"}
 ## Vecteurs et facteurs
 
-On désigne par **vecteur** un objet uni-dimensionnel contenant des éléments d'un seul type (caractères, valeurs numériques ou logiques). Un tableau est constitué de vecteurs situés dans les colonnes. 
+On désigne par **vecteur** un objet uni-dimensionnel contenant des éléments d'un seul type (caractères, valeurs numériques ou logiques). Un tableau est constitué de vecteurs situés dans les colonnes.
 
 Un **facteur** est un vecteur dont les éléments peuvent être regroupés en catégories (on parle de **niveaux**).
-
 :::
 
 Si vous ne connaissez pas dans le détail votre jeu de données, vous pouvez avoir une idée de sa structure sous-jacente en comptant le nombre d'éléments uniques des différentes variables à l'aide des fonctions `unique()` et `length()`
@@ -482,7 +478,7 @@ pingouins$Ile <- as.factor(pingouins$Ile)
 
 ```
 
-Vérifiez que les corrections apportées aient bien été appliquées au jeu de données : 
+Vérifiez que les corrections apportées aient bien été appliquées au jeu de données :
 
 ![](img/rstudio_23.png){width="100%"}
 
@@ -496,5 +492,4 @@ Votre script commence à être bien fourni. Vous pouvez le diviser en différent
 En cliquant sur l'icône **Menu** à droite vous aurez accès à une table des matières dans laquelle vous pourrez naviguer en cliquant sur la partie qui vous intéresse.
 
 ![](img/rstudio_25.png){width="100%"}
-
 :::
