@@ -130,7 +130,7 @@
     "href": "posts/03-introduction-tidyverse/index.html#installer-et-charger-le-tidyverse",
     "title": "Introduction au Tidyverse",
     "section": "Installer et charger le Tidyverse",
-    "text": "Installer et charger le Tidyverse\nLa fonction install.packages() permet de télécharger un package. Une fois téléchargé, il vous faudra charger le package dans votre session (pour rendre ses fonctions disponibles) à l’aide de la fonction library() :\n\n# Telecharger le Tidyverse\ninstall.packages(\"tidyverse\")\n\n# Charger le package\nlibrary(tidyverse)\n\nCommençons par installer la suite Tidyverse (nous pourrions également installer séparément les packages que nous allons utiliser, dplyr et tidyr) :\n\n# Installer le Tidyverse\ninstall.packages(\"tidyverse\")"
+    "text": "Installer et charger le Tidyverse\nLa fonction install.packages() permet de télécharger un package. Une fois téléchargé, il vous faudra charger le package dans votre session (pour rendre ses fonctions disponibles) à l’aide de la fonction library() :\n\n# Telecharger le Tidyverse\ninstall.packages(\"tidyverse\")\n\n# Charger le package\nlibrary(tidyverse)\n\n\n\n\n\n\n\nAttention aux guillemets\n\n\n\nVous remarquerez la présence de guillemets dans l’appel à la fonction install.packages() et leur absence dans l’appel à la fonction library().\n\n\nVous pourriez également n’installer et ne charger que les packages qui vous intéressent (par exemple readr et dplyr), plutôt que la suite complète."
   },
   {
     "objectID": "posts/03-introduction-tidyverse/index.html#rename",
