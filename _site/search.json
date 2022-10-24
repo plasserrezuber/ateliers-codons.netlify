@@ -116,7 +116,21 @@
     "href": "posts/03-introduction-tidyverse/index.html#quest-ce-que-le-tidyverse",
     "title": "Introduction au Tidyverse",
     "section": "Qu’est-ce que le Tidyverse ?",
-    "text": "Qu’est-ce que le Tidyverse ?\n\n\n\nAllison Horst\n\n\nLe Tidyverse est un ensemble de packages permettant :\n\nd’importer et d’exporter des données (package readr)\n\nde manipuler des données (package dplyr)\n\nde mettre en forme des données (package tidyr)\n\nde créer des graphiques (package ggplot2)\n\nde manipuler des chaînes (package stringr)\n\nde manipuler des facteurs (package forcats)\n\nde manipuler des dates (package lubridate)\n\n\n\n\n\n\n\nLes packages\n\n\n\nUn package R contient permet d’apporter des fonctionnalités supplémentaires. Il existe des packages pour tout un tas d’applications.\n\n\n\nCommençons par installer la suite Tidyverse (nous pourrions également installer séparément les packages que nous allons utiliser, dplyr et tidyr) :\n\n# Installer le Tidyverse\ninstall.packages(\"tidyverse\")"
+    "text": "Qu’est-ce que le Tidyverse ?\n\n\n\nAllison Horst\n\n\nLe Tidyverse est un ensemble de packages permettant :\n\nd’importer et d’exporter des données (package readr)\n\nde manipuler des données (package dplyr)\n\nde mettre en forme des données (package tidyr)\n\nde créer des graphiques (package ggplot2)\n\nde manipuler des chaînes (package stringr)\n\nde manipuler des facteurs (package forcats)\n\nde manipuler des dates (package lubridate)\n\n\n\n\n\n\n\nLes packages\n\n\n\nUn package R contient permet d’apporter des fonctionnalités supplémentaires. Il existe des packages pour tout un tas d’applications."
+  },
+  {
+    "objectID": "posts/03-introduction-tidyverse/index.html#organiser-son-travail",
+    "href": "posts/03-introduction-tidyverse/index.html#organiser-son-travail",
+    "title": "Introduction au Tidyverse",
+    "section": "Organiser son travail",
+    "text": "Organiser son travail\n\nCréez un nouveau projet\nCréez l’arborescence\nOuvrez un nouveau script et remplissez l’en-tête (voir ci-dessous)"
+  },
+  {
+    "objectID": "posts/03-introduction-tidyverse/index.html#installer-et-charger-le-tidyverse",
+    "href": "posts/03-introduction-tidyverse/index.html#installer-et-charger-le-tidyverse",
+    "title": "Introduction au Tidyverse",
+    "section": "Installer et charger le Tidyverse",
+    "text": "Installer et charger le Tidyverse\nLa fonction install.packages() permet de télécharger un package. Une fois téléchargé, il vous faudra charger le package dans votre session (pour rendre ses fonctions disponibles) à l’aide de la fonction library() :\n\n# Telecharger le Tidyverse\ninstall.packages(\"tidyverse\")\n\n# Charger le package\nlibrary(tidyverse)\n\nCommençons par installer la suite Tidyverse (nous pourrions également installer séparément les packages que nous allons utiliser, dplyr et tidyr) :\n\n# Installer le Tidyverse\ninstall.packages(\"tidyverse\")"
   },
   {
     "objectID": "posts/03-introduction-tidyverse/index.html#rename",
