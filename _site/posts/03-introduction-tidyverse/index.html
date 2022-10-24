@@ -214,6 +214,7 @@ background-size: cover;
   </ul></li>
   <li><a href="#exploration-du-tidyverse" id="toc-exploration-du-tidyverse" class="nav-link" data-scroll-target="#exploration-du-tidyverse">Exploration du Tidyverse</a>
   <ul class="collapse">
+  <li><a href="#importer-les-données" id="toc-importer-les-données" class="nav-link" data-scroll-target="#importer-les-données">Importer les données</a></li>
   <li><a href="#rename" id="toc-rename" class="nav-link" data-scroll-target="#rename">Renommer des variables avec <code>rename()</code></a></li>
   <li><a href="#select" id="toc-select" class="nav-link" data-scroll-target="#select">Sélectionner des colonnes avec <code>select()</code></a></li>
   <li><a href="#filter" id="toc-filter" class="nav-link" data-scroll-target="#filter">Filtrer des données avec <code>filter()</code></a></li>
@@ -353,6 +354,8 @@ Attention aux guillemets
 </section>
 <section id="exploration-du-tidyverse" class="level1 page-columns page-full">
 <h1>Exploration du Tidyverse</h1>
+<section id="importer-les-données" class="level2">
+<h2 class="anchored" data-anchor-id="importer-les-données">Importer les données</h2>
 <p>Les fonctions proposées dans les différents packages de la suite Tidyverse sont - en règle générale - nommées d’après les actions qu’elles accomplissent, ce qui rend leur mémorisation plus simple et leur utilisation plus intuitive.</p>
 <p>Nous allons utiliser le même <a href="https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/">jeu de données</a> que dans le tutoriel <a href="https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/">Premiers pas avec R</a>.</p>
 <ul>
@@ -393,6 +396,7 @@ Bonne pratique : package + fonction
 <p><br></p>
 <p>Lorsque vous exécutez la commande <code>head(croissance)</code>, vous pouvez remarquer dans la console la mention “A tibble”. Un <a href="https://tibble.tidyverse.org/index.html"><strong>tibble</strong></a> est un format particulier de tableau utilisé dans le Tidyverse. Il présente notamment l’avantage d’afficher les <strong>types de variables</strong> sous les noms de colonnes.</p>
 <p><br></p>
+</section>
 <section id="rename" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="rename">Renommer des variables avec <code>rename()</code></h2>
 <p>Cette fonction s’utilise de la façon suivante : <code>rename(objet, nouveau_nom = ancien_nom)</code>.</p>

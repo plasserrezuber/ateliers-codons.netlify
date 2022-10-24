@@ -94,6 +94,8 @@ Vous pourriez également n'installer et ne charger que les packages qui vous int
 
 # Exploration du Tidyverse
 
+## Importer les données
+
 Les fonctions proposées dans les différents packages de la suite Tidyverse sont - en règle générale - nommées d'après les actions qu'elles accomplissent, ce qui rend leur mémorisation plus simple et leur utilisation plus intuitive.
 
 Nous allons utiliser le même [jeu de données](https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/) que dans le tutoriel [Premiers pas avec R](https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/).
