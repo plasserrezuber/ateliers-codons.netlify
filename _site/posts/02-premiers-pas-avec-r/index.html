@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.36">
+<meta name="generator" content="quarto-1.0.32">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -209,7 +209,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul class="collapse">
   <li><a href="#créer-un-projet" id="toc-créer-un-projet" class="nav-link" data-scroll-target="#créer-un-projet">Créer un projet</a></li>
   <li><a href="#créer-une-arborescence" id="toc-créer-une-arborescence" class="nav-link" data-scroll-target="#créer-une-arborescence">Créer une arborescence</a></li>
+  </ul></li>
+  <li><a href="#flux-de-travail" id="toc-flux-de-travail" class="nav-link" data-scroll-target="#flux-de-travail">Flux de travail</a>
+  <ul class="collapse">
   <li><a href="#importer-les-données" id="toc-importer-les-données" class="nav-link" data-scroll-target="#importer-les-données">Importer les données</a></li>
+  <li><a href="#explorer-les-données" id="toc-explorer-les-données" class="nav-link" data-scroll-target="#explorer-les-données">Explorer les données</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -437,8 +441,11 @@ Bonne pratiques : nommer ses fichiers et dossiers
 </li>
 <li><strong>docs</strong> : contient les rapports rédigés au cours de l’analyse, les présentations de résultats, des articles en lien avec l’analyse, les documents concernant les outils utlisés, …</li>
 </ul>
-<p><img src="img/rstudio_08.png" class="img-fluid" style="width:100.0%"> # Flux de travail</p>
+<p><img src="img/rstudio_08.png" class="img-fluid" style="width:100.0%"></p>
 </section>
+</section>
+<section id="flux-de-travail" class="level1">
+<h1>Flux de travail</h1>
 <section id="importer-les-données" class="level2">
 <h2 class="anchored" data-anchor-id="importer-les-données">Importer les données</h2>
 <p>Si ce n’est pas encore fait, ouvrez un nouveau script.</p>
@@ -599,6 +606,48 @@ Raccourcis clavier : sauvegarder un script
 <p>Pour sauvegarder un script, uilisez la combinaison <strong>Ctrl + S</strong></p>
 </div>
 </div>
+</section>
+<section id="explorer-les-données" class="level2">
+<h2 class="anchored" data-anchor-id="explorer-les-données">Explorer les données</h2>
+<p>Une des premières choses à faire est de vous assurer que vos données ont été correctement importées. Les outils proposés par R vous permettent d’effectuer des analyses, mais c’est à vous de vous assurer que vos données sont au bon format.</p>
+<p>Pour cette étape d’exploration des données, vous pouvez taper le code directement dans la console.</p>
+<p>Plusieurs fonctions vous permettent d’explorer rapidement vos données :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Afficher les premieres lignes du tableau</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(pingouins)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Afficher les dernieres lignes du tableau</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(pingouins)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Afficher la structure du tableau</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(pingouins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Vous remarquerez que la fonction <code>str(pingouins)</code> affiche des informations très proches de celles obtenues en cliquant sur la flèche bleue à gauche de l’objet pingouins dans l’environnement.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Afficher l’aide d’une fonction
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Vous pouvez afficher l’aide d’une fonction de deux manières :<br>
+- taper <code>help(*fonction*)</code> (pensez à l’auto-complétion !) - taper <code>?*fonction*</code></p>
+<p>Essayer en tapant dans la console <code>?he</code> dans la console puis sur <strong>Tab</strong> : R vous propose une liste de fonctions commençant par <strong>he</strong>. Utilisez les flèches haut et bas pour choisir la fonction <strong>head</strong>. Une petite fenêtre vous donne un aperçu du contenu de l’aide pour la fonction (utile quand vous hésitez entre plusieurs fonctions). Une fois la fonction sélectionnée, appuyez sur la touche <strong>F1</strong> pour afficher l’aide complète dans l’onglet <strong>Help</strong>.</p>
+<p><img src="img/rstudio_21.png" class="img-fluid" style="width:100.0%"></p>
+<p>L’aide d’une fonction contient plusieurs paragraphes : - une <strong>description</strong> de la fonction<br>
+- <strong>comment utiliser</strong> la fonction<br>
+- les <strong>arguments</strong> de la fonction<br>
+- les <strong>détails</strong> de la fonction (quel type de données en entrée, des précisions sur les arguments, …)<br>
+- ce que la fonction retourne en <strong>sortie</strong><br>
+- des <strong>notes</strong> additionnelles<br>
+- les <strong>auteurs</strong> qui ont contribué à l’écriture du code de la fonction<br>
+- des <strong>exemples</strong> sur l’utilisation de la fonction (avec possibilité d’exécuter ces exemples)</p>
+</div>
+</div>
+<p>Dans le cas de <code>head()</code>, vous pouvez voir que par défaut, la fonction retournera les 6 premières lignes (<code>n = 6L</code>)</p>
 
 
 </section>
