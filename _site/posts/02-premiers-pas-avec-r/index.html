@@ -634,7 +634,7 @@ Afficher l’aide d’une fonction
 </div>
 <div class="callout-body-container callout-body">
 <p>Vous pouvez afficher l’aide d’une fonction de deux manières :<br>
-- taper <code>help(\*fonction\*)</code> (pensez à l’auto-complétion !) - taper <code>?\*fonction\*</code></p>
+- taper <code>help(fonction)</code> (pensez à l’auto-complétion !) - taper <code>?fonction</code></p>
 <p>Essayez en tapant dans la console <code>?he</code> puis appuyez sur <strong>Tab</strong> : R vous propose une liste de fonctions commençant par <strong>he</strong>. Utilisez les flèches haut et bas pour choisir la fonction <strong>head</strong>. Une petite fenêtre vous donne un aperçu du contenu de l’aide pour la fonction (utile quand vous hésitez entre plusieurs fonctions). Une fois la fonction sélectionnée, appuyez sur la touche <strong>F1</strong> pour afficher l’aide complète dans l’onglet <strong>Help</strong>.</p>
 <p>L’aide d’une fonction contient plusieurs paragraphes :</p>
 <ul>
@@ -655,6 +655,34 @@ Afficher l’aide d’une fonction
 <li>des <strong>exemples</strong> sur l’utilisation de la fonction (avec possibilité d’exécuter ces exemples)</li>
 </ul>
 <p>Dans le cas de <code>head()</code>, vous pouvez voir que par défaut, la fonction retournera les 6 premières lignes (<code>n = 6L</code>, <strong>L</strong> indiquant qu’il s’agit d’un nombre entier). Pour afficher uniquement les deux premières lignes du tableau <em>pingouins</em>, il vous faudrait modifier cet argument : <code>head(pingouins, n = 2L)</code></p>
+</div>
+</div>
+<p>Vous pouvez explorer une variable d’intérêt :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Afficher les premiers elements d'une variable</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(pingouins<span class="sc">$</span><span class="st">`</span><span class="at">Masse corporelle (g)</span><span class="st">`</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Afficher les derniers elements d'une variable</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(pingouins<span class="sc">$</span><span class="st">`</span><span class="at">Masse corporelle (g)</span><span class="st">`</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Afficher le type, le nombre d'elements et les premiers elements d'une variable</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(pingouins<span class="sc">$</span><span class="st">`</span><span class="at">Masse corporelle (g)</span><span class="st">`</span>)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Afficher le type de variable</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(pingouins<span class="sc">$</span><span class="st">`</span><span class="at">Masse corporelle (g)</span><span class="st">`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Les données manquantes
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Si vous tapez <code>head(pingouins$</code>Masse corporelle (g)<code>)</code> dans la console, vous verrez un élément <strong>NA</strong>. Il s’agit d’une donnée manquante (<strong>Not Available</strong>) : aucune mesure n’a été relevée chez cet individu pour cette variable.</p>
+<p>Cette valeur <strong>NA</strong> est à différencier de la valeur <strong>NaN (Not a Number)</strong> également rencontrée dans R. Il s’agit alors du résultat d’une opération arithmétique invalide, telle que 0/0.</p>
 </div>
 </div>
 

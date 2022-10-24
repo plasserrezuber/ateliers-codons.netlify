@@ -354,8 +354,8 @@ Vous remarquerez que la fonction `str(pingouins)` affiche des informations très
 ## Afficher l'aide d'une fonction
 
 Vous pouvez afficher l'aide d'une fonction de deux manières :  
-- taper `help(\*fonction\*)` (pensez à l'auto-complétion !) 
-- taper `?\*fonction\*`
+- taper `help(fonction)` (pensez à l'auto-complétion !) 
+- taper `?fonction`
 
 Essayez en tapant dans la console `?he` puis appuyez sur **Tab** : R vous propose une liste de fonctions commençant par **he**. Utilisez les flèches haut et bas pour choisir la fonction **head**. Une petite fenêtre vous donne un aperçu du contenu de l'aide pour la fonction (utile quand vous hésitez entre plusieurs fonctions). Une fois la fonction sélectionnée, appuyez sur la touche **F1** pour afficher l'aide complète dans l'onglet **Help**.
 
@@ -374,5 +374,26 @@ Dans le cas de `head()`, vous pouvez voir que par défaut, la fonction retourner
 
 :::
 
+Vous pouvez explorer une variable d'intérêt : 
 
+```{r, echo=TRUE, eval=FALSE}
+# Afficher les premiers elements d'une variable
+head(pingouins$`Masse corporelle (g)`)
 
+# Afficher les derniers elements d'une variable
+tail(pingouins$`Masse corporelle (g)`)
+
+# Afficher le type, le nombre d'elements et les premiers elements d'une variable
+str(pingouins$`Masse corporelle (g)`)
+
+# Afficher le type de variable
+typeof(pingouins$`Masse corporelle (g)`)
+```
+
+::: {.callout-tip icon="true"}
+## Les données manquantes
+
+Si vous tapez `head(pingouins$`Masse corporelle (g)`)` dans la console, vous verrez un élément **NA**. Il s'agit d'une donnée manquante (**Not Available**) : aucune mesure n'a été relevée chez cet individu pour cette variable. 
+
+Cette valeur **NA** est à différencier de la valeur **NaN (Not a Number)** également rencontrée dans R. Il s'agit alors du résultat d'une opération arithmétique invalide, telle que 0/0.
+:::
