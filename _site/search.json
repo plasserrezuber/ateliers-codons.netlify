@@ -243,5 +243,12 @@
     "title": "Welcome To My Blog",
     "section": "",
     "text": "Since this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+  },
+  {
+    "objectID": "posts/03-introduction-tidyverse/index.html#importer-les-données",
+    "href": "posts/03-introduction-tidyverse/index.html#importer-les-données",
+    "title": "Introduction au Tidyverse",
+    "section": "Importer les données",
+    "text": "Importer les données\nLes fonctions proposées dans les différents packages de la suite Tidyverse sont - en règle générale - nommées d’après les actions qu’elles accomplissent, ce qui rend leur mémorisation plus simple et leur utilisation plus intuitive.\nNous allons utiliser le même jeu de données que dans le tutoriel Premiers pas avec R.\n\nSi vous aviez téléchargé ces données précédemment, copiez-les dans le dossier raw() et importez-les :\n\n\npingouins <- read_csv(\"raw/pingouins.csv\")\n\n\nVous pouvez également télécharger directement les données depuis leur emplacement en ligne :\n\n\npingouins <- read_csv(\"https://raw.githubusercontent.com/codons-blog/C-02-ManipulationDonnees/main/pingouins.csv\")\n\n\n\n\n\n\n\nBonne pratique : package + fonction\n\n\n\nDans le tutoriel Premiers pas avec R nous avions utilisé la fonction read.csv() pour importer les données, alors qu’ici nous utilisons la fonction read_csv(). Ces deux fonctions effectuent la même opération mais font partie de deux packages différents : le package {utils} pour read.csv() et le package {readr} pour read_csv. Si votre script est amené à être partagé, il est utile de préciser à quels packages vous faites appel, en utilisant la syntaxe nom-du-package::nom-de-la-fonction(). Dans notre exemple, il faudrait écrire readr::read_csv().\n\n\nIl est toujours utile de visualiser vos données et leur structure :\n\n# Exploration rapide des donnees ----\n\nhead(croissance)  # affiche les premieres lignes\nstr(croissance)  # types des variables\nunique(croissance$Zone)  # affiche les valeurs distinctes de la variable Zone\ncroissance$Indiv  # affiche toutes les valeurs de la variable Indiv\nlength(unique(croissance$Indiv))  # affiche le nombre d'individus\n\n\nLorsque vous exécutez la commande head(croissance), vous pouvez remarquer dans la console la mention “A tibble”. Un tibble est un format particulier de tableau utilisé dans le Tidyverse. Il présente notamment l’avantage d’afficher les types de variables sous les noms de colonnes."
   }
 ]
