@@ -214,6 +214,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul class="collapse">
   <li><a href="#importer-les-données" id="toc-importer-les-données" class="nav-link" data-scroll-target="#importer-les-données">Importer les données</a></li>
   <li><a href="#explorer-les-données" id="toc-explorer-les-données" class="nav-link" data-scroll-target="#explorer-les-données">Explorer les données</a></li>
+  <li><a href="#corriger-des-données" id="toc-corriger-des-données" class="nav-link" data-scroll-target="#corriger-des-données">Corriger des données</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -698,7 +699,8 @@ Sélectionner des données
 <div class="callout-body-container callout-body">
 <p>Dans R, la sélection de données, que ce soit une cellule, une ligne ou une colonne d’un tableau, ou encore un élément dans une chaîne, s’effectue à l’aide des <strong>crochets []</strong>.</p>
 <ul>
-<li>Dans le cas d’un objet à <strong>deux dimensions</strong>, la sélection s’effectue en précisant deux paramètres séparés par une virgule : la ou les ligne(s) et la ou les colonne(s). Pour sélectionner l’ensemble d’une des deux dimensions, on utilise un espace vide d’un côté ou de l’autre de la virgule. Pour sélectionner plusieurs lignes ou colonnes, vous pouvez utiliser soit l’opérateur <code>:</code> si les lignes ou les colonnes se suivent, soit l’opérateur de concaténation <code>c()</code> (vous pouvez combiner les deux).</li>
+<li><p>Dans le cas d’un objet à <strong>deux dimensions</strong>, la sélection s’effectue en précisant deux paramètres séparés par une virgule : la ou les ligne(s) et la ou les colonne(s). Pour sélectionner l’ensemble d’une des deux dimensions, on utilise un espace vide d’un côté ou de l’autre de la virgule. Pour sélectionner plusieurs lignes ou colonnes, vous pouvez utiliser soit l’opérateur <code>:</code> si les lignes ou les colonnes se suivent, soit l’opérateur de concaténation <code>c()</code> (vous pouvez combiner les deux).</p></li>
+<li><p>Pour un objet à <strong>une seule dimension</strong>, un seul paramètre est nécessaire (de la même façon, vous pouvez combiner les éléments avec les opérateurs <code>:</code> et <code>c()</code>) :</p></li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selectionner la 3e ligne et la 5e colonne : </span></span>
@@ -718,14 +720,15 @@ Sélectionner des données
 <span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Selectionner les lignes 50 et 100 à 105 : </span></span>
 <span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>pingouins[<span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">100</span><span class="sc">:</span><span class="dv">105</span>), ]</span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> Pour un objet à <span class="sc">**</span>une seule dimension<span class="sc">**</span>, un seul paramètre est nécessaire (de la même façon, vous pouvez combiner les éléments avec les éléments <span class="st">`</span><span class="at">:</span><span class="st">`</span> et <span class="st">`</span><span class="at">c()</span><span class="st">`</span>) <span class="sc">:</span> </span>
-<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Selectionner le 45e element de la variable Ile</span></span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>pingouins<span class="sc">$</span>Ile[<span class="dv">45</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Selectionner le 45e element de la variable Ile</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>pingouins<span class="sc">$</span>Ile[<span class="dv">45</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
+</section>
+<section id="corriger-des-données" class="level2">
+<h2 class="anchored" data-anchor-id="corriger-des-données">Corriger des données</h2>
 <p>La fonction <code>summary(pingouins)</code> est particulièrement intéressante pour avoir une vue d’ensemble de vos données.</p>
 <p><img src="img/rstudio_22.png" class="img-fluid" style="width:100.0%"></p>
 <p>Les informations affichées à l’aide de cette fonction dépendent du type de variable :</p>
@@ -734,6 +737,60 @@ Sélectionner des données
 </li>
 <li><strong>statistiques</strong> pour les variables de type <strong>numérique</strong></li>
 </ul>
+<p>Il peut arriver que certaines variables soient mal catégorisées. Les deux cas de figure les plus répandus sont les suivants :</p>
+<ul>
+<li>les catégories d’une variable sont représentées par des valeurs numériques et R considère cette variable comme étant numérique (par exemple <em>Echantillon Numero</em>)<br>
+</li>
+<li>les catégories d’une variable ne sont pas prises en compte et R considère cette variable comme étant simplement une chaîne de caractères (par exemple <strong>Espece</strong> et <strong>Ile</strong>) ou de valeurs numériques.</li>
+</ul>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Vecteurs et facteurs
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>On désigne par <strong>vecteur</strong> un objet uni-dimensionnel contenant des éléments d’un seul type (caractères, valeurs numériques ou logiques). Un tableau est constitué de vecteurs situés dans les colonnes.</p>
+<p>Un <strong>facteur</strong> est un vecteur dont les éléments peuvent être regroupés en catégories (on parle de <strong>niveaux</strong>).</p>
+</div>
+</div>
+<p>Si vous ne connaissez pas dans le détail votre jeu de données, vous pouvez avoir une idée de sa structure sous-jacente en comptant le nombre d’éléments uniques des différentes variables à l’aide des fonctions <code>unique()</code> et <code>length()</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extraire les elements uniques d'une variable</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(pingouins<span class="sc">$</span>Espece)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Compter le nombre d'elements uniques d'une variable</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">unique</span>(pingouins<span class="sc">$</span>Espece))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>La fonction <code>unique()</code> affiche les éléments uniques d’une variable par ordre d’apparition.</p>
+<p>La fonction <code>as.factor()</code> permet de transformer un vecteur en facteur. Par défaut, les niveaux sont triés par ordre alphabétique. Si vous le souhaitez, vous pouvez préciser manuellement l’ordre souhaité pour ces niveaux à l’aide de l’argument <code>levels</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Transformer un vecteur en facteur</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>pingouins<span class="sc">$</span><span class="st">`</span><span class="at">Echantillon Numero</span><span class="st">`</span> <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(pingouins<span class="sc">$</span><span class="st">`</span><span class="at">Echantillon Numero</span><span class="st">`</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>pingouins<span class="sc">$</span>Espece <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(pingouins<span class="sc">$</span>Espece)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>pingouins<span class="sc">$</span>Ile <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(pingouins<span class="sc">$</span>Ile)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Vérifiez que les corrections apportées aient bien été appliquées au jeu de données :</p>
+<p><img src="img/rstudio_23.png" class="img-fluid" style="width:100.0%"></p>
+<div class="callout-caution callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Bonne pratiques : structurer son script
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Votre script commence à être bien fourni. Vous pouvez le diviser en différentes parties pour simplifier la lecture. Pour cela, ajoutez des titres sous forme de commentaires et accolez des tirets (au moins quatre) pour signaler à R qu’il s’agit de divisions dans votre script.</p>
+<p><img src="img/rstudio_24.png" class="img-fluid" style="width:100.0%"></p>
+<p>En cliquant sur l’icône <strong>Menu</strong> à droite vous aurez accès à une table des matières dans laquelle vous pourrez naviguer en cliquant sur la partie qui vous intéresse.</p>
+<p><img src="img/rstudio_25.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
 
 
 </section>
