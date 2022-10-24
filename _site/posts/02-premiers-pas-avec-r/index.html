@@ -685,9 +685,50 @@ Les données manquantes
 <p>Cette valeur <strong>NA</strong> est à différencier de la valeur <strong>NaN (Not a Number)</strong> également rencontrée dans R. Il s’agit alors du résultat d’une opération arithmétique invalide, telle que 0/0.</p>
 </div>
 </div>
-<p>La fonction <code>dim(pingouins)</code> permet d’afficher les <strong>dimensions</strong> du tableau (toujours dans le même ordre : <strong>m lignes</strong> et <strong>n colonnes</strong>).</p>
+<p>La fonction <code>dim(pingouins)</code> permet d’afficher les <strong>dimensions</strong> du tableau (<strong>m lignes</strong> et <strong>n colonnes</strong>).</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Sélectionner des données
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Dans R, la sélection de données, que ce soit une cellule, une ligne ou une colonne d’un tableau, ou encore un élément dans une chaîne, s’effectue à l’aide des <strong>crochets []</strong>.</p>
+<ul>
+<li>Dans le cas d’un objet à <strong>deux dimensions</strong>, la sélection s’effectue en précisant deux paramètres séparés par une virgule : la ou les ligne(s) et la ou les colonne(s). Pour sélectionner l’ensemble d’une des deux dimensions, on utilise un espace vide d’un côté ou de l’autre de la virgule. Pour sélectionner plusieurs lignes ou colonnes, vous pouvez utiliser soit l’opérateur <code>:</code> si les lignes ou les colonnes se suivent, soit l’opérateur de concaténation <code>c()</code> (vous pouvez combiner les deux).</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selectionner la 3e ligne et la 5e colonne : </span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>pingouins[<span class="dv">3</span>, <span class="dv">5</span>]</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Selectionner la 3e ligne : </span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>pingouins[<span class="dv">3</span>, ]</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Selectionner la 5e colonne : </span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>pingouins[, <span class="dv">5</span>]</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Selectionner les lignes 40 à 45 : </span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>pingouins[<span class="dv">40</span><span class="sc">:</span><span class="dv">45</span>, ]</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Selectionner les colonnes 2 et 4 : </span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>pingouins[, <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>)]</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Selectionner les lignes 50 et 100 à 105 : </span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>pingouins[<span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">100</span><span class="sc">:</span><span class="dv">105</span>), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
 <p>La fonction <code>summary(pingouins)</code> est particulièrement intéressante pour avoir une vue d’ensemble de vos données.</p>
 <p><img src="img/rstudio_22.png" class="img-fluid" style="width:100.0%"></p>
+<p>Les informations affichées à l’aide de cette fonction dépendent du type de variable :</p>
+<ul>
+<li><strong>nombre d’éléments</strong> pour les variables de type <strong>caractère</strong><br>
+</li>
+<li><strong>statistiques</strong> pour les variables de type <strong>numérique</strong></li>
+</ul>
 
 
 </section>
