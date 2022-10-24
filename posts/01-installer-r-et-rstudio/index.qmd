@@ -1,4 +1,5 @@
 ---
+title-block-banner: img/pexels-marta-branco-1194713.jpg
 title: "Installer R et RStudio"
 subtitle: "Guide pour installer R et RStudio sur votre ordinateur"
 author:
@@ -25,7 +26,6 @@ Ce tutoriel vous permettra d'installer R et RStudio sous **Windows**
 :::
 
 <br>
-
 
 # Télécharger et installer R {#download_install_r}
 
