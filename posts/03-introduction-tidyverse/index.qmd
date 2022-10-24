@@ -82,43 +82,40 @@ install.packages("tidyverse")
 library(tidyverse)
 ```
 
+::: {.callout-important icon="true"}
+## Attention aux guillemets
 
-Commençons par **installer la suite Tidyverse** (nous pourrions également installer séparément les packages que nous allons utiliser, `dplyr` et `tidyr`) : 
+Vous remarquerez la présence de guillemets dans l'appel à la fonction `install.packages()` et leur absence dans l'appel à la fonction `library()`.
+:::
 
-```{r, echo=TRUE, eval=FALSE}
-# Installer le Tidyverse
-install.packages("tidyverse")
-```
-
-<br>
-
-# Manipuler des données avec `dplyr` {#dplyr}
-
-Les fonctions du package [`dplyr`](https://dplyr.tidyverse.org/) sont **nommées d'après l'action qu'elles accomplissent**, ce qui rend leur utilisation assez intuitive.
-
-Nous allons utiliser un jeu de données contenant des mesures de croissance annuelle de tiges d'arbrisseaux qui poussent dans des dunes de sable ([*Empetrum nigrum*](https://fr.wikipedia.org/wiki/Empetrum_nigrum) ou camarine noire). La distance à la mer de chaque individu est codée dans la variable catégorique "zone" : le chiffre 2 représente la zone la plus proche de la mer et le chiffre 7 la zone la plus éloignée de la mer.
-
-La fonction `read_csv()` permet d'importer un fichier `.csv` depuis une page web : 
-
-```{r, echo=TRUE, eval=FALSE}
-# Ateliers codons!
-# 02 - Manipulation de donnees
-# Lundi 30/05/2022
-
-# Charger le Tidyverse ----
-
-library(tidyverse)
-
-# Definir le repertoire de travail ----
-
-setwd("C-02-ManipulationDonnees")
-
-# Importer les donnees ----
-
-croissance <- read_csv("https://raw.githubusercontent.com/codons-blog/C-02-ManipulationDonnees/main/croissance.csv")
-```
+Vous pourriez également n'installer et ne charger que les packages qui vous intéressent (par exemple `readr` et `dplyr`), plutôt que la suite complète.
 
 <br>
+
+# Exploration du Tidyverse
+
+Les fonctions proposées dans les différents packages de la suite Tidyverse sont - en règle générale - nommées d'après les actions qu'elles accomplissent, ce qui rend leur mémorisation plus simple et leur utilisation plus intuitive.
+
+Nous allons utiliser le même [jeu de données](https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/) que dans le tutoriel [Premiers pas avec R](https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/).
+
+- Si vous aviez téléchargé ces données précédemment, copiez-les dans le dossier `raw()` et importez-les : 
+
+```{r, echo=TRUE, eval=FALSE}
+pingouins <- read_csv("raw/pingouins.csv")
+```
+
+- Vous pouvez également télécharger directement les données depuis leur emplacement en ligne : 
+
+```{r, echo=TRUE, eval=FALSE}
+pingouins <- read_csv("https://raw.githubusercontent.com/codons-blog/C-02-ManipulationDonnees/main/pingouins.csv")
+```
+
+::: {.callout-caution icon="true"}
+## Bonne pratique : package + fonction
+
+Dans le tutoriel [Premiers pas avec R](https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/) nous avions utilisé la fonction `read.csv()` pour importer les données, alors qu'ici nous utilisons la fonction `read_csv()`. Ces deux fonctions effectuent la même opération mais font partie de deux packages différents : le package `{utils}` pour `read.csv()` et le package `{readr}` pour `read_csv`. Si votre script est amené à être partagé, il est utile de préciser à quels packages vous faites appel, en utilisant la syntaxe `nom-du-package::nom-de-la-fonction()`. Dans notre exemple, il faudrait écrire `readr::read_csv()`. 
+:::
+
 
 Il est toujours utile de **visualiser vos données** et leur structure : 
 

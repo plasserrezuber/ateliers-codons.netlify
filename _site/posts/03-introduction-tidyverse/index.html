@@ -212,7 +212,7 @@ background-size: cover;
   <li><a href="#organiser-son-travail" id="toc-organiser-son-travail" class="nav-link" data-scroll-target="#organiser-son-travail">Organiser son travail</a></li>
   <li><a href="#installer-et-charger-le-tidyverse" id="toc-installer-et-charger-le-tidyverse" class="nav-link" data-scroll-target="#installer-et-charger-le-tidyverse">Installer et charger le Tidyverse</a></li>
   </ul></li>
-  <li><a href="#dplyr" id="toc-dplyr" class="nav-link" data-scroll-target="#dplyr">Manipuler des données avec <code>dplyr</code></a>
+  <li><a href="#exploration-du-tidyverse" id="toc-exploration-du-tidyverse" class="nav-link" data-scroll-target="#exploration-du-tidyverse">Exploration du Tidyverse</a>
   <ul class="collapse">
   <li><a href="#rename" id="toc-rename" class="nav-link" data-scroll-target="#rename">Renommer des variables avec <code>rename()</code></a></li>
   <li><a href="#select" id="toc-select" class="nav-link" data-scroll-target="#select">Sélectionner des colonnes avec <code>select()</code></a></li>
@@ -334,37 +334,52 @@ Les packages
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Charger le package</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Commençons par <strong>installer la suite Tidyverse</strong> (nous pourrions également installer séparément les packages que nous allons utiliser, <code>dplyr</code> et <code>tidyr</code>) :</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Installer le Tidyverse</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
+<div class="callout-caption-container flex-fill">
+Attention aux guillemets
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Vous remarquerez la présence de guillemets dans l’appel à la fonction <code>install.packages()</code> et leur absence dans l’appel à la fonction <code>library()</code>.</p>
+</div>
+</div>
+<p>Vous pourriez également n’installer et ne charger que les packages qui vous intéressent (par exemple <code>readr</code> et <code>dplyr</code>), plutôt que la suite complète.</p>
 <p><br></p>
 </section>
 </section>
-<section id="dplyr" class="level1 page-columns page-full">
-<h1>Manipuler des données avec <code>dplyr</code></h1>
-<p>Les fonctions du package <a href="https://dplyr.tidyverse.org/"><code>dplyr</code></a> sont <strong>nommées d’après l’action qu’elles accomplissent</strong>, ce qui rend leur utilisation assez intuitive.</p>
-<p>Nous allons utiliser un jeu de données contenant des mesures de croissance annuelle de tiges d’arbrisseaux qui poussent dans des dunes de sable (<a href="https://fr.wikipedia.org/wiki/Empetrum_nigrum"><em>Empetrum nigrum</em></a> ou camarine noire). La distance à la mer de chaque individu est codée dans la variable catégorique “zone” : le chiffre 2 représente la zone la plus proche de la mer et le chiffre 7 la zone la plus éloignée de la mer.</p>
-<p>La fonction <code>read_csv()</code> permet d’importer un fichier <code>.csv</code> depuis une page web :</p>
+<section id="exploration-du-tidyverse" class="level1 page-columns page-full">
+<h1>Exploration du Tidyverse</h1>
+<p>Les fonctions proposées dans les différents packages de la suite Tidyverse sont - en règle générale - nommées d’après les actions qu’elles accomplissent, ce qui rend leur mémorisation plus simple et leur utilisation plus intuitive.</p>
+<p>Nous allons utiliser le même <a href="https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/">jeu de données</a> que dans le tutoriel <a href="https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/">Premiers pas avec R</a>.</p>
+<ul>
+<li>Si vous aviez téléchargé ces données précédemment, copiez-les dans le dossier <code>raw()</code> et importez-les :</li>
+</ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ateliers codons!</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 02 - Manipulation de donnees</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Lundi 30/05/2022</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Charger le Tidyverse ----</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Definir le repertoire de travail ----</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"C-02-ManipulationDonnees"</span>)</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Importer les donnees ----</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>croissance <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/codons-blog/C-02-ManipulationDonnees/main/croissance.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>pingouins <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"raw/pingouins.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><br></p>
+<ul>
+<li>Vous pouvez également télécharger directement les données depuis leur emplacement en ligne :</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>pingouins <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/codons-blog/C-02-ManipulationDonnees/main/pingouins.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout-caution callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Bonne pratique : package + fonction
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Dans le tutoriel <a href="https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/">Premiers pas avec R</a> nous avions utilisé la fonction <code>read.csv()</code> pour importer les données, alors qu’ici nous utilisons la fonction <code>read_csv()</code>. Ces deux fonctions effectuent la même opération mais font partie de deux packages différents : le package <code>{utils}</code> pour <code>read.csv()</code> et le package <code>{readr}</code> pour <code>read_csv</code>. Si votre script est amené à être partagé, il est utile de préciser à quels packages vous faites appel, en utilisant la syntaxe <code>nom-du-package::nom-de-la-fonction()</code>. Dans notre exemple, il faudrait écrire <code>readr::read_csv()</code>.</p>
+</div>
+</div>
 <p>Il est toujours utile de <strong>visualiser vos données</strong> et leur structure :</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exploration rapide des donnees ----</span></span>
