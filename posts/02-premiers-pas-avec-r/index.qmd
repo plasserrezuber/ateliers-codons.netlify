@@ -397,3 +397,9 @@ Si vous tapez `head(pingouins$`Masse corporelle (g)`)` dans la console, vous ver
 
 Cette valeur **NA** est à différencier de la valeur **NaN (Not a Number)** également rencontrée dans R. Il s'agit alors du résultat d'une opération arithmétique invalide, telle que 0/0.
 :::
+
+La fonction `dim(pingouins)` permet d'afficher les **dimensions** du tableau (toujours dans le même ordre : **m lignes** et **n colonnes**).
+
+La fonction `summary(pingouins)` est particulièrement intéressante pour avoir une vue d'ensemble de vos données.
+
+![](img/rstudio_22.png){width="100%"}
