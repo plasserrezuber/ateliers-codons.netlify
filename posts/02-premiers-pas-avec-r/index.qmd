@@ -1,4 +1,5 @@
 ---
+title-block-banner: img/pexels-pixabay-270348.jpg
 title: "Premiers pas avec R"
 subtitle: "Se familiariser avec R et manipuler des données"
 author:
@@ -6,7 +7,6 @@ author:
   - Jonathan Kitt (adaptation)
 date: "2022-10-13"
 categories: [R, RStudio, bases]
-# image: "pexels-marta-branco-1194713.jpg"
 format: 
   html: 
     toc: true
@@ -42,7 +42,7 @@ Il a été développé par **Ross Ihaka** et **Robert Gentleman**, du Départeme
 ## Quelques dates
 
 |      |                                                                                                                                     |
-|----------------|--------------------------------------------------------|
+|------------|------------------------------------------------------------|
 | 1991 | Création du langage R                                                                                                               |
 | 1993 | R est dévoilé au public                                                                                                             |
 | 1996 | [Article dans le *Journal of Computational and Graphical Statistics*](https://www.stat.auckland.ac.nz/~ihaka/downloads/R-paper.pdf) |
