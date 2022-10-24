@@ -1,11 +1,11 @@
 ---
-title: "Premiers pas avec R"
-subtitle: "Se familiariser avec R et manipuler des données"
+title: "Introduction au Tidyverse"
+subtitle: "Utiliser le Tidyverse pour manipuler des données"
 author:
-  - Gergana Daskalova
+  - Sandra Angers-Blondin
   - Jonathan Kitt (adaptation)
-date: "2022-10-13"
-categories: [R, RStudio, bases]
+date: "2022-10-24"
+categories: [R, RStudio, Tidyverse]
 # image: "pexels-marta-branco-1194713.jpg"
 format: 
   html: 
@@ -14,7 +14,7 @@ format:
     toc-title: "Sommaire"
 ---
 
-*Ce tutoriel est adapté de [Getting started with R and RStudio](https://ourcodingclub.github.io/tutorials/intro-to-r/) du site [Our Coding Club](https://ourcodingclub.github.io/).*
+*Ce tutoriel est adapté de [Basic data manipulation](https://ourcodingclub.github.io/tutorials/data-manip-intro/index.html) et [Efficient data manipulation](https://ourcodingclub.github.io/tutorials/data-manip-efficient/) du site [Our Coding Club](https://ourcodingclub.github.io/).*
 
 <br>
 
@@ -42,7 +42,7 @@ Il a été développé par **Ross Ihaka** et **Robert Gentleman**, du Départeme
 ## Quelques dates
 
 |      |                                                                                                                                     |
-|----------------|--------------------------------------------------------|
+|------------------|------------------------------------------------------|
 | 1991 | Création du langage R                                                                                                               |
 | 1993 | R est dévoilé au public                                                                                                             |
 | 1996 | [Article dans le *Journal of Computational and Graphical Statistics*](https://www.stat.auckland.ac.nz/~ihaka/downloads/R-paper.pdf) |
