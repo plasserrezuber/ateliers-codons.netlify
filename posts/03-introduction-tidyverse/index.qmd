@@ -1,4 +1,5 @@
 ---
+title-block-banner: img/pexels-brett-sayles-2881232.jpg
 title: "Introduction au Tidyverse"
 subtitle: "Utiliser le Tidyverse pour manipuler des données"
 author:
