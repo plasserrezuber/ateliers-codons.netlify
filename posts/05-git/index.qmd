@@ -1,6 +1,6 @@
 ---
-title: "Introduction au Tidyverse"
-subtitle: "Utiliser le Tidyverse pour manipuler des données"
+title: "Introduction à git"
+subtitle: "Connecter RStudio à git et assurer le suivi de version"
 author:
   - Sandra Angers-Blondin
   - Jonathan Kitt (adaptation)
