@@ -426,6 +426,11 @@ pingouins[, c(2, 4)]
 # Selectionner les lignes 50 et 100 à 105 : 
 pingouins[c(50, 100:105), ]
 
+- Pour un objet à **une seule dimension**, un seul paramètre est nécessaire (de la même façon, vous pouvez combiner les éléments avec les éléments `:` et `c()`) : 
+  
+# Selectionner le 45e element de la variable Ile
+pingouins$Ile[45]
+
 ```
 
 :::
