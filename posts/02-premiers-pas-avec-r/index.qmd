@@ -27,6 +27,7 @@ Pour savoir comment installer R et RStudio, cliquez [ici](https://ateliers-codon
 <br>
 
 # Introduction {#r_intro}
+
 ## Qu'est-ce que R ? {#r_def}
 
 <br>
@@ -41,7 +42,7 @@ Il a été développé par **Ross Ihaka** et **Robert Gentleman**, du Départeme
 ## Quelques dates
 
 |      |                                                                                                                                     |
-|------------|------------------------------------------------------------|
+|------------------|------------------------------------------------------|
 | 1991 | Création du langage R                                                                                                               |
 | 1993 | R est dévoilé au public                                                                                                             |
 | 1996 | [Article dans le *Journal of Computational and Graphical Statistics*](https://www.stat.auckland.ac.nz/~ihaka/downloads/R-paper.pdf) |
@@ -141,7 +142,6 @@ Un nouveau panneau s'affiche :
 
 Pour éviter de perdre du temps à chercher des fichiers dont on a oublié le nom et l'emplacement, il est utile d'organiser son travail à l'aide de **projets**.
 
-
 Pour créer un projet, cliquez sur **File** puis **New project...** :
 
 ![](img/rstudio_02.png){width="100%"}
@@ -190,6 +190,7 @@ L'organisation proposée ci-dessous est utilisable dans une très grande majorit
 -   **docs** : contient les rapports rédigés au cours de l'analyse, les présentations de résultats, des articles en lien avec l'analyse, les documents concernant les outils utlisés, ...
 
 ![](img/rstudio_08.png){width="100%"}
+
 # Flux de travail
 
 ## Importer les données
@@ -224,27 +225,27 @@ Pour commenter ou dé-commenter une ligne de code, utilisez la combinaison **Ctr
 
 Le jeu de données que nous allons utiliser contient des mesures pour [trois espèces de pingouins vivant sur l'archipel Palmer en Antarctique](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0090081).
 
-Pour importer ces données, nous allons faire appel à la **fonction `read.csv()`** qui, comme son nom l'indique, permet de lire un fichier au format *.csv*.  Une fonction permet d'exécuter une action comme calculer une somme, importer ou exporter un fichier.
+Pour importer ces données, nous allons faire appel à la **fonction `read.csv()`** qui, comme son nom l'indique, permet de lire un fichier au format *.csv*. Une fonction permet d'exécuter une action comme calculer une somme, importer ou exporter un fichier.
 
-Toutes les fonctions s'utilisent de la même façon : 
+Toutes les fonctions s'utilisent de la même façon :
 
 ```{r, echo=TRUE, eval=FALSE}
 fonction(x, arguments)
 ```
 
-- un appel à la fonction en tapant son nom
+-   un appel à la fonction en tapant son nom
 
-Entre **parenthèses** : 
+Entre **parenthèses** :
 
-- les données sur lesquelles appliquer la fonction (**x**)  
-- les **arguments**, obligatoires ou optionnels, qui vont modifier la manière dont la fonction sera exécutée.
+-   les données sur lesquelles appliquer la fonction (**x**)\
+-   les **arguments**, obligatoires ou optionnels, qui vont modifier la manière dont la fonction sera exécutée.
 
 Voyons ce que fait la fonction `read.csv()`. Nous allons préciser deux arguments :
 
-- le chemin vers le fichier à importer, **entre guillemets** :`"raw/pingouins.csv"`  
-- l'argument `check.names = FALSE` pour garder les noms de colonnes tels quels.
+-   le chemin vers le fichier à importer, **entre guillemets** :`"raw/pingouins.csv"`\
+-   l'argument `check.names = FALSE` pour garder les noms de colonnes tels quels.
 
-Tapez le code suivant dans la console et appuyez sur **Entrée** : 
+Tapez le code suivant dans la console et appuyez sur **Entrée** :
 
 ```{r, echo=TRUE, eval=FALSE}
 read.csv(file = "raw/pingouins.csv", check.names = FALSE)
@@ -262,7 +263,7 @@ read.csv("../../raw/pingouins.csv", check.names = FALSE)
 R vous aide à compléter votre code : tapez `re` puis **Tab**, et vous verrez s'afficher une liste de fonctions ou d'objets commençant par ces deux lettres. Vous pouvez naviguer à l'aide des flèches haut et bas et valider votre choix en appuyant à nouveau sur **Tab**. Cette fonctionnalité de R est particulièrement utile lorsque vous manipulez des fichiers ou objets ayant des noms complexes.
 :::
 
-Le fichier a effectivement été importé dans R, mais il n'est pour l'instant pas stocké dans notre environnement. Nous allons pour cela stocker le contenu du fichier dans un objet à l'aide de la **flèche d'assignation `<-`**. Placez-vous dans votre script et tapez le code suivant :  
+Le fichier a effectivement été importé dans R, mais il n'est pour l'instant pas stocké dans notre environnement. Nous allons pour cela stocker le contenu du fichier dans un objet à l'aide de la **flèche d'assignation `<-`**. Placez-vous dans votre script et tapez le code suivant :
 
 ```{r, echo=TRUE, eval=FALSE}
 pingouins <- read.csv(file = "raw/pingouins.csv", check.names = FALSE)
@@ -278,7 +279,6 @@ Exécutez cette fonction en plaçant le curseur sur la ligne et en cliquant sur 
 
 ![](img/rstudio_11.png){width="100%"}
 
-
 ::: {.callout-tip icon="true"}
 ## Raccourcis clavier : exécuter du code
 
@@ -293,22 +293,19 @@ En cliquant sur la flèche bleue à gauche du nom de l'objet, vous aurez accès 
 
 ![](img/rstudio_13.png){width="100%"}
 
-- **Noms des variables** : le tableau contient 9 variables dont les noms sont précédés du signe **$**. 
+-   **Noms des variables** : le tableau contient 9 variables dont les noms sont précédés du signe **\$**.
 
 ::: {.callout-tip icon="true"}
-## L'opérateur **$**
+## L'opérateur **\$**
 
 Cet opérateur permet de sélectionner la colonne d'un tableau. Dans la console, tapez `pingouins$` et appuyez sur **Tab**.
 
-![](img/rstudio_15.png){width="100%"}
-Vous pouvez choisir la variable qui vous intéresse à l'aide des **flèches haut et bas** (*Espece* par exemple) puis appuyer à nouveau sur **Tab** pour valider. Vous verrez alors s'afficher les 344 observations de cette variable.
-![](img/rstudio_16.png){width="100%"}
-
+![](img/rstudio_15.png){width="100%"} Vous pouvez choisir la variable qui vous intéresse à l'aide des **flèches haut et bas** (*Espece* par exemple) puis appuyer à nouveau sur **Tab** pour valider. Vous verrez alors s'afficher les 344 observations de cette variable. ![](img/rstudio_16.png){width="100%"}
 :::
 
-- **Types des variables** : indique s'il s'agit d'une variable de type **caractère (`chr`)**, d'une variable contenant des **nombres entiers (`int`)** ou des **nombres décimaux (`num`)**. Une variable peut également être de type **logique (`log`)** (*TRUE* ou *FALSE*).  
+-   **Types des variables** : indique s'il s'agit d'une variable de type **caractère (`chr`)**, d'une variable contenant des **nombres entiers (`int`)** ou des **nombres décimaux (`num`)**. Une variable peut également être de type **logique (`log`)** (*TRUE* ou *FALSE*).
 
-- **Premiers éléments de chaque variable**.
+-   **Premiers éléments de chaque variable**.
 
 Vous pouvez afficher le tableau en cliquant sur l'icône à droite du nom de l'objet dans l'environnement :
 
@@ -331,3 +328,50 @@ Choisissez le dossier où sera sauvegardé votre script - **scripts** dans notre
 
 Pour sauvegarder un script, uilisez la combinaison **Ctrl + S**
 :::
+
+## Explorer les données
+
+Une des premières choses à faire est de vous assurer que vos données ont été correctement importées. Les outils proposés par R vous permettent d'effectuer des analyses, mais c'est à vous de vous assurer que vos données sont au bon format.
+
+Pour cette étape d'exploration des données, vous pouvez taper le code directement dans la console. 
+
+Plusieurs fonctions vous permettent d'explorer rapidement vos données : 
+
+```{r, echo=TRUE, eval=FALSE}
+# Afficher les premieres lignes du tableau
+head(pingouins)
+
+# Afficher les dernieres lignes du tableau
+tail(pingouins)
+
+# Afficher la structure du tableau
+str(pingouins)
+```
+
+Vous remarquerez que la fonction `str(pingouins)` affiche des informations très proches de celles obtenues en cliquant sur la flèche bleue à gauche de l'objet pingouins dans l'environnement.
+
+::: {.callout-tip icon="true"}
+## Afficher l'aide d'une fonction
+
+Vous pouvez afficher l'aide d'une fonction de deux manières :  
+- taper `help(*fonction*)` (pensez à l'auto-complétion !) 
+- taper `?*fonction*`
+
+Essayer en tapant dans la console `?he` dans la console puis sur **Tab** : R vous propose une liste de fonctions commençant par **he**. Utilisez les flèches haut et bas pour choisir la fonction **head**. Une petite fenêtre vous donne un aperçu du contenu de l'aide pour la fonction (utile quand vous hésitez entre plusieurs fonctions). Une fois la fonction sélectionnée, appuyez sur la touche **F1** pour afficher l'aide complète dans l'onglet **Help**.
+
+![](img/rstudio_21.png){width="100%"}
+
+L'aide d'une fonction contient plusieurs paragraphes : 
+- une **description** de la fonction  
+- **comment utiliser** la fonction  
+- les **arguments** de la fonction  
+- les **détails** de la fonction (quel type de données en entrée, des précisions sur les arguments, ...)  
+- ce que la fonction retourne en **sortie**  
+- des **notes** additionnelles  
+- les **auteurs** qui ont contribué à l'écriture du code de la fonction  
+- des **exemples** sur l'utilisation de la fonction (avec possibilité d'exécuter ces exemples)
+
+:::
+
+Dans le cas de `head()`, vous pouvez voir que par défaut, la fonction retournera les 6 premières lignes (`n = 6L`)
+
