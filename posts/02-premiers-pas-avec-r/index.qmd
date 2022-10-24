@@ -354,14 +354,13 @@ Vous remarquerez que la fonction `str(pingouins)` affiche des informations très
 ## Afficher l'aide d'une fonction
 
 Vous pouvez afficher l'aide d'une fonction de deux manières :  
-- taper `help(*fonction*)` (pensez à l'auto-complétion !) 
-- taper `?*fonction*`
+- taper `help(\*fonction\*)` (pensez à l'auto-complétion !) 
+- taper `?\*fonction\*`
 
-Essayer en tapant dans la console `?he` dans la console puis sur **Tab** : R vous propose une liste de fonctions commençant par **he**. Utilisez les flèches haut et bas pour choisir la fonction **head**. Une petite fenêtre vous donne un aperçu du contenu de l'aide pour la fonction (utile quand vous hésitez entre plusieurs fonctions). Une fois la fonction sélectionnée, appuyez sur la touche **F1** pour afficher l'aide complète dans l'onglet **Help**.
+Essayez en tapant dans la console `?he` puis appuyez sur **Tab** : R vous propose une liste de fonctions commençant par **he**. Utilisez les flèches haut et bas pour choisir la fonction **head**. Une petite fenêtre vous donne un aperçu du contenu de l'aide pour la fonction (utile quand vous hésitez entre plusieurs fonctions). Une fois la fonction sélectionnée, appuyez sur la touche **F1** pour afficher l'aide complète dans l'onglet **Help**.
 
-![](img/rstudio_21.png){width="100%"}
+L'aide d'une fonction contient plusieurs paragraphes :  
 
-L'aide d'une fonction contient plusieurs paragraphes : 
 - une **description** de la fonction  
 - **comment utiliser** la fonction  
 - les **arguments** de la fonction  
@@ -371,7 +370,9 @@ L'aide d'une fonction contient plusieurs paragraphes :
 - les **auteurs** qui ont contribué à l'écriture du code de la fonction  
 - des **exemples** sur l'utilisation de la fonction (avec possibilité d'exécuter ces exemples)
 
+Dans le cas de `head()`, vous pouvez voir que par défaut, la fonction retournera les 6 premières lignes (`n = 6L`, **L** indiquant qu'il s'agit d'un nombre entier). Pour afficher uniquement les deux premières lignes du tableau *pingouins*, il vous faudrait modifier cet argument : `head(pingouins, n = 2L)`
+
 :::
 
-Dans le cas de `head()`, vous pouvez voir que par défaut, la fonction retournera les 6 premières lignes (`n = 6L`)
+
 

@@ -634,20 +634,29 @@ Afficher l’aide d’une fonction
 </div>
 <div class="callout-body-container callout-body">
 <p>Vous pouvez afficher l’aide d’une fonction de deux manières :<br>
-- taper <code>help(*fonction*)</code> (pensez à l’auto-complétion !) - taper <code>?*fonction*</code></p>
-<p>Essayer en tapant dans la console <code>?he</code> dans la console puis sur <strong>Tab</strong> : R vous propose une liste de fonctions commençant par <strong>he</strong>. Utilisez les flèches haut et bas pour choisir la fonction <strong>head</strong>. Une petite fenêtre vous donne un aperçu du contenu de l’aide pour la fonction (utile quand vous hésitez entre plusieurs fonctions). Une fois la fonction sélectionnée, appuyez sur la touche <strong>F1</strong> pour afficher l’aide complète dans l’onglet <strong>Help</strong>.</p>
-<p><img src="img/rstudio_21.png" class="img-fluid" style="width:100.0%"></p>
-<p>L’aide d’une fonction contient plusieurs paragraphes : - une <strong>description</strong> de la fonction<br>
-- <strong>comment utiliser</strong> la fonction<br>
-- les <strong>arguments</strong> de la fonction<br>
-- les <strong>détails</strong> de la fonction (quel type de données en entrée, des précisions sur les arguments, …)<br>
-- ce que la fonction retourne en <strong>sortie</strong><br>
-- des <strong>notes</strong> additionnelles<br>
-- les <strong>auteurs</strong> qui ont contribué à l’écriture du code de la fonction<br>
-- des <strong>exemples</strong> sur l’utilisation de la fonction (avec possibilité d’exécuter ces exemples)</p>
+- taper <code>help(\*fonction\*)</code> (pensez à l’auto-complétion !) - taper <code>?\*fonction\*</code></p>
+<p>Essayez en tapant dans la console <code>?he</code> puis appuyez sur <strong>Tab</strong> : R vous propose une liste de fonctions commençant par <strong>he</strong>. Utilisez les flèches haut et bas pour choisir la fonction <strong>head</strong>. Une petite fenêtre vous donne un aperçu du contenu de l’aide pour la fonction (utile quand vous hésitez entre plusieurs fonctions). Une fois la fonction sélectionnée, appuyez sur la touche <strong>F1</strong> pour afficher l’aide complète dans l’onglet <strong>Help</strong>.</p>
+<p>L’aide d’une fonction contient plusieurs paragraphes :</p>
+<ul>
+<li>une <strong>description</strong> de la fonction<br>
+</li>
+<li><strong>comment utiliser</strong> la fonction<br>
+</li>
+<li>les <strong>arguments</strong> de la fonction<br>
+</li>
+<li>les <strong>détails</strong> de la fonction (quel type de données en entrée, des précisions sur les arguments, …)<br>
+</li>
+<li>ce que la fonction retourne en <strong>sortie</strong><br>
+</li>
+<li>des <strong>notes</strong> additionnelles<br>
+</li>
+<li>les <strong>auteurs</strong> qui ont contribué à l’écriture du code de la fonction<br>
+</li>
+<li>des <strong>exemples</strong> sur l’utilisation de la fonction (avec possibilité d’exécuter ces exemples)</li>
+</ul>
+<p>Dans le cas de <code>head()</code>, vous pouvez voir que par défaut, la fonction retournera les 6 premières lignes (<code>n = 6L</code>, <strong>L</strong> indiquant qu’il s’agit d’un nombre entier). Pour afficher uniquement les deux premières lignes du tableau <em>pingouins</em>, il vous faudrait modifier cet argument : <code>head(pingouins, n = 2L)</code></p>
 </div>
 </div>
-<p>Dans le cas de <code>head()</code>, vous pouvez voir que par défaut, la fonction retournera les 6 premières lignes (<code>n = 6L</code>)</p>
 
 
 </section>
