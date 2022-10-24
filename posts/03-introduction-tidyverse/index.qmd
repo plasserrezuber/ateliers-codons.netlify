@@ -60,6 +60,29 @@ Un package R contient permet d'apporter des fonctionnalités supplémentaires. I
 
 <br>
 
+## Organiser son travail
+
+- [Créez un nouveau projet](https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/#créer-un-projet)  
+
+- [Créez l'arborescence](https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/#créer-une-arborescence)  
+
+- [Ouvrez un nouveau script](https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/#le-script) et remplissez l'en-tête (voir ci-dessous)
+
+![](img/intro_tidyverse_01.png){width="100%"}
+
+## Installer et charger le Tidyverse
+
+La fonction `install.packages()` permet de télécharger un package. Une fois téléchargé, il vous faudra charger le package dans votre session (pour rendre ses fonctions disponibles) à l'aide de la fonction `library()` : 
+
+```{r, echo=TRUE, eval=FALSE}
+# Telecharger le Tidyverse
+install.packages("tidyverse")
+
+# Charger le package
+library(tidyverse)
+```
+
+
 Commençons par **installer la suite Tidyverse** (nous pourrions également installer séparément les packages que nous allons utiliser, `dplyr` et `tidyr`) : 
 
 ```{r, echo=TRUE, eval=FALSE}
