@@ -112,6 +112,97 @@
     "text": "Ce tutoriel est adapté de Basic data manipulation et Efficient data manipulation du site Our Coding Club."
   },
   {
+    "objectID": "posts/03-introduction-tidyverse/index.html#quest-ce-que-le-tidyverse",
+    "href": "posts/03-introduction-tidyverse/index.html#quest-ce-que-le-tidyverse",
+    "title": "Introduction au Tidyverse",
+    "section": "Qu’est-ce que le Tidyverse ?",
+    "text": "Qu’est-ce que le Tidyverse ?\n\n\n\nAllison Horst\n\n\nLe Tidyverse est un ensemble de packages permettant :\n\nd’importer et d’exporter des données (package readr)\n\nde manipuler des données (package dplyr)\n\nde mettre en forme des données (package tidyr)\n\nde créer des graphiques (package ggplot2)\n\nde manipuler des chaînes (package stringr)\n\nde manipuler des facteurs (package forcats)\n\nde manipuler des dates (package lubridate)\n\n\n\n\n\n\n\nLes packages\n\n\n\nUn package R contient permet d’apporter des fonctionnalités supplémentaires. Il existe des packages pour tout un tas d’applications.\n\n\n\nCommençons par installer la suite Tidyverse (nous pourrions également installer séparément les packages que nous allons utiliser, dplyr et tidyr) :\n\n# Installer le Tidyverse\ninstall.packages(\"tidyverse\")"
+  },
+  {
+    "objectID": "posts/03-introduction-tidyverse/index.html#rename",
+    "href": "posts/03-introduction-tidyverse/index.html#rename",
+    "title": "Introduction au Tidyverse",
+    "section": "Renommer des variables avec rename()",
+    "text": "Renommer des variables avec rename()\nCette fonction s’utilise de la façon suivante : rename(objet, nouveau_nom = ancien_nom).\n\n# Supprimer les majuscules dans les noms de colonnes\ncroissance <- rename(croissance,\n                      zone = Zone,\n                      indiv = Indiv)\n\n Avant d’aller plus loin, nous allons voir une fonctionnalité extrêmement pratique : le “pipe”. Un pipe permet d’enchaîner les opérations, et présente plusieurs avantages, notamment de rendre le code plus clair et lisible et de rendre possible l’auto-complétion (à l’aide de la touche Tab).\nLe pipe fait partie du package magrittr, inclus dans le Tidyverse.\nUn pipe se place à la fin d’un ligne sous la forme %>% :\n\nRaccourci clavier : Ctrl + Shift + M\n\n\ncroissance <- croissance %>% \n  rename(zone = Zone,\n         indiv = Indiv)"
+  },
+  {
+    "objectID": "posts/03-introduction-tidyverse/index.html#select",
+    "href": "posts/03-introduction-tidyverse/index.html#select",
+    "title": "Introduction au Tidyverse",
+    "section": "Sélectionner des colonnes avec select()",
+    "text": "Sélectionner des colonnes avec select()\nCette fonction permet de sélectionner des colonnes, en précisant lesquelles conserver ou supprimer :\n\n# Conserver des colonnes\n\ncroissance_selection <- croissance %>% \n  select(indiv, `2007`:`2012`)\n\n# Supprimer une colonne\n\ncroissance_selection <- croissance %>% \n  select(-zone)\n\n\nLa fonction select() permet également de renommer des colonnes et d’en modifier l’ordre :\n\n# Renommer et modifier l'ordre de colonnes\n\ncroissance_selection <- croissance %>% \n  select(zone = Zone, indiv = Indiv, `2007`:`2012`)\n\n\nL’opérateur : permet de construire une séquence : dans le cas présent il permet de sélectionner toutes les colonnes entre 2007 et 2012.\nSi vous souhaitez renommer ou déplacer seulement quelques colonnes, la fonction everything() vous permet de sélectionner toutes les colonnes restantes :\n\ncroissance_selection <- croissance %>% \n  select(zone = Zone, indiv = Indiv, everything())"
+  },
+  {
+    "objectID": "posts/03-introduction-tidyverse/index.html#filter",
+    "href": "posts/03-introduction-tidyverse/index.html#filter",
+    "title": "Introduction au Tidyverse",
+    "section": "Filtrer des données avec filter()",
+    "text": "Filtrer des données avec filter()\nCette fonction permet de sélectionner des lignes à l’aide d’opérateurs logiques :\n\n\n\nOpérateur\nExpression logique\n\n\n\n\n==\nstrictement égal à\n\n\n<=\ninférieur ou égal à\n\n\n<\ninférieur à\n\n\n>=\nsupérieur ou égal à\n\n\n>\nsupérieur à\n\n\n!=\ndifférent de\n\n\n%in%\nappartient à\n\n\n&\net\n\n\n|\nou\n\n\n!\npas\n\n\n\nVoyons comment utiliser ces opérateurs logiques :\n\n# individu n°603\n\ncroissance %>% filter(indiv == 603)\n\n# zones 2, 3 et 4\n\ncroissance %>% filter(zone <= 4)\ncroissance %>% filter(zone %in% c(2, 3, 4))\ncroissance %>% filter(zone %in% 2:4)\ncroissance %>% filter(!zone >= 5)\n\n# zones 2 et 7\n\ncroissance %>% filter(zone == 2 | zone == 7)\ncroissance %>% filter(zone %in% c(2, 7))\n\n# zone 2 + individus entre 300 et 400\n\ncroissance %>% filter(zone == 2 & indiv %in% 300:400)\ncroissance %>% filter(zone == 2 & between(indiv, 300, 400))\n\n\nIl existe différentes façons de construire une séquence :\n\nseq(from = 300, to = 400, by = 10)  # de 300 a 400 avec un increment de 10\nrep(x = c(300, 350), times = 2)  # 2 repetitions du vecteur \"300, 350\"\nrep(x = c(300, 350), each = 2)  # chaque element du vecteur \"300, 350\" est repete 2 fois\nrep(seq(from = 300, to = 400, by = 10), times = 4)  # combinaison des deux"
+  },
+  {
+    "objectID": "posts/03-introduction-tidyverse/index.html#arrange",
+    "href": "posts/03-introduction-tidyverse/index.html#arrange",
+    "title": "Introduction au Tidyverse",
+    "section": "Trier des données avec arrange()",
+    "text": "Trier des données avec arrange()\nLa fonction arrange() permet de trier des valeurs par ordre croissant ou décroissant :\n\n# Trier par ordre croissant sur l'annee 2007\n\ncroissance %>% arrange(`2007`)\n\n# Trier par ordre decroissant sur l'annee 2008\n\ncroissance %>% arrange(desc(`2008`))"
+  },
+  {
+    "objectID": "posts/03-introduction-tidyverse/index.html#mutate",
+    "href": "posts/03-introduction-tidyverse/index.html#mutate",
+    "title": "Introduction au Tidyverse",
+    "section": "Créer de nouvelles colonnes avec mutate()",
+    "text": "Créer de nouvelles colonnes avec mutate()\nLa fonction mutate() permet de créer un nouvelle colonne :\n\n# Calculer la croissance totale pour chaque individu entre 2007 et 2012\n\ncroissance_totale <- croissance %>% \n  mutate(croissance.totale = `2007` + `2008` + `2009` + `2010` + `2011` + `2012`)"
+  },
+  {
+    "objectID": "posts/03-introduction-tidyverse/index.html#groupby",
+    "href": "posts/03-introduction-tidyverse/index.html#groupby",
+    "title": "Introduction au Tidyverse",
+    "section": "Définir des groupes avec group_by()",
+    "text": "Définir des groupes avec group_by()\nCette fonction permet de créer une structure interne à vos données, par exemple des individus regroupés par zone. Les fonctions exécutées après l’appel à la fonction group_by() tiendront compte de cette structure interne. L’utilisation de la fonction group_by() associée à d’autres fonctions est très utile pour calculer des statistiques pour différents sites, traitements, espèces, …\n\n# Grouper les individus par zone\n\ncroissance_groupes <- croissance %>% \n  group_by(zone)\n\n\nComparez les deux objets croissance et croissance_groupes. La seule différence visible est la mention Groups quand vous affichez l’objet possédant une structure interne. Pour l’instant, les groupes créés par group_by() sont sous-jacents, et leur intérêt sera évident en appliquant d’autres fonctions à ces groupes."
+  },
+  {
+    "objectID": "posts/03-introduction-tidyverse/index.html#summarise",
+    "href": "posts/03-introduction-tidyverse/index.html#summarise",
+    "title": "Introduction au Tidyverse",
+    "section": "Agréger des lignes et calculer des statistiques avec summarise()",
+    "text": "Agréger des lignes et calculer des statistiques avec summarise()\nCette fonction permet d’agréger des lignes en appliquant une fonction sur une ou plusieurs colonnes :\n\n# Croissance totale pour l'ensemble des individus pour l'annee 2007\n\nsynthese1 <- croissance %>% \n  summarise(croissance.totale.2007 = sum(`2007`))\n\n# Croissance totale pour l'ensemble des individus groupes par zone pour l'annee 2007\n\nsynthese2 <- croissance_groupes %>% \n  summarise(croissance.totale.2007 = sum(`2007`))\n\n\nLe premier objet, synthese1, correspond à la somme de toutes les valeurs de croissance pour tous les individus en 2007. Le second objet, synthese2, correspond à la somme des valeurs de croissance pour les individus regroupés par zone en 2007.\n\nLes données étant agrégées, le tableau de sortie sera plus court que les données d’origine.\n\nVous pouvez de cette façon calculer plusieurs paramètres :\n\nsynthese3 <- croissance_groupes %>% \n  summarise(croissance.totale.2007 = sum(`2007`),\n            croissance.moyenne.2007 = mean(`2007`),\n            croissance.ecart.type.2007 = sd(`2007`))"
+  },
+  {
+    "objectID": "posts/03-introduction-tidyverse/index.html#join",
+    "href": "posts/03-introduction-tidyverse/index.html#join",
+    "title": "Introduction au Tidyverse",
+    "section": "Joindre des données avec ..._join()",
+    "text": "Joindre des données avec ..._join()\nIl peut arriver que des données concernant un même projet se trouvent dans plusieurs fichiers (par exemple un fichier avec des mesures sur différents sites, et un autre fichier avec des données climatiques pour ces différents sites).\n\nLes différentes fonctions ..._join() permettent de joindre plusieux jeux de données selon ce qu’on souhaite faire des données qui ne sont pas partagées. Les lignes d’un tableau seront associées à l’autre tableau selon les valeurs d’une ou de plusieurs colonnes partagées (les clés)."
+  },
+  {
+    "objectID": "posts/03-introduction-tidyverse/index.html#format-long-avec-pivot_longer",
+    "href": "posts/03-introduction-tidyverse/index.html#format-long-avec-pivot_longer",
+    "title": "Introduction au Tidyverse",
+    "section": "Format long avec pivot_longer()",
+    "text": "Format long avec pivot_longer()\nLa fonction pivot_longer() permet de passer d’un format large à un format long. La syntaxe est un peu plus complexe que les fonctions que nous avons vues jusqu’à présent, car il nous préciser quelles colonnes vont être regroupées :"
+  },
+  {
+    "objectID": "posts/03-introduction-tidyverse/index.html#format-large-avec-pivot_wider",
+    "href": "posts/03-introduction-tidyverse/index.html#format-large-avec-pivot_wider",
+    "title": "Introduction au Tidyverse",
+    "section": "Format large avec pivot_wider()",
+    "text": "Format large avec pivot_wider()\nCette fonction permet d’effectuer l’opération inverse :"
+  },
+  {
+    "objectID": "posts/03-introduction-tidyverse/index.html#résumé",
+    "href": "posts/03-introduction-tidyverse/index.html#résumé",
+    "title": "Introduction au Tidyverse",
+    "section": "Résumé",
+    "text": "Résumé\nNous avons vu les principales fonctions des packages dplyr et tidyr une par une. Nous allons maintenant enchaîner les différentes opérations depuis le début à l’aide d’un pipe et visualiser l’effet des différents traitements sur la croissance des tiges d’Empetrum :\n\n# Importer les deux fichiers\n\ncroissance <- read_csv(\"https://raw.githubusercontent.com/codons-blog/C-02-ManipulationDonnees/main/croissance.csv\")\ntraitements <- read_csv2(\"https://raw.githubusercontent.com/codons-blog/C-02-ManipulationDonnees/main/traitements.csv\")\n\n# Mettre en forme et joindre les deux fichiers\n\nexpe <- croissance %>% \n  pivot_longer(cols = `2007`:`2012`,\n               names_to = \"annee\",\n               values_to = \"croissance\") %>% \n  left_join(traitements) %>% \n  rename(zone = Zone,\n         indiv = Indiv,\n         traitement = Traitement) %>% \n  mutate(zone = as.factor(zone),\n         indiv = as.factor(indiv),\n         annee = as.numeric(annee),\n         traitement = as.factor(traitement))\n\n# Boxplot de l'effet des traitements sur la croissance\n\nboxplot(croissance ~ traitement, \n        data = expe,\n        main = \"Effet de la température (T) et de la fertilisation (F) sur la croissance d'Empetrum\",\n        xlab = \"Traitement\",\n        ylab = \"Croissance des tiges (cm)\")"
+  },
+  {
+    "objectID": "posts/03-introduction-tidyverse/index.html#bilan-du-tutoriel",
+    "href": "posts/03-introduction-tidyverse/index.html#bilan-du-tutoriel",
+    "title": "Introduction au Tidyverse",
+    "section": "Bilan du tutoriel :",
+    "text": "Bilan du tutoriel :\n\nVous savez utiliser les fonctions de dplyr pour manipuler vos données\n\nVous savez mettre en forme des données qui respectent les critères des tidy data avec tidyr"
+  },
+  {
     "objectID": "posts/04-rmarkdown/index.html",
     "href": "posts/04-rmarkdown/index.html",
     "title": "Introduction à RMarkdown",
