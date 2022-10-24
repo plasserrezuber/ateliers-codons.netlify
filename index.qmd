@@ -8,9 +8,16 @@ page-layout: article
 [![](img/banniere_installer_r_rstudio.png){width="50%"}](https://ateliers-codons.netlify.app/posts/01-installer-r-et-rstudio/)
 
 [![](img/banniere_premiers_pas_avec_r.png){width="50%"}](https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/)
+
+[![](img/banniere_introduction_tidyverse.png){width="50%"}](https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/)
 :::
 
 
-::: {.callout-caution collapse=="true" icon="false"}
+::: {.callout-caution collapse="true" icon="false"}
 ## R - perfectionnement
+
+[![](img/banniere_rmarkdown.png){width="50%"}](https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/)
+
+[![](img/banniere_git.png){width="50%"}](https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/)
+
 :::
