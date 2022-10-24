@@ -15,7 +15,7 @@ page-layout: article
 ::: {.callout-caution collapse="true" icon="false"}
 ## R - perfectionnement
 
-[![](img/banniere_rmarkdown.png){width="50%"}](https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/)
+[![](img/banniere_rmarkdown.png){width="50%"}](https://ateliers-codons.netlify.app/posts/04-rmarkdown/)
 
-[![](img/banniere_git.png){width="50%"}](https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/)
+[![](img/banniere_git.png){width="50%"}](https://ateliers-codons.netlify.app/posts/05-git/)
 :::
