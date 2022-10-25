@@ -261,4 +261,6 @@ Lorsque vous insérez un bloc de code, des paramètres vous permettent de préci
 | eval    | exécuter le code                      |
 | error   | afficher les messages d'erreur        |
 | warning | afficher les messages d'avertissement |
+
+Ces options s'avèrent utiles si vous souhaitez afficher du code mais ne pas l'exécuter, ou si l'exécution de votre code risque de générer de longs messages d'erreur.
 :::
