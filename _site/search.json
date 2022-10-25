@@ -259,6 +259,27 @@
     "text": "Installer et charger RMarkdown\nPour utiliser RMarkdown dans RStudio, installez et chargez le package rmarkdown :\n\ninstall.packages(\"rmarkdown\")\nlibrary(rmarkdown)"
   },
   {
+    "objectID": "posts/04-rmarkdown/index.html#ouvrir-un-nouveau-fichier-r-markdown",
+    "href": "posts/04-rmarkdown/index.html#ouvrir-un-nouveau-fichier-r-markdown",
+    "title": "Introduction à RMarkdown",
+    "section": "Ouvrir un nouveau fichier R Markdown",
+    "text": "Ouvrir un nouveau fichier R Markdown\nPour créer un nouveau document R Markdown (.RMd), cliquez sur File > New File > R Markdown …“. Vous pouvez également cliquer sur le symbole Plus* et choisir *R Markdown…”\n[]\nDans la fenêtre qui s’ouvre, laissez les paramètres par défaut et cliquez sur Create Empty Document (en cliquant sur OK vous créerez un document pré-rempli).\n[]\nVotre document vide s’ouvre dans la fenêtre en haut à gauche de RStudio.\n[]"
+  },
+  {
+    "objectID": "posts/04-rmarkdown/index.html#ajouter-un-en-tête",
+    "href": "posts/04-rmarkdown/index.html#ajouter-un-en-tête",
+    "title": "Introduction à RMarkdown",
+    "section": "Ajouter un en-tête",
+    "text": "Ajouter un en-tête\nUn document Rmd débute toujours par une section d’en-tête encadrée par trois tirets. Par défaut, cet en-tête contient le titre, l’auteur, la date et le format de fichier en sortie. Il existe beaucoup d’autres paramètres pour modifier et personnaliser votre document.\nVoici un exemple d’en-tête à insérer en haut de votre ficher .Rmd :\n\n---\ntitle: \"Pingouins de l'archipel Palmer\"\nauthor: Jonathan Kitt\ndate: 2022-11-14\noutput: html_document\n---\n\n\n\n\n\n\n\nLe YAML\n\n\n\nCet en-tête s’appelle un YAML : Yet Another Markup Language\n\n\nSauvegardez votre fichier Rmd en cliquant sur l’icône disquette (ou en utilisant la combinaison Ctrl + S). Choisissez un nom pour votre fichier et placez-le dans votre dossier docs.\n[]\n[]"
+  },
+  {
+    "objectID": "posts/04-rmarkdown/index.html#compiler-un-document-r-markdown",
+    "href": "posts/04-rmarkdown/index.html#compiler-un-document-r-markdown",
+    "title": "Introduction à RMarkdown",
+    "section": "Compiler un document R Markdown",
+    "text": "Compiler un document R Markdown\nPour compiler votre fichier Rmd et générer le document au format choisi (html dans notre cas), cliquez sur le bouton Knit\nLe document s’ouvre dans une nouvelle fenêtre.\n[]\n\n\n\n\n\n\nRaccourci clavier : compiler un fichier Rmd\n\n\n\nPour compiler un fichier Rmd, utilisez la combinaison Ctrl + Shift + K\n\n\nDans l’explorateur de fichiers vous pouvez remarquer qu’un fichier mesures_pingouins.html a été ajouté dans le répertoire docs : il s’agit du fichier hmtl issu de la compilation du fichier Rmd. En cliquant sur le nom de ce fichier vous aurez le choix entre l’ouvrir dans l’éditeur ou dans un navigateur internet.\n[]\n\n\n\n\n\n\nPrévisualiser le document\n\n\n\nPar défaut, lorsque vous compilez un fichier Rmd, le document généré s’ouvre dans une nouvelle fenêtre. Vous pouvez choisir d’afficher cette pré-visualisation directement dans l’onglet Viewer en bas à droite de RStudio en cliquant sur la roue à droite du bouton Knit puis sur Preview in Viewer Pane.\n[]"
+  },
+  {
     "objectID": "posts/05-git/index.html",
     "href": "posts/05-git/index.html",
     "title": "Introduction à git",
