@@ -120,6 +120,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -217,6 +218,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#insérer-des-titres" id="toc-insérer-des-titres" class="nav-link" data-scroll-target="#insérer-des-titres">Insérer des titres</a></li>
   <li><a href="#mettre-en-forme-le-texte" id="toc-mettre-en-forme-le-texte" class="nav-link" data-scroll-target="#mettre-en-forme-le-texte">Mettre en forme le texte</a></li>
   <li><a href="#insérer-des-listes" id="toc-insérer-des-listes" class="nav-link" data-scroll-target="#insérer-des-listes">Insérer des listes</a></li>
+  <li><a href="#insérer-une-citation" id="toc-insérer-une-citation" class="nav-link" data-scroll-target="#insérer-une-citation">Insérer une citation</a></li>
+  <li><a href="#notation-mathématique" id="toc-notation-mathématique" class="nav-link" data-scroll-target="#notation-mathématique">Notation mathématique</a></li>
+  <li><a href="#equation-mathématique" id="toc-equation-mathématique" class="nav-link" data-scroll-target="#equation-mathématique">Equation mathématique</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -370,18 +374,48 @@ Editeur visuel
 <h2 class="anchored" data-anchor-id="insérer-des-listes">Insérer des listes</h2>
 <p>Vous pouvez insérer une liste à puces :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> item <span class="dv">1</span>  </span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> item <span class="dv">2</span>    </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> item <span class="dv">3</span>  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="sc">*</span> item <span class="dv">1</span>  </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="sc">*</span> item <span class="dv">2</span>    </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="sc">*</span> item <span class="dv">3</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span> item 3a  </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span> item 3b  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>[<img src="img/rmd_13.png" class="img-fluid" style="width:100.0%">]</p>
 <p>Ou une liste numérotée :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> item <span class="dv">1</span>  </span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> item <span class="dv">2</span>    </span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> item <span class="dv">3</span>  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fl">1.</span> item <span class="dv">1</span>  </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fl">2.</span> item <span class="dv">2</span>    </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fl">3.</span> item <span class="dv">3</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>[<img src="img/rmd_14.png" class="img-fluid" style="width:100.0%">]</p>
+</section>
+<section id="insérer-une-citation" class="level2">
+<h2 class="anchored" data-anchor-id="insérer-une-citation">Insérer une citation</h2>
+<p>Vous pouvez insérer une citation :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Comme l<span class="st">'a dit ...  </span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="st">&gt; Ceci est une citation</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>[<img src="img/rmd_16.png" class="img-fluid" style="width:100.0%">]</p>
+</section>
+<section id="notation-mathématique" class="level2">
+<h2 class="anchored" data-anchor-id="notation-mathématique">Notation mathématique</h2>
+<p>Vous pouvez insérer du texte en exposant ou en indice :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>texte en <span class="sc">^</span>exposant<span class="sc">^</span> ou texte en <span class="sc">~</span>indice<span class="sc">~</span>.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>[<img src="img/rmd_14.png" class="img-fluid" style="width:100.0%">]</p>
+</section>
+<section id="equation-mathématique" class="level2">
+<h2 class="anchored" data-anchor-id="equation-mathématique">Equation mathématique</h2>
+<p>La syntaxe pour insérer une équation mathématique se base sur la syntaxe LaTeX :</p>
+<p>La formule pour calculer l’aire <span class="math inline">\(A\)</span> d’un cercle de rayon <span class="math inline">\(r\)</span> est :</p>
+<p><span class="math display">\[A = \pi \times r^{2}\]</span></p>
+<div class="cell">
+
+</div>
+<p>[<img src="img/rmd_17.png" class="img-fluid" style="width:100.0%">]</p>
 
 
 </section>
