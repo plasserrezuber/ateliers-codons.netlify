@@ -212,6 +212,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#ajouter-un-en-tête" id="toc-ajouter-un-en-tête" class="nav-link" data-scroll-target="#ajouter-un-en-tête">Ajouter un en-tête</a></li>
   <li><a href="#compiler-un-document-r-markdown" id="toc-compiler-un-document-r-markdown" class="nav-link" data-scroll-target="#compiler-un-document-r-markdown">Compiler un document R Markdown</a></li>
   </ul></li>
+  <li><a href="#mise-en-forme" id="toc-mise-en-forme" class="nav-link" data-scroll-target="#mise-en-forme">Mise en forme</a>
+  <ul class="collapse">
+  <li><a href="#insérer-des-titres" id="toc-insérer-des-titres" class="nav-link" data-scroll-target="#insérer-des-titres">Insérer des titres</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -317,8 +321,37 @@ Prévisualiser le document
 <div class="callout-body-container callout-body">
 <p>Par défaut, lorsque vous compilez un fichier Rmd, le document généré s’ouvre dans une nouvelle fenêtre. Vous pouvez choisir d’afficher cette pré-visualisation directement dans l’onglet <strong>Viewer</strong> en bas à droite de RStudio en cliquant sur la roue à droite du bouton Knit puis sur <strong>Preview in Viewer Pane</strong>.</p>
 <p>[<img src="img/rmd_08.png" class="img-fluid" style="width:100.0%">]</p>
+<p>[<img src="img/rmd_08.png" class="img-fluid" style="width:100.0%">]</p>
 </div>
 </div>
+</section>
+</section>
+<section id="mise-en-forme" class="level1">
+<h1>Mise en forme</h1>
+<p>Pour mettre en forme votre texte, vous allez utiliser la syntaxe markdown.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Editeur visuel
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Vous pouvez modifier votre fichier Rmd à la manière d’un éditeur de texte à l’aide de l’éditeur visuel : cliquez sur le bouton <strong>Visual</strong> en haut du fichier.</p>
+<p>[<img src="img/rmd_10.png" class="img-fluid" style="width:100.0%">]</p>
+</div>
+</div>
+<section id="insérer-des-titres" class="level2">
+<h2 class="anchored" data-anchor-id="insérer-des-titres">Insérer des titres</h2>
+<p>Pour insérer un titre, utilisez un <code>#</code>. Vous pouvez utiliser différents niveaux en ajoutant des <code>#</code> :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Niveau 1</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Niveau 2</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="do">### Niveau 3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>[<img src="img/rmd_11.png" class="img-fluid" style="width:100.0%">]</p>
 
 
 </section>

@@ -107,5 +107,30 @@ Dans l'explorateur de fichiers vous pouvez remarquer qu'un fichier **mesures_pin
 Par défaut, lorsque vous compilez un fichier Rmd, le document généré s'ouvre dans une nouvelle fenêtre. Vous pouvez choisir d'afficher cette pré-visualisation directement dans l'onglet **Viewer** en bas à droite de RStudio en cliquant sur la roue à droite du bouton Knit puis sur **Preview in Viewer Pane**.
 
 [![](img/rmd_08.png){width="100%"}]
+
+[![](img/rmd_08.png){width="100%"}]
 :::
 
+# Mise en forme
+
+Pour mettre en forme votre texte, vous allez utiliser la syntaxe markdown.
+
+::: {.callout-note icon="true"}
+## Editeur visuel
+
+Vous pouvez modifier votre fichier Rmd à la manière d'un éditeur de texte à l'aide de l'éditeur visuel : cliquez sur le bouton **Visual** en haut du fichier.
+
+[![](img/rmd_10.png){width="100%"}]
+:::
+
+## Insérer des titres
+
+Pour insérer un titre, utilisez un `#`. Vous pouvez utiliser différents niveaux en ajoutant des `#` : 
+
+```{r, echo=TRUE, eval=FALSE}
+# Niveau 1
+## Niveau 2
+### Niveau 3
+```
+
+[![](img/rmd_11.png){width="100%"}]
