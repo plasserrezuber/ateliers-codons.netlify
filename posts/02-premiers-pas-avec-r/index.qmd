@@ -398,40 +398,6 @@ Cette valeur **NA** est à différencier de la valeur **NaN (Not a Number)** ég
 
 La fonction `dim(pingouins)` permet d'afficher les **dimensions** du tableau (**m lignes** et **n colonnes**).
 
-::: {.callout-tip icon="true"}
-## Sélectionner des données
-
-Dans R, la sélection de données, que ce soit une cellule, une ligne ou une colonne d'un tableau, ou encore un élément dans une chaîne, s'effectue à l'aide des **crochets \[\]**.
-
--   Dans le cas d'un objet à **deux dimensions**, la sélection s'effectue en précisant deux paramètres séparés par une virgule : la ou les ligne(s) et la ou les colonne(s). Pour sélectionner l'ensemble d'une des deux dimensions, on utilise un espace vide d'un côté ou de l'autre de la virgule. Pour sélectionner plusieurs lignes ou colonnes, vous pouvez utiliser soit l'opérateur `:` si les lignes ou les colonnes se suivent, soit l'opérateur de concaténation `c()` (vous pouvez combiner les deux).
-
--   Pour un objet à **une seule dimension**, un seul paramètre est nécessaire (de la même façon, vous pouvez combiner les éléments avec les opérateurs `:` et `c()`) :
-
-```{r, echo=TRUE, eval=FALSE}
-# Selectionner la 3e ligne et la 5e colonne : 
-pingouins[3, 5]
-
-# Selectionner la 3e ligne : 
-pingouins[3, ]
-
-# Selectionner la 5e colonne : 
-pingouins[, 5]
-
-# Selectionner les lignes 40 à 45 : 
-pingouins[40:45, ]
-
-# Selectionner les colonnes 2 et 4 : 
-pingouins[, c(2, 4)]
-
-# Selectionner les lignes 50 et 100 à 105 : 
-pingouins[c(50, 100:105), ]
-  
-# Selectionner le 45e element de la variable Ile
-pingouins$Ile[45]
-
-```
-:::
-
 ## Corriger des données
 
 La fonction `summary(pingouins)` est particulièrement intéressante pour avoir une vue d'ensemble de vos données.
@@ -493,3 +459,76 @@ En cliquant sur l'icône **Menu** à droite vous aurez accès à une table des m
 
 ![](img/rstudio_25.png){width="100%"}
 :::
+
+::: {.callout-tip icon="true"}
+## Raccourcis clavier : les sections d'un script
+
+Pour afficher le sommaire de votre script, utilisez la combinaison **Ctrl + Shift + O**.  
+Vous pouvez également replier (**Alt + O**) ou déplier (**Alt + Shift + O**) les sections.
+
+:::
+
+
+## Extraire des données
+
+Notre jeu de données contient les mesures de différents paramètres pour trois espèces de pingouins. Nous aimerions séparer ce jeu de données en trois tableaux, un pour chacune des espèces.
+
+::: {.callout-tip icon="true"}
+## Sélectionner des données
+
+Dans R, la sélection de données, que ce soit une cellule, une ligne ou une colonne d'un tableau, ou encore un élément dans une chaîne, s'effectue à l'aide des **crochets \[\]**.
+
+-   Dans le cas d'un objet à **deux dimensions**, la sélection s'effectue en précisant deux paramètres séparés par une virgule : la ou les ligne(s) et la ou les colonne(s). Pour sélectionner l'ensemble d'une des deux dimensions, on utilise un espace vide d'un côté ou de l'autre de la virgule. Pour sélectionner plusieurs lignes ou colonnes, vous pouvez utiliser soit l'opérateur `:` si les lignes ou les colonnes se suivent, soit l'opérateur de concaténation `c()` (vous pouvez combiner les deux).
+
+-   Pour un objet à **une seule dimension**, un seul paramètre est nécessaire (de la même façon, vous pouvez combiner les éléments avec les opérateurs `:` et `c()`) :
+
+```{r, echo=TRUE, eval=FALSE}
+# Selectionner la 3e ligne et la 5e colonne : 
+pingouins[3, 5]
+
+# Selectionner la 3e ligne : 
+pingouins[3, ]
+
+# Selectionner la 5e colonne : 
+pingouins[, 5]
+
+# Selectionner les lignes 40 à 45 : 
+pingouins[40:45, ]
+
+# Selectionner les colonnes 2 et 4 : 
+pingouins[, c(2, 4)]
+
+# Selectionner les lignes 50 et 100 à 105 : 
+pingouins[c(50, 100:105), ]
+  
+# Selectionner le 45e element de la variable Ile
+pingouins$Ile[45]
+
+```
+:::
+
+Les noms des espèces étant assez complexes, nous allons commencer par les extraire et les stocker dans un vecteur : 
+
+```{r, echo=TRUE, eval=FALSE}
+especes <- unique(pingouins$Especes)
+```
+
+Séparons maintenant le tableau d'origine en trois tableaux. Pour l'espèce *Adelie*, nous extrayons les lignes du tableau pingouins dont la colonne Espece est égale au premier élément du vecteur especes, etc.
+
+```{r, echo=TRUE, eval=FALSE}
+adelie <- pingouins[pingouins$Espece == especes[1], ]
+gentoo <- pingouins[pingouins$Espece == especes[2], ]
+chinstrap <- pingouins[pingouins$Espece == especes[3], ]
+```
+
+Créons maintenant un vecteur contenant le nombre d'observations pour chaque tableau, à l'aide de la fonction `nrow()` (permet de compter le nombre de ligne d'un tableau) : 
+
+```{r, echo=TRUE, eval=FALSE}
+nb_ind <- c(nrow(adelie), nrow(gentoo), nrow(chinstrap))
+```
+
+Ajoutons à ce vecteur des étiquettes avec les noms des trois espèces : 
+
+```{r, echo=TRUE, eval=FALSE}
+names(nb_ind) <- especes
+```
