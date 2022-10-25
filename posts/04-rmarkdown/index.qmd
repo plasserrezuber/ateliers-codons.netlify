@@ -1,5 +1,5 @@
 ---
-title-block-banner: img/pexels-lukas-590045.jpg
+# title-block-banner: img/pexels-lukas-590045.jpg
 title: "Introduction à RMarkdown"
 subtitle: "Utiliser RMarkdown pour rédiger des rapports"
 author:

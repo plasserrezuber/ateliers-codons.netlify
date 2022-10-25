@@ -1,5 +1,5 @@
 ---
-title-block-banner: img/pexels-brett-sayles-2881232.jpg
+# title-block-banner: img/pexels-brett-sayles-2881232.jpg
 title: "Introduction à git"
 subtitle: "Connecter RStudio à git et assurer le suivi de version"
 author:
