@@ -1,5 +1,5 @@
 ---
-title-block-banner: img/banniere_installer_r_rstudio_2.png
+# title-block-banner: img/banniere_installer_r_rstudio_2.png
 title: "Installer R et RStudio"
 subtitle: "Guide pour installer R et RStudio sur votre ordinateur"
 author:
