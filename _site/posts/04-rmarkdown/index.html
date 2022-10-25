@@ -221,6 +221,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#insérer-une-citation" id="toc-insérer-une-citation" class="nav-link" data-scroll-target="#insérer-une-citation">Insérer une citation</a></li>
   <li><a href="#notation-mathématique" id="toc-notation-mathématique" class="nav-link" data-scroll-target="#notation-mathématique">Notation mathématique</a></li>
   <li><a href="#equation-mathématique" id="toc-equation-mathématique" class="nav-link" data-scroll-target="#equation-mathématique">Equation mathématique</a></li>
+  <li><a href="#insérer-une-image" id="toc-insérer-une-image" class="nav-link" data-scroll-target="#insérer-une-image">Insérer une image</a></li>
+  </ul></li>
+  <li><a href="#rédiger-un-document-de-façon-dynamique" id="toc-rédiger-un-document-de-façon-dynamique" class="nav-link" data-scroll-target="#rédiger-un-document-de-façon-dynamique">Rédiger un document de façon dynamique</a>
+  <ul class="collapse">
+  <li><a href="#insérer-un-bloc-de-code-r" id="toc-insérer-un-bloc-de-code-r" class="nav-link" data-scroll-target="#insérer-un-bloc-de-code-r">Insérer un bloc de code R</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -416,6 +421,56 @@ Editeur visuel
 
 </div>
 <p>[<img src="img/rmd_17.png" class="img-fluid" style="width:100.0%">]</p>
+</section>
+<section id="insérer-une-image" class="level2">
+<h2 class="anchored" data-anchor-id="insérer-une-image">Insérer une image</h2>
+<p>Vous pouvez insérer une image dans votre fichier :</p>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Chemins vers les fichiers
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Lorsque que vous indiquez un chemin vers un fichier dans RMarkdown, le dossier “racine” n’est plus votre répertoire de travail (votre projet) mais le dossier dans lequel se trouve le fichier .Rmd, dans le cas présent le répertoire docs/ situé lui-même dans le répertoire de travail. Il faut donc revenir en arrière d’un niveau, ce qui s’effectue à l’aide de l’opérateur <strong><code>../</code></strong>. Lorsque vous naviguez dans une arborescence à l’aide de la ligne de commande, <strong><code>.</code></strong> indique le répertoire de travail et <strong><code>..</code></strong> le répertoire situé un niveau au-dessus dans votre arborescence.</p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span>[](..<span class="sc">/</span>raw<span class="sc">/</span>lter_penguins.png){width<span class="ot">=</span><span class="st">"100%"</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><img src="img/rmd_18.png" class="img-fluid" style="width:100.0%"></p>
+</section>
+</section>
+<section id="rédiger-un-document-de-façon-dynamique" class="level1">
+<h1>Rédiger un document de façon dynamique</h1>
+<p>Lorsque vous rédigez un rapport, vous pouvez le faire “en dur”, c’est-à-dire inscrire directement dans le texte toutes les valeurs numériques, les résultats de calculs, insérer des graphiques générés séparément, … Cette façon de procéder présente un désavantage majeur : votre document ne sera valable qu’une seule fois pour une seule analyse (vous pourrez toujours le ré-utiliser en remplaçant les valeurs numériques, …). De plus, le risque d’erreur est non négligeable : coller des valeurs numériques copiées depuis un autre logiciel peut créer des mauvaises surprises, des noms complexes seront facilement mal écrits, …</p>
+<p>Pour pallier à ces différents problèmes, RMarkdown vous permet de rédiger votre fichier de façon “dynamique” : vous pouvez ainsi importer les fichiers nécessaires à votre analyse et insérer des calculs, des graphiques à l’aide de code R qui sera compilé afin de générer le document de sortie. Dès lors, votre fichier Rmd pourra facilement être rectifié ou utilisé pour des analyses similaires sur d’autres jeux de données.</p>
+<section id="insérer-un-bloc-de-code-r" class="level2">
+<h2 class="anchored" data-anchor-id="insérer-un-bloc-de-code-r">Insérer un bloc de code R</h2>
+<p>Commençons par importer notre jeu de données à l’aide d’une ligne de code insérée dans un bloc de code. Dans RMarkdown, un bloc de code est encadré par trois <strong>```</strong>. Sur la première ligne on indique entre accolades qu’il s’agit de code R :</p>
+<p><img src="img/rmd_19.png" class="img-fluid" style="width:100.0%"></p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Raccourci clavier : insérer un bloc de code
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Pour insérer un bloc de code, utiliser la combinaison <strong>Ctrl + Alt + I</strong></p>
+</div>
+</div>
+<p>Ajoutons la ligne de code permettant d’importer le jeu de données (attention au chemin !)</p>
+<p><img src="img/rmd_19.png" class="img-fluid" style="width:100.0%"></p>
+<p>Vous pouvez exécuter ce code comme vous le feriez dans un script classique en cliquant sur la flèche verte à droite du code (ou en vous plaçant sur la ligne et en utilisant la combinaison <strong>Ctrl + Entrée</strong>). Le fichier a bien été importé et stocké dans l’objet <strong>pingouins</strong> visible dans l’environnement.</p>
+<p><img src="img/rmd_20.png" class="img-fluid" style="width:100.0%"></p>
+<p>Lorsque vous compilez votre fichier Rmd, le code est exécuté et s’affiche dans le document :</p>
+<p><img src="img/rmd_21.png" class="img-fluid" style="width:100.0%"></p>
 
 
 </section>
