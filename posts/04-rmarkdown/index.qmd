@@ -3,11 +3,10 @@
 title: "Introduction à RMarkdown"
 subtitle: "Utiliser RMarkdown pour rédiger des rapports"
 author:
-  - Sandra Angers-Blondin
+  - John Godlee
   - Jonathan Kitt (adaptation)
 date: "2022-10-24"
 categories: [R, RStudio, Tidyverse]
-# image: "pexels-marta-branco-1194713.jpg"
 format: 
   html: 
     toc: true
@@ -15,6 +14,8 @@ format:
     toc-title: "Sommaire"
 ---
 
-*Ce tutoriel est adapté de [Basic data manipulation](https://ourcodingclub.github.io/tutorials/data-manip-intro/index.html) et [Efficient data manipulation](https://ourcodingclub.github.io/tutorials/data-manip-efficient/) du site [Our Coding Club](https://ourcodingclub.github.io/).*
+*Ce tutoriel est adapté de [Getting started with R Markdown](https://ourcodingclub.github.io/tutorials/rmarkdown/) du site [Our Coding Club](https://ourcodingclub.github.io/).*
 
 <br>
+
+# Introduction
