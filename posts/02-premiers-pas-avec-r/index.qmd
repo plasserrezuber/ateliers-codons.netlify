@@ -94,9 +94,9 @@ Dans la console, une ligne commence par `>` : c'est ce qu'on appelle l'**invite 
 Tapez `2+2` puis appuyez sur `Entrée` : la console affiche le résultat.
 :::
 
-### L'environnement
+### L'espace de travail
 
-L'environnement affiche le contenu de votre espace de travail : données importées, objets créés, fonctions définies, ...
+Vous y trouverez votre environnement (données importées, objets créés, fonctions définies, ...), ainsi que d'autres onglets comme l'historique des commandes exécutées ou l'accès à des tutoriels (pour les versions récentes de RStudio).
 
 ::: {.callout-tip icon="true"}
 ## Un langage orienté objet
