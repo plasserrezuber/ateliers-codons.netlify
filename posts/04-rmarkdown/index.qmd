@@ -19,3 +19,22 @@ format:
 <br>
 
 # Introduction
+
+## Qu'est-ce que R Markdown ?
+
+## Organiser son travail
+
+Si vous n'avez pas suivi les autres tutoriels, suivez les instructions suivantes : 
+
+- [Créez un nouveau projet](https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/#créer-un-projet)  
+
+- [Créez une arborescence](https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/#créer-une-arborescence)  
+
+## Installer et charger RMarkdown
+
+Pour utiliser RMarkdown dans RStudio, installez et chargez le package `rmarkdown` :
+
+```{r, echo=TRUE, eval=FALSE}
+install.packages("rmarkdown")
+library(rmarkdown)
+```

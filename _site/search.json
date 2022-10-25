@@ -235,7 +235,28 @@
     "href": "posts/04-rmarkdown/index.html",
     "title": "Introduction à RMarkdown",
     "section": "",
-    "text": "Introduction"
+    "text": "Ce tutoriel est adapté de Getting started with R Markdown du site Our Coding Club."
+  },
+  {
+    "objectID": "posts/04-rmarkdown/index.html#quest-ce-que-r-markdown",
+    "href": "posts/04-rmarkdown/index.html#quest-ce-que-r-markdown",
+    "title": "Introduction à RMarkdown",
+    "section": "Qu’est-ce que R Markdown ?",
+    "text": "Qu’est-ce que R Markdown ?"
+  },
+  {
+    "objectID": "posts/04-rmarkdown/index.html#organiser-son-travail",
+    "href": "posts/04-rmarkdown/index.html#organiser-son-travail",
+    "title": "Introduction à RMarkdown",
+    "section": "Organiser son travail",
+    "text": "Organiser son travail\nSi vous n’avez pas suivi les autres tutoriels, suivez les instructions suivantes :\n\nCréez un nouveau projet\nCréez une arborescence"
+  },
+  {
+    "objectID": "posts/04-rmarkdown/index.html#installer-et-charger-rmarkdown",
+    "href": "posts/04-rmarkdown/index.html#installer-et-charger-rmarkdown",
+    "title": "Introduction à RMarkdown",
+    "section": "Installer et charger RMarkdown",
+    "text": "Installer et charger RMarkdown\nPour utiliser RMarkdown dans RStudio, installez et chargez le package rmarkdown :\n\ninstall.packages(\"rmarkdown\")\nlibrary(rmarkdown)"
   },
   {
     "objectID": "posts/05-git/index.html",

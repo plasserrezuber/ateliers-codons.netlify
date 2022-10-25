@@ -1,0 +1,14 @@
+{
+  "hash": "d2b3f754107408d4036ebe56f0bd0cf8",
+  "result": {
+    "markdown": "---\n# title-block-banner: img/pexels-lukas-590045.jpg\ntitle: \"Introduction à RMarkdown\"\nsubtitle: \"Utiliser RMarkdown pour rédiger des rapports\"\nauthor:\n  - John Godlee\n  - Jonathan Kitt (adaptation)\ndate: \"2022-10-24\"\ncategories: [R, RStudio, Tidyverse]\nformat: \n  html: \n    toc: true\n    toc-depth: 2\n    toc-title: \"Sommaire\"\n---\n\n\n*Ce tutoriel est adapté de [Getting started with R Markdown](https://ourcodingclub.github.io/tutorials/rmarkdown/) du site [Our Coding Club](https://ourcodingclub.github.io/).*\n\n<br>\n\n# Introduction\n\n## Qu'est-ce que R Markdown ?\n\n## Organiser son travail\n\nSi vous n'avez pas suivi les autres tutoriels, suivez les instructions suivantes : \n\n- [Créez un nouveau projet](https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/#créer-un-projet)  \n\n- [Créez une arborescence](https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/#créer-une-arborescence)  \n\n## Installer et charger RMarkdown\n\nPour utiliser RMarkdown dans RStudio, installez et chargez le package `rmarkdown` :\n\n\n::: {.cell}\n\n```{.r .cell-code}\ninstall.packages(\"rmarkdown\")\nlibrary(rmarkdown)\n```\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
