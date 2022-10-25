@@ -204,3 +204,49 @@ $$A = \pi \times r^{2}$$
 ```
 
 [![](img/rmd_17.png){width="100%"}]
+
+## Insérer une image
+
+Vous pouvez insérer une image dans votre fichier : 
+
+::: {.callout-important icon="true"}
+## Chemins vers les fichiers
+
+Lorsque que vous indiquez un chemin vers un fichier dans RMarkdown, le dossier "racine" n'est plus votre répertoire de travail (votre projet) mais le dossier dans lequel se trouve le fichier .Rmd, dans le cas présent le répertoire docs/ situé lui-même dans le répertoire de travail. Il faut donc revenir en arrière d'un niveau, ce qui s'effectue à l'aide de l'opérateur **`../`**. Lorsque vous naviguez dans une arborescence à l'aide de la ligne de commande, **`.`** indique le répertoire de travail et **`..`** le répertoire situé un niveau au-dessus dans votre arborescence.
+:::
+
+```{r, echo=TRUE, eval=FALSE}
+![](../raw/lter_penguins.png){width="100%"}
+```
+
+![](img/rmd_18.png){width="100%"}
+
+# Rédiger un document de façon dynamique
+
+Lorsque vous rédigez un rapport, vous pouvez le faire "en dur", c'est-à-dire inscrire directement dans le texte toutes les valeurs numériques, les résultats de calculs, insérer des graphiques générés séparément, ... Cette façon de procéder présente un désavantage majeur : votre document ne sera valable qu'une seule fois pour une seule analyse (vous pourrez toujours le ré-utiliser en remplaçant les valeurs numériques, ...). De plus, le risque d'erreur est non négligeable : coller des valeurs numériques copiées depuis un autre logiciel peut créer des mauvaises surprises, des noms complexes seront facilement mal écrits, ...
+
+Pour pallier à ces différents problèmes, RMarkdown vous permet de rédiger votre fichier de façon "dynamique" : vous pouvez ainsi importer les fichiers nécessaires à votre analyse et insérer des calculs, des graphiques à l'aide de code R qui sera compilé afin de générer le document de sortie. Dès lors, votre fichier Rmd pourra facilement être rectifié ou utilisé pour des analyses similaires sur d'autres jeux de données.
+
+## Insérer un bloc de code R
+
+Commençons par importer notre jeu de données à l'aide d'une ligne de code insérée dans un bloc de code. Dans RMarkdown, un bloc de code est encadré par trois **```**. Sur la première ligne on indique entre accolades qu'il s'agit de code R : 
+
+![](img/rmd_19.png){width="100%"}
+
+::: {.callout-tip icon="true"}
+## Raccourci clavier : insérer un bloc de code
+
+Pour insérer un bloc de code, utiliser la combinaison **Ctrl + Alt + I**
+:::
+
+Ajoutons la ligne de code permettant d'importer le jeu de données (attention au chemin !)
+
+![](img/rmd_19.png){width="100%"}
+
+Vous pouvez exécuter ce code comme vous le feriez dans un script classique en cliquant sur la flèche verte à droite du code (ou en vous plaçant sur la ligne et en utilisant la combinaison **Ctrl + Entrée**). Le fichier a bien été importé et stocké dans l'objet **pingouins** visible dans l'environnement.
+
+![](img/rmd_20.png){width="100%"}
+
+Lorsque vous compilez votre fichier Rmd, le code est exécuté et s'affiche dans le document : 
+
+![](img/rmd_21.png){width="100%"}

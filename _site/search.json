@@ -322,6 +322,20 @@
     "text": "Equation mathématique\nLa syntaxe pour insérer une équation mathématique se base sur la syntaxe LaTeX :\nLa formule pour calculer l’aire \\(A\\) d’un cercle de rayon \\(r\\) est :\n\\[A = \\pi \\times r^{2}\\]\n\n\n\n[]"
   },
   {
+    "objectID": "posts/04-rmarkdown/index.html#insérer-une-image",
+    "href": "posts/04-rmarkdown/index.html#insérer-une-image",
+    "title": "Introduction à RMarkdown",
+    "section": "Insérer une image",
+    "text": "Insérer une image\nVous pouvez insérer une image dans votre fichier :\n\n\n\n\n\n\nChemins vers les fichiers\n\n\n\nLorsque que vous indiquez un chemin vers un fichier dans RMarkdown, le dossier “racine” n’est plus votre répertoire de travail (votre projet) mais le dossier dans lequel se trouve le fichier .Rmd, dans le cas présent le répertoire docs/ situé lui-même dans le répertoire de travail. Il faut donc revenir en arrière d’un niveau, ce qui s’effectue à l’aide de l’opérateur ../. Lorsque vous naviguez dans une arborescence à l’aide de la ligne de commande, . indique le répertoire de travail et .. le répertoire situé un niveau au-dessus dans votre arborescence.\n\n\n\n![](../raw/lter_penguins.png){width=\"100%\"}"
+  },
+  {
+    "objectID": "posts/04-rmarkdown/index.html#insérer-un-bloc-de-code-r",
+    "href": "posts/04-rmarkdown/index.html#insérer-un-bloc-de-code-r",
+    "title": "Introduction à RMarkdown",
+    "section": "Insérer un bloc de code R",
+    "text": "Insérer un bloc de code R\nCommençons par importer notre jeu de données à l’aide d’une ligne de code insérée dans un bloc de code. Dans RMarkdown, un bloc de code est encadré par trois ```. Sur la première ligne on indique entre accolades qu’il s’agit de code R :\n\n\n\n\n\n\n\nRaccourci clavier : insérer un bloc de code\n\n\n\nPour insérer un bloc de code, utiliser la combinaison Ctrl + Alt + I\n\n\nAjoutons la ligne de code permettant d’importer le jeu de données (attention au chemin !)\n\nVous pouvez exécuter ce code comme vous le feriez dans un script classique en cliquant sur la flèche verte à droite du code (ou en vous plaçant sur la ligne et en utilisant la combinaison Ctrl + Entrée). Le fichier a bien été importé et stocké dans l’objet pingouins visible dans l’environnement.\n\nLorsque vous compilez votre fichier Rmd, le code est exécuté et s’affiche dans le document :"
+  },
+  {
     "objectID": "posts/05-git/index.html",
     "href": "posts/05-git/index.html",
     "title": "Introduction à git",
