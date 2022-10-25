@@ -287,6 +287,20 @@
     "text": "Insérer des titres\nPour insérer un titre, utilisez un #. Vous pouvez utiliser différents niveaux en ajoutant des # :\n\n# Niveau 1\n## Niveau 2\n### Niveau 3\n\n[]"
   },
   {
+    "objectID": "posts/04-rmarkdown/index.html#mettre-en-forme-le-texte",
+    "href": "posts/04-rmarkdown/index.html#mettre-en-forme-le-texte",
+    "title": "Introduction à RMarkdown",
+    "section": "Mettre en forme le texte",
+    "text": "Mettre en forme le texte\nPour mettre en forme votre texte, utilisez les conventions suivantes :\n\n*Texte en italiques*  \n**Texte en gras**\n***Texte en italiques et en gras***\n~~Texte barré~~\n\n[]"
+  },
+  {
+    "objectID": "posts/04-rmarkdown/index.html#insérer-des-listes",
+    "href": "posts/04-rmarkdown/index.html#insérer-des-listes",
+    "title": "Introduction à RMarkdown",
+    "section": "Insérer des listes",
+    "text": "Insérer des listes\nVous pouvez insérer une liste à puces :\n\n- item 1  \n- item 2    \n- item 3  \n\n[]\nOu une liste numérotée :\n\n- item 1  \n- item 2    \n- item 3  \n\n[]"
+  },
+  {
     "objectID": "posts/05-git/index.html",
     "href": "posts/05-git/index.html",
     "title": "Introduction à git",

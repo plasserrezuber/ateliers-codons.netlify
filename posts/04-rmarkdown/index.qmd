@@ -134,3 +134,38 @@ Pour insérer un titre, utilisez un `#`. Vous pouvez utiliser différents niveau
 ```
 
 [![](img/rmd_11.png){width="100%"}]
+
+## Mettre en forme le texte
+
+Pour mettre en forme votre texte, utilisez les conventions suivantes : 
+
+```{r, echo=TRUE, eval=FALSE}
+*Texte en italiques*  
+**Texte en gras**
+***Texte en italiques et en gras***
+~~Texte barré~~
+```
+
+[![](img/rmd_12.png){width="100%"}]
+
+## Insérer des listes
+
+Vous pouvez insérer une liste à puces : 
+
+```{r, echo=TRUE, eval=FALSE}
+- item 1  
+- item 2    
+- item 3  
+```
+
+[![](img/rmd_13.png){width="100%"}]
+
+Ou une liste numérotée : 
+
+```{r, echo=TRUE, eval=FALSE}
+- item 1  
+- item 2    
+- item 3  
+```
+
+[![](img/rmd_14.png){width="100%"}]
