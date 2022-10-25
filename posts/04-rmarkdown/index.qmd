@@ -24,11 +24,11 @@ format:
 
 ## Organiser son travail
 
-Si vous n'avez pas suivi les autres tutoriels, suivez les instructions suivantes : 
+Si vous n'avez pas suivi les autres tutoriels, suivez les instructions suivantes :
 
-- [Créez un nouveau projet](https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/#créer-un-projet)  
+-   [Créez un nouveau projet](https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/#créer-un-projet)
 
-- [Créez une arborescence](https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/#créer-une-arborescence)  
+-   [Créez une arborescence](https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/#créer-une-arborescence)
 
 ## Installer et charger RMarkdown
 
@@ -39,28 +39,27 @@ install.packages("rmarkdown")
 library(rmarkdown)
 ```
 
-# Créer un document R Markdown 
+# Créer un document R Markdown
 
 ## Ouvrir un nouveau fichier R Markdown
 
-Pour créer un nouveau document R Markdown (.RMd), cliquez sur *File > New File > R Markdown ...". Vous pouvez également cliquer sur le symbole *Plus* et choisir *R Markdown..."
+Pour créer un nouveau document R Markdown (.RMd), cliquez sur *File \> New File \> R Markdown ...". Vous pouvez également cliquer sur le symbole* Plus\* et choisir \*R Markdown..."
 
-[![](img/rmd_01.png){width="100%"}]
+\[![](img/rmd_01.png){width="100%"}\]
 
 Dans la fenêtre qui s'ouvre, laissez les paramètres par défaut et cliquez sur **Create Empty Document** (en cliquant sur **OK** vous créerez un document pré-rempli).
 
-[![](img/rmd_02.png){width="100%"}]
+\[![](img/rmd_02.png){width="100%"}\]
 
 Votre document vide s'ouvre dans la fenêtre en haut à gauche de RStudio.
 
-[![](img/rmd_03.png){width="100%"}]
+\[![](img/rmd_03.png){width="100%"}\]
 
 ## Ajouter un en-tête
 
-Un document Rmd débute toujours par une section d'en-tête encadrée par trois tirets. Par défaut, cet en-tête contient le titre, l'auteur, la date et le format de fichier en sortie.
-Il existe beaucoup d'autres paramètres pour modifier et personnaliser votre document.
+Un document Rmd débute toujours par une section d'en-tête encadrée par trois tirets. Par défaut, cet en-tête contient le titre, l'auteur, la date et le format de fichier en sortie. Il existe beaucoup d'autres paramètres pour modifier et personnaliser votre document.
 
-Voici un exemple d'en-tête à insérer en haut de votre ficher .Rmd : 
+Voici un exemple d'en-tête à insérer en haut de votre ficher .Rmd :
 
 ```{r, echo=TRUE, eval=FALSE}
 ---
@@ -79,9 +78,9 @@ Cet en-tête s'appelle un **YAML : Yet Another Markup Language**
 
 Sauvegardez votre fichier Rmd en cliquant sur l'icône disquette (ou en utilisant la combinaison Ctrl + S). Choisissez un nom pour votre fichier et placez-le dans votre dossier **docs**.
 
-[![](img/rmd_04.png){width="100%"}]
+\[![](img/rmd_04.png){width="100%"}\]
 
-[![](img/rmd_05.png){width="100%"}]
+\[![](img/rmd_05.png){width="100%"}\]
 
 ## Compiler un document R Markdown
 
@@ -89,7 +88,7 @@ Pour compiler votre fichier Rmd et générer le document au format choisi (html 
 
 Le document s'ouvre dans une nouvelle fenêtre.
 
-[![](img/rmd_06.png){width="100%"}]
+\[![](img/rmd_06.png){width="100%"}\]
 
 ::: {.callout-tip icon="true"}
 ## Raccourci clavier : compiler un fichier Rmd
@@ -99,16 +98,16 @@ Pour compiler un fichier Rmd, utilisez la combinaison **Ctrl + Shift + K**
 
 Dans l'explorateur de fichiers vous pouvez remarquer qu'un fichier **mesures_pingouins.html** a été ajouté dans le répertoire **docs** : il s'agit du fichier hmtl issu de la compilation du fichier Rmd. En cliquant sur le nom de ce fichier vous aurez le choix entre l'ouvrir dans l'éditeur ou dans un navigateur internet.
 
-[![](img/rmd_07.png){width="100%"}]
+\[![](img/rmd_07.png){width="100%"}\]
 
 ::: {.callout-tip icon="true"}
 ## Prévisualiser le document
 
 Par défaut, lorsque vous compilez un fichier Rmd, le document généré s'ouvre dans une nouvelle fenêtre. Vous pouvez choisir d'afficher cette pré-visualisation directement dans l'onglet **Viewer** en bas à droite de RStudio en cliquant sur la roue à droite du bouton Knit puis sur **Preview in Viewer Pane**.
 
-[![](img/rmd_08.png){width="100%"}]
+\[![](img/rmd_08.png){width="100%"}\]
 
-[![](img/rmd_08.png){width="100%"}]
+\[![](img/rmd_08.png){width="100%"}\]
 :::
 
 # Mise en forme
@@ -120,12 +119,12 @@ Pour mettre en forme votre texte, vous allez utiliser la syntaxe markdown.
 
 Vous pouvez modifier votre fichier Rmd à la manière d'un éditeur de texte à l'aide de l'éditeur visuel : cliquez sur le bouton **Visual** en haut du fichier.
 
-[![](img/rmd_10.png){width="100%"}]
+\[![](img/rmd_10.png){width="100%"}\]
 :::
 
 ## Insérer des titres
 
-Pour insérer un titre, utilisez un `#`. Vous pouvez utiliser différents niveaux en ajoutant des `#` : 
+Pour insérer un titre, utilisez un `#`. Vous pouvez utiliser différents niveaux en ajoutant des `#` :
 
 ```{r, echo=TRUE, eval=FALSE}
 # Niveau 1
@@ -133,11 +132,11 @@ Pour insérer un titre, utilisez un `#`. Vous pouvez utiliser différents niveau
 ### Niveau 3
 ```
 
-[![](img/rmd_11.png){width="100%"}]
+\[![](img/rmd_11.png){width="100%"}\]
 
 ## Mettre en forme le texte
 
-Pour mettre en forme votre texte, utilisez les conventions suivantes : 
+Pour mettre en forme votre texte, utilisez les conventions suivantes :
 
 ```{r, echo=TRUE, eval=FALSE}
 *Texte en italiques*  
@@ -146,11 +145,11 @@ Pour mettre en forme votre texte, utilisez les conventions suivantes :
 ~~Texte barré~~
 ```
 
-[![](img/rmd_12.png){width="100%"}]
+\[![](img/rmd_12.png){width="100%"}\]
 
 ## Insérer des listes
 
-Vous pouvez insérer une liste à puces : 
+Vous pouvez insérer une liste à puces :
 
 ```{r, echo=TRUE, eval=FALSE}
 * item 1  
@@ -160,9 +159,9 @@ Vous pouvez insérer une liste à puces :
   + item 3b  
 ```
 
-[![](img/rmd_13.png){width="100%"}]
+\[![](img/rmd_13.png){width="100%"}\]
 
-Ou une liste numérotée : 
+Ou une liste numérotée :
 
 ```{r, echo=TRUE, eval=FALSE}
 1. item 1  
@@ -170,11 +169,11 @@ Ou une liste numérotée :
 3. item 3 
 ```
 
-[![](img/rmd_14.png){width="100%"}]
+\[![](img/rmd_14.png){width="100%"}\]
 
 ## Insérer une citation
 
-Vous pouvez insérer une citation : 
+Vous pouvez insérer une citation :
 
 ```{r, echo=TRUE, eval=FALSE}
 Comme l'a dit ...  
@@ -182,32 +181,32 @@ Comme l'a dit ...
 > Ceci est une citation
 ```
 
-[![](img/rmd_16.png){width="100%"}]
+\[![](img/rmd_16.png){width="100%"}\]
 
 ## Notation mathématique
 
-Vous pouvez insérer du texte en exposant ou en indice : 
+Vous pouvez insérer du texte en exposant ou en indice :
 
 ```{r, echo=TRUE, eval=FALSE}
 texte en ^exposant^ ou texte en ~indice~.
 ```
 
-[![](img/rmd_14.png){width="100%"}]
+\[![](img/rmd_14.png){width="100%"}\]
 
 ## Equation mathématique
 
-La syntaxe pour insérer une équation mathématique se base sur la syntaxe LaTeX : 
+La syntaxe pour insérer une équation mathématique se base sur la syntaxe LaTeX :
 
 ```{r, echo=TRUE, eval=FALSE}
 La formule pour calculer l'aire $A$ d'un cercle de rayon $r$ est : 
 $$A = \pi \times r^{2}$$
 ```
 
-[![](img/rmd_17.png){width="100%"}]
+\[![](img/rmd_17.png){width="100%"}\]
 
 ## Insérer une image
 
-Vous pouvez insérer une image dans votre fichier : 
+Vous pouvez insérer une image dans votre fichier :
 
 ::: {.callout-important icon="true"}
 ## Chemins vers les fichiers
@@ -229,7 +228,7 @@ Pour pallier à ces différents problèmes, RMarkdown vous permet de rédiger vo
 
 ## Insérer un bloc de code R
 
-Commençons par importer notre jeu de données à l'aide d'une ligne de code insérée dans un bloc de code. Dans RMarkdown, un bloc de code est encadré par trois **```**. Sur la première ligne on indique entre accolades qu'il s'agit de code R : 
+Commençons par importer notre jeu de données à l'aide d'une ligne de code insérée dans un bloc de code. Dans RMarkdown, un bloc de code est encadré par trois **\`\`\`**. Sur la première ligne on indique entre accolades qu'il s'agit de code R :
 
 ![](img/rmd_19.png){width="100%"}
 
@@ -247,6 +246,19 @@ Vous pouvez exécuter ce code comme vous le feriez dans un script classique en c
 
 ![](img/rmd_20.png){width="100%"}
 
-Lorsque vous compilez votre fichier Rmd, le code est exécuté et s'affiche dans le document : 
+Lorsque vous compilez votre fichier Rmd, le code est exécuté et s'affiche dans le document :
 
 ![](img/rmd_21.png){width="100%"}
+
+::: {.callout-tip icon="true"}
+## Bloc de code : les options
+
+Lorsque vous insérez un bloc de code, des paramètres vous permettent de préciser si le code doit être affiché ou non, exécuté ou non, ... Ces options sont à placer dans les accolades : `{r param=TRUE} par exemple`.
+
+|         |                                       |
+|---------|---------------------------------------|
+| echo    | afficher le code dans le document     |
+| eval    | exécuter le code                      |
+| error   | afficher les messages d'erreur        |
+| warning | afficher les messages d'avertissement |
+:::
