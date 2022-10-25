@@ -153,9 +153,11 @@ Pour mettre en forme votre texte, utilisez les conventions suivantes :
 Vous pouvez insérer une liste à puces : 
 
 ```{r, echo=TRUE, eval=FALSE}
-- item 1  
-- item 2    
-- item 3  
+* item 1  
+* item 2    
+* item 3
+  + item 3a  
+  + item 3b  
 ```
 
 [![](img/rmd_13.png){width="100%"}]
@@ -163,9 +165,42 @@ Vous pouvez insérer une liste à puces :
 Ou une liste numérotée : 
 
 ```{r, echo=TRUE, eval=FALSE}
-- item 1  
-- item 2    
-- item 3  
+1. item 1  
+2. item 2    
+3. item 3 
 ```
 
 [![](img/rmd_14.png){width="100%"}]
+
+## Insérer une citation
+
+Vous pouvez insérer une citation : 
+
+```{r, echo=TRUE, eval=FALSE}
+Comme l'a dit ...  
+
+> Ceci est une citation
+```
+
+[![](img/rmd_16.png){width="100%"}]
+
+## Notation mathématique
+
+Vous pouvez insérer du texte en exposant ou en indice : 
+
+```{r, echo=TRUE, eval=FALSE}
+texte en ^exposant^ ou texte en ~indice~.
+```
+
+[![](img/rmd_14.png){width="100%"}]
+
+## Equation mathématique
+
+La syntaxe pour insérer une équation mathématique se base sur la syntaxe LaTeX : 
+
+```{r, echo=TRUE, eval=FALSE}
+La formule pour calculer l'aire $A$ d'un cercle de rayon $r$ est : 
+$$A = \pi \times r^{2}$$
+```
+
+[![](img/rmd_17.png){width="100%"}]
