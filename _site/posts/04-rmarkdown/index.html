@@ -264,7 +264,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1>Créer un document R Markdown</h1>
 <section id="ouvrir-un-nouveau-fichier-r-markdown" class="level2">
 <h2 class="anchored" data-anchor-id="ouvrir-un-nouveau-fichier-r-markdown">Ouvrir un nouveau fichier R Markdown</h2>
-<p>Pour créer un nouveau document R Markdown (.RMd), cliquez sur <em>File &gt; New File &gt; R Markdown …“. Vous pouvez également cliquer sur le symbole </em>Plus* et choisir *R Markdown…”</p>
+<p>Pour créer un nouveau document R Markdown (.RMd), cliquez sur *File &gt; New File &gt; R Markdown …“. Vous pouvez également cliquer sur le symbole* Plus* et choisir *R Markdown…”</p>
 <p>[<img src="img/rmd_01.png" class="img-fluid" style="width:100.0%">]</p>
 <p>Dans la fenêtre qui s’ouvre, laissez les paramètres par défaut et cliquez sur <strong>Create Empty Document</strong> (en cliquant sur <strong>OK</strong> vous créerez un document pré-rempli).</p>
 <p>[<img src="img/rmd_02.png" class="img-fluid" style="width:100.0%">]</p>
@@ -471,6 +471,39 @@ Raccourci clavier : insérer un bloc de code
 <p><img src="img/rmd_20.png" class="img-fluid" style="width:100.0%"></p>
 <p>Lorsque vous compilez votre fichier Rmd, le code est exécuté et s’affiche dans le document :</p>
 <p><img src="img/rmd_21.png" class="img-fluid" style="width:100.0%"></p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Bloc de code : les options
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Lorsque vous insérez un bloc de code, des paramètres vous permettent de préciser si le code doit être affiché ou non, exécuté ou non, … Ces options sont à placer dans les accolades : <code>{r param=TRUE} par exemple</code>.</p>
+<table class="table">
+<tbody>
+<tr class="odd">
+<td>echo</td>
+<td>afficher le code dans le document</td>
+</tr>
+<tr class="even">
+<td>eval</td>
+<td>exécuter le code</td>
+</tr>
+<tr class="odd">
+<td>error</td>
+<td>afficher les messages d’erreur</td>
+</tr>
+<tr class="even">
+<td>warning</td>
+<td>afficher les messages d’avertissement</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 
 
 </section>
