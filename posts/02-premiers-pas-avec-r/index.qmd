@@ -1,6 +1,6 @@
 ---
 title: "Premiers pas avec R"
-subtitle: "Se familiariser avec R et manipuler des données"
+subtitle: "Se familiariser avec R, manipuler des données et les représenter"
 author:
   - Gergana Daskalova
   - Jonathan Kitt (adaptation)
@@ -44,18 +44,18 @@ Il a été développé par **Ross Ihaka** et **Robert Gentleman**, du Départeme
 ::: {.callout-tip icon="true"}
 ## Quelques dates
 
-|      |                                                                                                                                     |
-|----------------|--------------------------------------------------------|
-| 1991 | Création du langage R                                                                                                               |
-| 1993 | R est dévoilé au public                                                                                                             |
+|      |                         |
+|------|-------------------------|
+| 1991 | Création du langage R   |
+| 1993 | R est dévoilé au public |
 | 1996 | [Article dans le *Journal of Computational and Graphical Statistics*](https://www.stat.auckland.ac.nz/~ihaka/downloads/R-paper.pdf) |
 :::
 
 <br>
 
-R désigne également le **logiciel** qui utilise ce langage pour des calculs statistiques (et tout un tas d'autres applications !).
+R désigne également le **logiciel** qui utilise ce langage pour des calculs statistiques (et tout un tas d'autres applications (calculs, graphiques, ...).
 
-Il dispose d'une **communauté** en ligne très active ainsi que d'**extensions** pour presque tous les domaines et applications possibles et imaginables.
+Il dispose d'une **communauté** en ligne très active ainsi que d'**extensions** pour presque tous les domaines et applications possibles et imaginables (cartographie, fouille de texte, modélisation, ...).
 
 <br>
 
@@ -86,8 +86,7 @@ En ouvrant RStudio, vous verrez une fenêtre comme celle ci-dessous, qui se divi
 ### La console
 
 Vous pouvez y taper du code et l'exécuter en appuyant sur `Entrée`.
-
-Lors du lancement d'une session RStudio, elle affiche également des informations comme la version de R présente sur votre ordinateur et des indications sur la manière d'obtenir de l'aide.
+Quand vous démarrez une nouvelle session dans RStudio, la console affiche également des informations comme la version de R présente sur votre ordinateur ainsi que des indications sur la manière d'obtenir de l'aide.
 
 ::: {.callout-tip icon="true"}
 ## L'invite de commande
@@ -95,7 +94,15 @@ Lors du lancement d'une session RStudio, elle affiche également des information
 Dans la console, une ligne commence par `>` : c'est ce qu'on appelle l'**invite de commande**. Cela indique que R est prêt à recevoir vos instructions !
 
 Tapez `2+2` puis appuyez sur `Entrée` : la console affiche le résultat.
+```{r}
+2 + 2
+```
+
+Dans la console, vous pouvez parcourir les dernières commandes exécutées à l'aide des flèches haut et bas.
+
 :::
+
+<br>
 
 ### L'espace de travail
 
@@ -109,11 +116,15 @@ R est un langage orienté objet, ce qui veut dire que tout ce que vous manipulez
 
 D'autres onglets vous permettent d'accéder à l'historique des commandes ou encore à des tutoriels (pour les versions les plus récentes de RStudio).
 
+<br>
+
 ### Le navigateur
 
 Ce navigateur vous permet de navigeur dans vos dossiers, de copier, renommer ou supprimer des fichiers, à la manière d'un explorateur classique.
 
 Les autres onglets permettent de visualiser les graphiques ou encore d'afficher l'aide.
+
+<br>
 
 ### Le script
 
@@ -125,13 +136,17 @@ Le code tapé et exécuté dans la console ne sera plus disponible quand vous qu
 
 Pour ouvrir un nouveau script, cliquez sur le "plus" dans le coin supérieur gauche de la fenêtre RStudio puis sur **R Script**.
 
-![](img/rstudio_09.png){width="100%"}
+![](img/rstudio_09.png){width="75%"}
+
+<br>
 
 ::: {.callout-tip icon="true"}
 ## Raccourcis clavier : nouveau script
 
 Pour ouvrir un nouveau script, utilisez la combinaison **Ctrl + Shift + N**
 :::
+
+<br>
 
 Un nouveau panneau s'affiche :
 
@@ -143,28 +158,36 @@ Un nouveau panneau s'affiche :
 
 ## Créer un projet
 
+<br>
+
 Pour éviter de perdre du temps à chercher des fichiers dont on a oublié le nom et l'emplacement, il est utile d'organiser son travail à l'aide de **projets**.
 
 Pour créer un projet, cliquez sur **File** puis **New project...** :
 
-![](img/rstudio_02.png){width="100%"}
+![](img/rstudio_02.png){width="75%"}
 
 Choisissez **New Directory** puis **New Project**
 
-![](img/rstudio_03.png){width="100%"}
+::: {layout-ncol=2}
 
-![](img/rstudio_04.png){width="100%"}
+![](img/rstudio_03.png){}
+
+![](img/rstudio_04.png){}
+:::
+
 
 Dans la fenêtre **Create New Project**, attribuez un nom et un emplacement au projet, puis cliquez sur **Create project**
 
-![](img/rstudio_05.png){width="100%"}
+![](img/rstudio_05.png){width="75%"}
 
 Quand vous voudrez travailler à nouveau sur ces données, il vous suffira de double-cliquer sur le fichier `.Rproj` pour ouvrir le projet et accéder à tout ce qu'il contient.
 
-![](img/rstudio_06.png){width="100%"}
+![](img/rstudio_06.png){width="75%"}
+
+<br>
 
 ::: {.callout-caution icon="true"}
-## Bonne pratiques : nommer ses fichiers et dossiers
+## Bonnes pratiques : nommer ses fichiers et dossiers
 
 Pour vous simplifier la vie, voici quelques recommandations :
 
@@ -177,32 +200,41 @@ Pour vous simplifier la vie, voici quelques recommandations :
 Une fois que vous avez trouvé une façon de procéder, utlisez-la pour l'ensemble de vos fichiers afin de rester cohérent !
 :::
 
+<br>
+
 ## Créer une arborescence
 
 Il est toujours préférable de passer un peu de temps à bien organiser un projet lors de sa création, plutôt que de passer beaucoup de temps par la suite à déplacer des fichiers, les renommer, les rechercher, ...
 
-Pour créer un nouveau dossier dans votre projet, cliquez sur **New Folder** dans l'onglet **Files** du navigateur : ![](img/rstudio_07.png){width="100%"}
+Pour créer un nouveau dossier dans votre projet, cliquez sur **New Folder** dans l'onglet **Files** du navigateur : 
+
+![](img/rstudio_07.png){width="100%"}
 
 L'organisation proposée ci-dessous est utilisable dans une très grande majorité de cas :
 
--   **raw** : contient les données brutes qui seront utilisées mais laisées en l'état.\
--   **data** : contient les données issues de la manipulation des données brutes (sous-ensembles, données corrigées, renommées, nouvelles variables calculées, ...)\
--   **scripts** : contient le code utilisé pour manipuler les données, générer les figures, rédiger les rapports, ...
--   **resultats** : contient les fichiers de résultats issus de l'analyse.
--   **figures** : contient les graphiques et figures générées lors de l'analyse.\
--   **docs** : contient les rapports rédigés au cours de l'analyse, les présentations de résultats, des articles en lien avec l'analyse, les documents concernant les outils utlisés, ...
+|         |     |
+| ------- | --- |
+| **raw** | données brutes |
+| **data** | donnéées issues de la manipulation/modification des données brutes |
+| **scripts** | code utilisé pour analyser les données, créer les graphiques, ... |
+| **results** | fichiers de résultats obtenus durant l'analyse |
+| **figures** | graphiques générés au cours de l'analyse |
+| **docs** | rapports, présentations de résultats, articles en lien avec l'analyse, documents concernant les outils utilisés, ... |
 
 ![](img/rstudio_08.png){width="100%"}
 
+<br>
 
 # Importer les données
 
 Si ce n'est pas encore fait, ouvrez un nouveau script.
 
 ::: {.callout-caution icon="true"}
-## Bonne pratiques : commenter ses scripts
+## Bonnes pratiques : commenter ses scripts
 
-Prenez dès maintenant l'habitude de commenter vos scripts. Il s'agit de rédiger des commentaires qui expliquent ce que fait votre code, pour le rendre plus compréhensible par vos collègues - et par vous-même quand vous reviendrez sur un script après un certain temps ! Pour ajouter un commentaire, utiliser un `#` au début d'une ligne puis rédigez votre commentaire. Dans R, un code placé après un `#` n'est pas exécuté :
+Prenez dès maintenant l'habitude de commenter vos scripts. Il s'agit de rédiger des commentaires qui expliquent ce que fait votre code, pour le rendre plus compréhensible par vos collègues - et par vous-même quand vous reviendrez sur un script après un certain temps !
+
+Pour ajouter un commentaire, utilisez un `#` au début d'une ligne puis rédigez votre commentaire. Dans R, un code placé après un `#` n'est pas exécuté :
 
 ```{r, echo=TRUE, eval=TRUE}
 # Ceci est un commentaire qui ne sera pas exécuté
@@ -211,23 +243,31 @@ Prenez dès maintenant l'habitude de commenter vos scripts. Il s'agit de rédige
 ```
 :::
 
+<br>
+
 Pour commencer, ajoutons des informations en haut de notre script :
 
 ```{r, echo=TRUE, eval=FALSE}
 # Ateliers codons
-# 01 - Premiers pas avec R
+# Premiers pas avec R
 # 2022-11-07
 ```
+
+<br>
 
 ::: {.callout-tip icon="true"}
 ## Raccourcis clavier : commentaires
 
-Pour commenter ou dé-commenter une ligne de code, utilisez la combinaison **Ctrl + Shift + C**.
+Pour commenter ou dé-commenter des lignes de code, utilisez la combinaison **Ctrl + Shift + C**.
 :::
+
+<br>
 
 Le jeu de données que nous allons utiliser contient des mesures pour [trois espèces de pingouins vivant sur l'archipel Palmer en Antarctique](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0090081).
 
-Pour importer ces données, nous allons faire appel à la **fonction `read.csv()`** qui, comme son nom l'indique, permet de lire un fichier au format *.csv*. Une fonction permet d'exécuter une action comme calculer une somme, importer ou exporter un fichier.
+Pour importer ces données, nous allons faire appel à la **fonction `read.csv()`** qui, comme son nom l'indique, permet de lire un fichier au format *.csv*. 
+
+Une fonction permet d'exécuter une action comme calculer une somme, importer ou exporter un fichier, ...
 
 Toutes les fonctions s'utilisent de la même façon :
 
@@ -235,11 +275,9 @@ Toutes les fonctions s'utilisent de la même façon :
 fonction(x, arguments)
 ```
 
--   un appel à la fonction en tapant son nom
+Cette ligne de code débute par un appel à la fonction, en tapant le **nom de la fonction**, puis contient, **entre parenthèses** :
 
-Entre **parenthèses** :
-
--   les données sur lesquelles appliquer la fonction (**x**)\
+-   les données sur lesquelles appliquer la fonction (**x**)
 -   les **arguments**, obligatoires ou optionnels, qui vont modifier la manière dont la fonction sera exécutée.
 
 Voyons ce que fait la fonction `read.csv()`. Nous allons préciser deux arguments :
@@ -258,9 +296,10 @@ read.csv("../../raw/pingouins.csv", check.names = FALSE)
 ```
 
 ![](img/rstudio_20.png){width="100%"}
+<br>
 
 ::: {.callout-caution icon="true"}
-## Bonne pratiques : auto-complétion
+## Bonnes pratiques : auto-complétion
 
 R vous aide à compléter votre code : tapez `re` puis **Tab**, et vous verrez s'afficher une liste de fonctions ou d'objets commençant par ces deux lettres. Vous pouvez naviguer à l'aide des flèches haut et bas et valider votre choix en appuyant à nouveau sur **Tab**. Cette fonctionnalité de R est particulièrement utile lorsque vous manipulez des fichiers ou objets ayant des noms complexes.
 :::
@@ -277,6 +316,8 @@ pingouins <- read.csv(file = "raw/pingouins.csv", check.names = FALSE)
 Pour insérer une flèche d'assignation, utilisez la combinaison **Alt + "-"** (tiret du 6).
 :::
 
+<br>
+
 Exécutez cette fonction en plaçant le curseur sur la ligne et en cliquant sur **Run** :
 
 ![](img/rstudio_11.png){width="100%"}
@@ -291,31 +332,43 @@ Notre environnement contient maintenant un objet **pingouins**, et vous pouvez v
 
 ![](img/rstudio_12.png){width="100%"}
 
+<br>
+
 En cliquant sur la flèche bleue à gauche du nom de l'objet, vous aurez accès à plus d'informations :
 
 ![](img/rstudio_13.png){width="100%"}
 
--   **Noms des variables** : le tableau contient 9 variables dont les noms sont précédés du signe **\$**.
+<br>
+
+|                        |
+| -----------------------|
+| **noms** des variables (précédés du signe `$`) |
+| **types** des variables : caractère (chr), nombres entiers (int) ou décimaux (num), logique (log) |
+| **premiers éléments** de chaque variable |
 
 ::: {.callout-tip icon="true"}
 ## L'opérateur **\$**
 
 Cet opérateur permet de sélectionner la colonne d'un tableau. Dans la console, tapez `pingouins$` et appuyez sur **Tab**.
 
-![](img/rstudio_15.png){width="100%"} Vous pouvez choisir la variable qui vous intéresse à l'aide des **flèches haut et bas** (*Espece* par exemple) puis appuyer à nouveau sur **Tab** pour valider. Vous verrez alors s'afficher les 344 observations de cette variable. ![](img/rstudio_16.png){width="100%"}
+![](img/rstudio_15.png){width="75%"} 
+
+Vous pouvez choisir la variable qui vous intéresse à l'aide des **flèches haut et bas** (*Espece* par exemple) puis appuyer à nouveau sur **Tab** pour valider. Vous verrez alors s'afficher les 344 observations de cette variable. ![](img/rstudio_16.png){width="100%"}
 :::
 
--   **Types des variables** : indique s'il s'agit d'une variable de type **caractère (`chr`)**, d'une variable contenant des **nombres entiers (`int`)** ou des **nombres décimaux (`num`)**. Une variable peut également être de type **logique (`log`)** (*TRUE* ou *FALSE*).
-
--   **Premiers éléments de chaque variable**.
+<br>
 
 Vous pouvez afficher le tableau en cliquant sur l'icône à droite du nom de l'objet dans l'environnement :
 
 ![](img/rstudio_14.png){width="100%"}
 
+<br>
+
 Cela ouvre un nouvel onglet à côté de de votre script :
 
 ![](img/rstudio_17.png){width="100%"}
+
+<br>
 
 Avant d'aller plus loin, sauvegardez votre script en cliquant sur l'icône disquette en haut de votre script :
 
@@ -331,6 +384,8 @@ Choisissez le dossier où sera sauvegardé votre script - **scripts** dans notre
 Pour sauvegarder un script, uilisez la combinaison **Ctrl + S**
 :::
 
+<br>
+
 # Explorer les données
 
 Une des premières choses à faire est de vous assurer que vos données ont été correctement importées. Les outils proposés par R vous permettent d'effectuer des analyses, mais c'est à vous de vous assurer que vos données sont au bon format.
@@ -339,7 +394,7 @@ Pour cette étape d'exploration des données, vous pouvez taper le code directem
 
 Plusieurs fonctions vous permettent d'explorer rapidement vos données :
 
-```{r, echo=TRUE, eval=TRUE}
+```{r, echo=TRUE, eval=FALSE}
 # Afficher les premieres lignes du tableau
 head(pingouins)
 
@@ -350,7 +405,11 @@ tail(pingouins)
 str(pingouins)
 ```
 
+<br>
+
 Vous remarquerez que la fonction `str(pingouins)` affiche des informations très proches de celles obtenues en cliquant sur la flèche bleue à gauche de l'objet pingouins dans l'environnement.
+
+<br>
 
 ::: {.callout-tip icon="true"}
 ## Afficher l'aide d'une fonction
@@ -362,21 +421,24 @@ Essayez en tapant dans la console `?he` puis appuyez sur **Tab** : R vous propos
 
 L'aide d'une fonction contient plusieurs paragraphes :
 
--   une **description** de la fonction\
--   **comment utiliser** la fonction\
--   les **arguments** de la fonction\
--   les **détails** de la fonction (quel type de données en entrée, des précisions sur les arguments, ...)\
--   ce que la fonction retourne en **sortie**\
--   des **notes** additionnelles\
--   les **auteurs** qui ont contribué à l'écriture du code de la fonction\
--   des **exemples** sur l'utilisation de la fonction (avec possibilité d'exécuter ces exemples)
+| --- | --- | 
+| **Description** | présentation sommaire de la fonction |
+| **Usage** | comment utiliser la fonction |
+| **Arguments** | les arguments obligatoires et/ou optionnels de la fonction |
+| **Details** | le format de données à fournir en entrée, des précisions sur les arguments, ... |
+| **Value** | le type d'objet obtenu en sortie |
+| **Note** | informations additionnelles |
+| **Author(s)** | les personnes ayant contribué à l'écriture du code de la fonction |
+| **Examples** | des exemples d'utilisation de la fonction, avec la possibilité d'exécuter ces exemples |
 
 Dans le cas de `head()`, vous pouvez voir que par défaut, la fonction retournera les 6 premières lignes (`n = 6L`, **L** indiquant qu'il s'agit d'un nombre entier). Pour afficher uniquement les deux premières lignes du tableau *pingouins*, il vous faudrait modifier cet argument : `head(pingouins, n = 2L)`
 :::
 
+<br>
+
 Vous pouvez explorer une variable d'intérêt :
 
-```{r, echo=TRUE, eval=TRUE}
+```{r, echo=TRUE, eval=FALSE}
 # Afficher les premiers elements d'une variable
 head(pingouins$`Masse corporelle (g)`)
 
@@ -393,12 +455,16 @@ typeof(pingouins$`Masse corporelle (g)`)
 ::: {.callout-tip icon="true"}
 ## Les données manquantes
 
-Si vous tapez `head(pingouins$`Masse corporelle (g)`)` dans la console, vous verrez un élément **NA**. Il s'agit d'une donnée manquante (**Not Available**) : aucune mesure n'a été relevée chez cet individu pour cette variable.
+Vous pouvez trouver dans vos données des éléments notés **NA**. Il s'agit d'une donnée manquante (**Not Available**) : aucune donnée n'existe pour ce cas précis.
 
 Cette valeur **NA** est à différencier de la valeur **NaN (Not a Number)** également rencontrée dans R. Il s'agit alors du résultat d'une opération arithmétique invalide, telle que 0/0.
 :::
 
+<br>
+
 La fonction `dim(pingouins)` permet d'afficher les **dimensions** du tableau (**m lignes** et **n colonnes**).
+
+<br>
 
 # Manipuler des données
 
