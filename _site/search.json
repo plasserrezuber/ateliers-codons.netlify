@@ -305,7 +305,7 @@
     "href": "posts/04-rmarkdown/index.html#insérer-un-tableau",
     "title": "Introduction à RMarkdown",
     "section": "Insérer un tableau",
-    "text": "Insérer un tableau"
+    "text": "Insérer un tableau\nVous pouvez insérer un tableau en le “dessinant” : - des tirets - pour déparer l’en-tête du reste du tableau\n- des barres verticales | pour délimiter les colonnes\n\n\n\n\ncol 1\ncol 2\ncol 3\n\n\n\n\nA\n1\nech1\n\n\nB\n2\nech2\n\n\nC\n3\nech3\n\n\n\nPour aligner le texte, utilisez deux points : :\n\n\n\n\ngauche\ndroite\ncentre\n\n\n\n\nA\n1\nech1\n\n\nB\n2\nech2\n\n\nC\n3\nech3"
   },
   {
     "objectID": "posts/04-rmarkdown/index.html#insérer-une-citation",
