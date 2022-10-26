@@ -575,3 +575,35 @@ Nous pouvons représenter visuellement le nombre de pingouins par espèce à l'a
 barplot(nb_ind)
 ```
 
+Vous pouvez voir que plusieurs points peuvent être améliorés :  
+
+- ajuster l'axe des ordonnées pour inclure la valeur maximale  
+- ajuster la taille des étiquettes de l'axe de abscisses pour que les trois noms d'espèces soient lisibles  
+- ajouter un titre à l'axe des ordonnées et au graphique  
+- modifier la couleur des barres
+
+Pour trouver comment modifier ces différents paramètres, vous pouvez utiliser l'aide de la fonction (`?barplot`) ou l'aide plus générales pour les graphiques (`?par`).
+
+Pour rendre la graphique plus lisible, nous aimerions que le nom des espèces soit situé sur deux lignes. Nous allons pour cela modifier les noms de notre vecteur **nb_ind** à l'aide de la fonction `gsub()`.
+Cette fonction permet de remplacer un motif par au autre dans une chaîne et s'utilise de la façon suivante : `gsub(motif a remplacer, motif de remplacer, objet a modifier)` : 
+
+```{r}
+names(nb_ind) <- gsub("(", "\n(", names(nb_ind), fixed = TRUE)
+```
+
+
+Nous allons utiliser les paramètres suivants :  
+
+- **main** pour ajouter un titre au graphique  
+- **ylab** pour ajouter un titre à l'axe des ordonnées  
+- **ylim** pour ajuster l'axe des ordonnées  
+- **cex** pour modifier la taille du texte  
+- **col** pour modifier la couleur des barres
+
+```{r}
+barplot(nb_ind,
+        main = "Trois especes de pingouins vivant en Antarctique",
+        ylab = "Nombre d'individus par espece",
+        ylim = c(0, 200),
+        col = "blue")
+```
