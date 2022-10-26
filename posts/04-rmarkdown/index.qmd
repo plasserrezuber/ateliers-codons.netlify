@@ -173,6 +173,28 @@ Ou une liste numérotée :
 
 ## Insérer un tableau
 
+Vous pouvez insérer un tableau en le "dessinant" : 
+- des tirets `-` pour déparer l'en-tête du reste du tableau  
+- des barres verticales `|` pour délimiter les colonnes  
+
+![](img/rmd_22.png){width="100%"}
+
+| col 1 | col 2 | col 3 |
+| ----- | ----- | ----- |
+| A     | 1     | ech1  |
+| B     | 2     | ech2  |
+| C     | 3     | ech3  |
+
+Pour aligner le texte, utilisez deux points `:` :
+
+![](img/rmd_22.png){width="100%"}
+
+| gauche | droite | centre |
+| :----- | -----: | :----: |
+| A      | 1      | ech1   |
+| B      | 2      | ech2   |
+| C      | 3      | ech3   |
+
 ## Insérer une citation
 
 Vous pouvez insérer une citation :
