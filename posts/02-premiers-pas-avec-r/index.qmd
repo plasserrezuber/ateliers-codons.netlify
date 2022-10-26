@@ -472,7 +472,7 @@ La fonction `dim(pingouins)` permet d'afficher les **dimensions** du tableau (**
 
 La fonction `summary(pingouins)` est particulièrement intéressante pour avoir une vue d'ensemble de vos données.
 
-```{r, echo=TRUE, eval=TRUE}
+```{r, echo=TRUE, eval=FALSE}
 summary(pingouins)
 ```
 
@@ -480,7 +480,7 @@ summary(pingouins)
 
 Les informations affichées à l'aide de cette fonction dépendent du type de variable :
 
--   **nombre d'éléments** pour les variables de type **caractère**\
+-   **nombre d'éléments, classe et mode** pour les variables de type **caractère**\
 -   **statistiques** pour les variables de type **numérique**
 
 Il peut arriver que certaines variables soient mal catégorisées. Les deux cas de figure les plus répandus sont les suivants :
