@@ -43,7 +43,7 @@ library(rmarkdown)
 
 ## Ouvrir un nouveau fichier R Markdown
 
-Pour créer un nouveau document R Markdown (.RMd), cliquez sur *File \> New File \> R Markdown ...". Vous pouvez également cliquer sur le symbole* Plus\* et choisir \*R Markdown..."
+Pour créer un nouveau document R Markdown (.RMd), cliquez sur \*File \> New File \> R Markdown ...". Vous pouvez également cliquer sur le symbole\* Plus\* et choisir \*R Markdown..."
 
 \[![](img/rmd_01.png){width="100%"}\]
 
@@ -170,6 +170,8 @@ Ou une liste numérotée :
 ```
 
 \[![](img/rmd_14.png){width="100%"}\]
+
+## Insérer un tableau
 
 ## Insérer une citation
 
