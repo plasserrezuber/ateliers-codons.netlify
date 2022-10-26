@@ -1,5 +1,4 @@
 ---
-# title-block-banner: img/pexels-pixabay-270348.jpg
 title: "Premiers pas avec R"
 subtitle: "Se familiariser avec R et manipuler des données"
 author:
@@ -42,7 +41,7 @@ Il a été développé par **Ross Ihaka** et **Robert Gentleman**, du Départeme
 ## Quelques dates
 
 |      |                                                                                                                                     |
-|------------|------------------------------------------------------------|
+|----------------|--------------------------------------------------------|
 | 1991 | Création du langage R                                                                                                               |
 | 1993 | R est dévoilé au public                                                                                                             |
 | 1996 | [Article dans le *Journal of Computational and Graphical Statistics*](https://www.stat.auckland.ac.nz/~ihaka/downloads/R-paper.pdf) |
@@ -191,9 +190,8 @@ L'organisation proposée ci-dessous est utilisable dans une très grande majorit
 
 ![](img/rstudio_08.png){width="100%"}
 
-# Flux de travail
 
-## Importer les données
+# Importer les données
 
 Si ce n'est pas encore fait, ouvrez un nouveau script.
 
@@ -329,7 +327,7 @@ Choisissez le dossier où sera sauvegardé votre script - **scripts** dans notre
 Pour sauvegarder un script, uilisez la combinaison **Ctrl + S**
 :::
 
-## Explorer les données
+# Explorer les données
 
 Une des premières choses à faire est de vous assurer que vos données ont été correctement importées. Les outils proposés par R vous permettent d'effectuer des analyses, mais c'est à vous de vous assurer que vos données sont au bon format.
 
@@ -398,7 +396,9 @@ Cette valeur **NA** est à différencier de la valeur **NaN (Not a Number)** ég
 
 La fonction `dim(pingouins)` permet d'afficher les **dimensions** du tableau (**m lignes** et **n colonnes**).
 
-## Corriger des données
+# Manipuler des données
+
+## Transformer un vecteur en un facteur
 
 La fonction `summary(pingouins)` est particulièrement intéressante pour avoir une vue d'ensemble de vos données.
 
@@ -463,11 +463,9 @@ En cliquant sur l'icône **Menu** à droite vous aurez accès à une table des m
 ::: {.callout-tip icon="true"}
 ## Raccourcis clavier : les sections d'un script
 
-Pour afficher le sommaire de votre script, utilisez la combinaison **Ctrl + Shift + O**.  
+Pour afficher le sommaire de votre script, utilisez la combinaison **Ctrl + Shift + O**.\
 Vous pouvez également replier (**Alt + O**) ou déplier (**Alt + Shift + O**) les sections.
-
 :::
-
 
 ## Extraire des données
 
@@ -507,7 +505,7 @@ pingouins$Ile[45]
 ```
 :::
 
-Les noms des espèces étant assez complexes, nous allons commencer par les extraire et les stocker dans un vecteur : 
+Les noms des espèces étant assez complexes, nous allons commencer par les extraire et les stocker dans un vecteur :
 
 ```{r, echo=TRUE, eval=FALSE}
 especes <- unique(pingouins$Especes)
@@ -515,19 +513,28 @@ especes <- unique(pingouins$Especes)
 
 Séparons maintenant le tableau d'origine en trois tableaux. Pour l'espèce *Adelie*, nous extrayons les lignes du tableau pingouins dont la colonne Espece est égale au premier élément du vecteur especes, etc.
 
-```{r, echo=TRUE, eval=FALSE}
-adelie <- pingouins[pingouins$Espece == especes[1], ]
-gentoo <- pingouins[pingouins$Espece == especes[2], ]
-chinstrap <- pingouins[pingouins$Espece == especes[3], ]
-```
+::: {.callout-tip icon="true"}
+## Les opérateurs de comparaison
 
-Créons maintenant un vecteur contenant le nombre d'observations pour chaque tableau, à l'aide de la fonction `nrow()` (permet de compter le nombre de ligne d'un tableau) : 
+|       |                     | 
+| :---: | :------------------ |
+| ==    | égal                |
+| !=    | différent           |
+| <     | inférieur à         |
+| <=    | inférieur ou égal à |
+| >     | supérieur à         |
+| >=    | supérieur ou égal à |
+| ==    | égal                |
+
+:::
+
+Créons maintenant un vecteur contenant le nombre d'observations pour chaque tableau, à l'aide de la fonction `nrow()` (permet de compter le nombre de ligne d'un tableau) :
 
 ```{r, echo=TRUE, eval=FALSE}
 nb_ind <- c(nrow(adelie), nrow(gentoo), nrow(chinstrap))
 ```
 
-Ajoutons à ce vecteur des étiquettes avec les noms des trois espèces : 
+Ajoutons à ce vecteur des étiquettes avec les noms des trois espèces :
 
 ```{r, echo=TRUE, eval=FALSE}
 names(nb_ind) <- especes
