@@ -286,5 +286,17 @@ Lorsque vous insérez un bloc de code, des paramètres vous permettent de préci
 | error   | afficher les messages d'erreur        |
 | warning | afficher les messages d'avertissement |
 
-Ces options s'avèrent utiles si vous souhaitez afficher du code mais ne pas l'exécuter, ou si l'exécution de votre code risque de générer de longs messages d'erreur.
 :::
+
+## Insérer du code dans le texte
+
+Vous pouvez insérer du texte au format code en l'encadrant par des **``** :
+
+Insérer du code \`ici\`.
+Insérer du code `ici`.
+
+Vous pouvez également exécuter le code dans le texte en ajoutant un `r` : 
+
+![](img/rmd_24.png){width="100%"}
+
+Le résultat de l'opération `2 + 2` est `r 2 + 2`
