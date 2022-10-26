@@ -217,7 +217,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#transformer-un-vecteur-en-un-facteur" id="toc-transformer-un-vecteur-en-un-facteur" class="nav-link" data-scroll-target="#transformer-un-vecteur-en-un-facteur">Transformer un vecteur en un facteur</a></li>
   <li><a href="#extraire-des-données" id="toc-extraire-des-données" class="nav-link" data-scroll-target="#extraire-des-données">Extraire des données</a></li>
   </ul></li>
-  <li><a href="#représenter-des-données" id="toc-représenter-des-données" class="nav-link" data-scroll-target="#représenter-des-données">Représenter des données</a></li>
+  <li><a href="#représenter-des-données" id="toc-représenter-des-données" class="nav-link" data-scroll-target="#représenter-des-données">Représenter des données</a>
+  <ul class="collapse">
+  <li><a href="#diagramme-en-barres-barplot" id="toc-diagramme-en-barres-barplot" class="nav-link" data-scroll-target="#diagramme-en-barres-barplot">Diagramme en barres (barplot)</a></li>
+  <li><a href="#histogramme" id="toc-histogramme" class="nav-link" data-scroll-target="#histogramme">Histogramme</a></li>
+  <li><a href="#boxplot" id="toc-boxplot" class="nav-link" data-scroll-target="#boxplot">Boxplot</a></li>
+  <li><a href="#scatter-plot" id="toc-scatter-plot" class="nav-link" data-scroll-target="#scatter-plot">Scatter plot</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -1485,6 +1491,8 @@ La fonction <code>table()</code>
 </section>
 <section id="représenter-des-données" class="level1">
 <h1>Représenter des données</h1>
+<section id="diagramme-en-barres-barplot" class="level2">
+<h2 class="anchored" data-anchor-id="diagramme-en-barres-barplot">Diagramme en barres (barplot)</h2>
 <p>Nous pouvons représenter visuellement le nombre de pingouins par espèce à l’aide de la fonction <code>barplot()</code>. Le graphique s’affichera dans le panneau inférieur droit de RStudio.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(nb_ind)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1529,8 +1537,51 @@ La fonction <code>table()</code>
 <p><img src="index_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+</section>
+<section id="histogramme" class="level2">
+<h2 class="anchored" data-anchor-id="histogramme">Histogramme</h2>
+<p>Etudions maintenant la distribution de la variable <strong>Longueur des ailes</strong> à l’aide d’un histogramme :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(pingouins<span class="sc">$</span><span class="st">`</span><span class="at">Longueur Aile (mm)</span><span class="st">`</span>,</span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Distribution de la longueur des ailes"</span>,</span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Longueur des ailes (en mm)"</span>,</span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Frequence"</span>,</span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">"orange"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Il semble y avoir deux groupes, vérifions cela à l’aide d’un autre type de graphique.</p>
+</section>
+<section id="boxplot" class="level2">
+<h2 class="anchored" data-anchor-id="boxplot">Boxplot</h2>
+<p>Les graphiques dits en “boîtes à moustaches” donnent une bonne indication de la manière dont se distribue une variable numérique : médiane, quartiles, valeurs aberrantes, …</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(pingouins<span class="sc">$</span><span class="st">`</span><span class="at">Longueur Aile (mm)</span><span class="st">`</span> <span class="sc">~</span> pingouins<span class="sc">$</span>Espece)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="scatter-plot" class="level2">
+<h2 class="anchored" data-anchor-id="scatter-plot">Scatter plot</h2>
+<p>Regardons maintenant la relation entre la longueur du bec et la longueur des ailes</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>pingouins<span class="sc">$</span>col[pingouins<span class="sc">$</span>Espece <span class="sc">==</span> especes[<span class="dv">1</span>]] <span class="ot">&lt;-</span> <span class="st">"blue"</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>pingouins<span class="sc">$</span>col[pingouins<span class="sc">$</span>Espece <span class="sc">==</span> especes[<span class="dv">2</span>]] <span class="ot">&lt;-</span> <span class="st">"red"</span></span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>pingouins<span class="sc">$</span>col[pingouins<span class="sc">$</span>Espece <span class="sc">==</span> especes[<span class="dv">3</span>]] <span class="ot">&lt;-</span> <span class="st">"green"</span></span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pingouins<span class="sc">$</span><span class="st">`</span><span class="at">Longueur Aile (mm)</span><span class="st">`</span>, pingouins<span class="sc">$</span><span class="st">`</span><span class="at">Longueur Bec (mm)</span><span class="st">`</span>,</span>
+<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> pingouins<span class="sc">$</span>col)</span>
+<span id="cb53-7"><a href="#cb53-7" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="at">x =</span> <span class="dv">200</span>, <span class="at">y =</span> <span class="dv">45</span>, <span class="at">legend =</span> <span class="fu">c</span>(especes[<span class="dv">1</span>], especes[<span class="dv">2</span>], especes[<span class="dv">3</span>]),</span>
+<span id="cb53-8"><a href="#cb53-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"red"</span>, <span class="st">"green"</span>), <span class="at">cex =</span> <span class="fl">0.75</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

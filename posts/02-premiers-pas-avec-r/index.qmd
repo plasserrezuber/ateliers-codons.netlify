@@ -569,6 +569,8 @@ Vous obtiendrez la même chose à l'aide de la commande `table(pingouins$Espece)
 
 # Représenter des données
 
+## Diagramme en barres (barplot)
+
 Nous pouvons représenter visuellement le nombre de pingouins par espèce à l'aide de la fonction `barplot()`. Le graphique s'affichera dans le panneau inférieur droit de RStudio.
 
 ```{r}
@@ -607,3 +609,41 @@ barplot(nb_ind,
         ylim = c(0, 200),
         col = "blue")
 ```
+
+## Histogramme
+
+Etudions maintenant la distribution de la variable **Longueur des ailes** à l'aide d'un histogramme : 
+
+```{r}
+hist(pingouins$`Longueur Aile (mm)`,
+     main = "Distribution de la longueur des ailes",
+     xlab = "Longueur des ailes (en mm)",
+     ylab = "Frequence",
+     col = "orange")
+```
+
+Il semble y avoir deux groupes, vérifions cela à l'aide d'un autre type de graphique.
+
+## Boxplot
+
+Les graphiques dits en "boîtes à moustaches" donnent une bonne indication de la manière dont se distribue une variable numérique : médiane, quartiles, valeurs aberrantes, ...
+
+```{r}
+boxplot(pingouins$`Longueur Aile (mm)` ~ pingouins$Espece)
+```
+
+## Scatter plot
+
+Regardons maintenant la relation entre la longueur du bec et la longueur des ailes
+
+```{r}
+pingouins$col[pingouins$Espece == especes[1]] <- "blue"
+pingouins$col[pingouins$Espece == especes[2]] <- "red"
+pingouins$col[pingouins$Espece == especes[3]] <- "green"
+
+plot(pingouins$`Longueur Aile (mm)`, pingouins$`Longueur Bec (mm)`,
+     col = pingouins$col)
+legend(x = 200, y = 45, legend = c(especes[1], especes[2], especes[3]),
+       fill = c("blue", "red", "green"), cex = 0.75)
+```
+
