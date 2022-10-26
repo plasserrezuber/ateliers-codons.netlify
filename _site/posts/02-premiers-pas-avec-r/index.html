@@ -798,65 +798,25 @@ Vecteurs et facteurs
 <p>Si vous ne connaissez pas dans le détail votre jeu de données, vous pouvez avoir une idée de sa structure sous-jacente en comptant le nombre d’éléments uniques des différentes variables à l’aide des fonctions <code>unique()</code> et <code>length()</code></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extraire les elements uniques d'une variable</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(pingouins<span class="sc">$</span>Espece)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "Adelie Penguin (Pygoscelis adeliae)"      
-[2] "Gentoo penguin (Pygoscelis papua)"        
-[3] "Chinstrap penguin (Pygoscelis antarctica)"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compter le nombre d'elements uniques d'une variable</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">unique</span>(pingouins<span class="sc">$</span>Espece))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 3</code></pre>
-</div>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(pingouins<span class="sc">$</span>Espece)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Compter le nombre d'elements uniques d'une variable</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">unique</span>(pingouins<span class="sc">$</span>Espece))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>La fonction <code>unique()</code> affiche les éléments uniques d’une variable par ordre d’apparition.</p>
 <p>La fonction <code>as.factor()</code> permet de transformer un vecteur en facteur. Par défaut, les niveaux sont triés par ordre alphabétique. Si vous le souhaitez, vous pouvez préciser manuellement l’ordre souhaité pour ces niveaux à l’aide de l’argument <code>levels</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Transformer un vecteur en facteur</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>pingouins<span class="sc">$</span><span class="st">`</span><span class="at">Echantillon Numero</span><span class="st">`</span> <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(pingouins<span class="sc">$</span><span class="st">`</span><span class="at">Echantillon Numero</span><span class="st">`</span>)</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>pingouins<span class="sc">$</span>Espece <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(pingouins<span class="sc">$</span>Espece)</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>pingouins<span class="sc">$</span>Ile <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(pingouins<span class="sc">$</span>Ile)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Transformer un vecteur en facteur</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>pingouins<span class="sc">$</span><span class="st">`</span><span class="at">Echantillon Numero</span><span class="st">`</span> <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(pingouins<span class="sc">$</span><span class="st">`</span><span class="at">Echantillon Numero</span><span class="st">`</span>)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>pingouins<span class="sc">$</span>Espece <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(pingouins<span class="sc">$</span>Espece)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>pingouins<span class="sc">$</span>Ile <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(pingouins<span class="sc">$</span>Ile)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Vérifiez que les corrections apportées aient bien été appliquées au jeu de données :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pingouins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> etudeNumero        Echantillon Numero
- Length:344         1      :  3       
- Class :character   2      :  3       
- Mode  :character   3      :  3       
-                    4      :  3       
-                    5      :  3       
-                    6      :  3       
-                    (Other):326       
-                                       Espece           Ile     
- Adelie Penguin (Pygoscelis adeliae)      :152   Biscoe   :168  
- Chinstrap penguin (Pygoscelis antarctica): 68   Dream    :124  
- Gentoo penguin (Pygoscelis papua)        :124   Torgersen: 52  
-                                                                
-                                                                
-                                                                
-                                                                
- ID Individu        Longueur Bec (mm) Hauteur Bec (mm) Longueur Aile (mm)
- Length:344         Min.   :32.10     Min.   :13.10    Min.   :172.0     
- Class :character   1st Qu.:39.23     1st Qu.:15.60    1st Qu.:190.0     
- Mode  :character   Median :44.45     Median :17.30    Median :197.0     
-                    Mean   :43.92     Mean   :17.15    Mean   :200.9     
-                    3rd Qu.:48.50     3rd Qu.:18.70    3rd Qu.:213.0     
-                    Max.   :59.60     Max.   :21.50    Max.   :231.0     
-                    NA's   :2         NA's   :2        NA's   :2         
- Masse corporelle (g)
- Min.   :2700        
- 1st Qu.:3550        
- Median :4050        
- Mean   :4202        
- 3rd Qu.:4750        
- Max.   :6300        
- NA's   :2           </code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pingouins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><img src="img/rstudio_23.png" class="img-fluid" style="width:100.0%"></p>
+<p><br></p>
 <div class="callout-caution callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -873,6 +833,7 @@ Bonne pratiques : structurer son script
 <p><img src="img/rstudio_25.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
+<p><br></p>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -887,6 +848,7 @@ Raccourcis clavier : les sections d’un script
 Vous pouvez également replier (<strong>Alt + O</strong>) ou déplier (<strong>Alt + Shift + O</strong>) les sections.</p>
 </div>
 </div>
+<p><br></p>
 </section>
 <section id="extraire-des-données" class="level2">
 <h2 class="anchored" data-anchor-id="extraire-des-données">Extraire des données</h2>
@@ -907,484 +869,37 @@ Sélectionner des données
 <li><p>Pour un objet à <strong>une seule dimension</strong>, un seul paramètre est nécessaire (de la même façon, vous pouvez combiner les éléments avec les opérateurs <code>:</code> et <code>c()</code>) :</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selectionner la 3e ligne et la 5e colonne : </span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>pingouins[<span class="dv">3</span>, <span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "N2A1"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selectionner la 3e ligne : </span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>pingouins[<span class="dv">3</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  etudeNumero Echantillon Numero                              Espece       Ile
-3     PAL0708                  3 Adelie Penguin (Pygoscelis adeliae) Torgersen
-  ID Individu Longueur Bec (mm) Hauteur Bec (mm) Longueur Aile (mm)
-3        N2A1              40.3               18                195
-  Masse corporelle (g)
-3                 3250</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selectionner la 5e colonne : </span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>pingouins[, <span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  [1] "N1A1"   "N1A2"   "N2A1"   "N2A2"   "N3A1"   "N3A2"   "N4A1"   "N4A2"  
-  [9] "N5A1"   "N5A2"   "N6A1"   "N6A2"   "N7A1"   "N7A2"   "N8A1"   "N8A2"  
- [17] "N9A1"   "N9A2"   "N10A1"  "N10A2"  "N11A1"  "N11A2"  "N12A1"  "N12A2" 
- [25] "N13A1"  "N13A2"  "N17A1"  "N17A2"  "N18A1"  "N18A2"  "N21A1"  "N21A2" 
- [33] "N22A1"  "N22A2"  "N23A1"  "N23A2"  "N24A1"  "N24A2"  "N25A1"  "N25A2" 
- [41] "N26A1"  "N26A2"  "N27A1"  "N27A2"  "N28A1"  "N28A2"  "N29A1"  "N29A2" 
- [49] "N30A1"  "N30A2"  "N21A1"  "N21A2"  "N22A1"  "N22A2"  "N23A1"  "N23A2" 
- [57] "N24A1"  "N24A2"  "N25A1"  "N25A2"  "N27A1"  "N27A2"  "N28A1"  "N28A2" 
- [65] "N29A1"  "N29A2"  "N30A1"  "N30A2"  "N32A1"  "N32A2"  "N34A1"  "N34A2" 
- [73] "N35A1"  "N35A2"  "N36A1"  "N36A2"  "N37A1"  "N37A2"  "N38A1"  "N38A2" 
- [81] "N39A1"  "N39A2"  "N40A1"  "N40A2"  "N41A1"  "N41A2"  "N42A1"  "N42A2" 
- [89] "N44A1"  "N44A2"  "N45A1"  "N45A2"  "N46A1"  "N46A2"  "N48A1"  "N48A2" 
- [97] "N49A1"  "N49A2"  "N50A1"  "N50A2"  "N47A1"  "N47A2"  "N49A1"  "N49A2" 
-[105] "N51A1"  "N51A2"  "N53A1"  "N53A2"  "N55A1"  "N55A2"  "N58A1"  "N58A2" 
-[113] "N60A1"  "N60A2"  "N61A1"  "N61A2"  "N63A1"  "N63A2"  "N64A1"  "N64A2" 
-[121] "N66A1"  "N66A2"  "N67A1"  "N67A2"  "N69A1"  "N69A2"  "N71A1"  "N71A2" 
-[129] "N72A1"  "N72A2"  "N73A1"  "N73A2"  "N76A1"  "N76A2"  "N77A1"  "N77A2" 
-[137] "N78A1"  "N78A2"  "N79A1"  "N79A2"  "N80A1"  "N80A2"  "N81A1"  "N81A2" 
-[145] "N82A1"  "N82A2"  "N83A1"  "N83A2"  "N84A1"  "N84A2"  "N85A1"  "N85A2" 
-[153] "N31A1"  "N31A2"  "N32A1"  "N32A2"  "N33A1"  "N33A2"  "N34A1"  "N34A2" 
-[161] "N35A1"  "N35A2"  "N36A1"  "N36A2"  "N37A1"  "N37A2"  "N38A1"  "N38A2" 
-[169] "N39A1"  "N39A2"  "N40A1"  "N40A2"  "N41A1"  "N41A2"  "N42A1"  "N42A2" 
-[177] "N44A1"  "N44A2"  "N46A1"  "N46A2"  "N47A1"  "N47A2"  "N50A1"  "N50A2" 
-[185] "N56A1"  "N56A2"  "N2A1"   "N2A2"   "N4A1"   "N4A2"   "N5A1"   "N5A2"  
-[193] "N6A1"   "N6A2"   "N7A1"   "N7A2"   "N8A1"   "N8A2"   "N11A1"  "N11A2" 
-[201] "N12A1"  "N12A2"  "N13A1"  "N13A2"  "N14A1"  "N14A2"  "N15A1"  "N15A2" 
-[209] "N16A1"  "N16A2"  "N17A1"  "N17A2"  "N18A1"  "N18A2"  "N19A1"  "N19A2" 
-[217] "N20A1"  "N20A2"  "N51A1"  "N51A2"  "N53A1"  "N53A2"  "N54A1"  "N54A2" 
-[225] "N55A1"  "N55A2"  "N56A1"  "N56A2"  "N58A1"  "N58A2"  "N60A1"  "N60A2" 
-[233] "N1A1"   "N1A2"   "N6A1"   "N6A2"   "N8A1"   "N8A2"   "N13A1"  "N13A2" 
-[241] "N14A1"  "N14A2"  "N15A1"  "N15A2"  "N18A1"  "N18A2"  "N19A1"  "N19A2" 
-[249] "N20A1"  "N20A2"  "N21A1"  "N21A2"  "N22A1"  "N22A2"  "N23A1"  "N23A2" 
-[257] "N24A1"  "N24A2"  "N28A1"  "N28A2"  "N29A1"  "N29A2"  "N32A1"  "N32A2" 
-[265] "N34A1"  "N34A2"  "N35A1"  "N35A2"  "N36A1"  "N36A2"  "N38A1"  "N38A2" 
-[273] "N39A1"  "N39A2"  "N43A1"  "N43A2"  "N61A1"  "N61A2"  "N62A1"  "N62A2" 
-[281] "N64A1"  "N64A2"  "N66A1"  "N66A2"  "N67A1"  "N67A2"  "N68A1"  "N68A2" 
-[289] "N69A1"  "N69A2"  "N70A1"  "N70A2"  "N71A1"  "N71A2"  "N72A1"  "N72A2" 
-[297] "N73A1"  "N73A2"  "N85A1"  "N85A2"  "N89A1"  "N89A2"  "N61A1"  "N61A2" 
-[305] "N62A1"  "N62A2"  "N63A1"  "N63A2"  "N65A1"  "N65A2"  "N67A1"  "N67A2" 
-[313] "N69A1"  "N69A2"  "N72A1"  "N72A2"  "N74A1"  "N74A2"  "N75A1"  "N75A2" 
-[321] "N86A1"  "N86A2"  "N87A1"  "N87A2"  "N88A1"  "N88A2"  "N90A1"  "N90A2" 
-[329] "N92A1"  "N92A2"  "N93A1"  "N93A2"  "N94A1"  "N94A2"  "N95A1"  "N95A2" 
-[337] "N96A1"  "N96A2"  "N98A1"  "N98A2"  "N99A1"  "N99A2"  "N100A1" "N100A2"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selectionner les lignes 40 à 45 : </span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>pingouins[<span class="dv">40</span><span class="sc">:</span><span class="dv">45</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   etudeNumero Echantillon Numero                              Espece   Ile
-40     PAL0708                 40 Adelie Penguin (Pygoscelis adeliae) Dream
-41     PAL0708                 41 Adelie Penguin (Pygoscelis adeliae) Dream
-42     PAL0708                 42 Adelie Penguin (Pygoscelis adeliae) Dream
-43     PAL0708                 43 Adelie Penguin (Pygoscelis adeliae) Dream
-44     PAL0708                 44 Adelie Penguin (Pygoscelis adeliae) Dream
-45     PAL0708                 45 Adelie Penguin (Pygoscelis adeliae) Dream
-   ID Individu Longueur Bec (mm) Hauteur Bec (mm) Longueur Aile (mm)
-40       N25A2              39.8             19.1                184
-41       N26A1              36.5             18.0                182
-42       N26A2              40.8             18.4                195
-43       N27A1              36.0             18.5                186
-44       N27A2              44.1             19.7                196
-45       N28A1              37.0             16.9                185
-   Masse corporelle (g)
-40                 4650
-41                 3150
-42                 3900
-43                 3100
-44                 4400
-45                 3000</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selectionner les colonnes 2 et 4 : </span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>pingouins[, <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>    Echantillon Numero       Ile
-1                    1 Torgersen
-2                    2 Torgersen
-3                    3 Torgersen
-4                    4 Torgersen
-5                    5 Torgersen
-6                    6 Torgersen
-7                    7 Torgersen
-8                    8 Torgersen
-9                    9 Torgersen
-10                  10 Torgersen
-11                  11 Torgersen
-12                  12 Torgersen
-13                  13 Torgersen
-14                  14 Torgersen
-15                  15 Torgersen
-16                  16 Torgersen
-17                  17 Torgersen
-18                  18 Torgersen
-19                  19 Torgersen
-20                  20 Torgersen
-21                  21    Biscoe
-22                  22    Biscoe
-23                  23    Biscoe
-24                  24    Biscoe
-25                  25    Biscoe
-26                  26    Biscoe
-27                  27    Biscoe
-28                  28    Biscoe
-29                  29    Biscoe
-30                  30    Biscoe
-31                  31     Dream
-32                  32     Dream
-33                  33     Dream
-34                  34     Dream
-35                  35     Dream
-36                  36     Dream
-37                  37     Dream
-38                  38     Dream
-39                  39     Dream
-40                  40     Dream
-41                  41     Dream
-42                  42     Dream
-43                  43     Dream
-44                  44     Dream
-45                  45     Dream
-46                  46     Dream
-47                  47     Dream
-48                  48     Dream
-49                  49     Dream
-50                  50     Dream
-51                  51    Biscoe
-52                  52    Biscoe
-53                  53    Biscoe
-54                  54    Biscoe
-55                  55    Biscoe
-56                  56    Biscoe
-57                  57    Biscoe
-58                  58    Biscoe
-59                  59    Biscoe
-60                  60    Biscoe
-61                  61    Biscoe
-62                  62    Biscoe
-63                  63    Biscoe
-64                  64    Biscoe
-65                  65    Biscoe
-66                  66    Biscoe
-67                  67    Biscoe
-68                  68    Biscoe
-69                  69 Torgersen
-70                  70 Torgersen
-71                  71 Torgersen
-72                  72 Torgersen
-73                  73 Torgersen
-74                  74 Torgersen
-75                  75 Torgersen
-76                  76 Torgersen
-77                  77 Torgersen
-78                  78 Torgersen
-79                  79 Torgersen
-80                  80 Torgersen
-81                  81 Torgersen
-82                  82 Torgersen
-83                  83 Torgersen
-84                  84 Torgersen
-85                  85     Dream
-86                  86     Dream
-87                  87     Dream
-88                  88     Dream
-89                  89     Dream
-90                  90     Dream
-91                  91     Dream
-92                  92     Dream
-93                  93     Dream
-94                  94     Dream
-95                  95     Dream
-96                  96     Dream
-97                  97     Dream
-98                  98     Dream
-99                  99     Dream
-100                100     Dream
-101                101    Biscoe
-102                102    Biscoe
-103                103    Biscoe
-104                104    Biscoe
-105                105    Biscoe
-106                106    Biscoe
-107                107    Biscoe
-108                108    Biscoe
-109                109    Biscoe
-110                110    Biscoe
-111                111    Biscoe
-112                112    Biscoe
-113                113    Biscoe
-114                114    Biscoe
-115                115    Biscoe
-116                116    Biscoe
-117                117 Torgersen
-118                118 Torgersen
-119                119 Torgersen
-120                120 Torgersen
-121                121 Torgersen
-122                122 Torgersen
-123                123 Torgersen
-124                124 Torgersen
-125                125 Torgersen
-126                126 Torgersen
-127                127 Torgersen
-128                128 Torgersen
-129                129 Torgersen
-130                130 Torgersen
-131                131 Torgersen
-132                132 Torgersen
-133                133     Dream
-134                134     Dream
-135                135     Dream
-136                136     Dream
-137                137     Dream
-138                138     Dream
-139                139     Dream
-140                140     Dream
-141                141     Dream
-142                142     Dream
-143                143     Dream
-144                144     Dream
-145                145     Dream
-146                146     Dream
-147                147     Dream
-148                148     Dream
-149                149     Dream
-150                150     Dream
-151                151     Dream
-152                152     Dream
-153                  1    Biscoe
-154                  2    Biscoe
-155                  3    Biscoe
-156                  4    Biscoe
-157                  5    Biscoe
-158                  6    Biscoe
-159                  7    Biscoe
-160                  8    Biscoe
-161                  9    Biscoe
-162                 10    Biscoe
-163                 11    Biscoe
-164                 12    Biscoe
-165                 13    Biscoe
-166                 14    Biscoe
-167                 15    Biscoe
-168                 16    Biscoe
-169                 17    Biscoe
-170                 18    Biscoe
-171                 19    Biscoe
-172                 20    Biscoe
-173                 21    Biscoe
-174                 22    Biscoe
-175                 23    Biscoe
-176                 24    Biscoe
-177                 25    Biscoe
-178                 26    Biscoe
-179                 27    Biscoe
-180                 28    Biscoe
-181                 29    Biscoe
-182                 30    Biscoe
-183                 31    Biscoe
-184                 32    Biscoe
-185                 33    Biscoe
-186                 34    Biscoe
-187                 35    Biscoe
-188                 36    Biscoe
-189                 37    Biscoe
-190                 38    Biscoe
-191                 39    Biscoe
-192                 40    Biscoe
-193                 41    Biscoe
-194                 42    Biscoe
-195                 43    Biscoe
-196                 44    Biscoe
-197                 45    Biscoe
-198                 46    Biscoe
-199                 47    Biscoe
-200                 48    Biscoe
-201                 49    Biscoe
-202                 50    Biscoe
-203                 51    Biscoe
-204                 52    Biscoe
-205                 53    Biscoe
-206                 54    Biscoe
-207                 55    Biscoe
-208                 56    Biscoe
-209                 57    Biscoe
-210                 58    Biscoe
-211                 59    Biscoe
-212                 60    Biscoe
-213                 61    Biscoe
-214                 62    Biscoe
-215                 63    Biscoe
-216                 64    Biscoe
-217                 65    Biscoe
-218                 66    Biscoe
-219                 67    Biscoe
-220                 68    Biscoe
-221                 69    Biscoe
-222                 70    Biscoe
-223                 71    Biscoe
-224                 72    Biscoe
-225                 73    Biscoe
-226                 74    Biscoe
-227                 75    Biscoe
-228                 76    Biscoe
-229                 77    Biscoe
-230                 78    Biscoe
-231                 79    Biscoe
-232                 80    Biscoe
-233                 81    Biscoe
-234                 82    Biscoe
-235                 83    Biscoe
-236                 84    Biscoe
-237                 85    Biscoe
-238                 86    Biscoe
-239                 87    Biscoe
-240                 88    Biscoe
-241                 89    Biscoe
-242                 90    Biscoe
-243                 91    Biscoe
-244                 92    Biscoe
-245                 93    Biscoe
-246                 94    Biscoe
-247                 95    Biscoe
-248                 96    Biscoe
-249                 97    Biscoe
-250                 98    Biscoe
-251                 99    Biscoe
-252                100    Biscoe
-253                101    Biscoe
-254                102    Biscoe
-255                103    Biscoe
-256                104    Biscoe
-257                105    Biscoe
-258                106    Biscoe
-259                107    Biscoe
-260                108    Biscoe
-261                109    Biscoe
-262                110    Biscoe
-263                111    Biscoe
-264                112    Biscoe
-265                113    Biscoe
-266                114    Biscoe
-267                115    Biscoe
-268                116    Biscoe
-269                117    Biscoe
-270                118    Biscoe
-271                119    Biscoe
-272                120    Biscoe
-273                121    Biscoe
-274                122    Biscoe
-275                123    Biscoe
-276                124    Biscoe
-277                  1     Dream
-278                  2     Dream
-279                  3     Dream
-280                  4     Dream
-281                  5     Dream
-282                  6     Dream
-283                  7     Dream
-284                  8     Dream
-285                  9     Dream
-286                 10     Dream
-287                 11     Dream
-288                 12     Dream
-289                 13     Dream
-290                 14     Dream
-291                 15     Dream
-292                 16     Dream
-293                 17     Dream
-294                 18     Dream
-295                 19     Dream
-296                 20     Dream
-297                 21     Dream
-298                 22     Dream
-299                 23     Dream
-300                 24     Dream
-301                 25     Dream
-302                 26     Dream
-303                 27     Dream
-304                 28     Dream
-305                 29     Dream
-306                 30     Dream
-307                 31     Dream
-308                 32     Dream
-309                 33     Dream
-310                 34     Dream
-311                 35     Dream
-312                 36     Dream
-313                 37     Dream
-314                 38     Dream
-315                 39     Dream
-316                 40     Dream
-317                 41     Dream
-318                 42     Dream
-319                 43     Dream
-320                 44     Dream
-321                 45     Dream
-322                 46     Dream
-323                 47     Dream
-324                 48     Dream
-325                 49     Dream
-326                 50     Dream
-327                 51     Dream
-328                 52     Dream
-329                 53     Dream
-330                 54     Dream
-331                 55     Dream
-332                 56     Dream
-333                 57     Dream
-334                 58     Dream
-335                 59     Dream
-336                 60     Dream
-337                 61     Dream
-338                 62     Dream
-339                 63     Dream
-340                 64     Dream
-341                 65     Dream
-342                 66     Dream
-343                 67     Dream
-344                 68     Dream</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selectionner les lignes 50 et 100 à 105 : </span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>pingouins[<span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">100</span><span class="sc">:</span><span class="dv">105</span>), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>    etudeNumero Echantillon Numero                              Espece    Ile
-50      PAL0708                 50 Adelie Penguin (Pygoscelis adeliae)  Dream
-100     PAL0809                100 Adelie Penguin (Pygoscelis adeliae)  Dream
-101     PAL0910                101 Adelie Penguin (Pygoscelis adeliae) Biscoe
-102     PAL0910                102 Adelie Penguin (Pygoscelis adeliae) Biscoe
-103     PAL0910                103 Adelie Penguin (Pygoscelis adeliae) Biscoe
-104     PAL0910                104 Adelie Penguin (Pygoscelis adeliae) Biscoe
-105     PAL0910                105 Adelie Penguin (Pygoscelis adeliae) Biscoe
-    ID Individu Longueur Bec (mm) Hauteur Bec (mm) Longueur Aile (mm)
-50        N30A2              42.3             21.2                191
-100       N50A2              43.2             18.5                192
-101       N47A1              35.0             17.9                192
-102       N47A2              41.0             20.0                203
-103       N49A1              37.7             16.0                183
-104       N49A2              37.8             20.0                190
-105       N51A1              37.9             18.6                193
-    Masse corporelle (g)
-50                  4150
-100                 4100
-101                 3725
-102                 4725
-103                 3075
-104                 4250
-105                 2925</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selectionner le 45e element de la variable Ile</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>pingouins<span class="sc">$</span>Ile[<span class="dv">45</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] Dream
-Levels: Biscoe Dream Torgersen</code></pre>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selectionner la 3e ligne et la 5e colonne : </span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>pingouins[<span class="dv">3</span>, <span class="dv">5</span>]</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Selectionner la 3e ligne : </span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>pingouins[<span class="dv">3</span>, ]</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Selectionner la 5e colonne : </span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>pingouins[, <span class="dv">5</span>]</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Selectionner les lignes 40 à 45 : </span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>pingouins[<span class="dv">40</span><span class="sc">:</span><span class="dv">45</span>, ]</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Selectionner les colonnes 2 et 4 : </span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>pingouins[, <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>)]</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Selectionner les lignes 50 et 100 à 105 : </span></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>pingouins[<span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">100</span><span class="sc">:</span><span class="dv">105</span>), ]</span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Selectionner le 45e element de la variable Ile</span></span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>pingouins<span class="sc">$</span>Ile[<span class="dv">45</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
-</div>
+<p><br></p>
 <p>Les noms des espèces étant assez complexes, nous allons commencer par les extraire et les stocker dans un vecteur :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>especes <span class="ot">&lt;-</span> <span class="fu">unique</span>(pingouins<span class="sc">$</span>Espece)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>especes <span class="ot">&lt;-</span> <span class="fu">unique</span>(pingouins<span class="sc">$</span>Espece)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p><br></p>
 <p>Séparons maintenant le tableau d’origine en trois tableaux. Pour l’espèce <em>Adelie</em>, nous extrayons les lignes du tableau pingouins dont la colonne Espece est égale au premier élément du vecteur especes, etc.</p>
+<p><br></p>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1429,20 +944,33 @@ Les opérateurs de comparaison
 </table>
 </div>
 </div>
+<p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>adelie <span class="ot">&lt;-</span> pingouins[pingouins<span class="sc">$</span>Espece <span class="sc">==</span> especes[<span class="dv">1</span>], ]</span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>gentoo <span class="ot">&lt;-</span> pingouins[pingouins<span class="sc">$</span>Espece <span class="sc">==</span> especes[<span class="dv">2</span>], ]</span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>chinstrap <span class="ot">&lt;-</span> pingouins[pingouins<span class="sc">$</span>Espece <span class="sc">==</span> especes[<span class="dv">3</span>], ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>adelie <span class="ot">&lt;-</span> pingouins[pingouins<span class="sc">$</span>Espece <span class="sc">==</span> especes[<span class="dv">1</span>], ]</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>gentoo <span class="ot">&lt;-</span> pingouins[pingouins<span class="sc">$</span>Espece <span class="sc">==</span> especes[<span class="dv">2</span>], ]</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>chinstrap <span class="ot">&lt;-</span> pingouins[pingouins<span class="sc">$</span>Espece <span class="sc">==</span> especes[<span class="dv">3</span>], ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p><br></p>
 <p>Créons maintenant un vecteur contenant le nombre d’observations pour chaque tableau, à l’aide de la fonction <code>nrow()</code> (permet de compter le nombre de ligne d’un tableau) :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>nb_ind <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">nrow</span>(adelie), <span class="fu">nrow</span>(gentoo), <span class="fu">nrow</span>(chinstrap))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>nb_ind <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">nrow</span>(adelie), <span class="fu">nrow</span>(gentoo), <span class="fu">nrow</span>(chinstrap))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p><br></p>
 <p>Ajoutons à ce vecteur des étiquettes avec les noms des trois espèces :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(nb_ind) <span class="ot">&lt;-</span> especes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(nb_ind) <span class="ot">&lt;-</span> especes</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>nb_ind</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      Adelie Penguin (Pygoscelis adeliae) 
+                                      152 
+        Gentoo penguin (Pygoscelis papua) 
+                                      124 
+Chinstrap penguin (Pygoscelis antarctica) 
+                                       68 </code></pre>
 </div>
-<p><img src="img/rstudio_25.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+<p><img src="img/rstudio_26.png" class="img-fluid" style="width:100.0%"></p>
+<p><br></p>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1456,6 +984,7 @@ La fonction <code>table()</code>
 <p>Vous obtiendrez la même chose à l’aide de la commande <code>table(pingouins$Espece)</code> (seul l’ordre des espèces varie)</p>
 </div>
 </div>
+<p><br></p>
 </section>
 </section>
 <section id="représenter-des-données" class="level1">
@@ -1464,7 +993,7 @@ La fonction <code>table()</code>
 <h2 class="anchored" data-anchor-id="diagramme-en-barres-barplot">Diagramme en barres (barplot)</h2>
 <p>Nous pouvons représenter visuellement le nombre de pingouins par espèce à l’aide de la fonction <code>barplot()</code>. Le graphique s’affichera dans le panneau inférieur droit de RStudio.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(nb_ind)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(nb_ind)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -1482,7 +1011,7 @@ La fonction <code>table()</code>
 <p>Pour trouver comment modifier ces différents paramètres, vous pouvez utiliser l’aide de la fonction (<code>?barplot</code>) ou l’aide plus générales pour les graphiques (<code>?par</code>).</p>
 <p>Pour rendre la graphique plus lisible, nous aimerions que le nom des espèces soit situé sur deux lignes. Nous allons pour cela modifier les noms de notre vecteur <strong>nb_ind</strong> à l’aide de la fonction <code>gsub()</code>. Cette fonction permet de remplacer un motif par au autre dans une chaîne et s’utilise de la façon suivante : <code>gsub(motif a remplacer, motif de remplacer, objet a modifier)</code> :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(nb_ind) <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"("</span>, <span class="st">"</span><span class="sc">\n</span><span class="st">("</span>, <span class="fu">names</span>(nb_ind), <span class="at">fixed =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(nb_ind) <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"("</span>, <span class="st">"</span><span class="sc">\n</span><span class="st">("</span>, <span class="fu">names</span>(nb_ind), <span class="at">fixed =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Nous allons utiliser les paramètres suivants :</p>
 <ul>
@@ -1497,11 +1026,11 @@ La fonction <code>table()</code>
 <li><strong>col</strong> pour modifier la couleur des barres</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(nb_ind,</span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Trois especes de pingouins vivant en Antarctique"</span>,</span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">"Nombre d'individus par espece"</span>,</span>
-<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">200</span>),</span>
-<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="st">"blue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(nb_ind,</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Trois especes de pingouins vivant en Antarctique"</span>,</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">"Nombre d'individus par espece"</span>,</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">200</span>),</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="st">"blue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -1511,11 +1040,11 @@ La fonction <code>table()</code>
 <h2 class="anchored" data-anchor-id="histogramme">Histogramme</h2>
 <p>Etudions maintenant la distribution de la variable <strong>Longueur des ailes</strong> à l’aide d’un histogramme :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(pingouins<span class="sc">$</span><span class="st">`</span><span class="at">Longueur Aile (mm)</span><span class="st">`</span>,</span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Distribution de la longueur des ailes"</span>,</span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Longueur des ailes (en mm)"</span>,</span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Frequence"</span>,</span>
-<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">"orange"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(pingouins<span class="sc">$</span><span class="st">`</span><span class="at">Longueur Aile (mm)</span><span class="st">`</span>,</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Distribution de la longueur des ailes"</span>,</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Longueur des ailes (en mm)"</span>,</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Frequence"</span>,</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">"orange"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -1526,7 +1055,7 @@ La fonction <code>table()</code>
 <h2 class="anchored" data-anchor-id="boxplot">Boxplot</h2>
 <p>Les graphiques dits en “boîtes à moustaches” donnent une bonne indication de la manière dont se distribue une variable numérique : médiane, quartiles, valeurs aberrantes, …</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(pingouins<span class="sc">$</span><span class="st">`</span><span class="at">Longueur Aile (mm)</span><span class="st">`</span> <span class="sc">~</span> pingouins<span class="sc">$</span>Espece)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(pingouins<span class="sc">$</span><span class="st">`</span><span class="at">Longueur Aile (mm)</span><span class="st">`</span> <span class="sc">~</span> pingouins<span class="sc">$</span>Espece)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -1536,14 +1065,14 @@ La fonction <code>table()</code>
 <h2 class="anchored" data-anchor-id="scatter-plot">Scatter plot</h2>
 <p>Regardons maintenant la relation entre la longueur du bec et la longueur des ailes</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>pingouins<span class="sc">$</span>col[pingouins<span class="sc">$</span>Espece <span class="sc">==</span> especes[<span class="dv">1</span>]] <span class="ot">&lt;-</span> <span class="st">"blue"</span></span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>pingouins<span class="sc">$</span>col[pingouins<span class="sc">$</span>Espece <span class="sc">==</span> especes[<span class="dv">2</span>]] <span class="ot">&lt;-</span> <span class="st">"red"</span></span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>pingouins<span class="sc">$</span>col[pingouins<span class="sc">$</span>Espece <span class="sc">==</span> especes[<span class="dv">3</span>]] <span class="ot">&lt;-</span> <span class="st">"green"</span></span>
-<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pingouins<span class="sc">$</span><span class="st">`</span><span class="at">Longueur Aile (mm)</span><span class="st">`</span>, pingouins<span class="sc">$</span><span class="st">`</span><span class="at">Longueur Bec (mm)</span><span class="st">`</span>,</span>
-<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> pingouins<span class="sc">$</span>col)</span>
-<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="at">x =</span> <span class="dv">200</span>, <span class="at">y =</span> <span class="dv">45</span>, <span class="at">legend =</span> <span class="fu">c</span>(especes[<span class="dv">1</span>], especes[<span class="dv">2</span>], especes[<span class="dv">3</span>]),</span>
-<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"red"</span>, <span class="st">"green"</span>), <span class="at">cex =</span> <span class="fl">0.75</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>pingouins<span class="sc">$</span>col[pingouins<span class="sc">$</span>Espece <span class="sc">==</span> especes[<span class="dv">1</span>]] <span class="ot">&lt;-</span> <span class="st">"blue"</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>pingouins<span class="sc">$</span>col[pingouins<span class="sc">$</span>Espece <span class="sc">==</span> especes[<span class="dv">2</span>]] <span class="ot">&lt;-</span> <span class="st">"red"</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>pingouins<span class="sc">$</span>col[pingouins<span class="sc">$</span>Espece <span class="sc">==</span> especes[<span class="dv">3</span>]] <span class="ot">&lt;-</span> <span class="st">"green"</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pingouins<span class="sc">$</span><span class="st">`</span><span class="at">Longueur Aile (mm)</span><span class="st">`</span>, pingouins<span class="sc">$</span><span class="st">`</span><span class="at">Longueur Bec (mm)</span><span class="st">`</span>,</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> pingouins<span class="sc">$</span>col)</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="at">x =</span> <span class="dv">200</span>, <span class="at">y =</span> <span class="dv">45</span>, <span class="at">legend =</span> <span class="fu">c</span>(especes[<span class="dv">1</span>], especes[<span class="dv">2</span>], especes[<span class="dv">3</span>]),</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"red"</span>, <span class="st">"green"</span>), <span class="at">cex =</span> <span class="fl">0.75</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid" width="672"></p>
 </div>
