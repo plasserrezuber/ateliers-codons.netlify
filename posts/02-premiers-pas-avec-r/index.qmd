@@ -13,6 +13,10 @@ format:
     toc-title: "Sommaire"
 ---
 
+```{r, echo=FALSE, eval=TRUE}
+pingouins <- read.csv("../../raw/pingouins.csv", check.names = FALSE)
+```
+
 *Ce tutoriel est adapté de [Getting started with R and RStudio](https://ourcodingclub.github.io/tutorials/intro-to-r/) du site [Our Coding Club](https://ourcodingclub.github.io/).*
 
 <br>
@@ -200,7 +204,7 @@ Si ce n'est pas encore fait, ouvrez un nouveau script.
 
 Prenez dès maintenant l'habitude de commenter vos scripts. Il s'agit de rédiger des commentaires qui expliquent ce que fait votre code, pour le rendre plus compréhensible par vos collègues - et par vous-même quand vous reviendrez sur un script après un certain temps ! Pour ajouter un commentaire, utiliser un `#` au début d'une ligne puis rédigez votre commentaire. Dans R, un code placé après un `#` n'est pas exécuté :
 
-```{r, echo=TRUE, eval=FALSE}
+```{r, echo=TRUE, eval=TRUE}
 # Ceci est un commentaire qui ne sera pas exécuté
 # La ligne suivante sera exécutée
 2 + 2
@@ -335,7 +339,7 @@ Pour cette étape d'exploration des données, vous pouvez taper le code directem
 
 Plusieurs fonctions vous permettent d'explorer rapidement vos données :
 
-```{r, echo=TRUE, eval=FALSE}
+```{r, echo=TRUE, eval=TRUE}
 # Afficher les premieres lignes du tableau
 head(pingouins)
 
@@ -372,7 +376,7 @@ Dans le cas de `head()`, vous pouvez voir que par défaut, la fonction retourner
 
 Vous pouvez explorer une variable d'intérêt :
 
-```{r, echo=TRUE, eval=FALSE}
+```{r, echo=TRUE, eval=TRUE}
 # Afficher les premiers elements d'une variable
 head(pingouins$`Masse corporelle (g)`)
 
@@ -402,6 +406,10 @@ La fonction `dim(pingouins)` permet d'afficher les **dimensions** du tableau (**
 
 La fonction `summary(pingouins)` est particulièrement intéressante pour avoir une vue d'ensemble de vos données.
 
+```{r, echo=TRUE, eval=TRUE}
+summary(pingouins)
+```
+
 ![](img/rstudio_22.png){width="100%"}
 
 Les informations affichées à l'aide de cette fonction dépendent du type de variable :
@@ -424,7 +432,7 @@ Un **facteur** est un vecteur dont les éléments peuvent être regroupés en ca
 
 Si vous ne connaissez pas dans le détail votre jeu de données, vous pouvez avoir une idée de sa structure sous-jacente en comptant le nombre d'éléments uniques des différentes variables à l'aide des fonctions `unique()` et `length()`
 
-```{r, echo=TRUE, eval=FALSE}
+```{r, echo=TRUE, eval=TRUE}
 # Extraire les elements uniques d'une variable
 unique(pingouins$Espece)
 
@@ -436,7 +444,7 @@ La fonction `unique()` affiche les éléments uniques d'une variable par ordre d
 
 La fonction `as.factor()` permet de transformer un vecteur en facteur. Par défaut, les niveaux sont triés par ordre alphabétique. Si vous le souhaitez, vous pouvez préciser manuellement l'ordre souhaité pour ces niveaux à l'aide de l'argument `levels`.
 
-```{r, echo=TRUE, eval=FALSE}
+```{r, echo=TRUE, eval=TRUE}
 # Transformer un vecteur en facteur
 pingouins$`Echantillon Numero` <- as.factor(pingouins$`Echantillon Numero`)
 pingouins$Espece <- as.factor(pingouins$Espece)
@@ -445,6 +453,10 @@ pingouins$Ile <- as.factor(pingouins$Ile)
 ```
 
 Vérifiez que les corrections apportées aient bien été appliquées au jeu de données :
+
+```{r, echo=TRUE, eval=TRUE}
+summary(pingouins)
+```
 
 ![](img/rstudio_23.png){width="100%"}
 
@@ -480,7 +492,7 @@ Dans R, la sélection de données, que ce soit une cellule, une ligne ou une col
 
 -   Pour un objet à **une seule dimension**, un seul paramètre est nécessaire (de la même façon, vous pouvez combiner les éléments avec les opérateurs `:` et `c()`) :
 
-```{r, echo=TRUE, eval=FALSE}
+```{r, echo=TRUE, eval=TRUE}
 # Selectionner la 3e ligne et la 5e colonne : 
 pingouins[3, 5]
 
@@ -507,8 +519,8 @@ pingouins$Ile[45]
 
 Les noms des espèces étant assez complexes, nous allons commencer par les extraire et les stocker dans un vecteur :
 
-```{r, echo=TRUE, eval=FALSE}
-especes <- unique(pingouins$Especes)
+```{r, echo=TRUE, eval=TRUE}
+especes <- unique(pingouins$Espece)
 ```
 
 Séparons maintenant le tableau d'origine en trois tableaux. Pour l'espèce *Adelie*, nous extrayons les lignes du tableau pingouins dont la colonne Espece est égale au premier élément du vecteur especes, etc.
@@ -528,14 +540,38 @@ Séparons maintenant le tableau d'origine en trois tableaux. Pour l'espèce *Ade
 
 :::
 
+```{r, echo=TRUE, eval=TRUE}
+adelie <- pingouins[pingouins$Espece == especes[1], ]
+gentoo <- pingouins[pingouins$Espece == especes[2], ]
+chinstrap <- pingouins[pingouins$Espece == especes[3], ]
+```
+
 Créons maintenant un vecteur contenant le nombre d'observations pour chaque tableau, à l'aide de la fonction `nrow()` (permet de compter le nombre de ligne d'un tableau) :
 
-```{r, echo=TRUE, eval=FALSE}
+```{r, echo=TRUE, eval=TRUE}
 nb_ind <- c(nrow(adelie), nrow(gentoo), nrow(chinstrap))
 ```
 
 Ajoutons à ce vecteur des étiquettes avec les noms des trois espèces :
 
-```{r, echo=TRUE, eval=FALSE}
+```{r, echo=TRUE, eval=TRUE}
 names(nb_ind) <- especes
 ```
+
+![](img/rstudio_25.png){width="100%"}
+
+::: {.callout-tip icon="true"}
+## La fonction `table()`
+
+Vous obtiendrez la même chose à l'aide de la commande `table(pingouins$Espece)` (seul l'ordre des espèces varie)
+
+:::
+
+# Représenter des données
+
+Nous pouvons représenter visuellement le nombre de pingouins par espèce à l'aide de la fonction `barplot()`. Le graphique s'affichera dans le panneau inférieur droit de RStudio.
+
+```{r}
+barplot(nb_ind)
+```
+
