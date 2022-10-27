@@ -336,15 +336,16 @@ Vous pouvez choisir la variable qui vous intéresse à l'aide des **flèches hau
 
 <br>
 
-Vous pouvez afficher le tableau en cliquant sur l'icône à droite du nom de l'objet dans l'environnement, ce qui ouvre un nouvel onglet à côté de votre script :
-
-::: {layout-ncol=2}
+Vous pouvez afficher le tableau en cliquant sur l'icône à droite du nom de l'objet dans l'environnement.
 
 ![](img/rstudio_14.png){width="100%"}
+
+Cela ouvre un nouvel onglet à côté de votre script :
+
+
 ![](img/rstudio_17.png){width="100%"}
 
-:::
-
+<br>
 
 ::: {.callout-caution icon="true"}
 ## Bonnes pratiques : commenter ses scripts
@@ -368,6 +369,11 @@ Pour commencer, ajoutons des informations en haut de notre script :
 # Ateliers codons
 # Premiers pas avec R
 # 2022-11-07
+
+# Importer le jeu de donnees
+
+pingouins <- read.csv("raw/pingouins.csv", check.names = FALSE)
+
 ```
 
 <br>
@@ -378,82 +384,12 @@ Pour commencer, ajoutons des informations en haut de notre script :
 Pour commenter ou dé-commenter des lignes de code, utilisez la combinaison **Ctrl + Shift + C**.
 :::
 
-<br>
-
-
-
-Pour importer ces données, nous allons faire appel à la **fonction `read.csv()`** qui, comme son nom l'indique, permet de lire un fichier au format *.csv*. 
-
-Une fonction permet d'exécuter une action comme calculer une somme, importer ou exporter un fichier, ...
-
-Toutes les fonctions s'utilisent de la même façon :
-
-```{r, echo=TRUE, eval=FALSE}
-fonction(x, arguments)
-```
-
-Cette ligne de code débute par un appel à la fonction, en tapant le **nom de la fonction**, puis contient, **entre parenthèses** :
-
--   les données sur lesquelles appliquer la fonction (**x**)
--   les **arguments**, obligatoires ou optionnels, qui vont modifier la manière dont la fonction sera exécutée.
-
-Voyons ce que fait la fonction `read.csv()`. Nous allons préciser deux arguments :
-
--   le chemin vers le fichier à importer, **entre guillemets** :`"raw/pingouins.csv"`\
--   l'argument `check.names = FALSE` pour garder les noms de colonnes tels quels.
-
-Tapez le code suivant dans la console et appuyez sur **Entrée** :
-
-```{r, echo=TRUE, eval=FALSE}
-read.csv(file = "raw/pingouins.csv", check.names = FALSE)
-```
-
-```{r, echo=FALSE, eval=TRUE, message=FALSE, warning=FALSE, results='hide'}
-read.csv("../../raw/pingouins.csv", check.names = FALSE)
-```
-
-![](img/rstudio_20.png){width="100%"}
-<br>
-
-
-
-Le fichier a effectivement été importé dans R, mais il n'est pour l'instant pas stocké dans notre environnement. Nous allons pour cela stocker le contenu du fichier dans un objet à l'aide de la **flèche d'assignation `<-`**. Placez-vous dans votre script et tapez le code suivant :
-
-```{r, echo=TRUE, eval=FALSE}
-pingouins <- read.csv(file = "raw/pingouins.csv", check.names = FALSE)
-```
-
-
-
-<br>
-
-Exécutez cette fonction en plaçant le curseur sur la ligne et en cliquant sur **Run** :
-
-![](img/rstudio_11.png){width="100%"}
-
-
-
-
-
-
-
-
-
-
-
-
-
-<br>
-
-Cela ouvre un nouvel onglet à côté de de votre script :
-
-
 
 <br>
 
 Avant d'aller plus loin, sauvegardez votre script en cliquant sur l'icône disquette en haut de votre script :
 
-![](img/rstudio_18.png){width="100%"}
+![](img/rstudio_30.png){width="100%"}
 
 Choisissez le dossier où sera sauvegardé votre script - **scripts** dans notre cas, et nommez votre script puis cliquez sur **Save** :
 
