@@ -225,7 +225,7 @@ L'organisation proposée ci-dessous est utilisable dans une très grande majorit
 
 <br>
 
-# Importer les données
+# Importer des données
 
 Si ce n'est pas encore fait, ouvrez un nouveau script.
 
@@ -386,7 +386,7 @@ Pour sauvegarder un script, uilisez la combinaison **Ctrl + S**
 
 <br>
 
-# Explorer les données
+# Explorer des données
 
 Une des premières choses à faire est de vous assurer que vos données ont été correctement importées. Les outils proposés par R vous permettent d'effectuer des analyses, mais c'est à vous de vous assurer que vos données sont au bon format.
 
