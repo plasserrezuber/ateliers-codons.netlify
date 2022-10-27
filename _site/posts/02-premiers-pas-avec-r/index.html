@@ -715,15 +715,46 @@ Afficher l’aide d’une fonction
 - taper <code>help(fonction)</code> (pensez à l’auto-complétion !) - taper <code>?fonction</code></p>
 <p>Essayez en tapant dans la console <code>?he</code> puis appuyez sur <strong>Tab</strong> : R vous propose une liste de fonctions commençant par <strong>he</strong>. Utilisez les flèches haut et bas pour choisir la fonction <strong>head</strong>. Une petite fenêtre vous donne un aperçu du contenu de l’aide pour la fonction (utile quand vous hésitez entre plusieurs fonctions). Une fois la fonction sélectionnée, appuyez sur la touche <strong>F1</strong> pour afficher l’aide complète dans l’onglet <strong>Help</strong>.</p>
 <p>L’aide d’une fonction contient plusieurs paragraphes :</p>
-<p>— | — |<br>
-<strong>Description</strong> | présentation sommaire de la fonction |<br>
-<strong>Usage</strong> | comment utiliser la fonction |<br>
-<strong>Arguments</strong> | les arguments obligatoires et/ou optionnels de la fonction |<br>
-<strong>Details</strong> | le format de données à fournir en entrée, des précisions sur les arguments, … |<br>
-<strong>Value</strong> | le type d’objet obtenu en sortie |<br>
-<strong>Note</strong> | informations additionnelles |<br>
-<strong>Author(s)</strong> | les personnes ayant contribué à l’écriture du code de la fonction |<br>
-<strong>Examples</strong> | des exemples d’utilisation de la fonction, avec la possibilité d’exécuter ces exemples |</p>
+<table class="table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Description</strong></td>
+<td>présentation sommaire de la fonction</td>
+</tr>
+<tr class="even">
+<td><strong>Usage</strong></td>
+<td>comment utiliser la fonction</td>
+</tr>
+<tr class="odd">
+<td><strong>Arguments</strong></td>
+<td>les arguments obligatoires et/ou optionnels de la fonction</td>
+</tr>
+<tr class="even">
+<td><strong>Details</strong></td>
+<td>le format de données à fournir en entrée, des précisions sur les arguments, …</td>
+</tr>
+<tr class="odd">
+<td><strong>Value</strong></td>
+<td>le type d’objet obtenu en sortie</td>
+</tr>
+<tr class="even">
+<td><strong>Note</strong></td>
+<td>informations additionnelles</td>
+</tr>
+<tr class="odd">
+<td><strong>Author(s)</strong></td>
+<td>les personnes ayant contribué à l’écriture du code de la fonction</td>
+</tr>
+<tr class="even">
+<td><strong>Examples</strong></td>
+<td>des exemples d’utilisation de la fonction, avec la possibilité d’exécuter ces exemples</td>
+</tr>
+</tbody>
+</table>
 <p>Dans le cas de <code>head()</code>, vous pouvez voir que par défaut, la fonction retournera les 6 premières lignes (<code>n = 6L</code>, <strong>L</strong> indiquant qu’il s’agit d’un nombre entier). Pour afficher uniquement les deux premières lignes du tableau <em>pingouins</em>, il vous faudrait modifier cet argument : <code>head(pingouins, n = 2L)</code></p>
 </div>
 </div>

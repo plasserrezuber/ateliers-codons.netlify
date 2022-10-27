@@ -421,6 +421,7 @@ Essayez en tapant dans la console `?he` puis appuyez sur **Tab** : R vous propos
 
 L'aide d'une fonction contient plusieurs paragraphes :
 
+|     |     |
 | --- | --- | 
 | **Description** | présentation sommaire de la fonction |
 | **Usage** | comment utiliser la fonction |
