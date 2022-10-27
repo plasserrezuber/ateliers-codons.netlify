@@ -8,6 +8,7 @@ date: "2022-10-13"
 categories: [R, RStudio, bases]
 format: 
   html: 
+    page-layout: full
     toc: true
     toc-depth: 2
     toc-title: "Sommaire"
