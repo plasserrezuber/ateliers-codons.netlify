@@ -591,6 +591,15 @@ Nous pouvons maintenant supprimer l'objet nouveaux_noms de notre environnement �
 rm(nouveaux_noms)
 ```
 
+## Modifier une variable
+
+Les noms d'espèces contenus dans la variable espece sont plutôt longs et peu pratiques à manipuler. Nous allons modifier le contenu de cette variable pour ne garder que le premier mot de chaque chaîne de caractères (Adelie, Chinstrap et Gentoo). Nous allons à nouveau utiliser la fonction `gsub()`, mais cette fois-ci avec une expression régulière : nous allons supprimer tout ce qui vient après le premier espace (nous pourrions également extraire tout ce qui vient avant le premier espace).
+
+```{r}
+pingouins_propre$espece <- gsub(" .*$", "", pingouins_propre$espece)
+head(pingouins_propre)
+```
+
 
 
 ## Filter des données
@@ -610,7 +619,7 @@ table(is.na(pingouins_propre))
 Nos données contiennent 8 valeurs NA, nous en avons déjà trouvé 4 dans les premières lignes du tableau. Les 4 données manquantes restantes viennent-elles de l'absence de mesure pour un second individu ?
 
 ```{r}
-pingouins[is.na(pingouins$`Longueur Bec (mm)`), ]
+pingouins_propre[is.na(pingouins_propre$longueur_bec_mm), ]
 ```
 
 Nous avons ici les huit données manquantes. Nous allons supprimer ces deux individus du jeu de données : 
