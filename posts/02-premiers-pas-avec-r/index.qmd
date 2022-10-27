@@ -724,6 +724,18 @@ Vous pouvez également replier (**Alt + O**) ou déplier (**Alt + Shift + O**) l
 
 <br>
 
+## Exporter des données
+
+La fonction `write.csv()` permet d'exporter un tableau : 
+
+```{r, echo=FALSE, eval=TRUE}
+write.csv(pingouins_propre, "../../data/pingouins_propre.csv")
+```
+
+```{r, echo=TRUE, eval=FALSE}
+write.csv(pingouins_propre, "data/pingouins_propre.csv")
+```
+
 ## Extraire des données
 
 Notre jeu de données contient les mesures de différents paramètres pour trois espèces de pingouins. Nous aimerions séparer ce jeu de données en trois tableaux, un pour chacune des espèces.
