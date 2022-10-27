@@ -421,10 +421,13 @@ Raccourcis clavier : ouvrir un nouveau script
 <section id="créer-un-projet" class="level2">
 <h2 class="anchored" data-anchor-id="créer-un-projet">Créer un projet</h2>
 <p><br></p>
-<p>Pour éviter de perdre du temps à chercher des fichiers dont on a oublié le nom et l’emplacement, il est utile d’organiser son travail à l’aide de <strong>projets</strong>.</p>
-<p>Pour créer un projet, cliquez sur <strong>File</strong> puis <strong>New project…</strong> :</p>
+<p>Lorsque vous partagez votre code avec d’autres personnes, celles-ci doivent pouvoir faire tourner vos analyses sans erreur et obtenir des résultats identiques (on parle de <strong>reproductibilité</strong>).</p>
+<p>Les <strong>projets RStudio</strong> aident à construire une analyse reproductible en regroupant tous les éléments nécessaires dans un seul dossier (code, données, figures et paramètres). Cela vous évitera de perdre du temps à chercher des fichiers dans votre ordinateur : la racine du projet est votre répertoire de travail.</p>
+<p>Nous verrons dans un autre tutoriel comment connecter un projet RStudio à un gestionnaire de version comme GitLab : vous pourrez travailler à plusieurs sur un même code en gardant une trace de toutes les modifications apportées par l’une ou l’autre personne.</p>
+<p>Pour créer un projet, cliquez sur <em>File</em> puis <em>New project…</em> :</p>
 <p><img src="img/rstudio_02.png" class="img-fluid" style="width:75.0%"></p>
-<p>Choisissez <strong>New Directory</strong> puis <strong>New Project</strong></p>
+<p><br></p>
+<p>Choisissez <em>New Directory</em> puis <em>New Project</em></p>
 <div class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
@@ -435,9 +438,11 @@ Raccourcis clavier : ouvrir un nouveau script
 </div>
 </div>
 </div>
-<p>Dans la fenêtre <strong>Create New Project</strong>, attribuez un nom et un emplacement au projet, puis cliquez sur <strong>Create project</strong></p>
+<p><br></p>
+<p>Dans la fenêtre <em>Create New Project</em>, attribuez un nom et un emplacement au projet, puis cliquez sur <em>Create project</em>.</p>
 <p><img src="img/rstudio_05.png" class="img-fluid" style="width:75.0%"></p>
-<p>Quand vous voudrez travailler à nouveau sur ces données, il vous suffira de double-cliquer sur le fichier <code>.Rproj</code> pour ouvrir le projet et accéder à tout ce qu’il contient.</p>
+<p><br></p>
+<p>Quand vous voudrez travailler à nouveau sur ces données, il vous suffira d’ouvrir le projet en double-cliquant sur le fichier <code>.Rproj</code>.</p>
 <p><img src="img/rstudio_06.png" class="img-fluid" style="width:75.0%"></p>
 <p><br></p>
 <div class="callout-caution callout callout-style-default callout-captioned">
@@ -458,9 +463,8 @@ Bonnes pratiques : nommer ses fichiers et dossiers
 <li>pour les dates, privilégiez le format <strong>AAAAMMJJ</strong> (année, mois, jour)</li>
 <li>mettez l’élément le plus important en premier (par exemple : <em>projet_date_contenu</em>)<br>
 </li>
-<li>optez pour l’une de ces deux conventions d’écritre : <strong>camel case</strong> (<em>MonProjet</em>) ou <strong>snake case</strong> (<em>mon_projet</em>)</li>
+<li>optez pour l’une de ces deux conventions d’écriture : <strong>camel case</strong> (<em>MonProjet</em>) ou <strong>snake case</strong> (<em>mon_projet</em>)</li>
 </ul>
-<p>Une fois que vous avez trouvé une façon de procéder, utlisez-la pour l’ensemble de vos fichiers afin de rester cohérent !</p>
 </div>
 </div>
 <p><br></p>
@@ -468,41 +472,17 @@ Bonnes pratiques : nommer ses fichiers et dossiers
 <section id="créer-une-arborescence" class="level2">
 <h2 class="anchored" data-anchor-id="créer-une-arborescence">Créer une arborescence</h2>
 <p>Il est toujours préférable de passer un peu de temps à bien organiser un projet lors de sa création, plutôt que de passer beaucoup de temps par la suite à déplacer des fichiers, les renommer, les rechercher, …</p>
-<p>Pour créer un nouveau dossier dans votre projet, cliquez sur <strong>New Folder</strong> dans l’onglet <strong>Files</strong> du navigateur :</p>
+<p>Pour créer un nouveau dossier dans votre projet, cliquez sur <em>New Folder</em> dans l’onglet <em>Files</em> du navigateur :</p>
 <p><img src="img/rstudio_07.png" class="img-fluid" style="width:100.0%"></p>
 <p>L’organisation proposée ci-dessous est utilisable dans une très grande majorité de cas :</p>
-<table class="table">
-<colgroup>
-<col style="width: 70%">
-<col style="width: 30%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><strong>raw</strong></td>
-<td>données brutes</td>
-</tr>
-<tr class="even">
-<td><strong>data</strong></td>
-<td>donnéées issues de la manipulation/modification des données brutes</td>
-</tr>
-<tr class="odd">
-<td><strong>scripts</strong></td>
-<td>code utilisé pour analyser les données, créer les graphiques, …</td>
-</tr>
-<tr class="even">
-<td><strong>results</strong></td>
-<td>fichiers de résultats obtenus durant l’analyse</td>
-</tr>
-<tr class="odd">
-<td><strong>figures</strong></td>
-<td>graphiques générés au cours de l’analyse</td>
-</tr>
-<tr class="even">
-<td><strong>docs</strong></td>
-<td>rapports, présentations de résultats, articles en lien avec l’analyse, documents concernant les outils utilisés, …</td>
-</tr>
-</tbody>
-</table>
+<ul>
+<li><p><strong>raw</strong> : données brutes</p></li>
+<li><p><strong>data</strong> : données issues de la manipulation/modification des données brutes</p></li>
+<li><p><strong>scripts</strong> : code utilisé pour analyser les données, créer les graphiques, …</p></li>
+<li><p><strong>results</strong> : fichiers de résultats obtenus durant l’analyse</p></li>
+<li><p><strong>figures</strong> : graphiques générés au cours de l’analyse</p></li>
+<li><p><strong>docs</strong> : rapports, présentations de résultats, articles en lien avec l’analyse, documents concernant les outils utilisés, … |</p></li>
+</ul>
 <p><img src="img/rstudio_08.png" class="img-fluid" style="width:100.0%"></p>
 <p><br></p>
 </section>
