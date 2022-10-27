@@ -133,39 +133,11 @@
     "text": "Exporter des données\nLa fonction write.csv() permet d’exporter un tableau :\n\n\n\n\nwrite.csv(pingouins_propre, \"data/pingouins_propre.csv\")"
   },
   {
-    "objectID": "posts/02-premiers-pas-avec-r/index.html#extraire-des-données",
-    "href": "posts/02-premiers-pas-avec-r/index.html#extraire-des-données",
+    "objectID": "posts/02-premiers-pas-avec-r/index.html#filtrer-des-données",
+    "href": "posts/02-premiers-pas-avec-r/index.html#filtrer-des-données",
     "title": "Premiers pas avec R",
-    "section": "Extraire des données",
-    "text": "Extraire des données\nNotre jeu de données contient les mesures de différents paramètres pour trois espèces de pingouins. Nous aimerions séparer ce jeu de données en trois tableaux, un pour chacune des espèces.\n\nLes noms des espèces étant assez complexes, nous allons commencer par les extraire et les stocker dans un vecteur :\n\nespeces <- unique(pingouins$Espece)\n\n\nSéparons maintenant le tableau d’origine en trois tableaux. Pour l’espèce Adelie, nous extrayons les lignes du tableau pingouins dont la colonne Espece est égale au premier élément du vecteur especes, etc.\n\n\n\n\n\n\n\nLes opérateurs de comparaison\n\n\n\n\n\n\n==\négal\n\n\n!=\ndifférent\n\n\n<\ninférieur à\n\n\n<=\ninférieur ou égal à\n\n\n>\nsupérieur à\n\n\n>=\nsupérieur ou égal à\n\n\n==\négal\n\n\n\n\n\n\n\nadelie <- pingouins[pingouins$Espece == especes[1], ]\ngentoo <- pingouins[pingouins$Espece == especes[2], ]\nchinstrap <- pingouins[pingouins$Espece == especes[3], ]\n\n\nCréons maintenant un vecteur contenant le nombre d’observations pour chaque tableau, à l’aide de la fonction nrow() (permet de compter le nombre de ligne d’un tableau) :\n\nnb_ind <- c(nrow(adelie), nrow(gentoo), nrow(chinstrap))\n\n\nAjoutons à ce vecteur des étiquettes avec les noms des trois espèces :\n\nnames(nb_ind) <- especes\nnb_ind\n\n      Adelie Penguin (Pygoscelis adeliae) \n                                      152 \n        Gentoo penguin (Pygoscelis papua) \n                                      124 \nChinstrap penguin (Pygoscelis antarctica) \n                                       68 \n\n\n\n\n\n\n\n\n\n\nLa fonction table()\n\n\n\nVous obtiendrez la même chose à l’aide de la commande table(pingouins$Espece) (seul l’ordre des espèces varie)"
-  },
-  {
-    "objectID": "posts/02-premiers-pas-avec-r/index.html#diagramme-en-barres-barplot",
-    "href": "posts/02-premiers-pas-avec-r/index.html#diagramme-en-barres-barplot",
-    "title": "Premiers pas avec R",
-    "section": "Diagramme en barres (barplot)",
-    "text": "Diagramme en barres (barplot)\nNous pouvons représenter visuellement le nombre de pingouins par espèce à l’aide de la fonction barplot(). Le graphique s’affichera dans le panneau inférieur droit de RStudio.\n\nbarplot(nb_ind)\n\n\n\n\nVous pouvez voir que plusieurs points peuvent être améliorés :\n\najuster l’axe des ordonnées pour inclure la valeur maximale\n\najuster la taille des étiquettes de l’axe de abscisses pour que les trois noms d’espèces soient lisibles\n\najouter un titre à l’axe des ordonnées et au graphique\n\nmodifier la couleur des barres\n\nPour trouver comment modifier ces différents paramètres, vous pouvez utiliser l’aide de la fonction (?barplot) ou l’aide plus générales pour les graphiques (?par).\nPour rendre la graphique plus lisible, nous aimerions que le nom des espèces soit situé sur deux lignes. Nous allons pour cela modifier les noms de notre vecteur nb_ind à l’aide de la fonction gsub(). Cette fonction permet de remplacer un motif par au autre dans une chaîne et s’utilise de la façon suivante : gsub(motif a remplacer, motif de remplacer, objet a modifier) :\n\nnames(nb_ind) <- gsub(\"(\", \"\\n(\", names(nb_ind), fixed = TRUE)\n\nNous allons utiliser les paramètres suivants :\n\nmain pour ajouter un titre au graphique\n\nylab pour ajouter un titre à l’axe des ordonnées\n\nylim pour ajuster l’axe des ordonnées\n\ncex pour modifier la taille du texte\n\ncol pour modifier la couleur des barres\n\n\nbarplot(nb_ind,\n        main = \"Trois especes de pingouins vivant en Antarctique\",\n        ylab = \"Nombre d'individus par espece\",\n        ylim = c(0, 200),\n        col = \"blue\")"
-  },
-  {
-    "objectID": "posts/02-premiers-pas-avec-r/index.html#histogramme",
-    "href": "posts/02-premiers-pas-avec-r/index.html#histogramme",
-    "title": "Premiers pas avec R",
-    "section": "Histogramme",
-    "text": "Histogramme\nEtudions maintenant la distribution de la variable Longueur des ailes à l’aide d’un histogramme :\n\nhist(pingouins$`Longueur Aile (mm)`,\n     main = \"Distribution de la longueur des ailes\",\n     xlab = \"Longueur des ailes (en mm)\",\n     ylab = \"Frequence\",\n     col = \"orange\")\n\n\n\n\nIl semble y avoir deux groupes, vérifions cela à l’aide d’un autre type de graphique."
-  },
-  {
-    "objectID": "posts/02-premiers-pas-avec-r/index.html#boxplot",
-    "href": "posts/02-premiers-pas-avec-r/index.html#boxplot",
-    "title": "Premiers pas avec R",
-    "section": "Boxplot",
-    "text": "Boxplot\nLes graphiques dits en “boîtes à moustaches” donnent une bonne indication de la manière dont se distribue une variable numérique : médiane, quartiles, valeurs aberrantes, …\n\nboxplot(pingouins$`Longueur Aile (mm)` ~ pingouins$Espece)"
-  },
-  {
-    "objectID": "posts/02-premiers-pas-avec-r/index.html#scatter-plot",
-    "href": "posts/02-premiers-pas-avec-r/index.html#scatter-plot",
-    "title": "Premiers pas avec R",
-    "section": "Scatter plot",
-    "text": "Scatter plot\nRegardons maintenant la relation entre la longueur du bec et la longueur des ailes\n\npingouins$col[pingouins$Espece == especes[1]] <- \"blue\"\npingouins$col[pingouins$Espece == especes[2]] <- \"red\"\npingouins$col[pingouins$Espece == especes[3]] <- \"green\"\n\nplot(pingouins$`Longueur Aile (mm)`, pingouins$`Longueur Bec (mm)`,\n     col = pingouins$col)\nlegend(x = 200, y = 45, legend = c(especes[1], especes[2], especes[3]),\n       fill = c(\"blue\", \"red\", \"green\"), cex = 0.75)"
+    "section": "Filtrer des données",
+    "text": "Filtrer des données\nPour filtrer les données qui répondent à un ou plusieurs critères, nous utilisons les opérateurs de comparaison.\n\n\n\n\n\n\n\nLes opérateurs\n\n\n\n\n\n\n==\négal\n\n\n!=\ndifférent\n\n\n<\ninférieur à\n\n\n<=\ninférieur ou égal à\n\n\n>\nsupérieur à\n\n\n>=\nsupérieur ou égal à\n\n\n==\négal\n\n\n&\net\n\n\n\n\n\n\n!\npas\n\n\n\n\n\n\n# Individus de l'espece Adelie\npingouins_propre[pingouins_propre$espece == \"Adelie\", ]\n\n# Indivus de l'espece Adelie vivant sur l'ile Biscoe\npingouins_propre[pingouins_propre$espece == \"Adelie\" & pingouins_propre$ile == \"Biscoe\", ]\n\n# Individus dont la masse est d'au moins 5 kgs\npingouins_propre[pingouins_propre$masse_corporelle_g >= 5000, ]\n\n# Individus dont le bec mesure moins de 40mm de long et ne vivant pas sur l'ile Biscoe\npingouins_propre[pingouins_propre$espece == \"Adelie\" & pingouins_propre$ile != \"Biscoe\", ]"
   },
   {
     "objectID": "posts/03-introduction-tidyverse/index.html",
