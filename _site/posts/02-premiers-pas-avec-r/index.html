@@ -289,9 +289,8 @@ Quelques dates
 </div>
 </div>
 <p><br></p>
-<p>R désigne également le <strong>logiciel</strong> qui utilise ce langage pour des calculs statistiques (et tout un tas d’autres applications (calculs, graphiques, …).</p>
+<p>R désigne également le <strong>logiciel</strong> qui utilise ce langage pour des calculs statistiques (et tout un tas d’autres applications (manipulation de données, graphiques, …).</p>
 <p>Il dispose d’une <strong>communauté</strong> en ligne très active ainsi que d’<strong>extensions</strong> pour presque tous les domaines et applications possibles et imaginables (cartographie, fouille de texte, modélisation, …).</p>
-<p><br></p>
 <p>Contrairement à d’autres logiciels de statistiques comme Minitab ou SPSS, R peut être exécuté entièrement en <strong>ligne de commande</strong> et ne nécessite pas d’interface graphique, ce qui lui confère une <strong>grande flexibilité</strong>.</p>
 <p><br></p>
 <div class="callout-tip callout callout-style-default callout-captioned">
@@ -305,11 +304,9 @@ Quelques avantages de R
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>C’est un outil <strong>libre et open source</strong> (tout le monde peut utiliser le code et voir comment il fonctionne)<br>
-</li>
-<li>C’est un langage de programmation plutôt qu’une interface graphique, ce qui permet à l’utilisateur de sauvegarder facilement des <strong>scripts</strong> sous forme de texte pour les ré-utiliser ou les partager<br>
-</li>
-<li>Beaucoup de personnes l’utilisent dans beaucoup de domaines différents - <strong>il est rare d’être confronté à un problème qui n’a jamais été résolu !</strong></li>
+<li><p>C’est un outil <strong>libre et open source</strong> (tout le monde peut utiliser le code et voir comment il fonctionne)</p></li>
+<li><p>C’est un langage de programmation plutôt qu’une interface graphique, ce qui permet à l’utilisateur de sauvegarder facilement des <strong>scripts</strong> sous forme de texte pour les ré-utiliser ou les partager</p></li>
+<li><p>Beaucoup de personnes l’utilisent dans beaucoup de domaines différents - <strong>il est rare d’être confronté à un problème qui n’a jamais été résolu !</strong></p></li>
 </ul>
 </div>
 </div>
@@ -318,12 +315,16 @@ Quelques avantages de R
 <section id="naviguer_rstudio" class="level2">
 <h2 class="anchored" data-anchor-id="naviguer_rstudio">Naviguer dans RStudio</h2>
 <p><br></p>
-<p>En ouvrant RStudio, vous verrez une fenêtre comme celle ci-dessous, qui se divise en trois panneaux :</p>
+<p>RStudio est une <strong>interface graphique</strong> s’appuyant sur le langage R.</p>
+<p>En ouvrant RStudio, vous verrez une fenêtre comme celle ci-dessous, divisée en <strong>trois panneaux</strong> :</p>
 <p><img src="img/rstudio_01.png" class="img-fluid" style="width:100.0%"></p>
 <p><br></p>
 <section id="la-console" class="level3">
 <h3 class="anchored" data-anchor-id="la-console">La console</h3>
-<p>Vous pouvez y taper du code et l’exécuter en appuyant sur <code>Entrée</code>. Quand vous démarrez une nouvelle session dans RStudio, la console affiche également des informations comme la version de R présente sur votre ordinateur ainsi que des indications sur la manière d’obtenir de l’aide.</p>
+<p><br></p>
+<p>Vous pouvez y <strong>taper du code et l’exécuter</strong> en appuyant sur <code>Entrée</code>.</p>
+<p>Quand vous démarrez une nouvelle session dans RStudio, la console affiche également des informations comme la version de R présente sur votre ordinateur ainsi que des indications sur la manière d’obtenir de l’aide.</p>
+<p><br></p>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -342,14 +343,17 @@ L’invite de commande
 <pre><code>[1] 4</code></pre>
 </div>
 </div>
-<p>Dans la console, vous pouvez parcourir les dernières commandes exécutées à l’aide des flèches haut et bas.</p>
+<p><br></p>
+<p>Dans la console, vous pouvez parcourir les <strong>dernières commandes exécutées</strong> à l’aide des flèches haut et bas.</p>
 </div>
 </div>
 <p><br></p>
 </section>
 <section id="lespace-de-travail" class="level3">
 <h3 class="anchored" data-anchor-id="lespace-de-travail">L’espace de travail</h3>
-<p>Vous y trouverez votre environnement (données importées, objets créés, fonctions définies, …), ainsi que d’autres onglets comme l’historique des commandes exécutées ou l’accès à des tutoriels (pour les versions récentes de RStudio).</p>
+<p><br></p>
+<p>Vous y trouverez votre <strong>environnement</strong> (données importées, objets créés, fonctions définies, …), ainsi que d’autres onglets comme l’<strong>historique</strong> des commandes exécutées ou l’accès à des <strong>tutoriels</strong> (pour les versions récentes de RStudio).</p>
+<p><br></p>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -360,20 +364,21 @@ Un langage orienté objet
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>R est un langage orienté objet, ce qui veut dire que tout ce que vous manipulez dans R est stocké dans un objet.</p>
+<p>R est un langage orienté objet, ce qui veut dire que tout ce que vous manipulez dans R est <strong>stocké dans un objet</strong>.</p>
 </div>
 </div>
-<p>D’autres onglets vous permettent d’accéder à l’historique des commandes ou encore à des tutoriels (pour les versions les plus récentes de RStudio).</p>
 <p><br></p>
 </section>
 <section id="le-navigateur" class="level3">
 <h3 class="anchored" data-anchor-id="le-navigateur">Le navigateur</h3>
-<p>Ce navigateur vous permet de navigeur dans vos dossiers, de copier, renommer ou supprimer des fichiers, à la manière d’un explorateur classique.</p>
+<p><br></p>
+<p>Ce navigateur vous permet de naviguer dans vos dossiers, de copier, renommer ou supprimer des fichiers, à la manière d’un explorateur classique.</p>
 <p>Les autres onglets permettent de visualiser les graphiques ou encore d’afficher l’aide.</p>
 <p><br></p>
 </section>
 <section id="le-script" class="level3">
 <h3 class="anchored" data-anchor-id="le-script">Le script</h3>
+<p><br></p>
 <div class="callout-important callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -384,10 +389,11 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Le code tapé et exécuté dans la console ne sera plus disponible quand vous quitterez votre session RStudio. A la manière d’un document Word, un script vous permet de sauvegarder votre code afin d’y accéder ultérieurement ou de le partager.</p>
+<p>Le code tapé et exécuté dans la console ne sera plus disponible quand vous quitterez votre session RStudio. A la manière d’un document Word, un script vous permet de <strong>sauvegarder votre code</strong> afin d’y accéder ultérieurement ou de le partager.</p>
 </div>
 </div>
-<p>Pour ouvrir un nouveau script, cliquez sur le “plus” dans le coin supérieur gauche de la fenêtre RStudio puis sur <strong>R Script</strong>.</p>
+<p><br></p>
+<p>Pour ouvrir un nouveau script, cliquez sur le <em>“plus”</em> dans le coin supérieur gauche de la fenêtre RStudio puis sur <em>R Script</em>.</p>
 <p><img src="img/rstudio_09.png" class="img-fluid" style="width:75.0%"></p>
 <p><br></p>
 <div class="callout-tip callout callout-style-default callout-captioned">
@@ -396,7 +402,7 @@ Important
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Raccourcis clavier : nouveau script
+Raccourcis clavier : ouvrir un nouveau script
 </div>
 </div>
 <div class="callout-body-container callout-body">
