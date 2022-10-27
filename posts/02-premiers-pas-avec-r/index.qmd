@@ -178,13 +178,19 @@ Un nouveau panneau s'affiche :
 
 <br>
 
-Pour éviter de perdre du temps à chercher des fichiers dont on a oublié le nom et l'emplacement, il est utile d'organiser son travail à l'aide de **projets**.
+Lorsque vous partagez votre code avec d'autres personnes, celles-ci doivent pouvoir faire tourner vos analyses sans erreur et obtenir des résultats identiques (on parle de **reproductibilité**). 
 
-Pour créer un projet, cliquez sur **File** puis **New project...** :
+Les **projets RStudio** aident à construire une analyse reproductible en regroupant tous les éléments nécessaires dans un seul dossier (code, données, figures et paramètres). Cela vous évitera de perdre du temps à chercher des fichiers dans votre ordinateur : la racine du projet est votre répertoire de travail. 
+
+Nous verrons dans un autre tutoriel comment connecter un projet RStudio à un gestionnaire de version comme GitLab : vous pourrez travailler à plusieurs sur un même code en gardant une trace de toutes les modifications apportées par l'une ou l'autre personne.
+
+Pour créer un projet, cliquez sur *File* puis *New project...* :
 
 ![](img/rstudio_02.png){width="75%"}
 
-Choisissez **New Directory** puis **New Project**
+<br>
+
+Choisissez *New Directory* puis *New Project*
 
 ::: {layout-ncol=2}
 
@@ -193,12 +199,15 @@ Choisissez **New Directory** puis **New Project**
 ![](img/rstudio_04.png){}
 :::
 
+<br>
 
-Dans la fenêtre **Create New Project**, attribuez un nom et un emplacement au projet, puis cliquez sur **Create project**
+Dans la fenêtre *Create New Project*, attribuez un nom et un emplacement au projet, puis cliquez sur *Create project*.
 
 ![](img/rstudio_05.png){width="75%"}
 
-Quand vous voudrez travailler à nouveau sur ces données, il vous suffira de double-cliquer sur le fichier `.Rproj` pour ouvrir le projet et accéder à tout ce qu'il contient.
+<br>
+
+Quand vous voudrez travailler à nouveau sur ces données, il vous suffira d'ouvrir le projet en double-cliquant sur le fichier `.Rproj`.
 
 ![](img/rstudio_06.png){width="75%"}
 
@@ -213,9 +222,8 @@ Pour vous simplifier la vie, voici quelques recommandations :
 -   ne mettez ni espace ni caractères spéciaux (accents, symboles, ...)\
 -   pour les dates, privilégiez le format **AAAAMMJJ** (année, mois, jour)
 -   mettez l'élément le plus important en premier (par exemple : *projet_date_contenu*)\
--   optez pour l'une de ces deux conventions d'écritre : **camel case** (*MonProjet*) ou **snake case** (*mon_projet*)
+-   optez pour l'une de ces deux conventions d'écriture : **camel case** (*MonProjet*) ou **snake case** (*mon_projet*)
 
-Une fois que vous avez trouvé une façon de procéder, utlisez-la pour l'ensemble de vos fichiers afin de rester cohérent !
 :::
 
 <br>
@@ -224,20 +232,23 @@ Une fois que vous avez trouvé une façon de procéder, utlisez-la pour l'ensemb
 
 Il est toujours préférable de passer un peu de temps à bien organiser un projet lors de sa création, plutôt que de passer beaucoup de temps par la suite à déplacer des fichiers, les renommer, les rechercher, ...
 
-Pour créer un nouveau dossier dans votre projet, cliquez sur **New Folder** dans l'onglet **Files** du navigateur : 
+Pour créer un nouveau dossier dans votre projet, cliquez sur *New Folder* dans l'onglet *Files* du navigateur : 
 
 ![](img/rstudio_07.png){width="100%"}
 
 L'organisation proposée ci-dessous est utilisable dans une très grande majorité de cas :
 
-|         |     |
-| ------- | --- |
-| **raw** | données brutes |
-| **data** | donnéées issues de la manipulation/modification des données brutes |
-| **scripts** | code utilisé pour analyser les données, créer les graphiques, ... |
-| **results** | fichiers de résultats obtenus durant l'analyse |
-| **figures** | graphiques générés au cours de l'analyse |
-| **docs** | rapports, présentations de résultats, articles en lien avec l'analyse, documents concernant les outils utilisés, ... |
+- **raw** : données brutes
+
+- **data** : données issues de la manipulation/modification des données brutes
+
+- **scripts** : code utilisé pour analyser les données, créer les graphiques, ...
+
+- **results** : fichiers de résultats obtenus durant l'analyse
+
+- **figures** : graphiques générés au cours de l'analyse
+
+- **docs** : rapports, présentations de résultats, articles en lien avec l'analyse, documents concernant les outils utilisés, ... |
 
 ![](img/rstudio_08.png){width="100%"}
 
