@@ -544,6 +544,55 @@ pingouins_propre <- pingouins[, c("Espece", "Ile", "Longueur Bec (mm)",
                                   "Masse corporelle (g)")]
 ```
 
+## Renommer des colonnes
+
+Les noms des colonnes ne sont pas dans un format idéal (présence d'espaces, de parenthèses). 
+
+La fonction `names()` permet d'accéder aux noms des colonnes d'un tableau : 
+```{r}
+names(pingouins_propre)
+```
+
+Nous allons modifier les noms de colonnes en :
+- supprimant les parenthèses  
+- remplaçant les espaces par des `_`  
+- remplaçant les majuscules par des minuscules
+
+La fonction `gsub()` permet de remplacer un motif par un motif dans une chaîne, et s'utilise de la manière suivante : `gsub(motif, remplacement, objet)`
+
+Commençons par supprimer les parenthèses : 
+```{r}
+nouveaux_noms <- gsub("[()]", "", names(pingouins_propre))
+nouveaux_noms
+```
+
+Remplaçons maintenant les espaces par des `_` : 
+
+```{r}
+nouveaux_noms <- gsub(" ", "_", nouveaux_noms)
+nouveaux_noms
+```
+
+La fonction `tolower()` permet de remplacer les majuscules d'une chaîne de caractères par des minuscules (à l'inverse de la fonction `toupper()`) : 
+
+```{r}
+nouveaux_noms <- tolower(nouveaux_noms)
+nouveaux_noms
+```
+
+Remplaçons les noms de colonnes du tableau par ce vecteur nouveaux_noms : 
+
+```{r}
+names(pingouins_propre) <- nouveaux_noms
+```
+
+Nous pouvons maintenant supprimer l'objet nouveaux_noms de notre environnement à l'aide de la fonction `rm()` (remove) : 
+```{r}
+rm(nouveaux_noms)
+```
+
+
+
 ## Filter des données
 
 Notre jeu de données contient des données manquantes (**NA**). En affichant les premières lignes, vous pourrez remarquer que pour l'individu situé sur la quatrième ligne, aucune donnée numérique n'est disponible : 
