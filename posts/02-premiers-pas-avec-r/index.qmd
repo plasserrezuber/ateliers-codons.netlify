@@ -482,7 +482,7 @@ Les informations affichées à l'aide de cette fonction dépendent du type de va
 
 # Manipuler des données
 
-## Sélectionner des données
+## Sélectionner des colonnes
 
 Dans R, la sélection de données, que ce soit une cellule, une ligne ou une colonne d'un tableau, ou encore un élément dans une chaîne, s'effectue à l'aide des **crochets \[\]**.
 
@@ -598,6 +598,19 @@ Les noms d'espèces contenus dans la variable espece sont plutôt longs et peu p
 ```{r}
 pingouins_propre$espece <- gsub(" .*$", "", pingouins_propre$espece)
 head(pingouins_propre)
+```
+
+## Ajouter une variable
+
+Quel est le rapport entre la longueur du bec et sa hauteur ? Calculons le ratio : 
+```{r}
+pingouins_propre$ratio_bec <- pingouins_propre$longueur_bec_mm / pingouins_propre$hauteur_bec_mm
+```
+
+Pour arrondir ce ratio à deux chiffres après la virgules, nous pouvons utiliser la fonction `round()` : 
+
+```{r}
+pingouins_propre$ratio_bec <- round(pingouins_propre$ratio_bec, digits = 2)
 ```
 
 ## Filter des données
