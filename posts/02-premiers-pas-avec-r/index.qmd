@@ -256,7 +256,95 @@ L'organisation proposée ci-dessous est utilisable dans une très grande majorit
 
 # Importer des données
 
-Si ce n'est pas encore fait, ouvrez un nouveau script.
+<br>
+
+Le jeu de données que nous allons utiliser contient des mesures pour [trois espèces de pingouins vivant sur l'archipel Palmer en Antarctique](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0090081).
+
+Toute opération réalisée dans R, que ce soit importer ou exporter des données, effectuer des calculs ou encore créer des graphiques, fait appel à une fonction. Une fonction est constituée de code et permet d'exécuter une action.
+
+La manière dont la fonction s'exécute peut se modifier à l'aide d'arguments (obligatoires ou optionnels).
+
+Pour importer les données, nous utilisons la fonction `read.csv()` en précisant deux arguments : 
+
+- le chemin vers l'emplacement du fichier à importer entre guillemets  
+- l'argument `check.names = FALSE` pour conserver les noms de colonnes tels quels.  
+
+Tapez le code ci-dessous dans votre script puis cliquez sur *Run*
+
+![](img/rstudio_29.png)
+
+<br>
+
+::: {.callout-caution icon="true"}
+## Bonnes pratiques : auto-complétion
+
+R vous aide à compléter votre code : tapez `re` puis **Tab**, et vous verrez s'afficher une liste de fonctions ou d'objets commençant par ces deux lettres. Vous pouvez naviguer à l'aide des flèches haut et bas et valider votre choix en appuyant à nouveau sur **Tab**. Cette fonctionnalité de R est particulièrement utile lorsque vous manipulez des fichiers ou objets ayant des noms complexes.
+:::
+
+<br>
+
+Dans la console, le code s'exécute et les données sont affichées. Cela indique que la commande a bien fonctionné, mais que les données ne sont pour l'instant pas disponibles dans notre environnement. Nous allons donc importer les données et les stocker dans un objet que nous appelons *pingouins*. Pour cela nous utilisons la **flèche d'assignation `<-`**. 
+
+::: {.callout-tip icon="true"}
+## Raccourcis clavier : flèche d'assignation
+
+Pour insérer une flèche d'assignation, utilisez la combinaison **Alt + "-"** (tiret du 6).
+:::
+
+Tapez le code ci-dessous dans votre script puis cliquez sur *Run* : 
+
+```{r, eval=FALSE}
+pingouins <- read.csv("raw/pingouins.csv", check.names = FALSE)
+```
+
+::: {.callout-tip icon="true"}
+## Raccourcis clavier : exécuter du code
+
+Pour exécuter une ou plusieurs lignes de code, sélectionnez les lignes et utilisez la combinaison **Ctrl + Entrée**
+:::
+
+Notre environnement contient maintenant un objet **pingouins**, et vous pouvez voir l'indication `344 obs. of 9 variables` : le jeu de données contient 344 observations (lignes) et 9 variables (colonnes).
+
+![](img/rstudio_12.png){width="100%"}
+
+<br>
+
+En cliquant sur la flèche bleue à gauche du nom de l'objet, vous aurez accès à plus d'informations :
+
+![](img/rstudio_13.png){width="100%"}
+
+<br>
+
+- les **noms** des variables, précédés du signe `$`  
+
+- le **type** de chaque varible : caractère (chr), nombres entiers (int) ou décimaux (int), logique (log)  
+
+- les **premiers éléments** de chaque variable
+
+
+::: {.callout-tip icon="true"}
+## L'opérateur **\$**
+
+Cet opérateur permet de sélectionner la colonne d'un tableau. Dans la console, tapez `pingouins$` et appuyez sur **Tab**.
+
+![](img/rstudio_15.png){width="50%"} 
+
+Vous pouvez choisir la variable qui vous intéresse à l'aide des **flèches haut et bas** (*Espece* par exemple) puis appuyer à nouveau sur **Tab** pour valider. Vous verrez alors s'afficher les 344 observations de cette variable. 
+
+![](img/rstudio_16.png){width="75%"}
+:::
+
+<br>
+
+Vous pouvez afficher le tableau en cliquant sur l'icône à droite du nom de l'objet dans l'environnement, ce qui ouvre un nouvel onglet à côté de votre script :
+
+::: {layout-ncol=2}
+
+![](img/rstudio_14.png){width="100%"}
+![](img/rstudio_17.png){width="100%"}
+
+:::
+
 
 ::: {.callout-caution icon="true"}
 ## Bonnes pratiques : commenter ses scripts
@@ -292,7 +380,7 @@ Pour commenter ou dé-commenter des lignes de code, utilisez la combinaison **Ct
 
 <br>
 
-Le jeu de données que nous allons utiliser contient des mesures pour [trois espèces de pingouins vivant sur l'archipel Palmer en Antarctique](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0090081).
+
 
 Pour importer ces données, nous allons faire appel à la **fonction `read.csv()`** qui, comme son nom l'indique, permet de lire un fichier au format *.csv*. 
 
@@ -327,11 +415,7 @@ read.csv("../../raw/pingouins.csv", check.names = FALSE)
 ![](img/rstudio_20.png){width="100%"}
 <br>
 
-::: {.callout-caution icon="true"}
-## Bonnes pratiques : auto-complétion
 
-R vous aide à compléter votre code : tapez `re` puis **Tab**, et vous verrez s'afficher une liste de fonctions ou d'objets commençant par ces deux lettres. Vous pouvez naviguer à l'aide des flèches haut et bas et valider votre choix en appuyant à nouveau sur **Tab**. Cette fonctionnalité de R est particulièrement utile lorsque vous manipulez des fichiers ou objets ayant des noms complexes.
-:::
 
 Le fichier a effectivement été importé dans R, mais il n'est pour l'instant pas stocké dans notre environnement. Nous allons pour cela stocker le contenu du fichier dans un objet à l'aide de la **flèche d'assignation `<-`**. Placez-vous dans votre script et tapez le code suivant :
 
@@ -339,11 +423,7 @@ Le fichier a effectivement été importé dans R, mais il n'est pour l'instant p
 pingouins <- read.csv(file = "raw/pingouins.csv", check.names = FALSE)
 ```
 
-::: {.callout-tip icon="true"}
-## Raccourcis clavier : flèche d'assignation
 
-Pour insérer une flèche d'assignation, utilisez la combinaison **Alt + "-"** (tiret du 6).
-:::
 
 <br>
 
@@ -351,51 +431,23 @@ Exécutez cette fonction en plaçant le curseur sur la ligne et en cliquant sur 
 
 ![](img/rstudio_11.png){width="100%"}
 
-::: {.callout-tip icon="true"}
-## Raccourcis clavier : exécuter du code
 
-Pour exécuter une ou plusieurs lignes de code, sélectionnez les lignes et utilisez la combinaison **Ctrl + Entrée**
-:::
 
-Notre environnement contient maintenant un objet **pingouins**, et vous pouvez voir l'indication `344 obs. of 9 variables` : le jeu de données contient 344 observations (lignes) et 9 variables (colonnes).
 
-![](img/rstudio_12.png){width="100%"}
 
-<br>
 
-En cliquant sur la flèche bleue à gauche du nom de l'objet, vous aurez accès à plus d'informations :
 
-![](img/rstudio_13.png){width="100%"}
 
-<br>
 
-|                        |
-| -----------------------|
-| **noms** des variables (précédés du signe `$`) |
-| **types** des variables : caractère (chr), nombres entiers (int) ou décimaux (num), logique (log) |
-| **premiers éléments** de chaque variable |
 
-::: {.callout-tip icon="true"}
-## L'opérateur **\$**
 
-Cet opérateur permet de sélectionner la colonne d'un tableau. Dans la console, tapez `pingouins$` et appuyez sur **Tab**.
 
-![](img/rstudio_15.png){width="75%"} 
-
-Vous pouvez choisir la variable qui vous intéresse à l'aide des **flèches haut et bas** (*Espece* par exemple) puis appuyer à nouveau sur **Tab** pour valider. Vous verrez alors s'afficher les 344 observations de cette variable. ![](img/rstudio_16.png){width="100%"}
-:::
-
-<br>
-
-Vous pouvez afficher le tableau en cliquant sur l'icône à droite du nom de l'objet dans l'environnement :
-
-![](img/rstudio_14.png){width="100%"}
 
 <br>
 
 Cela ouvre un nouvel onglet à côté de de votre script :
 
-![](img/rstudio_17.png){width="100%"}
+
 
 <br>
 
