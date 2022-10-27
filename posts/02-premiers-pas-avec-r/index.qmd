@@ -544,6 +544,38 @@ pingouins_propre <- pingouins[, c("Espece", "Ile", "Longueur Bec (mm)",
                                   "Masse corporelle (g)")]
 ```
 
+## Filter des données
+
+Notre jeu de données contient des données manquantes (**NA**). En affichant les premières lignes, vous pourrez remarquer que pour l'individu situé sur la quatrième ligne, aucune donnée numérique n'est disponible : 
+
+```{r}
+head(pingouins_propre)
+```
+
+Pour savoir combien de données manquantes sont présentes dans vos données, vous pouvez utiliser la commande suivante : 
+
+```{r}
+table(is.na(pingouins_propre))
+```
+
+Nos données contiennent 8 valeurs NA, nous en avons déjà trouvé 4 dans les premières lignes du tableau. Les 4 données manquantes restantes viennent-elles de l'absence de mesure pour un second individu ?
+
+```{r}
+pingouins[is.na(pingouins$`Longueur Bec (mm)`), ]
+```
+
+Nous avons ici les huit données manquantes. Nous allons supprimer ces deux individus du jeu de données : 
+
+```{r}
+pingouins_propre <- pingouins_propre[!is.na(pingouins_propre$longueur_bec_mm), ]
+```
+
+Assurons-nous d'avoir bien supprimé ces données manquantes : 
+
+```{r}
+table(is.na(pingouins_propre))
+```
+
 
 ## Transformer un vecteur en un facteur
 
