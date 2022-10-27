@@ -749,29 +749,14 @@ write.csv(pingouins_propre, "../../data/pingouins_propre.csv")
 write.csv(pingouins_propre, "data/pingouins_propre.csv")
 ```
 
-## Extraire des données
+## Filtrer des données
 
-Notre jeu de données contient les mesures de différents paramètres pour trois espèces de pingouins. Nous aimerions séparer ce jeu de données en trois tableaux, un pour chacune des espèces.
-
-
-
-
-<br>
-
-Les noms des espèces étant assez complexes, nous allons commencer par les extraire et les stocker dans un vecteur :
-
-```{r, echo=TRUE, eval=TRUE}
-especes <- unique(pingouins$Espece)
-```
-
-<br>
-
-Séparons maintenant le tableau d'origine en trois tableaux. Pour l'espèce *Adelie*, nous extrayons les lignes du tableau pingouins dont la colonne Espece est égale au premier élément du vecteur especes, etc.
+Pour filtrer les données qui répondent à un ou plusieurs critères, nous utilisons les opérateurs de comparaison.
 
 <br>
 
 ::: {.callout-tip icon="true"}
-## Les opérateurs de comparaison
+## Les opérateurs
 
 |       |                     | 
 | :---: | :------------------ |
@@ -782,124 +767,26 @@ Séparons maintenant le tableau d'origine en trois tableaux. Pour l'espèce *Ade
 | >     | supérieur à         |
 | >=    | supérieur ou égal à |
 | ==    | égal                |
+| &     | et                  |
+| |     | ou                  |
+| !     | pas                |
 
 :::
 
-<br>
+```{r, echo=TRUE, eval=FALSE}
+# Individus de l'espece Adelie
+pingouins_propre[pingouins_propre$espece == "Adelie", ]
 
-```{r, echo=TRUE, eval=TRUE}
-adelie <- pingouins[pingouins$Espece == especes[1], ]
-gentoo <- pingouins[pingouins$Espece == especes[2], ]
-chinstrap <- pingouins[pingouins$Espece == especes[3], ]
+# Indivus de l'espece Adelie vivant sur l'ile Biscoe
+pingouins_propre[pingouins_propre$espece == "Adelie" & pingouins_propre$ile == "Biscoe", ]
+
+# Individus dont la masse est d'au moins 5 kgs
+pingouins_propre[pingouins_propre$masse_corporelle_g >= 5000, ]
+
+# Individus dont le bec mesure moins de 40mm de long et ne vivant pas sur l'ile Biscoe
+pingouins_propre[pingouins_propre$espece == "Adelie" & pingouins_propre$ile != "Biscoe", ]
 ```
-
-<br>
-
-Créons maintenant un vecteur contenant le nombre d'observations pour chaque tableau, à l'aide de la fonction `nrow()` (permet de compter le nombre de ligne d'un tableau) :
-
-```{r, echo=TRUE, eval=TRUE}
-nb_ind <- c(nrow(adelie), nrow(gentoo), nrow(chinstrap))
-```
-
-<br>
-
-Ajoutons à ce vecteur des étiquettes avec les noms des trois espèces :
-
-```{r, echo=TRUE, eval=TRUE}
-names(nb_ind) <- especes
-nb_ind
-```
-
-![](img/rstudio_26.png){width="100%"}
-
-<br>
-
-::: {.callout-tip icon="true"}
-## La fonction `table()`
-
-Vous obtiendrez la même chose à l'aide de la commande `table(pingouins$Espece)` (seul l'ordre des espèces varie)
-
-:::
 
 <br>
 
 # Représenter des données
-
-## Diagramme en barres (barplot)
-
-Nous pouvons représenter visuellement le nombre de pingouins par espèce à l'aide de la fonction `barplot()`. Le graphique s'affichera dans le panneau inférieur droit de RStudio.
-
-```{r}
-barplot(nb_ind)
-```
-
-Vous pouvez voir que plusieurs points peuvent être améliorés :  
-
-- ajuster l'axe des ordonnées pour inclure la valeur maximale  
-- ajuster la taille des étiquettes de l'axe de abscisses pour que les trois noms d'espèces soient lisibles  
-- ajouter un titre à l'axe des ordonnées et au graphique  
-- modifier la couleur des barres
-
-Pour trouver comment modifier ces différents paramètres, vous pouvez utiliser l'aide de la fonction (`?barplot`) ou l'aide plus générales pour les graphiques (`?par`).
-
-Pour rendre la graphique plus lisible, nous aimerions que le nom des espèces soit situé sur deux lignes. Nous allons pour cela modifier les noms de notre vecteur **nb_ind** à l'aide de la fonction `gsub()`.
-Cette fonction permet de remplacer un motif par au autre dans une chaîne et s'utilise de la façon suivante : `gsub(motif a remplacer, motif de remplacer, objet a modifier)` : 
-
-```{r}
-names(nb_ind) <- gsub("(", "\n(", names(nb_ind), fixed = TRUE)
-```
-
-
-Nous allons utiliser les paramètres suivants :  
-
-- **main** pour ajouter un titre au graphique  
-- **ylab** pour ajouter un titre à l'axe des ordonnées  
-- **ylim** pour ajuster l'axe des ordonnées  
-- **cex** pour modifier la taille du texte  
-- **col** pour modifier la couleur des barres
-
-```{r}
-barplot(nb_ind,
-        main = "Trois especes de pingouins vivant en Antarctique",
-        ylab = "Nombre d'individus par espece",
-        ylim = c(0, 200),
-        col = "blue")
-```
-
-## Histogramme
-
-Etudions maintenant la distribution de la variable **Longueur des ailes** à l'aide d'un histogramme : 
-
-```{r}
-hist(pingouins$`Longueur Aile (mm)`,
-     main = "Distribution de la longueur des ailes",
-     xlab = "Longueur des ailes (en mm)",
-     ylab = "Frequence",
-     col = "orange")
-```
-
-Il semble y avoir deux groupes, vérifions cela à l'aide d'un autre type de graphique.
-
-## Boxplot
-
-Les graphiques dits en "boîtes à moustaches" donnent une bonne indication de la manière dont se distribue une variable numérique : médiane, quartiles, valeurs aberrantes, ...
-
-```{r}
-boxplot(pingouins$`Longueur Aile (mm)` ~ pingouins$Espece)
-```
-
-## Scatter plot
-
-Regardons maintenant la relation entre la longueur du bec et la longueur des ailes
-
-```{r}
-pingouins$col[pingouins$Espece == especes[1]] <- "blue"
-pingouins$col[pingouins$Espece == especes[2]] <- "red"
-pingouins$col[pingouins$Espece == especes[3]] <- "green"
-
-plot(pingouins$`Longueur Aile (mm)`, pingouins$`Longueur Bec (mm)`,
-     col = pingouins$col)
-legend(x = 200, y = 45, legend = c(especes[1], especes[2], especes[3]),
-       fill = c("blue", "red", "green"), cex = 0.75)
-```
-
