@@ -405,13 +405,17 @@ Pour sauvegarder un script, uilisez la combinaison **Ctrl + S**
 
 # Explorer des données
 
-Une des premières choses à faire est de vous assurer que vos données ont été correctement importées. Les outils proposés par R vous permettent d'effectuer des analyses, mais c'est à vous de vous assurer que vos données sont au bon format.
+Avant de débuter une analyse des données, il est toujours utile d'explorer rapidement ces données afin de s'assurer qu'elles ont été correctement importées, que les variables numériques sont effectivement des nombres et pas des chaînes de caractères, ...
 
-Pour cette étape d'exploration des données, vous pouvez taper le code directement dans la console.
+Cette première étape consistant à vérifier les données, le code utilisé peut être tapé directement dans la console. Le script contiendra plutôt le code utilisé pour nettoyer les données, ainsi que toutes les étapes ultérieures de l'analyse.
 
-Plusieurs fonctions vous permettent d'explorer rapidement vos données :
+Les fonctions suivantes permettent l'exploration rapide de l'ensemble du jeu de données :
 
 ```{r, echo=TRUE, eval=FALSE}
+
+# Dimensions du tableau (nb lignes par nb colonnes)
+dim(pingouins)
+
 # Afficher les premieres lignes du tableau
 head(pingouins)
 
@@ -424,37 +428,49 @@ str(pingouins)
 
 <br>
 
+::: {.callout-note icon="true"}
+## Note
+
 Vous remarquerez que la fonction `str(pingouins)` affiche des informations très proches de celles obtenues en cliquant sur la flèche bleue à gauche de l'objet pingouins dans l'environnement.
+:::
 
 <br>
 
 ::: {.callout-tip icon="true"}
 ## Afficher l'aide d'une fonction
 
-Vous pouvez afficher l'aide d'une fonction de deux manières :\
-- taper `help(fonction)` (pensez à l'auto-complétion !) - taper `?fonction`
+Vous pouvez afficher l'aide d'une fonction de deux manières :
+
+- taper `help(fonction)` (pensez à l'auto-complétion !)
+
+- taper `?fonction`
 
 Essayez en tapant dans la console `?he` puis appuyez sur **Tab** : R vous propose une liste de fonctions commençant par **he**. Utilisez les flèches haut et bas pour choisir la fonction **head**. Une petite fenêtre vous donne un aperçu du contenu de l'aide pour la fonction (utile quand vous hésitez entre plusieurs fonctions). Une fois la fonction sélectionnée, appuyez sur la touche **F1** pour afficher l'aide complète dans l'onglet **Help**.
 
 L'aide d'une fonction contient plusieurs paragraphes :
 
-|     |     |
-| --- | --- | 
-| **Description** | présentation sommaire de la fonction |
-| **Usage** | comment utiliser la fonction |
-| **Arguments** | les arguments obligatoires et/ou optionnels de la fonction |
-| **Details** | le format de données à fournir en entrée, des précisions sur les arguments, ... |
-| **Value** | le type d'objet obtenu en sortie |
-| **Note** | informations additionnelles |
-| **Author(s)** | les personnes ayant contribué à l'écriture du code de la fonction |
-| **Examples** | des exemples d'utilisation de la fonction, avec la possibilité d'exécuter ces exemples |
+- **Description** : présentation sommaire de la fonction
+
+- **Usage** :  comment utiliser la fonction 
+
+**Arguments** : les arguments obligatoires et/ou optionnels de la fonction
+
+- **Details** : le format de données à fournir en entrée, des précisions sur les arguments, ... 
+
+**Value** : le type d'objet obtenu en sortie
+
+**Note** :  informations additionnelles
+
+**Author(s)** :  les personnes ayant contribué à l'écriture du code de la fonction
+
+**Examples** :  des exemples d'utilisation de la fonction, avec la possibilité d'exécuter ces exemples
 
 Dans le cas de `head()`, vous pouvez voir que par défaut, la fonction retournera les 6 premières lignes (`n = 6L`, **L** indiquant qu'il s'agit d'un nombre entier). Pour afficher uniquement les deux premières lignes du tableau *pingouins*, il vous faudrait modifier cet argument : `head(pingouins, n = 2L)`
 :::
 
 <br>
 
-Vous pouvez explorer une variable d'intérêt :
+Vous pouvez explorer une variable d'intérêt à l'aide de l'opérateur `$` :
 
 ```{r, echo=TRUE, eval=FALSE}
 # Afficher les premiers elements d'une variable
@@ -465,10 +481,23 @@ tail(pingouins$`Masse corporelle (g)`)
 
 # Afficher le type, le nombre d'elements et les premiers elements d'une variable
 str(pingouins$`Masse corporelle (g)`)
-
-# Afficher le type de variable
-typeof(pingouins$`Masse corporelle (g)`)
 ```
+
+
+<br>
+
+La fonction `summary()` est particulièrement intéressante pour avoir une vue d'ensemble de vos données.
+
+```{r, echo=TRUE, eval=FALSE}
+summary(pingouins)
+```
+
+![](img/rstudio_22.png){width="100%"}
+
+Les informations affichées  dépendent du type de variable :
+
+-   **nombre d'éléments, classe et mode** pour les variables de type **caractère**\
+-   **statistiques** pour les variables de type **numérique**
 
 ::: {.callout-tip icon="true"}
 ## Les données manquantes
@@ -477,23 +506,6 @@ Vous pouvez trouver dans vos données des éléments notés **NA**. Il s'agit d'
 
 Cette valeur **NA** est à différencier de la valeur **NaN (Not a Number)** également rencontrée dans R. Il s'agit alors du résultat d'une opération arithmétique invalide, telle que 0/0.
 :::
-
-<br>
-
-La fonction `dim(pingouins)` permet d'afficher les **dimensions** du tableau (**m lignes** et **n colonnes**).
-
-La fonction `summary(pingouins)` est particulièrement intéressante pour avoir une vue d'ensemble de vos données.
-
-```{r, echo=TRUE, eval=FALSE}
-summary(pingouins)
-```
-
-![](img/rstudio_22.png){width="100%"}
-
-Les informations affichées à l'aide de cette fonction dépendent du type de variable :
-
--   **nombre d'éléments, classe et mode** pour les variables de type **caractère**\
--   **statistiques** pour les variables de type **numérique**
 
 <br>
 

@@ -649,21 +649,36 @@ Raccourcis clavier : sauvegarder un script
 </section>
 <section id="explorer-des-données" class="level1">
 <h1>Explorer des données</h1>
-<p>Une des premières choses à faire est de vous assurer que vos données ont été correctement importées. Les outils proposés par R vous permettent d’effectuer des analyses, mais c’est à vous de vous assurer que vos données sont au bon format.</p>
-<p>Pour cette étape d’exploration des données, vous pouvez taper le code directement dans la console.</p>
-<p>Plusieurs fonctions vous permettent d’explorer rapidement vos données :</p>
+<p>Avant de débuter une analyse des données, il est toujours utile d’explorer rapidement ces données afin de s’assurer qu’elles ont été correctement importées, que les variables numériques sont effectivement des nombres et pas des chaînes de caractères, …</p>
+<p>Cette première étape consistant à vérifier les données, le code utilisé peut être tapé directement dans la console. Le script contiendra plutôt le code utilisé pour nettoyer les données, ainsi que toutes les étapes ultérieures de l’analyse.</p>
+<p>Les fonctions suivantes permettent l’exploration rapide de l’ensemble du jeu de données :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Afficher les premieres lignes du tableau</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(pingouins)</span>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Dimensions du tableau (nb lignes par nb colonnes)</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(pingouins)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Afficher les dernieres lignes du tableau</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(pingouins)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Afficher les premieres lignes du tableau</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(pingouins)</span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Afficher la structure du tableau</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(pingouins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Afficher les dernieres lignes du tableau</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(pingouins)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Afficher la structure du tableau</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(pingouins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Vous remarquerez que la fonction <code>str(pingouins)</code> affiche des informations très proches de celles obtenues en cliquant sur la flèche bleue à gauche de l’objet pingouins dans l’environnement.</p>
+</div>
+</div>
 <p><br></p>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -675,55 +690,30 @@ Afficher l’aide d’une fonction
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Vous pouvez afficher l’aide d’une fonction de deux manières :<br>
-- taper <code>help(fonction)</code> (pensez à l’auto-complétion !) - taper <code>?fonction</code></p>
+<p>Vous pouvez afficher l’aide d’une fonction de deux manières :</p>
+<ul>
+<li><p>taper <code>help(fonction)</code> (pensez à l’auto-complétion !)</p></li>
+<li><p>taper <code>?fonction</code></p></li>
+</ul>
 <p>Essayez en tapant dans la console <code>?he</code> puis appuyez sur <strong>Tab</strong> : R vous propose une liste de fonctions commençant par <strong>he</strong>. Utilisez les flèches haut et bas pour choisir la fonction <strong>head</strong>. Une petite fenêtre vous donne un aperçu du contenu de l’aide pour la fonction (utile quand vous hésitez entre plusieurs fonctions). Une fois la fonction sélectionnée, appuyez sur la touche <strong>F1</strong> pour afficher l’aide complète dans l’onglet <strong>Help</strong>.</p>
 <p>L’aide d’une fonction contient plusieurs paragraphes :</p>
-<table class="table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><strong>Description</strong></td>
-<td>présentation sommaire de la fonction</td>
-</tr>
-<tr class="even">
-<td><strong>Usage</strong></td>
-<td>comment utiliser la fonction</td>
-</tr>
-<tr class="odd">
-<td><strong>Arguments</strong></td>
-<td>les arguments obligatoires et/ou optionnels de la fonction</td>
-</tr>
-<tr class="even">
-<td><strong>Details</strong></td>
-<td>le format de données à fournir en entrée, des précisions sur les arguments, …</td>
-</tr>
-<tr class="odd">
-<td><strong>Value</strong></td>
-<td>le type d’objet obtenu en sortie</td>
-</tr>
-<tr class="even">
-<td><strong>Note</strong></td>
-<td>informations additionnelles</td>
-</tr>
-<tr class="odd">
-<td><strong>Author(s)</strong></td>
-<td>les personnes ayant contribué à l’écriture du code de la fonction</td>
-</tr>
-<tr class="even">
-<td><strong>Examples</strong></td>
-<td>des exemples d’utilisation de la fonction, avec la possibilité d’exécuter ces exemples</td>
-</tr>
-</tbody>
-</table>
+<ul>
+<li><p><strong>Description</strong> : présentation sommaire de la fonction</p></li>
+<li><p><strong>Usage</strong> : comment utiliser la fonction</p></li>
+</ul>
+<p><strong>Arguments</strong> : les arguments obligatoires et/ou optionnels de la fonction</p>
+<ul>
+<li><strong>Details</strong> : le format de données à fournir en entrée, des précisions sur les arguments, …</li>
+</ul>
+<p><strong>Value</strong> : le type d’objet obtenu en sortie</p>
+<p><strong>Note</strong> : informations additionnelles</p>
+<p><strong>Author(s)</strong> : les personnes ayant contribué à l’écriture du code de la fonction</p>
+<p><strong>Examples</strong> : des exemples d’utilisation de la fonction, avec la possibilité d’exécuter ces exemples</p>
 <p>Dans le cas de <code>head()</code>, vous pouvez voir que par défaut, la fonction retournera les 6 premières lignes (<code>n = 6L</code>, <strong>L</strong> indiquant qu’il s’agit d’un nombre entier). Pour afficher uniquement les deux premières lignes du tableau <em>pingouins</em>, il vous faudrait modifier cet argument : <code>head(pingouins, n = 2L)</code></p>
 </div>
 </div>
 <p><br></p>
-<p>Vous pouvez explorer une variable d’intérêt :</p>
+<p>Vous pouvez explorer une variable d’intérêt à l’aide de l’opérateur <code>$</code> :</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Afficher les premiers elements d'une variable</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(pingouins<span class="sc">$</span><span class="st">`</span><span class="at">Masse corporelle (g)</span><span class="st">`</span>)</span>
@@ -732,11 +722,20 @@ Afficher l’aide d’une fonction
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(pingouins<span class="sc">$</span><span class="st">`</span><span class="at">Masse corporelle (g)</span><span class="st">`</span>)</span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Afficher le type, le nombre d'elements et les premiers elements d'une variable</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(pingouins<span class="sc">$</span><span class="st">`</span><span class="at">Masse corporelle (g)</span><span class="st">`</span>)</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Afficher le type de variable</span></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(pingouins<span class="sc">$</span><span class="st">`</span><span class="at">Masse corporelle (g)</span><span class="st">`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(pingouins<span class="sc">$</span><span class="st">`</span><span class="at">Masse corporelle (g)</span><span class="st">`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p><br></p>
+<p>La fonction <code>summary()</code> est particulièrement intéressante pour avoir une vue d’ensemble de vos données.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pingouins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><img src="img/rstudio_22.png" class="img-fluid" style="width:100.0%"></p>
+<p>Les informations affichées dépendent du type de variable :</p>
+<ul>
+<li><strong>nombre d’éléments, classe et mode</strong> pour les variables de type <strong>caractère</strong><br>
+</li>
+<li><strong>statistiques</strong> pour les variables de type <strong>numérique</strong></li>
+</ul>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -751,19 +750,6 @@ Les données manquantes
 <p>Cette valeur <strong>NA</strong> est à différencier de la valeur <strong>NaN (Not a Number)</strong> également rencontrée dans R. Il s’agit alors du résultat d’une opération arithmétique invalide, telle que 0/0.</p>
 </div>
 </div>
-<p><br></p>
-<p>La fonction <code>dim(pingouins)</code> permet d’afficher les <strong>dimensions</strong> du tableau (<strong>m lignes</strong> et <strong>n colonnes</strong>).</p>
-<p>La fonction <code>summary(pingouins)</code> est particulièrement intéressante pour avoir une vue d’ensemble de vos données.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pingouins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><img src="img/rstudio_22.png" class="img-fluid" style="width:100.0%"></p>
-<p>Les informations affichées à l’aide de cette fonction dépendent du type de variable :</p>
-<ul>
-<li><strong>nombre d’éléments, classe et mode</strong> pour les variables de type <strong>caractère</strong><br>
-</li>
-<li><strong>statistiques</strong> pour les variables de type <strong>numérique</strong></li>
-</ul>
 <p><br></p>
 </section>
 <section id="manipuler-des-données" class="level1">
