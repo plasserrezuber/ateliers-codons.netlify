@@ -600,8 +600,6 @@ pingouins_propre$espece <- gsub(" .*$", "", pingouins_propre$espece)
 head(pingouins_propre)
 ```
 
-
-
 ## Filter des données
 
 Notre jeu de données contient des données manquantes (**NA**). En affichant les premières lignes, vous pourrez remarquer que pour l'individu situé sur la quatrième ligne, aucune donnée numérique n'est disponible : 
@@ -628,6 +626,12 @@ Nous avons ici les huit données manquantes. Nous allons supprimer ces deux indi
 pingouins_propre <- pingouins_propre[!is.na(pingouins_propre$longueur_bec_mm), ]
 ```
 
+Une autre fonction permet de supprimer d'un tableau les lignes pour lesquelles il y a au moins une donnée manquante : 
+
+```{r eval=FALSE}
+pingouins_propre <- pingouins_propre[complete.cases(pingouins_propre), ]
+```
+
 Assurons-nous d'avoir bien supprimé ces données manquantes : 
 
 ```{r}
@@ -637,12 +641,29 @@ table(is.na(pingouins_propre))
 
 ## Transformer un vecteur en un facteur
 
+Affichons la synthèse de nos données
 
+```{r}
+summary(pingouins_propre)
+```
 
-Il peut arriver que certaines variables soient mal catégorisées. Les deux cas de figure les plus répandus sont les suivants :
+Les deux premières variables, espece et ile, sont considérées comme de simples chaînes de caractère. Or nous savons que ces variables ne possèdent chacune que trois valeurs possibles : il s'agit de variables catégorielles.
 
--   les catégories d'une variable sont représentées par des valeurs numériques et R considère cette variable comme étant numérique (par exemple *Echantillon Numero*)\
--   les catégories d'une variable ne sont pas prises en compte et R considère cette variable comme étant simplement une chaîne de caractères (par exemple **Espece** et **Ile**) ou de valeurs numériques.
+Si vous ne connaissez pas dans le détail les données sur lesquelles vous travaillez, deux fonctions vous permettent d'extraire les observations uniques d'une variable (`unique()`) et de les compter (`length()`) : 
+
+```{r}
+length(unique(pingouins_propre$espece))
+length(unique(pingouins_propre$ile))
+```
+
+La fonction `table()` vous permet d'afficher ces observations uniques d'une variable ainsi que le nombre de fois qu'elles apparaissent :
+
+```{r}
+table(pingouins_propre$espece)
+table(pingouins_propre$ile)
+```
+
+La fonction `as.factor()` permet de transformer un vecteur en un facteur. Par défaut, les niveaux du facteur (les observations uniques) sont triées par ordre alphabétique. Vous pouvez définir les niveaux à l'aide de l'option `levels = ...`.
 
 ::: {.callout-tip icon="true"}
 ## Vecteurs et facteurs
@@ -652,35 +673,31 @@ On désigne par **vecteur** un objet uni-dimensionnel contenant des éléments d
 Un **facteur** est un vecteur dont les éléments peuvent être regroupés en catégories (on parle de **niveaux**).
 :::
 
-Si vous ne connaissez pas dans le détail votre jeu de données, vous pouvez avoir une idée de sa structure sous-jacente en comptant le nombre d'éléments uniques des différentes variables à l'aide des fonctions `unique()` et `length()`
-
-```{r, echo=TRUE, eval=FALSE}
-# Extraire les elements uniques d'une variable
-unique(pingouins$Espece)
-
-# Compter le nombre d'elements uniques d'une variable
-length(unique(pingouins$Espece))
-```
-
-La fonction `unique()` affiche les éléments uniques d'une variable par ordre d'apparition.
-
-La fonction `as.factor()` permet de transformer un vecteur en facteur. Par défaut, les niveaux sont triés par ordre alphabétique. Si vous le souhaitez, vous pouvez préciser manuellement l'ordre souhaité pour ces niveaux à l'aide de l'argument `levels`.
-
-```{r, echo=TRUE, eval=TRUE}
-# Transformer un vecteur en facteur
-pingouins$`Echantillon Numero` <- as.factor(pingouins$`Echantillon Numero`)
-pingouins$Espece <- as.factor(pingouins$Espece)
-pingouins$Ile <- as.factor(pingouins$Ile)
-
+```{r}
+pingouins_propre$espece <- as.factor(pingouins_propre$espece)
+pingouins_propre$ile <- as.factor(pingouins_propre$ile)
 ```
 
 Vérifiez que les corrections apportées aient bien été appliquées au jeu de données :
 
-```{r, echo=TRUE, eval=FALSE}
-summary(pingouins)
+```{r}
+summary(pingouins_propre)
 ```
 
-![](img/rstudio_23.png){width="100%"}
+<!-- ![](img/rstudio_23.png){width="100%"} -->
+
+Comparons les variables avant et après ces modifications : 
+
+```{r}
+class(pingouins$Espece)
+mode(pingouins$Espece)
+typeof(pingouins$Espece)
+
+class(pingouins_propre$espece)
+mode(pingouins_propre$espece)
+typeof(pingouins_propre$espece)
+```
+
 
 <br>
 
