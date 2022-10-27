@@ -613,7 +613,7 @@ Pour arrondir ce ratio à deux chiffres après la virgules, nous pouvons utilise
 pingouins_propre$ratio_bec <- round(pingouins_propre$ratio_bec, digits = 2)
 ```
 
-## Filter des données
+## Supprimer les données manquantes
 
 Notre jeu de données contient des données manquantes (**NA**). En affichant les premières lignes, vous pourrez remarquer que pour l'individu situé sur la quatrième ligne, aucune donnée numérique n'est disponible : 
 
@@ -627,22 +627,22 @@ Pour savoir combien de données manquantes sont présentes dans vos données, vo
 table(is.na(pingouins_propre))
 ```
 
-Nos données contiennent 8 valeurs NA, nous en avons déjà trouvé 4 dans les premières lignes du tableau. Les 4 données manquantes restantes viennent-elles de l'absence de mesure pour un second individu ?
+Nos données contiennent 10 valeurs NA, nous en avons déjà trouvé 5 dans les premières lignes du tableau. Les 5 données manquantes restantes viennent-elles de l'absence de mesure pour un second individu ? La fonction `complete.cases()` permet d'extraires les lignes d'un tableau pour lesquelles il n'y a aucune donnée manquante. Nous cherchons à extraire les lignes qui contiennent au moins une donnée manquante. Pour cela nous allons filtrer les données en extrayant les lignes à l'aide de l'opétateur de négation `!` : 
 
 ```{r}
-pingouins_propre[is.na(pingouins_propre$longueur_bec_mm), ]
+pingouins_propre[!complete.cases(pingouins_propre), ]
 ```
 
-Nous avons ici les huit données manquantes. Nous allons supprimer ces deux individus du jeu de données : 
+Nous avons ici les dix données manquantes. Nous allons supprimer ces deux individus du jeu de données : 
 
 ```{r}
-pingouins_propre <- pingouins_propre[!is.na(pingouins_propre$longueur_bec_mm), ]
+pingouins_propre <- pingouins_propre[complete.cases(pingouins_propre), ]
 ```
 
-Une autre fonction permet de supprimer d'un tableau les lignes pour lesquelles il y a au moins une donnée manquante : 
+Nous aurions également pu supprimer les lignes pour lesquelles une des variables numériques contient des données manquantes : 
 
 ```{r eval=FALSE}
-pingouins_propre <- pingouins_propre[complete.cases(pingouins_propre), ]
+pingouins_propre <- pingouins_propre[!is.na(pingouins_propre$longueur_bec_mm), ]
 ```
 
 Assurons-nous d'avoir bien supprimé ces données manquantes : 
