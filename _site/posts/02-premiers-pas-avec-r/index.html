@@ -808,9 +808,13 @@ Les données manquantes
 <h2 class="anchored" data-anchor-id="sélectionner-des-colonnes">Sélectionner des colonnes</h2>
 <p>Dans R, la sélection de données, que ce soit une cellule, une ligne ou une colonne d’un tableau, ou encore un élément dans une chaîne, s’effectue à l’aide des <strong>crochets []</strong>.</p>
 <ul>
-<li><p>Dans le cas d’un objet à <strong>deux dimensions</strong>, la sélection s’effectue en précisant deux paramètres séparés par une virgule : la ou les ligne(s) et la ou les colonne(s). Pour sélectionner l’ensemble d’une des deux dimensions, on utilise un espace vide d’un côté ou de l’autre de la virgule. Pour sélectionner plusieurs lignes ou colonnes, vous pouvez utiliser soit l’opérateur <code>:</code> si les lignes ou les colonnes se suivent, soit l’opérateur de concaténation <code>c()</code> (vous pouvez combiner les deux).</p></li>
-<li><p>Pour un objet à <strong>une seule dimension</strong>, un seul paramètre est nécessaire (de la même façon, vous pouvez combiner les éléments avec les opérateurs <code>:</code> et <code>c()</code>) :</p></li>
+<li>Pour un objet à <strong>une seule dimension</strong>, un seul paramètre est nécessaire (de la même façon, vous pouvez combiner les éléments avec les opérateurs <code>:</code> et <code>c()</code>). Imaginons un vecteur v :</li>
 </ul>
+<p><img src="img/rstudio_27.png" class="img-fluid" style="width:100.0%"></p>
+<ul>
+<li>Dans le cas d’un objet à <strong>deux dimensions</strong>, la sélection s’effectue en précisant deux paramètres séparés par une virgule : la ou les ligne(s) et la ou les colonne(s). Pour sélectionner l’ensemble d’une des deux dimensions, on utilise un espace vide d’un côté ou de l’autre de la virgule. Pour sélectionner plusieurs lignes ou colonnes, vous pouvez utiliser soit l’opérateur <code>:</code> si les lignes ou les colonnes se suivent, soit l’opérateur de concaténation <code>c()</code> (vous pouvez combiner les deux). Imaginons un tableau d :</li>
+</ul>
+<p><img src="img/rstudio_28.png" class="img-fluid" style="width:100.0%"></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selectionner la 3e ligne et la 5e colonne : </span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>pingouins[<span class="dv">3</span>, <span class="dv">5</span>]</span>

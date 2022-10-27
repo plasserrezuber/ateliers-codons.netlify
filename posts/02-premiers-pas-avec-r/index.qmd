@@ -487,9 +487,16 @@ Les informations affichées à l'aide de cette fonction dépendent du type de va
 
 Dans R, la sélection de données, que ce soit une cellule, une ligne ou une colonne d'un tableau, ou encore un élément dans une chaîne, s'effectue à l'aide des **crochets \[\]**.
 
--   Dans le cas d'un objet à **deux dimensions**, la sélection s'effectue en précisant deux paramètres séparés par une virgule : la ou les ligne(s) et la ou les colonne(s). Pour sélectionner l'ensemble d'une des deux dimensions, on utilise un espace vide d'un côté ou de l'autre de la virgule. Pour sélectionner plusieurs lignes ou colonnes, vous pouvez utiliser soit l'opérateur `:` si les lignes ou les colonnes se suivent, soit l'opérateur de concaténation `c()` (vous pouvez combiner les deux).
+-   Pour un objet à **une seule dimension**, un seul paramètre est nécessaire (de la même façon, vous pouvez combiner les éléments avec les opérateurs `:` et `c()`). Imaginons un vecteur v : 
 
--   Pour un objet à **une seule dimension**, un seul paramètre est nécessaire (de la même façon, vous pouvez combiner les éléments avec les opérateurs `:` et `c()`) :
+![](img/rstudio_27.png){width="100%"}
+
+
+-   Dans le cas d'un objet à **deux dimensions**, la sélection s'effectue en précisant deux paramètres séparés par une virgule : la ou les ligne(s) et la ou les colonne(s). Pour sélectionner l'ensemble d'une des deux dimensions, on utilise un espace vide d'un côté ou de l'autre de la virgule. Pour sélectionner plusieurs lignes ou colonnes, vous pouvez utiliser soit l'opérateur `:` si les lignes ou les colonnes se suivent, soit l'opérateur de concaténation `c()` (vous pouvez combiner les deux). Imaginons un tableau d : 
+
+![](img/rstudio_28.png){width="100%"}
+
+
 
 ```{r, echo=TRUE, eval=FALSE}
 # Selectionner la 3e ligne et la 5e colonne : 
