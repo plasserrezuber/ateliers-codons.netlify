@@ -214,6 +214,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#explorer-les-données" id="toc-explorer-les-données" class="nav-link" data-scroll-target="#explorer-les-données">Explorer les données</a></li>
   <li><a href="#manipuler-des-données" id="toc-manipuler-des-données" class="nav-link" data-scroll-target="#manipuler-des-données">Manipuler des données</a>
   <ul class="collapse">
+  <li><a href="#sélectionner-des-données" id="toc-sélectionner-des-données" class="nav-link" data-scroll-target="#sélectionner-des-données">Sélectionner des données</a></li>
   <li><a href="#transformer-un-vecteur-en-un-facteur" id="toc-transformer-un-vecteur-en-un-facteur" class="nav-link" data-scroll-target="#transformer-un-vecteur-en-un-facteur">Transformer un vecteur en un facteur</a></li>
   <li><a href="#extraire-des-données" id="toc-extraire-des-données" class="nav-link" data-scroll-target="#extraire-des-données">Extraire des données</a></li>
   </ul></li>
@@ -789,12 +790,6 @@ Les données manquantes
 </div>
 <p><br></p>
 <p>La fonction <code>dim(pingouins)</code> permet d’afficher les <strong>dimensions</strong> du tableau (<strong>m lignes</strong> et <strong>n colonnes</strong>).</p>
-<p><br></p>
-</section>
-<section id="manipuler-des-données" class="level1">
-<h1>Manipuler des données</h1>
-<section id="transformer-un-vecteur-en-un-facteur" class="level2">
-<h2 class="anchored" data-anchor-id="transformer-un-vecteur-en-un-facteur">Transformer un vecteur en un facteur</h2>
 <p>La fonction <code>summary(pingouins)</code> est particulièrement intéressante pour avoir une vue d’ensemble de vos données.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pingouins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -806,6 +801,71 @@ Les données manquantes
 </li>
 <li><strong>statistiques</strong> pour les variables de type <strong>numérique</strong></li>
 </ul>
+<p><br></p>
+</section>
+<section id="manipuler-des-données" class="level1">
+<h1>Manipuler des données</h1>
+<section id="sélectionner-des-données" class="level2">
+<h2 class="anchored" data-anchor-id="sélectionner-des-données">Sélectionner des données</h2>
+<p>Dans R, la sélection de données, que ce soit une cellule, une ligne ou une colonne d’un tableau, ou encore un élément dans une chaîne, s’effectue à l’aide des <strong>crochets []</strong>.</p>
+<ul>
+<li><p>Dans le cas d’un objet à <strong>deux dimensions</strong>, la sélection s’effectue en précisant deux paramètres séparés par une virgule : la ou les ligne(s) et la ou les colonne(s). Pour sélectionner l’ensemble d’une des deux dimensions, on utilise un espace vide d’un côté ou de l’autre de la virgule. Pour sélectionner plusieurs lignes ou colonnes, vous pouvez utiliser soit l’opérateur <code>:</code> si les lignes ou les colonnes se suivent, soit l’opérateur de concaténation <code>c()</code> (vous pouvez combiner les deux).</p></li>
+<li><p>Pour un objet à <strong>une seule dimension</strong>, un seul paramètre est nécessaire (de la même façon, vous pouvez combiner les éléments avec les opérateurs <code>:</code> et <code>c()</code>) :</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selectionner la 3e ligne et la 5e colonne : </span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>pingouins[<span class="dv">3</span>, <span class="dv">5</span>]</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Selectionner la 3e ligne : </span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>pingouins[<span class="dv">3</span>, ]</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Selectionner la 5e colonne : </span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>pingouins[, <span class="dv">5</span>]</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Selectionner les lignes 40 à 45 : </span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>pingouins[<span class="dv">40</span><span class="sc">:</span><span class="dv">45</span>, ]</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Selectionner les colonnes 2 et 4 : </span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>pingouins[, <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>)]</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Selectionner les lignes 50 et 100 à 105 : </span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>pingouins[<span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">100</span><span class="sc">:</span><span class="dv">105</span>), ]</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Selectionner le 45e element de la variable Ile</span></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>pingouins<span class="sc">$</span>Ile[<span class="dv">45</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Le jeu de données contient des informations dont nous n’aurons pas besoin pour la suite de l’analyse. Nous allons sélectionner les colonnes pour ne garder que celles qui nous intéressent, à savoir :</p>
+<ul>
+<li>le nom de l’<strong>espèce</strong><br>
+</li>
+<li>l’<strong>île</strong><br>
+</li>
+<li>la <strong>longueur du bec</strong><br>
+</li>
+<li>la <strong>hauteur du bec</strong><br>
+</li>
+<li>la <strong>longueur des ailes</strong><br>
+</li>
+<li>la <strong>masse corporelle</strong></li>
+</ul>
+<p>Vous pouvez sélectionner les colonnes d’un tableau soit : - en utilisant les <strong>noms des variables</strong><br>
+- en utilisant les <strong>index des colonnes</strong></p>
+<p>Les deux commandes suivantes effectuent la même chose :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>pingouins[, <span class="fu">c</span>(<span class="st">"Espece"</span>, <span class="st">"Ile"</span>, <span class="st">"Longueur Bec (mm)"</span>, <span class="st">"Hauteur Bec (mm)"</span>,</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>              <span class="st">"Longueur Aile (mm)"</span>, <span class="st">"Masse corporelle (g)"</span>)]</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>pingouins[, <span class="fu">c</span>(<span class="dv">3</span><span class="sc">:</span><span class="dv">4</span>, <span class="dv">6</span><span class="sc">:</span><span class="dv">9</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Assignons ce nouveau tableau dans un objet :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>pingouins_propre <span class="ot">&lt;-</span> pingouins[, <span class="fu">c</span>(<span class="st">"Espece"</span>, <span class="st">"Ile"</span>, <span class="st">"Longueur Bec (mm)"</span>,</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">"Hauteur Bec (mm)"</span>,<span class="st">"Longueur Aile (mm)"</span>,</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">"Masse corporelle (g)"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="transformer-un-vecteur-en-un-facteur" class="level2">
+<h2 class="anchored" data-anchor-id="transformer-un-vecteur-en-un-facteur">Transformer un vecteur en un facteur</h2>
 <p>Il peut arriver que certaines variables soient mal catégorisées. Les deux cas de figure les plus répandus sont les suivants :</p>
 <ul>
 <li>les catégories d’une variable sont représentées par des valeurs numériques et R considère cette variable comme étant numérique (par exemple <em>Echantillon Numero</em>)<br>
@@ -828,23 +888,23 @@ Vecteurs et facteurs
 </div>
 <p>Si vous ne connaissez pas dans le détail votre jeu de données, vous pouvez avoir une idée de sa structure sous-jacente en comptant le nombre d’éléments uniques des différentes variables à l’aide des fonctions <code>unique()</code> et <code>length()</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extraire les elements uniques d'une variable</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(pingouins<span class="sc">$</span>Espece)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Compter le nombre d'elements uniques d'une variable</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">unique</span>(pingouins<span class="sc">$</span>Espece))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extraire les elements uniques d'une variable</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(pingouins<span class="sc">$</span>Espece)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Compter le nombre d'elements uniques d'une variable</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">unique</span>(pingouins<span class="sc">$</span>Espece))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>La fonction <code>unique()</code> affiche les éléments uniques d’une variable par ordre d’apparition.</p>
 <p>La fonction <code>as.factor()</code> permet de transformer un vecteur en facteur. Par défaut, les niveaux sont triés par ordre alphabétique. Si vous le souhaitez, vous pouvez préciser manuellement l’ordre souhaité pour ces niveaux à l’aide de l’argument <code>levels</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Transformer un vecteur en facteur</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>pingouins<span class="sc">$</span><span class="st">`</span><span class="at">Echantillon Numero</span><span class="st">`</span> <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(pingouins<span class="sc">$</span><span class="st">`</span><span class="at">Echantillon Numero</span><span class="st">`</span>)</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>pingouins<span class="sc">$</span>Espece <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(pingouins<span class="sc">$</span>Espece)</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>pingouins<span class="sc">$</span>Ile <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(pingouins<span class="sc">$</span>Ile)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Transformer un vecteur en facteur</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>pingouins<span class="sc">$</span><span class="st">`</span><span class="at">Echantillon Numero</span><span class="st">`</span> <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(pingouins<span class="sc">$</span><span class="st">`</span><span class="at">Echantillon Numero</span><span class="st">`</span>)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>pingouins<span class="sc">$</span>Espece <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(pingouins<span class="sc">$</span>Espece)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>pingouins<span class="sc">$</span>Ile <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(pingouins<span class="sc">$</span>Ile)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Vérifiez que les corrections apportées aient bien été appliquées au jeu de données :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pingouins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pingouins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><img src="img/rstudio_23.png" class="img-fluid" style="width:100.0%"></p>
 <p><br></p>
@@ -884,49 +944,10 @@ Vous pouvez également replier (<strong>Alt + O</strong>) ou déplier (<strong>A
 <section id="extraire-des-données" class="level2">
 <h2 class="anchored" data-anchor-id="extraire-des-données">Extraire des données</h2>
 <p>Notre jeu de données contient les mesures de différents paramètres pour trois espèces de pingouins. Nous aimerions séparer ce jeu de données en trois tableaux, un pour chacune des espèces.</p>
-<div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Sélectionner des données
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Dans R, la sélection de données, que ce soit une cellule, une ligne ou une colonne d’un tableau, ou encore un élément dans une chaîne, s’effectue à l’aide des <strong>crochets []</strong>.</p>
-<ul>
-<li><p>Dans le cas d’un objet à <strong>deux dimensions</strong>, la sélection s’effectue en précisant deux paramètres séparés par une virgule : la ou les ligne(s) et la ou les colonne(s). Pour sélectionner l’ensemble d’une des deux dimensions, on utilise un espace vide d’un côté ou de l’autre de la virgule. Pour sélectionner plusieurs lignes ou colonnes, vous pouvez utiliser soit l’opérateur <code>:</code> si les lignes ou les colonnes se suivent, soit l’opérateur de concaténation <code>c()</code> (vous pouvez combiner les deux).</p></li>
-<li><p>Pour un objet à <strong>une seule dimension</strong>, un seul paramètre est nécessaire (de la même façon, vous pouvez combiner les éléments avec les opérateurs <code>:</code> et <code>c()</code>) :</p></li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selectionner la 3e ligne et la 5e colonne : </span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>pingouins[<span class="dv">3</span>, <span class="dv">5</span>]</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Selectionner la 3e ligne : </span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>pingouins[<span class="dv">3</span>, ]</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Selectionner la 5e colonne : </span></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>pingouins[, <span class="dv">5</span>]</span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Selectionner les lignes 40 à 45 : </span></span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>pingouins[<span class="dv">40</span><span class="sc">:</span><span class="dv">45</span>, ]</span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Selectionner les colonnes 2 et 4 : </span></span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>pingouins[, <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>)]</span>
-<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Selectionner les lignes 50 et 100 à 105 : </span></span>
-<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>pingouins[<span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">100</span><span class="sc">:</span><span class="dv">105</span>), ]</span>
-<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Selectionner le 45e element de la variable Ile</span></span>
-<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>pingouins<span class="sc">$</span>Ile[<span class="dv">45</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
 <p><br></p>
 <p>Les noms des espèces étant assez complexes, nous allons commencer par les extraire et les stocker dans un vecteur :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>especes <span class="ot">&lt;-</span> <span class="fu">unique</span>(pingouins<span class="sc">$</span>Espece)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>especes <span class="ot">&lt;-</span> <span class="fu">unique</span>(pingouins<span class="sc">$</span>Espece)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 <p>Séparons maintenant le tableau d’origine en trois tableaux. Pour l’espèce <em>Adelie</em>, nous extrayons les lignes du tableau pingouins dont la colonne Espece est égale au premier élément du vecteur especes, etc.</p>
@@ -977,20 +998,20 @@ Les opérateurs de comparaison
 </div>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>adelie <span class="ot">&lt;-</span> pingouins[pingouins<span class="sc">$</span>Espece <span class="sc">==</span> especes[<span class="dv">1</span>], ]</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>gentoo <span class="ot">&lt;-</span> pingouins[pingouins<span class="sc">$</span>Espece <span class="sc">==</span> especes[<span class="dv">2</span>], ]</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>chinstrap <span class="ot">&lt;-</span> pingouins[pingouins<span class="sc">$</span>Espece <span class="sc">==</span> especes[<span class="dv">3</span>], ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>adelie <span class="ot">&lt;-</span> pingouins[pingouins<span class="sc">$</span>Espece <span class="sc">==</span> especes[<span class="dv">1</span>], ]</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>gentoo <span class="ot">&lt;-</span> pingouins[pingouins<span class="sc">$</span>Espece <span class="sc">==</span> especes[<span class="dv">2</span>], ]</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>chinstrap <span class="ot">&lt;-</span> pingouins[pingouins<span class="sc">$</span>Espece <span class="sc">==</span> especes[<span class="dv">3</span>], ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 <p>Créons maintenant un vecteur contenant le nombre d’observations pour chaque tableau, à l’aide de la fonction <code>nrow()</code> (permet de compter le nombre de ligne d’un tableau) :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>nb_ind <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">nrow</span>(adelie), <span class="fu">nrow</span>(gentoo), <span class="fu">nrow</span>(chinstrap))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>nb_ind <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">nrow</span>(adelie), <span class="fu">nrow</span>(gentoo), <span class="fu">nrow</span>(chinstrap))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 <p>Ajoutons à ce vecteur des étiquettes avec les noms des trois espèces :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(nb_ind) <span class="ot">&lt;-</span> especes</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>nb_ind</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(nb_ind) <span class="ot">&lt;-</span> especes</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>nb_ind</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      Adelie Penguin (Pygoscelis adeliae) 
                                       152 
@@ -1024,9 +1045,9 @@ La fonction <code>table()</code>
 <h2 class="anchored" data-anchor-id="diagramme-en-barres-barplot">Diagramme en barres (barplot)</h2>
 <p>Nous pouvons représenter visuellement le nombre de pingouins par espèce à l’aide de la fonction <code>barplot()</code>. Le graphique s’affichera dans le panneau inférieur droit de RStudio.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(nb_ind)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(nb_ind)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Vous pouvez voir que plusieurs points peuvent être améliorés :</p>
@@ -1042,7 +1063,7 @@ La fonction <code>table()</code>
 <p>Pour trouver comment modifier ces différents paramètres, vous pouvez utiliser l’aide de la fonction (<code>?barplot</code>) ou l’aide plus générales pour les graphiques (<code>?par</code>).</p>
 <p>Pour rendre la graphique plus lisible, nous aimerions que le nom des espèces soit situé sur deux lignes. Nous allons pour cela modifier les noms de notre vecteur <strong>nb_ind</strong> à l’aide de la fonction <code>gsub()</code>. Cette fonction permet de remplacer un motif par au autre dans une chaîne et s’utilise de la façon suivante : <code>gsub(motif a remplacer, motif de remplacer, objet a modifier)</code> :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(nb_ind) <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"("</span>, <span class="st">"</span><span class="sc">\n</span><span class="st">("</span>, <span class="fu">names</span>(nb_ind), <span class="at">fixed =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(nb_ind) <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"("</span>, <span class="st">"</span><span class="sc">\n</span><span class="st">("</span>, <span class="fu">names</span>(nb_ind), <span class="at">fixed =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Nous allons utiliser les paramètres suivants :</p>
 <ul>
@@ -1057,13 +1078,13 @@ La fonction <code>table()</code>
 <li><strong>col</strong> pour modifier la couleur des barres</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(nb_ind,</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Trois especes de pingouins vivant en Antarctique"</span>,</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">"Nombre d'individus par espece"</span>,</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">200</span>),</span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="st">"blue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(nb_ind,</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Trois especes de pingouins vivant en Antarctique"</span>,</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">"Nombre d'individus par espece"</span>,</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">200</span>),</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="st">"blue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -1071,13 +1092,13 @@ La fonction <code>table()</code>
 <h2 class="anchored" data-anchor-id="histogramme">Histogramme</h2>
 <p>Etudions maintenant la distribution de la variable <strong>Longueur des ailes</strong> à l’aide d’un histogramme :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(pingouins<span class="sc">$</span><span class="st">`</span><span class="at">Longueur Aile (mm)</span><span class="st">`</span>,</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Distribution de la longueur des ailes"</span>,</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Longueur des ailes (en mm)"</span>,</span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Frequence"</span>,</span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">"orange"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(pingouins<span class="sc">$</span><span class="st">`</span><span class="at">Longueur Aile (mm)</span><span class="st">`</span>,</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Distribution de la longueur des ailes"</span>,</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Longueur des ailes (en mm)"</span>,</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Frequence"</span>,</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">"orange"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Il semble y avoir deux groupes, vérifions cela à l’aide d’un autre type de graphique.</p>
@@ -1086,9 +1107,9 @@ La fonction <code>table()</code>
 <h2 class="anchored" data-anchor-id="boxplot">Boxplot</h2>
 <p>Les graphiques dits en “boîtes à moustaches” donnent une bonne indication de la manière dont se distribue une variable numérique : médiane, quartiles, valeurs aberrantes, …</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(pingouins<span class="sc">$</span><span class="st">`</span><span class="at">Longueur Aile (mm)</span><span class="st">`</span> <span class="sc">~</span> pingouins<span class="sc">$</span>Espece)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(pingouins<span class="sc">$</span><span class="st">`</span><span class="at">Longueur Aile (mm)</span><span class="st">`</span> <span class="sc">~</span> pingouins<span class="sc">$</span>Espece)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -1096,16 +1117,16 @@ La fonction <code>table()</code>
 <h2 class="anchored" data-anchor-id="scatter-plot">Scatter plot</h2>
 <p>Regardons maintenant la relation entre la longueur du bec et la longueur des ailes</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>pingouins<span class="sc">$</span>col[pingouins<span class="sc">$</span>Espece <span class="sc">==</span> especes[<span class="dv">1</span>]] <span class="ot">&lt;-</span> <span class="st">"blue"</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>pingouins<span class="sc">$</span>col[pingouins<span class="sc">$</span>Espece <span class="sc">==</span> especes[<span class="dv">2</span>]] <span class="ot">&lt;-</span> <span class="st">"red"</span></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>pingouins<span class="sc">$</span>col[pingouins<span class="sc">$</span>Espece <span class="sc">==</span> especes[<span class="dv">3</span>]] <span class="ot">&lt;-</span> <span class="st">"green"</span></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pingouins<span class="sc">$</span><span class="st">`</span><span class="at">Longueur Aile (mm)</span><span class="st">`</span>, pingouins<span class="sc">$</span><span class="st">`</span><span class="at">Longueur Bec (mm)</span><span class="st">`</span>,</span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> pingouins<span class="sc">$</span>col)</span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="at">x =</span> <span class="dv">200</span>, <span class="at">y =</span> <span class="dv">45</span>, <span class="at">legend =</span> <span class="fu">c</span>(especes[<span class="dv">1</span>], especes[<span class="dv">2</span>], especes[<span class="dv">3</span>]),</span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"red"</span>, <span class="st">"green"</span>), <span class="at">cex =</span> <span class="fl">0.75</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>pingouins<span class="sc">$</span>col[pingouins<span class="sc">$</span>Espece <span class="sc">==</span> especes[<span class="dv">1</span>]] <span class="ot">&lt;-</span> <span class="st">"blue"</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>pingouins<span class="sc">$</span>col[pingouins<span class="sc">$</span>Espece <span class="sc">==</span> especes[<span class="dv">2</span>]] <span class="ot">&lt;-</span> <span class="st">"red"</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>pingouins<span class="sc">$</span>col[pingouins<span class="sc">$</span>Espece <span class="sc">==</span> especes[<span class="dv">3</span>]] <span class="ot">&lt;-</span> <span class="st">"green"</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pingouins<span class="sc">$</span><span class="st">`</span><span class="at">Longueur Aile (mm)</span><span class="st">`</span>, pingouins<span class="sc">$</span><span class="st">`</span><span class="at">Longueur Bec (mm)</span><span class="st">`</span>,</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> pingouins<span class="sc">$</span>col)</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="at">x =</span> <span class="dv">200</span>, <span class="at">y =</span> <span class="dv">45</span>, <span class="at">legend =</span> <span class="fu">c</span>(especes[<span class="dv">1</span>], especes[<span class="dv">2</span>], especes[<span class="dv">3</span>]),</span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"red"</span>, <span class="st">"green"</span>), <span class="at">cex =</span> <span class="fl">0.75</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 
