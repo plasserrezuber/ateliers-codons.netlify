@@ -930,3 +930,191 @@ write.csv(pingouins_propre, "data/pingouins_propre.csv")
 
 
 # Représenter des données
+
+## Barplot
+
+Pour représenter le nombre d'individus par espèce, nous allons utiliser un graphique en barres (barplot) : la hauteur de chaque barre indique le nombre d'individus.
+
+Il nous faut pour cela un objet contenant l'information sur le nombre d'individus par espèce : 
+
+```{r}
+table(pingouins_propre$espece)
+```
+
+La fonction `barplot()` permet de générer un graphique en barres : 
+
+```{r}
+barplot(table(pingouins_propre$espece))
+```
+
+Ce graphique est très basique, nous pouvons améliorer plusieurs points : 
+
+- *trier les données* : nous aimerions que les barres soient triées par ordre décroissant. 
+La fonction `sort()` permet de trier des données, avec l'argument  `decreasing = TRUE` pour modifier l'ordre (croissant par défaut)
+
+```{r}
+barplot(sort(table(pingouins_propre$espece),
+             decreasing = TRUE))
+```
+
+- *ajouter des couleurs* : le paramètre `col` permet de modifier la couleur de remplissage des barres, et le paramètre `border` la couleur de contour. Nous aimerions utiliser les couleurs de l'image ci-dessous : 
+
+![](img/rstudio_35.png){width="50%"}
+
+```{r}
+barplot(sort(table(pingouins_propre$espece),
+             decreasing = TRUE),
+        col = c("darkorange", "cyan4", "purple"),
+        border = NA)
+```
+
+- *ajouter des titres au graphique et aux axes* : l'argument `main` permet d'ajouter un titre au graphique alors que les arguments `xlab` et `ylab` permettent de modifier les titres des axes.
+
+```{r}
+barplot(sort(table(pingouins_propre$espece),
+             decreasing = TRUE),
+        col = c("darkorange", "cyan4", "purple"),
+        border = NA,
+        main = "Pingouins de l'archipel Palmer",
+        ylab = "Nombre d'individus par espèce")
+```
+
+- *ajuster l'échelle de l'axe y* : la valeur maximale dépasse la plus grande valeur affichée sur l'axe y. Les options `xlim` et `ylim` permettent d'ajuster les limites des axes.
+
+```{r}
+barplot(sort(table(pingouins_propre$espece),
+             decreasing = TRUE),
+        col = c("darkorange", "cyan4", "purple"),
+        border = NA,
+        main = "Pingouins de l'archipel Palmer",
+        ylab = "Nombre d'individus par espèce",
+        ylim = c(0, 200))
+```
+
+## Boxplot
+
+Un boxplot, ou graphique en boîte à moustaches, permet de représenter la dispersion d'une variable. 
+
+Nous aimerions représenter la dispersion du ratio entre la longueur et la hauteur du bec. Nous utilisons pour cela la fonction `boxplot()` : 
+
+```{r}
+boxplot(pingouins_propre$ratio_bec)
+```
+
+Pour savoir si ce ratio varie en fonction des espèces, nous utilisons l'opérateur `~` : `boxplot(x ~ y)` permettra de représenter la dispersion de la variable x en fonction de la variable y.
+
+```{r}
+boxplot(pingouins_propre$ratio_bec ~ pingouins_propre$espece)
+```
+
+Ajustons quelques éléments : 
+
+```{r}
+boxplot(pingouins_propre$ratio_bec ~ pingouins_propre$espece,
+        col = NA,
+        border = c("darkorange", "purple", "cyan4"),
+        pch = 20,
+        main = "Rapport entre la longueur et la hauteur du bec",
+        xlab = "",
+        ylab = "Ratio")
+```
+
+::: {.callout-note icon="true"}
+## pch
+
+L'argument pch permet de modifier la forme des points dans un graphique.
+![](img/rstudio_36.png){width="50%"}
+:::
+
+## Histogramme
+
+Un histogramme sert à visualiser la distribution d'une variable numérique.
+
+Comment se distribue la masse corporelle des pingouins ? Nous utilisons la fonction `hist()`
+
+```{r}
+hist(pingouins_propre$masse_corporelle_g)
+```
+
+L'argument `breaks` permet d'ajuster le nombre de classes de l'histogramme : 
+
+```{r}
+hist(pingouins_propre$masse_corporelle_g,
+     breaks = 20)
+```
+
+Nous souhaiterions représenter les valeurs en kilogrammes plutôt qu'en grammes pour facililter la lecture : 
+
+```{r}
+hist(pingouins_propre$masse_corporelle_g / 1000,
+     breaks = 20)
+```
+
+Améliorons notre graphique : 
+
+```{r}
+hist(pingouins_propre$masse_corporelle_g / 1000,
+     breaks = 20,
+     col = "lightblue",
+     border = "darkblue",
+     main = "Distribution de la masse corporelle",
+     xlab = "Masse (kgs)",
+     ylab = "Fréquence")
+```
+
+## Scatter plot
+
+Le scatter plot (ou nuage de points) permet de représenter la relation entre deux variables numériques. Nous utilisons pour cela la fonction `plot()`
+
+Quelle est la relation entre la longueur des ailes et la longueur du bec ?
+
+```{r}
+plot(x = pingouins_propre$longueur_aile_mm,
+     y = pingouins_propre$longueur_bec_mm)
+```
+
+Ce graphique ne nous donne aucune indication sur les différentes espèces. Nous allons donc ajouter une couleur à chaque point, en ajoutant une variable *couleur* à notre tableau d'origine. Les valeurs de cette variables dépendent de l'espèce.
+
+```{r}
+pingouins_propre$couleur[pingouins_propre$espece == "Adelie"] <- "darkorange"
+pingouins_propre$couleur[pingouins_propre$espece == "Chinstrap"] <- "purple"
+pingouins_propre$couleur[pingouins_propre$espece == "Gentoo"] <- "cyan4"
+```
+
+Représentons à nouveau nos données : 
+
+```{r}
+plot(x = pingouins_propre$longueur_aile_mm,
+     y = pingouins_propre$longueur_bec_mm,
+     col = pingouins_propre$couleur)
+```
+
+Améliorons à présent le graphique en modifiant la forme des points et en ajoutant/modifiant les titres : 
+
+```{r}
+plot(x = pingouins_propre$longueur_aile_mm,
+     y = pingouins_propre$longueur_bec_mm,
+     col = pingouins_propre$couleur,
+     pch = 20,
+     main = "Relation entre la longueur des ailes et la longueur du bec",
+     xlab = "Longueur des ailes (mm)",
+     ylab = "Longueur du bec (mm)")
+```
+
+Pour finir, ajoutons une légende à notre graphique à l'aide la fonction `legend()` : 
+
+```{r}
+plot(x = pingouins_propre$longueur_aile_mm,
+     y = pingouins_propre$longueur_bec_mm,
+     col = pingouins_propre$couleur,
+     pch = 20,
+     main = "Relation entre la longueur des ailes et la longueur du bec",
+     xlab = "Longueur des ailes (mm)",
+     ylab = "Longueur du bec (mm)")
+legend(legend = sort(unique(pingouins_propre$espece)),
+       x = 220,
+       y = 40,
+       col = c("darkorange", "purple", "cyan4"),
+       pch = 19)
+```
+
