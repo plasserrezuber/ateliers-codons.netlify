@@ -550,6 +550,13 @@ L'aide d'une fonction contient plusieurs paragraphes :
 Dans le cas de `head()`, vous pouvez voir que par défaut, la fonction retournera les 6 premières lignes (`n = 6L`, **L** indiquant qu'il s'agit d'un nombre entier). Pour afficher uniquement les deux premières lignes du tableau *pingouins*, il vous faudrait modifier cet argument : `head(pingouins, n = 2L)`
 :::
 
+La fonction `table()` permet d'extraire d'une variable les observations uniques et d'afficher le nombre de fois qu'elles apparaissent : 
+
+```{r}
+table(pingouins$Espece)
+```
+
+
 <br>
 
 Vous pouvez explorer une variable d'intérêt à l'aide de l'opérateur `$` :
@@ -593,69 +600,48 @@ Cette valeur **NA** est à différencier de la valeur **NaN (Not a Number)** ég
 
 # Manipuler des données
 
-## Sélectionner des colonnes
+## Sélectionner des données
+
+<br>
 
 Dans R, la sélection de données, que ce soit une cellule, une ligne ou une colonne d'un tableau, ou encore un élément dans une chaîne, s'effectue à l'aide des **crochets \[\]**.
 
--   Pour un objet à **une seule dimension**, un seul paramètre est nécessaire (de la même façon, vous pouvez combiner les éléments avec les opérateurs `:` et `c()`). Imaginons un vecteur v : 
+- Imaginons un *vecteur v*, donc un objet à une seule dimension. Vous pouvez sélectionner un seul élément (`v[2]`), plusieurs éléments qui se suivent (`v[2:4]`) ou non (`v[c(2, 4)]`).
 
-![](img/rstudio_27.png){width="100%"}
+![](img/rstudio_27.png){width="75%"}
 
+::: {.callout-tip icon="true"}
+## La concaténation
 
--   Dans le cas d'un objet à **deux dimensions**, la sélection s'effectue en précisant deux paramètres séparés par une virgule : la ou les ligne(s) et la ou les colonne(s). Pour sélectionner l'ensemble d'une des deux dimensions, on utilise un espace vide d'un côté ou de l'autre de la virgule. Pour sélectionner plusieurs lignes ou colonnes, vous pouvez utiliser soit l'opérateur `:` si les lignes ou les colonnes se suivent, soit l'opérateur de concaténation `c()` (vous pouvez combiner les deux). Imaginons un tableau d : 
+La fonction `c()` permet de concaténer les éléments entre parenthèses.
+:::
 
-![](img/rstudio_28.png){width="100%"}
+- Imaginons un *data frame d*, la sélection s'effectue toujours à l'aide des crochets, mais en précisant deux paramètres séparés d'une virgule : la ou les ligne(s) et la ou les colonnes(s). Pour sélectionner l'ensemble d'une des deux dimensions, on utilise un espace vide d'un côté ou de l'autre de la virgule.
 
+![](img/rstudio_28.png){width="75%"}
 
+<br>
 
-```{r, echo=TRUE, eval=FALSE}
-# Selectionner la 3e ligne et la 5e colonne : 
-pingouins[3, 5]
+Certaines colonnes du tableau ne sont seront pas utiles pour la suite de l'analyse. Nous pouvons soit : 
 
-# Selectionner la 3e ligne : 
-pingouins[3, ]
-
-# Selectionner la 5e colonne : 
-pingouins[, 5]
-
-# Selectionner les lignes 40 à 45 : 
-pingouins[40:45, ]
-
-# Selectionner les colonnes 2 et 4 : 
-pingouins[, c(2, 4)]
-
-# Selectionner les lignes 50 et 100 à 105 : 
-pingouins[c(50, 100:105), ]
-  
-# Selectionner le 45e element de la variable Ile
-pingouins$Ile[45]
-
+- sélectionner les colonnes qui nous intéressent
+```{r eval=FALSE}
+pingouins[, c(3, 6:9)]
 ```
 
-Le jeu de données contient des informations dont nous n'aurons pas besoin pour la suite de l'analyse. Nous allons sélectionner les colonnes pour ne garder que celles qui nous intéressent, à savoir : 
+- supprimer les colonnes inutiles
+```{r eval=FALSE}
+pingouins[, -c(1:2, 4:5)]
+```
 
-- le nom de l'**espèce**  
-- l'**île**  
-- la **longueur du bec**  
-- la **hauteur du bec**  
-- la **longueur des ailes**  
-- la **masse corporelle**
-
-Vous pouvez sélectionner les colonnes d'un tableau soit : 
-
-- en utilisant les **noms des variables**  
+Ces deux commandes utilisent les index des colonnes. Vous pouvez également sélectionner ou supprimer des colonnes à l'aide de noms des variables : 
 
 ```{r eval=FALSE}
-pingouins[, c("Espece", "Ile", "Longueur Bec (mm)", "Hauteur Bec (mm)",
+pingouins[, c("Espece", "Longueur Bec (mm)", "Hauteur Bec (mm)",
               "Longueur Aile (mm)", "Masse corporelle (g)")]
 ```
 
-- en utilisant les **index des colonnes**
-
-
-```{r eval=FALSE}
-pingouins[, c(3:4, 6:9)]
-```
+<br>
 
 Assignons ce nouveau tableau dans un objet : 
 
@@ -664,6 +650,8 @@ pingouins_propre <- pingouins[, c("Espece", "Ile", "Longueur Bec (mm)",
                                   "Hauteur Bec (mm)","Longueur Aile (mm)",
                                   "Masse corporelle (g)")]
 ```
+
+<br>
 
 ## Renommer des colonnes
 
@@ -674,6 +662,8 @@ La fonction `names()` permet d'accéder aux noms des colonnes d'un tableau :
 names(pingouins_propre)
 ```
 
+<br>
+
 Nous allons modifier les noms de colonnes en :
 
 - supprimant les parenthèses 
@@ -682,7 +672,9 @@ Nous allons modifier les noms de colonnes en :
 
 - remplaçant les majuscules par des minuscules
 
-La fonction `gsub()` permet de remplacer un motif par un autre dans une chaîne, et s'utilise de la manière suivante : `gsub(motif, remplacement, objet)`
+<br>
+
+La fonction `gsub()` qui permet de remplacer un motif par un autre dans une chaîne, s'utilise de la manière suivante : `gsub(motif, remplacement, objet)`
 
 Commençons par supprimer les parenthèses. Nous allons pour cela utiliser une **expression régulière** : le motif recherché est soit une parenthèse ouverte soit une parenthèse fermée.   
 ```{r}
@@ -713,6 +705,8 @@ Assurons-nous que notre tableau contient bien les nouveaux noms de colonnes :
 names(pingouins_propre)
 ```
 
+<br>
+
 ::: {.callout-tip icon="true"}
 
 Lorsque nous utilisons une flèche d'assignation, le résultat du code exécuté ne s'affiche pas dans la console. Pour éviter de taper le nom de l'objet que l'on souhaite afficher pour vérifier que le code a bien fonctionné, nous pouvons entourer le code par des parenthèses : 
@@ -723,6 +717,8 @@ Lorsque nous utilisons une flèche d'assignation, le résultat du code exécuté
 Le résultat de la commande s'affiche maintenant dans la console.
 
 :::
+
+<br>
 
 Nous pouvons maintenant supprimer l'objet nouveaux_noms de notre environnement à l'aide de la fonction `rm()` (remove) : 
 ```{r}
@@ -747,14 +743,26 @@ Attention : si vous cliquez sur le balai alors que les objets sont sous forme de
 
 :::
 
+<br>
+
 ## Modifier une variable
 
-Les noms d'espèces contenus dans la variable espece sont plutôt longs et peu pratiques à manipuler. Nous allons modifier le contenu de cette variable pour ne garder que le premier mot de chaque chaîne de caractères (Adelie, Chinstrap et Gentoo). Nous allons à nouveau utiliser la fonction `gsub()`, mais cette fois-ci avec une expression régulière : nous allons supprimer tout ce qui vient après le premier espace (nous pourrions également extraire tout ce qui vient avant le premier espace).
+Les noms d'espèces contenus dans la variable espece sont plutôt longs et peu pratiques à manipuler. Nous allons modifier le contenu de cette variable pour ne garder que le premier mot de chaque chaîne de caractères (Adelie, Chinstrap et Gentoo). Nous allons à nouveau utiliser la fonction `gsub()` avec une expression régulière pour supprimer tout ce qui vient après le premier espace (nous pourrions également extraire tout ce qui vient avant le premier espace).
 
 ```{r}
 pingouins_propre$espece <- gsub(" .*$", "", pingouins_propre$espece)
 head(pingouins_propre)
 ```
+
+::: {.callout-note icon="true"}
+
+## Note
+
+Dans cette expression régulière (regex), le motif recherché est le suivant : un espace vide (` `) suivi de n'importe quel caractère (`.`) absent ou répété au moins une fois (`*`), en fin de chaîne (`$`).
+
+:::
+
+<br>
 
 ## Ajouter une variable
 
@@ -763,11 +771,15 @@ Quel est le rapport entre la longueur du bec et sa hauteur ? Calculons le ratio 
 pingouins_propre$ratio_bec <- pingouins_propre$longueur_bec_mm / pingouins_propre$hauteur_bec_mm
 ```
 
+<br>
+
 Pour arrondir ce ratio à deux chiffres après la virgules, nous pouvons utiliser la fonction `round()` : 
 
 ```{r}
 pingouins_propre$ratio_bec <- round(pingouins_propre$ratio_bec, digits = 2)
 ```
+
+<br>
 
 ## Supprimer les données manquantes
 
@@ -807,6 +819,7 @@ Assurons-nous d'avoir bien supprimé ces données manquantes :
 table(is.na(pingouins_propre))
 ```
 
+<br>
 
 ## Transformer un vecteur en un facteur
 
@@ -816,35 +829,25 @@ Affichons la synthèse de nos données
 summary(pingouins_propre)
 ```
 
-Les deux premières variables, espece et ile, sont considérées comme de simples chaînes de caractère. Or nous savons que ces variables ne possèdent chacune que trois valeurs possibles : il s'agit de variables catégorielles.
-
-Si vous ne connaissez pas dans le détail les données sur lesquelles vous travaillez, deux fonctions vous permettent d'extraire les observations uniques d'une variable (`unique()`) et de les compter (`length()`) : 
+La variable espece est considérée comme une simple chaîne de caractère. S'agit-il d'une variable ayant un nombre restreint de modalités ? Pour le savoir, comptons le nombre d'observations uniques :
 
 ```{r}
 length(unique(pingouins_propre$espece))
-length(unique(pingouins_propre$ile))
 ```
 
-La fonction `table()` vous permet d'afficher ces observations uniques d'une variable ainsi que le nombre de fois qu'elles apparaissent :
+Nous aurions pu également utiliser la fonction `table()` pour extraire les modalités et leur fréquence : 
 
 ```{r}
 table(pingouins_propre$espece)
-table(pingouins_propre$ile)
 ```
 
-La fonction `as.factor()` permet de transformer un vecteur en un facteur. Par défaut, les niveaux du facteur (les observations uniques) sont triées par ordre alphabétique. Vous pouvez définir les niveaux à l'aide de l'option `levels = ...`.
 
-::: {.callout-tip icon="true"}
-## Vecteurs et facteurs
+<br>
 
-On désigne par **vecteur** un objet uni-dimensionnel contenant des éléments d'un seul type (caractères, valeurs numériques ou logiques). Un tableau est constitué de vecteurs situés dans les colonnes.
-
-Un **facteur** est un vecteur dont les éléments peuvent être regroupés en catégories (on parle de **niveaux**).
-:::
+Il n'y a que trois modalités possibles pour cette variable : il s'agit d'une variable catégorielle. La fonction `as.factor()` permet de transformer un vecteur en un facteur. Par défaut, les modalités (niveaux) d'un facteur sont classés par ordre alphabétique. Vous pouvez définir l'ordre des niveaux à l'aide de l'argument `levels = ...`.
 
 ```{r}
 pingouins_propre$espece <- as.factor(pingouins_propre$espece)
-pingouins_propre$ile <- as.factor(pingouins_propre$ile)
 ```
 
 Vérifiez que les corrections apportées aient bien été appliquées au jeu de données :
@@ -855,17 +858,6 @@ summary(pingouins_propre)
 
 <!-- ![](img/rstudio_23.png){width="100%"} -->
 
-Comparons les variables avant et après ces modifications : 
-
-```{r}
-class(pingouins$Espece)
-mode(pingouins$Espece)
-typeof(pingouins$Espece)
-
-class(pingouins_propre$espece)
-mode(pingouins_propre$espece)
-typeof(pingouins_propre$espece)
-```
 
 
 <br>
