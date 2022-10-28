@@ -99,6 +99,8 @@ En ouvrant RStudio, vous verrez une fenêtre comme celle ci-dessous, divisée en
 
 ### La console
 
+<br>
+
 Vous pouvez y **taper du code et l'exécuter** en appuyant sur `Entrée`.
 
 Quand vous démarrez une nouvelle session dans RStudio, la console affiche également des informations comme la version de R présente sur votre ordinateur ainsi que des indications sur la manière d'obtenir de l'aide.
@@ -123,6 +125,8 @@ Dans la console, vous pouvez parcourir les **dernières commandes exécutées** 
 
 ### L'espace de travail
 
+<br>
+
 Vous y trouverez votre **environnement** (données importées, objets créés, fonctions définies, ...), ainsi que d'autres onglets comme l'**historique** des commandes exécutées ou l'accès à des **tutoriels** (pour les versions récentes de RStudio).
 
 <br>
@@ -141,6 +145,8 @@ Lorsque vous quittez votre session RStudio, vous aurez la possibilité de sauveg
 
 ### Le navigateur
 
+<br>
+
 Ce navigateur vous permet de naviguer dans vos dossiers, de copier, renommer ou supprimer des fichiers, à la manière d'un explorateur classique.
 
 Les autres onglets permettent de visualiser les graphiques, de voir quels packages (extensions) sont installés, ou encore d'afficher l'aide.
@@ -148,6 +154,8 @@ Les autres onglets permettent de visualiser les graphiques, de voir quels packag
 <br>
 
 ### Le script
+
+<br>
 
 ::: {.callout-important icon="true"}
 ## Important
@@ -294,6 +302,8 @@ Dans la console, le code s'exécute et les données sont affichées. Cela indiqu
 Pour insérer une flèche d'assignation, utilisez la combinaison **Alt + "-"** (tiret du 6).
 :::
 
+<br>
+
 Tapez le code ci-dessous dans votre script puis cliquez sur *Run* : 
 
 ```{r, eval=FALSE}
@@ -310,11 +320,15 @@ Pour exécuter une ou plusieurs lignes de code, sélectionnez les lignes et util
 
 Vous pouvez également importer des données en cliquant sur *Import Dataset* puis sur *From Text (base)...* dans le panneau *Environnement* : 
 
-![](img/rstudio_31.png){width="100%"}
+![](img/rstudio_31.png){width="75%"}
+
+<br>
 
 Choisissez le fichier à importer. La fenêtre qui s'ouvre vous permet de vérifier que les données seront correctement importées (présence d'un en-tête, séparateur de colonnes, ...) : 
 
-![](img/rstudio_32.png){width="100%"}
+![](img/rstudio_32.png){width="75%"}
+
+<br>
 
 La commande utilisée pour importer les données s'affiche dans la console. En procédant ainsi, R utilise le chemin absolu vers le fichier (à partir de la racine du disque dur), alors que nous avions utilisé le chemin relatif (à partir du répertoire de travail) à l'intérieur de la fonction `read.csv()`.
 
@@ -424,42 +438,83 @@ Pour sauvegarder un script, uilisez la combinaison **Ctrl + S**
 
 Avant de débuter une analyse des données, il est toujours utile d'explorer rapidement ces données afin de s'assurer qu'elles ont été correctement importées, que les variables numériques sont effectivement des nombres et pas des chaînes de caractères, ...
 
-::: {.callout-tip icon="true"}
-
-
-
-:::
-
 ::: {.callout-note icon="true"}
 
 Cette première étape consistant à vérifier les données, le code utilisé peut être tapé directement dans la console. Le script contiendra plutôt le code utilisé pour nettoyer les données, ainsi que toutes les étapes ultérieures de l'analyse.
 
 :::
 
-Les fonctions suivantes permettent l'exploration rapide de l'ensemble du jeu de données :
+Commençons par regarder à quel structure de données nous avons affaire : 
 
-```{r, echo=TRUE, eval=FALSE}
+```{r}
+class(pingouins)
+```
 
+Quel type de données contient la variable Espece ?
+
+```{r}
+typeof(pingouins$Espece)
+```
+
+
+::: {.callout-tip icon="true"}
+
+## Les structures et types de données dans R
+
+Il existe plusieurs structures de données : 
+
+- Un *vecteur* est un objet à une dimension contenant une chaîne d'éléments d'un seul type  
+- Un **facteur** est un vecteur contenant un nombre limité de modalités  
+
+- Un *data frame* est un tableau dont les colonnes (des vecteurs) peuvent être de différents types  
+
+- Une *matrice* est un tableau ne contenant qu'un seul type de données
+
+- Une *liste* peut contenir différents éléments (un vecteur, un data frame, ...)
+
+<br>
+
+Ces structures peuvent contenir différents types de données : 
+
+- des *caractères* 
+
+- des *nombres entiers*  
+
+- des *nombres décimaux* (dans R, le séparateur décimal est le point `.`)  
+
+- des *opérateurs logiques* (TRUE ou FALSE)
+
+:::
+
+<br>
+
+Vous pouvez afficher les dimensions et la structure des données : 
+
+```{r}
 # Dimensions du tableau (nb lignes par nb colonnes)
 dim(pingouins)
 
-# Afficher les premieres lignes du tableau
-head(pingouins)
-
-# Afficher les dernieres lignes du tableau
-tail(pingouins)
-
-# Afficher la structure du tableau
+# Structure du tableau
 str(pingouins)
 ```
-
-<br>
 
 ::: {.callout-note icon="true"}
 ## Note
 
 Vous remarquerez que la fonction `str(pingouins)` affiche des informations très proches de celles obtenues en cliquant sur la flèche bleue à gauche de l'objet pingouins dans l'environnement.
 :::
+
+<br>
+
+Les fonctions suivantes permettent l'afficher le début ou la fin du tableau :
+
+```{r, echo=TRUE, eval=FALSE}
+# Afficher les premieres lignes du tableau
+head(pingouins)
+
+# Afficher les dernieres lignes du tableau
+tail(pingouins)
+```
 
 <br>
 
