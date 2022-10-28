@@ -228,6 +228,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#boxplot" id="toc-boxplot" class="nav-link" data-scroll-target="#boxplot">Boxplot</a></li>
   <li><a href="#histogramme" id="toc-histogramme" class="nav-link" data-scroll-target="#histogramme">Histogramme</a></li>
   <li><a href="#scatter-plot" id="toc-scatter-plot" class="nav-link" data-scroll-target="#scatter-plot">Scatter plot</a></li>
+  <li><a href="#exporter-un-graphique" id="toc-exporter-un-graphique" class="nav-link" data-scroll-target="#exporter-un-graphique">Exporter un graphique</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -1513,6 +1514,45 @@ pch
 <span id="cb77-12"><a href="#cb77-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">pch =</span> <span class="dv">19</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-59-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="exporter-un-graphique" class="level2">
+<h2 class="anchored" data-anchor-id="exporter-un-graphique">Exporter un graphique</h2>
+<p>Pour exporter un graphique, vous pouvez cliquer sur <em>Export</em> dans l’onglet Plots :</p>
+<p><img src="img/rstudio_37.png" class="img-fluid" style="width:50.0%"></p>
+<p>Dans la fenêtre qui s’ouvre, choisissez l’emplacement où votre graphique sera exporté, et donnez-lui un nom. Vous pouvez aussi ajuster les dimensions de la figure.</p>
+<p><img src="img/rstudio_38.png" class="img-fluid" style="width:50.0%"></p>
+<p>Vous pouvez également sauvegarder votre graphique à l’aide des fonctions suivantes :</p>
+<ul>
+<li><p><code>png()</code> pour ouvrir l’outil graphique</p></li>
+<li><p><code>dev.off()</code> pour fermer l’outil graphique</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="fu">png</span>(<span class="st">"figs/nombre_pingouins.png"</span>,</span>
+<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">width =</span> <span class="dv">1600</span>, <span class="at">height =</span> <span class="dv">800</span>)</span>
+<span id="cb78-3"><a href="#cb78-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-4"><a href="#cb78-4" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">sort</span>(<span class="fu">table</span>(pingouins_propre<span class="sc">$</span>espece),</span>
+<span id="cb78-5"><a href="#cb78-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">decreasing =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb78-6"><a href="#cb78-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"darkorange"</span>, <span class="st">"cyan4"</span>, <span class="st">"purple"</span>),</span>
+<span id="cb78-7"><a href="#cb78-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">border =</span> <span class="cn">NA</span>,</span>
+<span id="cb78-8"><a href="#cb78-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Pingouins de l'archipel Palmer"</span>,</span>
+<span id="cb78-9"><a href="#cb78-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">"Nombre d'individus par espèce"</span>,</span>
+<span id="cb78-10"><a href="#cb78-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">200</span>))</span>
+<span id="cb78-11"><a href="#cb78-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-12"><a href="#cb78-12" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Les paramètres graphiques
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Pour afficher l’aide des paramètres graphiques, tapez <code>?par</code></p>
 </div>
 </div>
 
