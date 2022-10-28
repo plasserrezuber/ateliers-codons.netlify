@@ -22,6 +22,20 @@ pingouins <- read.csv("../../raw/pingouins.csv", check.names = FALSE)
 
 <br>
 
+::: {.callout-tip icon="false"}
+## Objectifs du tutoriel
+
+- Se familiariser avec RStudio  
+- Organiser son travail  
+- Utiliser un script  
+- Importer des données, les manipuler et les représenter
+
+:::
+
+Pour savoir comment installer R et RStudio, cliquez [ici](https://ateliers-codons.netlify.app/posts/01-installer-r-et-rstudio/)
+:::
+
+
 ::: {.callout-note icon="true"}
 ## Note
 
@@ -78,7 +92,7 @@ Contrairement à d'autres logiciels de statistiques comme Minitab ou SPSS, R peu
 
 <br>
 
-RStudio est une **interface graphique** s'appuyant sur le langage R.
+La plupart des utilisateurs interagissent avec R à l'aide d'une **interface graphique**, dont la plus connue est RStudio.
 
 En ouvrant RStudio, vous verrez une fenêtre comme celle ci-dessous, divisée en **trois panneaux** :
 
@@ -130,13 +144,16 @@ R est un langage orienté objet, ce qui veut dire que tout ce que vous manipulez
 
 <br>
 
+Lorsque vous quittez votre session RStudio, vous aurez la possibilité de sauvegarder votre espace de travail. Il est préférable de ne pas le faire afin de démarrer chaque session avec un espace de travail vide.
+
+
 ### Le navigateur
 
 <br>
 
 Ce navigateur vous permet de naviguer dans vos dossiers, de copier, renommer ou supprimer des fichiers, à la manière d'un explorateur classique.
 
-Les autres onglets permettent de visualiser les graphiques ou encore d'afficher l'aide.
+Les autres onglets permettent de visualiser les graphiques, de voir quels packages (extensions) sont installés, ou encore d'afficher l'aide.
 
 <br>
 
@@ -303,6 +320,20 @@ pingouins <- read.csv("raw/pingouins.csv", check.names = FALSE)
 Pour exécuter une ou plusieurs lignes de code, sélectionnez les lignes et utilisez la combinaison **Ctrl + Entrée**
 :::
 
+<br>
+
+Vous pouvez également importer des données en cliquant sur *Import Dataset* puis sur *From Text (base)...* dans le panneau *Environnement* : 
+
+![](img/rstudio_31.png){width="100%"}
+
+Choisissez le fichier à importer. La fenêtre qui s'ouvre vous permet de vérifier que les données seront correctement importées (présence d'un en-tête, séparateur de colonnes, ...) : 
+
+![](img/rstudio_32.png){width="100%"}
+
+La commande utilisée pour importer les données s'affiche dans la console. En procédant ainsi, R utilise le chemin absolu vers le fichier (à partir de la racine du disque dur), alors que nous avions utilisé le chemin relatif (à partir du répertoire de travail) à l'intérieur de la fonction `read.csv()`.
+
+<br>
+
 Notre environnement contient maintenant un objet **pingouins**, et vous pouvez voir l'indication `344 obs. of 9 variables` : le jeu de données contient 344 observations (lignes) et 9 variables (colonnes).
 
 ![](img/rstudio_12.png){width="100%"}
@@ -407,7 +438,17 @@ Pour sauvegarder un script, uilisez la combinaison **Ctrl + S**
 
 Avant de débuter une analyse des données, il est toujours utile d'explorer rapidement ces données afin de s'assurer qu'elles ont été correctement importées, que les variables numériques sont effectivement des nombres et pas des chaînes de caractères, ...
 
+::: {.callout-tip icon="true"}
+
+
+
+:::
+
+::: {.callout-note icon="true"}
+
 Cette première étape consistant à vérifier les données, le code utilisé peut être tapé directement dans la console. Le script contiendra plutôt le code utilisé pour nettoyer les données, ainsi que toutes les étapes ultérieures de l'analyse.
+
+:::
 
 Les fonctions suivantes permettent l'exploration rapide de l'ensemble du jeu de données :
 
@@ -453,17 +494,17 @@ L'aide d'une fonction contient plusieurs paragraphes :
 
 - **Usage** :  comment utiliser la fonction 
 
-**Arguments** : les arguments obligatoires et/ou optionnels de la fonction
+- **Arguments** : ils peuvent être obligatoires ou optionnels
 
-- **Details** : le format de données à fournir en entrée, des précisions sur les arguments, ... 
+- **Details** : format de données à fournir en entrée, précisions sur les arguments, ...
 
-**Value** : le type d'objet obtenu en sortie
+- **Value** : type d'objet obtenu en sortie
 
-**Note** :  informations additionnelles
+- **Note** :  informations additionnelles
 
-**Author(s)** :  les personnes ayant contribué à l'écriture du code de la fonction
+- **Author(s)** :  personnes ayant contribué à l'écriture du code de la fonction
 
-**Examples** :  des exemples d'utilisation de la fonction, avec la possibilité d'exécuter ces exemples
+- **Examples** :  exemples d'utilisation, avec la possibilité d'exécuter ces exemples
 
 Dans le cas de `head()`, vous pouvez voir que par défaut, la fonction retournera les 6 premières lignes (`n = 6L`, **L** indiquant qu'il s'agit d'un nombre entier). Pour afficher uniquement les deux premières lignes du tableau *pingouins*, il vous faudrait modifier cet argument : `head(pingouins, n = 2L)`
 :::
@@ -560,15 +601,18 @@ Le jeu de données contient des informations dont nous n'aurons pas besoin pour 
 - la **masse corporelle**
 
 Vous pouvez sélectionner les colonnes d'un tableau soit : 
-- en utilisant les **noms des variables**  
-- en utilisant les **index des colonnes**
 
-Les deux commandes suivantes effectuent la même chose : 
+- en utilisant les **noms des variables**  
 
 ```{r eval=FALSE}
 pingouins[, c("Espece", "Ile", "Longueur Bec (mm)", "Hauteur Bec (mm)",
               "Longueur Aile (mm)", "Masse corporelle (g)")]
+```
 
+- en utilisant les **index des colonnes**
+
+
+```{r eval=FALSE}
 pingouins[, c(3:4, 6:9)]
 ```
 
@@ -590,42 +634,77 @@ names(pingouins_propre)
 ```
 
 Nous allons modifier les noms de colonnes en :
-- supprimant les parenthèses  
-- remplaçant les espaces par des `_`  
+
+- supprimant les parenthèses 
+
+- remplaçant les espaces par des `_` 
+
 - remplaçant les majuscules par des minuscules
 
-La fonction `gsub()` permet de remplacer un motif par un motif dans une chaîne, et s'utilise de la manière suivante : `gsub(motif, remplacement, objet)`
+La fonction `gsub()` permet de remplacer un motif par un autre dans une chaîne, et s'utilise de la manière suivante : `gsub(motif, remplacement, objet)`
 
-Commençons par supprimer les parenthèses : 
-```{r}
+Commençons par supprimer les parenthèses. Nous allons pour cela utiliser une **expression régulière** : le motif recherché est soit une parenthèse ouverte soit une parenthèse fermée.   
+```{r, eval=FALSE}
 nouveaux_noms <- gsub("[()]", "", names(pingouins_propre))
-nouveaux_noms
 ```
 
 Remplaçons maintenant les espaces par des `_` : 
 
-```{r}
+```{r, eval=FALSE}
 nouveaux_noms <- gsub(" ", "_", nouveaux_noms)
-nouveaux_noms
 ```
 
 La fonction `tolower()` permet de remplacer les majuscules d'une chaîne de caractères par des minuscules (à l'inverse de la fonction `toupper()`) : 
 
-```{r}
+```{r, eval=FALSE}
 nouveaux_noms <- tolower(nouveaux_noms)
-nouveaux_noms
 ```
 
-Remplaçons les noms de colonnes du tableau par ce vecteur nouveaux_noms : 
+Remplaçons les noms de colonnes du tableau par ce vecteur *nouveaux_noms* : 
 
 ```{r}
 names(pingouins_propre) <- nouveaux_noms
 ```
 
+Assurons-nous que notre tableau contient bien les nouveaux noms de colonnes : 
+
+```{r}
+names(pingouins_propre)
+```
+
+::: {.callout-tip icon="true"}
+
+Lorsque nous utilisons une flèche d'assignation, le résultat du code exécuté ne s'affiche pas dans la console. Pour éviter de taper le nom de l'objet que l'on souhaite afficher pour vérifier que le code a bien fonctionné, nous pouvons entourer le code par des parenthèses : 
+```{r, eval=FALSE}
+(names(pingouins_propre) <- nouveaux_noms)
+```
+
+Le résultat de la commande s'affiche maintenant dans la console.
+
+:::
+
 Nous pouvons maintenant supprimer l'objet nouveaux_noms de notre environnement à l'aide de la fonction `rm()` (remove) : 
 ```{r}
 rm(nouveaux_noms)
 ```
+
+::: {.callout-tip icon="true"}
+
+## Supprimer des objets
+
+Vous pouvez également supprimer des objets directement dans le panneau Environnement : 
+
+- Sur la droite du panneau, cliquez sur *List* puis sur *Grid*
+
+![](img/rstudio_33.png){width="100%"}
+
+- Cochez les objets à supprimer puis cliquez sur le balai
+
+![](img/rstudio_34.png){width="100%"}
+
+Attention : si vous cliquez sur le balai alors que les objets sont sous forme de liste, vous supprimerez tous les objets de votre environnement.
+
+:::
 
 ## Modifier une variable
 
