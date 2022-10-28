@@ -600,7 +600,7 @@ Cette valeur **NA** est à différencier de la valeur **NaN (Not a Number)** ég
 
 # Manipuler des données
 
-## Sélectionner des données
+## Sélectionner et filtrer des données
 
 <br>
 
@@ -646,12 +646,43 @@ pingouins[, c("Espece", "Longueur Bec (mm)", "Hauteur Bec (mm)",
 Assignons ce nouveau tableau dans un objet : 
 
 ```{r}
-pingouins_propre <- pingouins[, c("Espece", "Ile", "Longueur Bec (mm)",
+pingouins_propre <- pingouins[, c("Espece", "Longueur Bec (mm)",
                                   "Hauteur Bec (mm)","Longueur Aile (mm)",
                                   "Masse corporelle (g)")]
 ```
 
 <br>
+
+Nous pouvons filtrer les données selon différents critères, à l'aide d'opérateurs.
+
+::: {.callout-tip icon="true"}
+## Les opérateurs
+
+|       |                     | 
+| :---: | :------------------ |
+| ==    | égal                |
+| !=    | différent           |
+| <     | inférieur à         |
+| <=    | inférieur ou égal à |
+| >     | supérieur à         |
+| >=    | supérieur ou égal à |
+| ==    | égal                |
+| &     | et                  |
+| \|    | ou                  |
+| !     | pas                 | 
+
+:::
+
+```{r, echo=TRUE, eval=FALSE}
+# Individus de l'espece Adelie
+pingouins_propre[pingouins_propre$espece == "Adelie", ]
+
+# Individus dont la masse est d'au moins 5 kgs
+pingouins_propre[pingouins_propre$masse_corporelle_g >= 5000, ]
+
+# Individus de l'espece Adelie dont le bec mesure moins de 40mm de long
+pingouins_propre[pingouins_propre$espece == "Adelie" & pingouins_propre$longueur_bec_mm >= 40, ]
+```
 
 ## Renommer des colonnes
 
@@ -897,44 +928,5 @@ write.csv(pingouins_propre, "../../data/pingouins_propre.csv")
 write.csv(pingouins_propre, "data/pingouins_propre.csv")
 ```
 
-## Filtrer des données
-
-Pour filtrer les données qui répondent à un ou plusieurs critères, nous utilisons les opérateurs de comparaison.
-
-<br>
-
-::: {.callout-tip icon="true"}
-## Les opérateurs
-
-|       |                     | 
-| :---: | :------------------ |
-| ==    | égal                |
-| !=    | différent           |
-| <     | inférieur à         |
-| <=    | inférieur ou égal à |
-| >     | supérieur à         |
-| >=    | supérieur ou égal à |
-| ==    | égal                |
-| &     | et                  |
-| |     | ou                  |
-| !     | pas                |
-
-:::
-
-```{r, echo=TRUE, eval=FALSE}
-# Individus de l'espece Adelie
-pingouins_propre[pingouins_propre$espece == "Adelie", ]
-
-# Indivus de l'espece Adelie vivant sur l'ile Biscoe
-pingouins_propre[pingouins_propre$espece == "Adelie" & pingouins_propre$ile == "Biscoe", ]
-
-# Individus dont la masse est d'au moins 5 kgs
-pingouins_propre[pingouins_propre$masse_corporelle_g >= 5000, ]
-
-# Individus dont le bec mesure moins de 40mm de long et ne vivant pas sur l'ile Biscoe
-pingouins_propre[pingouins_propre$espece == "Adelie" & pingouins_propre$ile != "Biscoe", ]
-```
-
-<br>
 
 # Représenter des données
