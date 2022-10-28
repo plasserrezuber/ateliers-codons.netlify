@@ -32,9 +32,6 @@ pingouins <- read.csv("../../raw/pingouins.csv", check.names = FALSE)
 
 :::
 
-Pour savoir comment installer R et RStudio, cliquez [ici](https://ateliers-codons.netlify.app/posts/01-installer-r-et-rstudio/)
-:::
-
 
 ::: {.callout-note icon="true"}
 ## Note
@@ -644,19 +641,19 @@ Nous allons modifier les noms de colonnes en :
 La fonction `gsub()` permet de remplacer un motif par un autre dans une chaîne, et s'utilise de la manière suivante : `gsub(motif, remplacement, objet)`
 
 Commençons par supprimer les parenthèses. Nous allons pour cela utiliser une **expression régulière** : le motif recherché est soit une parenthèse ouverte soit une parenthèse fermée.   
-```{r, eval=FALSE}
+```{r}
 nouveaux_noms <- gsub("[()]", "", names(pingouins_propre))
 ```
 
 Remplaçons maintenant les espaces par des `_` : 
 
-```{r, eval=FALSE}
+```{r}
 nouveaux_noms <- gsub(" ", "_", nouveaux_noms)
 ```
 
 La fonction `tolower()` permet de remplacer les majuscules d'une chaîne de caractères par des minuscules (à l'inverse de la fonction `toupper()`) : 
 
-```{r, eval=FALSE}
+```{r}
 nouveaux_noms <- tolower(nouveaux_noms)
 ```
 
