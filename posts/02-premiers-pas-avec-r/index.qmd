@@ -1118,3 +1118,39 @@ legend(legend = sort(unique(pingouins_propre$espece)),
        pch = 19)
 ```
 
+## Exporter un graphique
+
+Pour exporter un graphique, vous pouvez cliquer sur *Export* dans l'onglet Plots : 
+
+![](img/rstudio_37.png){width="50%"}
+
+Dans la fenêtre qui s'ouvre, choisissez l'emplacement où votre graphique sera exporté, et donnez-lui un nom. Vous pouvez aussi ajuster les dimensions de la figure.
+
+![](img/rstudio_38.png){width="50%"}
+
+Vous pouvez également sauvegarder votre graphique à l'aide des fonctions suivantes : 
+
+- `png()` pour ouvrir l'outil graphique  
+
+- `dev.off()` pour fermer l'outil graphique
+
+```{r, eval=FALSE}
+png("figs/nombre_pingouins.png",
+    width = 1600, height = 800)
+
+barplot(sort(table(pingouins_propre$espece),
+             decreasing = TRUE),
+        col = c("darkorange", "cyan4", "purple"),
+        border = NA,
+        main = "Pingouins de l'archipel Palmer",
+        ylab = "Nombre d'individus par espèce",
+        ylim = c(0, 200))
+
+dev.off()
+```
+
+::: {.callout-tip icon="true"}
+## Les paramètres graphiques
+
+Pour afficher l'aide des paramètres graphiques, tapez `?par`
+:::
