@@ -25,14 +25,12 @@ pingouins <- read.csv("../../raw/pingouins.csv", check.names = FALSE)
 ::: {.callout-tip icon="false"}
 ## Objectifs du tutoriel
 
-- Se familiariser avec RStudio  
-- Organiser son travail  
-- Utiliser un script  
-- Importer et exporter des données  
-- Explorer, manipuler et représenter des données
-
+-   Se familiariser avec RStudio\
+-   Organiser son travail\
+-   Utiliser un script\
+-   Importer et exporter des données\
+-   Explorer, manipuler et représenter des données
 :::
-
 
 ::: {.callout-note icon="true"}
 ## Note
@@ -57,10 +55,10 @@ Il a été développé par Ross Ihaka et Robert Gentleman, du Département de St
 ::: {.callout-tip icon="true"}
 ## Quelques dates
 
-|      |                         |
-|------|-------------------------|
-| 1991 | Création du langage R   |
-| 1993 | R est dévoilé au public |
+|      |                                                                                                                                     |
+|-----------------|-------------------------------------------------------|
+| 1991 | Création du langage R                                                                                                               |
+| 1993 | R est dévoilé au public                                                                                                             |
 | 1996 | [Article dans le *Journal of Computational and Graphical Statistics*](https://www.stat.auckland.ac.nz/~ihaka/downloads/R-paper.pdf) |
 :::
 
@@ -70,14 +68,14 @@ R désigne également le logiciel qui utilise ce langage pour des calculs statis
 
 Il dispose d'une communauté en ligne très active ainsi que d'extensions appelées **packages** pour presque tous les domaines et applications possibles et imaginables (cartographie, fouille de texte, modélisation, ...).
 
-Contrairement à d'autres logiciels de statistiques comme Minitab ou SPSS, R peut être exécuté entièrement en ligne de commande et ne nécessite pas d'interface graphique, ce qui lui confère une grande flexibilité.
+Contrairement à d'autres logiciels de statistiques comme Minitab ou SPSS, R peut être exécuté entièrement en **ligne de commande** et ne nécessite pas d'interface graphique, ce qui lui confère une grande flexibilité.
 
 <br>
 
 ::: {.callout-tip icon="true"}
 ## Quelques avantages de R
 
--   C'est un outil libre et open source (tout le monde peut utiliser le code et voir comment il fonctionne) 
+-   C'est un outil libre et open source (tout le monde peut utiliser le code et voir comment il fonctionne)
 
 -   C'est un langage de programmation plutôt qu'une interface graphique, ce qui permet à l'utilisateur de sauvegarder facilement des **scripts** pour les ré-utiliser ou les partager
 
@@ -104,22 +102,22 @@ En ouvrant RStudio, vous verrez une fenêtre comme celle ci-dessous, divisée en
 
 Vous pouvez y taper du code et l'exécuter en appuyant sur `Entrée`.
 
-Quand vous démarrez une nouvelle session dans RStudio, la **console** affiche également des informations comme la version de R présente sur votre ordinateur ainsi que des indications sur la manière d'obtenir de l'aide.
+Quand vous démarrez une nouvelle session dans RStudio, la console affiche également des informations comme la version de R présente sur votre ordinateur ainsi que des indications sur la manière d'obtenir de l'aide.
 
 <br>
 
 ::: {.callout-tip icon="true"}
 ## L'invite de commande
 
-Dans la console, une ligne commence par `>` : c'est ce qu'on appelle l'invite de commande. Cela indique que R est prêt à recevoir vos instructions !
+Dans la console, une ligne commence par `>` : c'est ce qu'on appelle l'invite de commande. Cela indique que R est prêt à recevoir vos instructions.
 
 Tapez `2+2` puis appuyez sur `Entrée` : la console affiche le résultat.
+
 ```{r}
 2 + 2
 ```
 
 Dans la console, vous pouvez parcourir les dernières commandes exécutées à l'aide des flèches haut et bas.
-
 :::
 
 <br>
@@ -128,13 +126,12 @@ Dans la console, vous pouvez parcourir les dernières commandes exécutées à l
 
 <br>
 
-Vous y trouverez votre **environnement** (données importées, **objets**, fonctions, ...), ainsi que d'autres onglets comme l'historique des commandes exécutées ou l'accès à des tutoriels (pour les versions récentes de RStudio).
-
+Vous y trouverez votre **environnement** (données importées, objets, fonctions, ...), ainsi que d'autres onglets comme l'historique des commandes exécutées ou l'accès à des tutoriels (pour les versions récentes de RStudio).
 
 ::: {.callout-tip icon="true"}
 ## Un langage orienté objet
 
-R est un langage orienté objet, ce qui veut dire que tout ce que vous manipulez dans R est stocké dans un objet.
+R est un langage orienté objet, ce qui veut dire que tout ce que vous manipulez dans R (données, fonctions, ...) est stocké dans un objet.
 :::
 
 <br>
@@ -160,7 +157,7 @@ Les autres onglets permettent de visualiser les graphiques, de voir quels packag
 ::: {.callout-important icon="true"}
 ## Important
 
-Le code tapé et exécuté dans la console ne sera plus disponible quand vous quitterez votre session RStudio. A la manière d'un document Word, un script vous permet de **sauvegarder votre code** afin d'y accéder ultérieurement ou de le partager.
+Le code tapé et exécuté dans la console ne sera plus disponible quand vous quitterez votre session RStudio. A la manière d'un document Word, un script vous permet de sauvegarder votre code afin d'y accéder ultérieurement ou de le partager.
 :::
 
 <br>
@@ -191,9 +188,9 @@ Un nouveau panneau s'affiche :
 
 <br>
 
-Lorsque vous partagez votre code avec d'autres personnes, celles-ci doivent pouvoir faire tourner vos analyses sans erreur et obtenir des résultats identiques (on parle de **reproductibilité**). 
+Lorsque vous partagez votre code avec d'autres personnes, celles-ci doivent pouvoir reproduire votre analyse sans erreur et obtenir des résultats identiques (on parle de **reproductibilité**).
 
-Les **projets RStudio** aident à construire une analyse reproductible en regroupant tous les éléments nécessaires dans un seul dossier (code, données, figures et paramètres). Cela vous évitera de perdre du temps à chercher des fichiers dans votre ordinateur : la racine du projet est votre répertoire de travail. 
+Les **projets** RStudio aident à construire une analyse reproductible en regroupant tous les éléments nécessaires dans un seul dossier (code, données, figures et paramètres). Cela vous évitera de perdre du temps à chercher des fichiers dans votre ordinateur : la racine du projet est votre répertoire de travail.
 
 Nous verrons dans un autre tutoriel comment connecter un projet RStudio à un gestionnaire de version comme GitLab : vous pourrez travailler à plusieurs sur un même code en gardant une trace de toutes les modifications apportées par l'une ou l'autre personne.
 
@@ -205,11 +202,10 @@ Pour créer un projet, cliquez sur *File* puis *New project...* :
 
 Choisissez *New Directory* puis *New Project*
 
-::: {layout-ncol=2}
+::: {layout-ncol="2"}
+![](img/rstudio_03.png)
 
-![](img/rstudio_03.png){}
-
-![](img/rstudio_04.png){}
+![](img/rstudio_04.png)
 :::
 
 <br>
@@ -231,10 +227,9 @@ Quand vous voudrez travailler à nouveau sur ces données, il vous suffira d'ouv
 
 -   privilégiez les noms courts et explicites (à éviter : *fichier_2e_version_a\_verifier.txt*)
 -   ne mettez ni espace ni caractères spéciaux (accents, symboles, ...)\
--   pour les dates, privilégiez le format **AAAAMMJJ** (année, mois, jour)
+-   pour les dates, privilégiez le format AAAAMMJJ (année, mois, jour)
 -   mettez l'élément le plus important en premier (par exemple : *projet_date_contenu*)\
--   optez pour l'une de ces deux conventions d'écriture : **camel case** (*MonProjet*) ou **snake case** (*mon_projet*)
-
+-   optez pour l'une de ces deux conventions d'écriture : camel case (*MonProjet*) ou snake case (*mon_projet*)
 :::
 
 <br>
@@ -243,23 +238,23 @@ Quand vous voudrez travailler à nouveau sur ces données, il vous suffira d'ouv
 
 Il est toujours préférable de passer un peu de temps à bien organiser un projet lors de sa création, plutôt que de passer beaucoup de temps par la suite à déplacer des fichiers, les renommer, les rechercher, ...
 
-Pour créer un nouveau dossier dans votre projet, cliquez sur *New Folder* dans l'onglet *Files* du navigateur : 
+Pour créer un nouveau dossier dans votre projet, cliquez sur *New Folder* dans l'onglet *Files* du navigateur :
 
 ![](img/rstudio_07.png){width="100%"}
 
 L'organisation proposée ci-dessous est utilisable dans une très grande majorité de cas :
 
-- **raw** : données brutes
+-   **raw** : données brutes
 
-- **data** : données issues de la manipulation/modification des données brutes
+-   **data** : données issues de la manipulation/modification des données brutes
 
-- **scripts** : code utilisé pour analyser les données, créer les graphiques, ...
+-   **scripts** : code utilisé pour analyser les données, créer les graphiques, ...
 
-- **results** : fichiers de résultats obtenus durant l'analyse
+-   **results** : fichiers de résultats obtenus durant l'analyse
 
-- **figures** : graphiques générés au cours de l'analyse
+-   **figs** : graphiques générés au cours de l'analyse
 
-- **docs** : rapports, présentations, articles en lien avec l'analyse, documents concernant les outils utilisés, ... |
+-   **docs** : rapports, présentations, articles en lien avec l'analyse, documents concernant les outils utilisés, ... \|
 
 ![](img/rstudio_08.png){width="100%"}
 
@@ -271,14 +266,15 @@ L'organisation proposée ci-dessous est utilisable dans une très grande majorit
 
 Le jeu de données que nous allons utiliser contient des mesures pour [trois espèces de pingouins vivant sur l'archipel Palmer en Antarctique](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0090081).
 
-Toute opération réalisée dans R, que ce soit importer ou exporter des données, effectuer des calculs ou encore créer des graphiques, fait appel à une fonction. Une fonction est constituée de code et permet d'exécuter une action.
+Toute opération réalisée dans R, que ce soit importer ou exporter des données, effectuer des calculs ou encore créer des graphiques, fait appel à une **fonction**. Une fonction est constituée de code et permet d'exécuter une action.
 
-La manière dont la fonction s'exécute peut se modifier à l'aide d'arguments (obligatoires ou optionnels).
+La manière dont la fonction s'exécute peut se modifier à l'aide d'**arguments** (obligatoires ou optionnels).
 
-Pour importer les données, nous utilisons la fonction `read.csv()` en précisant deux arguments : 
+Pour importer les données, nous utilisons la fonction `read.csv()` en précisant deux arguments :
 
-- le chemin vers l'emplacement du fichier à importer entre guillemets  
-- l'argument `check.names = FALSE` pour conserver les noms de colonnes tels quels.  
+-   le chemin vers l'emplacement du fichier à importer, entre guillemets  
+
+-   l'argument `check.names = FALSE` pour conserver les noms de colonnes tels quels.
 
 Tapez le code ci-dessous dans votre script puis cliquez sur *Run*
 
@@ -289,12 +285,12 @@ Tapez le code ci-dessous dans votre script puis cliquez sur *Run*
 ::: {.callout-caution icon="true"}
 ## Bonnes pratiques : auto-complétion
 
-R vous aide à compléter votre code : tapez `re` puis **Tab**, et vous verrez s'afficher une liste de fonctions ou d'objets commençant par ces deux lettres. Vous pouvez naviguer à l'aide des flèches haut et bas et valider votre choix en appuyant à nouveau sur **Tab**. Cette fonctionnalité de R est particulièrement utile lorsque vous manipulez des fichiers ou objets ayant des noms complexes.
+R vous aide à compléter votre code : tapez `re` puis *Tab*, et vous verrez s'afficher une liste de fonctions ou d'objets commençant par ces deux lettres. Vous pouvez naviguer à l'aide des flèches haut et bas et valider votre choix en appuyant à nouveau sur *Tab*. Cette fonctionnalité de R est particulièrement utile lorsque vous manipulez des fichiers ou objets ayant des noms complexes.
 :::
 
 <br>
 
-Dans la console, le code s'exécute et les données sont affichées. Cela indique que la commande a bien fonctionné, mais que les données ne sont pour l'instant pas disponibles dans notre environnement. Nous allons donc importer les données et les stocker dans un objet que nous appelons *pingouins*. Pour cela nous utilisons la **flèche d'assignation `<-`**. 
+Dans la console, le code s'exécute et les données sont affichées. Cela indique que la commande a bien fonctionné, mais que les données ne sont pour l'instant pas disponibles dans notre environnement. Nous allons donc importer les données et les stocker dans un objet que nous appelons *pingouins*. Pour cela nous utilisons la **flèche d'assignation `<-`**.
 
 ::: {.callout-tip icon="true"}
 ## Raccourcis clavier : flèche d'assignation
@@ -304,7 +300,7 @@ Pour insérer une flèche d'assignation, utilisez la combinaison **Alt + "-"** (
 
 <br>
 
-Tapez le code ci-dessous dans votre script puis cliquez sur *Run* : 
+Tapez le code ci-dessous dans votre script puis cliquez sur *Run* :
 
 ```{r, eval=FALSE}
 pingouins <- read.csv("raw/pingouins.csv", check.names = FALSE)
@@ -318,23 +314,23 @@ Pour exécuter une ou plusieurs lignes de code, sélectionnez les lignes et util
 
 <br>
 
-Vous pouvez également importer des données en cliquant sur *Import Dataset* puis sur *From Text (base)...* dans le panneau *Environnement* : 
+Vous pouvez également importer des données en cliquant sur *Import Dataset* puis sur *From Text (base)...* dans le panneau *Environnement* :
 
 ![](img/rstudio_31.png){width="75%"}
 
 <br>
 
-Choisissez le fichier à importer. La fenêtre qui s'ouvre vous permet de vérifier que les données seront correctement importées (présence d'un en-tête, séparateur de colonnes, ...) : 
+Choisissez le fichier à importer. La fenêtre qui s'ouvre vous permet de vérifier que les données seront correctement importées (présence d'un en-tête, séparateur de colonnes, ...) :
 
 ![](img/rstudio_32.png){width="75%"}
 
 <br>
 
-La commande utilisée pour importer les données s'affiche dans la console. En procédant ainsi, R utilise le chemin absolu vers le fichier (à partir de la racine du disque dur), alors que nous avions utilisé le chemin relatif (à partir du répertoire de travail) à l'intérieur de la fonction `read.csv()`.
+La commande utilisée pour importer les données s'affiche dans la console. En procédant ainsi, R utilise le **chemin absolu** vers le fichier (à partir de la racine du disque dur), alors que nous avions utilisé le **chemin relatif** (à partir du répertoire de travail) à l'intérieur de la fonction `read.csv()`.
 
 <br>
 
-Notre environnement contient maintenant un objet **pingouins**, et vous pouvez voir l'indication `344 obs. of 9 variables` : le jeu de données contient 344 observations (lignes) et 9 variables (colonnes).
+Notre environnement contient maintenant un objet *pingouins*, et vous pouvez voir l'indication `344 obs. of 9 variables` : le jeu de données contient 344 observations (lignes) et 9 variables (colonnes).
 
 ![](img/rstudio_12.png){width="100%"}
 
@@ -346,21 +342,20 @@ En cliquant sur la flèche bleue à gauche du nom de l'objet, vous aurez accès 
 
 <br>
 
-- les **noms** des variables, précédés du signe `$`  
+-   les **noms** des variables, précédés du signe `$`
 
-- le **type** de chaque varible : caractère (chr), nombres entiers (int) ou décimaux (int), logique (log)  
+-   le **type** de chaque varible : caractère (chr), nombres entiers (int) ou décimaux (int), logique (log)
 
-- les **premiers éléments** de chaque variable
-
+-   les **premiers éléments** de chaque variable
 
 ::: {.callout-tip icon="true"}
 ## L'opérateur **\$**
 
-Cet opérateur permet de sélectionner la colonne d'un tableau. Dans la console, tapez `pingouins$` et appuyez sur **Tab**.
+Cet opérateur permet de sélectionner la colonne d'un tableau. Dans la console, tapez `pingouins$` et appuyez sur *Tab*.
 
-![](img/rstudio_15.png){width="50%"} 
+![](img/rstudio_15.png){width="50%"}
 
-Vous pouvez choisir la variable qui vous intéresse à l'aide des **flèches haut et bas** (*Espece* par exemple) puis appuyer à nouveau sur **Tab** pour valider. Vous verrez alors s'afficher les 344 observations de cette variable. 
+Vous pouvez choisir la variable qui vous intéresse à l'aide des **flèches haut et bas** (*Espece* par exemple) puis appuyer à nouveau sur **Tab** pour valider. Vous verrez alors s'afficher les 344 observations de cette variable.
 
 ![](img/rstudio_16.png){width="75%"}
 :::
@@ -373,7 +368,6 @@ Vous pouvez afficher le tableau en cliquant sur l'icône à droite du nom de l'o
 
 Cela ouvre un nouvel onglet à côté de votre script :
 
-
 ![](img/rstudio_17.png){width="100%"}
 
 <br>
@@ -381,9 +375,9 @@ Cela ouvre un nouvel onglet à côté de votre script :
 ::: {.callout-caution icon="true"}
 ## Bonnes pratiques : commenter ses scripts
 
-Prenez dès maintenant l'habitude de commenter vos scripts. Il s'agit de rédiger des commentaires qui expliquent ce que fait votre code, pour le rendre plus compréhensible par vos collègues - et par vous-même quand vous reviendrez sur un script après un certain temps !
+Prenez dès maintenant l'habitude de commenter vos scripts. Il s'agit de rédiger des commentaires qui expliquent ce que fait votre code, pour le rendre plus compréhensible par vos collègues - et par vous-même quand vous reviendrez sur un script après un certain temps.
 
-Pour ajouter un commentaire, utilisez un `#` au début d'une ligne puis rédigez votre commentaire. Dans R, un code placé après un `#` n'est pas exécuté :
+Pour ajouter un commentaire, utilisez un `#` au début d'une ligne puis rédigez votre commentaire. Dans R, le code placé après un `#` n'est pas exécuté :
 
 ```{r, echo=TRUE, eval=TRUE}
 # Ceci est un commentaire qui ne sera pas exécuté
@@ -415,7 +409,6 @@ pingouins <- read.csv("raw/pingouins.csv", check.names = FALSE)
 Pour commenter ou dé-commenter des lignes de code, utilisez la combinaison **Ctrl + Shift + C**.
 :::
 
-
 <br>
 
 Avant d'aller plus loin, sauvegardez votre script en cliquant sur l'icône disquette en haut de votre script :
@@ -439,12 +432,10 @@ Pour sauvegarder un script, uilisez la combinaison **Ctrl + S**
 Avant de débuter une analyse des données, il est toujours utile d'explorer rapidement ces données afin de s'assurer qu'elles ont été correctement importées, que les variables numériques sont effectivement des nombres et pas des chaînes de caractères, ...
 
 ::: {.callout-note icon="true"}
-
 Cette première étape consistant à vérifier les données, le code utilisé peut être tapé directement dans la console. Le script contiendra plutôt le code utilisé pour nettoyer les données, ainsi que toutes les étapes ultérieures de l'analyse.
-
 :::
 
-Commençons par regarder à quel structure de données nous avons affaire : 
+Commençons par regarder à quel structure de données nous avons affaire :
 
 ```{r}
 class(pingouins)
@@ -456,39 +447,37 @@ Quel type de données contient la variable Espece ?
 typeof(pingouins$Espece)
 ```
 
-
 ::: {.callout-tip icon="true"}
-
 ## Les structures et types de données dans R
 
-Il existe plusieurs structures de données : 
+Il existe plusieurs structures de données :
 
-- Un *vecteur* est un objet à une dimension contenant une chaîne d'éléments d'un seul type  
-- Un **facteur** est un vecteur contenant un nombre limité de modalités  
+-   Un *vecteur* est un objet à une dimension contenant une chaîne d'éléments d'un seul type\
 
-- Un *data frame* est un tableau dont les colonnes (des vecteurs) peuvent être de différents types  
+-   Un *facteur* est un vecteur contenant un nombre limité de modalités
 
-- Une *matrice* est un tableau ne contenant qu'un seul type de données
+-   Un *data frame* est un tableau dont les colonnes (des vecteurs) peuvent être de différents types
 
-- Une *liste* peut contenir différents éléments (un vecteur, un data frame, ...)
+-   Une *matrice* est un tableau ne contenant qu'un seul type de données
+
+-   Une *liste* peut contenir différents éléments (un vecteur, un data frame, ...)
 
 <br>
 
-Ces structures peuvent contenir différents types de données : 
+Ces structures peuvent contenir différents types de données :
 
-- des *caractères* 
+-   des *caractères*
 
-- des *nombres entiers*  
+-   des *nombres entiers*
 
-- des *nombres décimaux* (dans R, le séparateur décimal est le point `.`)  
+-   des *nombres décimaux* (dans R, le séparateur décimal est le point `.`)
 
-- des *opérateurs logiques* (TRUE ou FALSE)
-
+-   des *opérateurs logiques* (TRUE ou FALSE)
 :::
 
 <br>
 
-Vous pouvez afficher les dimensions et la structure des données : 
+Vous pouvez afficher les dimensions et la structure des données :
 
 ```{r}
 # Dimensions du tableau (nb lignes par nb colonnes)
@@ -523,39 +512,38 @@ tail(pingouins)
 
 Vous pouvez afficher l'aide d'une fonction de deux manières :
 
-- taper `help(fonction)` (pensez à l'auto-complétion !)
+-   taper `help(fonction)` (pensez à l'auto-complétion !)
 
-- taper `?fonction`
+-   taper `?fonction`
 
-Essayez en tapant dans la console `?he` puis appuyez sur **Tab** : R vous propose une liste de fonctions commençant par **he**. Utilisez les flèches haut et bas pour choisir la fonction **head**. Une petite fenêtre vous donne un aperçu du contenu de l'aide pour la fonction (utile quand vous hésitez entre plusieurs fonctions). Une fois la fonction sélectionnée, appuyez sur la touche **F1** pour afficher l'aide complète dans l'onglet **Help**.
+Essayez en tapant dans la console `?he` puis appuyez sur *Tab* : R vous propose une liste de fonctions commençant par `he`. Utilisez les flèches haut et bas pour choisir la fonction `head`. Une petite fenêtre vous donne un aperçu du contenu de l'aide pour la fonction (utile quand vous hésitez entre plusieurs fonctions). Une fois la fonction sélectionnée, appuyez sur la touche *F1* pour afficher l'aide complète dans l'onglet *Help*.
 
 L'aide d'une fonction contient plusieurs paragraphes :
 
-- **Description** : présentation sommaire de la fonction
+-   *Description* : présentation sommaire de la fonction
 
-- **Usage** :  comment utiliser la fonction 
+-   *Usage* : comment utiliser la fonction
 
-- **Arguments** : ils peuvent être obligatoires ou optionnels
+-   *Arguments* : ils peuvent être obligatoires ou optionnels
 
-- **Details** : format de données à fournir en entrée, précisions sur les arguments, ...
+-   *Details* : format de données à fournir en entrée, précisions sur les arguments, ...
 
-- **Value** : type d'objet obtenu en sortie
+-   *Value* : type d'objet obtenu en sortie
 
-- **Note** :  informations additionnelles
+-   *Note* : informations additionnelles
 
-- **Author(s)** :  personnes ayant contribué à l'écriture du code de la fonction
+-   *Author(s)* : personnes ayant contribué à l'écriture du code de la fonction
 
-- **Examples** :  exemples d'utilisation, avec la possibilité d'exécuter ces exemples
+-   *Examples* : exemples d'utilisation, avec la possibilité d'exécuter ces exemples
 
-Dans le cas de `head()`, vous pouvez voir que par défaut, la fonction retournera les 6 premières lignes (`n = 6L`, **L** indiquant qu'il s'agit d'un nombre entier). Pour afficher uniquement les deux premières lignes du tableau *pingouins*, il vous faudrait modifier cet argument : `head(pingouins, n = 2L)`
+Dans le cas de `head()`, vous pouvez voir que par défaut, la fonction retournera les 6 premières lignes (`n = 6L`, `L` indiquant qu'il s'agit d'un nombre entier). Pour afficher uniquement les deux premières lignes du tableau *pingouins*, il vous faudrait modifier cet argument : `head(pingouins, n = 2L)`
 :::
 
-La fonction `table()` permet d'extraire d'une variable les observations uniques et d'afficher le nombre de fois qu'elles apparaissent : 
+La fonction `table()` permet d'extraire d'une variable les observations uniques et d'afficher le nombre de fois qu'elles apparaissent :
 
 ```{r}
 table(pingouins$Espece)
 ```
-
 
 <br>
 
@@ -572,7 +560,6 @@ tail(pingouins$`Masse corporelle (g)`)
 str(pingouins$`Masse corporelle (g)`)
 ```
 
-
 <br>
 
 La fonction `summary()` est particulièrement intéressante pour avoir une vue d'ensemble de vos données.
@@ -583,17 +570,17 @@ summary(pingouins)
 
 ![](img/rstudio_22.png){width="100%"}
 
-Les informations affichées  dépendent du type de variable :
+Les informations affichées dépendent du type de variable :
 
--   **nombre d'éléments, classe et mode** pour les variables de type **caractère**\
--   **statistiques** pour les variables de type **numérique**
+-   *nombre d'éléments, classe et mode* pour les variables de type *caractère*
+-   *statistiques* pour les variables de type *numérique*
 
 ::: {.callout-tip icon="true"}
 ## Les données manquantes
 
-Vous pouvez trouver dans vos données des éléments notés **NA**. Il s'agit d'une donnée manquante (**Not Available**) : aucune donnée n'existe pour ce cas précis.
+Vous pouvez trouver dans vos données des éléments notés `NA`. Il s'agit d'une donnée manquante (*Not Available*) : aucune donnée n'existe pour ce cas précis.
 
-Cette valeur **NA** est à différencier de la valeur **NaN (Not a Number)** également rencontrée dans R. Il s'agit alors du résultat d'une opération arithmétique invalide, telle que 0/0.
+Cette valeur`NA` est à différencier de la valeur `NaN` (*Not a Number*) également rencontrée dans R. Il s'agit alors du résultat d'une opération arithmétique invalide, telle que 0/0.
 :::
 
 <br>
@@ -604,9 +591,9 @@ Cette valeur **NA** est à différencier de la valeur **NaN (Not a Number)** ég
 
 <br>
 
-Dans R, la sélection de données, que ce soit une cellule, une ligne ou une colonne d'un tableau, ou encore un élément dans une chaîne, s'effectue à l'aide des **crochets \[\]**.
+Dans R, la sélection de données, que ce soit une cellule, une ligne ou une colonne d'un tableau, ou encore un élément dans une chaîne, s'effectue à l'aide des crochets `[]`.
 
-- Imaginons un *vecteur v*, donc un objet à une seule dimension. Vous pouvez sélectionner un seul élément (`v[2]`), plusieurs éléments qui se suivent (`v[2:4]`) ou non (`v[c(2, 4)]`).
+-   Imaginons un *vecteur v*, donc un objet à une seule dimension. Vous pouvez sélectionner un seul élément (`v[2]`), plusieurs éléments qui se suivent (`v[2:4]`) ou non (`v[c(2, 4)]`).
 
 ![](img/rstudio_27.png){width="75%"}
 
@@ -616,25 +603,27 @@ Dans R, la sélection de données, que ce soit une cellule, une ligne ou une col
 La fonction `c()` permet de concaténer les éléments entre parenthèses.
 :::
 
-- Imaginons un *data frame d*, la sélection s'effectue toujours à l'aide des crochets, mais en précisant deux paramètres séparés d'une virgule : la ou les ligne(s) et la ou les colonnes(s). Pour sélectionner l'ensemble d'une des deux dimensions, on utilise un espace vide d'un côté ou de l'autre de la virgule.
+-   Imaginons un *data frame d*, la sélection s'effectue toujours à l'aide des crochets, mais en précisant deux paramètres séparés d'une virgule : la ou les ligne(s) et la ou les colonnes(s). Pour sélectionner l'ensemble d'une des deux dimensions, on utilise un espace vide d'un côté ou de l'autre de la virgule.
 
 ![](img/rstudio_28.png){width="75%"}
 
 <br>
 
-Certaines colonnes du tableau ne sont seront pas utiles pour la suite de l'analyse. Nous pouvons soit : 
+Certaines colonnes du tableau ne sont seront pas utiles pour la suite de l'analyse. Nous pouvons soit :
 
-- sélectionner les colonnes qui nous intéressent
+-   sélectionner les colonnes qui nous intéressent
+
 ```{r eval=FALSE}
 pingouins[, c(3, 6:9)]
 ```
 
-- supprimer les colonnes inutiles
+-   supprimer les colonnes inutiles
+
 ```{r eval=FALSE}
 pingouins[, -c(1:2, 4:5)]
 ```
 
-Ces deux commandes utilisent les index des colonnes. Vous pouvez également sélectionner ou supprimer des colonnes à l'aide de noms des variables : 
+Ces deux commandes utilisent les index des colonnes. Vous pouvez également sélectionner ou supprimer des colonnes à l'aide de noms des variables :
 
 ```{r eval=FALSE}
 pingouins[, c("Espece", "Longueur Bec (mm)", "Hauteur Bec (mm)",
@@ -643,7 +632,7 @@ pingouins[, c("Espece", "Longueur Bec (mm)", "Hauteur Bec (mm)",
 
 <br>
 
-Assignons ce nouveau tableau dans un objet : 
+Assignons ce nouveau tableau dans un objet :
 
 ```{r}
 pingouins_propre <- pingouins[, c("Espece", "Longueur Bec (mm)",
@@ -658,19 +647,17 @@ Nous pouvons filtrer les données selon différents critères, à l'aide d'opér
 ::: {.callout-tip icon="true"}
 ## Les opérateurs
 
-|       |                     | 
-| :---: | :------------------ |
-| ==    | égal                |
-| !=    | différent           |
-| <     | inférieur à         |
-| <=    | inférieur ou égal à |
-| >     | supérieur à         |
-| >=    | supérieur ou égal à |
-| ==    | égal                |
-| &     | et                  |
-| \|    | ou                  |
-| !     | pas                 | 
-
+|     |                     |
+|:---:|:--------------------|
+| ==  | égal                |
+| !=  | différent           |
+| \<  | inférieur à         |
+| \<= | inférieur ou égal à |
+| \>  | supérieur à         |
+| \>= | supérieur ou égal à |
+|  &  | et                  |
+| \|  | ou                  |
+|  !  | pas                 |
 :::
 
 ```{r, echo=TRUE, eval=FALSE}
@@ -686,9 +673,10 @@ pingouins_propre[pingouins_propre$espece == "Adelie" & pingouins_propre$longueur
 
 ## Renommer des colonnes
 
-Les noms des colonnes ne sont pas dans un format idéal (présence d'espaces, de parenthèses). 
+Les noms des colonnes ne sont pas dans un format idéal (présence d'espaces, de parenthèses).
 
-La fonction `names()` permet d'accéder aux noms des colonnes d'un tableau : 
+La fonction `names()` permet d'accéder aux noms des colonnes d'un tableau :
+
 ```{r}
 names(pingouins_propre)
 ```
@@ -697,40 +685,41 @@ names(pingouins_propre)
 
 Nous allons modifier les noms de colonnes en :
 
-- supprimant les parenthèses 
+-   supprimant les parenthèses
 
-- remplaçant les espaces par des `_` 
+-   remplaçant les espaces par des `_`
 
-- remplaçant les majuscules par des minuscules
+-   remplaçant les majuscules par des minuscules
 
 <br>
 
 La fonction `gsub()` qui permet de remplacer un motif par un autre dans une chaîne, s'utilise de la manière suivante : `gsub(motif, remplacement, objet)`
 
-Commençons par supprimer les parenthèses. Nous allons pour cela utiliser une **expression régulière** : le motif recherché est soit une parenthèse ouverte soit une parenthèse fermée.   
+Commençons par supprimer les parenthèses. Nous allons pour cela utiliser une **expression régulière** : le motif recherché est soit une parenthèse ouverte soit une parenthèse fermée.
+
 ```{r}
 nouveaux_noms <- gsub("[()]", "", names(pingouins_propre))
 ```
 
-Remplaçons maintenant les espaces par des `_` : 
+Remplaçons maintenant les espaces par des `_` :
 
 ```{r}
 nouveaux_noms <- gsub(" ", "_", nouveaux_noms)
 ```
 
-La fonction `tolower()` permet de remplacer les majuscules d'une chaîne de caractères par des minuscules (à l'inverse de la fonction `toupper()`) : 
+La fonction `tolower()` permet de remplacer les majuscules d'une chaîne de caractères par des minuscules (à l'inverse de la fonction `toupper()`) :
 
 ```{r}
 nouveaux_noms <- tolower(nouveaux_noms)
 ```
 
-Remplaçons les noms de colonnes du tableau par ce vecteur *nouveaux_noms* : 
+Remplaçons les noms de colonnes du tableau par ce vecteur *nouveaux_noms* :
 
 ```{r}
 names(pingouins_propre) <- nouveaux_noms
 ```
 
-Assurons-nous que notre tableau contient bien les nouveaux noms de colonnes : 
+Assurons-nous que notre tableau contient bien les nouveaux noms de colonnes :
 
 ```{r}
 names(pingouins_propre)
@@ -740,45 +729,46 @@ names(pingouins_propre)
 
 ::: {.callout-tip icon="true"}
 
-Lorsque nous utilisons une flèche d'assignation, le résultat du code exécuté ne s'affiche pas dans la console. Pour éviter de taper le nom de l'objet que l'on souhaite afficher pour vérifier que le code a bien fonctionné, nous pouvons entourer le code par des parenthèses : 
+## Assigner et afficher
+
+Lorsque nous utilisons une flèche d'assignation, le résultat du code exécuté ne s'affiche pas dans la console. Pour éviter de taper le nom de l'objet que l'on souhaite afficher pour vérifier que le code a bien fonctionné, nous pouvons entourer le code par des parenthèses :
+
 ```{r, eval=FALSE}
 (names(pingouins_propre) <- nouveaux_noms)
 ```
 
 Le résultat de la commande s'affiche maintenant dans la console.
-
 :::
 
 <br>
 
-Nous pouvons maintenant supprimer l'objet nouveaux_noms de notre environnement à l'aide de la fonction `rm()` (remove) : 
+Nous pouvons maintenant supprimer l'objet nouveaux_noms de notre environnement à l'aide de la fonction `rm()` (remove) :
+
 ```{r}
 rm(nouveaux_noms)
 ```
 
 ::: {.callout-tip icon="true"}
-
 ## Supprimer des objets
 
-Vous pouvez également supprimer des objets directement dans le panneau Environnement : 
+Vous pouvez également supprimer des objets directement dans le panneau Environnement :
 
-- Sur la droite du panneau, cliquez sur *List* puis sur *Grid*
+-   Sur la droite du panneau, cliquez sur *List* puis sur *Grid*
 
 ![](img/rstudio_33.png){width="100%"}
 
-- Cochez les objets à supprimer puis cliquez sur le balai
+-   Cochez les objets à supprimer puis cliquez sur le balai
 
 ![](img/rstudio_34.png){width="100%"}
 
 Attention : si vous cliquez sur le balai alors que les objets sont sous forme de liste, vous supprimerez tous les objets de votre environnement.
-
 :::
 
 <br>
 
 ## Modifier une variable
 
-Les noms d'espèces contenus dans la variable espece sont plutôt longs et peu pratiques à manipuler. Nous allons modifier le contenu de cette variable pour ne garder que le premier mot de chaque chaîne de caractères (Adelie, Chinstrap et Gentoo). Nous allons à nouveau utiliser la fonction `gsub()` avec une expression régulière pour supprimer tout ce qui vient après le premier espace (nous pourrions également extraire tout ce qui vient avant le premier espace).
+Les noms d'espèces contenus dans la variable *espece* sont plutôt longs et peu pratiques à manipuler. Nous allons modifier le contenu de cette variable pour ne garder que le premier mot de chaque chaîne de caractères (Adelie, Chinstrap et Gentoo). Nous allons à nouveau utiliser la fonction `gsub()` avec une expression régulière pour supprimer tout ce qui vient après le premier espace (nous pourrions également extraire tout ce qui vient avant le premier espace).
 
 ```{r}
 pingouins_propre$espece <- gsub(" .*$", "", pingouins_propre$espece)
@@ -786,25 +776,24 @@ head(pingouins_propre)
 ```
 
 ::: {.callout-note icon="true"}
-
 ## Note
 
-Dans cette expression régulière (regex), le motif recherché est le suivant : un espace vide (` `) suivi de n'importe quel caractère (`.`) absent ou répété au moins une fois (`*`), en fin de chaîne (`$`).
-
+Dans cette expression régulière (regex), le motif recherché est le suivant : un espace vide () suivi de n'importe quel caractère (`.`) absent ou répété au moins une fois (`*`), en fin de chaîne (`$`).
 :::
 
 <br>
 
 ## Ajouter une variable
 
-Quel est le rapport entre la longueur du bec et sa hauteur ? Calculons le ratio : 
+Quel est le rapport entre la longueur du bec et sa hauteur ? Calculons le ratio :
+
 ```{r}
 pingouins_propre$ratio_bec <- pingouins_propre$longueur_bec_mm / pingouins_propre$hauteur_bec_mm
 ```
 
 <br>
 
-Pour arrondir ce ratio à deux chiffres après la virgules, nous pouvons utiliser la fonction `round()` : 
+Pour arrondir ce ratio à deux chiffres après la virgule, nous pouvons utiliser la fonction `round()` :
 
 ```{r}
 pingouins_propre$ratio_bec <- round(pingouins_propre$ratio_bec, digits = 2)
@@ -814,37 +803,41 @@ pingouins_propre$ratio_bec <- round(pingouins_propre$ratio_bec, digits = 2)
 
 ## Supprimer les données manquantes
 
-Notre jeu de données contient des données manquantes (**NA**). En affichant les premières lignes, vous pourrez remarquer que pour l'individu situé sur la quatrième ligne, aucune donnée numérique n'est disponible : 
+Notre jeu de données contient des données manquantes (`NA`). En affichant les premières lignes, vous pourrez remarquer que pour l'individu situé sur la quatrième ligne, aucune donnée numérique n'est disponible :
 
 ```{r}
 head(pingouins_propre)
 ```
 
-Pour savoir combien de données manquantes sont présentes dans vos données, vous pouvez utiliser la commande suivante : 
+Pour savoir combien de données manquantes sont présentes dans vos données, vous pouvez utiliser la commande suivante :
 
 ```{r}
 table(is.na(pingouins_propre))
 ```
 
-Nos données contiennent 10 valeurs NA, nous en avons déjà trouvé 5 dans les premières lignes du tableau. Les 5 données manquantes restantes viennent-elles de l'absence de mesure pour un second individu ? La fonction `complete.cases()` permet d'extraires les lignes d'un tableau pour lesquelles il n'y a aucune donnée manquante. Nous cherchons à extraire les lignes qui contiennent au moins une donnée manquante. Pour cela nous allons filtrer les données en extrayant les lignes à l'aide de l'opétateur de négation `!` : 
+Nos données contiennent 10 valeurs NA, nous en avons déjà trouvé 5 dans les premières lignes du tableau. Les 5 données manquantes restantes viennent-elles de l'absence de mesure pour un second individu ? 
+
+La fonction `complete.cases()` permet d'extraire les lignes d'un tableau pour lesquelles il n'y a aucune donnée manquante.
+
+Nous cherchons à extraire les lignes qui contiennent au moins une donnée manquante. Pour cela nous allons filtrer les données en extrayant les lignes à l'aide de l'opérateur de négation `!` :
 
 ```{r}
 pingouins_propre[!complete.cases(pingouins_propre), ]
 ```
 
-Nous avons ici les dix données manquantes. Nous allons supprimer ces deux individus du jeu de données : 
+Nous avons ici les dix données manquantes. Nous allons supprimer ces deux individus du jeu de données :
 
 ```{r}
 pingouins_propre <- pingouins_propre[complete.cases(pingouins_propre), ]
 ```
 
-Nous aurions également pu supprimer les lignes pour lesquelles une des variables numériques contient des données manquantes : 
+Nous aurions également pu supprimer les lignes pour lesquelles une des variables numériques contient des données manquantes :
 
 ```{r eval=FALSE}
 pingouins_propre <- pingouins_propre[!is.na(pingouins_propre$longueur_bec_mm), ]
 ```
 
-Assurons-nous d'avoir bien supprimé ces données manquantes : 
+Assurons-nous d'avoir bien supprimé ces données manquantes :
 
 ```{r}
 table(is.na(pingouins_propre))
@@ -866,12 +859,27 @@ La variable espece est considérée comme une simple chaîne de caractère. S'ag
 length(unique(pingouins_propre$espece))
 ```
 
-Nous aurions pu également utiliser la fonction `table()` pour extraire les modalités et leur fréquence : 
+::: {.callout-tip icon="true"}
+## Colorer les parenthèses
+
+Il n'est pas rare que notre code contienne plusieurs parenthèses, ce qui rend sa lecture moins aisée. RStudio vous propose de colorer vos parenthèses afin de mieux vous repérer : 
+
+- Cliquez sur *Tools* > *Global Options* > *Code* > *Display*  
+
+- Cochez la case *Rainbow parentheses*  
+
+- Cliquez sur *Apply*
+
+![](img/rstudio_39.png){width="75%"}
+
+:::
+
+
+Nous aurions pu également utiliser la fonction `table()` pour extraire les modalités et leur fréquence :
 
 ```{r}
 table(pingouins_propre$espece)
 ```
-
 
 <br>
 
@@ -888,8 +896,6 @@ summary(pingouins_propre)
 ```
 
 <!-- ![](img/rstudio_23.png){width="100%"} -->
-
-
 
 <br>
 
@@ -918,7 +924,7 @@ Vous pouvez également replier (**Alt + O**) ou déplier (**Alt + Shift + O**) l
 
 ## Exporter des données
 
-La fonction `write.csv()` permet d'exporter un tableau : 
+La fonction `write.csv()` permet d'exporter un tableau :
 
 ```{r, echo=FALSE, eval=TRUE}
 write.csv(pingouins_propre, "../../data/pingouins_propre.csv")
@@ -928,62 +934,56 @@ write.csv(pingouins_propre, "../../data/pingouins_propre.csv")
 write.csv(pingouins_propre, "data/pingouins_propre.csv")
 ```
 
-
 # Représenter des données
 
 ## Barplot
 
 Pour représenter le nombre d'individus par espèce, nous allons utiliser un graphique en barres (barplot) : la hauteur de chaque barre indique le nombre d'individus.
 
-Il nous faut pour cela un objet contenant l'information sur le nombre d'individus par espèce : 
+Il nous faut pour cela un objet contenant l'information sur le nombre d'individus par espèce :
 
 ```{r}
 table(pingouins_propre$espece)
 ```
 
-La fonction `barplot()` permet de générer un graphique en barres : 
+La fonction `barplot()` permet de générer un graphique en barres :
 
 ```{r}
 barplot(table(pingouins_propre$espece))
 ```
 
-Ce graphique est très basique, nous pouvons améliorer plusieurs points : 
+Ce graphique est très basique, nous pouvons améliorer plusieurs points :
 
-- *trier les données* : nous aimerions que les barres soient triées par ordre décroissant. 
-La fonction `sort()` permet de trier des données, avec l'argument  `decreasing = TRUE` pour modifier l'ordre (croissant par défaut)
+-   *trier les données* : nous aimerions que les barres soient triées par ordre décroissant. La fonction `sort()` permet de trier des données, avec l'argument `decreasing = TRUE` pour modifier l'ordre (croissant par défaut)
 
 ```{r}
-barplot(sort(table(pingouins_propre$espece),
-             decreasing = TRUE))
+barplot(sort(table(pingouins_propre$espece), decreasing = TRUE))
 ```
 
-- *ajouter des couleurs* : le paramètre `col` permet de modifier la couleur de remplissage des barres, et le paramètre `border` la couleur de contour. Nous aimerions utiliser les couleurs de l'image ci-dessous : 
+-   *ajouter des couleurs* : le paramètre `col` permet de modifier la couleur de remplissage des barres, et le paramètre `border` la couleur de contour. Nous aimerions utiliser les couleurs de l'image ci-dessous :
 
 ![](img/rstudio_35.png){width="50%"}
 
 ```{r}
-barplot(sort(table(pingouins_propre$espece),
-             decreasing = TRUE),
+barplot(sort(table(pingouins_propre$espece), decreasing = TRUE),
         col = c("darkorange", "cyan4", "purple"),
         border = NA)
 ```
 
-- *ajouter des titres au graphique et aux axes* : l'argument `main` permet d'ajouter un titre au graphique alors que les arguments `xlab` et `ylab` permettent de modifier les titres des axes.
+-   *ajouter des titres au graphique et aux axes* : l'argument `main` permet d'ajouter un titre au graphique alors que les arguments `xlab` et `ylab` permettent de modifier les titres des axes.
 
 ```{r}
-barplot(sort(table(pingouins_propre$espece),
-             decreasing = TRUE),
+barplot(sort(table(pingouins_propre$espece), decreasing = TRUE),
         col = c("darkorange", "cyan4", "purple"),
         border = NA,
         main = "Pingouins de l'archipel Palmer",
         ylab = "Nombre d'individus par espèce")
 ```
 
-- *ajuster l'échelle de l'axe y* : la valeur maximale dépasse la plus grande valeur affichée sur l'axe y. Les options `xlim` et `ylim` permettent d'ajuster les limites des axes.
+-   *ajuster l'échelle de l'axe y* : la valeur maximale dépasse la plus grande valeur affichée sur l'axe y. Les options `xlim` et `ylim` permettent d'ajuster les limites des axes.
 
 ```{r}
-barplot(sort(table(pingouins_propre$espece),
-             decreasing = TRUE),
+barplot(sort(table(pingouins_propre$espece), decreasing = TRUE),
         col = c("darkorange", "cyan4", "purple"),
         border = NA,
         main = "Pingouins de l'archipel Palmer",
@@ -993,9 +993,9 @@ barplot(sort(table(pingouins_propre$espece),
 
 ## Boxplot
 
-Un boxplot, ou graphique en boîte à moustaches, permet de représenter la dispersion d'une variable. 
+Un boxplot, ou graphique en boîte à moustaches, permet de représenter la dispersion d'une variable.
 
-Nous aimerions représenter la dispersion du ratio entre la longueur et la hauteur du bec. Nous utilisons pour cela la fonction `boxplot()` : 
+Nous aimerions représenter la dispersion du ratio entre la longueur et la hauteur du bec. Nous utilisons pour cela la fonction `boxplot()` :
 
 ```{r}
 boxplot(pingouins_propre$ratio_bec)
@@ -1007,7 +1007,7 @@ Pour savoir si ce ratio varie en fonction des espèces, nous utilisons l'opérat
 boxplot(pingouins_propre$ratio_bec ~ pingouins_propre$espece)
 ```
 
-Ajustons quelques éléments : 
+Ajustons quelques éléments :
 
 ```{r}
 boxplot(pingouins_propre$ratio_bec ~ pingouins_propre$espece,
@@ -1022,8 +1022,7 @@ boxplot(pingouins_propre$ratio_bec ~ pingouins_propre$espece,
 ::: {.callout-note icon="true"}
 ## pch
 
-L'argument pch permet de modifier la forme des points dans un graphique.
-![](img/rstudio_36.png){width="50%"}
+L'argument pch permet de modifier la forme des points dans un graphique. ![](img/rstudio_36.png){width="50%"}
 :::
 
 ## Histogramme
@@ -1036,27 +1035,28 @@ Comment se distribue la masse corporelle des pingouins ? Nous utilisons la fonct
 hist(pingouins_propre$masse_corporelle_g)
 ```
 
-L'argument `breaks` permet d'ajuster le nombre de classes de l'histogramme : 
+L'argument `breaks` permet d'ajuster le nombre de classes de l'histogramme :
 
 ```{r}
 hist(pingouins_propre$masse_corporelle_g,
      breaks = 20)
 ```
 
-Nous souhaiterions représenter les valeurs en kilogrammes plutôt qu'en grammes pour facililter la lecture : 
+Nous souhaiterions représenter les valeurs en kilogrammes plutôt qu'en grammes pour facililter la lecture :
 
 ```{r}
 hist(pingouins_propre$masse_corporelle_g / 1000,
      breaks = 20)
 ```
 
-Améliorons notre graphique : 
+Améliorons notre graphique :
 
 ```{r}
 hist(pingouins_propre$masse_corporelle_g / 1000,
      breaks = 20,
      col = "lightblue",
      border = "darkblue",
+     ylim = c(0, 50),
      main = "Distribution de la masse corporelle",
      xlab = "Masse (kgs)",
      ylab = "Fréquence")
@@ -1069,8 +1069,7 @@ Le scatter plot (ou nuage de points) permet de représenter la relation entre de
 Quelle est la relation entre la longueur des ailes et la longueur du bec ?
 
 ```{r}
-plot(x = pingouins_propre$longueur_aile_mm,
-     y = pingouins_propre$longueur_bec_mm)
+plot(x = pingouins_propre$longueur_aile_mm, y = pingouins_propre$longueur_bec_mm)
 ```
 
 Ce graphique ne nous donne aucune indication sur les différentes espèces. Nous allons donc ajouter une couleur à chaque point, en ajoutant une variable *couleur* à notre tableau d'origine. Les valeurs de cette variables dépendent de l'espèce.
@@ -1081,19 +1080,17 @@ pingouins_propre$couleur[pingouins_propre$espece == "Chinstrap"] <- "purple"
 pingouins_propre$couleur[pingouins_propre$espece == "Gentoo"] <- "cyan4"
 ```
 
-Représentons à nouveau nos données : 
+Représentons à nouveau nos données :
 
 ```{r}
-plot(x = pingouins_propre$longueur_aile_mm,
-     y = pingouins_propre$longueur_bec_mm,
+plot(x = pingouins_propre$longueur_aile_mm, y = pingouins_propre$longueur_bec_mm,
      col = pingouins_propre$couleur)
 ```
 
-Améliorons à présent le graphique en modifiant la forme des points et en ajoutant/modifiant les titres : 
+Améliorons à présent le graphique en modifiant la forme des points et en ajoutant/modifiant les titres :
 
 ```{r}
-plot(x = pingouins_propre$longueur_aile_mm,
-     y = pingouins_propre$longueur_bec_mm,
+plot(x = pingouins_propre$longueur_aile_mm, y = pingouins_propre$longueur_bec_mm,
      col = pingouins_propre$couleur,
      pch = 20,
      main = "Relation entre la longueur des ailes et la longueur du bec",
@@ -1101,11 +1098,10 @@ plot(x = pingouins_propre$longueur_aile_mm,
      ylab = "Longueur du bec (mm)")
 ```
 
-Pour finir, ajoutons une légende à notre graphique à l'aide la fonction `legend()` : 
+Pour finir, ajoutons une légende à notre graphique à l'aide la fonction `legend()` :
 
 ```{r}
-plot(x = pingouins_propre$longueur_aile_mm,
-     y = pingouins_propre$longueur_bec_mm,
+plot(x = pingouins_propre$longueur_aile_mm, y = pingouins_propre$longueur_bec_mm,
      col = pingouins_propre$couleur,
      pch = 20,
      main = "Relation entre la longueur des ailes et la longueur du bec",
@@ -1120,7 +1116,7 @@ legend(legend = sort(unique(pingouins_propre$espece)),
 
 ## Exporter un graphique
 
-Pour exporter un graphique, vous pouvez cliquer sur *Export* dans l'onglet Plots : 
+Pour exporter un graphique, vous pouvez cliquer sur *Export* dans l'onglet Plots :
 
 ![](img/rstudio_37.png){width="50%"}
 
@@ -1128,11 +1124,11 @@ Dans la fenêtre qui s'ouvre, choisissez l'emplacement où votre graphique sera 
 
 ![](img/rstudio_38.png){width="50%"}
 
-Vous pouvez également sauvegarder votre graphique à l'aide des fonctions suivantes : 
+Vous pouvez également sauvegarder votre graphique à l'aide des fonctions suivantes :
 
-- `png()` pour ouvrir l'outil graphique  
+-   `png()` pour ouvrir l'outil graphique
 
-- `dev.off()` pour fermer l'outil graphique
+-   `dev.off()` pour fermer l'outil graphique
 
 ```{r, eval=FALSE}
 png("figs/nombre_pingouins.png",
