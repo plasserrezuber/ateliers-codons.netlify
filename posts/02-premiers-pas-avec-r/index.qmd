@@ -120,6 +120,11 @@ Tapez `2+2` puis appuyez sur `Entrée` : la console affiche le résultat.
 Dans la console, vous pouvez parcourir les dernières commandes exécutées à l'aide des flèches haut et bas.
 :::
 
+## Raccourcis clavier : vider la console
+
+Pour vider la console, utilisez la combinaison **Ctrl + L**
+:::
+
 <br>
 
 ### L'espace de travail
@@ -425,6 +430,19 @@ Choisissez le dossier où sera sauvegardé votre script - **scripts** dans notre
 Pour sauvegarder un script, uilisez la combinaison **Ctrl + S**
 :::
 
+::: {.callout-caution icon="true"}
+## Bonne pratiques : structurer son script
+
+Vous pouvez diviser votre script en différentes parties pour simplifier la lecture.
+Pour cela, ajoutez des titres sous forme de commentaires et accolez des tirets (au moins quatre) pour signaler à R qu'il s'agit de divisions dans votre script.
+
+![](img/rstudio_24.png){width="100%"}
+
+En cliquant sur l'icône **Menu** à droite vous aurez accès à une table des matières dans laquelle vous pourrez naviguer en cliquant sur la partie qui vous intéresse.
+
+![](img/rstudio_25.png){width="100%"}
+:::
+
 <br>
 
 # Explorer des données
@@ -587,85 +605,10 @@ Cette valeur`NA` est à différencier de la valeur `NaN` (*Not a Number*) égale
 
 # Manipuler des données
 
-## Sélectionner et filtrer des données
-
-<br>
-
-Dans R, la sélection de données, que ce soit une cellule, une ligne ou une colonne d'un tableau, ou encore un élément dans une chaîne, s'effectue à l'aide des crochets `[]`.
-
--   Imaginons un *vecteur v*, donc un objet à une seule dimension. Vous pouvez sélectionner un seul élément (`v[2]`), plusieurs éléments qui se suivent (`v[2:4]`) ou non (`v[c(2, 4)]`).
-
-![](img/rstudio_27.png){width="75%"}
-
-::: {.callout-tip icon="true"}
-## La concaténation
-
-La fonction `c()` permet de concaténer les éléments entre parenthèses.
-:::
-
--   Imaginons un *data frame d*, la sélection s'effectue toujours à l'aide des crochets, mais en précisant deux paramètres séparés d'une virgule : la ou les ligne(s) et la ou les colonnes(s). Pour sélectionner l'ensemble d'une des deux dimensions, on utilise un espace vide d'un côté ou de l'autre de la virgule.
-
-![](img/rstudio_28.png){width="75%"}
-
-<br>
-
-Certaines colonnes du tableau ne sont seront pas utiles pour la suite de l'analyse. Nous pouvons soit :
-
--   sélectionner les colonnes qui nous intéressent
-
-```{r eval=FALSE}
-pingouins[, c(3, 6:9)]
-```
-
--   supprimer les colonnes inutiles
-
-```{r eval=FALSE}
-pingouins[, -c(1:2, 4:5)]
-```
-
-Ces deux commandes utilisent les index des colonnes. Vous pouvez également sélectionner ou supprimer des colonnes à l'aide de noms des variables :
-
-```{r eval=FALSE}
-pingouins[, c("Espece", "Longueur Bec (mm)", "Hauteur Bec (mm)",
-              "Longueur Aile (mm)", "Masse corporelle (g)")]
-```
-
-<br>
-
-Assignons ce nouveau tableau dans un objet :
+Créons un objet *pingouins_propre* qui nous servira pour nettoyer et manipuler les données.
 
 ```{r}
-pingouins_propre <- pingouins[, c("Espece", "Longueur Bec (mm)",
-                                  "Hauteur Bec (mm)","Longueur Aile (mm)",
-                                  "Masse corporelle (g)")]
-```
-
-<br>
-
-Nous pouvons filtrer les données selon différents critères, à l'aide d'opérateurs.
-
-::: {.callout-tip icon="true"}
-## Les opérateurs
-
-|     |                     |
-|:---:|:--------------------|
-| ==  | égal                |
-| !=  | différent           |
-| \<  | inférieur à         |
-| \<= | inférieur ou égal à |
-| \>  | supérieur à         |
-| \>= | supérieur ou égal à |
-|  &  | et                  |
-| \|  | ou                  |
-|  !  | pas                 |
-:::
-
-```{r, echo=TRUE, eval=FALSE}
-# Individus dont la masse est d'au moins 6 kgs
-pingouins_propre[pingouins_propre$masse_corporelle_g >= 6000, ]
-
-# Individus dont la masse est d'au moins 6 kgs et le bec mesure moins de 50 mm de long
-pingouins_propre[pingouins_propre$`Masse corporelle (g)` >= 6000 & pingouins_propre$`Longueur Bec (mm)` >= 50, ]
+pingouins_propre <- pingouins
 ```
 
 ## Renommer des colonnes
@@ -760,6 +703,87 @@ Vous pouvez également supprimer des objets directement dans le panneau Environn
 
 Attention : si vous cliquez sur le balai alors que les objets sont sous forme de liste, vous supprimerez tous les objets de votre environnement.
 :::
+
+## Sélectionner et filtrer des données
+
+<br>
+
+Dans R, la sélection de données, que ce soit une cellule, une ligne ou une colonne d'un tableau, ou encore un élément dans une chaîne, s'effectue à l'aide des crochets `[]`.
+
+-   Imaginons un *vecteur v*, donc un objet à une seule dimension. Vous pouvez sélectionner un seul élément (`v[2]`), plusieurs éléments qui se suivent (`v[2:4]`) ou non (`v[c(2, 4)]`).
+
+![](img/rstudio_27.png){width="75%"}
+
+::: {.callout-tip icon="true"}
+## La concaténation
+
+La fonction `c()` permet de concaténer les éléments entre parenthèses.
+:::
+
+-   Imaginons un *data frame d*, la sélection s'effectue toujours à l'aide des crochets, mais en précisant deux paramètres séparés d'une virgule : la ou les ligne(s) et la ou les colonnes(s). Pour sélectionner l'ensemble d'une des deux dimensions, on utilise un espace vide d'un côté ou de l'autre de la virgule.
+
+![](img/rstudio_28.png){width="75%"}
+
+<br>
+
+Certaines colonnes du tableau ne sont seront pas utiles pour la suite de l'analyse. Nous pouvons soit :
+
+-   sélectionner les colonnes qui nous intéressent
+
+```{r eval=FALSE}
+pingouins_propre[, c(3, 6:9)]
+```
+
+-   supprimer les colonnes inutiles
+
+```{r eval=FALSE}
+pingouins_propre[, -c(1:2, 4:5)]
+```
+
+Ces deux commandes utilisent les index des colonnes. Vous pouvez également sélectionner ou supprimer des colonnes à l'aide de noms des variables :
+
+```{r eval=FALSE}
+pingouins_propre[, c("espece", "longueur_bec_mm", "hauteur_bec_mm",
+              "longueur_aile_mm", "masse_corporelle_g")]
+```
+
+<br>
+
+Assignons ce nouveau tableau dans un objet :
+
+```{r}
+pingouins_propre <- pingouins_propre[, c("espece", "longueur_bec_mm",
+                                         "hauteur_bec_mm", "longueur_aile_mm",
+                                         "masse_corporelle_g")]
+```
+
+<br>
+
+Nous pouvons filtrer les données selon différents critères, à l'aide d'opérateurs.
+
+::: {.callout-tip icon="true"}
+## Les opérateurs
+
+|     |                     |
+|:---:|:--------------------|
+| ==  | égal                |
+| !=  | différent           |
+| \<  | inférieur à         |
+| \<= | inférieur ou égal à |
+| \>  | supérieur à         |
+| \>= | supérieur ou égal à |
+|  &  | et                  |
+| \|  | ou                  |
+|  !  | pas                 |
+:::
+
+```{r, echo=TRUE, eval=FALSE}
+# Individus dont la masse est d'au moins 6 kgs
+pingouins_propre[pingouins_propre$masse_corporelle_g >= 6000, ]
+
+# Individus dont la masse est d'au moins 6 kgs et le bec mesure moins de 50 mm de long
+pingouins_propre[pingouins_propre$masse_corporelle_g >= 6000 & pingouins_propre$longueur_bec_mm >= 50, ]
+```
 
 <br>
 
@@ -896,20 +920,6 @@ summary(pingouins_propre)
 
 <br>
 
-::: {.callout-caution icon="true"}
-## Bonne pratiques : structurer son script
-
-Votre script commence à être bien fourni. Vous pouvez le diviser en différentes parties pour simplifier la lecture. Pour cela, ajoutez des titres sous forme de commentaires et accolez des tirets (au moins quatre) pour signaler à R qu'il s'agit de divisions dans votre script.
-
-![](img/rstudio_24.png){width="100%"}
-
-En cliquant sur l'icône **Menu** à droite vous aurez accès à une table des matières dans laquelle vous pourrez naviguer en cliquant sur la partie qui vous intéresse.
-
-![](img/rstudio_25.png){width="100%"}
-:::
-
-<br>
-
 ::: {.callout-tip icon="true"}
 ## Raccourcis clavier : les sections d'un script
 
@@ -921,14 +931,14 @@ Vous pouvez également replier (**Alt + O**) ou déplier (**Alt + Shift + O**) l
 
 ## Exporter des données
 
-La fonction `write.csv()` permet d'exporter un tableau :
+La fonction `write.csv()` permet d'exporter un tableau. L'argument `row.names = FALSE` empêche l'ajout de noms de lignes (dans notre cas des valeurs numériques allant de 1 au nombre de lignes du tableau) : 
 
 ```{r, echo=FALSE, eval=TRUE}
-write.csv(pingouins_propre, "../../data/pingouins_propre.csv")
+write.csv(pingouins_propre, "../../data/pingouins_propre.csv", row.names = FALSE)
 ```
 
 ```{r, echo=TRUE, eval=FALSE}
-write.csv(pingouins_propre, "data/pingouins_propre.csv")
+write.csv(pingouins_propre, "data/pingouins_propre.csv", row.names = FALSE)
 ```
 
 # Représenter des données
@@ -963,7 +973,9 @@ barplot(sort(table(pingouins_propre$espece), decreasing = TRUE))
 
 ```{r}
 barplot(sort(table(pingouins_propre$espece), decreasing = TRUE),
-        col = c("darkorange", "cyan4", "purple"),
+        col = c("Adelie" = "darkorange",
+                "Chinstrap" = "cyan4",
+                "Gentoo" = "purple"),
         border = NA)
 ```
 
@@ -971,7 +983,9 @@ barplot(sort(table(pingouins_propre$espece), decreasing = TRUE),
 
 ```{r}
 barplot(sort(table(pingouins_propre$espece), decreasing = TRUE),
-        col = c("darkorange", "cyan4", "purple"),
+        col = c("Adelie" = "darkorange",
+                "Chinstrap" = "cyan4",
+                "Gentoo" = "purple"),
         border = NA,
         main = "Pingouins de l'archipel Palmer",
         ylab = "Nombre d'individus par espèce")
@@ -981,7 +995,9 @@ barplot(sort(table(pingouins_propre$espece), decreasing = TRUE),
 
 ```{r}
 barplot(sort(table(pingouins_propre$espece), decreasing = TRUE),
-        col = c("darkorange", "cyan4", "purple"),
+        col = c("Adelie" = "darkorange",
+                "Chinstrap" = "cyan4",
+                "Gentoo" = "purple"),
         border = NA,
         main = "Pingouins de l'archipel Palmer",
         ylab = "Nombre d'individus par espèce",
@@ -1009,7 +1025,9 @@ Ajustons quelques éléments :
 ```{r}
 boxplot(pingouins_propre$ratio_bec ~ pingouins_propre$espece,
         col = NA,
-        border = c("darkorange", "purple", "cyan4"),
+        border = c("Adelie" = "darkorange",
+                "Chinstrap" = "cyan4",
+                "Gentoo" = "purple"),
         pch = 20,
         main = "Rapport entre la longueur et la hauteur du bec",
         xlab = "",
@@ -1105,7 +1123,7 @@ plot(x = pingouins_propre$longueur_aile_mm, y = pingouins_propre$longueur_bec_mm
      xlab = "Longueur des ailes (mm)",
      ylab = "Longueur du bec (mm)")
 legend(legend = sort(unique(pingouins_propre$espece)),
-       x = 220,
+       x = 215,
        y = 40,
        col = c("darkorange", "purple", "cyan4"),
        pch = 19)
@@ -1128,12 +1146,12 @@ Vous pouvez également sauvegarder votre graphique à l'aide des fonctions suiva
 -   `dev.off()` pour fermer l'outil graphique
 
 ```{r, eval=FALSE}
-png("figs/nombre_pingouins.png",
-    width = 1600, height = 800)
+png("figs/nombre_pingouins.png")
 
-barplot(sort(table(pingouins_propre$espece),
-             decreasing = TRUE),
-        col = c("darkorange", "cyan4", "purple"),
+barplot(sort(table(pingouins_propre$espece), decreasing = TRUE),
+        col = c("Adelie" = "darkorange",
+                "Chinstrap" = "cyan4",
+                "Gentoo" = "purple"),
         border = NA,
         main = "Pingouins de l'archipel Palmer",
         ylab = "Nombre d'individus par espèce",

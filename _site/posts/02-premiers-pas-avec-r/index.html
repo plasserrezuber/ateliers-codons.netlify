@@ -201,6 +201,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul class="collapse">
   <li><a href="#r_def" id="toc-r_def" class="nav-link" data-scroll-target="#r_def">Qu’est-ce que R ?</a></li>
   <li><a href="#naviguer_rstudio" id="toc-naviguer_rstudio" class="nav-link" data-scroll-target="#naviguer_rstudio">Naviguer dans RStudio</a></li>
+  <li><a href="#raccourcis-clavier-vider-la-console" id="toc-raccourcis-clavier-vider-la-console" class="nav-link" data-scroll-target="#raccourcis-clavier-vider-la-console">Raccourcis clavier : vider la console</a></li>
   </ul></li>
   <li><a href="#organiser-son-travail" id="toc-organiser-son-travail" class="nav-link" data-scroll-target="#organiser-son-travail">Organiser son travail</a>
   <ul class="collapse">
@@ -211,8 +212,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#explorer-des-données" id="toc-explorer-des-données" class="nav-link" data-scroll-target="#explorer-des-données">Explorer des données</a></li>
   <li><a href="#manipuler-des-données" id="toc-manipuler-des-données" class="nav-link" data-scroll-target="#manipuler-des-données">Manipuler des données</a>
   <ul class="collapse">
-  <li><a href="#sélectionner-et-filtrer-des-données" id="toc-sélectionner-et-filtrer-des-données" class="nav-link" data-scroll-target="#sélectionner-et-filtrer-des-données">Sélectionner et filtrer des données</a></li>
   <li><a href="#renommer-des-colonnes" id="toc-renommer-des-colonnes" class="nav-link" data-scroll-target="#renommer-des-colonnes">Renommer des colonnes</a></li>
+  <li><a href="#sélectionner-et-filtrer-des-données" id="toc-sélectionner-et-filtrer-des-données" class="nav-link" data-scroll-target="#sélectionner-et-filtrer-des-données">Sélectionner et filtrer des données</a></li>
   <li><a href="#modifier-une-variable" id="toc-modifier-une-variable" class="nav-link" data-scroll-target="#modifier-une-variable">Modifier une variable</a></li>
   <li><a href="#ajouter-une-variable" id="toc-ajouter-une-variable" class="nav-link" data-scroll-target="#ajouter-une-variable">Ajouter une variable</a></li>
   <li><a href="#supprimer-les-données-manquantes" id="toc-supprimer-les-données-manquantes" class="nav-link" data-scroll-target="#supprimer-les-données-manquantes">Supprimer les données manquantes</a></li>
@@ -372,8 +373,12 @@ L’invite de commande
 <p>Dans la console, vous pouvez parcourir les dernières commandes exécutées à l’aide des flèches haut et bas.</p>
 </div>
 </div>
-<p><br></p>
 </section>
+</section>
+<section id="raccourcis-clavier-vider-la-console" class="level2">
+<h2 class="anchored" data-anchor-id="raccourcis-clavier-vider-la-console">Raccourcis clavier : vider la console</h2>
+<p>Pour vider la console, utilisez la combinaison <strong>Ctrl + L</strong> :::</p>
+<p><br></p>
 <section id="lespace-de-travail" class="level3">
 <h3 class="anchored" data-anchor-id="lespace-de-travail">L’espace de travail</h3>
 <p><br></p>
@@ -679,6 +684,22 @@ Raccourcis clavier : sauvegarder un script
 <p>Pour sauvegarder un script, uilisez la combinaison <strong>Ctrl + S</strong></p>
 </div>
 </div>
+<div class="callout-caution callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Bonne pratiques : structurer son script
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Vous pouvez diviser votre script en différentes parties pour simplifier la lecture. Pour cela, ajoutez des titres sous forme de commentaires et accolez des tirets (au moins quatre) pour signaler à R qu’il s’agit de divisions dans votre script.</p>
+<p><img src="img/rstudio_24.png" class="img-fluid" style="width:100.0%"></p>
+<p>En cliquant sur l’icône <strong>Menu</strong> à droite vous aurez accès à une table des matières dans laquelle vous pourrez naviguer en cliquant sur la partie qui vous intéresse.</p>
+<p><img src="img/rstudio_25.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
 <p><br></p>
 </section>
 <section id="explorer-des-données" class="level1">
@@ -870,6 +891,102 @@ Les données manquantes
 </section>
 <section id="manipuler-des-données" class="level1">
 <h1>Manipuler des données</h1>
+<p>Créons un objet <em>pingouins_propre</em> qui nous servira pour nettoyer et manipuler les données.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>pingouins_propre <span class="ot">&lt;-</span> pingouins</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="renommer-des-colonnes" class="level2">
+<h2 class="anchored" data-anchor-id="renommer-des-colonnes">Renommer des colonnes</h2>
+<p>Les noms des colonnes ne sont pas dans un format idéal (présence d’espaces, de parenthèses).</p>
+<p>La fonction <code>names()</code> permet d’accéder aux noms des colonnes d’un tableau :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(pingouins_propre)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "etudeNumero"          "Echantillon Numero"   "Espece"              
+[4] "Ile"                  "ID Individu"          "Longueur Bec (mm)"   
+[7] "Hauteur Bec (mm)"     "Longueur Aile (mm)"   "Masse corporelle (g)"</code></pre>
+</div>
+</div>
+<p><br></p>
+<p>Nous allons modifier les noms de colonnes en :</p>
+<ul>
+<li><p>supprimant les parenthèses</p></li>
+<li><p>remplaçant les espaces par des <code>_</code></p></li>
+<li><p>remplaçant les majuscules par des minuscules</p></li>
+</ul>
+<p><br></p>
+<p>La fonction <code>gsub()</code> qui permet de remplacer un motif par un autre dans une chaîne, s’utilise de la manière suivante : <code>gsub(motif, remplacement, objet)</code></p>
+<p>Commençons par supprimer les parenthèses. Nous allons pour cela utiliser une <strong>expression régulière</strong> : le motif recherché est soit une parenthèse ouverte soit une parenthèse fermée.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>nouveaux_noms <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"[()]"</span>, <span class="st">""</span>, <span class="fu">names</span>(pingouins_propre))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Remplaçons maintenant les espaces par des <code>_</code> :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>nouveaux_noms <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">" "</span>, <span class="st">"_"</span>, nouveaux_noms)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>La fonction <code>tolower()</code> permet de remplacer les majuscules d’une chaîne de caractères par des minuscules (à l’inverse de la fonction <code>toupper()</code>) :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>nouveaux_noms <span class="ot">&lt;-</span> <span class="fu">tolower</span>(nouveaux_noms)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Remplaçons les noms de colonnes du tableau par ce vecteur <em>nouveaux_noms</em> :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(pingouins_propre) <span class="ot">&lt;-</span> nouveaux_noms</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Assurons-nous que notre tableau contient bien les nouveaux noms de colonnes :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(pingouins_propre)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "etudenumero"        "echantillon_numero" "espece"            
+[4] "ile"                "id_individu"        "longueur_bec_mm"   
+[7] "hauteur_bec_mm"     "longueur_aile_mm"   "masse_corporelle_g"</code></pre>
+</div>
+</div>
+<p><br></p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Assigner et afficher
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Lorsque nous utilisons une flèche d’assignation, le résultat du code exécuté ne s’affiche pas dans la console. Pour éviter de taper le nom de l’objet que l’on souhaite afficher pour vérifier que le code a bien fonctionné, nous pouvons entourer le code par des parenthèses :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>(<span class="fu">names</span>(pingouins_propre) <span class="ot">&lt;-</span> nouveaux_noms)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Le résultat de la commande s’affiche maintenant dans la console.</p>
+</div>
+</div>
+<p><br></p>
+<p>Nous pouvons maintenant supprimer l’objet nouveaux_noms de notre environnement à l’aide de la fonction <code>rm()</code> (remove) :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(nouveaux_noms)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Supprimer des objets
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Vous pouvez également supprimer des objets directement dans le panneau Environnement :</p>
+<ul>
+<li>Sur la droite du panneau, cliquez sur <em>List</em> puis sur <em>Grid</em></li>
+</ul>
+<p><img src="img/rstudio_33.png" class="img-fluid" style="width:100.0%"></p>
+<ul>
+<li>Cochez les objets à supprimer puis cliquez sur le balai</li>
+</ul>
+<p><img src="img/rstudio_34.png" class="img-fluid" style="width:100.0%"></p>
+<p>Attention : si vous cliquez sur le balai alors que les objets sont sous forme de liste, vous supprimerez tous les objets de votre environnement.</p>
+</div>
+</div>
+</section>
 <section id="sélectionner-et-filtrer-des-données" class="level2">
 <h2 class="anchored" data-anchor-id="sélectionner-et-filtrer-des-données">Sélectionner et filtrer des données</h2>
 <p><br></p>
@@ -901,25 +1018,25 @@ La concaténation
 <li>sélectionner les colonnes qui nous intéressent</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>pingouins[, <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">6</span><span class="sc">:</span><span class="dv">9</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>pingouins_propre[, <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">6</span><span class="sc">:</span><span class="dv">9</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>supprimer les colonnes inutiles</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>pingouins[, <span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">4</span><span class="sc">:</span><span class="dv">5</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>pingouins_propre[, <span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">4</span><span class="sc">:</span><span class="dv">5</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Ces deux commandes utilisent les index des colonnes. Vous pouvez également sélectionner ou supprimer des colonnes à l’aide de noms des variables :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>pingouins[, <span class="fu">c</span>(<span class="st">"Espece"</span>, <span class="st">"Longueur Bec (mm)"</span>, <span class="st">"Hauteur Bec (mm)"</span>,</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>              <span class="st">"Longueur Aile (mm)"</span>, <span class="st">"Masse corporelle (g)"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>pingouins_propre[, <span class="fu">c</span>(<span class="st">"espece"</span>, <span class="st">"longueur_bec_mm"</span>, <span class="st">"hauteur_bec_mm"</span>,</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>              <span class="st">"longueur_aile_mm"</span>, <span class="st">"masse_corporelle_g"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 <p>Assignons ce nouveau tableau dans un objet :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>pingouins_propre <span class="ot">&lt;-</span> pingouins[, <span class="fu">c</span>(<span class="st">"Espece"</span>, <span class="st">"Longueur Bec (mm)"</span>,</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">"Hauteur Bec (mm)"</span>,<span class="st">"Longueur Aile (mm)"</span>,</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">"Masse corporelle (g)"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>pingouins_propre <span class="ot">&lt;-</span> pingouins_propre[, <span class="fu">c</span>(<span class="st">"espece"</span>, <span class="st">"longueur_bec_mm"</span>,</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>                                         <span class="st">"hauteur_bec_mm"</span>, <span class="st">"longueur_aile_mm"</span>,</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>                                         <span class="st">"masse_corporelle_g"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 <p>Nous pouvons filtrer les données selon différents critères, à l’aide d’opérateurs.</p>
@@ -976,101 +1093,11 @@ Les opérateurs
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Individus dont la masse est d'au moins 6 kgs</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>pingouins_propre[pingouins_propre<span class="sc">$</span>masse_corporelle_g <span class="sc">&gt;=</span> <span class="dv">6000</span>, ]</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Individus dont la masse est d'au moins 6 kgs et le bec mesure moins de 50 mm de long</span></span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>pingouins_propre[pingouins_propre<span class="sc">$</span><span class="st">`</span><span class="at">Masse corporelle (g)</span><span class="st">`</span> <span class="sc">&gt;=</span> <span class="dv">6000</span> <span class="sc">&amp;</span> pingouins_propre<span class="sc">$</span><span class="st">`</span><span class="at">Longueur Bec (mm)</span><span class="st">`</span> <span class="sc">&gt;=</span> <span class="dv">50</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="renommer-des-colonnes" class="level2">
-<h2 class="anchored" data-anchor-id="renommer-des-colonnes">Renommer des colonnes</h2>
-<p>Les noms des colonnes ne sont pas dans un format idéal (présence d’espaces, de parenthèses).</p>
-<p>La fonction <code>names()</code> permet d’accéder aux noms des colonnes d’un tableau :</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(pingouins_propre)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "Espece"               "Longueur Bec (mm)"    "Hauteur Bec (mm)"    
-[4] "Longueur Aile (mm)"   "Masse corporelle (g)"</code></pre>
-</div>
-</div>
-<p><br></p>
-<p>Nous allons modifier les noms de colonnes en :</p>
-<ul>
-<li><p>supprimant les parenthèses</p></li>
-<li><p>remplaçant les espaces par des <code>_</code></p></li>
-<li><p>remplaçant les majuscules par des minuscules</p></li>
-</ul>
-<p><br></p>
-<p>La fonction <code>gsub()</code> qui permet de remplacer un motif par un autre dans une chaîne, s’utilise de la manière suivante : <code>gsub(motif, remplacement, objet)</code></p>
-<p>Commençons par supprimer les parenthèses. Nous allons pour cela utiliser une <strong>expression régulière</strong> : le motif recherché est soit une parenthèse ouverte soit une parenthèse fermée.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>nouveaux_noms <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"[()]"</span>, <span class="st">""</span>, <span class="fu">names</span>(pingouins_propre))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Remplaçons maintenant les espaces par des <code>_</code> :</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>nouveaux_noms <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">" "</span>, <span class="st">"_"</span>, nouveaux_noms)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>La fonction <code>tolower()</code> permet de remplacer les majuscules d’une chaîne de caractères par des minuscules (à l’inverse de la fonction <code>toupper()</code>) :</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>nouveaux_noms <span class="ot">&lt;-</span> <span class="fu">tolower</span>(nouveaux_noms)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Remplaçons les noms de colonnes du tableau par ce vecteur <em>nouveaux_noms</em> :</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(pingouins_propre) <span class="ot">&lt;-</span> nouveaux_noms</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Assurons-nous que notre tableau contient bien les nouveaux noms de colonnes :</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(pingouins_propre)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "espece"             "longueur_bec_mm"    "hauteur_bec_mm"    
-[4] "longueur_aile_mm"   "masse_corporelle_g"</code></pre>
-</div>
-</div>
-<p><br></p>
-<div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Assigner et afficher
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Lorsque nous utilisons une flèche d’assignation, le résultat du code exécuté ne s’affiche pas dans la console. Pour éviter de taper le nom de l’objet que l’on souhaite afficher pour vérifier que le code a bien fonctionné, nous pouvons entourer le code par des parenthèses :</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>(<span class="fu">names</span>(pingouins_propre) <span class="ot">&lt;-</span> nouveaux_noms)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Le résultat de la commande s’affiche maintenant dans la console.</p>
-</div>
-</div>
-<p><br></p>
-<p>Nous pouvons maintenant supprimer l’objet nouveaux_noms de notre environnement à l’aide de la fonction <code>rm()</code> (remove) :</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(nouveaux_noms)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Supprimer des objets
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Vous pouvez également supprimer des objets directement dans le panneau Environnement :</p>
-<ul>
-<li>Sur la droite du panneau, cliquez sur <em>List</em> puis sur <em>Grid</em></li>
-</ul>
-<p><img src="img/rstudio_33.png" class="img-fluid" style="width:100.0%"></p>
-<ul>
-<li>Cochez les objets à supprimer puis cliquez sur le balai</li>
-</ul>
-<p><img src="img/rstudio_34.png" class="img-fluid" style="width:100.0%"></p>
-<p>Attention : si vous cliquez sur le balai alors que les objets sont sous forme de liste, vous supprimerez tous les objets de votre environnement.</p>
-</div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Individus dont la masse est d'au moins 6 kgs</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>pingouins_propre[pingouins_propre<span class="sc">$</span>masse_corporelle_g <span class="sc">&gt;=</span> <span class="dv">6000</span>, ]</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Individus dont la masse est d'au moins 6 kgs et le bec mesure moins de 50 mm de long</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>pingouins_propre[pingouins_propre<span class="sc">$</span>masse_corporelle_g <span class="sc">&gt;=</span> <span class="dv">6000</span> <span class="sc">&amp;</span> pingouins_propre<span class="sc">$</span>longueur_bec_mm <span class="sc">&gt;=</span> <span class="dv">50</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 </section>
@@ -1078,8 +1105,8 @@ Supprimer des objets
 <h2 class="anchored" data-anchor-id="modifier-une-variable">Modifier une variable</h2>
 <p>Les noms d’espèces contenus dans la variable <em>espece</em> sont plutôt longs et peu pratiques à manipuler. Nous allons modifier le contenu de cette variable pour ne garder que le premier mot de chaque chaîne de caractères (Adelie, Chinstrap et Gentoo). Nous allons à nouveau utiliser la fonction <code>gsub()</code> avec une expression régulière pour supprimer tout ce qui vient après le premier espace (nous pourrions également extraire tout ce qui vient avant le premier espace).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>pingouins_propre<span class="sc">$</span>espece <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">" .*$"</span>, <span class="st">""</span>, pingouins_propre<span class="sc">$</span>espece)</span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(pingouins_propre)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>pingouins_propre<span class="sc">$</span>espece <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">" .*$"</span>, <span class="st">""</span>, pingouins_propre<span class="sc">$</span>espece)</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(pingouins_propre)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  espece longueur_bec_mm hauteur_bec_mm longueur_aile_mm masse_corporelle_g
 1 Adelie            39.1           18.7              181               3750
@@ -1109,12 +1136,12 @@ Note
 <h2 class="anchored" data-anchor-id="ajouter-une-variable">Ajouter une variable</h2>
 <p>Quel est le rapport entre la longueur du bec et sa hauteur ? Calculons le ratio :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>pingouins_propre<span class="sc">$</span>ratio_bec <span class="ot">&lt;-</span> pingouins_propre<span class="sc">$</span>longueur_bec_mm <span class="sc">/</span> pingouins_propre<span class="sc">$</span>hauteur_bec_mm</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>pingouins_propre<span class="sc">$</span>ratio_bec <span class="ot">&lt;-</span> pingouins_propre<span class="sc">$</span>longueur_bec_mm <span class="sc">/</span> pingouins_propre<span class="sc">$</span>hauteur_bec_mm</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 <p>Pour arrondir ce ratio à deux chiffres après la virgule, nous pouvons utiliser la fonction <code>round()</code> :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>pingouins_propre<span class="sc">$</span>ratio_bec <span class="ot">&lt;-</span> <span class="fu">round</span>(pingouins_propre<span class="sc">$</span>ratio_bec, <span class="at">digits =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>pingouins_propre<span class="sc">$</span>ratio_bec <span class="ot">&lt;-</span> <span class="fu">round</span>(pingouins_propre<span class="sc">$</span>ratio_bec, <span class="at">digits =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 </section>
@@ -1122,7 +1149,7 @@ Note
 <h2 class="anchored" data-anchor-id="supprimer-les-données-manquantes">Supprimer les données manquantes</h2>
 <p>Notre jeu de données contient des données manquantes (<code>NA</code>). En affichant les premières lignes, vous pourrez remarquer que pour l’individu situé sur la quatrième ligne, aucune donnée numérique n’est disponible :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(pingouins_propre)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(pingouins_propre)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  espece longueur_bec_mm hauteur_bec_mm longueur_aile_mm masse_corporelle_g
 1 Adelie            39.1           18.7              181               3750
@@ -1142,7 +1169,7 @@ Note
 </div>
 <p>Pour savoir combien de données manquantes sont présentes dans vos données, vous pouvez utiliser la commande suivante :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(<span class="fu">is.na</span>(pingouins_propre))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(<span class="fu">is.na</span>(pingouins_propre))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 FALSE  TRUE 
@@ -1153,7 +1180,7 @@ FALSE  TRUE
 <p>La fonction <code>complete.cases()</code> permet d’extraire les lignes d’un tableau pour lesquelles il n’y a aucune donnée manquante.</p>
 <p>Nous cherchons à extraire les lignes qui contiennent au moins une donnée manquante. Pour cela nous allons filtrer les données en extrayant les lignes à l’aide de l’opérateur de négation <code>!</code> :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>pingouins_propre[<span class="sc">!</span><span class="fu">complete.cases</span>(pingouins_propre), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>pingouins_propre[<span class="sc">!</span><span class="fu">complete.cases</span>(pingouins_propre), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    espece longueur_bec_mm hauteur_bec_mm longueur_aile_mm masse_corporelle_g
 4   Adelie              NA             NA               NA                 NA
@@ -1165,15 +1192,15 @@ FALSE  TRUE
 </div>
 <p>Nous avons ici les dix données manquantes. Nous allons supprimer ces deux individus du jeu de données :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>pingouins_propre <span class="ot">&lt;-</span> pingouins_propre[<span class="fu">complete.cases</span>(pingouins_propre), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>pingouins_propre <span class="ot">&lt;-</span> pingouins_propre[<span class="fu">complete.cases</span>(pingouins_propre), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Nous aurions également pu supprimer les lignes pour lesquelles une des variables numériques contient des données manquantes :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>pingouins_propre <span class="ot">&lt;-</span> pingouins_propre[<span class="sc">!</span><span class="fu">is.na</span>(pingouins_propre<span class="sc">$</span>longueur_bec_mm), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>pingouins_propre <span class="ot">&lt;-</span> pingouins_propre[<span class="sc">!</span><span class="fu">is.na</span>(pingouins_propre<span class="sc">$</span>longueur_bec_mm), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Assurons-nous d’avoir bien supprimé ces données manquantes :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(<span class="fu">is.na</span>(pingouins_propre))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(<span class="fu">is.na</span>(pingouins_propre))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 FALSE 
@@ -1186,7 +1213,7 @@ FALSE
 <h2 class="anchored" data-anchor-id="transformer-un-vecteur-en-un-facteur">Transformer un vecteur en un facteur</h2>
 <p>Affichons la synthèse de nos données</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pingouins_propre)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pingouins_propre)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    espece          longueur_bec_mm hauteur_bec_mm  longueur_aile_mm
  Length:342         Min.   :32.10   Min.   :13.10   Min.   :172.0   
@@ -1206,7 +1233,7 @@ FALSE
 </div>
 <p>La variable espece est considérée comme une simple chaîne de caractère. S’agit-il d’une variable ayant un nombre restreint de modalités ? Pour le savoir, comptons le nombre d’observations uniques :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">unique</span>(pingouins_propre<span class="sc">$</span>espece))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">unique</span>(pingouins_propre<span class="sc">$</span>espece))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3</code></pre>
 </div>
@@ -1232,7 +1259,7 @@ Colorer les parenthèses
 </div>
 <p>Nous aurions pu également utiliser la fonction <code>table()</code> pour extraire les modalités et leur fréquence :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(pingouins_propre<span class="sc">$</span>espece)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(pingouins_propre<span class="sc">$</span>espece)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
    Adelie Chinstrap    Gentoo 
@@ -1242,11 +1269,11 @@ Colorer les parenthèses
 <p><br></p>
 <p>Il n’y a que trois modalités possibles pour cette variable : il s’agit d’une variable catégorielle. La fonction <code>as.factor()</code> permet de transformer un vecteur en un facteur. Par défaut, les modalités (niveaux) d’un facteur sont classés par ordre alphabétique. Vous pouvez définir l’ordre des niveaux à l’aide de l’argument <code>levels = ...</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>pingouins_propre<span class="sc">$</span>espece <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(pingouins_propre<span class="sc">$</span>espece)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>pingouins_propre<span class="sc">$</span>espece <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(pingouins_propre<span class="sc">$</span>espece)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Vérifiez que les corrections apportées aient bien été appliquées au jeu de données :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pingouins_propre)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pingouins_propre)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       espece    longueur_bec_mm hauteur_bec_mm  longueur_aile_mm
  Adelie   :151   Min.   :32.10   Min.   :13.10   Min.   :172.0   
@@ -1266,23 +1293,6 @@ Colorer les parenthèses
 </div>
 <!-- ![](img/rstudio_23.png){width="100%"} -->
 <p><br></p>
-<div class="callout-caution callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Bonne pratiques : structurer son script
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Votre script commence à être bien fourni. Vous pouvez le diviser en différentes parties pour simplifier la lecture. Pour cela, ajoutez des titres sous forme de commentaires et accolez des tirets (au moins quatre) pour signaler à R qu’il s’agit de divisions dans votre script.</p>
-<p><img src="img/rstudio_24.png" class="img-fluid" style="width:100.0%"></p>
-<p>En cliquant sur l’icône <strong>Menu</strong> à droite vous aurez accès à une table des matières dans laquelle vous pourrez naviguer en cliquant sur la partie qui vous intéresse.</p>
-<p><img src="img/rstudio_25.png" class="img-fluid" style="width:100.0%"></p>
-</div>
-</div>
-<p><br></p>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1301,12 +1311,12 @@ Vous pouvez également replier (<strong>Alt + O</strong>) ou déplier (<strong>A
 </section>
 <section id="exporter-des-données" class="level2">
 <h2 class="anchored" data-anchor-id="exporter-des-données">Exporter des données</h2>
-<p>La fonction <code>write.csv()</code> permet d’exporter un tableau :</p>
+<p>La fonction <code>write.csv()</code> permet d’exporter un tableau. L’argument <code>row.names = FALSE</code> empêche l’ajout de noms de lignes (dans notre cas des valeurs numériques allant de 1 au nombre de lignes du tableau) :</p>
 <div class="cell">
 
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(pingouins_propre, <span class="st">"data/pingouins_propre.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(pingouins_propre, <span class="st">"data/pingouins_propre.csv"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -1317,7 +1327,7 @@ Vous pouvez également replier (<strong>Alt + O</strong>) ou déplier (<strong>A
 <p>Pour représenter le nombre d’individus par espèce, nous allons utiliser un graphique en barres (barplot) : la hauteur de chaque barre indique le nombre d’individus.</p>
 <p>Il nous faut pour cela un objet contenant l’information sur le nombre d’individus par espèce :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(pingouins_propre<span class="sc">$</span>espece)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(pingouins_propre<span class="sc">$</span>espece)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
    Adelie Chinstrap    Gentoo 
@@ -1326,9 +1336,9 @@ Vous pouvez également replier (<strong>Alt + O</strong>) ou déplier (<strong>A
 </div>
 <p>La fonction <code>barplot()</code> permet de générer un graphique en barres :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(pingouins_propre<span class="sc">$</span>espece))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(pingouins_propre<span class="sc">$</span>espece))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-43-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-44-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Ce graphique est très basique, nous pouvons améliorer plusieurs points :</p>
@@ -1336,9 +1346,9 @@ Vous pouvez également replier (<strong>Alt + O</strong>) ou déplier (<strong>A
 <li><em>trier les données</em> : nous aimerions que les barres soient triées par ordre décroissant. La fonction <code>sort()</code> permet de trier des données, avec l’argument <code>decreasing = TRUE</code> pour modifier l’ordre (croissant par défaut)</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">sort</span>(<span class="fu">table</span>(pingouins_propre<span class="sc">$</span>espece), <span class="at">decreasing =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">sort</span>(<span class="fu">table</span>(pingouins_propre<span class="sc">$</span>espece), <span class="at">decreasing =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-44-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-45-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <ul>
@@ -1346,38 +1356,44 @@ Vous pouvez également replier (<strong>Alt + O</strong>) ou déplier (<strong>A
 </ul>
 <p><img src="img/rstudio_35.png" class="img-fluid" style="width:50.0%"></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">sort</span>(<span class="fu">table</span>(pingouins_propre<span class="sc">$</span>espece), <span class="at">decreasing =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"darkorange"</span>, <span class="st">"cyan4"</span>, <span class="st">"purple"</span>),</span>
-<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">border =</span> <span class="cn">NA</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">sort</span>(<span class="fu">table</span>(pingouins_propre<span class="sc">$</span>espece), <span class="at">decreasing =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"Adelie"</span> <span class="ot">=</span> <span class="st">"darkorange"</span>,</span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>                <span class="st">"Chinstrap"</span> <span class="ot">=</span> <span class="st">"cyan4"</span>,</span>
+<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a>                <span class="st">"Gentoo"</span> <span class="ot">=</span> <span class="st">"purple"</span>),</span>
+<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">border =</span> <span class="cn">NA</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-45-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-46-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <ul>
 <li><em>ajouter des titres au graphique et aux axes</em> : l’argument <code>main</code> permet d’ajouter un titre au graphique alors que les arguments <code>xlab</code> et <code>ylab</code> permettent de modifier les titres des axes.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">sort</span>(<span class="fu">table</span>(pingouins_propre<span class="sc">$</span>espece), <span class="at">decreasing =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"darkorange"</span>, <span class="st">"cyan4"</span>, <span class="st">"purple"</span>),</span>
-<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">border =</span> <span class="cn">NA</span>,</span>
-<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Pingouins de l'archipel Palmer"</span>,</span>
-<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">"Nombre d'individus par espèce"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">sort</span>(<span class="fu">table</span>(pingouins_propre<span class="sc">$</span>espece), <span class="at">decreasing =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"Adelie"</span> <span class="ot">=</span> <span class="st">"darkorange"</span>,</span>
+<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a>                <span class="st">"Chinstrap"</span> <span class="ot">=</span> <span class="st">"cyan4"</span>,</span>
+<span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a>                <span class="st">"Gentoo"</span> <span class="ot">=</span> <span class="st">"purple"</span>),</span>
+<span id="cb65-5"><a href="#cb65-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">border =</span> <span class="cn">NA</span>,</span>
+<span id="cb65-6"><a href="#cb65-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Pingouins de l'archipel Palmer"</span>,</span>
+<span id="cb65-7"><a href="#cb65-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">"Nombre d'individus par espèce"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-46-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-47-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <ul>
 <li><em>ajuster l’échelle de l’axe y</em> : la valeur maximale dépasse la plus grande valeur affichée sur l’axe y. Les options <code>xlim</code> et <code>ylim</code> permettent d’ajuster les limites des axes.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">sort</span>(<span class="fu">table</span>(pingouins_propre<span class="sc">$</span>espece), <span class="at">decreasing =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"darkorange"</span>, <span class="st">"cyan4"</span>, <span class="st">"purple"</span>),</span>
-<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">border =</span> <span class="cn">NA</span>,</span>
-<span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Pingouins de l'archipel Palmer"</span>,</span>
-<span id="cb65-5"><a href="#cb65-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">"Nombre d'individus par espèce"</span>,</span>
-<span id="cb65-6"><a href="#cb65-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">200</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">sort</span>(<span class="fu">table</span>(pingouins_propre<span class="sc">$</span>espece), <span class="at">decreasing =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"Adelie"</span> <span class="ot">=</span> <span class="st">"darkorange"</span>,</span>
+<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>                <span class="st">"Chinstrap"</span> <span class="ot">=</span> <span class="st">"cyan4"</span>,</span>
+<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a>                <span class="st">"Gentoo"</span> <span class="ot">=</span> <span class="st">"purple"</span>),</span>
+<span id="cb66-5"><a href="#cb66-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">border =</span> <span class="cn">NA</span>,</span>
+<span id="cb66-6"><a href="#cb66-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Pingouins de l'archipel Palmer"</span>,</span>
+<span id="cb66-7"><a href="#cb66-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">"Nombre d'individus par espèce"</span>,</span>
+<span id="cb66-8"><a href="#cb66-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">200</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-47-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-48-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -1386,29 +1402,31 @@ Vous pouvez également replier (<strong>Alt + O</strong>) ou déplier (<strong>A
 <p>Un boxplot, ou graphique en boîte à moustaches, permet de représenter la dispersion d’une variable.</p>
 <p>Nous aimerions représenter la dispersion du ratio entre la longueur et la hauteur du bec. Nous utilisons pour cela la fonction <code>boxplot()</code> :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(pingouins_propre<span class="sc">$</span>ratio_bec)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-48-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<p>Pour savoir si ce ratio varie en fonction des espèces, nous utilisons l’opérateur <code>~</code> : <code>boxplot(x ~ y)</code> permettra de représenter la dispersion de la variable x en fonction de la variable y.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(pingouins_propre<span class="sc">$</span>ratio_bec <span class="sc">~</span> pingouins_propre<span class="sc">$</span>espece)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(pingouins_propre<span class="sc">$</span>ratio_bec)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-49-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Ajustons quelques éléments :</p>
+<p>Pour savoir si ce ratio varie en fonction des espèces, nous utilisons l’opérateur <code>~</code> : <code>boxplot(x ~ y)</code> permettra de représenter la dispersion de la variable x en fonction de la variable y.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(pingouins_propre<span class="sc">$</span>ratio_bec <span class="sc">~</span> pingouins_propre<span class="sc">$</span>espece,</span>
-<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="cn">NA</span>,</span>
-<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">border =</span> <span class="fu">c</span>(<span class="st">"darkorange"</span>, <span class="st">"purple"</span>, <span class="st">"cyan4"</span>),</span>
-<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">pch =</span> <span class="dv">20</span>,</span>
-<span id="cb68-5"><a href="#cb68-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Rapport entre la longueur et la hauteur du bec"</span>,</span>
-<span id="cb68-6"><a href="#cb68-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">""</span>,</span>
-<span id="cb68-7"><a href="#cb68-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">"Ratio"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(pingouins_propre<span class="sc">$</span>ratio_bec <span class="sc">~</span> pingouins_propre<span class="sc">$</span>espece)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-50-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Ajustons quelques éléments :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(pingouins_propre<span class="sc">$</span>ratio_bec <span class="sc">~</span> pingouins_propre<span class="sc">$</span>espece,</span>
+<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="cn">NA</span>,</span>
+<span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">border =</span> <span class="fu">c</span>(<span class="st">"Adelie"</span> <span class="ot">=</span> <span class="st">"darkorange"</span>,</span>
+<span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a>                <span class="st">"Chinstrap"</span> <span class="ot">=</span> <span class="st">"cyan4"</span>,</span>
+<span id="cb69-5"><a href="#cb69-5" aria-hidden="true" tabindex="-1"></a>                <span class="st">"Gentoo"</span> <span class="ot">=</span> <span class="st">"purple"</span>),</span>
+<span id="cb69-6"><a href="#cb69-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">pch =</span> <span class="dv">20</span>,</span>
+<span id="cb69-7"><a href="#cb69-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Rapport entre la longueur et la hauteur du bec"</span>,</span>
+<span id="cb69-8"><a href="#cb69-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">""</span>,</span>
+<span id="cb69-9"><a href="#cb69-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">"Ratio"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-51-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="callout-note callout callout-style-default callout-captioned">
@@ -1430,39 +1448,39 @@ pch
 <p>Un histogramme sert à visualiser la distribution d’une variable numérique.</p>
 <p>Comment se distribue la masse corporelle des pingouins ? Nous utilisons la fonction <code>hist()</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(pingouins_propre<span class="sc">$</span>masse_corporelle_g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-51-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<p>L’argument <code>breaks</code> permet d’ajuster le nombre de classes de l’histogramme :</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(pingouins_propre<span class="sc">$</span>masse_corporelle_g,</span>
-<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">breaks =</span> <span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(pingouins_propre<span class="sc">$</span>masse_corporelle_g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-52-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Nous souhaiterions représenter les valeurs en kilogrammes plutôt qu’en grammes pour facililter la lecture :</p>
+<p>L’argument <code>breaks</code> permet d’ajuster le nombre de classes de l’histogramme :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(pingouins_propre<span class="sc">$</span>masse_corporelle_g <span class="sc">/</span> <span class="dv">1000</span>,</span>
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(pingouins_propre<span class="sc">$</span>masse_corporelle_g,</span>
 <span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">breaks =</span> <span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-53-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Améliorons notre graphique :</p>
+<p>Nous souhaiterions représenter les valeurs en kilogrammes plutôt qu’en grammes pour facililter la lecture :</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(pingouins_propre<span class="sc">$</span>masse_corporelle_g <span class="sc">/</span> <span class="dv">1000</span>,</span>
-<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">breaks =</span> <span class="dv">20</span>,</span>
-<span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">"lightblue"</span>,</span>
-<span id="cb72-4"><a href="#cb72-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">border =</span> <span class="st">"darkblue"</span>,</span>
-<span id="cb72-5"><a href="#cb72-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">50</span>),</span>
-<span id="cb72-6"><a href="#cb72-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Distribution de la masse corporelle"</span>,</span>
-<span id="cb72-7"><a href="#cb72-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Masse (kgs)"</span>,</span>
-<span id="cb72-8"><a href="#cb72-8" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Fréquence"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">breaks =</span> <span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-54-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Améliorons notre graphique :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(pingouins_propre<span class="sc">$</span>masse_corporelle_g <span class="sc">/</span> <span class="dv">1000</span>,</span>
+<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">breaks =</span> <span class="dv">20</span>,</span>
+<span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">"lightblue"</span>,</span>
+<span id="cb73-4"><a href="#cb73-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">border =</span> <span class="st">"darkblue"</span>,</span>
+<span id="cb73-5"><a href="#cb73-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">50</span>),</span>
+<span id="cb73-6"><a href="#cb73-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Distribution de la masse corporelle"</span>,</span>
+<span id="cb73-7"><a href="#cb73-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Masse (kgs)"</span>,</span>
+<span id="cb73-8"><a href="#cb73-8" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Fréquence"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-55-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -1471,52 +1489,52 @@ pch
 <p>Le scatter plot (ou nuage de points) permet de représenter la relation entre deux variables numériques. Nous utilisons pour cela la fonction <code>plot()</code></p>
 <p>Quelle est la relation entre la longueur des ailes et la longueur du bec ?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> pingouins_propre<span class="sc">$</span>longueur_aile_mm, <span class="at">y =</span> pingouins_propre<span class="sc">$</span>longueur_bec_mm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> pingouins_propre<span class="sc">$</span>longueur_aile_mm, <span class="at">y =</span> pingouins_propre<span class="sc">$</span>longueur_bec_mm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-55-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-56-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Ce graphique ne nous donne aucune indication sur les différentes espèces. Nous allons donc ajouter une couleur à chaque point, en ajoutant une variable <em>couleur</em> à notre tableau d’origine. Les valeurs de cette variables dépendent de l’espèce.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>pingouins_propre<span class="sc">$</span>couleur[pingouins_propre<span class="sc">$</span>espece <span class="sc">==</span> <span class="st">"Adelie"</span>] <span class="ot">&lt;-</span> <span class="st">"darkorange"</span></span>
-<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a>pingouins_propre<span class="sc">$</span>couleur[pingouins_propre<span class="sc">$</span>espece <span class="sc">==</span> <span class="st">"Chinstrap"</span>] <span class="ot">&lt;-</span> <span class="st">"purple"</span></span>
-<span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a>pingouins_propre<span class="sc">$</span>couleur[pingouins_propre<span class="sc">$</span>espece <span class="sc">==</span> <span class="st">"Gentoo"</span>] <span class="ot">&lt;-</span> <span class="st">"cyan4"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>pingouins_propre<span class="sc">$</span>couleur[pingouins_propre<span class="sc">$</span>espece <span class="sc">==</span> <span class="st">"Adelie"</span>] <span class="ot">&lt;-</span> <span class="st">"darkorange"</span></span>
+<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>pingouins_propre<span class="sc">$</span>couleur[pingouins_propre<span class="sc">$</span>espece <span class="sc">==</span> <span class="st">"Chinstrap"</span>] <span class="ot">&lt;-</span> <span class="st">"purple"</span></span>
+<span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a>pingouins_propre<span class="sc">$</span>couleur[pingouins_propre<span class="sc">$</span>espece <span class="sc">==</span> <span class="st">"Gentoo"</span>] <span class="ot">&lt;-</span> <span class="st">"cyan4"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Représentons à nouveau nos données :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> pingouins_propre<span class="sc">$</span>longueur_aile_mm, <span class="at">y =</span> pingouins_propre<span class="sc">$</span>longueur_bec_mm,</span>
-<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> pingouins_propre<span class="sc">$</span>couleur)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-57-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<p>Améliorons à présent le graphique en modifiant la forme des points et en ajoutant/modifiant les titres :</p>
-<div class="cell">
 <div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> pingouins_propre<span class="sc">$</span>longueur_aile_mm, <span class="at">y =</span> pingouins_propre<span class="sc">$</span>longueur_bec_mm,</span>
-<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> pingouins_propre<span class="sc">$</span>couleur,</span>
-<span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">pch =</span> <span class="dv">20</span>,</span>
-<span id="cb76-4"><a href="#cb76-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Relation entre la longueur des ailes et la longueur du bec"</span>,</span>
-<span id="cb76-5"><a href="#cb76-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Longueur des ailes (mm)"</span>,</span>
-<span id="cb76-6"><a href="#cb76-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Longueur du bec (mm)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> pingouins_propre<span class="sc">$</span>couleur)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-58-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Pour finir, ajoutons une légende à notre graphique à l’aide la fonction <code>legend()</code> :</p>
+<p>Améliorons à présent le graphique en modifiant la forme des points et en ajoutant/modifiant les titres :</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> pingouins_propre<span class="sc">$</span>longueur_aile_mm, <span class="at">y =</span> pingouins_propre<span class="sc">$</span>longueur_bec_mm,</span>
 <span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> pingouins_propre<span class="sc">$</span>couleur,</span>
 <span id="cb77-3"><a href="#cb77-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">pch =</span> <span class="dv">20</span>,</span>
 <span id="cb77-4"><a href="#cb77-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Relation entre la longueur des ailes et la longueur du bec"</span>,</span>
 <span id="cb77-5"><a href="#cb77-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Longueur des ailes (mm)"</span>,</span>
-<span id="cb77-6"><a href="#cb77-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Longueur du bec (mm)"</span>)</span>
-<span id="cb77-7"><a href="#cb77-7" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="at">legend =</span> <span class="fu">sort</span>(<span class="fu">unique</span>(pingouins_propre<span class="sc">$</span>espece)),</span>
-<span id="cb77-8"><a href="#cb77-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="dv">220</span>,</span>
-<span id="cb77-9"><a href="#cb77-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="dv">40</span>,</span>
-<span id="cb77-10"><a href="#cb77-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"darkorange"</span>, <span class="st">"purple"</span>, <span class="st">"cyan4"</span>),</span>
-<span id="cb77-11"><a href="#cb77-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">pch =</span> <span class="dv">19</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb77-6"><a href="#cb77-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Longueur du bec (mm)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-59-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Pour finir, ajoutons une légende à notre graphique à l’aide la fonction <code>legend()</code> :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> pingouins_propre<span class="sc">$</span>longueur_aile_mm, <span class="at">y =</span> pingouins_propre<span class="sc">$</span>longueur_bec_mm,</span>
+<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> pingouins_propre<span class="sc">$</span>couleur,</span>
+<span id="cb78-3"><a href="#cb78-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">pch =</span> <span class="dv">20</span>,</span>
+<span id="cb78-4"><a href="#cb78-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Relation entre la longueur des ailes et la longueur du bec"</span>,</span>
+<span id="cb78-5"><a href="#cb78-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Longueur des ailes (mm)"</span>,</span>
+<span id="cb78-6"><a href="#cb78-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Longueur du bec (mm)"</span>)</span>
+<span id="cb78-7"><a href="#cb78-7" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="at">legend =</span> <span class="fu">sort</span>(<span class="fu">unique</span>(pingouins_propre<span class="sc">$</span>espece)),</span>
+<span id="cb78-8"><a href="#cb78-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="dv">215</span>,</span>
+<span id="cb78-9"><a href="#cb78-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="dv">40</span>,</span>
+<span id="cb78-10"><a href="#cb78-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"darkorange"</span>, <span class="st">"purple"</span>, <span class="st">"cyan4"</span>),</span>
+<span id="cb78-11"><a href="#cb78-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">pch =</span> <span class="dv">19</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-60-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -1532,18 +1550,18 @@ pch
 <li><p><code>dev.off()</code> pour fermer l’outil graphique</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="fu">png</span>(<span class="st">"figs/nombre_pingouins.png"</span>,</span>
-<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">width =</span> <span class="dv">1600</span>, <span class="at">height =</span> <span class="dv">800</span>)</span>
-<span id="cb78-3"><a href="#cb78-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb78-4"><a href="#cb78-4" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">sort</span>(<span class="fu">table</span>(pingouins_propre<span class="sc">$</span>espece),</span>
-<span id="cb78-5"><a href="#cb78-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">decreasing =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb78-6"><a href="#cb78-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"darkorange"</span>, <span class="st">"cyan4"</span>, <span class="st">"purple"</span>),</span>
-<span id="cb78-7"><a href="#cb78-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">border =</span> <span class="cn">NA</span>,</span>
-<span id="cb78-8"><a href="#cb78-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Pingouins de l'archipel Palmer"</span>,</span>
-<span id="cb78-9"><a href="#cb78-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">"Nombre d'individus par espèce"</span>,</span>
-<span id="cb78-10"><a href="#cb78-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">200</span>))</span>
-<span id="cb78-11"><a href="#cb78-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb78-12"><a href="#cb78-12" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">png</span>(<span class="st">"figs/nombre_pingouins.png"</span>)</span>
+<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb79-3"><a href="#cb79-3" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">sort</span>(<span class="fu">table</span>(pingouins_propre<span class="sc">$</span>espece), <span class="at">decreasing =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb79-4"><a href="#cb79-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"Adelie"</span> <span class="ot">=</span> <span class="st">"darkorange"</span>,</span>
+<span id="cb79-5"><a href="#cb79-5" aria-hidden="true" tabindex="-1"></a>                <span class="st">"Chinstrap"</span> <span class="ot">=</span> <span class="st">"cyan4"</span>,</span>
+<span id="cb79-6"><a href="#cb79-6" aria-hidden="true" tabindex="-1"></a>                <span class="st">"Gentoo"</span> <span class="ot">=</span> <span class="st">"purple"</span>),</span>
+<span id="cb79-7"><a href="#cb79-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">border =</span> <span class="cn">NA</span>,</span>
+<span id="cb79-8"><a href="#cb79-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Pingouins de l'archipel Palmer"</span>,</span>
+<span id="cb79-9"><a href="#cb79-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">"Nombre d'individus par espèce"</span>,</span>
+<span id="cb79-10"><a href="#cb79-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">200</span>))</span>
+<span id="cb79-11"><a href="#cb79-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb79-12"><a href="#cb79-12" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
