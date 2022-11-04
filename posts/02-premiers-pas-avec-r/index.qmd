@@ -70,7 +70,7 @@ Il a été développé par Ross Ihaka et Robert Gentleman, du Département de St
 
 R désigne également le logiciel qui utilise ce langage pour des calculs statistiques (et tout un tas d'autres applications (manipulation de données, graphiques, ...).
 
-Il dispose d'une communauté en ligne très active ainsi que d'extensions appelées [**packages**] pour presque tous les domaines et applications possibles et imaginables (cartographie, fouille de texte, modélisation, ...).
+Il dispose d'une communauté en ligne très active ainsi que d'extensions appelées [**packages**](https://ateliers-codons.netlify.app/glossary.html#package) pour presque tous les domaines et applications possibles et imaginables (cartographie, fouille de texte, modélisation, ...).
 
 Contrairement à d'autres logiciels de statistiques comme Minitab ou SPSS, R peut être exécuté entièrement en **ligne de commande** et ne nécessite pas d'interface graphique, ce qui lui confère une **grande flexibilité**.
 
