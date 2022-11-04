@@ -4,7 +4,7 @@ subtitle: "Se familiariser avec R, manipuler des données et les représenter"
 author:
   - Gergana Daskalova
   - Jonathan Kitt (adaptation)
-date: "2022-10-13"
+date: "2022-11-04"
 categories: [R, RStudio, bases]
 format: 
   html: 
@@ -20,6 +20,8 @@ pingouins <- read.csv("../../raw/pingouins.csv", check.names = FALSE)
 
 *Ce tutoriel est adapté de [Getting started with R and RStudio](https://ourcodingclub.github.io/tutorials/intro-to-r/) du site [Our Coding Club](https://ourcodingclub.github.io/).*
 
+Les mots en **gras** sont définis dans le [glossaire](https://ateliers-codons.netlify.app/glossary.html).
+
 <br>
 
 ::: {.callout-tip icon="false"}
@@ -28,7 +30,8 @@ pingouins <- read.csv("../../raw/pingouins.csv", check.names = FALSE)
 - Se familiariser avec RStudio  
 - Organiser son travail  
 - Utiliser un script  
-- Importer, explorer, manipuler et représenter des données
+- Importer et exporter des données  
+- Explorer, manipuler et représenter des données
 
 :::
 
@@ -47,9 +50,9 @@ Pour savoir comment installer R et RStudio, cliquez [ici](https://ateliers-codon
 
 <br>
 
-R est un **langage de programmation statistique** qui a rapidement gagné en popularité dans de nombreux domaines scientifiques.
+R est un langage de programmation statistique qui a rapidement gagné en popularité dans de nombreux domaines scientifiques.
 
-Il a été développé par **Ross Ihaka** et **Robert Gentleman**, du Département de Statistiques de l'Université d'Auckland, comme **implémentation libre du langage de programmation S**.
+Il a été développé par Ross Ihaka et Robert Gentleman, du Département de Statistiques de l'Université d'Auckland, comme implémentation libre du langage de programmation S.
 
 <br>
 
@@ -65,9 +68,9 @@ Il a été développé par **Ross Ihaka** et **Robert Gentleman**, du Départeme
 
 <br>
 
-R désigne également le **logiciel** qui utilise ce langage pour des calculs statistiques (et tout un tas d'autres applications (manipulation de données, graphiques, ...).
+R désigne également le logiciel qui utilise ce langage pour des calculs statistiques (et tout un tas d'autres applications (manipulation de données, graphiques, ...).
 
-Il dispose d'une **communauté** en ligne très active ainsi que d'**extensions** pour presque tous les domaines et applications possibles et imaginables (cartographie, fouille de texte, modélisation, ...).
+Il dispose d'une communauté en ligne très active ainsi que d'extensions appelées [**packages**] pour presque tous les domaines et applications possibles et imaginables (cartographie, fouille de texte, modélisation, ...).
 
 Contrairement à d'autres logiciels de statistiques comme Minitab ou SPSS, R peut être exécuté entièrement en **ligne de commande** et ne nécessite pas d'interface graphique, ce qui lui confère une **grande flexibilité**.
 

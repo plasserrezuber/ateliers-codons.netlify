@@ -16,13 +16,13 @@ format:
 
 # C {#c}
 
-**Casse** : R différencie les lettres minuscules des lettres majuscules.  
-**Chemin absolu** : chemin vers un fichier à partir de la racine (ex : C:/).  
-**Chemin relatif** : chemin vers un fichier à partir du [répertoire de travail](#wd).  
-**Classe** : type de données contenues dans une variable (le plus souvent des caractères ou des valeurs numériques).  
-**Commande** : morceau de code qui exécute une action et qui contient généralement une ou plusieurs fonctions.  
-**Commentaire** : partie d'un script qui ne sera pas exécutée (commence par un `#`).  
-**Console** : fenêtre dans RStudio où l'on peut écrire et exécuter du code. 
+**Casse** : R différencie les lettres minuscules des lettres majuscules.\
+**Chemin absolu** : chemin vers un fichier à partir de la racine (ex : C:/).\
+**Chemin relatif** : chemin vers un fichier à partir du [répertoire de travail](#wd).\
+**Classe** : type de données contenues dans une variable (le plus souvent des caractères ou des valeurs numériques).\
+**Commande** : morceau de code qui exécute une action et qui contient généralement une ou plusieurs fonctions.\
+**Commentaire** : partie d'un script qui ne sera pas exécutée (commence par un `#`).\
+**Console** : fenêtre dans RStudio où l'on peut écrire et exécuter du code.
 
 # D {#d}
 
@@ -34,7 +34,7 @@ format:
 
 # F {#f}
 
-**Facteur** : vecteur contenant une structure interne définie par des niveaux.  
+**Facteur** : vecteur contenant une structure interne définie par des niveaux.\
 **Fonction** : code qui exécute une action.
 
 # G {#g}
@@ -61,13 +61,14 @@ format:
 
 # P {#p}
 
-**Package** : ensemble de fonctionnalités supplémentaires qui peuvent être chargées dans R.
+## Package {#package}
+Ensemble de fonctionnalités supplémentaires qui peuvent être chargées dans R.
 
 # Q {#q}
 
 # R {#r}
 
-[**Répertoire de travail**]{#wd} : dossier qui contient tout ce qui concerne votre session actuelle. 
+[**Répertoire de travail**]{#wd} : dossier qui contient tout ce qui concerne votre session actuelle.
 
 # S {#s}
 
