@@ -72,18 +72,18 @@ R désigne également le logiciel qui utilise ce langage pour des calculs statis
 
 Il dispose d'une communauté en ligne très active ainsi que d'extensions appelées [**packages**](https://ateliers-codons.netlify.app/glossary.html#package) pour presque tous les domaines et applications possibles et imaginables (cartographie, fouille de texte, modélisation, ...).
 
-Contrairement à d'autres logiciels de statistiques comme Minitab ou SPSS, R peut être exécuté entièrement en **ligne de commande** et ne nécessite pas d'interface graphique, ce qui lui confère une **grande flexibilité**.
+Contrairement à d'autres logiciels de statistiques comme Minitab ou SPSS, R peut être exécuté entièrement en ligne de commande et ne nécessite pas d'interface graphique, ce qui lui confère une grande flexibilité.
 
 <br>
 
 ::: {.callout-tip icon="true"}
 ## Quelques avantages de R
 
--   C'est un outil **libre et open source** (tout le monde peut utiliser le code et voir comment il fonctionne) 
+-   C'est un outil libre et open source (tout le monde peut utiliser le code et voir comment il fonctionne) 
 
--   C'est un langage de programmation plutôt qu'une interface graphique, ce qui permet à l'utilisateur de sauvegarder facilement des **scripts** sous forme de texte pour les ré-utiliser ou les partager
+-   C'est un langage de programmation plutôt qu'une interface graphique, ce qui permet à l'utilisateur de sauvegarder facilement des [**scripts**](https://ateliers-codons.netlify.app/glossary.html#script) pour les ré-utiliser ou les partager
 
--   Beaucoup de personnes l'utilisent dans beaucoup de domaines différents - **il est rare d'être confronté à un problème qui n'a jamais été résolu !**
+-   Beaucoup de personnes l'utilisent dans beaucoup de domaines différents - il est rare d'être confronté à un problème qui n'a jamais été résolu !
 :::
 
 <br>
@@ -92,19 +92,19 @@ Contrairement à d'autres logiciels de statistiques comme Minitab ou SPSS, R peu
 
 <br>
 
-La plupart des utilisateurs interagissent avec R à l'aide d'une **interface graphique**, dont la plus connue est RStudio.
+La plupart des utilisateurs interagissent avec R à l'aide d'une interface graphique, dont la plus connue et répandue est RStudio.
 
-En ouvrant RStudio, vous verrez une fenêtre comme celle ci-dessous, divisée en **trois panneaux** :
+En ouvrant RStudio, vous verrez une fenêtre comme celle ci-dessous, divisée en trois panneaux :
 
 ![](img/rstudio_01.png){width="100%"}
 
 <br>
 
-### La console
+### La [console](https://ateliers-codons.netlify.app/glossary.html#script)
 
 <br>
 
-Vous pouvez y **taper du code et l'exécuter** en appuyant sur `Entrée`.
+Vous pouvez y taper du code et l'exécuter en appuyant sur `Entrée`.
 
 Quand vous démarrez une nouvelle session dans RStudio, la console affiche également des informations comme la version de R présente sur votre ordinateur ainsi que des indications sur la manière d'obtenir de l'aide.
 
@@ -113,14 +113,14 @@ Quand vous démarrez une nouvelle session dans RStudio, la console affiche égal
 ::: {.callout-tip icon="true"}
 ## L'invite de commande
 
-Dans la console, une ligne commence par `>` : c'est ce qu'on appelle l'**invite de commande**. Cela indique que R est prêt à recevoir vos instructions !
+Dans la console, une ligne commence par `>` : c'est ce qu'on appelle l'invite de commande. Cela indique que R est prêt à recevoir vos instructions !
 
 Tapez `2+2` puis appuyez sur `Entrée` : la console affiche le résultat.
 ```{r}
 2 + 2
 ```
 
-Dans la console, vous pouvez parcourir les **dernières commandes exécutées** à l'aide des flèches haut et bas.
+Dans la console, vous pouvez parcourir les dernières commandes exécutées à l'aide des flèches haut et bas.
 
 :::
 
@@ -130,7 +130,7 @@ Dans la console, vous pouvez parcourir les **dernières commandes exécutées** 
 
 <br>
 
-Vous y trouverez votre **environnement** (données importées, objets créés, fonctions définies, ...), ainsi que d'autres onglets comme l'**historique** des commandes exécutées ou l'accès à des **tutoriels** (pour les versions récentes de RStudio).
+Vous y trouverez votre [**environnement**](https://ateliers-codons.netlify.app/glossary.html#environnement) (données importées, objets créés, fonctions définies, ...), ainsi que d'autres onglets comme l'historique des commandes exécutées ou l'accès à des tutoriels (pour les versions récentes de RStudio).
 
 <br>
 
