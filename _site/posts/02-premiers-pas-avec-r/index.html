@@ -976,14 +976,11 @@ Les opérateurs
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Individus de l'espece Adelie</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>pingouins_propre[pingouins_propre<span class="sc">$</span>espece <span class="sc">==</span> <span class="st">"Adelie"</span>, ]</span>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Individus dont la masse est d'au moins 6 kgs</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>pingouins_propre[pingouins_propre<span class="sc">$</span>masse_corporelle_g <span class="sc">&gt;=</span> <span class="dv">6000</span>, ]</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Individus dont la masse est d'au moins 5 kgs</span></span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>pingouins_propre[pingouins_propre<span class="sc">$</span>masse_corporelle_g <span class="sc">&gt;=</span> <span class="dv">5000</span>, ]</span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Individus de l'espece Adelie dont le bec mesure moins de 40mm de long</span></span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>pingouins_propre[pingouins_propre<span class="sc">$</span>espece <span class="sc">==</span> <span class="st">"Adelie"</span> <span class="sc">&amp;</span> pingouins_propre<span class="sc">$</span>longueur_bec_mm <span class="sc">&gt;=</span> <span class="dv">40</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Individus dont la masse est d'au moins 6 kgs et le bec mesure moins de 50 mm de long</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>pingouins_propre[pingouins_propre<span class="sc">$</span><span class="st">`</span><span class="at">Masse corporelle (g)</span><span class="st">`</span> <span class="sc">&gt;=</span> <span class="dv">6000</span> <span class="sc">&amp;</span> pingouins_propre<span class="sc">$</span><span class="st">`</span><span class="at">Longueur Bec (mm)</span><span class="st">`</span> <span class="sc">&gt;=</span> <span class="dv">50</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="renommer-des-colonnes" class="level2">
