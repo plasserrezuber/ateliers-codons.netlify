@@ -10,11 +10,17 @@ format:
 
 # A {#a}
 
-**Argument** : élément d'une fonction, essentiel ou optionnel, qui précise ou modifie la façon dont la fonction est exécutée.
+## Argument {#argument}
+
+Elément d'une [fonction](#fonction), essentiel ou optionnel, qui précise ou modifie la façon dont elle est exécutée.
 
 # B {#b}
 
 # C {#c}
+
+## Commande {#commande}
+
+Code qui exécute une action et qui contient généralement une ou plusieurs [fonctions](#fonction) 
 
 ## Commentaire {#commentaire}
 
@@ -28,7 +34,6 @@ Fenêtre permettant de taper du code et de l'exécuter.
 **Chemin absolu** : chemin vers un fichier à partir de la racine (ex : C:/).\
 **Chemin relatif** : chemin vers un fichier à partir du [répertoire de travail](#wd).\
 **Classe** : type de données contenues dans une variable (le plus souvent des caractères ou des valeurs numériques).\
-**Commande** : morceau de code qui exécute une action et qui contient généralement une ou plusieurs fonctions.\
 
 # D {#d}
 
@@ -38,10 +43,13 @@ Fenêtre permettant de taper du code et de l'exécuter.
 
 ## Environnement {#environnement}
 
-L'environnement contient votre espace de travail : données importées, objets créés, fonctions, ...
+L'environnement contient votre espace de travail : données importées, objets créés, [fonctions](#fonction), ...
 
 
 # F {#f}
+
+## Fonction {#fonction}
+Code exécutant une action précise (par exemple calculer une moyenne). Les [arguments](#argument) d'une fonction modifient la manière dont elle est exécutée
 
 **Facteur** : vecteur contenant une structure interne définie par des niveaux.\
 **Fonction** : code qui exécute une action.
@@ -66,7 +74,9 @@ L'environnement contient votre espace de travail : données importées, objets c
 
 # O {#o}
 
-**Objet** : tout élément manipulé ou créé dans R (on parle d'un langage orienté objet).
+## Objet {#objet}
+
+R est un langage orienté objet : tout élément importé, créé et manipulé et stocké dans un objet.
 
 # P {#p}
 

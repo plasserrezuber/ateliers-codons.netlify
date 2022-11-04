@@ -7,11 +7,67 @@
     "text": "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z"
   },
   {
+    "objectID": "glossary.html#argument",
+    "href": "glossary.html#argument",
+    "title": "Glossaire",
+    "section": "Argument",
+    "text": "Argument\nElément d’une fonction, essentiel ou optionnel, qui précise ou modifie la façon dont elle est exécutée."
+  },
+  {
+    "objectID": "glossary.html#commande",
+    "href": "glossary.html#commande",
+    "title": "Glossaire",
+    "section": "Commande",
+    "text": "Commande\nCode qui exécute une action et qui contient généralement une ou plusieurs fonctions"
+  },
+  {
+    "objectID": "glossary.html#commentaire",
+    "href": "glossary.html#commentaire",
+    "title": "Glossaire",
+    "section": "Commentaire",
+    "text": "Commentaire\nTexte débutant par un # qui ne sera pas exécuté. Commenter un script permet d’expliquer ce que fait le code."
+  },
+  {
+    "objectID": "glossary.html#console",
+    "href": "glossary.html#console",
+    "title": "Glossaire",
+    "section": "Console",
+    "text": "Console\nFenêtre permettant de taper du code et de l’exécuter.\nCasse : R différencie les lettres minuscules des lettres majuscules.\nChemin absolu : chemin vers un fichier à partir de la racine (ex : C:/).\nChemin relatif : chemin vers un fichier à partir du répertoire de travail.\nClasse : type de données contenues dans une variable (le plus souvent des caractères ou des valeurs numériques)."
+  },
+  {
+    "objectID": "glossary.html#environnement",
+    "href": "glossary.html#environnement",
+    "title": "Glossaire",
+    "section": "Environnement",
+    "text": "Environnement\nL’environnement contient votre espace de travail : données importées, objets créés, fonctions, …"
+  },
+  {
+    "objectID": "glossary.html#fonction",
+    "href": "glossary.html#fonction",
+    "title": "Glossaire",
+    "section": "Fonction",
+    "text": "Fonction\nCode exécutant une action précise (par exemple calculer une moyenne). Les arguments d’une fonction modifient la manière dont elle est exécutée\nFacteur : vecteur contenant une structure interne définie par des niveaux.\nFonction : code qui exécute une action."
+  },
+  {
+    "objectID": "glossary.html#objet",
+    "href": "glossary.html#objet",
+    "title": "Glossaire",
+    "section": "Objet",
+    "text": "Objet\nR est un langage orienté objet : tout élément importé, créé et manipulé et stocké dans un objet."
+  },
+  {
     "objectID": "glossary.html#package",
     "href": "glossary.html#package",
     "title": "Glossaire",
     "section": "Package",
     "text": "Package\nEnsemble de fonctionnalités supplémentaires qui peuvent être chargées dans R."
+  },
+  {
+    "objectID": "glossary.html#script",
+    "href": "glossary.html#script",
+    "title": "Glossaire",
+    "section": "Script",
+    "text": "Script\nCe format de document contenant du code peut être sauvegardé et partagé (comme un document dans un traitement de texte). Un script peut être structuré et inclure des commentaires permettant d’expliquer ce que fait le code.\nScript : à la façon d’un document texte, permet de rédiger et de sauvegarder du code."
   },
   {
     "objectID": "index.html",
@@ -432,33 +488,5 @@
     "title": "Welcome To My Blog",
     "section": "",
     "text": "Since this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
-  },
-  {
-    "objectID": "glossary.html#commentaire",
-    "href": "glossary.html#commentaire",
-    "title": "Glossaire",
-    "section": "Commentaire",
-    "text": "Commentaire\nTexte débutant par un # qui ne sera pas exécuté. Commenter un script permet d’expliquer ce que fait le code."
-  },
-  {
-    "objectID": "glossary.html#console",
-    "href": "glossary.html#console",
-    "title": "Glossaire",
-    "section": "Console",
-    "text": "Console\nFenêtre permettant de taper du code et de l’exécuter.\nCasse : R différencie les lettres minuscules des lettres majuscules.\nChemin absolu : chemin vers un fichier à partir de la racine (ex : C:/).\nChemin relatif : chemin vers un fichier à partir du répertoire de travail.\nClasse : type de données contenues dans une variable (le plus souvent des caractères ou des valeurs numériques).\nCommande : morceau de code qui exécute une action et qui contient généralement une ou plusieurs fonctions."
-  },
-  {
-    "objectID": "glossary.html#environnement",
-    "href": "glossary.html#environnement",
-    "title": "Glossaire",
-    "section": "Environnement",
-    "text": "Environnement\nL’environnement contient votre espace de travail : données importées, objets créés, fonctions, …"
-  },
-  {
-    "objectID": "glossary.html#script",
-    "href": "glossary.html#script",
-    "title": "Glossaire",
-    "section": "Script",
-    "text": "Script\nCe format de document contenant du code peut être sauvegardé et partagé (comme un document dans un traitement de texte). Un script peut être structuré et inclure des commentaires permettant d’expliquer ce que fait le code.\nScript : à la façon d’un document texte, permet de rédiger et de sauvegarder du code."
   }
 ]
