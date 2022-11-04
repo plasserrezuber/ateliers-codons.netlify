@@ -16,13 +16,19 @@ format:
 
 # C {#c}
 
+## Commentaire {#commentaire}
+
+Texte débutant par un `#` qui ne sera pas exécuté. Commenter un script permet d'expliquer ce que fait le code. 
+
+## Console {#console}
+
+Fenêtre permettant de taper du code et de l'exécuter.
+
 **Casse** : R différencie les lettres minuscules des lettres majuscules.\
 **Chemin absolu** : chemin vers un fichier à partir de la racine (ex : C:/).\
 **Chemin relatif** : chemin vers un fichier à partir du [répertoire de travail](#wd).\
 **Classe** : type de données contenues dans une variable (le plus souvent des caractères ou des valeurs numériques).\
 **Commande** : morceau de code qui exécute une action et qui contient généralement une ou plusieurs fonctions.\
-**Commentaire** : partie d'un script qui ne sera pas exécutée (commence par un `#`).\
-**Console** : fenêtre dans RStudio où l'on peut écrire et exécuter du code.
 
 # D {#d}
 
@@ -30,7 +36,10 @@ format:
 
 # E {#e}
 
-**Environnement** : contient votre espace de travail (données importées, objets, fonctions, ...)
+## Environnement {#environnement}
+
+L'environnement contient votre espace de travail : données importées, objets créés, fonctions, ...
+
 
 # F {#f}
 
@@ -71,6 +80,10 @@ Ensemble de fonctionnalités supplémentaires qui peuvent être chargées dans R
 [**Répertoire de travail**]{#wd} : dossier qui contient tout ce qui concerne votre session actuelle.
 
 # S {#s}
+
+## Script {#script}
+
+Ce format de document contenant du code peut être sauvegardé et partagé (comme un document dans un traitement de texte). Un script peut être structuré et inclure des [commentaires](#commentaire) permettant d'expliquer ce que fait le code.
 
 **Script** : à la façon d'un document texte, permet de rédiger et de sauvegarder du code.
 
