@@ -661,14 +661,11 @@ Nous pouvons filtrer les données selon différents critères, à l'aide d'opér
 :::
 
 ```{r, echo=TRUE, eval=FALSE}
-# Individus de l'espece Adelie
-pingouins_propre[pingouins_propre$espece == "Adelie", ]
+# Individus dont la masse est d'au moins 6 kgs
+pingouins_propre[pingouins_propre$masse_corporelle_g >= 6000, ]
 
-# Individus dont la masse est d'au moins 5 kgs
-pingouins_propre[pingouins_propre$masse_corporelle_g >= 5000, ]
-
-# Individus de l'espece Adelie dont le bec mesure moins de 40mm de long
-pingouins_propre[pingouins_propre$espece == "Adelie" & pingouins_propre$longueur_bec_mm >= 40, ]
+# Individus dont la masse est d'au moins 6 kgs et le bec mesure moins de 50 mm de long
+pingouins_propre[pingouins_propre$`Masse corporelle (g)` >= 6000 & pingouins_propre$`Longueur Bec (mm)` >= 50, ]
 ```
 
 ## Renommer des colonnes
