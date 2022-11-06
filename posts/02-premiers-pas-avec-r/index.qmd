@@ -732,19 +732,19 @@ Certaines colonnes du tableau ne sont seront pas utiles pour la suite de l'analy
 -   sélectionner les colonnes qui nous intéressent
 
 ```{r eval=FALSE}
-pingouins_propre[, c(3, 6:9)]
+pingouins_propre[, c(3:4, 6:9)]
 ```
 
 -   supprimer les colonnes inutiles
 
 ```{r eval=FALSE}
-pingouins_propre[, -c(1:2, 4:5)]
+pingouins_propre[, -c(1:2, 5)]
 ```
 
 Ces deux commandes utilisent les index des colonnes. Vous pouvez également sélectionner ou supprimer des colonnes à l'aide de noms des variables :
 
 ```{r eval=FALSE}
-pingouins_propre[, c("espece", "longueur_bec_mm", "hauteur_bec_mm",
+pingouins_propre[, c("espece", "ile", "longueur_bec_mm", "hauteur_bec_mm",
               "longueur_aile_mm", "masse_corporelle_g")]
 ```
 
@@ -753,7 +753,7 @@ pingouins_propre[, c("espece", "longueur_bec_mm", "hauteur_bec_mm",
 Assignons ce nouveau tableau dans un objet :
 
 ```{r}
-pingouins_propre <- pingouins_propre[, c("espece", "longueur_bec_mm",
+pingouins_propre <- pingouins_propre[, c("espece", "ile", "longueur_bec_mm",
                                          "hauteur_bec_mm", "longueur_aile_mm",
                                          "masse_corporelle_g")]
 ```
@@ -782,8 +782,8 @@ Nous pouvons filtrer les données selon différents critères, à l'aide d'opér
 # Individus dont la masse est d'au moins 6 kgs
 pingouins_propre[pingouins_propre$masse_corporelle_g >= 6000, ]
 
-# Individus dont la masse est d'au moins 6 kgs et le bec mesure moins de 50 mm de long
-pingouins_propre[pingouins_propre$masse_corporelle_g >= 6000 & pingouins_propre$longueur_bec_mm >= 50, ]
+# Individus vivant sur l'ile Biscoe dont le bec mesure moins de 50 mm de long
+pingouins_propre[pingouins_propre$ile == "Biscoe" & pingouins_propre$longueur_bec_mm >= 50, ]
 ```
 
 <br>
@@ -911,13 +911,17 @@ Il n'y a que trois modalités possibles pour cette variable : il s'agit d'une va
 pingouins_propre$espece <- as.factor(pingouins_propre$espece)
 ```
 
+Procédons de la même façon pour la variable *ile* : 
+
+```{r}
+pingouins_propre$ile <- as.factor(pingouins_propre$ile)
+```
+
 Vérifiez que les corrections apportées aient bien été appliquées au jeu de données :
 
 ```{r}
 summary(pingouins_propre)
 ```
-
-<!-- ![](img/rstudio_23.png){width="100%"} -->
 
 <br>
 
@@ -949,6 +953,11 @@ Nous pouvons par exemple calculer la moyenne de la masse corporelle pour chacune
 aggregate(masse_corporelle_g ~ espece, data = pingouins_propre, FUN = mean)
 ```
 
+Nous pouvons également utiliser plusieurs variables de regroupement : calculons la moyenne de la masse corporelle par île et par espèce : 
+
+```{r}
+aggregate(masse_corporelle_g ~ espece + ile, data = pingouins_propre, FUN = mean)
+```
 
 ## Exporter des données
 
