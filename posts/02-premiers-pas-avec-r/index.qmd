@@ -936,7 +936,7 @@ La fonction `aggregate()` permet de calculer des statistiques descriptives (par 
 
 Cette fonction s'utilise de la manière suivante : 
 
-`aggregate(x ~ y, data, FUN)` : 
+`aggregate(y ~ x, data, FUN)` : 
 
 - `x` : variable explicative qui sert à regouper les données  
 - `y` : variable pour laquelle on souhaite calculer une statistique  
