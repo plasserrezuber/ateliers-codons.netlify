@@ -118,7 +118,8 @@ Tapez `2+2` puis appuyez sur `Entrée` : la console affiche le résultat.
 ```
 
 Dans la console, vous pouvez parcourir les dernières commandes exécutées à l'aide des flèches haut et bas.
-:::
+
+::: {.callout-tip icon="true"}
 
 ## Raccourcis clavier : vider la console
 
@@ -928,6 +929,26 @@ Vous pouvez également replier (**Alt + O**) ou déplier (**Alt + Shift + O**) l
 :::
 
 <br>
+
+## Agréger des données
+
+La fonction `agregate()` permet de calculer des statistiques descriptives (par exemple la moyenne, la médiane, ...) d'une variable en regroupant les données.
+
+Cette fonction s'utilise de la manière suivante : 
+
+`agregate(x ~ y, data, FUN)` : 
+
+- `x` : variable explicative qui sert à regouper les données  
+- `y` : variable pour laquelle on souhaite calculer une statistique  
+- `data` : données contenant les variables  
+- `FUN` : fonction à appliquer.
+
+Nous pouvons par exemple calculer la moyenne de la masse corporelle pour chacune des trois espèces : 
+
+```{r}
+aggregate(masse_corporelle_g ~ espece, data = pingouins_propre, FUN = mean)
+```
+
 
 ## Exporter des données
 
