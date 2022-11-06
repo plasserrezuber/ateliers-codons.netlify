@@ -932,11 +932,11 @@ Vous pouvez également replier (**Alt + O**) ou déplier (**Alt + Shift + O**) l
 
 ## Agréger des données
 
-La fonction `agregate()` permet de calculer des statistiques descriptives (par exemple la moyenne, la médiane, ...) d'une variable en regroupant les données.
+La fonction `aggregate()` permet de calculer des statistiques descriptives (par exemple la moyenne, la médiane, ...) d'une variable en regroupant les données.
 
 Cette fonction s'utilise de la manière suivante : 
 
-`agregate(x ~ y, data, FUN)` : 
+`aggregate(x ~ y, data, FUN)` : 
 
 - `x` : variable explicative qui sert à regouper les données  
 - `y` : variable pour laquelle on souhaite calculer une statistique  
