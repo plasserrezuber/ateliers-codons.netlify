@@ -117,6 +117,8 @@ Tapez `2+2` puis appuyez sur `Entrée` : la console affiche le résultat.
 2 + 2
 ```
 
+:::
+
 Dans la console, vous pouvez parcourir les dernières commandes exécutées à l'aide des flèches haut et bas.
 
 ::: {.callout-tip icon="true"}
