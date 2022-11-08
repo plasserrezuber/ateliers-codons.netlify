@@ -361,7 +361,7 @@
     "href": "posts/04-rmarkdown/index.html#insérer-une-citation",
     "title": "Introduction à RMarkdown",
     "section": "Insérer une citation",
-    "text": "Insérer une citation\nVous pouvez insérer une citation :\n\nComme l'a dit ...  \n\n> Ceci est une citation\n\n[]"
+    "text": "Insérer une citation\nVous pouvez insérer une citation :"
   },
   {
     "objectID": "posts/04-rmarkdown/index.html#notation-mathématique",
