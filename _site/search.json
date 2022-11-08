@@ -312,14 +312,14 @@
     "href": "posts/04-rmarkdown/index.html#ouvrir-un-nouveau-fichier-r-markdown",
     "title": "Introduction à RMarkdown",
     "section": "Ouvrir un nouveau fichier R Markdown",
-    "text": "Ouvrir un nouveau fichier R Markdown\nPour créer un nouveau document R Markdown (.RMd), cliquez sur File > New File > R Markdown …. Vous pouvez également cliquer sur le symbole Plus et choisir R Markdown….\n\nDans la fenêtre qui s’ouvre, laissez les paramètres par défaut et cliquez sur Create Empty Document (en cliquant sur OK vous créerez un document pré-rempli).\n\nVotre document vide s’ouvre dans la fenêtre en haut à gauche de RStudio.\n[]"
+    "text": "Ouvrir un nouveau fichier R Markdown\nPour créer un nouveau document R Markdown (.RMd), cliquez sur File > New File > R Markdown …. Vous pouvez également cliquer sur le symbole Plus et choisir R Markdown….\n\nDans la fenêtre qui s’ouvre, laissez les paramètres par défaut et cliquez sur Create Empty Document (en cliquant sur OK vous créerez un document pré-rempli).\nVotre document vide s’ouvre dans la fenêtre en haut à gauche de RStudio."
   },
   {
     "objectID": "posts/04-rmarkdown/index.html#ajouter-un-en-tête",
     "href": "posts/04-rmarkdown/index.html#ajouter-un-en-tête",
     "title": "Introduction à RMarkdown",
     "section": "Ajouter un en-tête",
-    "text": "Ajouter un en-tête\nUn document Rmd débute toujours par une section d’en-tête encadrée par trois tirets. Par défaut, cet en-tête contient le titre, l’auteur, la date et le format de fichier en sortie. Il existe beaucoup d’autres paramètres pour modifier et personnaliser votre document.\nVoici un exemple d’en-tête à insérer en haut de votre ficher .Rmd :\n\n---\ntitle: \"Pingouins de l'archipel Palmer\"\nauthor: Jonathan Kitt\ndate: 2022-11-14\noutput: html_document\n---\n\n\n\n\n\n\n\nLe YAML\n\n\n\nCet en-tête s’appelle un YAML : Yet Another Markup Language\n\n\nSauvegardez votre fichier Rmd en cliquant sur l’icône disquette (ou en utilisant la combinaison Ctrl + S). Choisissez un nom pour votre fichier et placez-le dans votre dossier docs.\n[]\n[]"
+    "text": "Ajouter un en-tête\nUn document Rmd débute par une section d’en-tête encadrée par trois tirets et qui contient généralement les éléments suivants :\n\nun titre\nles auteurs\nla date\nle format de sortie\n\nVoici un exemple d’en-tête à insérer en haut de votre ficher .Rmd :\n\n---\ntitle: \"Pingouins de l'archipel Palmer\"\nauthor: Jonathan Kitt\ndate: 2022-11-14\noutput: html_document\n---\n\n\n\n\n\n\n\nLe YAML\n\n\n\nCet en-tête s’appelle un YAML : Yet Another Markup Language\n\n\n\nSauvegardez votre fichier Rmd en cliquant sur l’icône disquette (ou en utilisant la combinaison Ctrl + S). Choisissez un nom pour votre fichier et placez-le dans votre dossier docs."
   },
   {
     "objectID": "posts/04-rmarkdown/index.html#compiler-un-document-r-markdown",

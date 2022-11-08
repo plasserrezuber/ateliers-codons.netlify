@@ -59,15 +59,27 @@ Pour créer un nouveau document R Markdown (.RMd), cliquez sur *File > New File 
 
 Dans la fenêtre qui s'ouvre, laissez les paramètres par défaut et cliquez sur *Create Empty Document* (en cliquant sur *OK* vous créerez un document pré-rempli).
 
-![](img/rmd_02.png){width="75%"}
-
 Votre document vide s'ouvre dans la fenêtre en haut à gauche de RStudio.
 
-\[![](img/rmd_03.png){width="100%"}\]
+::: {layout-ncol="2"}
+![](img/rmd_02.png)
+
+![](img/rmd_03.png)
+:::
+
+<br>
 
 ## Ajouter un en-tête
 
-Un document Rmd débute toujours par une section d'en-tête encadrée par trois tirets. Par défaut, cet en-tête contient le titre, l'auteur, la date et le format de fichier en sortie. Il existe beaucoup d'autres paramètres pour modifier et personnaliser votre document.
+Un document Rmd débute par une section d'en-tête encadrée par trois tirets et qui contient généralement les éléments suivants : 
+
+- un titre  
+
+- les auteurs  
+
+- la date  
+
+- le format de sortie
 
 Voici un exemple d'en-tête à insérer en haut de votre ficher .Rmd :
 
@@ -86,11 +98,13 @@ output: html_document
 Cet en-tête s'appelle un **YAML : Yet Another Markup Language**
 :::
 
-Sauvegardez votre fichier Rmd en cliquant sur l'icône disquette (ou en utilisant la combinaison Ctrl + S). Choisissez un nom pour votre fichier et placez-le dans votre dossier **docs**.
+<br>
 
-\[![](img/rmd_04.png){width="100%"}\]
+Sauvegardez votre fichier Rmd en cliquant sur l'icône disquette (ou en utilisant la combinaison Ctrl + S). Choisissez un nom pour votre fichier et placez-le dans votre dossier *docs*.
 
-\[![](img/rmd_05.png){width="100%"}\]
+![](img/rmd_04.png){width="100%"}
+
+![](img/rmd_05.png){width="100%"}
 
 ## Compiler un document R Markdown
 
