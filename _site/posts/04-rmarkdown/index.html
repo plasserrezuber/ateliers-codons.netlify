@@ -208,7 +208,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#ajouter-un-en-tête" id="toc-ajouter-un-en-tête" class="nav-link" data-scroll-target="#ajouter-un-en-tête">Ajouter un en-tête</a></li>
   <li><a href="#compiler-un-document-r-markdown" id="toc-compiler-un-document-r-markdown" class="nav-link" data-scroll-target="#compiler-un-document-r-markdown">Compiler un document R Markdown</a></li>
   </ul></li>
-  <li><a href="#mise-en-forme" id="toc-mise-en-forme" class="nav-link" data-scroll-target="#mise-en-forme">Mise en forme</a>
+  <li><a href="#les-bases-de-r-markdown" id="toc-les-bases-de-r-markdown" class="nav-link" data-scroll-target="#les-bases-de-r-markdown">Les bases de R Markdown</a>
   <ul class="collapse">
   <li><a href="#insérer-des-titres" id="toc-insérer-des-titres" class="nav-link" data-scroll-target="#insérer-des-titres">Insérer des titres</a></li>
   <li><a href="#mettre-en-forme-le-texte" id="toc-mettre-en-forme-le-texte" class="nav-link" data-scroll-target="#mettre-en-forme-le-texte">Mettre en forme le texte</a></li>
@@ -362,8 +362,8 @@ Prévisualiser le document
 <p><br></p>
 </section>
 </section>
-<section id="mise-en-forme" class="level1">
-<h1>Mise en forme</h1>
+<section id="les-bases-de-r-markdown" class="level1">
+<h1>Les bases de R Markdown</h1>
 <p>Pour mettre en forme votre texte, vous allez utiliser la syntaxe markdown.</p>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -523,13 +523,16 @@ Chemins vers les fichiers
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Lorsque que vous indiquez un chemin vers un fichier dans RMarkdown, le dossier “racine” n’est plus votre répertoire de travail (votre projet) mais le dossier dans lequel se trouve le fichier .Rmd, dans le cas présent le répertoire docs/ situé lui-même dans le répertoire de travail. Il faut donc revenir en arrière d’un niveau, ce qui s’effectue à l’aide de l’opérateur <strong><code>../</code></strong>. Lorsque vous naviguez dans une arborescence à l’aide de la ligne de commande, <strong><code>.</code></strong> indique le répertoire de travail et <strong><code>..</code></strong> le répertoire situé un niveau au-dessus dans votre arborescence.</p>
+<p>Lorsque que vous indiquez un chemin vers un fichier dans RMarkdown, le dossier “racine” n’est plus votre répertoire de travail (votre projet) mais le dossier dans lequel se trouve le fichier .Rmd, dans le cas présent le répertoire <em>docs/</em>.</p>
+<p>Il faut donc revenir en arrière d’un niveau, à l’aide de <strong><code>../</code></strong>.</p>
+<p>Lorsque vous naviguez dans une arborescence à l’aide de la ligne de commande, <strong><code>.</code></strong> indique le répertoire de travail et <strong><code>..</code></strong> le répertoire situé un niveau au-dessus dans votre arborescence.</p>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span>[](..<span class="sc">/</span>raw<span class="sc">/</span>lter_penguins.png){width<span class="ot">=</span><span class="st">"100%"</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span>[](..<span class="sc">/</span>figs<span class="sc">/</span>lter_penguins.png){width<span class="ot">=</span><span class="st">"100%"</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><img src="img/rmd_18.png" class="img-fluid" style="width:100.0%"></p>
+<p><br></p>
 </section>
 </section>
 <section id="rédiger-un-document-de-façon-dynamique" class="level1">

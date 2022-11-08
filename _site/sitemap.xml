@@ -2,34 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ateliers-codons.netlify.app/index.html</loc>
-    <lastmod>2022-11-08T11:42:46.223Z</lastmod>
+    <lastmod>2022-11-08T11:50:51.687Z</lastmod>
   </url>
   <url>
     <loc>https://ateliers-codons.netlify.app/posts/01-installer-r-et-rstudio/index.html</loc>
-    <lastmod>2022-11-08T11:42:47.105Z</lastmod>
+    <lastmod>2022-11-08T11:50:52.555Z</lastmod>
   </url>
   <url>
     <loc>https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/index.html</loc>
-    <lastmod>2022-11-08T11:42:50.523Z</lastmod>
+    <lastmod>2022-11-08T11:50:57.053Z</lastmod>
   </url>
   <url>
     <loc>https://ateliers-codons.netlify.app/posts/03-introduction-tidyverse/index.html</loc>
-    <lastmod>2022-11-08T11:42:52.110Z</lastmod>
+    <lastmod>2022-11-08T11:50:59.495Z</lastmod>
   </url>
   <url>
     <loc>https://ateliers-codons.netlify.app/posts/04-rmarkdown/index.html</loc>
-    <lastmod>2022-11-08T11:42:53.335Z</lastmod>
+    <lastmod>2022-11-08T11:51:01.280Z</lastmod>
   </url>
   <url>
     <loc>https://ateliers-codons.netlify.app/posts/05-git/index.html</loc>
-    <lastmod>2022-11-08T11:42:54.009Z</lastmod>
+    <lastmod>2022-11-08T11:51:02.258Z</lastmod>
   </url>
   <url>
     <loc>https://ateliers-codons.netlify.app/posts/post-with-code/index.html</loc>
-    <lastmod>2022-11-08T11:42:54.979Z</lastmod>
+    <lastmod>2022-11-08T11:51:03.456Z</lastmod>
   </url>
   <url>
     <loc>https://ateliers-codons.netlify.app/posts/welcome/index.html</loc>
-    <lastmod>2022-11-08T11:42:55.652Z</lastmod>
+    <lastmod>2022-11-08T11:51:04.178Z</lastmod>
   </url>
 </urlset>
