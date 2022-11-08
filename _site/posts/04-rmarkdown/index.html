@@ -120,6 +120,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -210,16 +211,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </ul></li>
   <li><a href="#les-bases-de-r-markdown" id="toc-les-bases-de-r-markdown" class="nav-link" data-scroll-target="#les-bases-de-r-markdown">Les bases de R Markdown</a>
   <ul class="collapse">
+  <li><a href="#mettre-en-forme-le-texte" id="toc-mettre-en-forme-le-texte" class="nav-link" data-scroll-target="#mettre-en-forme-le-texte">Mettre en forme le texte</a></li>
   <li><a href="#insérer-des-titres" id="toc-insérer-des-titres" class="nav-link" data-scroll-target="#insérer-des-titres">Insérer des titres</a></li>
   <li><a href="#insérer-une-ligne-horizontale" id="toc-insérer-une-ligne-horizontale" class="nav-link" data-scroll-target="#insérer-une-ligne-horizontale">Insérer une ligne horizontale</a></li>
-  <li><a href="#mettre-en-forme-le-texte" id="toc-mettre-en-forme-le-texte" class="nav-link" data-scroll-target="#mettre-en-forme-le-texte">Mettre en forme le texte</a></li>
-  <li><a href="#insérer-du-texte-au-format-code" id="toc-insérer-du-texte-au-format-code" class="nav-link" data-scroll-target="#insérer-du-texte-au-format-code">Insérer du texte au format code</a></li>
-  <li><a href="#insérer-un-lien" id="toc-insérer-un-lien" class="nav-link" data-scroll-target="#insérer-un-lien">Insérer un lien</a></li>
   <li><a href="#insérer-des-listes" id="toc-insérer-des-listes" class="nav-link" data-scroll-target="#insérer-des-listes">Insérer des listes</a></li>
   <li><a href="#insérer-un-tableau" id="toc-insérer-un-tableau" class="nav-link" data-scroll-target="#insérer-un-tableau">Insérer un tableau</a></li>
-  <li><a href="#insérer-une-citation" id="toc-insérer-une-citation" class="nav-link" data-scroll-target="#insérer-une-citation">Insérer une citation</a></li>
-  <li><a href="#notation-mathématique" id="toc-notation-mathématique" class="nav-link" data-scroll-target="#notation-mathématique">Notation mathématique</a></li>
-  <li><a href="#equation-mathématique" id="toc-equation-mathématique" class="nav-link" data-scroll-target="#equation-mathématique">Equation mathématique</a></li>
+  <li><a href="#equations" id="toc-equations" class="nav-link" data-scroll-target="#equations">Equations</a></li>
   <li><a href="#insérer-une-image" id="toc-insérer-une-image" class="nav-link" data-scroll-target="#insérer-une-image">Insérer une image</a></li>
   </ul></li>
   <li><a href="#rédiger-un-document-de-façon-dynamique" id="toc-rédiger-un-document-de-façon-dynamique" class="nav-link" data-scroll-target="#rédiger-un-document-de-façon-dynamique">Rédiger un document de façon dynamique</a>
@@ -368,10 +365,14 @@ Prévisualiser le document
 </div>
 <div class="callout-body-container callout-body">
 <p>Par défaut, lorsque vous compilez un fichier Rmd, le document généré s’ouvre dans une nouvelle fenêtre. Vous pouvez choisir d’afficher cette pré-visualisation directement dans l’onglet <em>Viewer</em> en bas à droite de RStudio en cliquant sur la roue à droite du bouton Knit puis sur <em>Preview in Viewer Pane</em>.</p>
+<p>En décochant <em>Show Previews Inline</em>, le résultat de l’exécution de code ne s’affichera plus dans votre fichier <code>Rmd</code>.</p>
 <p><img src="img/rmd_08.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
 <p><br></p>
+<div class="cell">
+
+</div>
 </section>
 </section>
 <section id="les-bases-de-r-markdown" class="level1">
@@ -392,15 +393,55 @@ Editeur visuel
 </div>
 </div>
 <p><br></p>
+<section id="mettre-en-forme-le-texte" class="level2">
+<h2 class="anchored" data-anchor-id="mettre-en-forme-le-texte">Mettre en forme le texte</h2>
+<p>Pour mettre en forme votre texte, utilisez les conventions suivantes :</p>
+<table class="table">
+<tbody>
+<tr class="odd">
+<td>*italiques*</td>
+<td><em>italiques</em></td>
+</tr>
+<tr class="even">
+<td>**gras**</td>
+<td><strong>gras</strong></td>
+</tr>
+<tr class="odd">
+<td>***italiques et gras***</td>
+<td><strong><em>italiques et gras</em></strong></td>
+</tr>
+<tr class="even">
+<td>~~barré~~</td>
+<td><del>barré</del></td>
+</tr>
+<tr class="odd">
+<td>[texte](lien)</td>
+<td><a href="lien">texte</a></td>
+</tr>
+<tr class="even">
+<td>texte ^exposant^</td>
+<td>texte <sup>exposant</sup></td>
+</tr>
+<tr class="odd">
+<td>texte ~indice ~</td>
+<td>texte <sub>indice</sub></td>
+</tr>
+<tr class="even">
+<td>`code`</td>
+<td><code>code</code></td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+</section>
 <section id="insérer-des-titres" class="level2">
 <h2 class="anchored" data-anchor-id="insérer-des-titres">Insérer des titres</h2>
-<p>Pour insérer un titre, utilisez un <code>#</code>. Vous pouvez utiliser différents niveaux en ajoutant des <code>#</code> :</p>
+<p>Pour insérer un titre, utilisez un <code>#</code>. Les différents niveaux (titre, sous-titre, paragraphe, …) se définissent en fonction du nombre de <code>#</code> :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Niveau 1</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Niveau 2</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="do">### Niveau 3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Titre</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Sous-titre</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="do">### Paragraphe</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><img src="img/rmd_11.png" class="img-fluid" style="width:100.0%"></p>
 <p><br></p>
 </section>
 <section id="insérer-une-ligne-horizontale" class="level2">
@@ -408,66 +449,41 @@ Editeur visuel
 <p>Pour insérer une ligne horizontale dans votre texte, utilisez <em>trois étoiles</em> <code>***</code>.</p>
 <p><br></p>
 </section>
-<section id="mettre-en-forme-le-texte" class="level2">
-<h2 class="anchored" data-anchor-id="mettre-en-forme-le-texte">Mettre en forme le texte</h2>
-<p>Pour mettre en forme votre texte, utilisez les conventions suivantes :</p>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="img/rmd_25.png" class="img-fluid"></p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="img/rmd_26.png" class="img-fluid"></p>
-</div>
-</div>
-</div>
-<p><br></p>
-</section>
-<section id="insérer-du-texte-au-format-code" class="level2">
-<h2 class="anchored" data-anchor-id="insérer-du-texte-au-format-code">Insérer du texte au format code</h2>
-<p>Vous pouvez insérer du texte au <em>format code</em> :</p>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="img/rmd_41.png" class="img-fluid"></p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="img/rmd_42.png" class="img-fluid"></p>
-</div>
-</div>
-</div>
-<p><br></p>
-</section>
-<section id="insérer-un-lien" class="level2">
-<h2 class="anchored" data-anchor-id="insérer-un-lien">Insérer un lien</h2>
-<p>Vous pouvez insérer un lien dans votre texte :</p>
-<p><img src="img/rmd_45.png" class="img-fluid"></p>
-<p><br></p>
-</section>
 <section id="insérer-des-listes" class="level2">
 <h2 class="anchored" data-anchor-id="insérer-des-listes">Insérer des listes</h2>
 <p>Vous pouvez insérer une liste à puces :</p>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="img/rmd_27.png" class="img-fluid"></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="sc">*</span> item a  </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="sc">*</span> item b  </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="sc">*</span> item c  </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> item c1</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="sc">+</span> item c2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="img/rmd_28.png" class="img-fluid"></p>
-</div>
-</div>
-</div>
+<ul>
+<li>item a<br>
+</li>
+<li>item b<br>
+</li>
+<li>item c
+<ul>
+<li>item c1</li>
+<li>item c2</li>
+</ul></li>
+</ul>
+<p><br></p>
 <p>Ou une liste numérotée :</p>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="img/rmd_29.png" class="img-fluid"></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fl">1.</span> item a  </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fl">2.</span> item b  </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fl">3.</span> item c  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="img/rmd_30.png" class="img-fluid"></p>
-</div>
-</div>
-</div>
+<ol type="1">
+<li>item a<br>
+</li>
+<li>item b<br>
+</li>
+<li>item c</li>
+</ol>
 <p><br></p>
 </section>
 <section id="insérer-un-tableau" class="level2">
@@ -477,75 +493,83 @@ Editeur visuel
 <li><p>des tirets <code>-</code> pour déparer l’en-tête du reste du tableau</p></li>
 <li><p>des barres verticales <code>|</code> pour délimiter les colonnes</p></li>
 </ul>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="img/rmd_31.png" class="img-fluid"></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="sc">|</span> col1 <span class="sc">|</span> col2 <span class="sc">|</span> col3 <span class="sc">|</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="er">|</span> <span class="sc">----</span> <span class="er">|</span> <span class="sc">----</span> <span class="er">|</span> <span class="sc">----</span> <span class="er">|</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="er">|</span> A    <span class="sc">|</span> <span class="dv">1</span>    <span class="sc">|</span> ech1 <span class="sc">|</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="er">|</span> B    <span class="sc">|</span> <span class="dv">2</span>    <span class="sc">|</span> ech2 <span class="sc">|</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="er">|</span> C    <span class="sc">|</span> <span class="dv">3</span>    <span class="sc">|</span> ech3 <span class="sc">|</span>  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="img/rmd_32.png" class="img-fluid"></p>
-</div>
-</div>
-</div>
+<table class="table">
+<thead>
+<tr class="header">
+<th>col1</th>
+<th>col2</th>
+<th>col3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>1</td>
+<td>ech1</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>2</td>
+<td>ech2</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td>3</td>
+<td>ech3</td>
+</tr>
+</tbody>
+</table>
 <p><br></p>
 <p>Pour aligner le texte, utilisez deux points <code>:</code> :</p>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="img/rmd_33.png" class="img-fluid"></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="sc">|</span> gauche <span class="sc">|</span> centre <span class="sc">|</span> droit <span class="sc">|</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="er">|</span> <span class="er">:</span><span class="sc">-----</span> <span class="er">|</span> <span class="er">:</span><span class="sc">----</span><span class="er">:</span> <span class="er">|</span> <span class="sc">----</span><span class="er">:</span> <span class="er">|</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="er">|</span> A      <span class="sc">|</span> <span class="dv">1</span>      <span class="sc">|</span> ech1  <span class="sc">|</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="er">|</span> B      <span class="sc">|</span> <span class="dv">2</span>      <span class="sc">|</span> ech2  <span class="sc">|</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="er">|</span> C      <span class="sc">|</span> <span class="dv">3</span>      <span class="sc">|</span> ech3  <span class="sc">|</span>  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="img/rmd_34.png" class="img-fluid"></p>
-</div>
-</div>
-</div>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">gauche</th>
+<th style="text-align: center;">centre</th>
+<th style="text-align: right;">droite</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: right;">ech1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: right;">ech2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">C</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: right;">ech3</td>
+</tr>
+</tbody>
+</table>
 <p><br></p>
 </section>
-<section id="insérer-une-citation" class="level2">
-<h2 class="anchored" data-anchor-id="insérer-une-citation">Insérer une citation</h2>
-<p>Vous pouvez insérer une citation :</p>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="img/rmd_35.png" class="img-fluid"></p>
+<section id="equations" class="level2">
+<h2 class="anchored" data-anchor-id="equations">Equations</h2>
+<p>La syntaxe pour insérer une équation se base sur <a href="https://rpruim.github.io/s341/S19/from-class/MathinRmd.html">LaTeX</a> :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>Un cercle de rayon <span class="sc">$</span>r<span class="sc">$</span> a une aire <span class="sc">$</span>A<span class="sc">$</span> <span class="er">:</span> <span class="er">$$</span>A <span class="ot">=</span> \pi \times r<span class="sc">^</span>{<span class="dv">2</span>}<span class="sc">$</span><span class="er">$</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="img/rmd_36.png" class="img-fluid"></p>
-</div>
-</div>
-</div>
-<p><br></p>
-</section>
-<section id="notation-mathématique" class="level2">
-<h2 class="anchored" data-anchor-id="notation-mathématique">Notation mathématique</h2>
-<p>Vous pouvez insérer du texte en exposant ou en indice :</p>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="img/rmd_37.png" class="img-fluid"></p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="img/rmd_38.png" class="img-fluid"></p>
-</div>
-</div>
-</div>
-<p><br></p>
-</section>
-<section id="equation-mathématique" class="level2">
-<h2 class="anchored" data-anchor-id="equation-mathématique">Equation mathématique</h2>
-<p>La syntaxe pour insérer une équation mathématique se base sur <a href="https://rpruim.github.io/s341/S19/from-class/MathinRmd.html">LaTeX</a> :</p>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<p><img src="img/rmd_39.png" class="img-fluid"></p>
-</div>
-</div>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<p><img src="img/rmd_40.png" class="img-fluid"></p>
-</div>
-</div>
-</div>
+<p>Un cercle de rayon <span class="math inline">\(r\)</span> a une aire <span class="math inline">\(A\)</span> : <span class="math display">\[A = \pi \times r^{2}\]</span></p>
 <p><br></p>
 </section>
 <section id="insérer-une-image" class="level2">
@@ -567,7 +591,7 @@ Chemins vers les fichiers
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span>[](..<span class="sc">/</span>figs<span class="sc">/</span>lter_penguins.png){width<span class="ot">=</span><span class="st">"100%"</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span>[pingouins](..<span class="sc">/</span>figs<span class="sc">/</span>pingouins.png){width<span class="ot">=</span><span class="st">"75%"</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><img src="img/rmd_18.png" class="img-fluid" style="width:75.0%"></p>
 <p><br></p>

@@ -28,7 +28,7 @@ Vous pouvez créer un document R Markdown et le partager, ou vous en servir à t
 
 R Markdown permet d'afficher le code utilisé et les résultats obtenus (graphiques, tables, ...) ainsi que des commentaires explicatifs, un peu à la manière d'un cahier de laboratoire.
 
-R Markdown utilise la syntaxe Markdown, un langage *markup* qui propose des outils pour créer des documents avec des en-têtes, des images, des liens, ... 
+R Markdown utilise la syntaxe Markdown, un langage *markup* qui propose des outils pour créer des documents avec des en-têtes, des images, des liens, ...
 
 Un document Markdown peut être converti en différents formats comme du *html* ou du *pdf*.
 
@@ -53,7 +53,7 @@ library(rmarkdown)
 
 ## Ouvrir un nouveau fichier R Markdown
 
-Pour créer un nouveau document R Markdown (.RMd), cliquez sur *File > New File > R Markdown ...*. Vous pouvez également cliquer sur le symbole *Plus* et choisir *R Markdown...*.
+Pour créer un nouveau document R Markdown (.RMd), cliquez sur *File \> New File \> R Markdown ...*. Vous pouvez également cliquer sur le symbole *Plus* et choisir *R Markdown...*.
 
 ![](img/rmd_01.png){width="75%"}
 
@@ -71,15 +71,15 @@ Votre document vide s'ouvre dans la fenêtre en haut à gauche de RStudio.
 
 ## Ajouter un en-tête
 
-Un document Rmd débute par une section d'en-tête encadrée par trois tirets et qui contient généralement les éléments suivants : 
+Un document Rmd débute par une section d'en-tête encadrée par trois tirets et qui contient généralement les éléments suivants :
 
-- un titre  
+-   un titre
 
-- les auteurs  
+-   les auteurs
 
-- la date  
+-   la date
 
-- le format de sortie
+-   le format de sortie
 
 Voici un exemple d'en-tête à insérer en haut de votre ficher .Rmd :
 
@@ -137,12 +137,20 @@ Dans l'explorateur de fichiers vous pouvez remarquer qu'un fichier **mesures_pin
 
 Par défaut, lorsque vous compilez un fichier Rmd, le document généré s'ouvre dans une nouvelle fenêtre. Vous pouvez choisir d'afficher cette pré-visualisation directement dans l'onglet *Viewer* en bas à droite de RStudio en cliquant sur la roue à droite du bouton Knit puis sur *Preview in Viewer Pane*.
 
+En décochant *Show Previews Inline*, le résultat de l'exécution de code ne s'affichera plus dans votre fichier `Rmd`.
+
 ![](img/rmd_08.png){width="100%"}
 :::
 
 <br>
 
+```{r}
+
+```
+
 # Les bases de R Markdown
+
+
 
 Pour mettre en forme votre texte, vous allez utiliser la syntaxe markdown.
 
@@ -156,17 +164,32 @@ Vous pouvez modifier votre fichier Rmd à la manière d'un éditeur de texte à 
 
 <br>
 
+## Mettre en forme le texte
+
+Pour mettre en forme votre texte, utilisez les conventions suivantes : 
+
+|                               |                         |
+| ----------------------------- | ----------------------- |
+| \*italiques\*                 | *italiques*             |
+| \*\*gras\*\*                  | **gras**                |
+| \*\*\*italiques et gras\*\*\* | ***italiques et gras*** |
+| \~\~barré\~\~                 | ~~barré~~               |
+| [texte\](lien)                | [texte](lien)           |
+| texte \^exposant\^            | texte ^exposant^        |
+| texte \~indice  \~            | texte ~indice~          |
+| \`code\`                      | `code`                  |
+
+<br>
+
 ## Insérer des titres
 
-Pour insérer un titre, utilisez un `#`. Vous pouvez utiliser différents niveaux en ajoutant des `#` :
+Pour insérer un titre, utilisez un `#`. Les différents niveaux (titre, sous-titre, paragraphe, ...) se définissent en fonction du nombre de `#` :
 
 ```{r, echo=TRUE, eval=FALSE}
-# Niveau 1
-## Niveau 2
-### Niveau 3
+# Titre
+## Sous-titre
+### Paragraphe
 ```
-
-![](img/rmd_11.png){width="100%"}
 
 <br>
 
@@ -176,57 +199,37 @@ Pour insérer une ligne horizontale dans votre texte, utilisez *trois étoiles* 
 
 <br>
 
-
-
-## Mettre en forme le texte
-
-Pour mettre en forme votre texte, utilisez les conventions suivantes :
-
-::: {layout-ncol="2"}
-![](img/rmd_25.png)
-
-![](img/rmd_26.png)
-:::
-
-<br>
-
-## Insérer du texte au format code
-
-Vous pouvez insérer du texte au *format code* : 
-
-::: {layout-ncol="2"}
-![](img/rmd_41.png)
-
-![](img/rmd_42.png)
-:::
-
-<br>
-
-## Insérer un lien
-
-Vous pouvez insérer un lien dans votre texte : 
-
-![](img/rmd_45.png)
-
-<br>
-
 ## Insérer des listes
 
 Vous pouvez insérer une liste à puces :
 
-::: {layout-ncol="2"}
-![](img/rmd_27.png)
+```{r, eval=FALSE}
+* item a  
+* item b  
+* item c  
+    + item c1
+    + item c2
+```
 
-![](img/rmd_28.png)
-:::
+* item a   
+* item b    
+* item c  
+    + item c1
+    + item c2
+
+<br>
 
 Ou une liste numérotée :
 
-::: {layout-ncol="2"}
-![](img/rmd_29.png)
+```{r, eval=FALSE}
+1. item a  
+2. item b  
+3. item c  
+```
 
-![](img/rmd_30.png)
-:::
+1. item a   
+2. item b    
+3. item c  
 
 <br>
 
@@ -234,61 +237,52 @@ Ou une liste numérotée :
 
 Vous pouvez insérer un tableau en le "dessinant" :
 
-- des tirets `-` pour déparer l'en-tête du reste du tableau
+-   des tirets `-` pour déparer l'en-tête du reste du tableau
 
-- des barres verticales `|` pour délimiter les colonnes
+-   des barres verticales `|` pour délimiter les colonnes
 
-::: {layout-ncol="2"}
-![](img/rmd_31.png)
+```{r, eval=FALSE}
+| col1 | col2 | col3 |
+| ---- | ---- | ---- |
+| A    | 1    | ech1 |
+| B    | 2    | ech2 |
+| C    | 3    | ech3 |  
+```
 
-![](img/rmd_32.png)
-:::
+| col1 | col2 | col3 |
+| ---- | ---- | ---- |
+| A    | 1    | ech1 |
+| B    | 2    | ech2 |
+| C    | 3    | ech3 | 
 
 <br>
 
 Pour aligner le texte, utilisez deux points `:` :
 
-::: {layout-ncol="2"}
-![](img/rmd_33.png)
+```{r, eval=FALSE}
+| gauche | centre | droit |
+| :----- | :----: | ----: |
+| A      | 1      | ech1  |
+| B      | 2      | ech2  |
+| C      | 3      | ech3  |  
+```
 
-![](img/rmd_34.png)
-:::
-
-<br>
-
-## Insérer une citation
-
-Vous pouvez insérer une citation :
-
-::: {layout-ncol="2"}
-![](img/rmd_35.png)
-
-![](img/rmd_36.png)
-:::
+| gauche | centre | droite |
+| :----- | :----: | -----: |
+| A      | 1      | ech1   |
+| B      | 2      | ech2   |
+| C      | 3      | ech3   |  
 
 <br>
 
-## Notation mathématique
+## Equations
 
-Vous pouvez insérer du texte en exposant ou en indice :
+La syntaxe pour insérer une équation se base sur [LaTeX](https://rpruim.github.io/s341/S19/from-class/MathinRmd.html) :
 
-::: {layout-ncol="2"}
-![](img/rmd_37.png)
-
-![](img/rmd_38.png)
-:::
-
-<br>
-
-## Equation mathématique
-
-La syntaxe pour insérer une équation mathématique se base sur [LaTeX](https://rpruim.github.io/s341/S19/from-class/MathinRmd.html) :
-
-::: {layout-ncol="1"}
-![](img/rmd_39.png)
-
-![](img/rmd_40.png)
-:::
+```{r, eval=FALSE}
+Un cercle de rayon $r$ a une aire $A$ : $$A = \pi \times r^{2}$$ 
+```
+Un cercle de rayon $r$ a une aire $A$ : $$A = \pi \times r^{2}$$ 
 
 <br>
 
@@ -301,13 +295,13 @@ Vous pouvez insérer une image dans votre fichier :
 
 Lorsque que vous indiquez un chemin vers un fichier dans RMarkdown, le dossier "racine" n'est plus votre répertoire de travail (votre projet) mais le dossier dans lequel se trouve le fichier .Rmd, dans le cas présent le répertoire *docs/*.
 
-Il faut donc revenir en arrière d'un niveau, à l'aide de **`../`**. 
+Il faut donc revenir en arrière d'un niveau, à l'aide de **`../`**.
 
 Lorsque vous naviguez dans une arborescence à l'aide de la ligne de commande, **`.`** indique le répertoire de travail et **`..`** le répertoire situé un niveau au-dessus dans votre arborescence.
 :::
 
 ```{r, echo=TRUE, eval=FALSE}
-![](../figs/lter_penguins.png){width="100%"}
+![pingouins](../figs/pingouins.png){width="75%"}
 ```
 
 ![](img/rmd_18.png){width="75%"}
@@ -316,7 +310,7 @@ Lorsque vous naviguez dans une arborescence à l'aide de la ligne de commande, *
 
 # Rédiger un document de façon dynamique
 
-Lorsque vous rédigez un rapport, vous pouvez le faire *"en dur"*, c'est-à-dire inscrire directement dans le texte toutes les valeurs numériques, les résultats de calculs, insérer des graphiques générés séparément, ... 
+Lorsque vous rédigez un rapport, vous pouvez le faire *"en dur"*, c'est-à-dire inscrire directement dans le texte toutes les valeurs numériques, les résultats de calculs, insérer des graphiques générés séparément, ...
 
 Cette façon de procéder présente un désavantage majeur : votre document ne sera valable qu'une seule fois pour une seule analyse (vous pourrez toujours le ré-utiliser en remplaçant les valeurs numériques). De plus, le risque d'erreur est non négligeable : coller des valeurs numériques copiées depuis un autre logiciel peut créer des mauvaises surprises.
 
@@ -328,7 +322,7 @@ Votre fichier Rmd pourra ainsi être modifié et ré-utilisé pour des analyses 
 
 ## Insérer un bloc de code R
 
-Commençons par importer notre jeu de données à l'aide d'une ligne de code insérée dans un bloc de code. Dans RMarkdown, un bloc de code est encadré par trois accents *\`\`\`*. 
+Commençons par importer notre jeu de données à l'aide d'une ligne de code insérée dans un bloc de code. Dans RMarkdown, un bloc de code est encadré par trois accents *\`\`\`*.
 
 Sur la première ligne on indique entre accolades qu'il s'agit de code R :
 
@@ -344,7 +338,7 @@ Pour insérer un bloc de code, utiliser la combinaison **Ctrl + Alt + I**
 
 <br>
 
-Vous pouvez exécuter ce code comme vous le feriez dans un script classique en cliquant sur la flèche verte à droite du code (ou en vous plaçant sur la ligne et en utilisant la combinaison **Ctrl + Entrée**). 
+Vous pouvez exécuter ce code comme vous le feriez dans un script classique en cliquant sur la flèche verte à droite du code (ou en vous plaçant sur la ligne et en utilisant la combinaison **Ctrl + Entrée**).
 
 Le fichier a bien été importé et stocké dans l'objet **pingouins** visible dans l'environnement.
 
@@ -354,7 +348,7 @@ Lorsque vous compilez votre fichier Rmd, le code est exécuté et s'affiche dans
 
 <br>
 
-Lorsque vous insérez un bloc de code, des paramètres vous permettent de préciser si le code doit être affiché ou non, exécuté ou non, ... 
+Lorsque vous insérez un bloc de code, des paramètres vous permettent de préciser si le code doit être affiché ou non, exécuté ou non, ...
 
 Ces options sont à placer dans les accolades : `{r eval=FALSE} par exemple`.
 
@@ -366,12 +360,11 @@ Ces options sont à placer dans les accolades : `{r eval=FALSE} par exemple`.
 | error   | FALSE      | afficher les messages d'erreur         |
 | message | TRUE       | afficher les messages                  |
 
-
-## Insérer du code 
+## Insérer du code
 
 Nous avons vu plus haut comment insérer du texte au format code.
 
-Vous pouvez exécuter le code en ajoutant un `r` : 
+Vous pouvez exécuter le code en ajoutant un `r` :
 
 ![](img/rmd_43.png)
 
@@ -389,9 +382,9 @@ Commençons par rédiger une courte introduction :
 
 ![](img/rmd_46.png)
 
-- Nous utilisons des *balises `html`* pour centrer l'image : `<center> et </center>`  
+-   Nous utilisons des *balises `html`* pour centrer l'image : `<center> et </center>`
 
-- Nous ajustons la largeur de l'image à l'aide du paramètre `{width="50%"}`
+-   Nous ajustons la largeur de l'image à l'aide du paramètre `{width="50%"}`
 
 <br>
 
@@ -403,11 +396,11 @@ pingouins <- read.csv("../../raw/pingouins.csv", check.names = FALSE)
 
 Pour utiliser les données dans notre fichier `Rmd` nous devons l'importer : il sera alors disponible dans notre environnement.
 
-Le chemin vers le fichier `pingouins.csv` ne sera pas le même pour un utilisateur utilisant notre document. Nous insérons ainsi deux blocs de code : 
+Le chemin vers le fichier `pingouins.csv` ne sera pas le même pour un utilisateur utilisant notre document. Nous insérons ainsi deux blocs de code :
 
-- importer les données pour les utiliser dans le fichier `Rmd`  
+-   importer les données pour les utiliser dans le fichier `Rmd`
 
-- expliquer comment importer les données pour un autre utilisateur
+-   expliquer comment importer les données pour un autre utilisateur
 
 ![](img/rmd_47.png)
 
@@ -415,7 +408,7 @@ Le chemin vers le fichier `pingouins.csv` ne sera pas le même pour un utilisate
 
 ### Description des données
 
-Les données brutes étant à présent disponibles dans notre environnement, nous pouvons les explorer de façon dynamique et afficher les résultats dans notre document : 
+Les données brutes étant à présent disponibles dans notre environnement, nous pouvons les explorer de façon dynamique et afficher les résultats dans notre document :
 
 ![](img/rmd_48.png)
 
@@ -449,42 +442,42 @@ pingouins_propre$ratio_bec <- round(pingouins_propre$longueur_bec_mm / pingouins
 pingouins_propre <- pingouins_propre[complete.cases(pingouins_propre), ]
 ```
 
-Comme nous l'avions fait pour importer les données, nous utilisons deux blocs de code pour exporter les données nettoyées : 
+Comme nous l'avions fait pour importer les données, nous utilisons deux blocs de code pour exporter les données nettoyées :
 
 ![](img/rmd_50.png)
 
-Nous terminons cette partie par une description rapide des données nettoyées.  
+Nous terminons cette partie par une description rapide des données nettoyées.
 
-La fonction `kable()` du package `knitr` permet d'afficher un tableau dans le document : 
+La fonction `kable()` du package `knitr` permet d'afficher un tableau dans le document :
 
 ![](img/rmd_51.png)
 
 ## Représenter les données
 
-RMarkdown permet d'exécuter le code utilisé pour générer un graphique et d'afficher celui-ci directement dans le document : 
+RMarkdown permet d'exécuter le code utilisé pour générer un graphique et d'afficher celui-ci directement dans le document :
 
 ![](img/rmd_52.png)
 
 Vous pouvez afficher deux graphiques côte à côté, à l'aide d'options à placer dans les accolades `{r ...}` :
 
-- `out.width` pour préciser les largeurs des graphiques (en %)  
+-   `out.width` pour préciser les largeurs des graphiques (en %)
 
-- `fig.show = "hold"` pour indiquer à R d'attendre d'avoir exécuté le code pour les deux graphiques avant de les afficher
+-   `fig.show = "hold"` pour indiquer à R d'attendre d'avoir exécuté le code pour les deux graphiques avant de les afficher
 
 ![](img/rmd_53.png)
 
 ## Ajouter un sommaire
 
-Vous pouvez ajouter un sommaire à votre document, en ajoutant des options dans l'en-tête : 
+Vous pouvez ajouter un sommaire à votre document, en ajoutant des options dans l'en-tête :
 
-- `toc: true` : activer le sommaire (*table of contents)  
+-   `toc: true` : activer le sommaire (\*table of contents)
 
-- `toc_depth` : définir le nombre de niveaux à afficher dans le sommaire
+-   `toc_depth` : définir le nombre de niveaux à afficher dans le sommaire
 
 ![](img/rmd_54.png)
 
 ## Compiler le fichier Rmd au format `pdf`
 
-Pour exporter votre document au format pdf, vous pouvez modifier l'en-tête : 
+Pour exporter votre document au format pdf, vous pouvez modifier l'en-tête :
 
 ![](img/rmd_55.png)
