@@ -142,7 +142,7 @@ Par défaut, lorsque vous compilez un fichier Rmd, le document généré s'ouvre
 
 <br>
 
-# Mise en forme
+# Les bases de R Markdown
 
 Pour mettre en forme votre texte, vous allez utiliser la syntaxe markdown.
 
@@ -271,14 +271,20 @@ Vous pouvez insérer une image dans votre fichier :
 ::: {.callout-important icon="true"}
 ## Chemins vers les fichiers
 
-Lorsque que vous indiquez un chemin vers un fichier dans RMarkdown, le dossier "racine" n'est plus votre répertoire de travail (votre projet) mais le dossier dans lequel se trouve le fichier .Rmd, dans le cas présent le répertoire docs/ situé lui-même dans le répertoire de travail. Il faut donc revenir en arrière d'un niveau, ce qui s'effectue à l'aide de l'opérateur **`../`**. Lorsque vous naviguez dans une arborescence à l'aide de la ligne de commande, **`.`** indique le répertoire de travail et **`..`** le répertoire situé un niveau au-dessus dans votre arborescence.
+Lorsque que vous indiquez un chemin vers un fichier dans RMarkdown, le dossier "racine" n'est plus votre répertoire de travail (votre projet) mais le dossier dans lequel se trouve le fichier .Rmd, dans le cas présent le répertoire *docs/*.
+
+Il faut donc revenir en arrière d'un niveau, à l'aide de **`../`**. 
+
+Lorsque vous naviguez dans une arborescence à l'aide de la ligne de commande, **`.`** indique le répertoire de travail et **`..`** le répertoire situé un niveau au-dessus dans votre arborescence.
 :::
 
 ```{r, echo=TRUE, eval=FALSE}
-![](../raw/lter_penguins.png){width="100%"}
+![](../figs/lter_penguins.png){width="100%"}
 ```
 
 ![](img/rmd_18.png){width="100%"}
+
+<br>
 
 # Rédiger un document de façon dynamique
 

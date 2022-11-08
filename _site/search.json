@@ -382,7 +382,7 @@
     "href": "posts/04-rmarkdown/index.html#insérer-une-image",
     "title": "Introduction à RMarkdown",
     "section": "Insérer une image",
-    "text": "Insérer une image\nVous pouvez insérer une image dans votre fichier :\n\n\n\n\n\n\nChemins vers les fichiers\n\n\n\nLorsque que vous indiquez un chemin vers un fichier dans RMarkdown, le dossier “racine” n’est plus votre répertoire de travail (votre projet) mais le dossier dans lequel se trouve le fichier .Rmd, dans le cas présent le répertoire docs/ situé lui-même dans le répertoire de travail. Il faut donc revenir en arrière d’un niveau, ce qui s’effectue à l’aide de l’opérateur ../. Lorsque vous naviguez dans une arborescence à l’aide de la ligne de commande, . indique le répertoire de travail et .. le répertoire situé un niveau au-dessus dans votre arborescence.\n\n\n\n![](../raw/lter_penguins.png){width=\"100%\"}"
+    "text": "Insérer une image\nVous pouvez insérer une image dans votre fichier :\n\n\n\n\n\n\nChemins vers les fichiers\n\n\n\nLorsque que vous indiquez un chemin vers un fichier dans RMarkdown, le dossier “racine” n’est plus votre répertoire de travail (votre projet) mais le dossier dans lequel se trouve le fichier .Rmd, dans le cas présent le répertoire docs/.\nIl faut donc revenir en arrière d’un niveau, à l’aide de ../.\nLorsque vous naviguez dans une arborescence à l’aide de la ligne de commande, . indique le répertoire de travail et .. le répertoire situé un niveau au-dessus dans votre arborescence.\n\n\n\n![](../figs/lter_penguins.png){width=\"100%\"}"
   },
   {
     "objectID": "posts/04-rmarkdown/index.html#insérer-un-bloc-de-code-r",
