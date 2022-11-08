@@ -361,35 +361,42 @@
     "href": "posts/04-rmarkdown/index.html#insérer-un-tableau",
     "title": "Introduction à RMarkdown",
     "section": "Insérer un tableau",
-    "text": "Insérer un tableau\nVous pouvez insérer un tableau en le “dessinant” :\n\ndes tirets - pour déparer l’en-tête du reste du tableau\ndes barres verticales | pour délimiter les colonnes\n\n\n| col1 | col2 | col3 |\n| ---- | ---- | ---- |\n| A    | 1    | ech1 |\n| B    | 2    | ech2 |\n| C    | 3    | ech3 |  \n\n\n\n\ncol1\ncol2\ncol3\n\n\n\n\nA\n1\nech1\n\n\nB\n2\nech2\n\n\nC\n3\nech3\n\n\n\n\nPour aligner le texte, utilisez deux points : :\n\n| gauche | centre | droit |\n| :----- | :----: | ----: |\n| A      | 1      | ech1  |\n| B      | 2      | ech2  |\n| C      | 3      | ech3  |  \n\n\n\n\ngauche\ncentre\ndroite\n\n\n\n\nA\n1\nech1\n\n\nB\n2\nech2\n\n\nC\n3\nech3"
+    "text": "Insérer un tableau\nVous pouvez insérer un tableau en le “dessinant” :\n\ndes tirets - pour déparer l’en-tête du reste du tableau\ndes barres verticales | pour délimiter les colonnes\n\n\n| col1 | col2 | col3 |\n| ---- | ---- | ---- |\n| A    | 1    | ech1 |\n| B    | 2    | ech2 |\n| C    | 3    | ech3 |  \n\n\n\n\ncol1\ncol2\ncol3\n\n\n\n\nA\n1\nech1\n\n\nB\n2\nech2\n\n\nC\n3\nech3\n\n\n\n\nPour aligner le texte, utilisez deux points : :\n\n| gauche | centre | droite |\n| :----- | :----: | -----: |\n| A      | 1      | ech1   |\n| B      | 2      | ech2   |\n| C      | 3      | ech3   |  \n\n\n\n\ngauche\ncentre\ndroite\n\n\n\n\nA\n1\nech1\n\n\nB\n2\nech2\n\n\nC\n3\nech3"
   },
   {
     "objectID": "posts/04-rmarkdown/index.html#equations",
     "href": "posts/04-rmarkdown/index.html#equations",
     "title": "Introduction à RMarkdown",
     "section": "Equations",
-    "text": "Equations\nLa syntaxe pour insérer une équation se base sur LaTeX :\n\nUn cercle de rayon $r$ a une aire $A$ : $$A = \\pi \\times r^{2}$$ \n\nUn cercle de rayon \\(r\\) a une aire \\(A\\) : \\[A = \\pi \\times r^{2}\\]"
+    "text": "Equations\nLa syntaxe pour insérer une équation se base sur LaTeX :\n\nUn cercle de rayon $r$ a une aire $A = \\pi \\times r^{2}$ \n\nUn cercle de rayon \\(r\\) a une aire \\(A = \\pi \\times r^{2}\\)"
   },
   {
     "objectID": "posts/04-rmarkdown/index.html#insérer-une-image",
     "href": "posts/04-rmarkdown/index.html#insérer-une-image",
     "title": "Introduction à RMarkdown",
     "section": "Insérer une image",
-    "text": "Insérer une image\nVous pouvez insérer une image dans votre fichier :\n\n\n\n\n\n\nChemins vers les fichiers\n\n\n\nLorsque que vous indiquez un chemin vers un fichier dans RMarkdown, le dossier “racine” n’est plus votre répertoire de travail (votre projet) mais le dossier dans lequel se trouve le fichier .Rmd, dans le cas présent le répertoire docs/.\nIl faut donc revenir en arrière d’un niveau, à l’aide de ../.\nLorsque vous naviguez dans une arborescence à l’aide de la ligne de commande, . indique le répertoire de travail et .. le répertoire situé un niveau au-dessus dans votre arborescence.\n\n\n\n![pingouins](../figs/pingouins.png){width=\"75%\"}"
+    "text": "Insérer une image\nVous pouvez insérer une image dans votre fichier :\n\n\n\n\n\n\nChemins vers les fichiers\n\n\n\nLorsque que vous indiquez un chemin vers un fichier dans RMarkdown, le dossier “racine” n’est plus votre répertoire de travail (votre projet) mais le dossier dans lequel se trouve le fichier .Rmd, dans le cas présent le répertoire docs/.\nIl faut donc revenir en arrière d’un niveau, à l’aide de ../.\nLorsque vous naviguez dans une arborescence à l’aide de la ligne de commande, . indique le répertoire de travail et .. le répertoire situé un niveau au-dessus dans votre arborescence.\n\n\n\n![pingouins](../figs/pingouins.png){width=\"75%\"}\n\n\nL’option width permet d’ajuster la largeur relative de l’image."
   },
   {
     "objectID": "posts/04-rmarkdown/index.html#insérer-un-bloc-de-code-r",
     "href": "posts/04-rmarkdown/index.html#insérer-un-bloc-de-code-r",
     "title": "Introduction à RMarkdown",
     "section": "Insérer un bloc de code R",
-    "text": "Insérer un bloc de code R\nCommençons par importer notre jeu de données à l’aide d’une ligne de code insérée dans un bloc de code. Dans RMarkdown, un bloc de code est encadré par trois accents ```.\nSur la première ligne on indique entre accolades qu’il s’agit de code R :\n\n\n\n\n\n\n\n\nRaccourci clavier : insérer un bloc de code\n\n\n\nPour insérer un bloc de code, utiliser la combinaison Ctrl + Alt + I\n\n\n\nVous pouvez exécuter ce code comme vous le feriez dans un script classique en cliquant sur la flèche verte à droite du code (ou en vous plaçant sur la ligne et en utilisant la combinaison Ctrl + Entrée).\nLe fichier a bien été importé et stocké dans l’objet pingouins visible dans l’environnement.\nLorsque vous compilez votre fichier Rmd, le code est exécuté et s’affiche dans votre document de sortie (au format html) :\n\n\nLorsque vous insérez un bloc de code, des paramètres vous permettent de préciser si le code doit être affiché ou non, exécuté ou non, …\nCes options sont à placer dans les accolades : {r eval=FALSE} par exemple.\n\n\n\noption\npar défaut\neffet\n\n\n\n\neval\nTRUE\névaluer le code et inclure le résultat\n\n\necho\nTRUE\nafficher le code avec le résultat\n\n\nwarning\nTRUE\nafficher les messages d’avertissement\n\n\nerror\nFALSE\nafficher les messages d’erreur\n\n\nmessage\nTRUE\nafficher les messages"
+    "text": "Insérer un bloc de code R\nCommençons par importer notre jeu de données. Nous allons pour cela insérer un bloc de code dans notre fichier.\nPour insérer un bloc de code, cliquez sur l’icône située en haut à droite du fichier Rmdet choisissez R (d’autres langages de programmation sont disponibles).\n\nUn bloc de code contient les éléments suivants :\n\ndes accents ``` pour délimiter le bloc\ndes accolades contenant des informations : {r} (nous verrons d’autres paramètres plus loin)\ntrois icônes :\n\nune roue pour ajouter des options\nune flèche pointant vers le bas pour exécuter tout le code jusqu’à ce bloc\nune flèche pointant vers la droite pour exécuter le bloc (vous pouvez également exécuter le code d’un bloc en vous positionnant sur le code et en utilisant la combinaison Ctrl + Entrée)\n\n\n\n\n\n\n\n\n\nRaccourci clavier : insérer un bloc de code\n\n\n\nPour insérer un bloc de code, utiliser la combinaison Ctrl + Alt + I\n\n\n\nAjoutez le code suivant dans ce bloc de code et exécutez-le (attention au chemin !) :\n\npingouins <- read.csv(\"../data/pingouins_propre.csv\")\n\nLe fichier a bien été importé et stocké dans l’objet pingouins visible dans l’environnement.\nLorsque vous compilez votre fichier Rmd, le code est exécuté et s’affiche dans votre document de sortie (au format html). L’objet pingouins n’est pas visible dans l’environnement lorsque vous compilez votre fichier Rmd, mais il est bel et bien disponible et vous pourrez le manipuler à l’aide de blocs de code."
   },
   {
-    "objectID": "posts/04-rmarkdown/index.html#insérer-du-code",
-    "href": "posts/04-rmarkdown/index.html#insérer-du-code",
+    "objectID": "posts/04-rmarkdown/index.html#paramétrer-un-bloc-de-code",
+    "href": "posts/04-rmarkdown/index.html#paramétrer-un-bloc-de-code",
     "title": "Introduction à RMarkdown",
-    "section": "Insérer du code",
-    "text": "Insérer du code\nNous avons vu plus haut comment insérer du texte au format code.\nVous pouvez exécuter le code en ajoutant un r :"
+    "section": "Paramétrer un bloc de code",
+    "text": "Paramétrer un bloc de code\nLorsque vous insérez un bloc de code, des paramètres vous permettent de préciser si le code doit être affiché ou non, exécuté ou non, …\nVous pouvez régler certains paramètres en cliquant sur la roue à droite du bloc :\n\nVous pouvez également renseigner ces paramètres directement dans les accolades : {r, eval = FALSE} par exemple.\n\n\n\noption\npar défaut\neffet\n\n\n\n\neval\nTRUE\névaluer le code et inclure le résultat\n\n\necho\nTRUE\nafficher le code avec le résultat\n\n\nwarning\nTRUE\nafficher les messages d’avertissement\n\n\nerror\nFALSE\nafficher les messages d’erreur\n\n\n\n\nSi vous le souhaitez, vous pouvez définir en haut de votre fichier Rmd les paramètres à appliquer à l’ensemble des blocs de code :\n\n\n\n\n\n\n\nBonnes pratiques : nommer les blocs de code\n\n\n\nComme vous pouvez le voir dans le dernier exemple, il est utile de nommer les blocs de code :\n\nen utilisant la roue à droite du bloc et en tapant le nom dans Chunck Name\nen tapant le nom directement dans les accolades"
+  },
+  {
+    "objectID": "posts/04-rmarkdown/index.html#exécuter-du-code-dans-le-texte",
+    "href": "posts/04-rmarkdown/index.html#exécuter-du-code-dans-le-texte",
+    "title": "Introduction à RMarkdown",
+    "section": "Exécuter du code dans le texte",
+    "text": "Exécuter du code dans le texte\nNous avons vu plus haut comment insérer du texte au format code.\nVous pouvez exécuter le code en ajoutant un r :\n\nLa racine carrée de 20 est **`r sqrt(20)`**\n\nLa racine carrée de 20 est 4.472136"
   },
   {
     "objectID": "posts/04-rmarkdown/index.html#introduction-1",

@@ -150,8 +150,6 @@ En décochant *Show Previews Inline*, le résultat de l'exécution de code ne s'
 
 # Les bases de R Markdown
 
-
-
 Pour mettre en forme votre texte, vous allez utiliser la syntaxe markdown.
 
 ::: {.callout-note icon="true"}
@@ -166,17 +164,17 @@ Vous pouvez modifier votre fichier Rmd à la manière d'un éditeur de texte à 
 
 ## Mettre en forme le texte
 
-Pour mettre en forme votre texte, utilisez les conventions suivantes : 
+Pour mettre en forme votre texte, utilisez les conventions suivantes :
 
 |                               |                         |
-| ----------------------------- | ----------------------- |
+|-------------------------------|-------------------------|
 | \*italiques\*                 | *italiques*             |
 | \*\*gras\*\*                  | **gras**                |
 | \*\*\*italiques et gras\*\*\* | ***italiques et gras*** |
 | \~\~barré\~\~                 | ~~barré~~               |
-| [texte\](lien)                | [texte](lien)           |
+| \[texte\](lien)               | [texte](lien)           |
 | texte \^exposant\^            | texte ^exposant^        |
-| texte \~indice  \~            | texte ~indice~          |
+| texte \~indice \~             | texte ~indice~          |
 | \`code\`                      | `code`                  |
 
 <br>
@@ -211,11 +209,11 @@ Vous pouvez insérer une liste à puces :
     + item c2
 ```
 
-* item a   
-* item b    
-* item c  
-    + item c1
-    + item c2
+-   item a\
+-   item b\
+-   item c
+    -   item c1
+    -   item c2
 
 <br>
 
@@ -227,9 +225,9 @@ Ou une liste numérotée :
 3. item c  
 ```
 
-1. item a   
-2. item b    
-3. item c  
+1.  item a\
+2.  item b\
+3.  item c
 
 <br>
 
@@ -250,28 +248,28 @@ Vous pouvez insérer un tableau en le "dessinant" :
 ```
 
 | col1 | col2 | col3 |
-| ---- | ---- | ---- |
+|------|------|------|
 | A    | 1    | ech1 |
 | B    | 2    | ech2 |
-| C    | 3    | ech3 | 
+| C    | 3    | ech3 |
 
 <br>
 
 Pour aligner le texte, utilisez deux points `:` :
 
 ```{r, eval=FALSE}
-| gauche | centre | droit |
-| :----- | :----: | ----: |
-| A      | 1      | ech1  |
-| B      | 2      | ech2  |
-| C      | 3      | ech3  |  
-```
-
 | gauche | centre | droite |
 | :----- | :----: | -----: |
 | A      | 1      | ech1   |
 | B      | 2      | ech2   |
 | C      | 3      | ech3   |  
+```
+
+| gauche | centre | droite |
+|:-------|:------:|-------:|
+| A      |   1    |   ech1 |
+| B      |   2    |   ech2 |
+| C      |   3    |   ech3 |
 
 <br>
 
@@ -280,9 +278,10 @@ Pour aligner le texte, utilisez deux points `:` :
 La syntaxe pour insérer une équation se base sur [LaTeX](https://rpruim.github.io/s341/S19/from-class/MathinRmd.html) :
 
 ```{r, eval=FALSE}
-Un cercle de rayon $r$ a une aire $A$ : $$A = \pi \times r^{2}$$ 
+Un cercle de rayon $r$ a une aire $A = \pi \times r^{2}$ 
 ```
-Un cercle de rayon $r$ a une aire $A$ : $$A = \pi \times r^{2}$$ 
+
+Un cercle de rayon $r$ a une aire $A = \pi \times r^{2}$
 
 <br>
 
@@ -306,6 +305,8 @@ Lorsque vous naviguez dans une arborescence à l'aide de la ligne de commande, *
 
 ![](img/rmd_18.png){width="75%"}
 
+L'option `width` permet d'ajuster la largeur relative de l'image.
+
 <br>
 
 # Rédiger un document de façon dynamique
@@ -314,19 +315,33 @@ Lorsque vous rédigez un rapport, vous pouvez le faire *"en dur"*, c'est-à-dire
 
 Cette façon de procéder présente un désavantage majeur : votre document ne sera valable qu'une seule fois pour une seule analyse (vous pourrez toujours le ré-utiliser en remplaçant les valeurs numériques). De plus, le risque d'erreur est non négligeable : coller des valeurs numériques copiées depuis un autre logiciel peut créer des mauvaises surprises.
 
-Pour pallier à ces différents problèmes, RMarkdown vous permet de rédiger votre fichier de façon *"dynamique"*. Vous pouvez ainsi importer les fichiers nécessaires à votre analyse, effectuer des calculs et générer des graphiques à l'aide de code R qui sera compilé.
+R Markdown vous permet de rédiger votre fichier de façon *"dynamique"*. Vous pouvez ainsi importer les fichiers nécessaires à votre analyse, effectuer des calculs et générer des graphiques à l'aide de code R qui sera compilé.
 
-Votre fichier Rmd pourra ainsi être modifié et ré-utilisé pour des analyses similaires sur d'autres jeux de données.
+Votre fichier `Rmd` pourra ainsi être modifié et ré-utilisé pour des analyses similaires sur d'autres jeux de données.
 
 <br>
 
 ## Insérer un bloc de code R
 
-Commençons par importer notre jeu de données à l'aide d'une ligne de code insérée dans un bloc de code. Dans RMarkdown, un bloc de code est encadré par trois accents *\`\`\`*.
+Commençons par importer notre jeu de données. Nous allons pour cela insérer un *bloc de code* dans notre fichier.
 
-Sur la première ligne on indique entre accolades qu'il s'agit de code R :
+Pour insérer un bloc de code, cliquez sur l'icône située en haut à droite du fichier `Rmd`et choisissez `R` (d'autres langages de programmation sont disponibles).
 
-![](img/rmd_20.png){width="100%"}
+![](img/rmd_56.png){width="100%"}
+
+Un bloc de code contient les éléments suivants :
+
+-   des *accents* *\`\`\`* pour délimiter le bloc
+
+-   des accolades contenant des informations : `{r}` (nous verrons d'autres paramètres plus loin)
+
+-   trois icônes :
+
+    -   une *roue* pour ajouter des options
+
+    -   une flèche pointant vers le bas pour exécuter tout le code jusqu'à ce bloc
+
+    -   une flèche pointant vers la droite pour exécuter le bloc (vous pouvez également exécuter le code d'un bloc en vous positionnant sur le code et en utilisant la combinaison *Ctrl* + *Entrée*)
 
 <br>
 
@@ -338,19 +353,27 @@ Pour insérer un bloc de code, utiliser la combinaison **Ctrl + Alt + I**
 
 <br>
 
-Vous pouvez exécuter ce code comme vous le feriez dans un script classique en cliquant sur la flèche verte à droite du code (ou en vous plaçant sur la ligne et en utilisant la combinaison **Ctrl + Entrée**).
+Ajoutez le code suivant dans ce bloc de code et exécutez-le (attention au chemin !) :
+
+```{r, eval=FALSE}
+pingouins <- read.csv("../data/pingouins_propre.csv")
+```
 
 Le fichier a bien été importé et stocké dans l'objet **pingouins** visible dans l'environnement.
 
-Lorsque vous compilez votre fichier Rmd, le code est exécuté et s'affiche dans votre document de sortie (au format `html`) :
-
-![](img/rmd_21.png){width="100%"}
+Lorsque vous compilez votre fichier Rmd, le code est exécuté et s'affiche dans votre document de sortie (au format `html`). L'objet `pingouins` n'est pas visible dans l'environnement lorsque vous compilez votre fichier Rmd, mais il est bel et bien disponible et vous pourrez le manipuler à l'aide de blocs de code.
 
 <br>
 
+## Paramétrer un bloc de code
+
 Lorsque vous insérez un bloc de code, des paramètres vous permettent de préciser si le code doit être affiché ou non, exécuté ou non, ...
 
-Ces options sont à placer dans les accolades : `{r eval=FALSE} par exemple`.
+Vous pouvez régler certains paramètres en cliquant sur la *roue* à droite du bloc :
+
+![](img/rmd_57.png){width="100%"}
+
+Vous pouvez également renseigner ces paramètres directement dans les accolades : `{r, eval = FALSE}` par exemple.
 
 | option  | par défaut | effet                                  |
 |---------|------------|----------------------------------------|
@@ -358,15 +381,34 @@ Ces options sont à placer dans les accolades : `{r eval=FALSE} par exemple`.
 | echo    | TRUE       | afficher le code avec le résultat      |
 | warning | TRUE       | afficher les messages d'avertissement  |
 | error   | FALSE      | afficher les messages d'erreur         |
-| message | TRUE       | afficher les messages                  |
 
-## Insérer du code
+<br>
+
+Si vous le souhaitez, vous pouvez définir en haut de votre fichier `Rmd` les paramètres à appliquer à l'ensemble des blocs de code :
+
+![](img/rmd_58.png){width="100%"}
+
+::: {.callout-caution icon="true"}
+## Bonnes pratiques : nommer les blocs de code
+
+Comme vous pouvez le voir dans le dernier exemple, il est utile de nommer les blocs de code :
+
+-   en utilisant la roue à droite du bloc et en tapant le nom dans *Chunck Name*
+
+-   en tapant le nom directement dans les accolades
+:::
+
+## Exécuter du code dans le texte
 
 Nous avons vu plus haut comment insérer du texte au format code.
 
 Vous pouvez exécuter le code en ajoutant un `r` :
 
-![](img/rmd_43.png)
+```{r, eval=FALSE}
+La racine carrée de 20 est **`r sqrt(20)`**
+```
+
+La racine carrée de 20 est **`r sqrt(20)`**
 
 <br>
 
