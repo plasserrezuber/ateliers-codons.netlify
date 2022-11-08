@@ -22,6 +22,22 @@ format:
 
 ## Qu'est-ce que R Markdown ?
 
+R Markdown vous permet de créer des documents, notamment des rapports de vos analyses. Les personnes qui liront votre code doivent pouvoir facilement comprendre et reproduire votre analyse : c'est la reproductibilité.
+
+Vous pouvez créer un document R Markdown et le partager, ou vous en servir à titre personnel pour garder une trace des étapes et des résultats d'une analyse.
+
+R Markdown permet d'afficher le code utilisé et les résultats obtenus (graphiques, tables, ...) ainsi que des commentaires explicatifs, un peu à la manière d'un cahier de laboratoire.
+
+R Markdown utilise la syntaxe Markdown, un langage *markup* qui propose des outils pour créer des documents avec des en-têtes, des images, des liens, ... 
+
+Un document Markdown peut être converti en différents formats comme du *html* ou du *pdf*.
+
+Lorsque vous créez un fichier R Markdown (`.Rmd`), vous utiliserez la syntaxe Markdown aux côtés de blocs de code écrits en R (ou d'autres langages de programmation). Ce fichier est ensuite compilé : le format Markdown et le code sont évalués, et un fichier de sortie (`html`, `pdf`, ...) est généré.
+
+
+
+
+
 ## Organiser son travail
 
 Si vous n'avez pas suivi les autres tutoriels, suivez les instructions suivantes :
@@ -173,14 +189,13 @@ Ou une liste numérotée :
 
 ## Insérer un tableau
 
-Vous pouvez insérer un tableau en le "dessinant" : 
-- des tirets `-` pour déparer l'en-tête du reste du tableau  
-- des barres verticales `|` pour délimiter les colonnes  
+Vous pouvez insérer un tableau en le "dessinant" : - des tirets `-` pour déparer l'en-tête du reste du tableau\
+- des barres verticales `|` pour délimiter les colonnes
 
 ![](img/rmd_22.png){width="100%"}
 
 | col 1 | col 2 | col 3 |
-| ----- | ----- | ----- |
+|-------|-------|-------|
 | A     | 1     | ech1  |
 | B     | 2     | ech2  |
 | C     | 3     | ech3  |
@@ -190,10 +205,10 @@ Pour aligner le texte, utilisez deux points `:` :
 ![](img/rmd_22.png){width="100%"}
 
 | gauche | droite | centre |
-| :----- | -----: | :----: |
-| A      | 1      | ech1   |
-| B      | 2      | ech2   |
-| C      | 3      | ech3   |
+|:-------|-------:|:------:|
+| A      |      1 |  ech1  |
+| B      |      2 |  ech2  |
+| C      |      3 |  ech3  |
 
 ## Insérer une citation
 
@@ -285,17 +300,15 @@ Lorsque vous insérez un bloc de code, des paramètres vous permettent de préci
 | eval    | exécuter le code                      |
 | error   | afficher les messages d'erreur        |
 | warning | afficher les messages d'avertissement |
-
 :::
 
 ## Insérer du code dans le texte
 
-Vous pouvez insérer du texte au format code en l'encadrant par des **``** :
+Vous pouvez insérer du texte au format code en l'encadrant par des **\`\`** :
 
-Insérer du code \`ici\`.
-Insérer du code `ici`.
+Insérer du code \`ici\`. Insérer du code `ici`.
 
-Vous pouvez également exécuter le code dans le texte en ajoutant un `r` : 
+Vous pouvez également exécuter le code dans le texte en ajoutant un `r` :
 
 ![](img/rmd_24.png){width="100%"}
 
