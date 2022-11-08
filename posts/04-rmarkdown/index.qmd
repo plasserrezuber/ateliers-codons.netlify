@@ -254,9 +254,9 @@ Vous pouvez insérer du texte en exposant ou en indice :
 
 ## Equation mathématique
 
-La syntaxe pour insérer une équation mathématique se base sur la syntaxe [LaTeX](https://rpruim.github.io/s341/S19/from-class/MathinRmd.html) :
+La syntaxe pour insérer une équation mathématique se base sur [LaTeX](https://rpruim.github.io/s341/S19/from-class/MathinRmd.html) :
 
-::: {layout-ncol="2"}
+::: {layout-ncol="1"}
 ![](img/rmd_39.png)
 
 ![](img/rmd_40.png)
