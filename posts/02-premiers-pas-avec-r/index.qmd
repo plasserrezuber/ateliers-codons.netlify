@@ -56,7 +56,7 @@ Il a été développé par Ross Ihaka et Robert Gentleman, du Département de St
 ## Quelques dates
 
 |      |                                                                                                                                     |
-|-----------------|-------------------------------------------------------|
+|------------------|------------------------------------------------------|
 | 1991 | Création du langage R                                                                                                               |
 | 1993 | R est dévoilé au public                                                                                                             |
 | 1996 | [Article dans le *Journal of Computational and Graphical Statistics*](https://www.stat.auckland.ac.nz/~ihaka/downloads/R-paper.pdf) |
@@ -116,13 +116,11 @@ Tapez `2+2` puis appuyez sur `Entrée` : la console affiche le résultat.
 ```{r}
 2 + 2
 ```
-
 :::
 
 Dans la console, vous pouvez parcourir les dernières commandes exécutées à l'aide des flèches haut et bas.
 
 ::: {.callout-tip icon="true"}
-
 ## Raccourcis clavier : vider la console
 
 Pour vider la console, utilisez la combinaison **Ctrl + L**
@@ -280,7 +278,7 @@ La manière dont la fonction s'exécute peut se modifier à l'aide d'**arguments
 
 Pour importer les données, nous utilisons la fonction `read.csv()` en précisant deux arguments :
 
--   le chemin vers l'emplacement du fichier à importer, entre guillemets  
+-   le chemin vers l'emplacement du fichier à importer, entre guillemets
 
 -   l'argument `check.names = FALSE` pour conserver les noms de colonnes tels quels.
 
@@ -436,8 +434,7 @@ Pour sauvegarder un script, uilisez la combinaison **Ctrl + S**
 ::: {.callout-caution icon="true"}
 ## Bonne pratiques : structurer son script
 
-Vous pouvez diviser votre script en différentes parties pour simplifier la lecture.
-Pour cela, ajoutez des titres sous forme de commentaires et accolez des tirets (au moins quatre) pour signaler à R qu'il s'agit de divisions dans votre script.
+Vous pouvez diviser votre script en différentes parties pour simplifier la lecture. Pour cela, ajoutez des titres sous forme de commentaires et accolez des tirets (au moins quatre) pour signaler à R qu'il s'agit de divisions dans votre script.
 
 ![](img/rstudio_24.png){width="100%"}
 
@@ -671,7 +668,6 @@ names(pingouins_propre)
 <br>
 
 ::: {.callout-tip icon="true"}
-
 ## Assigner et afficher
 
 Lorsque nous utilisons une flèche d'assignation, le résultat du code exécuté ne s'affiche pas dans la console. Pour éviter de taper le nom de l'objet que l'on souhaite afficher pour vérifier que le code a bien fonctionné, nous pouvons entourer le code par des parenthèses :
@@ -839,7 +835,7 @@ Pour savoir combien de données manquantes sont présentes dans vos données, vo
 table(is.na(pingouins_propre))
 ```
 
-Nos données contiennent 10 valeurs NA, nous en avons déjà trouvé 5 dans les premières lignes du tableau. Les 5 données manquantes restantes viennent-elles de l'absence de mesure pour un second individu ? 
+Nos données contiennent 10 valeurs NA, nous en avons déjà trouvé 5 dans les premières lignes du tableau. Les 5 données manquantes restantes viennent-elles de l'absence de mesure pour un second individu ?
 
 La fonction `complete.cases()` permet d'extraire les lignes d'un tableau pour lesquelles il n'y a aucune donnée manquante.
 
@@ -886,18 +882,16 @@ length(unique(pingouins_propre$espece))
 ::: {.callout-tip icon="true"}
 ## Colorer les parenthèses
 
-Il n'est pas rare que notre code contienne plusieurs parenthèses, ce qui rend sa lecture moins aisée. RStudio vous propose de colorer vos parenthèses afin de mieux vous repérer : 
+Il n'est pas rare que notre code contienne plusieurs parenthèses, ce qui rend sa lecture moins aisée. RStudio vous propose de colorer vos parenthèses afin de mieux vous repérer :
 
-- Cliquez sur *Tools* > *Global Options* > *Code* > *Display*  
+-   Cliquez sur *Tools* \> *Global Options* \> *Code* \> *Display*
 
-- Cochez la case *Rainbow parentheses*  
+-   Cochez la case *Rainbow parentheses*
 
-- Cliquez sur *Apply*
+-   Cliquez sur *Apply*
 
 ![](img/rstudio_39.png){width="75%"}
-
 :::
-
 
 Nous aurions pu également utiliser la fonction `table()` pour extraire les modalités et leur fréquence :
 
@@ -913,7 +907,7 @@ Il n'y a que trois modalités possibles pour cette variable : il s'agit d'une va
 pingouins_propre$espece <- as.factor(pingouins_propre$espece)
 ```
 
-Procédons de la même façon pour la variable *ile* : 
+Procédons de la même façon pour la variable *ile* :
 
 ```{r}
 pingouins_propre$ile <- as.factor(pingouins_propre$ile)
@@ -940,22 +934,22 @@ Vous pouvez également replier (**Alt + O**) ou déplier (**Alt + Shift + O**) l
 
 La fonction `aggregate()` permet de calculer des statistiques descriptives (par exemple la moyenne, la médiane, ...) d'une variable en regroupant les données.
 
-Cette fonction s'utilise de la manière suivante : 
+Cette fonction s'utilise de la manière suivante :
 
-`aggregate(y ~ x, data, FUN)` : 
+`aggregate(y ~ x, data, FUN)` :
 
-- `x` : variable explicative qui sert à regouper les données  
-- `y` : variable pour laquelle on souhaite calculer une statistique  
-- `data` : données contenant les variables  
-- `FUN` : fonction à appliquer.
+-   `x` : variable explicative qui sert à regouper les données\
+-   `y` : variable pour laquelle on souhaite calculer une statistique\
+-   `data` : données contenant les variables\
+-   `FUN` : fonction à appliquer.
 
-Nous pouvons par exemple calculer la moyenne de la masse corporelle pour chacune des trois espèces : 
+Nous pouvons par exemple calculer la moyenne de la masse corporelle pour chacune des trois espèces :
 
 ```{r}
 aggregate(masse_corporelle_g ~ espece, data = pingouins_propre, FUN = mean)
 ```
 
-Nous pouvons également utiliser plusieurs variables de regroupement : calculons la moyenne de la masse corporelle par île et par espèce : 
+Nous pouvons également utiliser plusieurs variables de regroupement : calculons la moyenne de la masse corporelle par île et par espèce :
 
 ```{r}
 aggregate(masse_corporelle_g ~ espece + ile, data = pingouins_propre, FUN = mean)
@@ -963,7 +957,7 @@ aggregate(masse_corporelle_g ~ espece + ile, data = pingouins_propre, FUN = mean
 
 ## Exporter des données
 
-La fonction `write.csv()` permet d'exporter un tableau. L'argument `row.names = FALSE` empêche l'ajout de noms de lignes (dans notre cas des valeurs numériques allant de 1 au nombre de lignes du tableau) : 
+La fonction `write.csv()` permet d'exporter un tableau. L'argument `row.names = FALSE` empêche l'ajout de noms de lignes (dans notre cas des valeurs numériques allant de 1 au nombre de lignes du tableau) :
 
 ```{r, echo=FALSE, eval=TRUE}
 write.csv(pingouins_propre, "../../data/pingouins_propre.csv", row.names = FALSE)
