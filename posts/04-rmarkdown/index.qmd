@@ -355,7 +355,11 @@ Pour insérer un bloc de code, utiliser la combinaison **Ctrl + Alt + I**
 
 Ajoutez le code suivant dans ce bloc de code et exécutez-le (attention au chemin !) :
 
-```{r, eval=FALSE}
+```{r, echo=FALSE, eval=TRUE}
+pingouins <- read.csv("../../data/pingouins_propre.csv")
+```
+
+```{r, echo=TRUE, eval=FALSE}
 pingouins <- read.csv("../data/pingouins_propre.csv")
 ```
 
@@ -414,9 +418,9 @@ La racine carrée de 20 est **`r sqrt(20)`**
 
 # Transformer un script en .Rmd
 
-Pour mettre en pratique ce que nous avons jusqu'ici, nous allons transformer le script écrit pour l'analyse des données (voir [ce tutoriel](https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/)) en fichier `.Rmd`.
+Dans le tutoriel [Premiers pas avec R](https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/) nous avons vu comment nettoyer, manipuler et représenter des données. 
 
-Pour télécharger ce script, cliquez [ici](https://raw.githubusercontent.com/codons-blog/ateliers_codons/main/scripts/premiers_pas.R) et sauvegardez-le dans le dossier `scripts` de votre répertoire de travail.
+Nous allons transformer le script utilisé pour cette analyse en un fichier `Rmd` qui sera compilé pour générer un rapport. Téléchargez le script [ici](https://raw.githubusercontent.com/codons-blog/ateliers_codons/main/scripts/intro_rmd.R) et sauvegardez-le dans le dossier `scripts` de votre projet. Ouvrez-le afin de l'avoir à portée de main (il s'ouvrira dans un nouvel onglet à côté de votre fichier `Rmd`)
 
 ## Introduction
 
