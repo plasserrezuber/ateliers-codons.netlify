@@ -186,25 +186,21 @@ Pour mettre en forme votre texte, utilisez les conventions suivantes :
 
 Vous pouvez insérer une liste à puces :
 
-```{r, echo=TRUE, eval=FALSE}
-* item 1  
-* item 2    
-* item 3
-  + item 3a  
-  + item 3b  
-```
+::: {layout-ncol="2"}
+![](img/rmd_27.png)
 
-\[![](img/rmd_13.png){width="100%"}\]
+![](img/rmd_28.png)
+:::
 
 Ou une liste numérotée :
 
-```{r, echo=TRUE, eval=FALSE}
-1. item 1  
-2. item 2    
-3. item 3 
-```
+::: {layout-ncol="2"}
+![](img/rmd_29.png)
 
-\[![](img/rmd_14.png){width="100%"}\]
+![](img/rmd_30.png)
+:::
+
+<br>
 
 ## Insérer un tableau
 
