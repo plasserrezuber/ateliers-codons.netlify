@@ -420,6 +420,27 @@
     "text": "Insérer du code\nNous avons vu plus haut comment insérer du texte au format code.\nVous pouvez exécuter le code en ajoutant un r :"
   },
   {
+    "objectID": "posts/04-rmarkdown/index.html#introduction-1",
+    "href": "posts/04-rmarkdown/index.html#introduction-1",
+    "title": "Introduction à RMarkdown",
+    "section": "Introduction",
+    "text": "Introduction\nCommençons par rédiger une courte introduction :\n\n\nNous utilisons des balises html pour centrer l’image : <center> et </center>\nNous ajustons la largeur de l’image à l’aide du paramètre {width=\"50%\"}"
+  },
+  {
+    "objectID": "posts/04-rmarkdown/index.html#importer-les-données",
+    "href": "posts/04-rmarkdown/index.html#importer-les-données",
+    "title": "Introduction à RMarkdown",
+    "section": "Importer les données",
+    "text": "Importer les données\nPour utiliser les données dans notre fichier Rmd nous devons l’importer : il sera alors disponible dans notre environnement.\nLe chemin vers le fichier pingouins.csv ne sera pas le même pour un utilisateur utilisant notre document. Nous insérons ainsi deux blocs de code :\n\nimporter les données pour les utiliser dans le fichier Rmd\nexpliquer comment importer les données pour un autre utilisateur"
+  },
+  {
+    "objectID": "posts/04-rmarkdown/index.html#explorer-et-nettoyer-les-données",
+    "href": "posts/04-rmarkdown/index.html#explorer-et-nettoyer-les-données",
+    "title": "Introduction à RMarkdown",
+    "section": "Explorer et nettoyer les données",
+    "text": "Explorer et nettoyer les données\n\nDescription des données\nLes données brutes étant à présent disponibles dans notre environnement, nous pouvons les explorer de façon dynamique et afficher les résultats dans notre document :"
+  },
+  {
     "objectID": "posts/05-git/index.html",
     "href": "posts/05-git/index.html",
     "title": "Introduction à git",
