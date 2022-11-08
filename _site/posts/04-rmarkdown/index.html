@@ -266,13 +266,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Pour créer un nouveau document R Markdown (.RMd), cliquez sur <em>File &gt; New File &gt; R Markdown …</em>. Vous pouvez également cliquer sur le symbole <em>Plus</em> et choisir <em>R Markdown…</em>.</p>
 <p><img src="img/rmd_01.png" class="img-fluid" style="width:75.0%"></p>
 <p>Dans la fenêtre qui s’ouvre, laissez les paramètres par défaut et cliquez sur <em>Create Empty Document</em> (en cliquant sur <em>OK</em> vous créerez un document pré-rempli).</p>
-<p><img src="img/rmd_02.png" class="img-fluid" style="width:75.0%"></p>
 <p>Votre document vide s’ouvre dans la fenêtre en haut à gauche de RStudio.</p>
-<p>[<img src="img/rmd_03.png" class="img-fluid" style="width:100.0%">]</p>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="img/rmd_02.png" class="img-fluid"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="img/rmd_03.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+<p><br></p>
 </section>
 <section id="ajouter-un-en-tête" class="level2">
 <h2 class="anchored" data-anchor-id="ajouter-un-en-tête">Ajouter un en-tête</h2>
-<p>Un document Rmd débute toujours par une section d’en-tête encadrée par trois tirets. Par défaut, cet en-tête contient le titre, l’auteur, la date et le format de fichier en sortie. Il existe beaucoup d’autres paramètres pour modifier et personnaliser votre document.</p>
+<p>Un document Rmd débute par une section d’en-tête encadrée par trois tirets et qui contient généralement les éléments suivants :</p>
+<ul>
+<li><p>un titre</p></li>
+<li><p>les auteurs</p></li>
+<li><p>la date</p></li>
+<li><p>le format de sortie</p></li>
+</ul>
 <p>Voici un exemple d’en-tête à insérer en haut de votre ficher .Rmd :</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
@@ -295,9 +310,10 @@ Le YAML
 <p>Cet en-tête s’appelle un <strong>YAML : Yet Another Markup Language</strong></p>
 </div>
 </div>
-<p>Sauvegardez votre fichier Rmd en cliquant sur l’icône disquette (ou en utilisant la combinaison Ctrl + S). Choisissez un nom pour votre fichier et placez-le dans votre dossier <strong>docs</strong>.</p>
-<p>[<img src="img/rmd_04.png" class="img-fluid" style="width:100.0%">]</p>
-<p>[<img src="img/rmd_05.png" class="img-fluid" style="width:100.0%">]</p>
+<p><br></p>
+<p>Sauvegardez votre fichier Rmd en cliquant sur l’icône disquette (ou en utilisant la combinaison Ctrl + S). Choisissez un nom pour votre fichier et placez-le dans votre dossier <em>docs</em>.</p>
+<p><img src="img/rmd_04.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="img/rmd_05.png" class="img-fluid" style="width:100.0%"></p>
 </section>
 <section id="compiler-un-document-r-markdown" class="level2">
 <h2 class="anchored" data-anchor-id="compiler-un-document-r-markdown">Compiler un document R Markdown</h2>
