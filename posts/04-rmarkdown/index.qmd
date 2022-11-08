@@ -34,7 +34,7 @@ Un document Markdown peut être converti en différents formats comme du *html* 
 
 Lorsque vous créez un fichier R Markdown (`.Rmd`), vous utiliserez la syntaxe Markdown aux côtés de blocs de code écrits en R (ou d'autres langages de programmation). Ce fichier est ensuite compilé : le format Markdown et le code sont évalués, et un fichier de sortie (`html`, `pdf`, ...) est généré.
 
-![](img/horst_rmd.png){width = "50%"}
+![](img/horst_rmd.png){width="50%"}
 
 <br>
 
@@ -53,13 +53,13 @@ library(rmarkdown)
 
 ## Ouvrir un nouveau fichier R Markdown
 
-Pour créer un nouveau document R Markdown (.RMd), cliquez sur \*File \> New File \> R Markdown ...". Vous pouvez également cliquer sur le symbole\* Plus\* et choisir \*R Markdown..."
+Pour créer un nouveau document R Markdown (.RMd), cliquez sur *File > New File > R Markdown ...*. Vous pouvez également cliquer sur le symbole *Plus* et choisir *R Markdown...*.
 
-\[![](img/rmd_01.png){width="100%"}\]
+![](img/rmd_01.png){width="75%"}
 
-Dans la fenêtre qui s'ouvre, laissez les paramètres par défaut et cliquez sur **Create Empty Document** (en cliquant sur **OK** vous créerez un document pré-rempli).
+Dans la fenêtre qui s'ouvre, laissez les paramètres par défaut et cliquez sur *Create Empty Document* (en cliquant sur *OK* vous créerez un document pré-rempli).
 
-\[![](img/rmd_02.png){width="100%"}\]
+![](img/rmd_02.png){width="75%"}
 
 Votre document vide s'ouvre dans la fenêtre en haut à gauche de RStudio.
 
