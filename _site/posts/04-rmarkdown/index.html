@@ -312,14 +312,23 @@ Le YAML
 </div>
 <p><br></p>
 <p>Sauvegardez votre fichier Rmd en cliquant sur l’icône disquette (ou en utilisant la combinaison Ctrl + S). Choisissez un nom pour votre fichier et placez-le dans votre dossier <em>docs</em>.</p>
-<p><img src="img/rmd_04.png" class="img-fluid" style="width:100.0%"></p>
-<p><img src="img/rmd_05.png" class="img-fluid" style="width:100.0%"></p>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="img/rmd_04.png" class="img-fluid"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="img/rmd_05.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+<p><br></p>
 </section>
 <section id="compiler-un-document-r-markdown" class="level2">
 <h2 class="anchored" data-anchor-id="compiler-un-document-r-markdown">Compiler un document R Markdown</h2>
-<p>Pour compiler votre fichier Rmd et générer le document au format choisi (html dans notre cas), cliquez sur le bouton <strong>Knit</strong></p>
-<p>Le document s’ouvre dans une nouvelle fenêtre.</p>
-<p>[<img src="img/rmd_06.png" class="img-fluid" style="width:100.0%">]</p>
+<p>Pour compiler votre fichier Rmd et générer le document au format choisi (<code>html</code> dans notre cas), cliquez sur le bouton <em>Knit</em> : le document s’ouvre dans une nouvelle fenêtre.</p>
+<p><img src="img/rmd_06.png" class="img-fluid" style="width:100.0%"></p>
+<p><br></p>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -333,8 +342,10 @@ Raccourci clavier : compiler un fichier Rmd
 <p>Pour compiler un fichier Rmd, utilisez la combinaison <strong>Ctrl + Shift + K</strong></p>
 </div>
 </div>
-<p>Dans l’explorateur de fichiers vous pouvez remarquer qu’un fichier <strong>mesures_pingouins.html</strong> a été ajouté dans le répertoire <strong>docs</strong> : il s’agit du fichier hmtl issu de la compilation du fichier Rmd. En cliquant sur le nom de ce fichier vous aurez le choix entre l’ouvrir dans l’éditeur ou dans un navigateur internet.</p>
-<p>[<img src="img/rmd_07.png" class="img-fluid" style="width:100.0%">]</p>
+<p><br></p>
+<p>Dans l’explorateur de fichiers vous pouvez remarquer qu’un fichier <strong>mesures_pingouins.html</strong> a été ajouté dans le répertoire <strong>docs</strong> : il s’agit du fichier <code>html</code> issu de la compilation du fichier Rmd. En cliquant sur le nom de ce fichier vous aurez le choix entre l’ouvrir dans l’éditeur ou dans un navigateur internet.</p>
+<p><img src="img/rmd_07.png" class="img-fluid" style="width:100.0%"></p>
+<p><br></p>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -345,11 +356,11 @@ Prévisualiser le document
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Par défaut, lorsque vous compilez un fichier Rmd, le document généré s’ouvre dans une nouvelle fenêtre. Vous pouvez choisir d’afficher cette pré-visualisation directement dans l’onglet <strong>Viewer</strong> en bas à droite de RStudio en cliquant sur la roue à droite du bouton Knit puis sur <strong>Preview in Viewer Pane</strong>.</p>
-<p>[<img src="img/rmd_08.png" class="img-fluid" style="width:100.0%">]</p>
-<p>[<img src="img/rmd_08.png" class="img-fluid" style="width:100.0%">]</p>
+<p>Par défaut, lorsque vous compilez un fichier Rmd, le document généré s’ouvre dans une nouvelle fenêtre. Vous pouvez choisir d’afficher cette pré-visualisation directement dans l’onglet <em>Viewer</em> en bas à droite de RStudio en cliquant sur la roue à droite du bouton Knit puis sur <em>Preview in Viewer Pane</em>.</p>
+<p><img src="img/rmd_08.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
+<p><br></p>
 </section>
 </section>
 <section id="mise-en-forme" class="level1">
@@ -366,9 +377,10 @@ Editeur visuel
 </div>
 <div class="callout-body-container callout-body">
 <p>Vous pouvez modifier votre fichier Rmd à la manière d’un éditeur de texte à l’aide de l’éditeur visuel : cliquez sur le bouton <strong>Visual</strong> en haut du fichier.</p>
-<p>[<img src="img/rmd_10.png" class="img-fluid" style="width:100.0%">]</p>
+<p><img src="img/rmd_10.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
+<p><br></p>
 <section id="insérer-des-titres" class="level2">
 <h2 class="anchored" data-anchor-id="insérer-des-titres">Insérer des titres</h2>
 <p>Pour insérer un titre, utilisez un <code>#</code>. Vous pouvez utiliser différents niveaux en ajoutant des <code>#</code> :</p>
@@ -377,35 +389,40 @@ Editeur visuel
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Niveau 2</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="do">### Niveau 3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>[<img src="img/rmd_11.png" class="img-fluid" style="width:100.0%">]</p>
+<p><img src="img/rmd_11.png" class="img-fluid" style="width:100.0%"></p>
+<p><br></p>
 </section>
 <section id="mettre-en-forme-le-texte" class="level2">
 <h2 class="anchored" data-anchor-id="mettre-en-forme-le-texte">Mettre en forme le texte</h2>
 <p>Pour mettre en forme votre texte, utilisez les conventions suivantes :</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="sc">*</span>Texte en italiques<span class="sc">*</span>  </span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="er">**</span>Texte en gras<span class="sc">**</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="er">***</span>Texte en italiques et en gras<span class="sc">**</span><span class="er">*</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="er">~~</span>Texte barré<span class="sc">~</span><span class="er">~</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="img/rmd_25.png" class="img-fluid"></p>
 </div>
-<p>[<img src="img/rmd_12.png" class="img-fluid" style="width:100.0%">]</p>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="img/rmd_26.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+<p><br></p>
 </section>
 <section id="insérer-des-listes" class="level2">
 <h2 class="anchored" data-anchor-id="insérer-des-listes">Insérer des listes</h2>
 <p>Vous pouvez insérer une liste à puces :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="sc">*</span> item <span class="dv">1</span>  </span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="sc">*</span> item <span class="dv">2</span>    </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="sc">*</span> item <span class="dv">3</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span> item 3a  </span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span> item 3b  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="sc">*</span> item <span class="dv">1</span>  </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="sc">*</span> item <span class="dv">2</span>    </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="sc">*</span> item <span class="dv">3</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span> item 3a  </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span> item 3b  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>[<img src="img/rmd_13.png" class="img-fluid" style="width:100.0%">]</p>
 <p>Ou une liste numérotée :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fl">1.</span> item <span class="dv">1</span>  </span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fl">2.</span> item <span class="dv">2</span>    </span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fl">3.</span> item <span class="dv">3</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fl">1.</span> item <span class="dv">1</span>  </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fl">2.</span> item <span class="dv">2</span>    </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fl">3.</span> item <span class="dv">3</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>[<img src="img/rmd_14.png" class="img-fluid" style="width:100.0%">]</p>
 </section>
@@ -473,9 +490,9 @@ Editeur visuel
 <h2 class="anchored" data-anchor-id="insérer-une-citation">Insérer une citation</h2>
 <p>Vous pouvez insérer une citation :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Comme l<span class="st">'a dit ...  </span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="st">&gt; Ceci est une citation</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>Comme l<span class="st">'a dit ...  </span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="st">&gt; Ceci est une citation</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>[<img src="img/rmd_16.png" class="img-fluid" style="width:100.0%">]</p>
 </section>
@@ -483,7 +500,7 @@ Editeur visuel
 <h2 class="anchored" data-anchor-id="notation-mathématique">Notation mathématique</h2>
 <p>Vous pouvez insérer du texte en exposant ou en indice :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>texte en <span class="sc">^</span>exposant<span class="sc">^</span> ou texte en <span class="sc">~</span>indice<span class="sc">~</span>.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>texte en <span class="sc">^</span>exposant<span class="sc">^</span> ou texte en <span class="sc">~</span>indice<span class="sc">~</span>.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>[<img src="img/rmd_14.png" class="img-fluid" style="width:100.0%">]</p>
 </section>
@@ -514,7 +531,7 @@ Chemins vers les fichiers
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span>[](..<span class="sc">/</span>raw<span class="sc">/</span>lter_penguins.png){width<span class="ot">=</span><span class="st">"100%"</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span>[](..<span class="sc">/</span>raw<span class="sc">/</span>lter_penguins.png){width<span class="ot">=</span><span class="st">"100%"</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><img src="img/rmd_18.png" class="img-fluid" style="width:100.0%"></p>
 </section>
