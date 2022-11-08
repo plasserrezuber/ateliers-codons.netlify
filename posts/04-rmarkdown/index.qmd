@@ -377,9 +377,40 @@ Vous pouvez exécuter le code en ajoutant un `r` :
 
 <br>
 
-# Entraînement : transformer un script en .Rmd
+# Transformer un script en .Rmd
 
 Pour mettre en pratique ce que nous avons jusqu'ici, nous allons transformer le script écrit pour l'analyse des données (voir [ce tutoriel](https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/)) en fichier `.Rmd`.
 
 Pour télécharger ce script, cliquez [ici](https://raw.githubusercontent.com/codons-blog/ateliers_codons/main/scripts/premiers_pas.R) et sauvegardez-le dans le dossier `scripts` de votre répertoire de travail.
 
+## Introduction
+
+Commençons par rédiger une courte introduction :
+
+![](img/rmd_46.png)
+
+- Nous utilisons des *balises `html`* pour centrer l'image : `<center> et </center>`  
+
+- Nous ajustons la largeur de l'image à l'aide du paramètre `{width="50%"}`
+
+<br>
+
+## Importer les données
+
+Pour utiliser les données dans notre fichier `Rmd` nous devons l'importer : il sera alors disponible dans notre environnement.
+
+Le chemin vers le fichier `pingouins.csv` ne sera pas le même pour un utilisateur utilisant notre document. Nous insérons ainsi deux blocs de code : 
+
+- importer les données pour les utiliser dans le fichier `Rmd`  
+
+- expliquer comment importer les données pour un autre utilisateur
+
+![](img/rmd_47.png)
+
+## Explorer et nettoyer les données
+
+### Description des données
+
+Les données brutes étant à présent disponibles dans notre environnement, nous pouvons les explorer de façon dynamique et afficher les résultats dans notre document : 
+
+![](img/rmd_48.png)
