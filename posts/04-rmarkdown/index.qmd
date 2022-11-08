@@ -452,3 +452,10 @@ pingouins_propre <- pingouins_propre[complete.cases(pingouins_propre), ]
 Comme nous l'avions fait pour importer les données, nous utilisons deux blocs de code pour exporter les données nettoyées : 
 
 ![](img/rmd_50.png)
+
+Nous terminons cette partie par une description rapide des données nettoyées.  
+
+La fonction `kable()` du package `knitr` permet d'afficher un tableau dans le document : 
+
+![](img/rmd_51.png)
+
