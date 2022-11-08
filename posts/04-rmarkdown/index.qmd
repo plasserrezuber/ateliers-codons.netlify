@@ -232,13 +232,13 @@ Pour aligner le texte, utilisez deux points `:` :
 
 Vous pouvez insérer une citation :
 
-```{r, echo=TRUE, eval=FALSE}
-Comme l'a dit ...  
+::: {layout-ncol="2"}
+![](img/rmd_35.png)
 
-> Ceci est une citation
-```
+![](img/rmd_36.png)
+:::
 
-\[![](img/rmd_16.png){width="100%"}\]
+<br>
 
 ## Notation mathématique
 
