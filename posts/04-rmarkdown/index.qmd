@@ -421,9 +421,9 @@ Les données brutes étant à présent disponibles dans notre environnement, nou
 
 ### Nettoyage des données
 
-Le code ci-dessous indique comment ces données brutes ont été nettoyées : 
+![](img/rmd_49.png)
 
-```{r}
+```{r, eval=TRUE, echo=FALSE}
 # Creer une copie de travail
 pingouins_propre <- pingouins
 
@@ -448,3 +448,7 @@ pingouins_propre$ratio_bec <- round(pingouins_propre$longueur_bec_mm / pingouins
 # Supprimer les donnees manquantes
 pingouins_propre <- pingouins_propre[complete.cases(pingouins_propre), ]
 ```
+
+Comme nous l'avions fait pour importer les données, nous utilisons deux blocs de code pour exporter les données nettoyées : 
+
+![](img/rmd_49.png)
