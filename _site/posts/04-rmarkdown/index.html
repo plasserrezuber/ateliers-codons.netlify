@@ -685,32 +685,12 @@ Raccourci clavier : insérer un bloc de code
 </section>
 <section id="nettoyage-des-données" class="level3">
 <h3 class="anchored" data-anchor-id="nettoyage-des-données">Nettoyage des données</h3>
-<p>Le code ci-dessous indique comment ces données brutes ont été nettoyées :</p>
+<p><img src="img/rmd_49.png" class="img-fluid"></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creer une copie de travail</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>pingouins_propre <span class="ot">&lt;-</span> pingouins</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Renommer les colonnes</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>nouveaux_noms <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"[()]"</span>, <span class="st">""</span>, <span class="fu">names</span>(pingouins_propre))</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>nouveaux_noms <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">" "</span>, <span class="st">"_"</span>, nouveaux_noms)</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>nouveaux_noms <span class="ot">&lt;-</span> <span class="fu">tolower</span>(nouveaux_noms)</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(pingouins_propre) <span class="ot">&lt;-</span> nouveaux_noms</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(nouveaux_noms)</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Selectionner les colonnes</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>pingouins_propre <span class="ot">&lt;-</span> pingouins_propre[, <span class="fu">c</span>(<span class="st">"espece"</span>, <span class="st">"ile"</span>, <span class="st">"longueur_bec_mm"</span>,</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>                                         <span class="st">"hauteur_bec_mm"</span>, <span class="st">"longueur_aile_mm"</span>, </span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>                                         <span class="st">"masse_corporelle_g"</span>)]</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Modifier la variable espece </span></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>pingouins_propre<span class="sc">$</span>espece <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">" .*$"</span>, <span class="st">""</span>, pingouins_propre<span class="sc">$</span>espece)</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculer le rapport entre la longueur et la hauteur du bec</span></span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>pingouins_propre<span class="sc">$</span>ratio_bec <span class="ot">&lt;-</span> <span class="fu">round</span>(pingouins_propre<span class="sc">$</span>longueur_bec_mm <span class="sc">/</span> pingouins_propre<span class="sc">$</span>hauteur_bec_mm, <span class="at">digits =</span> <span class="dv">2</span>)</span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Supprimer les donnees manquantes</span></span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>pingouins_propre <span class="ot">&lt;-</span> pingouins_propre[<span class="fu">complete.cases</span>(pingouins_propre), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
 </div>
+<p>Comme nous l’avions fait pour importer les données, nous utilisons deux blocs de code pour exporter les données nettoyées :</p>
+<p><img src="img/rmd_49.png" class="img-fluid"></p>
 
 
 </section>
