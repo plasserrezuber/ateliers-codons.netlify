@@ -347,7 +347,7 @@
     "href": "posts/04-rmarkdown/index.html#insérer-des-listes",
     "title": "Introduction à RMarkdown",
     "section": "Insérer des listes",
-    "text": "Insérer des listes\nVous pouvez insérer une liste à puces :\n\n* item 1  \n* item 2    \n* item 3\n  + item 3a  \n  + item 3b  \n\n[]\nOu une liste numérotée :\n\n1. item 1  \n2. item 2    \n3. item 3 \n\n[]"
+    "text": "Insérer des listes\nVous pouvez insérer une liste à puces :\n\n\n\n\n\n\n\n\n\n\nOu une liste numérotée :"
   },
   {
     "objectID": "posts/04-rmarkdown/index.html#insérer-un-tableau",
