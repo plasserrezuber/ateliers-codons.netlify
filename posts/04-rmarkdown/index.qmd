@@ -34,7 +34,7 @@ Un document Markdown peut être converti en différents formats comme du *html* 
 
 Lorsque vous créez un fichier R Markdown (`.Rmd`), vous utiliserez la syntaxe Markdown aux côtés de blocs de code écrits en R (ou d'autres langages de programmation). Ce fichier est ensuite compilé : le format Markdown et le code sont évalués, et un fichier de sortie (`html`, `pdf`, ...) est généré.
 
-[![](img/horst_rmd.png)(https://allisonhorst.com/){width="50%"}
+[![](img/horst_rmd.png){fig.cap = "[Dessin de Allison Horst](https://allisonhorst.com/)", width = "50%"}
 
 
 ## Organiser son travail
