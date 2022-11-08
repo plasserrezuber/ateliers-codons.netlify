@@ -326,14 +326,21 @@
     "href": "posts/04-rmarkdown/index.html#compiler-un-document-r-markdown",
     "title": "Introduction à RMarkdown",
     "section": "Compiler un document R Markdown",
-    "text": "Compiler un document R Markdown\nPour compiler votre fichier Rmd et générer le document au format choisi (html dans notre cas), cliquez sur le bouton Knit : le document s’ouvre dans une nouvelle fenêtre.\n\n\n\n\n\n\n\n\nRaccourci clavier : compiler un fichier Rmd\n\n\n\nPour compiler un fichier Rmd, utilisez la combinaison Ctrl + Shift + K\n\n\n\nDans l’explorateur de fichiers vous pouvez remarquer qu’un fichier mesures_pingouins.html a été ajouté dans le répertoire docs : il s’agit du fichier html issu de la compilation du fichier Rmd. En cliquant sur le nom de ce fichier vous aurez le choix entre l’ouvrir dans l’éditeur ou dans un navigateur internet.\n\n\n\n\n\n\n\n\nPrévisualiser le document\n\n\n\nPar défaut, lorsque vous compilez un fichier Rmd, le document généré s’ouvre dans une nouvelle fenêtre. Vous pouvez choisir d’afficher cette pré-visualisation directement dans l’onglet Viewer en bas à droite de RStudio en cliquant sur la roue à droite du bouton Knit puis sur Preview in Viewer Pane."
+    "text": "Compiler un document R Markdown\nPour compiler votre fichier Rmd et générer le document au format choisi (html dans notre cas), cliquez sur le bouton Knit : le document s’ouvre dans une nouvelle fenêtre.\n\n\n\n\n\n\n\n\nRaccourci clavier : compiler un fichier Rmd\n\n\n\nPour compiler un fichier Rmd, utilisez la combinaison Ctrl + Shift + K\n\n\n\nDans l’explorateur de fichiers vous pouvez remarquer qu’un fichier mesures_pingouins.html a été ajouté dans le répertoire docs : il s’agit du fichier html issu de la compilation du fichier Rmd. En cliquant sur le nom de ce fichier vous aurez le choix entre l’ouvrir dans l’éditeur ou dans un navigateur internet.\n\n\n\n\n\n\n\n\nPrévisualiser le document\n\n\n\nPar défaut, lorsque vous compilez un fichier Rmd, le document généré s’ouvre dans une nouvelle fenêtre. Vous pouvez choisir d’afficher cette pré-visualisation directement dans l’onglet Viewer en bas à droite de RStudio en cliquant sur la roue à droite du bouton Knit puis sur Preview in Viewer Pane.\nEn décochant Show Previews Inline, le résultat de l’exécution de code ne s’affichera plus dans votre fichier Rmd."
+  },
+  {
+    "objectID": "posts/04-rmarkdown/index.html#mettre-en-forme-le-texte",
+    "href": "posts/04-rmarkdown/index.html#mettre-en-forme-le-texte",
+    "title": "Introduction à RMarkdown",
+    "section": "Mettre en forme le texte",
+    "text": "Mettre en forme le texte\nPour mettre en forme votre texte, utilisez les conventions suivantes :\n\n\n\n*italiques*\nitaliques\n\n\n**gras**\ngras\n\n\n***italiques et gras***\nitaliques et gras\n\n\n~~barré~~\nbarré\n\n\n[texte](lien)\ntexte\n\n\ntexte ^exposant^\ntexte exposant\n\n\ntexte ~indice ~\ntexte indice\n\n\n`code`\ncode"
   },
   {
     "objectID": "posts/04-rmarkdown/index.html#insérer-des-titres",
     "href": "posts/04-rmarkdown/index.html#insérer-des-titres",
     "title": "Introduction à RMarkdown",
     "section": "Insérer des titres",
-    "text": "Insérer des titres\nPour insérer un titre, utilisez un #. Vous pouvez utiliser différents niveaux en ajoutant des # :\n\n# Niveau 1\n## Niveau 2\n### Niveau 3"
+    "text": "Insérer des titres\nPour insérer un titre, utilisez un #. Les différents niveaux (titre, sous-titre, paragraphe, …) se définissent en fonction du nombre de # :\n\n# Titre\n## Sous-titre\n### Paragraphe"
   },
   {
     "objectID": "posts/04-rmarkdown/index.html#insérer-une-ligne-horizontale",
@@ -343,67 +350,32 @@
     "text": "Insérer une ligne horizontale\nPour insérer une ligne horizontale dans votre texte, utilisez trois étoiles ***."
   },
   {
-    "objectID": "posts/04-rmarkdown/index.html#mettre-en-forme-le-texte",
-    "href": "posts/04-rmarkdown/index.html#mettre-en-forme-le-texte",
-    "title": "Introduction à RMarkdown",
-    "section": "Mettre en forme le texte",
-    "text": "Mettre en forme le texte\nPour mettre en forme votre texte, utilisez les conventions suivantes :"
-  },
-  {
-    "objectID": "posts/04-rmarkdown/index.html#insérer-du-texte-au-format-code",
-    "href": "posts/04-rmarkdown/index.html#insérer-du-texte-au-format-code",
-    "title": "Introduction à RMarkdown",
-    "section": "Insérer du texte au format code",
-    "text": "Insérer du texte au format code\nVous pouvez insérer du texte au format code :"
-  },
-  {
-    "objectID": "posts/04-rmarkdown/index.html#insérer-un-lien",
-    "href": "posts/04-rmarkdown/index.html#insérer-un-lien",
-    "title": "Introduction à RMarkdown",
-    "section": "Insérer un lien",
-    "text": "Insérer un lien\nVous pouvez insérer un lien dans votre texte :"
-  },
-  {
     "objectID": "posts/04-rmarkdown/index.html#insérer-des-listes",
     "href": "posts/04-rmarkdown/index.html#insérer-des-listes",
     "title": "Introduction à RMarkdown",
     "section": "Insérer des listes",
-    "text": "Insérer des listes\nVous pouvez insérer une liste à puces :\n\n\n\n\n\n\n\n\n\n\nOu une liste numérotée :"
+    "text": "Insérer des listes\nVous pouvez insérer une liste à puces :\n\n* item a  \n* item b  \n* item c  \n    + item c1\n    + item c2\n\n\nitem a\n\nitem b\n\nitem c\n\nitem c1\nitem c2\n\n\n\nOu une liste numérotée :\n\n1. item a  \n2. item b  \n3. item c  \n\n\nitem a\n\nitem b\n\nitem c"
   },
   {
     "objectID": "posts/04-rmarkdown/index.html#insérer-un-tableau",
     "href": "posts/04-rmarkdown/index.html#insérer-un-tableau",
     "title": "Introduction à RMarkdown",
     "section": "Insérer un tableau",
-    "text": "Insérer un tableau\nVous pouvez insérer un tableau en le “dessinant” :\n\ndes tirets - pour déparer l’en-tête du reste du tableau\ndes barres verticales | pour délimiter les colonnes\n\n\n\n\n\n\n\n\n\n\n\n\nPour aligner le texte, utilisez deux points : :"
+    "text": "Insérer un tableau\nVous pouvez insérer un tableau en le “dessinant” :\n\ndes tirets - pour déparer l’en-tête du reste du tableau\ndes barres verticales | pour délimiter les colonnes\n\n\n| col1 | col2 | col3 |\n| ---- | ---- | ---- |\n| A    | 1    | ech1 |\n| B    | 2    | ech2 |\n| C    | 3    | ech3 |  \n\n\n\n\ncol1\ncol2\ncol3\n\n\n\n\nA\n1\nech1\n\n\nB\n2\nech2\n\n\nC\n3\nech3\n\n\n\n\nPour aligner le texte, utilisez deux points : :\n\n| gauche | centre | droit |\n| :----- | :----: | ----: |\n| A      | 1      | ech1  |\n| B      | 2      | ech2  |\n| C      | 3      | ech3  |  \n\n\n\n\ngauche\ncentre\ndroite\n\n\n\n\nA\n1\nech1\n\n\nB\n2\nech2\n\n\nC\n3\nech3"
   },
   {
-    "objectID": "posts/04-rmarkdown/index.html#insérer-une-citation",
-    "href": "posts/04-rmarkdown/index.html#insérer-une-citation",
+    "objectID": "posts/04-rmarkdown/index.html#equations",
+    "href": "posts/04-rmarkdown/index.html#equations",
     "title": "Introduction à RMarkdown",
-    "section": "Insérer une citation",
-    "text": "Insérer une citation\nVous pouvez insérer une citation :"
-  },
-  {
-    "objectID": "posts/04-rmarkdown/index.html#notation-mathématique",
-    "href": "posts/04-rmarkdown/index.html#notation-mathématique",
-    "title": "Introduction à RMarkdown",
-    "section": "Notation mathématique",
-    "text": "Notation mathématique\nVous pouvez insérer du texte en exposant ou en indice :"
-  },
-  {
-    "objectID": "posts/04-rmarkdown/index.html#equation-mathématique",
-    "href": "posts/04-rmarkdown/index.html#equation-mathématique",
-    "title": "Introduction à RMarkdown",
-    "section": "Equation mathématique",
-    "text": "Equation mathématique\nLa syntaxe pour insérer une équation mathématique se base sur LaTeX :"
+    "section": "Equations",
+    "text": "Equations\nLa syntaxe pour insérer une équation se base sur LaTeX :\n\nUn cercle de rayon $r$ a une aire $A$ : $$A = \\pi \\times r^{2}$$ \n\nUn cercle de rayon \\(r\\) a une aire \\(A\\) : \\[A = \\pi \\times r^{2}\\]"
   },
   {
     "objectID": "posts/04-rmarkdown/index.html#insérer-une-image",
     "href": "posts/04-rmarkdown/index.html#insérer-une-image",
     "title": "Introduction à RMarkdown",
     "section": "Insérer une image",
-    "text": "Insérer une image\nVous pouvez insérer une image dans votre fichier :\n\n\n\n\n\n\nChemins vers les fichiers\n\n\n\nLorsque que vous indiquez un chemin vers un fichier dans RMarkdown, le dossier “racine” n’est plus votre répertoire de travail (votre projet) mais le dossier dans lequel se trouve le fichier .Rmd, dans le cas présent le répertoire docs/.\nIl faut donc revenir en arrière d’un niveau, à l’aide de ../.\nLorsque vous naviguez dans une arborescence à l’aide de la ligne de commande, . indique le répertoire de travail et .. le répertoire situé un niveau au-dessus dans votre arborescence.\n\n\n\n![](../figs/lter_penguins.png){width=\"100%\"}"
+    "text": "Insérer une image\nVous pouvez insérer une image dans votre fichier :\n\n\n\n\n\n\nChemins vers les fichiers\n\n\n\nLorsque que vous indiquez un chemin vers un fichier dans RMarkdown, le dossier “racine” n’est plus votre répertoire de travail (votre projet) mais le dossier dans lequel se trouve le fichier .Rmd, dans le cas présent le répertoire docs/.\nIl faut donc revenir en arrière d’un niveau, à l’aide de ../.\nLorsque vous naviguez dans une arborescence à l’aide de la ligne de commande, . indique le répertoire de travail et .. le répertoire situé un niveau au-dessus dans votre arborescence.\n\n\n\n![pingouins](../figs/pingouins.png){width=\"75%\"}"
   },
   {
     "objectID": "posts/04-rmarkdown/index.html#insérer-un-bloc-de-code-r",
