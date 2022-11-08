@@ -336,6 +336,13 @@
     "text": "Insérer des titres\nPour insérer un titre, utilisez un #. Vous pouvez utiliser différents niveaux en ajoutant des # :\n\n# Niveau 1\n## Niveau 2\n### Niveau 3"
   },
   {
+    "objectID": "posts/04-rmarkdown/index.html#insérer-une-ligne-horizontale",
+    "href": "posts/04-rmarkdown/index.html#insérer-une-ligne-horizontale",
+    "title": "Introduction à RMarkdown",
+    "section": "Insérer une ligne horizontale",
+    "text": "Insérer une ligne horizontale\nPour insérer une ligne horizontale dans votre texte, utilisez trois étoiles ***."
+  },
+  {
     "objectID": "posts/04-rmarkdown/index.html#mettre-en-forme-le-texte",
     "href": "posts/04-rmarkdown/index.html#mettre-en-forme-le-texte",
     "title": "Introduction à RMarkdown",
@@ -348,6 +355,13 @@
     "title": "Introduction à RMarkdown",
     "section": "Insérer du texte au format code",
     "text": "Insérer du texte au format code\nVous pouvez insérer du texte au format code :"
+  },
+  {
+    "objectID": "posts/04-rmarkdown/index.html#insérer-un-lien",
+    "href": "posts/04-rmarkdown/index.html#insérer-un-lien",
+    "title": "Introduction à RMarkdown",
+    "section": "Insérer un lien",
+    "text": "Insérer un lien\nVous pouvez insérer un lien dans votre texte :"
   },
   {
     "objectID": "posts/04-rmarkdown/index.html#insérer-des-listes",

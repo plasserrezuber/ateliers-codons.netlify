@@ -170,6 +170,14 @@ Pour insérer un titre, utilisez un `#`. Vous pouvez utiliser différents niveau
 
 <br>
 
+## Insérer une ligne horizontale
+
+Pour insérer une ligne horizontale dans votre texte, utilisez *trois étoiles* `***`.
+
+<br>
+
+
+
 ## Mettre en forme le texte
 
 Pour mettre en forme votre texte, utilisez les conventions suivantes :
@@ -191,6 +199,14 @@ Vous pouvez insérer du texte au *format code* :
 
 ![](img/rmd_42.png)
 :::
+
+<br>
+
+## Insérer un lien
+
+Vous pouvez insérer un lien dans votre texte : 
+
+![](img/rmd_45.png)
 
 <br>
 
@@ -357,8 +373,4 @@ Nous avons vu plus haut comment insérer du texte au format code.
 
 Vous pouvez exécuter le code en ajoutant un `r` : 
 
-::: {layout-ncol="1"}
 ![](img/rmd_43.png)
-
-![](img/rmd_44.png)
-:::
