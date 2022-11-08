@@ -201,8 +201,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
   <ul class="collapse">
   <li><a href="#quest-ce-que-r-markdown" id="toc-quest-ce-que-r-markdown" class="nav-link" data-scroll-target="#quest-ce-que-r-markdown">Qu’est-ce que R Markdown ?</a></li>
-  <li><a href="#organiser-son-travail" id="toc-organiser-son-travail" class="nav-link" data-scroll-target="#organiser-son-travail">Organiser son travail</a></li>
-  <li><a href="#installer-et-charger-rmarkdown" id="toc-installer-et-charger-rmarkdown" class="nav-link" data-scroll-target="#installer-et-charger-rmarkdown">Installer et charger RMarkdown</a></li>
+  <li><a href="#pré-requis" id="toc-pré-requis" class="nav-link" data-scroll-target="#pré-requis">Pré-requis</a></li>
   </ul></li>
   <li><a href="#créer-un-document-r-markdown" id="toc-créer-un-document-r-markdown" class="nav-link" data-scroll-target="#créer-un-document-r-markdown">Créer un document R Markdown</a>
   <ul class="collapse">
@@ -247,18 +246,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>R Markdown utilise la syntaxe Markdown, un langage <em>markup</em> qui propose des outils pour créer des documents avec des en-têtes, des images, des liens, …</p>
 <p>Un document Markdown peut être converti en différents formats comme du <em>html</em> ou du <em>pdf</em>.</p>
 <p>Lorsque vous créez un fichier R Markdown (<code>.Rmd</code>), vous utiliserez la syntaxe Markdown aux côtés de blocs de code écrits en R (ou d’autres langages de programmation). Ce fichier est ensuite compilé : le format Markdown et le code sont évalués, et un fichier de sortie (<code>html</code>, <code>pdf</code>, …) est généré.</p>
-<p>[<img src="img/horst_rmd.png" class="img-fluid">{fig.cap = “<a href="https://allisonhorst.com/">Dessin de Allison Horst</a>”, width = “50%”}</p>
+<p><img src="img/horst_rmd.png" class="img-fluid">{width = “50%”}</p>
+<p><br></p>
 </section>
-<section id="organiser-son-travail" class="level2">
-<h2 class="anchored" data-anchor-id="organiser-son-travail">Organiser son travail</h2>
-<p>Si vous n’avez pas suivi les autres tutoriels, suivez les instructions suivantes :</p>
-<ul>
-<li><p><a href="https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/#créer-un-projet">Créez un nouveau projet</a></p></li>
-<li><p><a href="https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/#créer-une-arborescence">Créez une arborescence</a></p></li>
-</ul>
-</section>
-<section id="installer-et-charger-rmarkdown" class="level2">
-<h2 class="anchored" data-anchor-id="installer-et-charger-rmarkdown">Installer et charger RMarkdown</h2>
+<section id="pré-requis" class="level2">
+<h2 class="anchored" data-anchor-id="pré-requis">Pré-requis</h2>
+<p>Si vous n’avez pas suivi les autres tutoriels, vous pouvez <a href="https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/#créer-un-projet">créer un projet RStudio</a> et <a href="https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/#créer-une-arborescence">une arborescence</a>.</p>
 <p>Pour utiliser RMarkdown dans RStudio, installez et chargez le package <code>rmarkdown</code> :</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"rmarkdown"</span>)</span>
