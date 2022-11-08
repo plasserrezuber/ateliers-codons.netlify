@@ -441,6 +441,13 @@
     "text": "Explorer et nettoyer les données\n\nDescription des données\nLes données brutes étant à présent disponibles dans notre environnement, nous pouvons les explorer de façon dynamique et afficher les résultats dans notre document :\n\n\n\nNettoyage des données\n\n\n\n\nComme nous l’avions fait pour importer les données, nous utilisons deux blocs de code pour exporter les données nettoyées :\n\nNous terminons cette partie par une description rapide des données nettoyées.\nLa fonction kable() du package knitr permet d’afficher un tableau dans le document :"
   },
   {
+    "objectID": "posts/04-rmarkdown/index.html#représenter-les-données",
+    "href": "posts/04-rmarkdown/index.html#représenter-les-données",
+    "title": "Introduction à RMarkdown",
+    "section": "Représenter les données",
+    "text": "Représenter les données\nRMarkdown permet d’exécuter le code utilisé pour générer un graphique et d’afficher celui-ci directement dans le document :\n\nVous pouvez afficher deux graphiques côte à côté, à l’aide d’options à placer dans les accolades {r ...} :\n\nout.width pour préciser les largeurs des graphiques (en %)\nfig.show = \"hold\" pour indiquer à R d’attendre d’avoir exécuté le code pour les deux graphiques avant de les afficher"
+  },
+  {
     "objectID": "posts/05-git/index.html",
     "href": "posts/05-git/index.html",
     "title": "Introduction à git",
