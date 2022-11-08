@@ -368,14 +368,14 @@
     "href": "posts/04-rmarkdown/index.html#notation-mathématique",
     "title": "Introduction à RMarkdown",
     "section": "Notation mathématique",
-    "text": "Notation mathématique\nVous pouvez insérer du texte en exposant ou en indice :\n\ntexte en ^exposant^ ou texte en ~indice~.\n\n[]"
+    "text": "Notation mathématique\nVous pouvez insérer du texte en exposant ou en indice :"
   },
   {
     "objectID": "posts/04-rmarkdown/index.html#equation-mathématique",
     "href": "posts/04-rmarkdown/index.html#equation-mathématique",
     "title": "Introduction à RMarkdown",
     "section": "Equation mathématique",
-    "text": "Equation mathématique\nLa syntaxe pour insérer une équation mathématique se base sur la syntaxe LaTeX :\nLa formule pour calculer l’aire \\(A\\) d’un cercle de rayon \\(r\\) est :\n\\[A = \\pi \\times r^{2}\\]\n\n\n\n[]"
+    "text": "Equation mathématique\nLa syntaxe pour insérer une équation mathématique se base sur la syntaxe LaTeX :"
   },
   {
     "objectID": "posts/04-rmarkdown/index.html#insérer-une-image",

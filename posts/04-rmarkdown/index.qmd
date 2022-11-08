@@ -244,22 +244,25 @@ Vous pouvez insérer une citation :
 
 Vous pouvez insérer du texte en exposant ou en indice :
 
-```{r, echo=TRUE, eval=FALSE}
-texte en ^exposant^ ou texte en ~indice~.
-```
+::: {layout-ncol="2"}
+![](img/rmd_37.png)
 
-\[![](img/rmd_14.png){width="100%"}\]
+![](img/rmd_38.png)
+:::
+
+<br>
 
 ## Equation mathématique
 
-La syntaxe pour insérer une équation mathématique se base sur la syntaxe LaTeX :
+La syntaxe pour insérer une équation mathématique se base sur la syntaxe [LaTeX](https://rpruim.github.io/s341/S19/from-class/MathinRmd.html) :
 
-```{r, echo=TRUE, eval=FALSE}
-La formule pour calculer l'aire $A$ d'un cercle de rayon $r$ est : 
-$$A = \pi \times r^{2}$$
-```
+::: {layout-ncol="2"}
+![](img/rmd_39.png)
 
-\[![](img/rmd_17.png){width="100%"}\]
+![](img/rmd_40.png)
+:::
+
+<br>
 
 ## Insérer une image
 
