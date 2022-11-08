@@ -212,6 +212,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul class="collapse">
   <li><a href="#insérer-des-titres" id="toc-insérer-des-titres" class="nav-link" data-scroll-target="#insérer-des-titres">Insérer des titres</a></li>
   <li><a href="#mettre-en-forme-le-texte" id="toc-mettre-en-forme-le-texte" class="nav-link" data-scroll-target="#mettre-en-forme-le-texte">Mettre en forme le texte</a></li>
+  <li><a href="#insérer-du-texte-au-format-code" id="toc-insérer-du-texte-au-format-code" class="nav-link" data-scroll-target="#insérer-du-texte-au-format-code">Insérer du texte au format code</a></li>
   <li><a href="#insérer-des-listes" id="toc-insérer-des-listes" class="nav-link" data-scroll-target="#insérer-des-listes">Insérer des listes</a></li>
   <li><a href="#insérer-un-tableau" id="toc-insérer-un-tableau" class="nav-link" data-scroll-target="#insérer-un-tableau">Insérer un tableau</a></li>
   <li><a href="#insérer-une-citation" id="toc-insérer-une-citation" class="nav-link" data-scroll-target="#insérer-une-citation">Insérer une citation</a></li>
@@ -222,7 +223,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#rédiger-un-document-de-façon-dynamique" id="toc-rédiger-un-document-de-façon-dynamique" class="nav-link" data-scroll-target="#rédiger-un-document-de-façon-dynamique">Rédiger un document de façon dynamique</a>
   <ul class="collapse">
   <li><a href="#insérer-un-bloc-de-code-r" id="toc-insérer-un-bloc-de-code-r" class="nav-link" data-scroll-target="#insérer-un-bloc-de-code-r">Insérer un bloc de code R</a></li>
-  <li><a href="#insérer-du-code-dans-le-texte" id="toc-insérer-du-code-dans-le-texte" class="nav-link" data-scroll-target="#insérer-du-code-dans-le-texte">Insérer du code dans le texte</a></li>
+  <li><a href="#insérer-du-code" id="toc-insérer-du-code" class="nav-link" data-scroll-target="#insérer-du-code">Insérer du code</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -406,6 +407,21 @@ Editeur visuel
 </div>
 <p><br></p>
 </section>
+<section id="insérer-du-texte-au-format-code" class="level2">
+<h2 class="anchored" data-anchor-id="insérer-du-texte-au-format-code">Insérer du texte au format code</h2>
+<p>Vous pouvez insérer du texte au <em>format code</em> :</p>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="img/rmd_41.png" class="img-fluid"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="img/rmd_42.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+<p><br></p>
+</section>
 <section id="insérer-des-listes" class="level2">
 <h2 class="anchored" data-anchor-id="insérer-des-listes">Insérer des listes</h2>
 <p>Vous pouvez insérer une liste à puces :</p>
@@ -531,18 +547,23 @@ Chemins vers les fichiers
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span>[](..<span class="sc">/</span>figs<span class="sc">/</span>lter_penguins.png){width<span class="ot">=</span><span class="st">"100%"</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><img src="img/rmd_18.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="img/rmd_18.png" class="img-fluid" style="width:75.0%"></p>
 <p><br></p>
 </section>
 </section>
 <section id="rédiger-un-document-de-façon-dynamique" class="level1">
 <h1>Rédiger un document de façon dynamique</h1>
-<p>Lorsque vous rédigez un rapport, vous pouvez le faire “en dur”, c’est-à-dire inscrire directement dans le texte toutes les valeurs numériques, les résultats de calculs, insérer des graphiques générés séparément, … Cette façon de procéder présente un désavantage majeur : votre document ne sera valable qu’une seule fois pour une seule analyse (vous pourrez toujours le ré-utiliser en remplaçant les valeurs numériques, …). De plus, le risque d’erreur est non négligeable : coller des valeurs numériques copiées depuis un autre logiciel peut créer des mauvaises surprises, des noms complexes seront facilement mal écrits, …</p>
-<p>Pour pallier à ces différents problèmes, RMarkdown vous permet de rédiger votre fichier de façon “dynamique” : vous pouvez ainsi importer les fichiers nécessaires à votre analyse et insérer des calculs, des graphiques à l’aide de code R qui sera compilé afin de générer le document de sortie. Dès lors, votre fichier Rmd pourra facilement être rectifié ou utilisé pour des analyses similaires sur d’autres jeux de données.</p>
+<p>Lorsque vous rédigez un rapport, vous pouvez le faire <em>“en dur”</em>, c’est-à-dire inscrire directement dans le texte toutes les valeurs numériques, les résultats de calculs, insérer des graphiques générés séparément, …</p>
+<p>Cette façon de procéder présente un désavantage majeur : votre document ne sera valable qu’une seule fois pour une seule analyse (vous pourrez toujours le ré-utiliser en remplaçant les valeurs numériques). De plus, le risque d’erreur est non négligeable : coller des valeurs numériques copiées depuis un autre logiciel peut créer des mauvaises surprises.</p>
+<p>Pour pallier à ces différents problèmes, RMarkdown vous permet de rédiger votre fichier de façon <em>“dynamique”</em>. Vous pouvez ainsi importer les fichiers nécessaires à votre analyse, effectuer des calculs et générer des graphiques à l’aide de code R qui sera compilé.</p>
+<p>Votre fichier Rmd pourra ainsi être modifié et ré-utilisé pour des analyses similaires sur d’autres jeux de données.</p>
+<p><br></p>
 <section id="insérer-un-bloc-de-code-r" class="level2">
 <h2 class="anchored" data-anchor-id="insérer-un-bloc-de-code-r">Insérer un bloc de code R</h2>
-<p>Commençons par importer notre jeu de données à l’aide d’une ligne de code insérée dans un bloc de code. Dans RMarkdown, un bloc de code est encadré par trois <strong>```</strong>. Sur la première ligne on indique entre accolades qu’il s’agit de code R :</p>
-<p><img src="img/rmd_19.png" class="img-fluid" style="width:100.0%"></p>
+<p>Commençons par importer notre jeu de données à l’aide d’une ligne de code insérée dans un bloc de code. Dans RMarkdown, un bloc de code est encadré par trois accents <em>```</em>.</p>
+<p>Sur la première ligne on indique entre accolades qu’il s’agit de code R :</p>
+<p><img src="img/rmd_20.png" class="img-fluid" style="width:100.0%"></p>
+<p><br></p>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -556,53 +577,67 @@ Raccourci clavier : insérer un bloc de code
 <p>Pour insérer un bloc de code, utiliser la combinaison <strong>Ctrl + Alt + I</strong></p>
 </div>
 </div>
-<p>Ajoutons la ligne de code permettant d’importer le jeu de données (attention au chemin !)</p>
-<p><img src="img/rmd_19.png" class="img-fluid" style="width:100.0%"></p>
-<p>Vous pouvez exécuter ce code comme vous le feriez dans un script classique en cliquant sur la flèche verte à droite du code (ou en vous plaçant sur la ligne et en utilisant la combinaison <strong>Ctrl + Entrée</strong>). Le fichier a bien été importé et stocké dans l’objet <strong>pingouins</strong> visible dans l’environnement.</p>
-<p><img src="img/rmd_20.png" class="img-fluid" style="width:100.0%"></p>
-<p>Lorsque vous compilez votre fichier Rmd, le code est exécuté et s’affiche dans le document :</p>
+<p><br></p>
+<p>Vous pouvez exécuter ce code comme vous le feriez dans un script classique en cliquant sur la flèche verte à droite du code (ou en vous plaçant sur la ligne et en utilisant la combinaison <strong>Ctrl + Entrée</strong>).</p>
+<p>Le fichier a bien été importé et stocké dans l’objet <strong>pingouins</strong> visible dans l’environnement.</p>
+<p>Lorsque vous compilez votre fichier Rmd, le code est exécuté et s’affiche dans votre document de sortie (au format <code>html</code>) :</p>
 <p><img src="img/rmd_21.png" class="img-fluid" style="width:100.0%"></p>
-<div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Bloc de code : les options
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Lorsque vous insérez un bloc de code, des paramètres vous permettent de préciser si le code doit être affiché ou non, exécuté ou non, … Ces options sont à placer dans les accolades : <code>{r param=TRUE} par exemple</code>.</p>
+<p><br></p>
+<p>Lorsque vous insérez un bloc de code, des paramètres vous permettent de préciser si le code doit être affiché ou non, exécuté ou non, …</p>
+<p>Ces options sont à placer dans les accolades : <code>{r eval=FALSE} par exemple</code>.</p>
 <table class="table">
+<thead>
+<tr class="header">
+<th>option</th>
+<th>par défaut</th>
+<th>effet</th>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
-<td>echo</td>
-<td>afficher le code dans le document</td>
+<td>eval</td>
+<td>TRUE</td>
+<td>évaluer le code et inclure le résultat</td>
 </tr>
 <tr class="even">
-<td>eval</td>
-<td>exécuter le code</td>
+<td>echo</td>
+<td>TRUE</td>
+<td>afficher le code avec le résultat</td>
 </tr>
 <tr class="odd">
-<td>error</td>
-<td>afficher les messages d’erreur</td>
+<td>warning</td>
+<td>TRUE</td>
+<td>afficher les messages d’avertissement</td>
 </tr>
 <tr class="even">
-<td>warning</td>
-<td>afficher les messages d’avertissement</td>
+<td>error</td>
+<td>FALSE</td>
+<td>afficher les messages d’erreur</td>
+</tr>
+<tr class="odd">
+<td>message</td>
+<td>TRUE</td>
+<td>afficher les messages</td>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
 </section>
-<section id="insérer-du-code-dans-le-texte" class="level2">
-<h2 class="anchored" data-anchor-id="insérer-du-code-dans-le-texte">Insérer du code dans le texte</h2>
-<p>Vous pouvez insérer du texte au format code en l’encadrant par des <strong>``</strong> :</p>
-<p>Insérer du code `ici`. Insérer du code <code>ici</code>.</p>
-<p>Vous pouvez également exécuter le code dans le texte en ajoutant un <code>r</code> :</p>
-<p><img src="img/rmd_24.png" class="img-fluid" style="width:100.0%"></p>
-<p>Le résultat de l’opération <code>2 + 2</code> est 4</p>
+<section id="insérer-du-code" class="level2">
+<h2 class="anchored" data-anchor-id="insérer-du-code">Insérer du code</h2>
+<p>Nous avons vu plus haut comment insérer du texte au format code.</p>
+<p>Vous pouvez exécuter le code en ajoutant un <code>r</code> :</p>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<p><img src="img/rmd_43.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<p><img src="img/rmd_44.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
 
 
 </section>

@@ -182,6 +182,18 @@ Pour mettre en forme votre texte, utilisez les conventions suivantes :
 
 <br>
 
+## Insérer du texte au format code
+
+Vous pouvez insérer du texte au *format code* : 
+
+::: {layout-ncol="2"}
+![](img/rmd_41.png)
+
+![](img/rmd_42.png)
+:::
+
+<br>
+
 ## Insérer des listes
 
 Vous pouvez insérer une liste à puces :
@@ -282,21 +294,31 @@ Lorsque vous naviguez dans une arborescence à l'aide de la ligne de commande, *
 ![](../figs/lter_penguins.png){width="100%"}
 ```
 
-![](img/rmd_18.png){width="100%"}
+![](img/rmd_18.png){width="75%"}
 
 <br>
 
 # Rédiger un document de façon dynamique
 
-Lorsque vous rédigez un rapport, vous pouvez le faire "en dur", c'est-à-dire inscrire directement dans le texte toutes les valeurs numériques, les résultats de calculs, insérer des graphiques générés séparément, ... Cette façon de procéder présente un désavantage majeur : votre document ne sera valable qu'une seule fois pour une seule analyse (vous pourrez toujours le ré-utiliser en remplaçant les valeurs numériques, ...). De plus, le risque d'erreur est non négligeable : coller des valeurs numériques copiées depuis un autre logiciel peut créer des mauvaises surprises, des noms complexes seront facilement mal écrits, ...
+Lorsque vous rédigez un rapport, vous pouvez le faire *"en dur"*, c'est-à-dire inscrire directement dans le texte toutes les valeurs numériques, les résultats de calculs, insérer des graphiques générés séparément, ... 
 
-Pour pallier à ces différents problèmes, RMarkdown vous permet de rédiger votre fichier de façon "dynamique" : vous pouvez ainsi importer les fichiers nécessaires à votre analyse et insérer des calculs, des graphiques à l'aide de code R qui sera compilé afin de générer le document de sortie. Dès lors, votre fichier Rmd pourra facilement être rectifié ou utilisé pour des analyses similaires sur d'autres jeux de données.
+Cette façon de procéder présente un désavantage majeur : votre document ne sera valable qu'une seule fois pour une seule analyse (vous pourrez toujours le ré-utiliser en remplaçant les valeurs numériques). De plus, le risque d'erreur est non négligeable : coller des valeurs numériques copiées depuis un autre logiciel peut créer des mauvaises surprises.
+
+Pour pallier à ces différents problèmes, RMarkdown vous permet de rédiger votre fichier de façon *"dynamique"*. Vous pouvez ainsi importer les fichiers nécessaires à votre analyse, effectuer des calculs et générer des graphiques à l'aide de code R qui sera compilé.
+
+Votre fichier Rmd pourra ainsi être modifié et ré-utilisé pour des analyses similaires sur d'autres jeux de données.
+
+<br>
 
 ## Insérer un bloc de code R
 
-Commençons par importer notre jeu de données à l'aide d'une ligne de code insérée dans un bloc de code. Dans RMarkdown, un bloc de code est encadré par trois **\`\`\`**. Sur la première ligne on indique entre accolades qu'il s'agit de code R :
+Commençons par importer notre jeu de données à l'aide d'une ligne de code insérée dans un bloc de code. Dans RMarkdown, un bloc de code est encadré par trois accents *\`\`\`*. 
 
-![](img/rmd_19.png){width="100%"}
+Sur la première ligne on indique entre accolades qu'il s'agit de code R :
+
+![](img/rmd_20.png){width="100%"}
+
+<br>
 
 ::: {.callout-tip icon="true"}
 ## Raccourci clavier : insérer un bloc de code
@@ -304,39 +326,39 @@ Commençons par importer notre jeu de données à l'aide d'une ligne de code ins
 Pour insérer un bloc de code, utiliser la combinaison **Ctrl + Alt + I**
 :::
 
-Ajoutons la ligne de code permettant d'importer le jeu de données (attention au chemin !)
+<br>
 
-![](img/rmd_19.png){width="100%"}
+Vous pouvez exécuter ce code comme vous le feriez dans un script classique en cliquant sur la flèche verte à droite du code (ou en vous plaçant sur la ligne et en utilisant la combinaison **Ctrl + Entrée**). 
 
-Vous pouvez exécuter ce code comme vous le feriez dans un script classique en cliquant sur la flèche verte à droite du code (ou en vous plaçant sur la ligne et en utilisant la combinaison **Ctrl + Entrée**). Le fichier a bien été importé et stocké dans l'objet **pingouins** visible dans l'environnement.
+Le fichier a bien été importé et stocké dans l'objet **pingouins** visible dans l'environnement.
 
-![](img/rmd_20.png){width="100%"}
-
-Lorsque vous compilez votre fichier Rmd, le code est exécuté et s'affiche dans le document :
+Lorsque vous compilez votre fichier Rmd, le code est exécuté et s'affiche dans votre document de sortie (au format `html`) :
 
 ![](img/rmd_21.png){width="100%"}
 
-::: {.callout-tip icon="true"}
-## Bloc de code : les options
+<br>
 
-Lorsque vous insérez un bloc de code, des paramètres vous permettent de préciser si le code doit être affiché ou non, exécuté ou non, ... Ces options sont à placer dans les accolades : `{r param=TRUE} par exemple`.
+Lorsque vous insérez un bloc de code, des paramètres vous permettent de préciser si le code doit être affiché ou non, exécuté ou non, ... 
 
-|         |                                       |
-|---------|---------------------------------------|
-| echo    | afficher le code dans le document     |
-| eval    | exécuter le code                      |
-| error   | afficher les messages d'erreur        |
-| warning | afficher les messages d'avertissement |
+Ces options sont à placer dans les accolades : `{r eval=FALSE} par exemple`.
+
+| option  | par défaut | effet                                  |
+|---------|------------|----------------------------------------|
+| eval    | TRUE       | évaluer le code et inclure le résultat |
+| echo    | TRUE       | afficher le code avec le résultat      |
+| warning | TRUE       | afficher les messages d'avertissement  |
+| error   | FALSE      | afficher les messages d'erreur         |
+| message | TRUE       | afficher les messages                  |
+
+
+## Insérer du code 
+
+Nous avons vu plus haut comment insérer du texte au format code.
+
+Vous pouvez exécuter le code en ajoutant un `r` : 
+
+::: {layout-ncol="1"}
+![](img/rmd_43.png)
+
+![](img/rmd_44.png)
 :::
-
-## Insérer du code dans le texte
-
-Vous pouvez insérer du texte au format code en l'encadrant par des **\`\`** :
-
-Insérer du code \`ici\`. Insérer du code `ici`.
-
-Vous pouvez également exécuter le code dans le texte en ajoutant un `r` :
-
-![](img/rmd_24.png){width="100%"}
-
-Le résultat de l'opération `2 + 2` est `r 2 + 2`
