@@ -448,6 +448,20 @@
     "text": "Représenter les données\nRMarkdown permet d’exécuter le code utilisé pour générer un graphique et d’afficher celui-ci directement dans le document :\n\nVous pouvez afficher deux graphiques côte à côté, à l’aide d’options à placer dans les accolades {r ...} :\n\nout.width pour préciser les largeurs des graphiques (en %)\nfig.show = \"hold\" pour indiquer à R d’attendre d’avoir exécuté le code pour les deux graphiques avant de les afficher"
   },
   {
+    "objectID": "posts/04-rmarkdown/index.html#ajouter-un-sommaire",
+    "href": "posts/04-rmarkdown/index.html#ajouter-un-sommaire",
+    "title": "Introduction à RMarkdown",
+    "section": "Ajouter un sommaire",
+    "text": "Ajouter un sommaire\nVous pouvez ajouter un sommaire à votre document, en ajoutant des options dans l’en-tête :\n\ntoc: true : activer le sommaire (*table of contents)\ntoc_depth : définir le nombre de niveaux à afficher dans le sommaire"
+  },
+  {
+    "objectID": "posts/04-rmarkdown/index.html#compiler-le-fichier-rmd-au-format-pdf",
+    "href": "posts/04-rmarkdown/index.html#compiler-le-fichier-rmd-au-format-pdf",
+    "title": "Introduction à RMarkdown",
+    "section": "Compiler le fichier Rmd au format pdf",
+    "text": "Compiler le fichier Rmd au format pdf\nPour exporter votre document au format pdf, vous pouvez modifier l’en-tête :"
+  },
+  {
     "objectID": "posts/05-git/index.html",
     "href": "posts/05-git/index.html",
     "title": "Introduction à git",

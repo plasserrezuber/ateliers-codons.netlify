@@ -472,3 +472,19 @@ Vous pouvez afficher deux graphiques côte à côté, à l'aide d'options à pla
 - `fig.show = "hold"` pour indiquer à R d'attendre d'avoir exécuté le code pour les deux graphiques avant de les afficher
 
 ![](img/rmd_53.png)
+
+## Ajouter un sommaire
+
+Vous pouvez ajouter un sommaire à votre document, en ajoutant des options dans l'en-tête : 
+
+- `toc: true` : activer le sommaire (*table of contents)  
+
+- `toc_depth` : définir le nombre de niveaux à afficher dans le sommaire
+
+![](img/rmd_54.png)
+
+## Compiler le fichier Rmd au format `pdf`
+
+Pour exporter votre document au format pdf, vous pouvez modifier l'en-tête : 
+
+![](img/rmd_55.png)
