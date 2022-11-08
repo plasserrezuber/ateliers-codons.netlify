@@ -222,7 +222,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#rédiger-un-document-de-façon-dynamique" id="toc-rédiger-un-document-de-façon-dynamique" class="nav-link" data-scroll-target="#rédiger-un-document-de-façon-dynamique">Rédiger un document de façon dynamique</a>
   <ul class="collapse">
   <li><a href="#insérer-un-bloc-de-code-r" id="toc-insérer-un-bloc-de-code-r" class="nav-link" data-scroll-target="#insérer-un-bloc-de-code-r">Insérer un bloc de code R</a></li>
-  <li><a href="#insérer-du-code" id="toc-insérer-du-code" class="nav-link" data-scroll-target="#insérer-du-code">Insérer du code</a></li>
+  <li><a href="#paramétrer-un-bloc-de-code" id="toc-paramétrer-un-bloc-de-code" class="nav-link" data-scroll-target="#paramétrer-un-bloc-de-code">Paramétrer un bloc de code</a></li>
+  <li><a href="#exécuter-du-code-dans-le-texte" id="toc-exécuter-du-code-dans-le-texte" class="nav-link" data-scroll-target="#exécuter-du-code-dans-le-texte">Exécuter du code dans le texte</a></li>
   </ul></li>
   <li><a href="#transformer-un-script-en-.rmd" id="toc-transformer-un-script-en-.rmd" class="nav-link" data-scroll-target="#transformer-un-script-en-.rmd">Transformer un script en .Rmd</a>
   <ul class="collapse">
@@ -529,11 +530,11 @@ Editeur visuel
 <p><br></p>
 <p>Pour aligner le texte, utilisez deux points <code>:</code> :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="sc">|</span> gauche <span class="sc">|</span> centre <span class="sc">|</span> droit <span class="sc">|</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="er">|</span> <span class="er">:</span><span class="sc">-----</span> <span class="er">|</span> <span class="er">:</span><span class="sc">----</span><span class="er">:</span> <span class="er">|</span> <span class="sc">----</span><span class="er">:</span> <span class="er">|</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="er">|</span> A      <span class="sc">|</span> <span class="dv">1</span>      <span class="sc">|</span> ech1  <span class="sc">|</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="er">|</span> B      <span class="sc">|</span> <span class="dv">2</span>      <span class="sc">|</span> ech2  <span class="sc">|</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="er">|</span> C      <span class="sc">|</span> <span class="dv">3</span>      <span class="sc">|</span> ech3  <span class="sc">|</span>  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="sc">|</span> gauche <span class="sc">|</span> centre <span class="sc">|</span> droite <span class="sc">|</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="er">|</span> <span class="er">:</span><span class="sc">-----</span> <span class="er">|</span> <span class="er">:</span><span class="sc">----</span><span class="er">:</span> <span class="er">|</span> <span class="sc">-----</span><span class="er">:</span> <span class="er">|</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="er">|</span> A      <span class="sc">|</span> <span class="dv">1</span>      <span class="sc">|</span> ech1   <span class="sc">|</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="er">|</span> B      <span class="sc">|</span> <span class="dv">2</span>      <span class="sc">|</span> ech2   <span class="sc">|</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="er">|</span> C      <span class="sc">|</span> <span class="dv">3</span>      <span class="sc">|</span> ech3   <span class="sc">|</span>  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <table class="table">
 <thead>
@@ -567,9 +568,9 @@ Editeur visuel
 <h2 class="anchored" data-anchor-id="equations">Equations</h2>
 <p>La syntaxe pour insérer une équation se base sur <a href="https://rpruim.github.io/s341/S19/from-class/MathinRmd.html">LaTeX</a> :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>Un cercle de rayon <span class="sc">$</span>r<span class="sc">$</span> a une aire <span class="sc">$</span>A<span class="sc">$</span> <span class="er">:</span> <span class="er">$$</span>A <span class="ot">=</span> \pi \times r<span class="sc">^</span>{<span class="dv">2</span>}<span class="sc">$</span><span class="er">$</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>Un cercle de rayon <span class="sc">$</span>r<span class="sc">$</span> a une aire <span class="sc">$</span>A <span class="ot">=</span> \pi \times r<span class="sc">^</span>{<span class="dv">2</span>}<span class="sc">$</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Un cercle de rayon <span class="math inline">\(r\)</span> a une aire <span class="math inline">\(A\)</span> : <span class="math display">\[A = \pi \times r^{2}\]</span></p>
+<p>Un cercle de rayon <span class="math inline">\(r\)</span> a une aire <span class="math inline">\(A = \pi \times r^{2}\)</span></p>
 <p><br></p>
 </section>
 <section id="insérer-une-image" class="level2">
@@ -594,6 +595,7 @@ Chemins vers les fichiers
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span>[pingouins](..<span class="sc">/</span>figs<span class="sc">/</span>pingouins.png){width<span class="ot">=</span><span class="st">"75%"</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><img src="img/rmd_18.png" class="img-fluid" style="width:75.0%"></p>
+<p>L’option <code>width</code> permet d’ajuster la largeur relative de l’image.</p>
 <p><br></p>
 </section>
 </section>
@@ -601,14 +603,25 @@ Chemins vers les fichiers
 <h1>Rédiger un document de façon dynamique</h1>
 <p>Lorsque vous rédigez un rapport, vous pouvez le faire <em>“en dur”</em>, c’est-à-dire inscrire directement dans le texte toutes les valeurs numériques, les résultats de calculs, insérer des graphiques générés séparément, …</p>
 <p>Cette façon de procéder présente un désavantage majeur : votre document ne sera valable qu’une seule fois pour une seule analyse (vous pourrez toujours le ré-utiliser en remplaçant les valeurs numériques). De plus, le risque d’erreur est non négligeable : coller des valeurs numériques copiées depuis un autre logiciel peut créer des mauvaises surprises.</p>
-<p>Pour pallier à ces différents problèmes, RMarkdown vous permet de rédiger votre fichier de façon <em>“dynamique”</em>. Vous pouvez ainsi importer les fichiers nécessaires à votre analyse, effectuer des calculs et générer des graphiques à l’aide de code R qui sera compilé.</p>
-<p>Votre fichier Rmd pourra ainsi être modifié et ré-utilisé pour des analyses similaires sur d’autres jeux de données.</p>
+<p>R Markdown vous permet de rédiger votre fichier de façon <em>“dynamique”</em>. Vous pouvez ainsi importer les fichiers nécessaires à votre analyse, effectuer des calculs et générer des graphiques à l’aide de code R qui sera compilé.</p>
+<p>Votre fichier <code>Rmd</code> pourra ainsi être modifié et ré-utilisé pour des analyses similaires sur d’autres jeux de données.</p>
 <p><br></p>
 <section id="insérer-un-bloc-de-code-r" class="level2">
 <h2 class="anchored" data-anchor-id="insérer-un-bloc-de-code-r">Insérer un bloc de code R</h2>
-<p>Commençons par importer notre jeu de données à l’aide d’une ligne de code insérée dans un bloc de code. Dans RMarkdown, un bloc de code est encadré par trois accents <em>```</em>.</p>
-<p>Sur la première ligne on indique entre accolades qu’il s’agit de code R :</p>
-<p><img src="img/rmd_20.png" class="img-fluid" style="width:100.0%"></p>
+<p>Commençons par importer notre jeu de données. Nous allons pour cela insérer un <em>bloc de code</em> dans notre fichier.</p>
+<p>Pour insérer un bloc de code, cliquez sur l’icône située en haut à droite du fichier <code>Rmd</code>et choisissez <code>R</code> (d’autres langages de programmation sont disponibles).</p>
+<p><img src="img/rmd_56.png" class="img-fluid" style="width:100.0%"></p>
+<p>Un bloc de code contient les éléments suivants :</p>
+<ul>
+<li><p>des <em>accents</em> <em>```</em> pour délimiter le bloc</p></li>
+<li><p>des accolades contenant des informations : <code>{r}</code> (nous verrons d’autres paramètres plus loin)</p></li>
+<li><p>trois icônes :</p>
+<ul>
+<li><p>une <em>roue</em> pour ajouter des options</p></li>
+<li><p>une flèche pointant vers le bas pour exécuter tout le code jusqu’à ce bloc</p></li>
+<li><p>une flèche pointant vers la droite pour exécuter le bloc (vous pouvez également exécuter le code d’un bloc en vous positionnant sur le code et en utilisant la combinaison <em>Ctrl</em> + <em>Entrée</em>)</p></li>
+</ul></li>
+</ul>
 <p><br></p>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -624,13 +637,20 @@ Raccourci clavier : insérer un bloc de code
 </div>
 </div>
 <p><br></p>
-<p>Vous pouvez exécuter ce code comme vous le feriez dans un script classique en cliquant sur la flèche verte à droite du code (ou en vous plaçant sur la ligne et en utilisant la combinaison <strong>Ctrl + Entrée</strong>).</p>
+<p>Ajoutez le code suivant dans ce bloc de code et exécutez-le (attention au chemin !) :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>pingouins <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"../data/pingouins_propre.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Le fichier a bien été importé et stocké dans l’objet <strong>pingouins</strong> visible dans l’environnement.</p>
-<p>Lorsque vous compilez votre fichier Rmd, le code est exécuté et s’affiche dans votre document de sortie (au format <code>html</code>) :</p>
-<p><img src="img/rmd_21.png" class="img-fluid" style="width:100.0%"></p>
+<p>Lorsque vous compilez votre fichier Rmd, le code est exécuté et s’affiche dans votre document de sortie (au format <code>html</code>). L’objet <code>pingouins</code> n’est pas visible dans l’environnement lorsque vous compilez votre fichier Rmd, mais il est bel et bien disponible et vous pourrez le manipuler à l’aide de blocs de code.</p>
 <p><br></p>
+</section>
+<section id="paramétrer-un-bloc-de-code" class="level2">
+<h2 class="anchored" data-anchor-id="paramétrer-un-bloc-de-code">Paramétrer un bloc de code</h2>
 <p>Lorsque vous insérez un bloc de code, des paramètres vous permettent de préciser si le code doit être affiché ou non, exécuté ou non, …</p>
-<p>Ces options sont à placer dans les accolades : <code>{r eval=FALSE} par exemple</code>.</p>
+<p>Vous pouvez régler certains paramètres en cliquant sur la <em>roue</em> à droite du bloc :</p>
+<p><img src="img/rmd_57.png" class="img-fluid" style="width:100.0%"></p>
+<p>Vous pouvez également renseigner ces paramètres directement dans les accolades : <code>{r, eval = FALSE}</code> par exemple.</p>
 <table class="table">
 <thead>
 <tr class="header">
@@ -660,19 +680,37 @@ Raccourci clavier : insérer un bloc de code
 <td>FALSE</td>
 <td>afficher les messages d’erreur</td>
 </tr>
-<tr class="odd">
-<td>message</td>
-<td>TRUE</td>
-<td>afficher les messages</td>
-</tr>
 </tbody>
 </table>
+<p><br></p>
+<p>Si vous le souhaitez, vous pouvez définir en haut de votre fichier <code>Rmd</code> les paramètres à appliquer à l’ensemble des blocs de code :</p>
+<p><img src="img/rmd_58.png" class="img-fluid" style="width:100.0%"></p>
+<div class="callout-caution callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Bonnes pratiques : nommer les blocs de code
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Comme vous pouvez le voir dans le dernier exemple, il est utile de nommer les blocs de code :</p>
+<ul>
+<li><p>en utilisant la roue à droite du bloc et en tapant le nom dans <em>Chunck Name</em></p></li>
+<li><p>en tapant le nom directement dans les accolades</p></li>
+</ul>
+</div>
+</div>
 </section>
-<section id="insérer-du-code" class="level2">
-<h2 class="anchored" data-anchor-id="insérer-du-code">Insérer du code</h2>
+<section id="exécuter-du-code-dans-le-texte" class="level2">
+<h2 class="anchored" data-anchor-id="exécuter-du-code-dans-le-texte">Exécuter du code dans le texte</h2>
 <p>Nous avons vu plus haut comment insérer du texte au format code.</p>
 <p>Vous pouvez exécuter le code en ajoutant un <code>r</code> :</p>
-<p><img src="img/rmd_43.png" class="img-fluid"></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>La racine carrée de <span class="dv">20</span> est <span class="sc">**</span><span class="st">`</span><span class="at">r sqrt(20)</span><span class="st">`</span><span class="sc">**</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>La racine carrée de 20 est <strong>4.472136</strong></p>
 <p><br></p>
 </section>
 </section>
