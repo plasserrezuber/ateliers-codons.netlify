@@ -232,6 +232,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#introduction-1" id="toc-introduction-1" class="nav-link" data-scroll-target="#introduction-1">Introduction</a></li>
   <li><a href="#importer-les-données" id="toc-importer-les-données" class="nav-link" data-scroll-target="#importer-les-données">Importer les données</a></li>
   <li><a href="#explorer-et-nettoyer-les-données" id="toc-explorer-et-nettoyer-les-données" class="nav-link" data-scroll-target="#explorer-et-nettoyer-les-données">Explorer et nettoyer les données</a></li>
+  <li><a href="#représenter-les-données" id="toc-représenter-les-données" class="nav-link" data-scroll-target="#représenter-les-données">Représenter les données</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -694,9 +695,20 @@ Raccourci clavier : insérer un bloc de code
 <p>Nous terminons cette partie par une description rapide des données nettoyées.</p>
 <p>La fonction <code>kable()</code> du package <code>knitr</code> permet d’afficher un tableau dans le document :</p>
 <p><img src="img/rmd_51.png" class="img-fluid"></p>
-
-
 </section>
+</section>
+<section id="représenter-les-données" class="level2">
+<h2 class="anchored" data-anchor-id="représenter-les-données">Représenter les données</h2>
+<p>RMarkdown permet d’exécuter le code utilisé pour générer un graphique et d’afficher celui-ci directement dans le document :</p>
+<p><img src="img/rmd_52.png" class="img-fluid"></p>
+<p>Vous pouvez afficher deux graphiques côte à côté, à l’aide d’options à placer dans les accolades <code>{r ...}</code> :</p>
+<ul>
+<li><p><code>out.width</code> pour préciser les largeurs des graphiques (en %)</p></li>
+<li><p><code>fig.show = "hold"</code> pour indiquer à R d’attendre d’avoir exécuté le code pour les deux graphiques avant de les afficher</p></li>
+</ul>
+<p><img src="img/rmd_53.png" class="img-fluid"></p>
+
+
 </section>
 </section>
 

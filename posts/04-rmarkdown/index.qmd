@@ -459,3 +459,16 @@ La fonction `kable()` du package `knitr` permet d'afficher un tableau dans le do
 
 ![](img/rmd_51.png)
 
+## Représenter les données
+
+RMarkdown permet d'exécuter le code utilisé pour générer un graphique et d'afficher celui-ci directement dans le document : 
+
+![](img/rmd_52.png)
+
+Vous pouvez afficher deux graphiques côte à côté, à l'aide d'options à placer dans les accolades `{r ...}` :
+
+- `out.width` pour préciser les largeurs des graphiques (en %)  
+
+- `fig.show = "hold"` pour indiquer à R d'attendre d'avoir exécuté le code pour les deux graphiques avant de les afficher
+
+![](img/rmd_53.png)
