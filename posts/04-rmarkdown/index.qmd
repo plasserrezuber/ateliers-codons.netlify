@@ -527,17 +527,107 @@ knitr::kable(head(pingouins, 3))
 
 ## Représenter les données
 
-RMarkdown permet d'exécuter le code utilisé pour générer un graphique et d'afficher celui-ci directement dans le document :
+R Markdown permet d'exécuter le code utilisé pour générer un graphique et d'afficher celui-ci directement dans le document.
 
-![](img/rmd_52.png)
+### Nombre d'individus par espèce
 
-Vous pouvez afficher deux graphiques côte à côté, à l'aide d'options à placer dans les accolades `{r ...}` :
+````
+Quelle est l'espèce la plus représentée ?
 
--   `out.width` pour préciser les largeurs des graphiques (en %)
+```{r, nombre individus, echo=FALSE}`r ''`
+# Barplot : nombre d'individus par espece 
+barplot(sort(table(pingouins$espece), decreasing = TRUE),
+        col = c("Adelie" = "darkorange",
+                "Chinstrap" = "cyan4",
+                "Gentoo" = "purple"),
+        border = NA,
+        main = "Pingouins de l'archipel Palmer",
+        ylab = "Nombre d'individus par espèce",
+        ylim = c(0, 200))
+```
+````
 
--   `fig.show = "hold"` pour indiquer à R d'attendre d'avoir exécuté le code pour les deux graphiques avant de les afficher
+### Rapport entre la longueur et la hauteur du bec
 
-![](img/rmd_53.png)
+````
+Les mesures du bec permettent-elles de différencier les espèces ?
+
+```{r, ratio bec, echo=FALSE}`r ''`
+# Calculer le ratio entre la longueur et la hauteur du bec
+pingouins$ratio_bec <- round(pingouins$longueur_bec_mm / pingouins$hauteur_bec_mm,
+                             digits = 2)
+
+# Boxplot : ratio du bec en fonction de l'espece
+boxplot(pingouins$ratio_bec ~ pingouins$espece,
+        col = NA,
+        border = c("Adelie" = "darkorange",
+                   "Chinstrap" = "cyan4",
+                   "Gentoo" = "purple"),
+        pch = 20,
+        main = "Rapport entre la longueur et la hauteur du bec",
+        xlab = "",
+        ylab = "Ratio")
+```
+````
+
+::: {.callout-tip icon="true"}
+## Afficher deux graphiques côte à côte
+
+Pour afficher deux graphiques côte à côte, vous pouvez utiliser les paramètres suivants : 
+`{r, out.width=c("50%", "50%"), fig.show="hold"}`
+
+- `out.width` permet d'ajuster les largeurs relatives des graphiques (en %)  
+
+- `fig.show="hold"` indique à R qu'il doit exécuter l'ensemble du code avant d'afficher les graphiques (sans ce paramètre, les deux graphiques seront affichés l'un au-dessus de l'autre)
+:::
+
+### Distribution de la masse corporelle
+
+````
+Comment se distribue la masse corporelle de l'ensemble des pingouins ?
+
+```{r, distribution masse, echo=FALSE}`r ''`
+# Histogramme : distribution de la masse corporelle
+hist(pingouins$masse_corporelle_g / 1000,
+     breaks = 20,
+     col = "lightblue",
+     border = "darkblue",
+     ylim = c(0, 50),
+     main = "Distribution de la masse corporelle",
+     xlab = "Masse (kgs)",
+     ylab = "Fréquence")
+```
+````
+
+### Relation entre la longueur des ailes et la longueur du bec
+
+````
+Y a-t-il une relation entre la longueur des ailes et la longueur du bec ? Ces mesures varient-elles en fonction de l'espèce ?
+
+```{r, distribution masse, echo=FALSE}`r ''`
+# Ajouter une variable couleur 
+pingouins$couleur[pingouins$espece == "Adelie"] <- "darkorange"
+pingouins$couleur[pingouins$espece == "Chinstrap"] <- "purple"
+pingouins$couleur[pingouins$espece == "Gentoo"] <- "cyan4"
+
+# Scatter plot : longueur des ailes vs longueur du bec
+plot(x = pingouins$longueur_aile_mm, y = pingouins$longueur_bec_mm,
+     col = pingouins$couleur,
+     pch = 20,
+     main = "Relation entre la longueur des ailes et la longueur du bec",
+     xlab = "Longueur des ailes (mm)",
+     ylab = "Longueur du bec (mm)")
+legend(legend = sort(unique(pingouins$espece)),
+       x = 215,
+       y = 40,
+       col = c("darkorange", "purple", "cyan4"),
+       pch = 19)
+```
+````
+
+
+
+
 
 ## Ajouter un sommaire
 
