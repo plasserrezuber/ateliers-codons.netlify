@@ -802,59 +802,12 @@ Afficher ou non les # en sortie
 <span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="er">|</span> <span class="st">`</span><span class="at">r names(pingouins)[6]</span><span class="st">`</span> <span class="sc">|</span> <span class="st">`</span><span class="at">r typeof(pingouins[, 6])</span><span class="st">`</span> <span class="sc">|</span> <span class="st">`</span><span class="at">r pingouins[1, 6]</span><span class="st">`</span> <span class="sc">|</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Pour clore cette description du jeu de données, affichons les premières lignes du tableau. La fonction <code>kable()</code> du package <code>knitr</code> permet d’afficher des tableaux :</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(pingouins, <span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<table class="table table-sm table-striped">
-<colgroup>
-<col style="width: 8%">
-<col style="width: 11%">
-<col style="width: 19%">
-<col style="width: 17%">
-<col style="width: 20%">
-<col style="width: 22%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">espece</th>
-<th style="text-align: left;">ile</th>
-<th style="text-align: right;">longueur_bec_mm</th>
-<th style="text-align: right;">hauteur_bec_mm</th>
-<th style="text-align: right;">longueur_aile_mm</th>
-<th style="text-align: right;">masse_corporelle_g</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Adelie</td>
-<td style="text-align: left;">Torgersen</td>
-<td style="text-align: right;">39.1</td>
-<td style="text-align: right;">18.7</td>
-<td style="text-align: right;">181</td>
-<td style="text-align: right;">3750</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Adelie</td>
-<td style="text-align: left;">Torgersen</td>
-<td style="text-align: right;">39.5</td>
-<td style="text-align: right;">17.4</td>
-<td style="text-align: right;">186</td>
-<td style="text-align: right;">3800</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Adelie</td>
-<td style="text-align: left;">Torgersen</td>
-<td style="text-align: right;">40.3</td>
-<td style="text-align: right;">18.0</td>
-<td style="text-align: right;">195</td>
-<td style="text-align: right;">3250</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p>La fonction <code>kable()</code> du package <code>knitr</code> permet d’afficher un tableau dans le document :</p>
-<p><img src="img/rmd_51.png" class="img-fluid"></p>
+<pre><code>Les données se présentent comme ci-dessous : 
+
+```{r, apercu tableau, echo=FALSE}
+# Afficher les 3 premieres lignes
+knitr::kable(head(pingouins, 3))
+```</code></pre>
 </section>
 <section id="représenter-les-données" class="level2">
 <h2 class="anchored" data-anchor-id="représenter-les-données">Représenter les données</h2>
