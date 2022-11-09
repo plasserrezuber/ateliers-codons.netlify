@@ -231,9 +231,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#importer-les-données" id="toc-importer-les-données" class="nav-link" data-scroll-target="#importer-les-données">Importer les données</a></li>
   <li><a href="#décrire-les-données" id="toc-décrire-les-données" class="nav-link" data-scroll-target="#décrire-les-données">Décrire les données</a></li>
   <li><a href="#représenter-les-données" id="toc-représenter-les-données" class="nav-link" data-scroll-target="#représenter-les-données">Représenter les données</a></li>
-  <li><a href="#ajouter-un-sommaire" id="toc-ajouter-un-sommaire" class="nav-link" data-scroll-target="#ajouter-un-sommaire">Ajouter un sommaire</a></li>
-  <li><a href="#compiler-le-fichier-rmd-au-format-pdf" id="toc-compiler-le-fichier-rmd-au-format-pdf" class="nav-link" data-scroll-target="#compiler-le-fichier-rmd-au-format-pdf">Compiler le fichier Rmd au format <code>pdf</code></a></li>
   </ul></li>
+  <li><a href="#modifier-le-format-du-document" id="toc-modifier-le-format-du-document" class="nav-link" data-scroll-target="#modifier-le-format-du-document">Modifier le format du document</a>
+  <ul class="collapse">
+  <li><a href="#document-word" id="toc-document-word" class="nav-link" data-scroll-target="#document-word">Document Word</a></li>
+  <li><a href="#document-pdf" id="toc-document-pdf" class="nav-link" data-scroll-target="#document-pdf">Document PDF</a></li>
+  </ul></li>
+  <li><a href="#modifier-lapparence-dun-document" id="toc-modifier-lapparence-dun-document" class="nav-link" data-scroll-target="#modifier-lapparence-dun-document">Modifier l’apparence d’un document</a>
+  <ul class="collapse">
+  <li><a href="#ajouter-une-table-des-matières" id="toc-ajouter-une-table-des-matières" class="nav-link" data-scroll-target="#ajouter-une-table-des-matières">Ajouter une table des matières</a></li>
+  <li><a href="#modifier-le-thème" id="toc-modifier-le-thème" class="nav-link" data-scroll-target="#modifier-le-thème">Modifier le thème</a></li>
+  </ul></li>
+  <li><a href="#partager-un-document" id="toc-partager-un-document" class="nav-link" data-scroll-target="#partager-un-document">Partager un document</a></li>
+  <li><a href="#bonus-créer-un-diaporama" id="toc-bonus-créer-un-diaporama" class="nav-link" data-scroll-target="#bonus-créer-un-diaporama">Bonus : créer un diaporama</a></li>
   </ul>
 </nav>
     </div>
@@ -884,7 +894,8 @@ hist(pingouins$masse_corporelle_g / 1000,
 </section>
 <section id="relation-entre-la-longueur-des-ailes-et-la-longueur-du-bec" class="level3">
 <h3 class="anchored" data-anchor-id="relation-entre-la-longueur-des-ailes-et-la-longueur-du-bec">Relation entre la longueur des ailes et la longueur du bec</h3>
-<pre><code>Y a-t-il une relation entre la longueur des ailes et la longueur du bec ? Ces mesures varient-elles en fonction de l'espèce ?
+<pre><code>Y a-t-il une relation entre la longueur des ailes et la longueur du bec ?
+Ces mesures varient-elles en fonction de l'espèce ?
 
 ```{r, distribution masse, echo=FALSE}
 # Ajouter une variable couleur 
@@ -907,22 +918,121 @@ legend(legend = sort(unique(pingouins$espece)),
 ```</code></pre>
 </section>
 </section>
-<section id="ajouter-un-sommaire" class="level2">
-<h2 class="anchored" data-anchor-id="ajouter-un-sommaire">Ajouter un sommaire</h2>
-<p>Vous pouvez ajouter un sommaire à votre document, en ajoutant des options dans l’en-tête :</p>
+</section>
+<section id="modifier-le-format-du-document" class="level1">
+<h1>Modifier le format du document</h1>
+<p>Par défaut, un fichier <code>Rmd</code> est compilé en un document <code>html</code>. Vous pouvez choisir d’autres formats de sortie, en modifiant les paramètres de l’en-tête.</p>
+<p>En fonction du format choisi, il peut y avoir des ajustements à faire au niveau de la mise en page.</p>
+<section id="document-word" class="level2">
+<h2 class="anchored" data-anchor-id="document-word">Document Word</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">"Pingouins de l'archipel Palmer"</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>author<span class="sc">:</span> Jonathan Kitt</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>date<span class="sc">:</span> <span class="dv">2022-11-14</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">:</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  word_document</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="document-pdf" class="level2">
+<h2 class="anchored" data-anchor-id="document-pdf">Document PDF</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">"Pingouins de l'archipel Palmer"</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>author<span class="sc">:</span> Jonathan Kitt</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>date<span class="sc">:</span> <span class="dv">2022-11-14</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">:</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  pdf_document</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="modifier-lapparence-dun-document" class="level1">
+<h1>Modifier l’apparence d’un document</h1>
+<p>Des paramètres permettent de modifier l’apparence d’un document.</p>
+<p>Les possibilités diffèrent selon le format de votre document.</p>
+<section id="ajouter-une-table-des-matières" class="level2">
+<h2 class="anchored" data-anchor-id="ajouter-une-table-des-matières">Ajouter une table des matières</h2>
+<p>Vous pouvez ajouter une table des matières, toujours à l’aide de paramètres à ajouter dans l’en-tête.</p>
 <ul>
-<li><p><code>toc: true</code> : activer le sommaire (*table of contents)</p></li>
-<li><p><code>toc_depth</code> : définir le nombre de niveaux à afficher dans le sommaire</p></li>
+<li><p><code>toc: true</code> : ajouter une table des matières (<em>table of contents</em>) au début du document</p></li>
+<li><p><code>toc_float: true</code> : table des matières “flottante” (pour un document au format <code>html</code>)</p></li>
+<li><p><code>toc_depth: 1</code> : nombre de niveaux à inclure dans la table des matières</p></li>
 </ul>
-<p><img src="img/rmd_54.png" class="img-fluid"></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">"Pingouins de l'archipel Palmer"</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>author<span class="sc">:</span> Jonathan Kitt</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>date<span class="sc">:</span> <span class="dv">2022-11-14</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">:</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>  html_document<span class="sc">:</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>    toc<span class="sc">:</span> true</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>    toc_float<span class="sc">:</span> true</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>    toc_depth<span class="sc">:</span> <span class="dv">2</span></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section id="compiler-le-fichier-rmd-au-format-pdf" class="level2">
-<h2 class="anchored" data-anchor-id="compiler-le-fichier-rmd-au-format-pdf">Compiler le fichier Rmd au format <code>pdf</code></h2>
-<p>Pour exporter votre document au format pdf, vous pouvez modifier l’en-tête :</p>
-<p><img src="img/rmd_55.png" class="img-fluid"></p>
+<section id="modifier-le-thème" class="level2">
+<h2 class="anchored" data-anchor-id="modifier-le-thème">Modifier le thème</h2>
+<p>Vous pouvez modifier le style général de votre document au format <code>html</code> en changeant le thème (<code>default</code>, <code>bootstrap</code>, <code>cerulean</code>, <code>cosmo</code>, <code>darkly</code>, <code>flatly</code>, <code>journal</code>, <code>lumen</code>, <code>paper</code>, <code>readable</code>, <code>sandtone</code>, <code>simplex</code>, <code>spacelab</code>, <code>united</code> et <code>yeti</code>).</p>
+<p>Pour n’utiliser aucun thème, utilisez l’option <code>theme: null</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">"Pingouins de l'archipel Palmer"</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>author<span class="sc">:</span> Jonathan Kitt</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>date<span class="sc">:</span> <span class="dv">2022-11-14</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">:</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>  html_document<span class="sc">:</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>    toc<span class="sc">:</span> true</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>    toc_depth<span class="sc">:</span> <span class="dv">2</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>    theme<span class="sc">:</span> flatly</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="partager-un-document" class="level1">
+<h1>Partager un document</h1>
+<p>Une fois votre fichier <code>Rmd</code> compilé, vous pourriez vouloir le partager.</p>
+<p>La solution la plus simple est de compiler votre fichier dans un format <code>word</code> ou <code>pdf</code> et de le partager directement.</p>
+<p>Le partage d’un document <code>html</code> nécessite de déposer votre document en ligne. En effet, si vous partagez un document au format <code>html</code> tel quel, la personne qui le reçoit ne verra que le texte et pas les figures ni les images. Vous pouvez déposer votre document sur le site <a href="https://rpubs.com/">RPubs</a>. Créez un compte en cliquant sur <code>Register</code> :</p>
+<p><img src="img/rmd_59.png" class="img-fluid"></p>
+<p>Assurez-vous de compiler la dernière version de votre fichier puis cliquez sur <em>Publish</em> et sur <em>RPubs</em> :</p>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="img/rmd_60.png" class="img-fluid"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="img/rmd_61.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+<p>Cliquez à nouveau sur <em>Publish</em> :</p>
+<p><img src="img/rmd_62.png" class="img-fluid"></p>
+<p>Une fenêtre s’ouvre dans votre navigateur internet, vous pouvez y indiquer le titre du document, ajouter une description et choisir le lien :</p>
+<p><img src="img/rmd_63.png" class="img-fluid"></p>
+<p>Pour terminer, cliquez sur <em>Continue</em>. Votre document est désormais disponible en ligne, vous pouvez partager le lien.</p>
+<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Données sensibles
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Attention ! Les documents déposés sur <em>RPubs</em> sont publics et accessibles à tous. Pour rendre vos documents “privés” il existe d’autres solutions, notamment en passant par ce que l’on appelle des pages <em>GitHub</em> ou <em>GitLab</em> …</p>
+</div>
+</div>
+</section>
+<section id="bonus-créer-un-diaporama" class="level1">
+<h1>Bonus : créer un diaporama</h1>
+<p>R Markdown vous permet également de générer un diaporama. Le contenu d’une présentation étant généralement plus succinct qu’un rapport, il est préférable de sauvegarder votre fichier <code>Rmd</code> sous un autre nom afin de le retravailler.</p>
+<p>Pour cela, cliquez sur <em>File</em> &gt; <em>Save as</em> et donnez un autre nom à votre fichier (par exemple <code>mesures_pingouins_diapos.Rmd</code>).</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

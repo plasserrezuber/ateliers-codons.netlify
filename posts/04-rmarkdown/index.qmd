@@ -602,7 +602,8 @@ hist(pingouins$masse_corporelle_g / 1000,
 ### Relation entre la longueur des ailes et la longueur du bec
 
 ````
-Y a-t-il une relation entre la longueur des ailes et la longueur du bec ? Ces mesures varient-elles en fonction de l'espèce ?
+Y a-t-il une relation entre la longueur des ailes et la longueur du bec ?
+Ces mesures varient-elles en fonction de l'espèce ?
 
 ```{r, distribution masse, echo=FALSE}`r ''`
 # Ajouter une variable couleur 
@@ -625,22 +626,123 @@ legend(legend = sort(unique(pingouins$espece)),
 ```
 ````
 
+# Modifier le format du document
+
+Par défaut, un fichier `Rmd` est compilé en un document `html`. Vous pouvez choisir d'autres formats de sortie, en modifiant les paramètres de l'en-tête.
+
+En fonction du format choisi, il peut y avoir des ajustements à faire au niveau de la mise en page.
+
+## Document Word
+
+```{r, eval=FALSE}
+---
+title: "Pingouins de l'archipel Palmer"
+author: Jonathan Kitt
+date: 2022-11-14
+output:
+  word_document
+---
+```
+
+## Document PDF
+
+```{r, eval=FALSE}
+---
+title: "Pingouins de l'archipel Palmer"
+author: Jonathan Kitt
+date: 2022-11-14
+output:
+  pdf_document
+---
+```
+
+# Modifier l'apparence d'un document
+
+Des paramètres permettent de modifier l'apparence d'un document.
+
+Les possibilités diffèrent selon le format de votre document.
+
+## Ajouter une table des matières
+
+Vous pouvez ajouter une table des matières, toujours à l'aide de paramètres à ajouter dans l'en-tête.
+
+- `toc: true` : ajouter une table des matières (*table of contents*) au début du document 
+
+- `toc_float: true` : table des matières "flottante" (pour un document au format `html`)
+
+- `toc_depth: 1` : nombre de niveaux à inclure dans la table des matières  
 
 
 
+```{r, eval=FALSE}
+---
+title: "Pingouins de l'archipel Palmer"
+author: Jonathan Kitt
+date: 2022-11-14
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 2
+---
+```
 
-## Ajouter un sommaire
+## Modifier le thème
 
-Vous pouvez ajouter un sommaire à votre document, en ajoutant des options dans l'en-tête :
+Vous pouvez modifier le style général de votre document au format `html` en changeant le thème (`default`, `bootstrap`, `cerulean`, `cosmo`, `darkly`, `flatly`, `journal`, `lumen`, `paper`, `readable`, `sandtone`, `simplex`, `spacelab`, `united` et `yeti`).
 
--   `toc: true` : activer le sommaire (\*table of contents)
+Pour n'utiliser aucun thème, utilisez l'option `theme: null`
 
--   `toc_depth` : définir le nombre de niveaux à afficher dans le sommaire
+```{r, eval=FALSE}
+---
+title: "Pingouins de l'archipel Palmer"
+author: Jonathan Kitt
+date: 2022-11-14
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
+    theme: flatly
+---
+```
 
-![](img/rmd_54.png)
+# Partager un document
 
-## Compiler le fichier Rmd au format `pdf`
+Une fois votre fichier `Rmd` compilé, vous pourriez vouloir le partager.  
 
-Pour exporter votre document au format pdf, vous pouvez modifier l'en-tête :
+La solution la plus simple est de compiler votre fichier dans un format `word` ou `pdf` et de le partager directement.
 
-![](img/rmd_55.png)
+Le partage d'un document `html` nécessite de déposer votre document en ligne. En effet, si vous partagez un document au format `html` tel quel, la personne qui le reçoit ne verra que le texte et pas les figures ni les images. Vous pouvez déposer votre document sur le site [RPubs](https://rpubs.com/). Créez un compte en cliquant sur `Register` : 
+
+![](img/rmd_59.png)
+
+Assurez-vous de compiler la dernière version de votre fichier puis cliquez sur *Publish* et sur *RPubs* : 
+
+::: {layout-ncol="2"}
+![](img/rmd_60.png)
+
+![](img/rmd_61.png)
+:::
+
+Cliquez à nouveau sur *Publish* : 
+
+![](img/rmd_62.png)
+
+Une fenêtre s'ouvre dans votre navigateur internet, vous pouvez y indiquer le titre du document, ajouter une description et choisir le lien :
+
+![](img/rmd_63.png)
+
+Pour terminer, cliquez sur *Continue*. Votre document est désormais disponible en ligne, vous pouvez partager le lien.
+
+::: {.callout-warning icon="true"}
+## Données sensibles
+
+Attention ! Les documents déposés sur *RPubs* sont publics et accessibles à tous. Pour rendre vos documents "privés" il existe d'autres solutions, notamment en passant par ce que l'on appelle des pages *GitHub* ou *GitLab* ... 
+:::
+
+# Bonus : créer un diaporama
+
+R Markdown vous permet également de générer un diaporama. Le contenu d'une présentation étant généralement plus succinct qu'un rapport, il est préférable de sauvegarder votre fichier `Rmd` sous un autre nom afin de le retravailler.
+
+Pour cela, cliquez sur *File* > *Save as* et donnez un autre nom à votre fichier (par exemple `mesures_pingouins_diapos.Rmd`).
+
