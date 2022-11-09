@@ -811,14 +811,101 @@ knitr::kable(head(pingouins, 3))
 </section>
 <section id="représenter-les-données" class="level2">
 <h2 class="anchored" data-anchor-id="représenter-les-données">Représenter les données</h2>
-<p>RMarkdown permet d’exécuter le code utilisé pour générer un graphique et d’afficher celui-ci directement dans le document :</p>
-<p><img src="img/rmd_52.png" class="img-fluid"></p>
-<p>Vous pouvez afficher deux graphiques côte à côté, à l’aide d’options à placer dans les accolades <code>{r ...}</code> :</p>
+<p>R Markdown permet d’exécuter le code utilisé pour générer un graphique et d’afficher celui-ci directement dans le document.</p>
+<section id="nombre-dindividus-par-espèce" class="level3">
+<h3 class="anchored" data-anchor-id="nombre-dindividus-par-espèce">Nombre d’individus par espèce</h3>
+<pre><code>Quelle est l'espèce la plus représentée ?
+
+```{r, nombre individus, echo=FALSE}
+# Barplot : nombre d'individus par espece 
+barplot(sort(table(pingouins$espece), decreasing = TRUE),
+        col = c("Adelie" = "darkorange",
+                "Chinstrap" = "cyan4",
+                "Gentoo" = "purple"),
+        border = NA,
+        main = "Pingouins de l'archipel Palmer",
+        ylab = "Nombre d'individus par espèce",
+        ylim = c(0, 200))
+```</code></pre>
+</section>
+<section id="rapport-entre-la-longueur-et-la-hauteur-du-bec" class="level3">
+<h3 class="anchored" data-anchor-id="rapport-entre-la-longueur-et-la-hauteur-du-bec">Rapport entre la longueur et la hauteur du bec</h3>
+<pre><code>Les mesures du bec permettent-elles de différencier les espèces ?
+
+```{r, ratio bec, echo=FALSE}
+# Calculer le ratio entre la longueur et la hauteur du bec
+pingouins$ratio_bec &lt;- round(pingouins$longueur_bec_mm / pingouins$hauteur_bec_mm,
+                             digits = 2)
+
+# Boxplot : ratio du bec en fonction de l'espece
+boxplot(pingouins$ratio_bec ~ pingouins$espece,
+        col = NA,
+        border = c("Adelie" = "darkorange",
+                   "Chinstrap" = "cyan4",
+                   "Gentoo" = "purple"),
+        pch = 20,
+        main = "Rapport entre la longueur et la hauteur du bec",
+        xlab = "",
+        ylab = "Ratio")
+```</code></pre>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Afficher deux graphiques côte à côte
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Pour afficher deux graphiques côte à côte, vous pouvez utiliser les paramètres suivants : <code>{r, out.width=c("50%", "50%"), fig.show="hold"}</code></p>
 <ul>
-<li><p><code>out.width</code> pour préciser les largeurs des graphiques (en %)</p></li>
-<li><p><code>fig.show = "hold"</code> pour indiquer à R d’attendre d’avoir exécuté le code pour les deux graphiques avant de les afficher</p></li>
+<li><p><code>out.width</code> permet d’ajuster les largeurs relatives des graphiques (en %)</p></li>
+<li><p><code>fig.show="hold"</code> indique à R qu’il doit exécuter l’ensemble du code avant d’afficher les graphiques (sans ce paramètre, les deux graphiques seront affichés l’un au-dessus de l’autre)</p></li>
 </ul>
-<p><img src="img/rmd_53.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="distribution-de-la-masse-corporelle" class="level3">
+<h3 class="anchored" data-anchor-id="distribution-de-la-masse-corporelle">Distribution de la masse corporelle</h3>
+<pre><code>Comment se distribue la masse corporelle de l'ensemble des pingouins ?
+
+```{r, distribution masse, echo=FALSE}
+# Histogramme : distribution de la masse corporelle
+hist(pingouins$masse_corporelle_g / 1000,
+     breaks = 20,
+     col = "lightblue",
+     border = "darkblue",
+     ylim = c(0, 50),
+     main = "Distribution de la masse corporelle",
+     xlab = "Masse (kgs)",
+     ylab = "Fréquence")
+```</code></pre>
+</section>
+<section id="relation-entre-la-longueur-des-ailes-et-la-longueur-du-bec" class="level3">
+<h3 class="anchored" data-anchor-id="relation-entre-la-longueur-des-ailes-et-la-longueur-du-bec">Relation entre la longueur des ailes et la longueur du bec</h3>
+<pre><code>Y a-t-il une relation entre la longueur des ailes et la longueur du bec ? Ces mesures varient-elles en fonction de l'espèce ?
+
+```{r, distribution masse, echo=FALSE}
+# Ajouter une variable couleur 
+pingouins$couleur[pingouins$espece == "Adelie"] &lt;- "darkorange"
+pingouins$couleur[pingouins$espece == "Chinstrap"] &lt;- "purple"
+pingouins$couleur[pingouins$espece == "Gentoo"] &lt;- "cyan4"
+
+# Scatter plot : longueur des ailes vs longueur du bec
+plot(x = pingouins$longueur_aile_mm, y = pingouins$longueur_bec_mm,
+     col = pingouins$couleur,
+     pch = 20,
+     main = "Relation entre la longueur des ailes et la longueur du bec",
+     xlab = "Longueur des ailes (mm)",
+     ylab = "Longueur du bec (mm)")
+legend(legend = sort(unique(pingouins$espece)),
+       x = 215,
+       y = 40,
+       col = c("darkorange", "purple", "cyan4"),
+       pch = 19)
+```</code></pre>
+</section>
 </section>
 <section id="ajouter-un-sommaire" class="level2">
 <h2 class="anchored" data-anchor-id="ajouter-un-sommaire">Ajouter un sommaire</h2>
