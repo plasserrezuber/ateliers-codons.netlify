@@ -454,22 +454,43 @@ pingouins <- read.csv("../data/pingouins_propre.csv")
 ```
 ````
 
+## Décrire les données
 
-Le chemin vers le fichier `pingouins.csv` ne sera pas le même pour un utilisateur utilisant notre document. Nous insérons ainsi deux blocs de code :
+Nous pouvons afficher les dimensions du tableau à l'aide de code dynamique : 
+```{r, eval=FALSE}
+Le jeu de données contient **`r nrow(pingouins)` observations** et **`r ncol(pingouins)` variables**.
+```
 
--   importer les données pour les utiliser dans le fichier `Rmd`
+Nous pouvons extraire les noms des espèces et des îles : 
 
--   expliquer comment importer les données pour un autre utilisateur
+```{r, eval=FALSE}
+Les mesures concernent **trois espèces** de pingouins : 
 
-![](img/rmd_47.png)
+- *`r sort(unique(pingouins$espece))[1]`*  
 
-## Explorer et nettoyer les données
+- *`r sort(unique(pingouins$espece))[2]`*  
 
-### Description des données
+- *`r sort(unique(pingouins$espece))[3]`*
 
-Les données brutes étant à présent disponibles dans notre environnement, nous pouvons les explorer de façon dynamique et afficher les résultats dans notre document :
+Ces pingouins vivent sur **trois îles** : 
 
-![](img/rmd_48.png)
+- `r sort(unique(pingouins$ile))[1]` 
+
+- `r sort(unique(pingouins$ile))[2]`  
+
+- `r sort(unique(pingouins$ile))[3]`
+```
+
+Comment les espèces sont-elles réparties sur les îles ?
+
+````
+Les individus se répartissent de la façon suivante : 
+
+```{r, repartition individus, echo=FALSE, comment=""}`r ''`
+# Tableau de la répartition des individus
+table(pingouins$espece, pingouins$ile)
+```
+````
 
 ### Nettoyage des données
 
