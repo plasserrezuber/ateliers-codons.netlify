@@ -514,42 +514,12 @@ Les variables sont les suivantes :
 ```
 
 
+Pour clore cette description du jeu de données, affichons les premières lignes du tableau. La fonction `kable()` du package `knitr` permet d'afficher des tableaux : 
 
-### Nettoyage des données
-
-![](img/rmd_49.png)
-
-```{r, eval=TRUE, echo=FALSE}
-# Creer une copie de travail
-pingouins_propre <- pingouins
-
-# Renommer les colonnes
-nouveaux_noms <- gsub("[()]", "", names(pingouins_propre))
-nouveaux_noms <- gsub(" ", "_", nouveaux_noms)
-nouveaux_noms <- tolower(nouveaux_noms)
-names(pingouins_propre) <- nouveaux_noms
-rm(nouveaux_noms)
-
-# Selectionner les colonnes
-pingouins_propre <- pingouins_propre[, c("espece", "ile", "longueur_bec_mm",
-                                         "hauteur_bec_mm", "longueur_aile_mm", 
-                                         "masse_corporelle_g")]
-
-# Modifier la variable espece 
-pingouins_propre$espece <- gsub(" .*$", "", pingouins_propre$espece)
-
-# Calculer le rapport entre la longueur et la hauteur du bec
-pingouins_propre$ratio_bec <- round(pingouins_propre$longueur_bec_mm / pingouins_propre$hauteur_bec_mm, digits = 2)
-
-# Supprimer les donnees manquantes
-pingouins_propre <- pingouins_propre[complete.cases(pingouins_propre), ]
+```{r}
+knitr::kable(head(pingouins, 3))
 ```
 
-Comme nous l'avions fait pour importer les données, nous utilisons deux blocs de code pour exporter les données nettoyées :
-
-![](img/rmd_50.png)
-
-Nous terminons cette partie par une description rapide des données nettoyées.
 
 La fonction `kable()` du package `knitr` permet d'afficher un tableau dans le document :
 
