@@ -492,6 +492,29 @@ table(pingouins$espece, pingouins$ile)
 ```
 ````
 
+::: {.callout-note icon="true"}
+## Afficher ou non les # en sortie
+
+Le paramètre `comment = ""` utilisé dans le bloc de code ci-dessus permet de ne pas afficher de `#` dans la sortie.
+:::
+
+Quelles sont les variables du tableau ?
+
+```{r, eval=FALSE}
+Les variables sont les suivantes : 
+  
+| variable                | type                       | exemple             |
+| :---------------------: | :------------------------: | :-----------------: |
+| `r names(pingouins)[1]` | `r typeof(pingouins[, 1])` | `r pingouins[1, 1]` |
+| `r names(pingouins)[2]` | `r typeof(pingouins[, 2])` | `r pingouins[1, 2]` |
+| `r names(pingouins)[3]` | `r typeof(pingouins[, 3])` | `r pingouins[1, 3]` |
+| `r names(pingouins)[4]` | `r typeof(pingouins[, 4])` | `r pingouins[1, 4]` |
+| `r names(pingouins)[5]` | `r typeof(pingouins[, 5])` | `r pingouins[1, 5]` |
+| `r names(pingouins)[6]` | `r typeof(pingouins[, 6])` | `r pingouins[1, 6]` | 
+```
+
+
+
 ### Nettoyage des données
 
 ![](img/rmd_49.png)
