@@ -229,7 +229,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul class="collapse">
   <li><a href="#introduction-1" id="toc-introduction-1" class="nav-link" data-scroll-target="#introduction-1">Introduction</a></li>
   <li><a href="#importer-les-données" id="toc-importer-les-données" class="nav-link" data-scroll-target="#importer-les-données">Importer les données</a></li>
-  <li><a href="#explorer-et-nettoyer-les-données" id="toc-explorer-et-nettoyer-les-données" class="nav-link" data-scroll-target="#explorer-et-nettoyer-les-données">Explorer et nettoyer les données</a></li>
+  <li><a href="#décrire-les-données" id="toc-décrire-les-données" class="nav-link" data-scroll-target="#décrire-les-données">Décrire les données</a></li>
   <li><a href="#représenter-les-données" id="toc-représenter-les-données" class="nav-link" data-scroll-target="#représenter-les-données">Représenter les données</a></li>
   <li><a href="#ajouter-un-sommaire" id="toc-ajouter-un-sommaire" class="nav-link" data-scroll-target="#ajouter-un-sommaire">Ajouter un sommaire</a></li>
   <li><a href="#compiler-le-fichier-rmd-au-format-pdf" id="toc-compiler-le-fichier-rmd-au-format-pdf" class="nav-link" data-scroll-target="#compiler-le-fichier-rmd-au-format-pdf">Compiler le fichier Rmd au format <code>pdf</code></a></li>
@@ -743,20 +743,38 @@ Bonnes pratiques : nommer les blocs de code
 # Importer les donnees sans afficher le code
 pingouins &lt;- read.csv("../data/pingouins_propre.csv")
 ```</code></pre>
-<p>Le chemin vers le fichier <code>pingouins.csv</code> ne sera pas le même pour un utilisateur utilisant notre document. Nous insérons ainsi deux blocs de code :</p>
-<ul>
-<li><p>importer les données pour les utiliser dans le fichier <code>Rmd</code></p></li>
-<li><p>expliquer comment importer les données pour un autre utilisateur</p></li>
-</ul>
-<p><img src="img/rmd_47.png" class="img-fluid"></p>
 </section>
-<section id="explorer-et-nettoyer-les-données" class="level2">
-<h2 class="anchored" data-anchor-id="explorer-et-nettoyer-les-données">Explorer et nettoyer les données</h2>
-<section id="description-des-données" class="level3">
-<h3 class="anchored" data-anchor-id="description-des-données">Description des données</h3>
-<p>Les données brutes étant à présent disponibles dans notre environnement, nous pouvons les explorer de façon dynamique et afficher les résultats dans notre document :</p>
-<p><img src="img/rmd_48.png" class="img-fluid"></p>
-</section>
+<section id="décrire-les-données" class="level2">
+<h2 class="anchored" data-anchor-id="décrire-les-données">Décrire les données</h2>
+<p>Nous pouvons afficher les dimensions du tableau à l’aide de code dynamique :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>Le jeu de données contient <span class="sc">**</span><span class="st">`</span><span class="at">r nrow(pingouins)</span><span class="st">`</span> observations<span class="sc">**</span> et <span class="sc">**</span><span class="st">`</span><span class="at">r ncol(pingouins)</span><span class="st">`</span> variables<span class="sc">**</span>.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Nous pouvons extraire les noms des espèces et des îles :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>Les mesures concernent <span class="sc">**</span>trois espèces<span class="sc">**</span> de pingouins <span class="sc">:</span> </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> <span class="er">*</span><span class="st">`</span><span class="at">r sort(unique(pingouins$espece))[1]</span><span class="st">`</span><span class="sc">*</span>  </span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> <span class="er">*</span><span class="st">`</span><span class="at">r sort(unique(pingouins$espece))[2]</span><span class="st">`</span><span class="sc">*</span>  </span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> <span class="er">*</span><span class="st">`</span><span class="at">r sort(unique(pingouins$espece))[3]</span><span class="st">`</span><span class="sc">*</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>Ces pingouins vivent sur <span class="sc">**</span>trois îles<span class="sc">**</span> <span class="er">:</span> </span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> <span class="st">`</span><span class="at">r sort(unique(pingouins$ile))[1]</span><span class="st">`</span> </span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> <span class="st">`</span><span class="at">r sort(unique(pingouins$ile))[2]</span><span class="st">`</span>  </span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> <span class="st">`</span><span class="at">r sort(unique(pingouins$ile))[3]</span><span class="st">`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Comment les espèces sont-elles réparties sur les îles ?</p>
+<pre><code>Les individus se répartissent de la façon suivante : 
+
+```{r, repartition individus, echo=FALSE, comment=""}
+# Tableau de la répartition des individus
+table(pingouins$espece, pingouins$ile)
+```</code></pre>
 <section id="nettoyage-des-données" class="level3">
 <h3 class="anchored" data-anchor-id="nettoyage-des-données">Nettoyage des données</h3>
 <p><img src="img/rmd_49.png" class="img-fluid"></p>

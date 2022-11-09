@@ -410,14 +410,14 @@
     "href": "posts/04-rmarkdown/index.html#importer-les-données",
     "title": "Introduction à RMarkdown",
     "section": "Importer les données",
-    "text": "Importer les données\nPour utiliser les données dans notre fichier Rmd nous devons les importer.\nDans le cadre de ce tutoriel nous choisissons de ne pas faire apparaître le code utilisé pour importer les données. Nous ajoutons donc les paramètres nécessaires dans le bloc de code. Comme dans un script, nous commentons les blocs de code.\n```{r, importer donnees, echo=FALSE}\n# Importer les donnees sans afficher le code\npingouins <- read.csv(\"../data/pingouins_propre.csv\")\n```\nLe chemin vers le fichier pingouins.csv ne sera pas le même pour un utilisateur utilisant notre document. Nous insérons ainsi deux blocs de code :\n\nimporter les données pour les utiliser dans le fichier Rmd\nexpliquer comment importer les données pour un autre utilisateur"
+    "text": "Importer les données\nPour utiliser les données dans notre fichier Rmd nous devons les importer.\nDans le cadre de ce tutoriel nous choisissons de ne pas faire apparaître le code utilisé pour importer les données. Nous ajoutons donc les paramètres nécessaires dans le bloc de code. Comme dans un script, nous commentons les blocs de code.\n```{r, importer donnees, echo=FALSE}\n# Importer les donnees sans afficher le code\npingouins <- read.csv(\"../data/pingouins_propre.csv\")\n```"
   },
   {
-    "objectID": "posts/04-rmarkdown/index.html#explorer-et-nettoyer-les-données",
-    "href": "posts/04-rmarkdown/index.html#explorer-et-nettoyer-les-données",
+    "objectID": "posts/04-rmarkdown/index.html#décrire-les-données",
+    "href": "posts/04-rmarkdown/index.html#décrire-les-données",
     "title": "Introduction à RMarkdown",
-    "section": "Explorer et nettoyer les données",
-    "text": "Explorer et nettoyer les données\n\nDescription des données\nLes données brutes étant à présent disponibles dans notre environnement, nous pouvons les explorer de façon dynamique et afficher les résultats dans notre document :\n\n\n\nNettoyage des données\n\n\n\n\nComme nous l’avions fait pour importer les données, nous utilisons deux blocs de code pour exporter les données nettoyées :\n\nNous terminons cette partie par une description rapide des données nettoyées.\nLa fonction kable() du package knitr permet d’afficher un tableau dans le document :"
+    "section": "Décrire les données",
+    "text": "Décrire les données\nNous pouvons afficher les dimensions du tableau à l’aide de code dynamique :\n\nLe jeu de données contient **`r nrow(pingouins)` observations** et **`r ncol(pingouins)` variables**.\n\nNous pouvons extraire les noms des espèces et des îles :\n\nLes mesures concernent **trois espèces** de pingouins : \n\n- *`r sort(unique(pingouins$espece))[1]`*  \n\n- *`r sort(unique(pingouins$espece))[2]`*  \n\n- *`r sort(unique(pingouins$espece))[3]`*\n\nCes pingouins vivent sur **trois îles** : \n\n- `r sort(unique(pingouins$ile))[1]` \n\n- `r sort(unique(pingouins$ile))[2]`  \n\n- `r sort(unique(pingouins$ile))[3]`\n\nComment les espèces sont-elles réparties sur les îles ?\nLes individus se répartissent de la façon suivante : \n\n```{r, repartition individus, echo=FALSE, comment=\"\"}\n# Tableau de la répartition des individus\ntable(pingouins$espece, pingouins$ile)\n```\n\nNettoyage des données\n\n\n\n\nComme nous l’avions fait pour importer les données, nous utilisons deux blocs de code pour exporter les données nettoyées :\n\nNous terminons cette partie par une description rapide des données nettoyées.\nLa fonction kable() du package knitr permet d’afficher un tableau dans le document :"
   },
   {
     "objectID": "posts/04-rmarkdown/index.html#représenter-les-données",
