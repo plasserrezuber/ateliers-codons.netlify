@@ -418,29 +418,42 @@ La racine carrée de 20 est **`r sqrt(20)`**
 
 # Transformer un script en .Rmd
 
-Dans le tutoriel [Premiers pas avec R](https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/) nous avons vu comment nettoyer, manipuler et représenter des données. 
+Dans le tutoriel [Premiers pas avec R](https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/) nous avons vu comment nettoyer, manipuler et représenter des données.
 
 Nous allons transformer le script utilisé pour cette analyse en un fichier `Rmd` qui sera compilé pour générer un rapport. Téléchargez le script [ici](https://raw.githubusercontent.com/codons-blog/ateliers_codons/main/scripts/intro_rmd.R) et sauvegardez-le dans le dossier `scripts` de votre projet. Ouvrez-le afin de l'avoir à portée de main (il s'ouvrira dans un nouvel onglet à côté de votre fichier `Rmd`)
 
 ## Introduction
 
-Commençons par rédiger une courte introduction :
+Commençons par rédiger une courte introduction avec les éléments suivants : 
 
-![](img/rmd_46.png)
+- nom du fichier  
 
--   Nous utilisons des *balises `html`* pour centrer l'image : `<center> et </center>`
+- lien vers l'étude  
 
--   Nous ajustons la largeur de l'image à l'aide du paramètre `{width="50%"}`
+- image avec référence et lien
 
+Copiez le texte ci-dessous et collez-le dans votre fichier `Rmd` : 
+
+````
+Le fichier `pingouins.csv` contient des mesures pour [trois espèces de pingouins vivant en Antarctique (archipel Palmer)](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0090081#s2).
+
+![[Dessin de @allison_horst](https://allisonhorst.com/)](../figs/pingouins.png){width="50%"}
+````
 <br>
 
 ## Importer les données
 
-```{r, echo=FALSE, eval=TRUE}
-pingouins <- read.csv("../../raw/pingouins.csv", check.names = FALSE)
-```
+Pour utiliser les données dans notre fichier `Rmd` nous devons les importer.
 
-Pour utiliser les données dans notre fichier `Rmd` nous devons l'importer : il sera alors disponible dans notre environnement.
+Dans le cadre de ce tutoriel nous choisissons de ne pas faire apparaître le code utilisé pour importer les données. Nous ajoutons donc les paramètres nécessaires dans le bloc de code. Comme dans un script, nous commentons les blocs de code.
+
+````
+```{r, importer donnees, echo=FALSE}`r ''`
+# Importer les donnees sans afficher le code
+pingouins <- read.csv("../data/pingouins_propre.csv")
+```
+````
+
 
 Le chemin vers le fichier `pingouins.csv` ne sera pas le même pour un utilisateur utilisant notre document. Nous insérons ainsi deux blocs de code :
 
