@@ -516,14 +516,14 @@ Les variables sont les suivantes :
 
 Pour clore cette description du jeu de données, affichons les premières lignes du tableau. La fonction `kable()` du package `knitr` permet d'afficher des tableaux : 
 
-```{r}
+````
+Les données se présentent comme ci-dessous : 
+
+```{r, apercu tableau, echo=FALSE}`r ''`
+# Afficher les 3 premieres lignes
 knitr::kable(head(pingouins, 3))
 ```
-
-
-La fonction `kable()` du package `knitr` permet d'afficher un tableau dans le document :
-
-![](img/rmd_51.png)
+````
 
 ## Représenter les données
 
