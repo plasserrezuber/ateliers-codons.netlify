@@ -8,8 +8,6 @@ website:
     right:
       - icon: github
         href: https://github.com/codons-blog/
-      - icon: twitter
-        href: https://twitter.com/AteliersCodons/
 format:
   html:
     theme: flatly
