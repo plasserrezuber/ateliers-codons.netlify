@@ -149,7 +149,6 @@ En décochant *Show Previews Inline*, le résultat de l'exécution de code ne s'
 
 Pour mettre en forme votre texte, vous allez utiliser la syntaxe markdown.
 
-
 ::: {.callout-note icon="true"}
 ## Editeur visuel
 
@@ -165,8 +164,7 @@ Vous pouvez modifier votre fichier Rmd à la manière d'un éditeur de texte à 
 ::: {.callout-tip icon="true"}
 ## Saut de ligne
 
-Lorsque vous tapez du texte, pour passer à la ligne suivante, il vous faut insérer *deux espaces* puis appuyer sur *Entrée*. 
-
+Lorsque vous tapez du texte, pour passer à la ligne suivante, il vous faut insérer *deux espaces* puis appuyer sur *Entrée*.
 :::
 
 Pour mettre en forme votre texte, utilisez les conventions suivantes :
@@ -181,8 +179,6 @@ Pour mettre en forme votre texte, utilisez les conventions suivantes :
 | texte \^exposant\^            | texte ^exposant^        |
 | texte \~indice \~             | texte ~indice~          |
 | \`code\`                      | `code`                  |
-
-
 
 <br>
 
@@ -320,8 +316,7 @@ Lorsque vous naviguez dans une arborescence à l'aide de la ligne de commande, *
 
 ![](img/rmd_18.png){width="75%"}
 
-Vous pouvez ajouter une légende entre les crochets `[]`.
-L'option `width` permet d'ajuster la largeur relative de l'image.
+Vous pouvez ajouter une légende entre les crochets `[]`. L'option `width` permet d'ajuster la largeur relative de l'image.
 
 <br>
 
@@ -467,12 +462,12 @@ Dans le cadre de ce tutoriel nous choisissons de ne pas faire apparaître le cod
     pingouins <- read.csv("../data/pingouins_propre.csv")
     ```
 
-::: {.callout-tip icon="true"} 
+::: {.callout-tip icon="true"}
 ## Modifier le répertoire de compilation
+
 Vous pouvez modifier le répertoire à partir duquel se fait la compilation en cliquant sur la flèche à droite du bouton *Knit* puis sur *Knit directory* et choisir *Project Directory*. Cela ne vaut que pour le code exécuté à l'intérieur d'un bloc, pour l'insertion d'images par exemple il vous faudra toujours remonter d'un niveau dans le chemin : `../`.
 
 ![](img/rmd_64.png){width="100%"}
-
 :::
 
 <br>
@@ -697,7 +692,7 @@ output:
 
 ## Modifier le thème
 
-Vous pouvez modifier le style général de votre document au format `html` en changeant le thème (`default`, `bootstrap`, `cerulean`, `cosmo`, `darkly`, `flatly`, `journal`, `lumen`, `paper`, `readable`, `sandtone`, `simplex`, `spacelab`, `united` et `yeti`).
+Vous pouvez modifier le style général de votre document au format `html` en changeant le thème (`default`, `bootstrap`, `cerulean`, `cosmo`, `darkly`, `flatly`, `journal`, `lumen`, `paper`, `readable`, `sandstone`, `simplex`, `spacelab`, `united` et `yeti`).
 
 Pour n'utiliser aucun thème, utilisez l'option `theme: null`
 

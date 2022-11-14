@@ -333,7 +333,7 @@
     "href": "posts/04-rmarkdown/index.html#modifier-le-thème",
     "title": "Introduction à RMarkdown",
     "section": "Modifier le thème",
-    "text": "Modifier le thème\nVous pouvez modifier le style général de votre document au format html en changeant le thème (default, bootstrap, cerulean, cosmo, darkly, flatly, journal, lumen, paper, readable, sandtone, simplex, spacelab, united et yeti).\nPour n’utiliser aucun thème, utilisez l’option theme: null\n\n---\ntitle: \"Pingouins de l'archipel Palmer\"\nauthor: Jonathan Kitt\ndate: 2022-11-14\noutput:\n  html_document:\n    toc: true\n    toc_depth: 2\n    theme: flatly\n---"
+    "text": "Modifier le thème\nVous pouvez modifier le style général de votre document au format html en changeant le thème (default, bootstrap, cerulean, cosmo, darkly, flatly, journal, lumen, paper, readable, sandstone, simplex, spacelab, united et yeti).\nPour n’utiliser aucun thème, utilisez l’option theme: null\n\n---\ntitle: \"Pingouins de l'archipel Palmer\"\nauthor: Jonathan Kitt\ndate: 2022-11-14\noutput:\n  html_document:\n    toc: true\n    toc_depth: 2\n    theme: flatly\n---"
   },
   {
     "objectID": "posts/post-with-code/index.html",
