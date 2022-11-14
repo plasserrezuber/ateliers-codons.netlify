@@ -254,7 +254,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1>Introduction</h1>
 <section id="quest-ce-que-r-markdown" class="level2">
 <h2 class="anchored" data-anchor-id="quest-ce-que-r-markdown">Qu’est-ce que R Markdown ?</h2>
-<p>R Markdown vous permet de créer des documents, notamment des rapports de vos analyses. Les personnes qui liront votre code doivent pouvoir facilement comprendre et reproduire votre analyse : c’est la reproductibilité.</p>
+<p>R Markdown vous permet de créer des documents, notamment des rapports de vos analyses. Les personnes qui liront votre code doivent pouvoir facilement comprendre votre code et obtenir les mêmes résultats : c’est la <strong>reproductibilité</strong>.</p>
 <p>Vous pouvez créer un document R Markdown et le partager, ou vous en servir à titre personnel pour garder une trace des étapes et des résultats d’une analyse.</p>
 <p>R Markdown permet d’afficher le code utilisé et les résultats obtenus (graphiques, tables, …) ainsi que des commentaires explicatifs, un peu à la manière d’un cahier de laboratoire.</p>
 <p>R Markdown utilise la syntaxe Markdown, un langage <em>markup</em> qui propose des outils pour créer des documents avec des en-têtes, des images, des liens, …</p>
@@ -400,6 +400,19 @@ Editeur visuel
 <p><br></p>
 <section id="mettre-en-forme-le-texte" class="level2">
 <h2 class="anchored" data-anchor-id="mettre-en-forme-le-texte">Mettre en forme le texte</h2>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Saut de ligne
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Lorsque vous tapez du texte, pour passer à la ligne suivante, il vous faut insérer <em>deux espaces</em> puis appuyer sur <em>Entrée</em>.</p>
+</div>
+</div>
 <p>Pour mettre en forme votre texte, utilisez les conventions suivantes :</p>
 <table class="table">
 <tbody>
@@ -572,9 +585,14 @@ Editeur visuel
 <h2 class="anchored" data-anchor-id="equations">Equations</h2>
 <p>La syntaxe pour insérer une équation se base sur <a href="https://rpruim.github.io/s341/S19/from-class/MathinRmd.html">LaTeX</a> :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>Un cercle de rayon <span class="sc">$</span>r<span class="sc">$</span> a une aire <span class="sc">$</span>A <span class="ot">=</span> \pi \times r<span class="sc">^</span>{<span class="dv">2</span>}<span class="sc">$</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>Un cercle de rayon <span class="sc">$</span>r<span class="sc">$</span> a une aire <span class="sc">$</span>A <span class="ot">=</span> \pi \times r<span class="sc">^</span><span class="dv">2</span><span class="sc">$</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Un cercle de rayon <span class="math inline">\(r\)</span> a une aire <span class="math inline">\(A = \pi \times r^{2}\)</span></p>
+<p>Un cercle de rayon <span class="math inline">\(r\)</span> a une aire <span class="math inline">\(A = \pi \times r^2\)</span></p>
+<p>Pour afficher une équation au centre du document, vous pouvez l’encadrer de deux signes <code>$</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>Un cercle de rayon <span class="sc">$</span>r<span class="sc">$</span> a une aire <span class="sc">$</span><span class="er">$</span>A <span class="ot">=</span> \pi \times r<span class="sc">^</span><span class="dv">2</span><span class="sc">$</span><span class="er">$</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Un cercle de rayon <span class="math inline">\(r\)</span> a une aire <span class="math display">\[A = \pi \times r^2\]</span></p>
 <p><br></p>
 </section>
 <section id="insérer-une-image" class="level2">
@@ -596,17 +614,17 @@ Chemins vers les fichiers
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span>[pingouins](..<span class="sc">/</span>figs<span class="sc">/</span>pingouins.png){width<span class="ot">=</span><span class="st">"75%"</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span>[](..<span class="sc">/</span>figs<span class="sc">/</span>pingouins.png){width<span class="ot">=</span><span class="st">"75%"</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><img src="img/rmd_18.png" class="img-fluid" style="width:75.0%"></p>
-<p>L’option <code>width</code> permet d’ajuster la largeur relative de l’image.</p>
+<p>Vous pouvez ajouter une légende entre les crochets <code>[]</code>. L’option <code>width</code> permet d’ajuster la largeur relative de l’image.</p>
 <p><br></p>
 </section>
 </section>
 <section id="rédiger-un-document-de-façon-dynamique" class="level1">
 <h1>Rédiger un document de façon dynamique</h1>
 <p>Lorsque vous rédigez un rapport, vous pouvez le faire <em>“en dur”</em>, c’est-à-dire inscrire directement dans le texte toutes les valeurs numériques, les résultats de calculs, insérer des graphiques générés séparément, …</p>
-<p>Cette façon de procéder présente un désavantage majeur : votre document ne sera valable qu’une seule fois pour une seule analyse (vous pourrez toujours le ré-utiliser en remplaçant les valeurs numériques). De plus, le risque d’erreur est non négligeable : coller des valeurs numériques copiées depuis un autre logiciel peut créer des mauvaises surprises.</p>
+<p>Cette façon de procéder présente un désavantage majeur : votre document ne sera valable qu’une seule fois pour une seule analyse (vous pourrez toujours le ré-utiliser en remplaçant les valeurs numériques). De plus, le risque d’erreur est non négligeable : coller des valeurs numériques copiées depuis un autre logiciel peut donner des mauvaises surprises.</p>
 <p>R Markdown vous permet de rédiger votre fichier de façon <em>“dynamique”</em>. Vous pouvez ainsi importer les fichiers nécessaires à votre analyse, effectuer des calculs et générer des graphiques à l’aide de code R qui sera compilé.</p>
 <p>Votre fichier <code>Rmd</code> pourra ainsi être modifié et ré-utilisé pour des analyses similaires sur d’autres jeux de données.</p>
 <p><br></p>
@@ -646,7 +664,7 @@ Raccourci clavier : insérer un bloc de code
 
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>pingouins <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"../data/pingouins_propre.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>pingouins <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"../data/pingouins_propre.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Le fichier a bien été importé et stocké dans l’objet <strong>pingouins</strong> visible dans l’environnement.</p>
 <p>Lorsque vous compilez votre fichier Rmd, le code est exécuté et s’affiche dans votre document de sortie (au format <code>html</code>). L’objet <code>pingouins</code> n’est pas visible dans l’environnement lorsque vous compilez votre fichier Rmd, mais il est bel et bien disponible et vous pourrez le manipuler à l’aide de blocs de code.</p>
@@ -715,7 +733,7 @@ Bonnes pratiques : nommer les blocs de code
 <p>Nous avons vu plus haut comment insérer du texte au format code.</p>
 <p>Vous pouvez exécuter le code en ajoutant un <code>r</code> :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>La racine carrée de <span class="dv">20</span> est <span class="sc">**</span><span class="st">`</span><span class="at">r sqrt(20)</span><span class="st">`</span><span class="sc">**</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>La racine carrée de <span class="dv">20</span> est <span class="sc">**</span><span class="st">`</span><span class="at">r sqrt(20)</span><span class="st">`</span><span class="sc">**</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>La racine carrée de 20 est <strong>4.472136</strong></p>
 <p><br></p>
@@ -747,33 +765,49 @@ Bonnes pratiques : nommer les blocs de code
 # Importer les donnees sans afficher le code
 pingouins &lt;- read.csv("../data/pingouins_propre.csv")
 ```</code></pre>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Vous pouvez modifier le répertoire à partir duquel se fait la compilation en cliquant sur la flèche à droite du bouton <em>Knit</em> puis sur <em>Knit directory</em> et choisir <em>Project Directory</em>. Cela ne vaut que pour le code exécuté à l’intérieur d’un bloc, pour l’insertion d’images par exemple il vous faudra toujours remonter d’un niveau dans le chemin : <code>../</code>.</p>
+<p><img src="img/rmd_64.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
+<p><br></p>
 </section>
 <section id="décrire-les-données" class="level2">
 <h2 class="anchored" data-anchor-id="décrire-les-données">Décrire les données</h2>
 <p>Nous pouvons afficher les dimensions du tableau à l’aide de code dynamique :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>Le jeu de données contient <span class="sc">**</span><span class="st">`</span><span class="at">r nrow(pingouins)</span><span class="st">`</span> observations<span class="sc">**</span> et <span class="sc">**</span><span class="st">`</span><span class="at">r ncol(pingouins)</span><span class="st">`</span> variables<span class="sc">**</span>.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>Le jeu de données contient <span class="sc">**</span><span class="st">`</span><span class="at">r nrow(pingouins)</span><span class="st">`</span> observations<span class="sc">**</span> et <span class="sc">**</span><span class="st">`</span><span class="at">r ncol(pingouins)</span><span class="st">`</span> variables<span class="sc">**</span>.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Nous pouvons extraire les noms des espèces et des îles :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>Les mesures concernent <span class="sc">**</span>trois espèces<span class="sc">**</span> de pingouins <span class="sc">:</span> </span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> <span class="er">*</span><span class="st">`</span><span class="at">r sort(unique(pingouins$espece))[1]</span><span class="st">`</span><span class="sc">*</span>  </span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> <span class="er">*</span><span class="st">`</span><span class="at">r sort(unique(pingouins$espece))[2]</span><span class="st">`</span><span class="sc">*</span>  </span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> <span class="er">*</span><span class="st">`</span><span class="at">r sort(unique(pingouins$espece))[3]</span><span class="st">`</span><span class="sc">*</span></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>Ces pingouins vivent sur <span class="sc">**</span>trois îles<span class="sc">**</span> <span class="er">:</span> </span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> <span class="st">`</span><span class="at">r sort(unique(pingouins$ile))[1]</span><span class="st">`</span> </span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> <span class="st">`</span><span class="at">r sort(unique(pingouins$ile))[2]</span><span class="st">`</span>  </span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> <span class="st">`</span><span class="at">r sort(unique(pingouins$ile))[3]</span><span class="st">`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>Les mesures concernent <span class="sc">**</span>trois espèces<span class="sc">**</span> de pingouins <span class="sc">:</span> </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> <span class="er">*</span><span class="st">`</span><span class="at">r sort(unique(pingouins$espece))[1]</span><span class="st">`</span><span class="sc">*</span>  </span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> <span class="er">*</span><span class="st">`</span><span class="at">r sort(unique(pingouins$espece))[2]</span><span class="st">`</span><span class="sc">*</span>  </span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> <span class="er">*</span><span class="st">`</span><span class="at">r sort(unique(pingouins$espece))[3]</span><span class="st">`</span><span class="sc">*</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>Ces pingouins vivent sur <span class="sc">**</span>trois îles<span class="sc">**</span> <span class="er">:</span> </span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> <span class="st">`</span><span class="at">r sort(unique(pingouins$ile))[1]</span><span class="st">`</span> </span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> <span class="st">`</span><span class="at">r sort(unique(pingouins$ile))[2]</span><span class="st">`</span>  </span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> <span class="st">`</span><span class="at">r sort(unique(pingouins$ile))[3]</span><span class="st">`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Comment les espèces sont-elles réparties sur les îles ?</p>
 <pre><code>Les individus se répartissent de la façon suivante : 
+
 
 ```{r, repartition individus, echo=FALSE, comment=""}
 # Tableau de la répartition des individus
@@ -794,19 +828,20 @@ Afficher ou non les # en sortie
 </div>
 <p>Quelles sont les variables du tableau ?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>Les variables sont les suivantes <span class="sc">:</span> </span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="er">|</span> variable                <span class="sc">|</span> type                       <span class="sc">|</span> exemple             <span class="sc">|</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="er">|</span> <span class="er">:</span><span class="sc">---------------------</span><span class="er">:</span> <span class="er">|</span> <span class="er">:</span><span class="sc">------------------------</span><span class="er">:</span> <span class="er">|</span> <span class="er">:</span><span class="sc">-----------------</span><span class="er">:</span> <span class="er">|</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="er">|</span> <span class="st">`</span><span class="at">r names(pingouins)[1]</span><span class="st">`</span> <span class="sc">|</span> <span class="st">`</span><span class="at">r typeof(pingouins[, 1])</span><span class="st">`</span> <span class="sc">|</span> <span class="st">`</span><span class="at">r pingouins[1, 1]</span><span class="st">`</span> <span class="sc">|</span></span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="er">|</span> <span class="st">`</span><span class="at">r names(pingouins)[2]</span><span class="st">`</span> <span class="sc">|</span> <span class="st">`</span><span class="at">r typeof(pingouins[, 2])</span><span class="st">`</span> <span class="sc">|</span> <span class="st">`</span><span class="at">r pingouins[1, 2]</span><span class="st">`</span> <span class="sc">|</span></span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="er">|</span> <span class="st">`</span><span class="at">r names(pingouins)[3]</span><span class="st">`</span> <span class="sc">|</span> <span class="st">`</span><span class="at">r typeof(pingouins[, 3])</span><span class="st">`</span> <span class="sc">|</span> <span class="st">`</span><span class="at">r pingouins[1, 3]</span><span class="st">`</span> <span class="sc">|</span></span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="er">|</span> <span class="st">`</span><span class="at">r names(pingouins)[4]</span><span class="st">`</span> <span class="sc">|</span> <span class="st">`</span><span class="at">r typeof(pingouins[, 4])</span><span class="st">`</span> <span class="sc">|</span> <span class="st">`</span><span class="at">r pingouins[1, 4]</span><span class="st">`</span> <span class="sc">|</span></span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="er">|</span> <span class="st">`</span><span class="at">r names(pingouins)[5]</span><span class="st">`</span> <span class="sc">|</span> <span class="st">`</span><span class="at">r typeof(pingouins[, 5])</span><span class="st">`</span> <span class="sc">|</span> <span class="st">`</span><span class="at">r pingouins[1, 5]</span><span class="st">`</span> <span class="sc">|</span></span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="er">|</span> <span class="st">`</span><span class="at">r names(pingouins)[6]</span><span class="st">`</span> <span class="sc">|</span> <span class="st">`</span><span class="at">r typeof(pingouins[, 6])</span><span class="st">`</span> <span class="sc">|</span> <span class="st">`</span><span class="at">r pingouins[1, 6]</span><span class="st">`</span> <span class="sc">|</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>Les variables sont les suivantes <span class="sc">:</span> </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="er">|</span> variable                <span class="sc">|</span> type                       <span class="sc">|</span> exemple             <span class="sc">|</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="er">|</span> <span class="er">:</span><span class="sc">---------------------</span><span class="er">:</span> <span class="er">|</span> <span class="er">:</span><span class="sc">------------------------</span><span class="er">:</span> <span class="er">|</span> <span class="er">:</span><span class="sc">-----------------</span><span class="er">:</span> <span class="er">|</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="er">|</span> <span class="st">`</span><span class="at">r names(pingouins)[1]</span><span class="st">`</span> <span class="sc">|</span> <span class="st">`</span><span class="at">r typeof(pingouins[, 1])</span><span class="st">`</span> <span class="sc">|</span> <span class="st">`</span><span class="at">r pingouins[1, 1]</span><span class="st">`</span> <span class="sc">|</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="er">|</span> <span class="st">`</span><span class="at">r names(pingouins)[2]</span><span class="st">`</span> <span class="sc">|</span> <span class="st">`</span><span class="at">r typeof(pingouins[, 2])</span><span class="st">`</span> <span class="sc">|</span> <span class="st">`</span><span class="at">r pingouins[1, 2]</span><span class="st">`</span> <span class="sc">|</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="er">|</span> <span class="st">`</span><span class="at">r names(pingouins)[3]</span><span class="st">`</span> <span class="sc">|</span> <span class="st">`</span><span class="at">r typeof(pingouins[, 3])</span><span class="st">`</span> <span class="sc">|</span> <span class="st">`</span><span class="at">r pingouins[1, 3]</span><span class="st">`</span> <span class="sc">|</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="er">|</span> <span class="st">`</span><span class="at">r names(pingouins)[4]</span><span class="st">`</span> <span class="sc">|</span> <span class="st">`</span><span class="at">r typeof(pingouins[, 4])</span><span class="st">`</span> <span class="sc">|</span> <span class="st">`</span><span class="at">r pingouins[1, 4]</span><span class="st">`</span> <span class="sc">|</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="er">|</span> <span class="st">`</span><span class="at">r names(pingouins)[5]</span><span class="st">`</span> <span class="sc">|</span> <span class="st">`</span><span class="at">r typeof(pingouins[, 5])</span><span class="st">`</span> <span class="sc">|</span> <span class="st">`</span><span class="at">r pingouins[1, 5]</span><span class="st">`</span> <span class="sc">|</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="er">|</span> <span class="st">`</span><span class="at">r names(pingouins)[6]</span><span class="st">`</span> <span class="sc">|</span> <span class="st">`</span><span class="at">r typeof(pingouins[, 6])</span><span class="st">`</span> <span class="sc">|</span> <span class="st">`</span><span class="at">r pingouins[1, 6]</span><span class="st">`</span> <span class="sc">|</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Pour clore cette description du jeu de données, affichons les premières lignes du tableau. La fonction <code>kable()</code> du package <code>knitr</code> permet d’afficher des tableaux :</p>
 <pre><code>Les données se présentent comme ci-dessous : 
+
 
 ```{r, apercu tableau, echo=FALSE}
 # Afficher les 3 premieres lignes
@@ -819,6 +854,7 @@ knitr::kable(head(pingouins, 3))
 <section id="nombre-dindividus-par-espèce" class="level3">
 <h3 class="anchored" data-anchor-id="nombre-dindividus-par-espèce">Nombre d’individus par espèce</h3>
 <pre><code>Quelle est l'espèce la plus représentée ?
+
 
 ```{r, nombre individus, echo=FALSE}
 # Barplot : nombre d'individus par espece 
@@ -835,6 +871,7 @@ barplot(sort(table(pingouins$espece), decreasing = TRUE),
 <section id="rapport-entre-la-longueur-et-la-hauteur-du-bec" class="level3">
 <h3 class="anchored" data-anchor-id="rapport-entre-la-longueur-et-la-hauteur-du-bec">Rapport entre la longueur et la hauteur du bec</h3>
 <pre><code>Les mesures du bec permettent-elles de différencier les espèces ?
+
 
 ```{r, ratio bec, echo=FALSE}
 # Calculer le ratio entre la longueur et la hauteur du bec
@@ -874,6 +911,7 @@ Afficher deux graphiques côte à côte
 <h3 class="anchored" data-anchor-id="distribution-de-la-masse-corporelle">Distribution de la masse corporelle</h3>
 <pre><code>Comment se distribue la masse corporelle de l'ensemble des pingouins ?
 
+
 ```{r, distribution masse, echo=FALSE}
 # Histogramme : distribution de la masse corporelle
 hist(pingouins$masse_corporelle_g / 1000,
@@ -890,6 +928,7 @@ hist(pingouins$masse_corporelle_g / 1000,
 <h3 class="anchored" data-anchor-id="relation-entre-la-longueur-des-ailes-et-la-longueur-du-bec">Relation entre la longueur des ailes et la longueur du bec</h3>
 <pre><code>Y a-t-il une relation entre la longueur des ailes et la longueur du bec ?
 Ces mesures varient-elles en fonction de l'espèce ?
+
 
 ```{r, distribution masse, echo=FALSE}
 # Ajouter une variable couleur 
@@ -920,25 +959,25 @@ legend(legend = sort(unique(pingouins$espece)),
 <section id="document-word" class="level2">
 <h2 class="anchored" data-anchor-id="document-word">Document Word</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">"Pingouins de l'archipel Palmer"</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>author<span class="sc">:</span> Jonathan Kitt</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>date<span class="sc">:</span> <span class="dv">2022-11-14</span></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">:</span></span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  word_document</span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="document-pdf" class="level2">
-<h2 class="anchored" data-anchor-id="document-pdf">Document PDF</h2>
-<div class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">"Pingouins de l'archipel Palmer"</span></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>author<span class="sc">:</span> Jonathan Kitt</span>
 <span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>date<span class="sc">:</span> <span class="dv">2022-11-14</span></span>
 <span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">:</span></span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  pdf_document</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  word_document</span>
 <span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="document-pdf" class="level2">
+<h2 class="anchored" data-anchor-id="document-pdf">Document PDF</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">"Pingouins de l'archipel Palmer"</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>author<span class="sc">:</span> Jonathan Kitt</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>date<span class="sc">:</span> <span class="dv">2022-11-14</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">:</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>  pdf_document</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -955,23 +994,6 @@ legend(legend = sort(unique(pingouins$espece)),
 <li><p><code>toc_depth: 1</code> : nombre de niveaux à inclure dans la table des matières</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">"Pingouins de l'archipel Palmer"</span></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>author<span class="sc">:</span> Jonathan Kitt</span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>date<span class="sc">:</span> <span class="dv">2022-11-14</span></span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">:</span></span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>  html_document<span class="sc">:</span></span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>    toc<span class="sc">:</span> true</span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>    toc_float<span class="sc">:</span> true</span>
-<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>    toc_depth<span class="sc">:</span> <span class="dv">2</span></span>
-<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="modifier-le-thème" class="level2">
-<h2 class="anchored" data-anchor-id="modifier-le-thème">Modifier le thème</h2>
-<p>Vous pouvez modifier le style général de votre document au format <code>html</code> en changeant le thème (<code>default</code>, <code>bootstrap</code>, <code>cerulean</code>, <code>cosmo</code>, <code>darkly</code>, <code>flatly</code>, <code>journal</code>, <code>lumen</code>, <code>paper</code>, <code>readable</code>, <code>sandtone</code>, <code>simplex</code>, <code>spacelab</code>, <code>united</code> et <code>yeti</code>).</p>
-<p>Pour n’utiliser aucun thème, utilisez l’option <code>theme: null</code></p>
-<div class="cell">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">"Pingouins de l'archipel Palmer"</span></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>author<span class="sc">:</span> Jonathan Kitt</span>
@@ -979,9 +1001,26 @@ legend(legend = sort(unique(pingouins$espece)),
 <span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">:</span></span>
 <span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>  html_document<span class="sc">:</span></span>
 <span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>    toc<span class="sc">:</span> true</span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>    toc_depth<span class="sc">:</span> <span class="dv">2</span></span>
-<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>    theme<span class="sc">:</span> flatly</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>    toc_float<span class="sc">:</span> true</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>    toc_depth<span class="sc">:</span> <span class="dv">2</span></span>
 <span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="modifier-le-thème" class="level2">
+<h2 class="anchored" data-anchor-id="modifier-le-thème">Modifier le thème</h2>
+<p>Vous pouvez modifier le style général de votre document au format <code>html</code> en changeant le thème (<code>default</code>, <code>bootstrap</code>, <code>cerulean</code>, <code>cosmo</code>, <code>darkly</code>, <code>flatly</code>, <code>journal</code>, <code>lumen</code>, <code>paper</code>, <code>readable</code>, <code>sandtone</code>, <code>simplex</code>, <code>spacelab</code>, <code>united</code> et <code>yeti</code>).</p>
+<p>Pour n’utiliser aucun thème, utilisez l’option <code>theme: null</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">"Pingouins de l'archipel Palmer"</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>author<span class="sc">:</span> Jonathan Kitt</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>date<span class="sc">:</span> <span class="dv">2022-11-14</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">:</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>  html_document<span class="sc">:</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>    toc<span class="sc">:</span> true</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>    toc_depth<span class="sc">:</span> <span class="dv">2</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>    theme<span class="sc">:</span> flatly</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -1028,13 +1067,13 @@ Données sensibles
 <p>Différents formats sont disponibles : <code>ioslides</code>, <code>slidy</code>, <code>beamer</code> et <code>powerpoint</code>. Chaque format propose différents paramètres de personnalisation.</p>
 <p>Créons une présentation <code>powerpoint</code> :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">"Pingouins de l'archipel Palmer"</span></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>author<span class="sc">:</span> Jonathan Kitt</span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>date<span class="sc">:</span> <span class="dv">2022-11-14</span></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">:</span></span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>  powerpoint_presentation</span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">"Pingouins de l'archipel Palmer"</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>author<span class="sc">:</span> Jonathan Kitt</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>date<span class="sc">:</span> <span class="dv">2022-11-14</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">:</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>  powerpoint_presentation</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Pour changer de diapositive, vous avez deux options :</p>
 <ul>
@@ -1055,10 +1094,12 @@ output:
   powerpoint_presentation
 ---
 
+
 ```{r, importer donnees, echo=FALSE}
 # Importer les donnees sans afficher le code
 pingouins &lt;- read.csv("../data/pingouins_propre.csv")
 ```
+
 
 ---
 
@@ -1071,12 +1112,15 @@ Le fichier `pingouins.csv` contient des mesures pour **trois espèces** de pingo
 
 Les individus se répartissent de la façon suivante : 
 
+
 ```{r, repartition individus, echo=FALSE, comment=""}
 # Tableau de la répartition des individus
 table(pingouins$espece, pingouins$ile)
 ```
 
+
 # Nombre d'individus par espèce 
+
 
 ```{r, nombre individus, echo=FALSE}
 # Barplot : nombre d'individus par espece 
@@ -1089,7 +1133,9 @@ barplot(sort(table(pingouins$espece), decreasing = TRUE),
         ylim = c(0, 200))
 ```
 
+
 # Rapport entre la longueur et la hauteur du bec
+
 
 ```{r, ratio bec, echo=FALSE}
 # Calculer le ratio entre la longueur et la hauteur du bec
@@ -1107,7 +1153,9 @@ boxplot(pingouins$ratio_bec ~ pingouins$espece,
         ylab = "Ratio")
 ```
 
+
 # Distribution de la masse corporelle
+
 
 ```{r, distribution masse, echo=FALSE}
 # Histogramme : distribution de la masse corporelle
@@ -1120,7 +1168,9 @@ hist(pingouins$masse_corporelle_g / 1000,
      ylab = "Fréquence")
 ```
 
+
 # Relation entre la longueur des ailes et la longueur du bec
+
 
 ```{r, relation longueur ailes vs longueur bec, echo=FALSE}
 
