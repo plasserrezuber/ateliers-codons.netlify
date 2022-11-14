@@ -13,6 +13,7 @@ format:
     toc: true
     toc-depth: 2
     toc-title: "Sommaire"
+draft: true
 ---
 
 *Ce tutoriel est adapté de [Basic data manipulation](https://ourcodingclub.github.io/tutorials/data-manip-intro/index.html) et [Efficient data manipulation](https://ourcodingclub.github.io/tutorials/data-manip-efficient/) du site [Our Coding Club](https://ourcodingclub.github.io/).*

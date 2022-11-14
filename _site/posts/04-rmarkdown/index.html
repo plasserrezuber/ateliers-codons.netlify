@@ -771,7 +771,7 @@ pingouins &lt;- read.csv("../data/pingouins_propre.csv")
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Tip
+Modifier le répertoire de compilation
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -789,7 +789,7 @@ Tip
 </div>
 <p>Nous pouvons extraire les noms des espèces et des îles :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>Les mesures concernent <span class="sc">**</span>trois espèces<span class="sc">**</span> de pingouins <span class="sc">:</span> </span>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>Les mesures concernent <span class="sc">**</span><span class="st">`</span><span class="at">r length(unique(pingouins$espece))</span><span class="st">`</span> espèces<span class="sc">**</span> de pingouins <span class="sc">:</span> </span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> <span class="er">*</span><span class="st">`</span><span class="at">r sort(unique(pingouins$espece))[1]</span><span class="st">`</span><span class="sc">*</span>  </span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -797,7 +797,7 @@ Tip
 <span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> <span class="er">*</span><span class="st">`</span><span class="at">r sort(unique(pingouins$espece))[3]</span><span class="st">`</span><span class="sc">*</span></span>
 <span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>Ces pingouins vivent sur <span class="sc">**</span>trois îles<span class="sc">**</span> <span class="er">:</span> </span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>Ces pingouins vivent sur <span class="sc">**</span><span class="st">`</span><span class="at">r length(unique(pingouins$ile))</span><span class="st">`</span> îles<span class="sc">**</span> <span class="er">:</span> </span>
 <span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> <span class="st">`</span><span class="at">r sort(unique(pingouins$ile))[1]</span><span class="st">`</span> </span>
 <span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a></span>
