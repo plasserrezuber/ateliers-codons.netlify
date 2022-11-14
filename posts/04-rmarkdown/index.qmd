@@ -468,6 +468,7 @@ Dans le cadre de ce tutoriel nous choisissons de ne pas faire apparaître le cod
     ```
 
 ::: {.callout-tip icon="true"} 
+## Modifier le répertoire de compilation
 Vous pouvez modifier le répertoire à partir duquel se fait la compilation en cliquant sur la flèche à droite du bouton *Knit* puis sur *Knit directory* et choisir *Project Directory*. Cela ne vaut que pour le code exécuté à l'intérieur d'un bloc, pour l'insertion d'images par exemple il vous faudra toujours remonter d'un niveau dans le chemin : `../`.
 
 ![](img/rmd_64.png){width="100%"}
@@ -487,7 +488,7 @@ Le jeu de données contient **`r nrow(pingouins)` observations** et **`r ncol(pi
 Nous pouvons extraire les noms des espèces et des îles :
 
 ```{r, eval=FALSE}
-Les mesures concernent **trois espèces** de pingouins : 
+Les mesures concernent **`r length(unique(pingouins$espece))` espèces** de pingouins : 
 
 - *`r sort(unique(pingouins$espece))[1]`*  
 
@@ -495,7 +496,7 @@ Les mesures concernent **trois espèces** de pingouins :
 
 - *`r sort(unique(pingouins$espece))[3]`*
 
-Ces pingouins vivent sur **trois îles** : 
+Ces pingouins vivent sur **`r length(unique(pingouins$ile))` îles** : 
 
 - `r sort(unique(pingouins$ile))[1]` 
 
