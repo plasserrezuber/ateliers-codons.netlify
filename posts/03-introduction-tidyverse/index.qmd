@@ -14,6 +14,11 @@ format:
     toc-title: "Sommaire"
 ---
 
+```{r, include=FALSE}
+library(tidyverse)
+```
+
+
 *Ce tutoriel est adapté de [Basic data manipulation](https://ourcodingclub.github.io/tutorials/data-manip-intro/index.html) et [Efficient data manipulation](https://ourcodingclub.github.io/tutorials/data-manip-efficient/) du site [Our Coding Club](https://ourcodingclub.github.io/).*
 
 <br>
@@ -22,7 +27,7 @@ format:
 
 ## Qu'est-ce que le Tidyverse ?
 
-Le Tidyverse est un ensemble de packages proposant de multiples fonctions utiles à l'ensemble des étapes d'une analyse : importer les données, les manipuler, les transformer, les représenter et les exporter : 
+Le [Tidyverse](https://www.tidyverse.org/) est un ensemble de packages proposant de multiples fonctions utiles à l'ensemble des étapes d'une analyse :   
 
 |                                               |                                       |
 | :-------------------------------------------- | :------------------------------------ |
@@ -36,122 +41,130 @@ Le Tidyverse est un ensemble de packages proposant de multiples fonctions utiles
 | [purrr](https://purrr.tidyverse.org/)         | programmation fonctionnelle           |
 | [lubridate](https://lubridate.tidyverse.org/) | manipuler des dates                   |
 
-
-
-::: {.callout-note icon="true"}
-## Liens vers les autres tutoriels
-
-[Installer R et RStudio](https://ateliers-codons.netlify.app/posts/01-installer-r-et-rstudio/)
-
-[Premiers pas avec R](https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/)
-:::
-
-# Introduction
-
 <br>
 
-Les formats de nos données peuvent varier, et un format utile et pratique dans un cas précis ne le sera pas forcément dans un autre. La **maîtrise des outils de manipulation et de mise en forme des données** est donc essentielle !
+## Pré-requis
 
-<br>
+Si vous n'avez pas suivi les autres tutoriels, vous pouvez [créer un projet RStudio](https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/#créer-un-projet) et [une arborescence](https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/#créer-une-arborescence).
 
-## Qu'est-ce que le Tidyverse ?
-
-![Allison Horst](img/tidyverse_celestial.png){width="25%"}
-
-Le [**Tidyverse**](https://www.tidyverse.org/) est un ensemble de packages permettant :
-
--   d'**importer** et d'**exporter** des données (package `readr`)\
--   de **manipuler** des données (package `dplyr`)\
--   de **mettre en forme** des données (package `tidyr`)\
--   de créer des **graphiques** (package `ggplot2`)\
--   de manipuler des **chaînes** (package `stringr`)\
--   de manipuler des **facteurs** (package `forcats`)\
--   de manipuler des **dates** (package `lubridate`)
-
-::: {.callout-tip icon="true"}
-## Les packages
-
-Un package R contient permet d'apporter des fonctionnalités supplémentaires. Il existe des packages pour tout un tas d'applications.
-:::
-
-<br>
-
-## Organiser son travail
-
--   [Créez un nouveau projet](https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/#créer-un-projet)
-
--   [Créez l'arborescence](https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/#créer-une-arborescence)
-
--   [Ouvrez un nouveau script](https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/#le-script) et remplissez l'en-tête (voir ci-dessous)
-
-![](img/intro_tidyverse_01.png){width="100%"}
-
-## Installer et charger le Tidyverse
-
-La fonction `install.packages()` permet de télécharger un package. Une fois téléchargé, il vous faudra charger le package dans votre session (pour rendre ses fonctions disponibles) à l'aide de la fonction `library()` :
+Pour utiliser le Tidyverse, vous pouvez soit installer et charger séparément les packages dont vous aurez besoin, soit installer et charger directement la suite complète : 
 
 ```{r, echo=TRUE, eval=FALSE}
-# Telecharger le Tidyverse
-install.packages("tidyverse")
+# Installer et charger les packages readr et dplyr
+install.packages(c("readr", "dplyr"))
+library(readr)
+library(dplyr)
 
-# Charger le package
+# Installer et charger la suite Tidyverse
+install.packages("tidyverse")
 library(tidyverse)
 ```
 
-::: {.callout-important icon="true"}
-## Attention aux guillemets
+::: {.callout-caution icon="true"}
+## Les conflits
 
-Vous remarquerez la présence de guillemets dans l'appel à la fonction `install.packages()` et leur absence dans l'appel à la fonction `library()`.
+Lorsque vous exécutez la fonction `library(tidyverse)`, le message suivant s'affiche dans la console : 
+
+![](img/tidyverse_intro_01.png)
+
+R vous indique : 
+
+- le nom et la version des packages individuels (*Attaching packages*)    
+- les fonctions portant des noms identiques existant dans d'autres packages (*Conflicts*)
+
+Il existe par exemple une fonction `filter()` dans le package `stats`. Si vous souhaitez utiliser cette dernière fonction plutôt que celle proposée dans le package `dplyr`, il vous foudra préciser le package en question : `stats::filter()`.
+
 :::
-
-Vous pourriez également n'installer et ne charger que les packages qui vous intéressent (par exemple `readr` et `dplyr`), plutôt que la suite complète.
 
 <br>
 
-# Exploration du Tidyverse
-
-## Importer les données
+# Premiers pas dans le Tidyverse
 
 Les fonctions proposées dans les différents packages de la suite Tidyverse sont - en règle générale - nommées d'après les actions qu'elles accomplissent, ce qui rend leur mémorisation plus simple et leur utilisation plus intuitive.
 
-Nous allons utiliser le même [jeu de données](https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/) que dans le tutoriel [Premiers pas avec R](https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/).
 
--   Si vous aviez téléchargé ces données précédemment, copiez-les dans le dossier `raw()` et importez-les :
+## Importer les données
 
-```{r, echo=TRUE, eval=FALSE}
-pingouins <- read_csv("raw/pingouins.csv")
+Nous allons utiliser le même jeu de données que dans les tutoriels précédents (vous pouvez le télécharger [ici](https://raw.githubusercontent.com/codons-blog/ateliers-codons.netlify/main/raw/pingouins.csv) et le sauvegarder dans votre dossier `raw/`).
+
+Pour importer les données, nous utilisons la fonction `read_csv()`, à ne pas comprendre avec la fonction `read.csv()` utilisée précédemment.
+
+```{r importer les donnees 1, echo=FALSE, eval=TRUE, message=FALSE, warning=FALSE}
+pingouins <- read_csv(file = "../../raw/pingouins.csv")
 ```
 
--   Vous pouvez également télécharger directement les données depuis leur emplacement en ligne :
-
-```{r, echo=TRUE, eval=FALSE}
-pingouins <- read_csv("https://raw.githubusercontent.com/codons-blog/C-02-ManipulationDonnees/main/pingouins.csv")
+```{r importer les donnees 2, echo=TRUE, eval=FALSE}
+pingouins <- read_csv(file = "raw/pingouins.csv")
 ```
 
-::: {.callout-caution icon="true"}
-## Bonne pratique : package + fonction
+Vous pouvez voir dans la console des informations concernant vos données :  
+- les *dimensions* du tableau    
+- le *séparateur* de colonnes  
+- les *types* et les *noms* des variables  
 
-Dans le tutoriel [Premiers pas avec R](https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/) nous avions utilisé la fonction `read.csv()` pour importer les données, alors qu'ici nous utilisons la fonction `read_csv()`. Ces deux fonctions effectuent la même opération mais font partie de deux packages différents : le package `{utils}` pour `read.csv()` et le package `{readr}` pour `read_csv`. Si votre script est amené à être partagé, il est utile de préciser à quels packages vous faites appel, en utilisant la syntaxe `nom-du-package::nom-de-la-fonction()`. Dans notre exemple, il faudrait écrire `readr::read_csv()`.
-:::
+<br>
 
-Il est toujours utile de **visualiser vos données** et leur structure :
+Tapez `pingouins` dans la console et appuyze sur `Entrée` : vos données s'affichent et vous pouvez voir qu'il s'agit d'un *tibble*, qui présente quelques particularités par rapport à un tableau "classique" : 
 
-```{r, echo=TRUE, eval=FALSE}
-# Exploration rapide des donnees ----
+- les dimensions du *tibble* sont précisées  
+- les *types* des variables sont indiquées sous les noms des colonnes  
+- seules les *dix premières lignes* sont affichées  
+- le nombre de colonnes affichées dépend de la largeur de l'écran  
+- les noms de colonnes sont raccourcis si nécessaire  
+- les données manquantes *NA* sont mises en évidence
 
-head(croissance)  # affiche les premieres lignes
-str(croissance)  # types des variables
-unique(croissance$Zone)  # affiche les valeurs distinctes de la variable Zone
-croissance$Indiv  # affiche toutes les valeurs de la variable Indiv
-length(unique(croissance$Indiv))  # affiche le nombre d'individus
+Pour bien voir la différence entre un `tibble` et un `data.frame`, comparez les deux commandes suivantes : 
 
+```{r tibble vs dataframe, echo=TRUE, eval=FALSE}
+pingouins
+as.data.frame(pingouins)
 ```
 
 <br>
 
-Lorsque vous exécutez la commande `head(croissance)`, vous pouvez remarquer dans la console la mention "A tibble". Un [**tibble**](https://tibble.tidyverse.org/index.html) est un format particulier de tableau utilisé dans le Tidyverse. Il présente notamment l'avantage d'afficher les **types de variables** sous les noms de colonnes.
+## Explorer les données
 
-<br>
+Plusieurs fonctions incluses dans R permettent d'explorer rapidement des données pour s'assurer qu'elles ont été correctement importées : 
+
+```{r explorer, echo=TRUE, eval=FALSE}
+# Afficher les premieres lignes
+head(pingouins)
+
+# Afficher les dernieres lignes
+tail(pingouins)
+
+# Afficher la structure des donnees
+str(pingouins)
+```
+
+La fonction `glimpse()` (du package `readr`) retourne sensiblement les mêmes informations que la fonction `str()` : 
+
+```{r glimpse, echo=TRUE, eval=FALSE}
+glimpse(pingouins)
+```
+
+## Renommer des colonnes
+
+Commençons par renommer des colonnes afin de respecter les conventions d'écriture :
+
+- *snake_case* : caractères minuscules, mots séparés par des `_`  
+- *camelCase* : aucune séparation entre les mots, majuscule pour débuter un mot
+
+La fonction `rename` s'utilise de la façon suivante : `rename(data, nouveau nom = ancien nom)`
+
+```{r rename 1, echo=TRUE, eval=FALSE}
+rename(pingouins, ile = Ile)
+```
+
+Nous pourrions procéder de la même façon pour plusieurs colonnes à la fois : 
+
+```{r rename 2, echo=TRUE, eval=FALSE}
+rename(pingouins, espece = Espece, ile = Ile)
+```
+
+Il existe un package, en dehors du Tidyverse, dédié au nettoyage d'un tableau (noms de colonnes, suppression des doublons, ...). Utilisons la fonction `clean_names()` de ce package :
+
+
 
 ## Renommer des variables avec `rename()` {#rename}
 

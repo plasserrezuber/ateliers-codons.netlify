@@ -179,35 +179,35 @@
     "href": "posts/03-introduction-tidyverse/index.html#quest-ce-que-le-tidyverse",
     "title": "Introduction au Tidyverse",
     "section": "Qu’est-ce que le Tidyverse ?",
-    "text": "Qu’est-ce que le Tidyverse ?\nLe Tidyverse est un ensemble de packages proposant de multiples fonctions utiles à l’ensemble des étapes d’une analyse : importer les données, les manipuler, les transformer, les représenter et les exporter :\n\n\n\nreadr\nimporter et exporter les données\n\n\ntibble\nformat de tableau propre au tidyverse\n\n\ndplyr\nmanipuler les données\n\n\ntidyr\ntransformer des tableaux\n\n\nstringr\nmanipuler des chaînes de caractères\n\n\nforcats\nmanipuler des variables catégorielles\n\n\nggplot2\nreprésenter les données\n\n\npurrr\nprogrammation fonctionnelle\n\n\nlubridate\nmanipuler des dates\n\n\n\n\n\n\n\n\n\nLiens vers les autres tutoriels\n\n\n\nInstaller R et RStudio\nPremiers pas avec R"
+    "text": "Qu’est-ce que le Tidyverse ?\nLe Tidyverse est un ensemble de packages proposant de multiples fonctions utiles à l’ensemble des étapes d’une analyse :\n\n\n\nreadr\nimporter et exporter les données\n\n\ntibble\nformat de tableau propre au tidyverse\n\n\ndplyr\nmanipuler les données\n\n\ntidyr\ntransformer des tableaux\n\n\nstringr\nmanipuler des chaînes de caractères\n\n\nforcats\nmanipuler des variables catégorielles\n\n\nggplot2\nreprésenter les données\n\n\npurrr\nprogrammation fonctionnelle\n\n\nlubridate\nmanipuler des dates"
   },
   {
-    "objectID": "posts/03-introduction-tidyverse/index.html#quest-ce-que-le-tidyverse-1",
-    "href": "posts/03-introduction-tidyverse/index.html#quest-ce-que-le-tidyverse-1",
+    "objectID": "posts/03-introduction-tidyverse/index.html#pré-requis",
+    "href": "posts/03-introduction-tidyverse/index.html#pré-requis",
     "title": "Introduction au Tidyverse",
-    "section": "Qu’est-ce que le Tidyverse ?",
-    "text": "Qu’est-ce que le Tidyverse ?\n\n\n\nAllison Horst\n\n\nLe Tidyverse est un ensemble de packages permettant :\n\nd’importer et d’exporter des données (package readr)\n\nde manipuler des données (package dplyr)\n\nde mettre en forme des données (package tidyr)\n\nde créer des graphiques (package ggplot2)\n\nde manipuler des chaînes (package stringr)\n\nde manipuler des facteurs (package forcats)\n\nde manipuler des dates (package lubridate)\n\n\n\n\n\n\n\nLes packages\n\n\n\nUn package R contient permet d’apporter des fonctionnalités supplémentaires. Il existe des packages pour tout un tas d’applications."
-  },
-  {
-    "objectID": "posts/03-introduction-tidyverse/index.html#organiser-son-travail",
-    "href": "posts/03-introduction-tidyverse/index.html#organiser-son-travail",
-    "title": "Introduction au Tidyverse",
-    "section": "Organiser son travail",
-    "text": "Organiser son travail\n\nCréez un nouveau projet\nCréez l’arborescence\nOuvrez un nouveau script et remplissez l’en-tête (voir ci-dessous)"
-  },
-  {
-    "objectID": "posts/03-introduction-tidyverse/index.html#installer-et-charger-le-tidyverse",
-    "href": "posts/03-introduction-tidyverse/index.html#installer-et-charger-le-tidyverse",
-    "title": "Introduction au Tidyverse",
-    "section": "Installer et charger le Tidyverse",
-    "text": "Installer et charger le Tidyverse\nLa fonction install.packages() permet de télécharger un package. Une fois téléchargé, il vous faudra charger le package dans votre session (pour rendre ses fonctions disponibles) à l’aide de la fonction library() :\n\n# Telecharger le Tidyverse\ninstall.packages(\"tidyverse\")\n\n# Charger le package\nlibrary(tidyverse)\n\n\n\n\n\n\n\nAttention aux guillemets\n\n\n\nVous remarquerez la présence de guillemets dans l’appel à la fonction install.packages() et leur absence dans l’appel à la fonction library().\n\n\nVous pourriez également n’installer et ne charger que les packages qui vous intéressent (par exemple readr et dplyr), plutôt que la suite complète."
+    "section": "Pré-requis",
+    "text": "Pré-requis\nSi vous n’avez pas suivi les autres tutoriels, vous pouvez créer un projet RStudio et une arborescence.\nPour utiliser le Tidyverse, vous pouvez soit installer et charger séparément les packages dont vous aurez besoin, soit installer et charger directement la suite complète :\n\n# Installer et charger les packages readr et dplyr\ninstall.packages(c(\"readr\", \"dplyr\"))\nlibrary(readr)\nlibrary(dplyr)\n\n# Installer et charger la suite Tidyverse\ninstall.packages(\"tidyverse\")\nlibrary(tidyverse)\n\n\n\n\n\n\n\nLes conflits\n\n\n\nLorsque vous exécutez la fonction library(tidyverse), le message suivant s’affiche dans la console :\n\nR vous indique :\n\nle nom et la version des packages individuels (Attaching packages)\n\nles fonctions portant des noms identiques existant dans d’autres packages (Conflicts)\n\nIl existe par exemple une fonction filter() dans le package stats. Si vous souhaitez utiliser cette dernière fonction plutôt que celle proposée dans le package dplyr, il vous foudra préciser le package en question : stats::filter()."
   },
   {
     "objectID": "posts/03-introduction-tidyverse/index.html#importer-les-données",
     "href": "posts/03-introduction-tidyverse/index.html#importer-les-données",
     "title": "Introduction au Tidyverse",
     "section": "Importer les données",
-    "text": "Importer les données\nLes fonctions proposées dans les différents packages de la suite Tidyverse sont - en règle générale - nommées d’après les actions qu’elles accomplissent, ce qui rend leur mémorisation plus simple et leur utilisation plus intuitive.\nNous allons utiliser le même jeu de données que dans le tutoriel Premiers pas avec R.\n\nSi vous aviez téléchargé ces données précédemment, copiez-les dans le dossier raw() et importez-les :\n\n\npingouins <- read_csv(\"raw/pingouins.csv\")\n\n\nVous pouvez également télécharger directement les données depuis leur emplacement en ligne :\n\n\npingouins <- read_csv(\"https://raw.githubusercontent.com/codons-blog/C-02-ManipulationDonnees/main/pingouins.csv\")\n\n\n\n\n\n\n\nBonne pratique : package + fonction\n\n\n\nDans le tutoriel Premiers pas avec R nous avions utilisé la fonction read.csv() pour importer les données, alors qu’ici nous utilisons la fonction read_csv(). Ces deux fonctions effectuent la même opération mais font partie de deux packages différents : le package {utils} pour read.csv() et le package {readr} pour read_csv. Si votre script est amené à être partagé, il est utile de préciser à quels packages vous faites appel, en utilisant la syntaxe nom-du-package::nom-de-la-fonction(). Dans notre exemple, il faudrait écrire readr::read_csv().\n\n\nIl est toujours utile de visualiser vos données et leur structure :\n\n# Exploration rapide des donnees ----\n\nhead(croissance)  # affiche les premieres lignes\nstr(croissance)  # types des variables\nunique(croissance$Zone)  # affiche les valeurs distinctes de la variable Zone\ncroissance$Indiv  # affiche toutes les valeurs de la variable Indiv\nlength(unique(croissance$Indiv))  # affiche le nombre d'individus\n\n\nLorsque vous exécutez la commande head(croissance), vous pouvez remarquer dans la console la mention “A tibble”. Un tibble est un format particulier de tableau utilisé dans le Tidyverse. Il présente notamment l’avantage d’afficher les types de variables sous les noms de colonnes."
+    "text": "Importer les données\nNous allons utiliser le même jeu de données que dans les tutoriels précédents (vous pouvez le télécharger ici et le sauvegarder dans votre dossier raw/).\nPour importer les données, nous utilisons la fonction read_csv(), à ne pas comprendre avec la fonction read.csv() utilisée précédemment.\n\n\n\n\npingouins <- read_csv(file = \"raw/pingouins.csv\")\n\nVous pouvez voir dans la console des informations concernant vos données :\n- les dimensions du tableau\n- le séparateur de colonnes\n- les types et les noms des variables\n\nTapez pingouins dans la console et appuyze sur Entrée : vos données s’affichent et vous pouvez voir qu’il s’agit d’un tibble, qui présente quelques particularités par rapport à un tableau “classique” :\n\nles dimensions du tibble sont précisées\n\nles types des variables sont indiquées sous les noms des colonnes\n\nseules les dix premières lignes sont affichées\n\nle nombre de colonnes affichées dépend de la largeur de l’écran\n\nles noms de colonnes sont raccourcis si nécessaire\n\nles données manquantes NA sont mises en évidence\n\nPour bien voir la différence entre un tibble et un data.frame, comparez les deux commandes suivantes :\n\npingouins\nas.data.frame(pingouins)"
+  },
+  {
+    "objectID": "posts/03-introduction-tidyverse/index.html#explorer-les-données",
+    "href": "posts/03-introduction-tidyverse/index.html#explorer-les-données",
+    "title": "Introduction au Tidyverse",
+    "section": "Explorer les données",
+    "text": "Explorer les données\nPlusieurs fonctions incluses dans R permettent d’explorer rapidement des données pour s’assurer qu’elles ont été correctement importées :\n\n# Afficher les premieres lignes\nhead(pingouins)\n\n# Afficher les dernieres lignes\ntail(pingouins)\n\n# Afficher la structure des donnees\nstr(pingouins)\n\nLa fonction glimpse() (du package readr) retourne sensiblement les mêmes informations que la fonction str() :\n\nglimpse(pingouins)"
+  },
+  {
+    "objectID": "posts/03-introduction-tidyverse/index.html#renommer-des-colonnes",
+    "href": "posts/03-introduction-tidyverse/index.html#renommer-des-colonnes",
+    "title": "Introduction au Tidyverse",
+    "section": "Renommer des colonnes",
+    "text": "Renommer des colonnes\nCommençons par renommer des colonnes afin de respecter les conventions d’écriture :\n\nsnake_case : caractères minuscules, mots séparés par des _\n\ncamelCase : aucune séparation entre les mots, majuscule pour débuter un mot\n\nLa fonction rename s’utilise de la façon suivante : rename(data, nouveau nom = ancien nom)\n\nrename(pingouins, ile = Ile)\n\nNous pourrions procéder de la même façon pour plusieurs colonnes à la fois :\n\nrename(pingouins, espece = Espece, ile = Ile)\n\nIl existe un package, en dehors du Tidyverse, dédié au nettoyage d’un tableau (noms de colonnes, suppression des doublons, …). Utilisons la fonction clean_names() de ce package :"
   },
   {
     "objectID": "posts/03-introduction-tidyverse/index.html#rename",
