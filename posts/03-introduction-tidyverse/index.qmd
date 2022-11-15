@@ -18,6 +18,22 @@ format:
 
 <br>
 
+# Introduction
+
+## Qu'est-ce que le Tidyverse ?
+
+Le Tidyverse est un ensemble de packages proposant de multiples fonctions utiles à l'ensemble des étapes d'une analyse : importer les données, les manipuler, les transformer, les représenter et les exporter.
+
+![Allison Horst](img/tidyverse_celestial.png){width="50%"}  
+
+Voici le détail des packages faisant partie du Tidyverse : 
+
+|     |     |     |
+| :-: | :-- | :-- |
+| ![](img/hex_readr.png){width="15%"} | [readr](https://readr.tidyverse.org/) | importer et exporter les données |
+
+
+
 ::: {.callout-note icon="true"}
 ## Liens vers les autres tutoriels
 
