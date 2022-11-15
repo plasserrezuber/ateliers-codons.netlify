@@ -1,14 +1,12 @@
 ---
-# title-block-banner: img/pexels-felix-mittermeier-956999.jpg
 title: "Introduction au Tidyverse"
 subtitle: "Utiliser le Tidyverse pour manipuler des données"
 author:
   - Sandra Angers-Blondin
   - Jonathan Kitt (adaptation)
 date: "2022-10-24"
-draft: true
+draft: false
 categories: [R, RStudio, Tidyverse]
-# image: "pexels-marta-branco-1194713.jpg"
 format: 
   html: 
     toc: true
