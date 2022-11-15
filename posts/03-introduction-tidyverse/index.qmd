@@ -22,15 +22,19 @@ format:
 
 ## Qu'est-ce que le Tidyverse ?
 
-Le Tidyverse est un ensemble de packages proposant de multiples fonctions utiles à l'ensemble des étapes d'une analyse : importer les données, les manipuler, les transformer, les représenter et les exporter.
+Le Tidyverse est un ensemble de packages proposant de multiples fonctions utiles à l'ensemble des étapes d'une analyse : importer les données, les manipuler, les transformer, les représenter et les exporter : 
 
-![Allison Horst](img/tidyverse_celestial.png){width="50%"}  
-
-Voici le détail des packages faisant partie du Tidyverse : 
-
-|     |     |     |
-| :-: | :-- | :-- |
-| ![](img/hex_readr.png){width="15%"} | [readr](https://readr.tidyverse.org/) | importer et exporter les données |
+|                                               |                                       |
+| :-------------------------------------------- | :------------------------------------ |
+| [readr](https://readr.tidyverse.org/)         | importer et exporter les données      |
+| [tibble](https://tibble.tidyverse.org/)       | format de tableau propre au tidyverse |
+| [dplyr](https://dplyr.tidyverse.org/)         | manipuler les données                 |
+| [tidyr](https://tidyr.tidyverse.org/)         | transformer des tableaux              |
+| [stringr](https://stringr.tidyverse.org/)     | manipuler des chaînes de caractères   |
+| [forcats](https://forcats.tidyverse.org/)     | manipuler des variables catégorielles |
+| [ggplot2](https://ggplot2.tidyverse.org/)     | représenter les données               |
+| [purrr](https://purrr.tidyverse.org/)         | programmation fonctionnelle           |
+| [lubridate](https://lubridate.tidyverse.org/) | manipuler des dates                   |
 
 
 

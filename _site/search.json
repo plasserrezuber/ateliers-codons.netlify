@@ -179,7 +179,7 @@
     "href": "posts/03-introduction-tidyverse/index.html#quest-ce-que-le-tidyverse",
     "title": "Introduction au Tidyverse",
     "section": "Qu’est-ce que le Tidyverse ?",
-    "text": "Qu’est-ce que le Tidyverse ?\nLe Tidyverse est un ensemble de packages proposant de multiples fonctions utiles à l’ensemble des étapes d’une analyse : importer les données, les manipuler, les transformer, les représenter et les exporter.\n\n\n\nAllison Horst\n\n\nVoici le détail des packages faisant partie du Tidyverse :\n\n\n\n\nreadr\nimporter et exporter les données\n\n\n\n\n\n\n\n\n\nLiens vers les autres tutoriels\n\n\n\nInstaller R et RStudio\nPremiers pas avec R"
+    "text": "Qu’est-ce que le Tidyverse ?\nLe Tidyverse est un ensemble de packages proposant de multiples fonctions utiles à l’ensemble des étapes d’une analyse : importer les données, les manipuler, les transformer, les représenter et les exporter :\n\n\n\nreadr\nimporter et exporter les données\n\n\ntibble\nformat de tableau propre au tidyverse\n\n\ndplyr\nmanipuler les données\n\n\ntidyr\ntransformer des tableaux\n\n\nstringr\nmanipuler des chaînes de caractères\n\n\nforcats\nmanipuler des variables catégorielles\n\n\nggplot2\nreprésenter les données\n\n\npurrr\nprogrammation fonctionnelle\n\n\nlubridate\nmanipuler des dates\n\n\n\n\n\n\n\n\n\nLiens vers les autres tutoriels\n\n\n\nInstaller R et RStudio\nPremiers pas avec R"
   },
   {
     "objectID": "posts/03-introduction-tidyverse/index.html#quest-ce-que-le-tidyverse-1",
