@@ -245,34 +245,6 @@
     "text": "Créer ou modifier des colonnes\nLa fonction mutate() permet de créer une nouvelle colonne. Nous pouvons par exemple ajouter une colonne ratio_bec dans laquelle nous allons calculer le rapport entre la longueur du bec et sa hauteur :\n\nmutate(pingouins_tmp, ratio_bec = longueur_bec_mm / hauteur_bec_mm)\n\nNous pouvons également modifier le contenu d’une colonne, par exemple en ajoutant le suffixe island au contenu de la colonne ile :\n\nmutate(pingouins_tmp, ile = paste0(ile, \" island\"))\n\nLa fonction transmute() permet quant à elle de créer une nouvelle colonne tout en supprimant les colonnes pré-existantes :\n\ntransmute(pingouins_tmp, masse_kgs = masse_corporelle_g / 1000)\n\n\nAvant d’aller plus loin, nous allons voir une fonctionnalité extrêmement pratique : le “pipe”. Un pipe permet d’enchaîner les opérations, et présente plusieurs avantages, notamment de rendre le code plus clair et lisible et de rendre possible l’auto-complétion (à l’aide de la touche Tab).\nLe pipe fait partie du package magrittr, inclus dans le Tidyverse.\nUn pipe se place à la fin d’un ligne sous la forme %>% :\n\nRaccourci clavier : Ctrl + Shift + M\n\n\ncroissance <- croissance %>% \n  rename(zone = Zone,\n         indiv = Indiv)"
   },
   {
-    "objectID": "posts/03-introduction-tidyverse/index.html#select",
-    "href": "posts/03-introduction-tidyverse/index.html#select",
-    "title": "Introduction au Tidyverse",
-    "section": "Sélectionner des colonnes avec select()",
-    "text": "Sélectionner des colonnes avec select()\nCette fonction permet de sélectionner des colonnes, en précisant lesquelles conserver ou supprimer :\n\n# Conserver des colonnes\n\ncroissance_selection <- croissance %>% \n  select(indiv, `2007`:`2012`)\n\n# Supprimer une colonne\n\ncroissance_selection <- croissance %>% \n  select(-zone)\n\n\nLa fonction select() permet également de renommer des colonnes et d’en modifier l’ordre :\n\n# Renommer et modifier l'ordre de colonnes\n\ncroissance_selection <- croissance %>% \n  select(zone = Zone, indiv = Indiv, `2007`:`2012`)\n\n\nL’opérateur : permet de construire une séquence : dans le cas présent il permet de sélectionner toutes les colonnes entre 2007 et 2012.\nSi vous souhaitez renommer ou déplacer seulement quelques colonnes, la fonction everything() vous permet de sélectionner toutes les colonnes restantes :\n\ncroissance_selection <- croissance %>% \n  select(zone = Zone, indiv = Indiv, everything())"
-  },
-  {
-    "objectID": "posts/03-introduction-tidyverse/index.html#filter",
-    "href": "posts/03-introduction-tidyverse/index.html#filter",
-    "title": "Introduction au Tidyverse",
-    "section": "Filtrer des données avec filter()",
-    "text": "Filtrer des données avec filter()\nCette fonction permet de sélectionner des lignes à l’aide d’opérateurs logiques :\n\n\n\nOpérateur\nExpression logique\n\n\n\n\n==\nstrictement égal à\n\n\n<=\ninférieur ou égal à\n\n\n<\ninférieur à\n\n\n>=\nsupérieur ou égal à\n\n\n>\nsupérieur à\n\n\n!=\ndifférent de\n\n\n%in%\nappartient à\n\n\n&\net\n\n\n|\nou\n\n\n!\npas\n\n\n\nVoyons comment utiliser ces opérateurs logiques :\n\n# individu n°603\n\ncroissance %>% filter(indiv == 603)\n\n# zones 2, 3 et 4\n\ncroissance %>% filter(zone <= 4)\ncroissance %>% filter(zone %in% c(2, 3, 4))\ncroissance %>% filter(zone %in% 2:4)\ncroissance %>% filter(!zone >= 5)\n\n# zones 2 et 7\n\ncroissance %>% filter(zone == 2 | zone == 7)\ncroissance %>% filter(zone %in% c(2, 7))\n\n# zone 2 + individus entre 300 et 400\n\ncroissance %>% filter(zone == 2 & indiv %in% 300:400)\ncroissance %>% filter(zone == 2 & between(indiv, 300, 400))\n\n\nIl existe différentes façons de construire une séquence :\n\nseq(from = 300, to = 400, by = 10)  # de 300 a 400 avec un increment de 10\nrep(x = c(300, 350), times = 2)  # 2 repetitions du vecteur \"300, 350\"\nrep(x = c(300, 350), each = 2)  # chaque element du vecteur \"300, 350\" est repete 2 fois\nrep(seq(from = 300, to = 400, by = 10), times = 4)  # combinaison des deux"
-  },
-  {
-    "objectID": "posts/03-introduction-tidyverse/index.html#arrange",
-    "href": "posts/03-introduction-tidyverse/index.html#arrange",
-    "title": "Introduction au Tidyverse",
-    "section": "Trier des données avec arrange()",
-    "text": "Trier des données avec arrange()\nLa fonction arrange() permet de trier des valeurs par ordre croissant ou décroissant :\n\n# Trier par ordre croissant sur l'annee 2007\n\ncroissance %>% arrange(`2007`)\n\n# Trier par ordre decroissant sur l'annee 2008\n\ncroissance %>% arrange(desc(`2008`))"
-  },
-  {
-    "objectID": "posts/03-introduction-tidyverse/index.html#mutate",
-    "href": "posts/03-introduction-tidyverse/index.html#mutate",
-    "title": "Introduction au Tidyverse",
-    "section": "Créer de nouvelles colonnes avec mutate()",
-    "text": "Créer de nouvelles colonnes avec mutate()\nLa fonction mutate() permet de créer un nouvelle colonne :\n\n# Calculer la croissance totale pour chaque individu entre 2007 et 2012\n\ncroissance_totale <- croissance %>% \n  mutate(croissance.totale = `2007` + `2008` + `2009` + `2010` + `2011` + `2012`)"
-  },
-  {
     "objectID": "posts/03-introduction-tidyverse/index.html#groupby",
     "href": "posts/03-introduction-tidyverse/index.html#groupby",
     "title": "Introduction au Tidyverse",
