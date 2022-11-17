@@ -242,7 +242,28 @@
     "href": "posts/03-introduction-tidyverse/index.html#créer-ou-modifier-des-colonnes",
     "title": "Introduction au Tidyverse",
     "section": "Créer ou modifier des colonnes",
-    "text": "Créer ou modifier des colonnes\nLa fonction mutate() permet de créer une nouvelle colonne. Nous pouvons par exemple ajouter une colonne ratio_bec dans laquelle nous allons calculer le rapport entre la longueur du bec et sa hauteur :\n\nmutate(pingouins_tmp, ratio_bec = longueur_bec_mm / hauteur_bec_mm)\n\nNous pouvons également modifier le contenu d’une colonne, par exemple en ajoutant le suffixe island au contenu de la colonne ile :\n\nmutate(pingouins_tmp, ile = paste0(ile, \" island\"))\n\nLa fonction transmute() permet quant à elle de créer une nouvelle colonne tout en supprimant les colonnes pré-existantes :\n\ntransmute(pingouins_tmp, masse_kgs = masse_corporelle_g / 1000)\n\n\nAvant d’aller plus loin, nous allons voir une fonctionnalité extrêmement pratique : le “pipe”. Un pipe permet d’enchaîner les opérations, et présente plusieurs avantages, notamment de rendre le code plus clair et lisible et de rendre possible l’auto-complétion (à l’aide de la touche Tab).\nLe pipe fait partie du package magrittr, inclus dans le Tidyverse.\nUn pipe se place à la fin d’un ligne sous la forme %>% :\n\nRaccourci clavier : Ctrl + Shift + M\n\n\ncroissance <- croissance %>% \n  rename(zone = Zone,\n         indiv = Indiv)"
+    "text": "Créer ou modifier des colonnes\nLa fonction mutate() permet de créer une nouvelle colonne. Nous pouvons par exemple ajouter une colonne ratio_bec dans laquelle nous allons calculer le rapport entre la longueur du bec et sa hauteur :\n\nmutate(pingouins_tmp, ratio_bec = longueur_bec_mm / hauteur_bec_mm)\n\nNous pouvons également modifier le contenu d’une colonne, par exemple en ajoutant le suffixe island au contenu de la colonne ile :\n\nmutate(pingouins_tmp, ile = paste0(ile, \" island\"))\n\nLa fonction transmute() permet quant à elle de créer une nouvelle colonne tout en supprimant les colonnes pré-existantes :\n\ntransmute(pingouins_tmp, masse_kgs = masse_corporelle_g / 1000)"
+  },
+  {
+    "objectID": "posts/03-introduction-tidyverse/index.html#effectuer-des-comptages",
+    "href": "posts/03-introduction-tidyverse/index.html#effectuer-des-comptages",
+    "title": "Introduction au Tidyverse",
+    "section": "Effectuer des comptages",
+    "text": "Effectuer des comptages\nLa fonction count() permet d’effectuer des comptages sur les variables.\nComptons le nombre d’individus par espèce :\n\ncount(pingouins_tmp, espece)\n\nL’argument sort = TRUE permet d’afficher le résultat par ordre décroissant :\n\ncount(pingouins_tmp, espece, sort = TRUE)\n\nNous pouvons également compter les individus par île et par espèce :\n\ncount(pingouins_tmp, ile, espece, sort = TRUE)"
+  },
+  {
+    "objectID": "posts/03-introduction-tidyverse/index.html#agréger-des-lignes",
+    "href": "posts/03-introduction-tidyverse/index.html#agréger-des-lignes",
+    "title": "Introduction au Tidyverse",
+    "section": "Agréger des lignes",
+    "text": "Agréger des lignes\nLa fonction summarise() permet d’agréger des lignes en effectuant une opération.\nCalculons la longueur moyenne du bec pour l’ensemble des individus, sans oublier l’argument na.rm = TRUE pour supprimer les données manquantes lors du calcul. Si nous avions assigné à l’objet pingouins_tmp les données après avoir retiré les lignes contenant des données manquantes, nous pourrions nous passer de cet argument. Dans le doute, mieux vaut ajouter cet argument :\n\nsummarise(pingouins_tmp,\n          longueur_bec_mm_moy = mean(longueur_bec_mm, na.rm = TRUE))\n\nCette fonction peut également s’utiliser sur plusieurs variables :\n\nsummarise(pingouins_tmp,\n          longueur_bec_mm_moy = mean(longueur_bec_mm, na.rm = TRUE),\n          hauteur_bec_mm_moy = mean(hauteur_bec_mm, na.rm = TRUE))"
+  },
+  {
+    "objectID": "posts/03-introduction-tidyverse/index.html#regrouper-les-données",
+    "href": "posts/03-introduction-tidyverse/index.html#regrouper-les-données",
+    "title": "Introduction au Tidyverse",
+    "section": "Regrouper les données",
+    "text": "Regrouper les données\nLa fonction group_by(), utilisée en combinaison avec la fonction summarise(), permet de regrouper les données pour effectuer des calculs par groupe.\nCalculons la longueur moyenne du bec par espece :\n\nsummarise(group_by(pingouins_tmp, espece),\n          longueur_bec_mm_moy = mean(longueur_bec_mm, na.rm = TRUE))\n\nCette fonction permet de définir des sous-groupes. Calculons la longueur moyenne du bec par île et par espèce :\n\nsummarise(group_by(pingouins_tmp, ile, espece),\n          longueur_bec_mm_moy = mean(longueur_bec_mm, na.rm = TRUE))"
   },
   {
     "objectID": "posts/03-introduction-tidyverse/index.html#groupby",
