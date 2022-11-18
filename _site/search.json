@@ -266,20 +266,6 @@
     "text": "Regrouper les données\nLa fonction group_by(), utilisée en combinaison avec la fonction summarise(), permet de regrouper les données pour effectuer des calculs par groupe.\nCalculons la longueur moyenne du bec par espece :\n\nsummarise(group_by(pingouins_tmp, espece),\n          longueur_bec_mm_moy = mean(longueur_bec_mm, na.rm = TRUE))\n\nCette fonction permet de définir des sous-groupes. Calculons la longueur moyenne du bec par île et par espèce :\n\nsummarise(group_by(pingouins_tmp, ile, espece),\n          longueur_bec_mm_moy = mean(longueur_bec_mm, na.rm = TRUE))"
   },
   {
-    "objectID": "posts/03-introduction-tidyverse/index.html#groupby",
-    "href": "posts/03-introduction-tidyverse/index.html#groupby",
-    "title": "Introduction au Tidyverse",
-    "section": "Définir des groupes avec group_by()",
-    "text": "Définir des groupes avec group_by()\nCette fonction permet de créer une structure interne à vos données, par exemple des individus regroupés par zone. Les fonctions exécutées après l’appel à la fonction group_by() tiendront compte de cette structure interne. L’utilisation de la fonction group_by() associée à d’autres fonctions est très utile pour calculer des statistiques pour différents sites, traitements, espèces, …\n\n# Grouper les individus par zone\n\ncroissance_groupes <- croissance %>% \n  group_by(zone)\n\n\nComparez les deux objets croissance et croissance_groupes. La seule différence visible est la mention Groups quand vous affichez l’objet possédant une structure interne. Pour l’instant, les groupes créés par group_by() sont sous-jacents, et leur intérêt sera évident en appliquant d’autres fonctions à ces groupes."
-  },
-  {
-    "objectID": "posts/03-introduction-tidyverse/index.html#summarise",
-    "href": "posts/03-introduction-tidyverse/index.html#summarise",
-    "title": "Introduction au Tidyverse",
-    "section": "Agréger des lignes et calculer des statistiques avec summarise()",
-    "text": "Agréger des lignes et calculer des statistiques avec summarise()\nCette fonction permet d’agréger des lignes en appliquant une fonction sur une ou plusieurs colonnes :\n\n# Croissance totale pour l'ensemble des individus pour l'annee 2007\n\nsynthese1 <- croissance %>% \n  summarise(croissance.totale.2007 = sum(`2007`))\n\n# Croissance totale pour l'ensemble des individus groupes par zone pour l'annee 2007\n\nsynthese2 <- croissance_groupes %>% \n  summarise(croissance.totale.2007 = sum(`2007`))\n\n\nLe premier objet, synthese1, correspond à la somme de toutes les valeurs de croissance pour tous les individus en 2007. Le second objet, synthese2, correspond à la somme des valeurs de croissance pour les individus regroupés par zone en 2007.\n\nLes données étant agrégées, le tableau de sortie sera plus court que les données d’origine.\n\nVous pouvez de cette façon calculer plusieurs paramètres :\n\nsynthese3 <- croissance_groupes %>% \n  summarise(croissance.totale.2007 = sum(`2007`),\n            croissance.moyenne.2007 = mean(`2007`),\n            croissance.ecart.type.2007 = sd(`2007`))"
-  },
-  {
     "objectID": "posts/03-introduction-tidyverse/index.html#join",
     "href": "posts/03-introduction-tidyverse/index.html#join",
     "title": "Introduction au Tidyverse",
