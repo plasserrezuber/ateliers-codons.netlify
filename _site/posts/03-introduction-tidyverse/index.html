@@ -212,15 +212,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#regrouper-les-données" id="toc-regrouper-les-données" class="nav-link" data-scroll-target="#regrouper-les-données">Regrouper les données</a></li>
   </ul></li>
   <li><a href="#ceci-nest-pas-un-pipe" id="toc-ceci-nest-pas-un-pipe" class="nav-link" data-scroll-target="#ceci-nest-pas-un-pipe">“Ceci n’est pas un pipe”</a></li>
-  <li><a href="#manipuler-des-chaînes-de-caractères-avec-stringr" id="toc-manipuler-des-chaînes-de-caractères-avec-stringr" class="nav-link" data-scroll-target="#manipuler-des-chaînes-de-caractères-avec-stringr">Manipuler des chaînes de caractères avec <code>stringr</code></a>
-  <ul class="collapse">
-  <li><a href="#join" id="toc-join" class="nav-link" data-scroll-target="#join">Joindre des données avec <code>..._join()</code></a></li>
-  </ul></li>
-  <li><a href="#r-layoutl-body-knitrinclude_graphicsimgjoin-venn.png" id="toc-r-layoutl-body-knitrinclude_graphicsimgjoin-venn.png" class="nav-link" data-scroll-target="#r-layoutl-body-knitrinclude_graphicsimgjoin-venn.png"><code>{r, layout="l-body"} # knitr::include_graphics("img/join-venn.png") #</code></a></li>
-  <li><a href="#figure-tirée-de-r-for-data-science" id="toc-figure-tirée-de-r-for-data-science" class="nav-link" data-scroll-target="#figure-tirée-de-r-for-data-science">Figure tirée de <span>R for Data Science</span></a></li>
+  <li><a href="#manipuler-des-chaînes-de-caractères-avec-stringr" id="toc-manipuler-des-chaînes-de-caractères-avec-stringr" class="nav-link" data-scroll-target="#manipuler-des-chaînes-de-caractères-avec-stringr">Manipuler des chaînes de caractères avec <code>stringr</code></a></li>
+  <li><a href="#joindre-des-tableaux" id="toc-joindre-des-tableaux" class="nav-link" data-scroll-target="#joindre-des-tableaux">Joindre des tableaux</a></li>
   <li><a href="#tidyr" id="toc-tidyr" class="nav-link" data-scroll-target="#tidyr">Mettre en forme des données à l’aide de <code>tidyr</code></a></li>
   <li><a href="#r-layoutl-body-knitrinclude_graphicsimgtidy-1.png" id="toc-r-layoutl-body-knitrinclude_graphicsimgtidy-1.png" class="nav-link" data-scroll-target="#r-layoutl-body-knitrinclude_graphicsimgtidy-1.png"><code>{r, layout="l-body"} # knitr::include_graphics("img/tidy-1.png") #</code></a></li>
-  <li><a href="#figure-tirée-de-r-for-data-science-1" id="toc-figure-tirée-de-r-for-data-science-1" class="nav-link" data-scroll-target="#figure-tirée-de-r-for-data-science-1">Figure tirée de <span>R for Data Science</span></a></li>
+  <li><a href="#figure-tirée-de-r-for-data-science" id="toc-figure-tirée-de-r-for-data-science" class="nav-link" data-scroll-target="#figure-tirée-de-r-for-data-science">Figure tirée de <span>R for Data Science</span></a></li>
   <li><a href="#r-layoutl-body-outset-knitrinclude_graphicsimgtidy_data.png" id="toc-r-layoutl-body-outset-knitrinclude_graphicsimgtidy_data.png" class="nav-link" data-scroll-target="#r-layoutl-body-outset-knitrinclude_graphicsimgtidy_data.png"><code>{r, layout="l-body-outset"} # knitr::include_graphics("img/tidy_data.png") #</code></a></li>
   <li><a href="#r-layoutl-body-knitrinclude_graphicsimggiphy.gif" id="toc-r-layoutl-body-knitrinclude_graphicsimggiphy.gif" class="nav-link" data-scroll-target="#r-layoutl-body-knitrinclude_graphicsimggiphy.gif"><code>{r, layout="l-body"} # knitr::include_graphics("img/giphy.gif") #</code></a>
   <ul class="collapse">
@@ -814,34 +810,75 @@ Les expressions régulières
 </div>
 </div>
 </div>
-<section id="join" class="level2">
-<h2 class="anchored" data-anchor-id="join">Joindre des données avec <code>..._join()</code></h2>
-<p>Il peut arriver que des données concernant un même projet se trouvent dans <strong>plusieurs fichiers</strong> (par exemple un fichier avec des mesures sur différents sites, et un autre fichier avec des données climatiques pour ces différents sites).</p>
 <p><br></p>
-<p>Les différentes fonctions <code>..._join()</code> permettent de joindre plusieux jeux de données selon ce qu’on souhaite faire des données qui ne sont pas partagées. Les lignes d’un tableau seront associées à l’autre tableau selon les valeurs d’une ou de plusieurs colonnes partagées (les <strong>clés</strong>).</p>
 </section>
-</section>
-<section id="r-layoutl-body-knitrinclude_graphicsimgjoin-venn.png" class="level1">
-<h1><code>{r, layout="l-body"} # knitr::include_graphics("img/join-venn.png") #</code></h1>
-</section>
-<section id="figure-tirée-de-r-for-data-science" class="level1">
-<h1>Figure tirée de <a href="https://r4ds.had.co.nz/relational-data.html">R for Data Science</a></h1>
+<section id="joindre-des-tableaux" class="level1">
+<h1>Joindre des tableaux</h1>
+<p>Le package <code>dplyr</code> propose plusieurs fonctions pour joindre deux tableaux. Les lignes des deux tableaux seront associées en fonction de <em>clés</em>, c’est-à-dire des colonnes communes.</p>
+<p>Le schéma ci-dessous (tiré du livre <a href="https://r4ds.had.co.nz/relational-data.html">R for Data Science</a>) représente les différentes fonctions <code>..._join()</code> :</p>
+<p><img src="img/join-venn.png" class="img-fluid" style="width:50.0%"></p>
 <p><br></p>
+<p>Pour bien comprendre ces différentes fonctions, nous allons créer deux sous-ensembles de données :</p>
+<ul>
+<li><code>d1</code> : lignes 1 à 3 du tableau, variable <em>longueur_bec_mm</em><br>
+</li>
+<li><code>d2</code> : lignes 2 à 4 du tableau, variable <em>hauteur_bec_mm</em></li>
+</ul>
+<p>Nous commençons par ajouter une colonne contenant les numéros de ligne, à l’aide de la fonction <code>rowid_to_column()</code> du package <code>tibble</code>. Par défaut, cette fonction la colonne d’index au début du tableau, et l’argument <code>var =</code> permet de choisir le nom de cette colonne. La fonction <code>slice()</code> permet de créer un sous-ensemble de lignes à l’aide de leurs positions.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>d1 <span class="ot">&lt;-</span> pingouins_tmp <span class="sc">%&gt;%</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  tibble<span class="sc">::</span><span class="fu">rowid_to_column</span>(<span class="at">var =</span> <span class="st">"ind_num"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(ind_num, longueur_bec_mm) <span class="sc">%&gt;%</span></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>d2 <span class="ot">&lt;-</span> pingouins_tmp <span class="sc">%&gt;%</span></span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>  tibble<span class="sc">::</span><span class="fu">rowid_to_column</span>(<span class="at">var =</span> <span class="st">"ind_num"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(ind_num, hauteur_bec_mm) <span class="sc">%&gt;%</span></span>
+<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">slice</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<table class="table">
+<tbody>
+<tr class="odd">
+<td><code>inner_join(d1, d2)</code></td>
+<td><img src="img/inner_join.png" class="img-fluid" style="width:50.0%"></td>
+</tr>
+<tr class="even">
+<td><code>full_join(d1, d2)</code></td>
+<td><img src="img/full_join.png" class="img-fluid" style="width:50.0%"></td>
+</tr>
+<tr class="odd">
+<td><code>left_join(d1, d2)</code></td>
+<td><img src="img/left_join.png" class="img-fluid" style="width:50.0%"></td>
+</tr>
+<tr class="even">
+<td><code>right_join(d1, d2)</code></td>
+<td><img src="img/right_join.png" class="img-fluid" style="width:50.0%"></td>
+</tr>
+<tr class="odd">
+<td><code>anti_join(d1, d2)</code></td>
+<td><img src="img/anti_join_1.png" class="img-fluid" style="width:50.0%"></td>
+</tr>
+<tr class="even">
+<td><code>anti_join(d2, d1)</code></td>
+<td><img src="img/anti_join_2.png" class="img-fluid" style="width:50.0%"></td>
+</tr>
+</tbody>
+</table>
 <p>Le fichier <code>traitements.csv</code> contient des informations sur des <strong>traitements appliqués aux plantes</strong> : températe (T), fertilisation (F), température + fertilisation (TF), ou contrôle (C).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Importer le jeu de données (attention : utilisation de read_csv2)</span></span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>traitements <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="st">"https://raw.githubusercontent.com/codons-blog/C-02-ManipulationDonnees/main/traitements.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Importer le jeu de données (attention : utilisation de read_csv2)</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>traitements <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="st">"https://raw.githubusercontent.com/codons-blog/C-02-ManipulationDonnees/main/traitements.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 <p>Nous allons utiliser la fonction <code>left_join()</code> pour garder toutes les données présentes dans <code>croissance</code> et y associer les données présentes dans <code>traitements</code> :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Joindre deux jeux de données</span></span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>expe <span class="ot">&lt;-</span> croissance <span class="sc">%&gt;%</span> </span>
-<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(traitements,</span>
-<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"zone"</span> <span class="ot">=</span> <span class="st">"Zone"</span>,</span>
-<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"indiv"</span> <span class="ot">=</span> <span class="st">"Indiv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Joindre deux jeux de données</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>expe <span class="ot">&lt;-</span> croissance <span class="sc">%&gt;%</span> </span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(traitements,</span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"zone"</span> <span class="ot">=</span> <span class="st">"Zone"</span>,</span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"indiv"</span> <span class="ot">=</span> <span class="st">"Indiv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 <p>Si les noms des deux premières colonnes avaient été strictement identiques dans les deux tableaux, nous aurions pu nous passer de l’argument <code>by()</code>.</p>
@@ -860,7 +897,7 @@ Les expressions régulières
 <section id="r-layoutl-body-knitrinclude_graphicsimgtidy-1.png" class="level1">
 <h1><code>{r, layout="l-body"} # knitr::include_graphics("img/tidy-1.png") #</code></h1>
 </section>
-<section id="figure-tirée-de-r-for-data-science-1" class="level1">
+<section id="figure-tirée-de-r-for-data-science" class="level1">
 <h1>Figure tirée de <a href="https://r4ds.had.co.nz/tidy-data.html">R for Data Science</a></h1>
 <p><br></p>
 <p>Considérons les deux premières lignes de notre tableau <code>croissance</code>, voici à quoi ressemblerait un format <strong>tidy</strong> :</p>
@@ -882,12 +919,12 @@ Les expressions régulières
 <section id="r-layoutl-body-outset-knitrinclude_graphicsimgpivot_longer.png" class="level1">
 <h1><code>{r, layout="l-body-outset"} # knitr::include_graphics("img/pivot_longer.png") #</code></h1>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Format large -&gt; format long</span></span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>croissance_long <span class="ot">&lt;-</span> croissance <span class="sc">%&gt;%</span> </span>
-<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="st">`</span><span class="at">2007</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">2012</span><span class="st">`</span>,</span>
-<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"annee"</span>,</span>
-<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"croissance"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Format large -&gt; format long</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>croissance_long <span class="ot">&lt;-</span> croissance <span class="sc">%&gt;%</span> </span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="st">`</span><span class="at">2007</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">2012</span><span class="st">`</span>,</span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"annee"</span>,</span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"croissance"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 <section id="format-large-avec-pivot_wider" class="level2">
@@ -898,12 +935,12 @@ Les expressions régulières
 <section id="r-layoutl-body-outset-knitrinclude_graphicsimgpivot_wider.png" class="level1">
 <h1><code>{r, layout="l-body-outset"} # knitr::include_graphics("img/pivot_wider.png") #</code></h1>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Format long -&gt; format large</span></span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>croissance_large <span class="ot">&lt;-</span> croissance_long <span class="sc">%&gt;%</span> </span>
-<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">id_cols =</span> zone<span class="sc">:</span>indiv,</span>
-<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">names_from =</span> annee,</span>
-<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>              <span class="at">values_from =</span> croissance)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Format long -&gt; format large</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>croissance_large <span class="ot">&lt;-</span> croissance_long <span class="sc">%&gt;%</span> </span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">id_cols =</span> zone<span class="sc">:</span>indiv,</span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">names_from =</span> annee,</span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>              <span class="at">values_from =</span> croissance)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 <p>Dans les arguments <code>names_from</code> et <code>values_from</code> nous n’utilisons pas de guillemets car ces colonnes existent, contraitement aux arguments <code>names_to</code> et <code>values_to</code> de la fonction <code>pivot_longer()</code> qui permettent de créer des colonnes inexistantes.</p>
@@ -912,33 +949,33 @@ Les expressions régulières
 <h2 class="anchored" data-anchor-id="résumé">Résumé</h2>
 <p>Nous avons vu les principales fonctions des packages <code>dplyr</code> et <code>tidyr</code> une par une. Nous allons maintenant <strong>enchaîner les différentes opérations</strong> depuis le début à l’aide d’un <code>pipe</code> et <strong>visualiser l’effet des différents traitements</strong> sur la croissance des tiges d’<em>Empetrum</em> :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Importer les deux fichiers</span></span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>croissance <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/codons-blog/C-02-ManipulationDonnees/main/croissance.csv"</span>)</span>
-<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>traitements <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="st">"https://raw.githubusercontent.com/codons-blog/C-02-ManipulationDonnees/main/traitements.csv"</span>)</span>
-<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Mettre en forme et joindre les deux fichiers</span></span>
-<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a>expe <span class="ot">&lt;-</span> croissance <span class="sc">%&gt;%</span> </span>
-<span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="st">`</span><span class="at">2007</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">2012</span><span class="st">`</span>,</span>
-<span id="cb47-10"><a href="#cb47-10" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"annee"</span>,</span>
-<span id="cb47-11"><a href="#cb47-11" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"croissance"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb47-12"><a href="#cb47-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(traitements) <span class="sc">%&gt;%</span> </span>
-<span id="cb47-13"><a href="#cb47-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">zone =</span> Zone,</span>
-<span id="cb47-14"><a href="#cb47-14" aria-hidden="true" tabindex="-1"></a>         <span class="at">indiv =</span> Indiv,</span>
-<span id="cb47-15"><a href="#cb47-15" aria-hidden="true" tabindex="-1"></a>         <span class="at">traitement =</span> Traitement) <span class="sc">%&gt;%</span> </span>
-<span id="cb47-16"><a href="#cb47-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">zone =</span> <span class="fu">as.factor</span>(zone),</span>
-<span id="cb47-17"><a href="#cb47-17" aria-hidden="true" tabindex="-1"></a>         <span class="at">indiv =</span> <span class="fu">as.factor</span>(indiv),</span>
-<span id="cb47-18"><a href="#cb47-18" aria-hidden="true" tabindex="-1"></a>         <span class="at">annee =</span> <span class="fu">as.numeric</span>(annee),</span>
-<span id="cb47-19"><a href="#cb47-19" aria-hidden="true" tabindex="-1"></a>         <span class="at">traitement =</span> <span class="fu">as.factor</span>(traitement))</span>
-<span id="cb47-20"><a href="#cb47-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-21"><a href="#cb47-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Boxplot de l'effet des traitements sur la croissance</span></span>
-<span id="cb47-22"><a href="#cb47-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-23"><a href="#cb47-23" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(croissance <span class="sc">~</span> traitement, </span>
-<span id="cb47-24"><a href="#cb47-24" aria-hidden="true" tabindex="-1"></a>        <span class="at">data =</span> expe,</span>
-<span id="cb47-25"><a href="#cb47-25" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Effet de la température (T) et de la fertilisation (F) sur la croissance d'Empetrum"</span>,</span>
-<span id="cb47-26"><a href="#cb47-26" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">"Traitement"</span>,</span>
-<span id="cb47-27"><a href="#cb47-27" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">"Croissance des tiges (cm)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Importer les deux fichiers</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>croissance <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/codons-blog/C-02-ManipulationDonnees/main/croissance.csv"</span>)</span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>traitements <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="st">"https://raw.githubusercontent.com/codons-blog/C-02-ManipulationDonnees/main/traitements.csv"</span>)</span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Mettre en forme et joindre les deux fichiers</span></span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a>expe <span class="ot">&lt;-</span> croissance <span class="sc">%&gt;%</span> </span>
+<span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="st">`</span><span class="at">2007</span><span class="st">`</span><span class="sc">:</span><span class="st">`</span><span class="at">2012</span><span class="st">`</span>,</span>
+<span id="cb48-10"><a href="#cb48-10" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"annee"</span>,</span>
+<span id="cb48-11"><a href="#cb48-11" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"croissance"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb48-12"><a href="#cb48-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(traitements) <span class="sc">%&gt;%</span> </span>
+<span id="cb48-13"><a href="#cb48-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">zone =</span> Zone,</span>
+<span id="cb48-14"><a href="#cb48-14" aria-hidden="true" tabindex="-1"></a>         <span class="at">indiv =</span> Indiv,</span>
+<span id="cb48-15"><a href="#cb48-15" aria-hidden="true" tabindex="-1"></a>         <span class="at">traitement =</span> Traitement) <span class="sc">%&gt;%</span> </span>
+<span id="cb48-16"><a href="#cb48-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">zone =</span> <span class="fu">as.factor</span>(zone),</span>
+<span id="cb48-17"><a href="#cb48-17" aria-hidden="true" tabindex="-1"></a>         <span class="at">indiv =</span> <span class="fu">as.factor</span>(indiv),</span>
+<span id="cb48-18"><a href="#cb48-18" aria-hidden="true" tabindex="-1"></a>         <span class="at">annee =</span> <span class="fu">as.numeric</span>(annee),</span>
+<span id="cb48-19"><a href="#cb48-19" aria-hidden="true" tabindex="-1"></a>         <span class="at">traitement =</span> <span class="fu">as.factor</span>(traitement))</span>
+<span id="cb48-20"><a href="#cb48-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-21"><a href="#cb48-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Boxplot de l'effet des traitements sur la croissance</span></span>
+<span id="cb48-22"><a href="#cb48-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-23"><a href="#cb48-23" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(croissance <span class="sc">~</span> traitement, </span>
+<span id="cb48-24"><a href="#cb48-24" aria-hidden="true" tabindex="-1"></a>        <span class="at">data =</span> expe,</span>
+<span id="cb48-25"><a href="#cb48-25" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Effet de la température (T) et de la fertilisation (F) sur la croissance d'Empetrum"</span>,</span>
+<span id="cb48-26"><a href="#cb48-26" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">"Traitement"</span>,</span>
+<span id="cb48-27"><a href="#cb48-27" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">"Croissance des tiges (cm)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 </section>
@@ -962,7 +999,7 @@ Les expressions régulières
 <p><br></p>
 <p>Commençons par importer les données :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>dragons <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://raw.githubusercontent.com/codons-blog/C-02-ManipulationDonnees/main/dragons.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>dragons <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://raw.githubusercontent.com/codons-blog/C-02-ManipulationDonnees/main/dragons.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 <p>Voici les <strong>objectifs</strong> de ce défi :</p>
@@ -984,65 +1021,65 @@ Les expressions régulières
 <p><br></p>
 <p>Si vous êtes coincé, vous pouvez cliquer ci-dessous pour afficher <strong>quelques astuces</strong> :</p>
 <div class="cell" data-code_folding="true">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Pour renommer la colonne "paprika", utilisez la fonction rename()</span></span>
-<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Il existe plusieurs facons de corriger des valeurs :</span></span>
-<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>valeurs_corrigees <span class="ot">&lt;-</span> dragons<span class="sc">$</span>tabasco[dragons<span class="sc">$</span>espece <span class="sc">==</span> <span class="st">"magyar_a_pointe"</span>] <span class="sc">-</span> <span class="dv">30</span></span>
-<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>dragons<span class="sc">$</span>tabasco[dragons<span class="sc">$</span>espece <span class="sc">==</span> <span class="st">"magyar_a_pointe"</span>] <span class="ot">&lt;-</span> valeurs_corrigees</span>
-<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a>dragons <span class="ot">&lt;-</span> dragons <span class="sc">%&gt;%</span> </span>
-<span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">tabasco =</span> <span class="fu">ifelse</span>(espece <span class="sc">==</span> <span class="st">"magyar_a_pointe"</span>, tabasco <span class="sc">-</span> <span class="dv">30</span>, tabasco))</span>
-<span id="cb49-10"><a href="#cb49-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-11"><a href="#cb49-11" aria-hidden="true" tabindex="-1"></a>dragons <span class="ot">&lt;-</span> dragons <span class="sc">%&gt;%</span> </span>
-<span id="cb49-12"><a href="#cb49-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">tabasco =</span> <span class="fu">case_when</span>(espece <span class="sc">==</span> <span class="st">"magyar_a_pointe"</span> <span class="sc">~</span> tabasco <span class="sc">-</span> <span class="dv">30</span>,</span>
-<span id="cb49-13"><a href="#cb49-13" aria-hidden="true" tabindex="-1"></a>                             <span class="cn">TRUE</span> <span class="sc">~</span> tabasco))</span>
-<span id="cb49-14"><a href="#cb49-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-15"><a href="#cb49-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. La fonction mutate() vous permettra de convertir les centimètres en mètres</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Pour renommer la colonne "paprika", utilisez la fonction rename()</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Il existe plusieurs facons de corriger des valeurs :</span></span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>valeurs_corrigees <span class="ot">&lt;-</span> dragons<span class="sc">$</span>tabasco[dragons<span class="sc">$</span>espece <span class="sc">==</span> <span class="st">"magyar_a_pointe"</span>] <span class="sc">-</span> <span class="dv">30</span></span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>dragons<span class="sc">$</span>tabasco[dragons<span class="sc">$</span>espece <span class="sc">==</span> <span class="st">"magyar_a_pointe"</span>] <span class="ot">&lt;-</span> valeurs_corrigees</span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a>dragons <span class="ot">&lt;-</span> dragons <span class="sc">%&gt;%</span> </span>
+<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">tabasco =</span> <span class="fu">ifelse</span>(espece <span class="sc">==</span> <span class="st">"magyar_a_pointe"</span>, tabasco <span class="sc">-</span> <span class="dv">30</span>, tabasco))</span>
+<span id="cb50-10"><a href="#cb50-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-11"><a href="#cb50-11" aria-hidden="true" tabindex="-1"></a>dragons <span class="ot">&lt;-</span> dragons <span class="sc">%&gt;%</span> </span>
+<span id="cb50-12"><a href="#cb50-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">tabasco =</span> <span class="fu">case_when</span>(espece <span class="sc">==</span> <span class="st">"magyar_a_pointe"</span> <span class="sc">~</span> tabasco <span class="sc">-</span> <span class="dv">30</span>,</span>
+<span id="cb50-13"><a href="#cb50-13" aria-hidden="true" tabindex="-1"></a>                             <span class="cn">TRUE</span> <span class="sc">~</span> tabasco))</span>
+<span id="cb50-14"><a href="#cb50-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-15"><a href="#cb50-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. La fonction mutate() vous permettra de convertir les centimètres en mètres</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 <p><strong>Cliquez ci-dessous pour voir la solution</strong></p>
 <div class="cell" data-code_folding="true">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Importer les donnees</span></span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>dragons <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/codons-blog/C-02-ManipulationDonnees/main/dragons.csv"</span>)</span>
-<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Nettoyer et corriger les donnees</span></span>
-<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>dragons_tidy <span class="ot">&lt;-</span> dragons <span class="sc">%&gt;%</span> </span>
-<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">curcuma =</span> paprika) <span class="sc">%&gt;%</span> </span>
-<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> tabasco<span class="sc">:</span>curcuma,</span>
-<span id="cb50-10"><a href="#cb50-10" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"epice"</span>,</span>
-<span id="cb50-11"><a href="#cb50-11" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"flamme_cm"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb50-12"><a href="#cb50-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">flamme_cm =</span> <span class="fu">case_when</span>(espece <span class="sc">==</span> <span class="st">"magyar_a_pointes"</span> <span class="sc">&amp;</span> epice <span class="sc">==</span> <span class="st">"tabasco"</span> <span class="sc">~</span> flamme_cm <span class="sc">-</span> <span class="dv">30</span>,</span>
-<span id="cb50-13"><a href="#cb50-13" aria-hidden="true" tabindex="-1"></a>                               <span class="cn">TRUE</span> <span class="sc">~</span> flamme_cm)) <span class="sc">%&gt;%</span> </span>
-<span id="cb50-14"><a href="#cb50-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">flamme_m =</span> flamme_cm <span class="sc">/</span> <span class="dv">100</span>)</span>
-<span id="cb50-15"><a href="#cb50-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-16"><a href="#cb50-16" aria-hidden="true" tabindex="-1"></a>magyar_a_pointes <span class="ot">&lt;-</span> dragons_tidy <span class="sc">%&gt;%</span> <span class="fu">filter</span>(espece <span class="sc">==</span> <span class="st">"magyar_a_pointes"</span>)</span>
-<span id="cb50-17"><a href="#cb50-17" aria-hidden="true" tabindex="-1"></a>suedois_a_museau_court <span class="ot">&lt;-</span> dragons_tidy <span class="sc">%&gt;%</span> <span class="fu">filter</span>(espece <span class="sc">==</span> <span class="st">"suedois_a_museau_court"</span>)</span>
-<span id="cb50-18"><a href="#cb50-18" aria-hidden="true" tabindex="-1"></a>vert_gallois <span class="ot">&lt;-</span> dragons_tidy <span class="sc">%&gt;%</span> <span class="fu">filter</span>(espece <span class="sc">==</span> <span class="st">"vert_gallois"</span>)</span>
-<span id="cb50-19"><a href="#cb50-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-20"><a href="#cb50-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Boxplots</span></span>
-<span id="cb50-21"><a href="#cb50-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-22"><a href="#cb50-22" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>))</span>
-<span id="cb50-23"><a href="#cb50-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-24"><a href="#cb50-24" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(flamme_m <span class="sc">~</span> epice,</span>
-<span id="cb50-25"><a href="#cb50-25" aria-hidden="true" tabindex="-1"></a>        <span class="at">data =</span> magyar_a_pointes,</span>
-<span id="cb50-26"><a href="#cb50-26" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">"Epice"</span>,</span>
-<span id="cb50-27"><a href="#cb50-27" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">"Longueur flamme (m)"</span>,</span>
-<span id="cb50-28"><a href="#cb50-28" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Magyar à pointes"</span>)</span>
-<span id="cb50-29"><a href="#cb50-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-30"><a href="#cb50-30" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(flamme_m <span class="sc">~</span> epice,</span>
-<span id="cb50-31"><a href="#cb50-31" aria-hidden="true" tabindex="-1"></a>        <span class="at">data =</span> suedois_a_museau_court,</span>
-<span id="cb50-32"><a href="#cb50-32" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">"Epice"</span>,</span>
-<span id="cb50-33"><a href="#cb50-33" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">"Longueur flamme (m)"</span>,</span>
-<span id="cb50-34"><a href="#cb50-34" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Suédois à museau court"</span>)</span>
-<span id="cb50-35"><a href="#cb50-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-36"><a href="#cb50-36" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(flamme_m <span class="sc">~</span> epice,</span>
-<span id="cb50-37"><a href="#cb50-37" aria-hidden="true" tabindex="-1"></a>        <span class="at">data =</span> vert_gallois,</span>
-<span id="cb50-38"><a href="#cb50-38" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">"Epice"</span>,</span>
-<span id="cb50-39"><a href="#cb50-39" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">"Longueur flamme (m)"</span>,</span>
-<span id="cb50-40"><a href="#cb50-40" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Vert gallois"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Importer les donnees</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>dragons <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/codons-blog/C-02-ManipulationDonnees/main/dragons.csv"</span>)</span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Nettoyer et corriger les donnees</span></span>
+<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a>dragons_tidy <span class="ot">&lt;-</span> dragons <span class="sc">%&gt;%</span> </span>
+<span id="cb51-8"><a href="#cb51-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">curcuma =</span> paprika) <span class="sc">%&gt;%</span> </span>
+<span id="cb51-9"><a href="#cb51-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> tabasco<span class="sc">:</span>curcuma,</span>
+<span id="cb51-10"><a href="#cb51-10" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"epice"</span>,</span>
+<span id="cb51-11"><a href="#cb51-11" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"flamme_cm"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb51-12"><a href="#cb51-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">flamme_cm =</span> <span class="fu">case_when</span>(espece <span class="sc">==</span> <span class="st">"magyar_a_pointes"</span> <span class="sc">&amp;</span> epice <span class="sc">==</span> <span class="st">"tabasco"</span> <span class="sc">~</span> flamme_cm <span class="sc">-</span> <span class="dv">30</span>,</span>
+<span id="cb51-13"><a href="#cb51-13" aria-hidden="true" tabindex="-1"></a>                               <span class="cn">TRUE</span> <span class="sc">~</span> flamme_cm)) <span class="sc">%&gt;%</span> </span>
+<span id="cb51-14"><a href="#cb51-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">flamme_m =</span> flamme_cm <span class="sc">/</span> <span class="dv">100</span>)</span>
+<span id="cb51-15"><a href="#cb51-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-16"><a href="#cb51-16" aria-hidden="true" tabindex="-1"></a>magyar_a_pointes <span class="ot">&lt;-</span> dragons_tidy <span class="sc">%&gt;%</span> <span class="fu">filter</span>(espece <span class="sc">==</span> <span class="st">"magyar_a_pointes"</span>)</span>
+<span id="cb51-17"><a href="#cb51-17" aria-hidden="true" tabindex="-1"></a>suedois_a_museau_court <span class="ot">&lt;-</span> dragons_tidy <span class="sc">%&gt;%</span> <span class="fu">filter</span>(espece <span class="sc">==</span> <span class="st">"suedois_a_museau_court"</span>)</span>
+<span id="cb51-18"><a href="#cb51-18" aria-hidden="true" tabindex="-1"></a>vert_gallois <span class="ot">&lt;-</span> dragons_tidy <span class="sc">%&gt;%</span> <span class="fu">filter</span>(espece <span class="sc">==</span> <span class="st">"vert_gallois"</span>)</span>
+<span id="cb51-19"><a href="#cb51-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-20"><a href="#cb51-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Boxplots</span></span>
+<span id="cb51-21"><a href="#cb51-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-22"><a href="#cb51-22" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>))</span>
+<span id="cb51-23"><a href="#cb51-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-24"><a href="#cb51-24" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(flamme_m <span class="sc">~</span> epice,</span>
+<span id="cb51-25"><a href="#cb51-25" aria-hidden="true" tabindex="-1"></a>        <span class="at">data =</span> magyar_a_pointes,</span>
+<span id="cb51-26"><a href="#cb51-26" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">"Epice"</span>,</span>
+<span id="cb51-27"><a href="#cb51-27" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">"Longueur flamme (m)"</span>,</span>
+<span id="cb51-28"><a href="#cb51-28" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Magyar à pointes"</span>)</span>
+<span id="cb51-29"><a href="#cb51-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-30"><a href="#cb51-30" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(flamme_m <span class="sc">~</span> epice,</span>
+<span id="cb51-31"><a href="#cb51-31" aria-hidden="true" tabindex="-1"></a>        <span class="at">data =</span> suedois_a_museau_court,</span>
+<span id="cb51-32"><a href="#cb51-32" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">"Epice"</span>,</span>
+<span id="cb51-33"><a href="#cb51-33" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">"Longueur flamme (m)"</span>,</span>
+<span id="cb51-34"><a href="#cb51-34" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Suédois à museau court"</span>)</span>
+<span id="cb51-35"><a href="#cb51-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-36"><a href="#cb51-36" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(flamme_m <span class="sc">~</span> epice,</span>
+<span id="cb51-37"><a href="#cb51-37" aria-hidden="true" tabindex="-1"></a>        <span class="at">data =</span> vert_gallois,</span>
+<span id="cb51-38"><a href="#cb51-38" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">"Epice"</span>,</span>
+<span id="cb51-39"><a href="#cb51-39" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">"Longueur flamme (m)"</span>,</span>
+<span id="cb51-40"><a href="#cb51-40" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Vert gallois"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
