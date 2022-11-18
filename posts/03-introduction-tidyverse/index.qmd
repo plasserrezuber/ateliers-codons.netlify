@@ -91,7 +91,7 @@ pingouins <- read_csv(file = "../../raw/pingouins.csv")
 ```
 
 ```{r importer les donnees 2, echo=TRUE, eval=FALSE}
-pingouins <- read_csv(file = "raw/pingouins.csv")
+pingouins <- readr::read_csv(file = "raw/pingouins.csv")
 ```
 
 Vous pouvez voir dans la console des informations concernant vos données :\
@@ -137,7 +137,7 @@ str(pingouins)
 La fonction `glimpse()` (du package `readr`) retourne sensiblement les mêmes informations que la fonction `str()` :
 
 ```{r glimpse, echo=TRUE, eval=FALSE}
-glimpse(pingouins)
+dplyr::glimpse(pingouins)
 ```
 
 <br>
@@ -162,13 +162,13 @@ Commençons par renommer des colonnes afin de respecter les conventions d'écrit
 La fonction `rename` s'utilise de la façon suivante : `rename(data, nouveau nom = ancien nom)`
 
 ```{r rename 1, echo=TRUE, eval=FALSE}
-rename(pingouins_tmp, ile = Ile)
+dplyr::rename(pingouins_tmp, ile = Ile)
 ```
 
 Nous pourrions procéder de la même façon pour plusieurs colonnes à la fois :
 
 ```{r rename 2, echo=TRUE, eval=FALSE}
-rename(pingouins_tmp, espece = Espece, ile = Ile)
+dplyr::rename(pingouins_tmp, espece = Espece, ile = Ile)
 ```
 
 <br>
@@ -207,14 +207,14 @@ La fonction `select()` permet de sélectionner les colonnes d'un tableau. Nous a
 
 ```{r select columns, eval=FALSE}
 # Indiquer toutes les colonnes
-select(pingouins_tmp, espece, ile, longueur_bec_mm, hauteur_bec_mm,
-       longueur_aile_mm, masse_corporelle_g)
+dplyr::select(pingouins_tmp, espece, ile, longueur_bec_mm, hauteur_bec_mm,
+              longueur_aile_mm, masse_corporelle_g)
 
 # Indiquer les suites de colonnes
-select(pingouins_tmp, espece:ile, longueur_bec_mm:masse_corporelle_g)
+dplyr::select(pingouins_tmp, espece:ile, longueur_bec_mm:masse_corporelle_g)
 
 # Supprimer des colonnes
-select(pingouins_tmp, espece:ile, longueur_bec_mm:masse_corporelle_g)
+dplyr::select(pingouins_tmp, espece:ile, longueur_bec_mm:masse_corporelle_g)
 ```
 
 D'autres fonctions du package `dplyr` permettent de sélectionner des colonnes :
@@ -227,13 +227,13 @@ Dans notre cas, nous pouvons sélectionner les colonnes *espece* et *ile*, puis 
 
 ```{r select columns 2, eval=FALSE}
 # Utiliser la fonction ends_with()
-select(pingouins_tmp, espece, ile, ends_with(c("mm", "g")))
+dplyr::select(pingouins_tmp, espece, ile, dplyr::ends_with(c("mm", "g")))
 ```
 
 Assignons cette sélection de colonnes à notre objet :
 
 ```{r assign selection}
-pingouins_tmp <- select(pingouins_tmp, espece, ile, ends_with(c("mm", "g")))
+pingouins_tmp <- dplyr::select(pingouins_tmp, espece, ile, dplyr::ends_with(c("mm", "g")))
 ```
 
 <br>
@@ -244,19 +244,19 @@ pingouins_tmp <- select(pingouins_tmp, espece, ile, ends_with(c("mm", "g")))
 Nous pouvons utiliser la fonction `select()` pour renommer des colonnes :
 
 ```{r rename with select, eval=FALSE}
-select(pingouins_tmp, espece:longueur_aile_mm, masse = masse_corporelle_g)
+dplyr::select(pingouins_tmp, espece:longueur_aile_mm, masse = masse_corporelle_g)
 ```
 
 Mais aussi pour modifier l'ordre des colonnes :
 
 ```{r reorder with select, eval=FALSE}
-select(pingouins_tmp, espece:ile, masse_corporelle_g, longueur_bec_mm:longueur_aile_mm)
+dplyr::select(pingouins_tmp, espece:ile, masse_corporelle_g, longueur_bec_mm:longueur_aile_mm)
 ```
 
 Enfin, si nous n'avons que quelques colonnes à déplacer, la fonction `everything()` permet de sélectionner le reste du tableau !
 
 ```{r everything, eval=FALSE}
-select(pingouins_tmp, ile, everything())
+dplyr::select(pingouins_tmp, ile, dplyr::everything())
 ```
 :::
 
@@ -283,17 +283,17 @@ Voici deux exemples :
 
 ```{r filtrer, eval=FALSE}
 # Individus vivant sur l'ile Biscoe pesant au moins 5 kgs
-filter(pingouins_tmp, ile == "Biscoe", masse_corporelle_g >= 5000)
+dplyr::filter(pingouins_tmp, ile == "Biscoe", masse_corporelle_g >= 5000)
 
 # Individus vivant sur les iles Biscoe ou Torgersen
-filter(pingouins_tmp, ile %in% c("Biscoe", "Torgersen"))
+dplyr::filter(pingouins_tmp, ile %in% c("Biscoe", "Torgersen"))
 ```
 
 La fonction `between()` permet de garder les valeurs numériques entre deux bornes :
 
 ```{r between, eval=FALSE}
 # Individus pesant entre 3 kgs et 3,5 kgs
-filter(pingouins_tmp, between(masse_corporelle_g, 3000, 3250))
+dplyr::filter(pingouins_tmp, dplyr::between(masse_corporelle_g, 3000, 3250))
 ```
 
 <br>
@@ -302,13 +302,13 @@ Notre jeu de données contient des données manquantes `NA`. Il existe plusieurs
 
 ```{r remove NAs, eval=FALSE}
 # Garder les lignes pour lesquelles la variable longueur_bec_mm ne contient pas de NA
-filter(pingouins_tmp, !is.na(longueur_bec_mm))
+dplyr::filter(pingouins_tmp, !is.na(longueur_bec_mm))
 
 # Supprimer les lignes pour lesquelles la variable longueur_bec_mm contient au moins un NA
-drop_na(pingouins_tmp, longueur_bec_mm)
+tidyr::drop_na(pingouins_tmp, longueur_bec_mm)
 
 # Supprimer les lignes contenant des NAs, quelque soit la variable
-drop_na(pingouins_tmp)
+tidyr::drop_na(pingouins_tmp)
 ```
 
 <br>
@@ -319,16 +319,16 @@ La fonction `arrange()` permet de trier des données. Par défaut, le tri s'effe
 
 ```{r tri, eval=FALSE}
 # Trier les données par ordre croisant de longueur de bec
-arrange(pingouins_tmp, longueur_bec_mm)
+dplyr::arrange(pingouins_tmp, longueur_bec_mm)
 
 # Trier les données par ordre décroissant de masse corporelle
-arrange(pingouins_tmp, desc(masse_corporelle_g))
+dplyr::arrange(pingouins_tmp, dplyr::desc(masse_corporelle_g))
 ```
 
 Il est possible de trier sur plusieurs colonnes : nous pouvons trier les individus par ordre décroissant de hauteur de bec puis par ordre décroissant de longueur de bec. Cela peut être utile pour départager des individus "ex-aequo" pour une variable :
 
 ```{r tri 2, eval=FALSE}
-arrange(pingouins_tmp, desc(hauteur_bec_mm), desc(longueur_bec_mm))
+dplyr::arrange(pingouins_tmp, dplyr::desc(hauteur_bec_mm), dplyr::desc(longueur_bec_mm))
 ```
 
 ## Créer ou modifier des colonnes
@@ -336,19 +336,19 @@ arrange(pingouins_tmp, desc(hauteur_bec_mm), desc(longueur_bec_mm))
 La fonction `mutate()` permet de créer une nouvelle colonne. Nous pouvons par exemple ajouter une colonne *ratio_bec* dans laquelle nous allons calculer le rapport entre la longueur du bec et sa hauteur :
 
 ```{r mutate, eval=FALSE}
-mutate(pingouins_tmp, ratio_bec = longueur_bec_mm / hauteur_bec_mm)
+dplyr::mutate(pingouins_tmp, ratio_bec = longueur_bec_mm / hauteur_bec_mm)
 ```
 
 Nous pouvons également modifier le contenu d'une colonne, par exemple en ajoutant le suffixe *island* au contenu de la colonne *ile* :
 
 ```{r mutate 2, eval=FALSE}
-mutate(pingouins_tmp, ile = paste0(ile, " island"))
+dplyr::mutate(pingouins_tmp, ile = paste0(ile, " island"))
 ```
 
 La fonction `transmute()` permet quant à elle de créer une nouvelle colonne tout en supprimant les colonnes pré-existantes :
 
 ```{r transmute, eval=FALSE}
-transmute(pingouins_tmp, masse_kgs = masse_corporelle_g / 1000)
+dplyr::transmute(pingouins_tmp, masse_kgs = masse_corporelle_g / 1000)
 ```
 
 <br>
@@ -360,19 +360,19 @@ La fonction `count()` permet d'effectuer des comptages sur les variables.
 Comptons le nombre d'individus par espèce :
 
 ```{r count, eval=FALSE}
-count(pingouins_tmp, espece)
+dplyr::count(pingouins_tmp, espece)
 ```
 
 L'argument `sort = TRUE` permet d'afficher le résultat par ordre décroissant :
 
 ```{r count 2, eval=FALSE}
-count(pingouins_tmp, espece, sort = TRUE)
+dplyr::count(pingouins_tmp, espece, sort = TRUE)
 ```
 
 Nous pouvons également compter les individus par île et par espèce :
 
 ```{r count 3, eval=FALSE}
-count(pingouins_tmp, ile, espece, sort = TRUE)
+dplyr::count(pingouins_tmp, ile, espece, sort = TRUE)
 ```
 
 <br>
@@ -384,16 +384,16 @@ La fonction `summarise()` permet d'agréger des lignes en effectuant une opérat
 Calculons la longueur moyenne du bec pour l'ensemble des individus, sans oublier l'argument `na.rm = TRUE` pour supprimer les données manquantes lors du calcul. Si nous avions assigné à l'objet `pingouins_tmp` les données après avoir retiré les lignes contenant des données manquantes, nous pourrions nous passer de cet argument. Dans le doute, mieux vaut ajouter cet argument :
 
 ```{r summarise, eval=FALSE}
-summarise(pingouins_tmp,
-          longueur_bec_mm_moy = mean(longueur_bec_mm, na.rm = TRUE))
+dplyr::summarise(pingouins_tmp,
+                 longueur_bec_mm_moy = mean(longueur_bec_mm, na.rm = TRUE))
 ```
 
 Cette fonction peut également s'utiliser sur plusieurs variables :
 
 ```{r summarise 2, eval=FALSE}
-summarise(pingouins_tmp,
-          longueur_bec_mm_moy = mean(longueur_bec_mm, na.rm = TRUE),
-          hauteur_bec_mm_moy = mean(hauteur_bec_mm, na.rm = TRUE))
+dplyr::summarise(pingouins_tmp,
+                 longueur_bec_mm_moy = mean(longueur_bec_mm, na.rm = TRUE),
+                 hauteur_bec_mm_moy = mean(hauteur_bec_mm, na.rm = TRUE))
 ```
 
 <br>
@@ -405,15 +405,15 @@ La fonction `group_by()`, utilisée en combinaison avec la fonction `summarise()
 Calculons la longueur moyenne du bec par espece :
 
 ```{r group, eval=FALSE}
-summarise(group_by(pingouins_tmp, espece),
-          longueur_bec_mm_moy = mean(longueur_bec_mm, na.rm = TRUE))
+dplyr::summarise(group_by(pingouins_tmp, espece),
+                 longueur_bec_mm_moy = mean(longueur_bec_mm, na.rm = TRUE))
 ```
 
 Cette fonction permet de définir des sous-groupes. Calculons la longueur moyenne du bec par île et par espèce :
 
 ```{r group 2, eval=FALSE}
-summarise(group_by(pingouins_tmp, ile, espece),
-          longueur_bec_mm_moy = mean(longueur_bec_mm, na.rm = TRUE))
+dplyr::summarise(dplyr::group_by(pingouins_tmp, ile, espece),
+                 longueur_bec_mm_moy = mean(longueur_bec_mm, na.rm = TRUE))
 ```
 
 <br>
@@ -454,7 +454,7 @@ Nous pouvons ainsi enchaîner les fonctions sans avoir à créer des objets inte
 ```{r pipe 2, eval=FALSE}
 pingouins %>%
   janitor::clean_names() %>%
-  drop_na()
+  dplyr::drop_na()
 ```
 
 <br>
@@ -504,8 +504,66 @@ Le raccourci clavier **Ctrl + Shift + M** insérera alors un pipe `|>`.
 
 :::
 
+<br>
+
+# Manipuler des chaînes de caractères avec `stringr`
+
+Le package `stringr` est dédié à la manipulation de chaînes de caractères. Nous aimerions séparer la colonne *espece* en deux colonnes : 
+
+- une colonne contenant le nom de l'espèce (*Adelie* par exemple)  
+- une colonne contenant le nom latin de l'espèce (*Pygoscelis adeliae*)
+
+La fonction `str_detect()` permet de rechercher un motif dans une chaîne de caractères : 
+
+```{r stringr 1, eval=FALSE}
+stringr::str_detect(string = pingouins_tmp$espece, pattern = "Adelie")
+```
+
+Utilisons la fonction `word()` pour extraire les troisèmes et quatrièmes mots de la variable espèce. Cette fonction s'utilise de la manière suivante : `str_word(chaine, debut, fin)`.
+
+```{r stringr 2, eval=FALSE}
+pingouins_tmp <- pingouins_tmp %>%
+  dplyr::mutate(nom_latin = stringr::word(string = espece,
+                                          start = 3, end = 4))
+```
+
+Notre nouvelle variable *nom_latin* a bien été créée, mais elle contient des parenthèses. Pour les supprimer, nous utilisons la fonction `str_remove_all()` en combinaison avec une expression régulière (regex) : les parenthèses à supprimer sont placées entre crochets, eux-mêmes placés entre des guillemets.
+
+```{r stringr 3, eval=FALSE}
+pingouins_tmp <- pingouins_tmp %>%
+  dplyr::mutate(nom_latin = stringr::str_remove_all(string = nom_latin,
+                                                    pattern = "[()]"))
+```
+
+Il ne nous reste plus qu'à modifier la variable *espece* afin de ne conserver que le premier mot, puis de modifier l'ordre des colonnes :
+
+```{r stringr 4, eval=FALSE}
+pingouins_tmp <- pingouins_tmp %>%
+  dplyr::mutate(espece = stringr::word(string = espece,
+                                       start = 1, end = 1)) %>%
+  dplyr::select(espece, nom_latin, dplyr::everything())
+```
 
 <br>
+
+::: {.callout-tip icon="true"}
+## Les expressions régulières
+
+Pour en savoir plus sur les expressions régulières, vous pouvez lire [cet article](https://thinkr.fr/r-les-expressions-regulieres/).
+Il existe souvent plusieurs façons d'arriver au même résultat. Pour le nom latin, nous aurions pu extraire la chaîne de caractères située entre les parenthèses : 
+
+```{r stringr 5, eval=FALSE}
+stringr::str_extract(pingouins$Espece, "(?<=\\().+?(?=\\))")
+```
+
+Pour extraire le nom de l'espèce, nous pouvons utiliser une expression régulière pour extraire les caractères précédent le premier espace vide : 
+
+```{r stringr 6, eval=FALSE}
+stringr::str_extract(pingouins$Espece, "\\w+")
+```
+
+:::
+
 
 ## Joindre des données avec `..._join()` {#join}
 
