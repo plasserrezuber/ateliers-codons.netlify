@@ -564,20 +564,46 @@ stringr::str_extract(pingouins$Espece, "\\w+")
 
 :::
 
+<br>
 
-## Joindre des données avec `..._join()` {#join}
+# Joindre des tableaux
 
-Il peut arriver que des données concernant un même projet se trouvent dans **plusieurs fichiers** (par exemple un fichier avec des mesures sur différents sites, et un autre fichier avec des données climatiques pour ces différents sites).
+Le package `dplyr` propose plusieurs fonctions pour joindre deux tableaux. Les lignes des deux tableaux seront associées en fonction de *clés*, c'est-à-dire des colonnes communes.
+
+Le schéma ci-dessous (tiré du livre [R for Data Science](https://r4ds.had.co.nz/relational-data.html)) représente les différentes fonctions `..._join()` : 
+
+![](img/join-venn.png){width="50%"}
 
 <br>
 
-Les différentes fonctions `..._join()` permettent de joindre plusieux jeux de données selon ce qu'on souhaite faire des données qui ne sont pas partagées. Les lignes d'un tableau seront associées à l'autre tableau selon les valeurs d'une ou de plusieurs colonnes partagées (les **clés**).
+Pour bien comprendre ces différentes fonctions, nous allons créer deux sous-ensembles de données : 
 
-# `{r, layout="l-body"} # knitr::include_graphics("img/join-venn.png") #`
+- `d1` : lignes 1 à 3 du tableau, variable *longueur_bec_mm*  
+- `d2` : lignes 2 à 4 du tableau, variable *hauteur_bec_mm*
 
-# Figure tirée de [R for Data Science](https://r4ds.had.co.nz/relational-data.html)
+Nous commençons par ajouter une colonne contenant les numéros de ligne, à l'aide de la fonction `rowid_to_column()` du package `tibble`. Par défaut, cette fonction la colonne d'index au début du tableau, et l'argument `var = ` permet de choisir le nom de cette colonne. La fonction `slice()` permet de créer un sous-ensemble de lignes à l'aide de leurs positions.
 
-<br>
+```{r, join 1, eval=TRUE}
+d1 <- pingouins_tmp %>%
+  tibble::rowid_to_column(var = "ind_num") %>%
+  dplyr::select(ind_num, longueur_bec_mm) %>%
+  dplyr::slice(1:3)
+
+d2 <- pingouins_tmp %>%
+  tibble::rowid_to_column(var = "ind_num") %>%
+  dplyr::select(ind_num, hauteur_bec_mm) %>%
+  dplyr::slice(2:4)
+```
+
+|                      |                                      | 
+| -------------------- | ------------------------------------ |
+| `inner_join(d1, d2)` | ![](img/inner_join.png){width="50%"} |
+| `full_join(d1, d2)`  | ![](img/full_join.png){width="50%"}  |
+| `left_join(d1, d2)`  | ![](img/left_join.png){width="50%"}  |
+| `right_join(d1, d2)` | ![](img/right_join.png){width="50%"} |
+| `anti_join(d1, d2)`  | ![](img/anti_join_1.png){width="50%"}|
+| `anti_join(d2, d1)`  | ![](img/anti_join_2.png){width="50%"}|
+
 
 Le fichier `traitements.csv` contient des informations sur des **traitements appliqués aux plantes** : températe (T), fertilisation (F), température + fertilisation (TF), ou contrôle (C).
 

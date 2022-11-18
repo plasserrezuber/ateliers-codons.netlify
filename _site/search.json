@@ -266,13 +266,6 @@
     "text": "Regrouper les données\nLa fonction group_by(), utilisée en combinaison avec la fonction summarise(), permet de regrouper les données pour effectuer des calculs par groupe.\nCalculons la longueur moyenne du bec par espece :\n\ndplyr::summarise(group_by(pingouins_tmp, espece),\n                 longueur_bec_mm_moy = mean(longueur_bec_mm, na.rm = TRUE))\n\nCette fonction permet de définir des sous-groupes. Calculons la longueur moyenne du bec par île et par espèce :\n\ndplyr::summarise(dplyr::group_by(pingouins_tmp, ile, espece),\n                 longueur_bec_mm_moy = mean(longueur_bec_mm, na.rm = TRUE))"
   },
   {
-    "objectID": "posts/03-introduction-tidyverse/index.html#join",
-    "href": "posts/03-introduction-tidyverse/index.html#join",
-    "title": "Introduction au Tidyverse",
-    "section": "Joindre des données avec ..._join()",
-    "text": "Joindre des données avec ..._join()\nIl peut arriver que des données concernant un même projet se trouvent dans plusieurs fichiers (par exemple un fichier avec des mesures sur différents sites, et un autre fichier avec des données climatiques pour ces différents sites).\n\nLes différentes fonctions ..._join() permettent de joindre plusieux jeux de données selon ce qu’on souhaite faire des données qui ne sont pas partagées. Les lignes d’un tableau seront associées à l’autre tableau selon les valeurs d’une ou de plusieurs colonnes partagées (les clés)."
-  },
-  {
     "objectID": "posts/03-introduction-tidyverse/index.html#format-long-avec-pivot_longer",
     "href": "posts/03-introduction-tidyverse/index.html#format-long-avec-pivot_longer",
     "title": "Introduction au Tidyverse",
