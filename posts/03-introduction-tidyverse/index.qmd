@@ -729,25 +729,16 @@ library(gapminder)
 
 # Exploration rapide des données ----
 
-<votre code>
-
 # Compter le nombre de pays par continent ----
 
 # Attention, il y a un piège, voire deux !
 
-<votre code>
-
 # Calculer le PIB global et l'ajouter dans une colonne ----
-
-gapminder_tmp <- <votre code>
 
 # Transformer les données d'espérance de PIB global au format long (une année par colonne) ----
 
-gdp_global <- <votre code>
-
 # Calculer la moyenne de l'espérance de vie en 2007 par continent et trier les résultats par ordre décroissant ----
 
-<votre code>
 ```
 
 ::: {.callout-important icon="false" collapse="true"}
@@ -789,3 +780,4 @@ gapminder_tmp %>%
   dplyr::summarise(lifeExp_moy = mean(lifeExp, na.rm = TRUE)) %>%
   dplyr::arrange(dplyr::desc(lifeExp_moy))
 ```
+:::
