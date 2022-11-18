@@ -263,21 +263,7 @@
     "href": "posts/03-introduction-tidyverse/index.html#regrouper-les-données",
     "title": "Introduction au Tidyverse",
     "section": "Regrouper les données",
-    "text": "Regrouper les données\nLa fonction group_by(), utilisée en combinaison avec la fonction summarise(), permet de regrouper les données pour effectuer des calculs par groupe.\nCalculons la longueur moyenne du bec par espece :\n\ndplyr::summarise(group_by(pingouins_tmp, espece),\n                 longueur_bec_mm_moy = mean(longueur_bec_mm, na.rm = TRUE))\n\nCette fonction permet de définir des sous-groupes. Calculons la longueur moyenne du bec par île et par espèce :\n\ndplyr::summarise(dplyr::group_by(pingouins_tmp, ile, espece),\n                 longueur_bec_mm_moy = mean(longueur_bec_mm, na.rm = TRUE))"
-  },
-  {
-    "objectID": "posts/03-introduction-tidyverse/index.html#résumé",
-    "href": "posts/03-introduction-tidyverse/index.html#résumé",
-    "title": "Introduction au Tidyverse",
-    "section": "Résumé",
-    "text": "Résumé\nNous avons vu les principales fonctions des packages dplyr et tidyr une par une. Nous allons maintenant enchaîner les différentes opérations depuis le début à l’aide d’un pipe et visualiser l’effet des différents traitements sur la croissance des tiges d’Empetrum :\n\n# Importer les deux fichiers\n\ncroissance <- read_csv(\"https://raw.githubusercontent.com/codons-blog/C-02-ManipulationDonnees/main/croissance.csv\")\ntraitements <- read_csv2(\"https://raw.githubusercontent.com/codons-blog/C-02-ManipulationDonnees/main/traitements.csv\")\n\n# Mettre en forme et joindre les deux fichiers\n\nexpe <- croissance %>% \n  pivot_longer(cols = `2007`:`2012`,\n               names_to = \"annee\",\n               values_to = \"croissance\") %>% \n  left_join(traitements) %>% \n  rename(zone = Zone,\n         indiv = Indiv,\n         traitement = Traitement) %>% \n  mutate(zone = as.factor(zone),\n         indiv = as.factor(indiv),\n         annee = as.numeric(annee),\n         traitement = as.factor(traitement))\n\n# Boxplot de l'effet des traitements sur la croissance\n\nboxplot(croissance ~ traitement, \n        data = expe,\n        main = \"Effet de la température (T) et de la fertilisation (F) sur la croissance d'Empetrum\",\n        xlab = \"Traitement\",\n        ylab = \"Croissance des tiges (cm)\")"
-  },
-  {
-    "objectID": "posts/03-introduction-tidyverse/index.html#bilan-du-tutoriel",
-    "href": "posts/03-introduction-tidyverse/index.html#bilan-du-tutoriel",
-    "title": "Introduction au Tidyverse",
-    "section": "Bilan du tutoriel :",
-    "text": "Bilan du tutoriel :\n\nVous savez utiliser les fonctions de dplyr pour manipuler vos données\n\nVous savez mettre en forme des données qui respectent les critères des tidy data avec tidyr"
+    "text": "Regrouper les données\nLa fonction group_by(), utilisée en combinaison avec la fonction summarise(), permet de regrouper les données pour effectuer des calculs par groupe.\nCalculons la longueur moyenne du bec par espece :\n\ndplyr::summarise(group_by(pingouins_tmp, espece),\n                 longueur_bec_mm_moy = mean(longueur_bec_mm, na.rm = TRUE))\n\nCette fonction permet de définir des sous-groupes. Calculons la longueur moyenne du bec par île et par espèce :\n\ndplyr::summarise(dplyr::group_by(pingouins_tmp, ile, espece),\n                 longueur_bec_mm_moy = mean(longueur_bec_mm, na.rm = TRUE))\n\n\n\n\n\n\n\nDégrouper les données\n\n\n\nLa fonction ungroup() permet de dégrouper les données"
   },
   {
     "objectID": "posts/04-rmarkdown/index.html",
