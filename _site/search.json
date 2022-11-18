@@ -266,20 +266,6 @@
     "text": "Regrouper les données\nLa fonction group_by(), utilisée en combinaison avec la fonction summarise(), permet de regrouper les données pour effectuer des calculs par groupe.\nCalculons la longueur moyenne du bec par espece :\n\ndplyr::summarise(group_by(pingouins_tmp, espece),\n                 longueur_bec_mm_moy = mean(longueur_bec_mm, na.rm = TRUE))\n\nCette fonction permet de définir des sous-groupes. Calculons la longueur moyenne du bec par île et par espèce :\n\ndplyr::summarise(dplyr::group_by(pingouins_tmp, ile, espece),\n                 longueur_bec_mm_moy = mean(longueur_bec_mm, na.rm = TRUE))"
   },
   {
-    "objectID": "posts/03-introduction-tidyverse/index.html#format-long-avec-pivot_longer",
-    "href": "posts/03-introduction-tidyverse/index.html#format-long-avec-pivot_longer",
-    "title": "Introduction au Tidyverse",
-    "section": "Format long avec pivot_longer()",
-    "text": "Format long avec pivot_longer()\nLa fonction pivot_longer() permet de passer d’un format large à un format long. La syntaxe est un peu plus complexe que les fonctions que nous avons vues jusqu’à présent, car il nous préciser quelles colonnes vont être regroupées :"
-  },
-  {
-    "objectID": "posts/03-introduction-tidyverse/index.html#format-large-avec-pivot_wider",
-    "href": "posts/03-introduction-tidyverse/index.html#format-large-avec-pivot_wider",
-    "title": "Introduction au Tidyverse",
-    "section": "Format large avec pivot_wider()",
-    "text": "Format large avec pivot_wider()\nCette fonction permet d’effectuer l’opération inverse :"
-  },
-  {
     "objectID": "posts/03-introduction-tidyverse/index.html#résumé",
     "href": "posts/03-introduction-tidyverse/index.html#résumé",
     "title": "Introduction au Tidyverse",

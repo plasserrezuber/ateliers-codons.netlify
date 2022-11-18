@@ -506,7 +506,7 @@ Le raccourci clavier **Ctrl + Shift + M** insérera alors un pipe `|>`.
 
 <br>
 
-# Manipuler des chaînes de caractères avec `stringr`
+# Manipuler des chaînes de caractères
 
 Le package `stringr` est dédié à la manipulation de chaînes de caractères. Nous aimerions séparer la colonne *espece* en deux colonnes : 
 
@@ -604,105 +604,107 @@ d2 <- pingouins_tmp %>%
 | `anti_join(d1, d2)`  | ![](img/anti_join_1.png){width="50%"}|
 | `anti_join(d2, d1)`  | ![](img/anti_join_2.png){width="50%"}|
 
+<br>
 
-Le fichier `traitements.csv` contient des informations sur des **traitements appliqués aux plantes** : températe (T), fertilisation (F), température + fertilisation (TF), ou contrôle (C).
+::: {.callout-tip icon="true"}
+## Les clés de jointure
 
-```{r, echo=TRUE, eval=FALSE}
-# Importer le jeu de données (attention : utilisation de read_csv2)
+La colonne commune porte le même nom dans nos deux tableaux `d1` et `d2`. Si ce n'était pas le cas, nous devrions préciser la *clé* de jointure. Dans ce cas, la colonne de jointure du tableau résultant prendra le nom de cette colonne dans le premier tableau : 
 
-traitements <- read_csv2("https://raw.githubusercontent.com/codons-blog/C-02-ManipulationDonnees/main/traitements.csv")
+```{r, join 2, eval=TRUE}
+names(d1) <- "numero_ind"
+inner_join(d1, d2, by = c("numero_ind" = "ind_num"))
+```
+
+:::
+
+# Transformer des tableaux
+
+La suite de packages `tidyverse` se base sur le principe des [*tidy data*](https://www.jstatsoft.org/article/view/v059i10) : 
+
+- chaque variable est située dans sa propre colonne  
+- chaque observation est située sur sa propre ligne  
+- chaque valeur est située dans sa cellule
+
+Ces trois principes sont résumés dans la figure suivante, tirée de [R for Data Science](https://r4ds.had.co.nz/tidy-data.html) : 
+
+![](img/tidy-1.png){width="75%"}
+
+<br>
+
+Le package `tidyr` proprose des fonctions permettant de transformer un tableau dans un format *tidy*.
+Nos données étant déjà dans ce format, nous allons créer un sous-ensemble de données pour les transformer dans un format *non-tidy* puis les transformer à nouveau dans un format *tidy*.
+
+Ce sous-ensemble contient les dix premières lignes du tableau et les variables *espece* et *ratio_bec* (nous ajoutons également un index des lignes)
+
+```{r tidy1, eval=FALSE}
+d3 <- pingouins_tmp %>%
+  tibble::rowid_to_column(var = "ind_num") %>%
+  dplyr::select(ind_num, espece, ratio_bec) %>%
+  dplyr::slice(1:10)
 ```
 
 <br>
 
-Nous allons utiliser la fonction `left_join()` pour garder toutes les données présentes dans `croissance` et y associer les données présentes dans `traitements` :
+Nos données sont dans ce que l'on appelle également un format *long*. Pour les transformer dans un format *non-tidy* ou encore format *large*, nous utilisons la fonction `pivot_wider()`.
 
-```{r, echo=TRUE, eval=FALSE}
-# Joindre deux jeux de données
+Deux arguments sont obligatoires : 
 
-expe <- croissance %>% 
-  left_join(traitements,
-            by = c("zone" = "Zone",
-                   "indiv" = "Indiv"))
+- `names_from` : colonne qui servira à nommer les colonnes dans le tableau au format large  
+- `values_from` : colonne qui contient les valeurs qui nous intéressent  
+
+```{r tidy2, eval=FALSE}
+tidyr::pivot_wider(data = d3,
+                   names_from = ind_num,
+                   values_from = ratio_bec)
 ```
 
 <br>
 
-Si les noms des deux premières colonnes avaient été strictement identiques dans les deux tableaux, nous aurions pu nous passer de l'argument `by()`.
+Pour rendre les noms des colonnes plus facilement utilisables et supprimer les "`", nous ajoutons un l'argument `names_prefix` : 
 
-<br>
+```{r tidy3, eval=FALSE}
+tidyr::pivot_wider(data = d3,
+                   names_from = ind_num,
+                   values_from = ratio_bec,
+                   names_prefix = "ind")
+```
 
-# Mettre en forme des données à l'aide de `tidyr` {#tidyr}
+Assignons ce tableau transformé au format *large* dans un objet : 
 
-Les données que nous avons manipulées jusqu'à présent ne sont **pas dans un format idéal** (rappelez-vous la longueur du code pour calculer la croissance totale pour chaque individu).
-
-Les valeurs mesurées sont réparties dans différentes colonnes, une par année.
-
-Nous pourrions mettre en forme ces donnes afin d'avoir une colonne "annee" et une colonne "croissance".
-
-C'est ce qu'on appelle des **tidy data**, concept qui repose sur trois critères :
-
-**1. Chaque variable est située dans sa propre colonne**\
-**2. Chaque observation est située sur sa propre ligne**\
-**3. Chaque valeur est située dans sa propre cellule**
-
-# `{r, layout="l-body"} # knitr::include_graphics("img/tidy-1.png") #`
-
-# Figure tirée de [R for Data Science](https://r4ds.had.co.nz/tidy-data.html)
-
-<br>
-
-Considérons les deux premières lignes de notre tableau `croissance`, voici à quoi ressemblerait un format **tidy** :
-
-# `{r, layout="l-body-outset"} # knitr::include_graphics("img/tidy_data.png") #`
-
-<br>
-
-Ce format **facilite les analyses** en permettant des comparaisons entre groupes, traitements, espèces, années, ...
-
-Le package `tidyr` permet de jongler entre ces deux formats grâce aux fonctions `pivot_...()`.
-
-# `{r, layout="l-body"} # knitr::include_graphics("img/giphy.gif") #`
-
-<br>
-
-## Format long avec `pivot_longer()`
-
-La fonction `pivot_longer()` permet de passer d'un format large à un format long. La syntaxe est un peu plus complexe que les fonctions que nous avons vues jusqu'à présent, car il nous préciser quelles colonnes vont être regroupées :
-
-# `{r, layout="l-body-outset"} # knitr::include_graphics("img/pivot_longer.png") #`
-
-```{r, echo=TRUE, eval=FALSE}
-# Format large -> format long
-
-croissance_long <- croissance %>% 
-  pivot_longer(cols = `2007`:`2012`,
-               names_to = "annee",
-               values_to = "croissance")
+```{r tidy4, eval=FALSE}
+d3_wide <- tidyr::pivot_wider(data = d3,
+                              names_from = ind_num,
+                              names_prefix = "ind",
+                              values_from = ratio_bec)
 ```
 
 <br>
 
-## Format large avec `pivot_wider()`
+La fonction `pivot_longer()` va nous permettre de revenir dans un format *tidy* (*long*). Nous utilisons les arguments suivants : 
 
-Cette fonction permet d'effectuer l'opération inverse :
+- ``cols` : colonnes du format large à regrouper  
+- `names_to` : nom de la colonne dans laquelle seront regroupés les noms des colonnes indiqués dans `cols`  
+- `names_prefix` : préfixe à supprimer
+- `values_to` : nom de la colonne qui contiendra les valeurs  
 
-# `{r, layout="l-body-outset"} # knitr::include_graphics("img/pivot_wider.png") #`
-
-```{r, echo=TRUE, eval=FALSE}
-# Format long -> format large
-
-croissance_large <- croissance_long %>% 
-  pivot_wider(id_cols = zone:indiv,
-              names_from = annee,
-              values_from = croissance)
+```{r tidy5, eval=FALSE}
+tidyr::pivot_longer(data = d3_wide,
+                    cols = -espece,
+                    names_to = "ind_num",
+                    names_prefix = "ind",
+                    values_to = "ratio_bec")
 ```
 
 <br>
 
-Dans les arguments `names_from` et `values_from` nous n'utilisons pas de guillemets car ces colonnes existent, contraitement aux arguments `names_to` et `values_to` de la fonction `pivot_longer()` qui permettent de créer des colonnes inexistantes.
+Le format *tidy* facilite les analyses en permettant de filtrer les données, de les regrouper, ...
+
+
+
 
 <br>
+
 
 ## Résumé
 
