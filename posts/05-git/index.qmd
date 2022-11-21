@@ -1,14 +1,11 @@
 ---
-# title-block-banner: img/pexels-brett-sayles-2881232.jpg
-title: "Introduction à git"
-subtitle: "Connecter RStudio à git et assurer le suivi de version"
+title: "Introduction à GitLab"
+subtitle: "Connecter RStudio à GitLab et assurer le suivi de version"
 author:
-  - Sandra Angers-Blondin
-  - Jonathan Kitt (adaptation)
-date: "2022-10-24"
+  - Jonathan Kitt
+date: "2022-11-21"
 draft: true
-categories: [R, RStudio, Tidyverse]
-# image: "pexels-marta-branco-1194713.jpg"
+categories: [R, RStudio, GitLab]
 format: 
   html: 
     toc: true
@@ -16,6 +13,8 @@ format:
     toc-title: "Sommaire"
 ---
 
-*Ce tutoriel est adapté de [Basic data manipulation](https://ourcodingclub.github.io/tutorials/data-manip-intro/index.html) et [Efficient data manipulation](https://ourcodingclub.github.io/tutorials/data-manip-efficient/) du site [Our Coding Club](https://ourcodingclub.github.io/).*
+# Introduction
 
-<br>
+## Git, GitLab et suivi de version
+
+## Pré-requis
