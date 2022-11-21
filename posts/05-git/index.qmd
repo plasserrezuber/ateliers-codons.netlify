@@ -18,3 +18,12 @@ format:
 ## Git, GitLab et suivi de version
 
 ## Pré-requis
+
+### Installer git
+
+Sur le site de [git](https://git-scm.com/downloads), téléchargez la dernière version pour votre système d'exploitation.
+
+::: {layout-ncol="2"}
+![](img/git_01.png){width="50%"} 
+![](img/git_02.png){width="50%"}
+:::
