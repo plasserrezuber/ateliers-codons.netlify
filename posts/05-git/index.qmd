@@ -23,7 +23,16 @@ format:
 
 Sur le site de [git](https://git-scm.com/downloads), téléchargez la dernière version pour votre système d'exploitation.
 
-::: {layout-ncol="2"}
-![](img/git_01.png){width="50%"} 
-![](img/git_02.png){width="50%"}
-:::
+![](img/git_01.png){width="100%"} 
+
+![](img/git_02.png){width="100%"}
+
+Double-cliquez sur l'exécutable `Git-xxxx.exe` : 
+
+![](img/git_03.png){width="100%"}
+
+Laissez les paramètres par défaut proposés par l'assistant d'installation. Dans le menu *Choosing the default editor used by Git*, vous pouvez laisser l'éditeur de texte proposé par défaut (Vim) ou choisir l'éditeur de texte que vous avez l'habitude d'utiliser.
+
+![](img/git_04.png){width="100%"}
+
+Dans les menus suivants, laissez les paramètres suivants jusqu'à ce que l'installation de `git` soit complétée.
