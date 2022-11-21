@@ -36,3 +36,17 @@ Laissez les paramètres par défaut proposés par l'assistant d'installation. Da
 ![](img/git_04.png){width="100%"}
 
 Dans les menus suivants, laissez les paramètres suivants jusqu'à ce que l'installation de `git` soit complétée.
+
+### Paramétrer RStudio
+
+Ouvrez une session dans RStudio, puis cliquez sur *Tools* > *Global Options* > *Git/SVN*.
+
+![](img/git_05.png)
+
+- Assurez-vous que la case *Enable version control interface for RStudio projects* est cochée.  
+
+- Assurez-vous que le chemin vers l'exécutable `git` est bien renseigné. Le cas échéant, cliquez sur *Browse* et indiquez le chemin vers son emplacement.  
+
+- Si aucune clé SSH n'est indiquée, cliquez sur *Create RSA Key..."
+
+
