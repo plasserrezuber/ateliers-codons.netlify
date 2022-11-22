@@ -23,30 +23,38 @@ format:
 
 Sur le site de [git](https://git-scm.com/downloads), téléchargez la dernière version pour votre système d'exploitation.
 
-![](img/git_01.png){width="100%"} 
+![](img/git_01.png){width="100%"}
 
 ![](img/git_02.png){width="100%"}
 
-Double-cliquez sur l'exécutable `Git-xxxx.exe` : 
+Double-cliquez sur l'exécutable `Git-xxxx.exe` :
 
 ![](img/git_03.png){width="100%"}
 
 Laissez les paramètres par défaut proposés par l'assistant d'installation. Dans le menu *Choosing the default editor used by Git*, vous pouvez laisser l'éditeur de texte proposé par défaut (Vim) ou choisir l'éditeur de texte que vous avez l'habitude d'utiliser.
 
-![](img/git_04.png){width="100%"}
+![](img/git_04.png){width="50%"}
 
 Dans les menus suivants, laissez les paramètres suivants jusqu'à ce que l'installation de `git` soit complétée.
 
 ### Paramétrer RStudio
 
-Ouvrez une session dans RStudio, puis cliquez sur *Tools* > *Global Options* > *Git/SVN*.
+Ouvrez une session dans RStudio, puis cliquez sur *Tools* \> *Global Options* \> *Git/SVN*.
 
-![](img/git_05.png)
+![](img/git_05.png){width="50%"}
 
-- Assurez-vous que la case *Enable version control interface for RStudio projects* est cochée.  
+1. Assurez-vous que la case *Enable version control interface for RStudio projects* est cochée.  
 
-- Assurez-vous que le chemin vers l'exécutable `git` est bien renseigné. Le cas échéant, cliquez sur *Browse* et indiquez le chemin vers son emplacement.  
+2. Assurez-vous que le chemin vers l'exécutable `git` est bien renseigné. Le cas échéant, cliquez sur *Browse* et indiquez le chemin vers son emplacement.
 
-- Si aucune clé SSH n'est indiquée, cliquez sur *Create RSA Key..."
+3. Si aucune clé SSH n'est indiquée, cliquez sur *Create RSA Key...*.  
+
+4. Validez en cliquant sur *Apply*.
+
+<br>
+
+Cliquez sur *View public key* et copiez la clé qui s'affiche.
+
+### Paramétrer GitLab
 
 
