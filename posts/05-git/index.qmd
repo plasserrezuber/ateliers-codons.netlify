@@ -41,7 +41,7 @@ Dans les menus suivants, laissez les paramètres suivants jusqu'à ce que l'inst
 
 Ouvrez une session dans RStudio, puis cliquez sur *Tools* \> *Global Options* \> *Git/SVN*.
 
-![](img/git_05.png){width="50%"}
+![](img/git_06.png){width="50%"}
 
 1. Assurez-vous que la case *Enable version control interface for RStudio projects* est cochée.  
 
@@ -57,4 +57,16 @@ Cliquez sur *View public key* et copiez la clé qui s'affiche.
 
 ### Paramétrer GitLab
 
+Ouvrez [ce lien](https://forgemia.inra.fr) dans votre navigateur internet et cliquez sur *Connexion SSO*.
 
+![](img/git_07.png){width="50%"}
+
+Dans le menu déroulant, choisissez *INRAE* et cliquez sur *Sélectionner*. Dans le menu suivant, renseignez les champs à l'aide de votre identifiant LDAP puis cliquez sur *Se connecter*.
+
+::: {layout-ncol=2}
+
+![](img/git_08.png){width="50%"}
+
+![](img/git_09.png){width="50%"}
+
+:::
