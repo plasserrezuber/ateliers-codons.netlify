@@ -136,6 +136,7 @@ ul.task-list{list-style: none;}
   <ul class="collapse">
   <li><a href="#dans-gitlab" id="toc-dans-gitlab" class="nav-link" data-scroll-target="#dans-gitlab">Dans GitLab</a></li>
   <li><a href="#dans-rstudio" id="toc-dans-rstudio" class="nav-link" data-scroll-target="#dans-rstudio">Dans RStudio</a></li>
+  <li><a href="#workflow" id="toc-workflow" class="nav-link" data-scroll-target="#workflow">Workflow</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -260,6 +261,58 @@ Dans la fenêtre <em>Create Project</em>, choisissez <em>Version Control</em>.</
 </div>
 </div>
 <p>Une nouvelle fenêtre RStudio s’ouvre. Vous remarquerez la présence d’un onglet <em>Git</em> dans votre espace de travail.</p>
+</section>
+<section id="workflow" class="level2">
+<h2 class="anchored" data-anchor-id="workflow">Workflow</h2>
+<p>Dans votre espace de travail, sous l’onglet <em>git</em>, deux fichiers sont présents :</p>
+<ul>
+<li><code>.gitignore</code><br>
+</li>
+<li><code>test_gitlab_rstudio.Rproj</code></li>
+</ul>
+<p>Ces fichiers ont été ajoutés dans votre répertoire de travail lors de la création du projet dans RStudio, mais ils ne sont pas présents dans votre répertoire sur GitLab. L’icône <code>?</code> indique qu’il s’agit de nouveaux fichiers.</p>
+<p>Nous allons ajouter ces fichiers en cochant les cases à gauche des icônes de statut. Ces icônes deviennent un <code>A</code> vert : ces deux fichiers ont été ajoutés.</p>
+<p>Cliquez sur <em>Commit</em> et ajoutez un commentaire dans la fenêtre qui s’ouvre.</p>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="img/git_24.png" class="img-fluid"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="img/git_25.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+<p>Cliquez ensuite sur <em>Commit</em> : un résumé de votre soumission s’affiche. Fermez cette fenêtre en cliquant sur <em>Close</em>.</p>
+<p><img src="img/git_26.png" class="img-fluid"></p>
+<p>Dans la fenêtre <em>RStudio: Review Changes</em>, vous pouvez lire <em>Your branch is ahead of ‘origin/main’ by 1 commit’</em>. Cela indique que votre branche locale est en avance d’une étape sur la branche distance sur GitLab. Il vous reste à <em>pousser</em> votre soumission vers la brache distance en cliquant sur <em>Push</em>.</p>
+<p><img src="img/git_27.png" class="img-fluid"> Rafraîchissez votre page GitLab : les deux fichiers apparaissent maintenant dans l’arborescence.</p>
+<p><img src="img/git_28.png" class="img-fluid"></p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Le statut des fichiers
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>L’icône à gauche du nom d’un fichier dans l’onglet <em>git</em> de votre espace de travail indique le statut de ce fichier :</p>
+<table class="table">
+<tbody>
+<tr class="odd">
+<td><img src="img/git_22.png" class="img-fluid"></td>
+<td>nouveau fichier</td>
+</tr>
+<tr class="even">
+<td><img src="img/git_23.png" class="img-fluid"></td>
+<td>fichier ajouté</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 
 
 </section>
