@@ -83,6 +83,8 @@ Dans la barre de menu à gauche, cliquez sur la première icône en forme de cl�
 
 # De GitLab vers RStudio
 
+## Dans GitLab
+
 Dans la barre de menu supérieure, cliquez sur l'icône *plus* et sélectionnez *New project/repository*.
 Dans le menu suivant, choisissez *Create blank project*.
 
@@ -93,3 +95,59 @@ Dans le menu suivant, choisissez *Create blank project*.
 ![](img/git_13.png){width="50%"}
 
 :::
+
+<br>
+
+Dans le menu *Create blank project*, remplissez les différents champs : 
+
+- *Project name* : nom du projet (avec les mêmes conventions d'écriture que si vous étiez en train de [créer un projet dans RStudio](https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/#cr%C3%A9er-un-projet)).  
+
+- *Project URL* : en fonction des groupes dont vous faites partie, vous pourrez choisir l'emplacement du projet. Pour l'instant, choisissez votre espace utilisateur.  
+
+- *Project slug* : identique au nom du projet.  
+
+- *Visibility Level* : qui a accès au projet. Pour notre exemple, choisissez *Public*.  
+
+- *Project Configuration* : cochez la case *Initialize repository with a README*. 
+
+Cliquez sur *Create project*. Le projet s'ouvre et vous pouvez voir qu'il contient un ficher `README.md`. Ce fichier s'affiche sur la page d'accueil de votre projet et contient par défaut des informations sur l'utilisation de GitLab.
+
+![](img/git_15.png)
+
+<br>
+
+Nous allons maintenant "rapatrier" ce projet sur notre ordinateur. Pour cela, cliquez sur l'onglet *Clone* et choisissez *Clone with SSH*. Cliquez sur *Copy URL*.
+
+![](img/git_16.png)
+
+## Dans RStudio
+
+Dans la barre de menu supérieure, cliquez sur *File* > *New project*.  
+Dans la fenêtre *Create Project*, choisissez *Version Control*.
+
+::: {layout-ncol=2}
+
+![](img/git_17.png)
+
+![](img/git_18.png)
+
+:::
+
+Dans la fenêtre *Create Project from Version Control*, choisissez *Git*.  
+
+Dans la fenêtre *Clone Git Repository*, remplissez les champs : 
+- *Repository URL* : collez le lien SSH copié dans GitLab  
+- *Project directory name* : se remplit automatiquement  
+- *Create project as subdirectory of* : emplacement où sera créé le projet
+
+Cochez la case *Open in New Session* dans le coin inféreur gauche de la fenêtre et cliquez sur *Create Project*.
+
+::: {layout-ncol=2}
+
+![](img/git_19.png)
+
+![](img/git_20.png)
+
+:::
+
+Une nouvelle fenêtre RStudio s'ouvre. Vous remarquerez la présence d'un onglet *Git* dans votre espace de travail. 

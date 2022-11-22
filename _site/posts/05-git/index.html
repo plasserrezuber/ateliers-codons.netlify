@@ -132,7 +132,11 @@ ul.task-list{list-style: none;}
   <li><a href="#git-gitlab-et-suivi-de-version" id="toc-git-gitlab-et-suivi-de-version" class="nav-link" data-scroll-target="#git-gitlab-et-suivi-de-version">Git, GitLab et suivi de version</a></li>
   <li><a href="#pré-requis" id="toc-pré-requis" class="nav-link" data-scroll-target="#pré-requis">Pré-requis</a></li>
   </ul></li>
-  <li><a href="#de-gitlab-vers-rstudio" id="toc-de-gitlab-vers-rstudio" class="nav-link" data-scroll-target="#de-gitlab-vers-rstudio">De GitLab vers RStudio</a></li>
+  <li><a href="#de-gitlab-vers-rstudio" id="toc-de-gitlab-vers-rstudio" class="nav-link" data-scroll-target="#de-gitlab-vers-rstudio">De GitLab vers RStudio</a>
+  <ul class="collapse">
+  <li><a href="#dans-gitlab" id="toc-dans-gitlab" class="nav-link" data-scroll-target="#dans-gitlab">Dans GitLab</a></li>
+  <li><a href="#dans-rstudio" id="toc-dans-rstudio" class="nav-link" data-scroll-target="#dans-rstudio">Dans RStudio</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -198,6 +202,8 @@ ul.task-list{list-style: none;}
 </section>
 <section id="de-gitlab-vers-rstudio" class="level1">
 <h1>De GitLab vers RStudio</h1>
+<section id="dans-gitlab" class="level2">
+<h2 class="anchored" data-anchor-id="dans-gitlab">Dans GitLab</h2>
 <p>Dans la barre de menu supérieure, cliquez sur l’icône <em>plus</em> et sélectionnez <em>New project/repository</em>. Dans le menu suivant, choisissez <em>Create blank project</em>.</p>
 <div class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
@@ -209,8 +215,54 @@ ul.task-list{list-style: none;}
 </div>
 </div>
 </div>
+<p><br></p>
+<p>Dans le menu <em>Create blank project</em>, remplissez les différents champs :</p>
+<ul>
+<li><p><em>Project name</em> : nom du projet (avec les mêmes conventions d’écriture que si vous étiez en train de <a href="https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/#cr%C3%A9er-un-projet">créer un projet dans RStudio</a>).</p></li>
+<li><p><em>Project URL</em> : en fonction des groupes dont vous faites partie, vous pourrez choisir l’emplacement du projet. Pour l’instant, choisissez votre espace utilisateur.</p></li>
+<li><p><em>Project slug</em> : identique au nom du projet.</p></li>
+<li><p><em>Visibility Level</em> : qui a accès au projet. Pour notre exemple, choisissez <em>Public</em>.</p></li>
+<li><p><em>Project Configuration</em> : cochez la case <em>Initialize repository with a README</em>.</p></li>
+</ul>
+<p>Cliquez sur <em>Create project</em>. Le projet s’ouvre et vous pouvez voir qu’il contient un ficher <code>README.md</code>. Ce fichier s’affiche sur la page d’accueil de votre projet et contient par défaut des informations sur l’utilisation de GitLab.</p>
+<p><img src="img/git_15.png" class="img-fluid"></p>
+<p><br></p>
+<p>Nous allons maintenant “rapatrier” ce projet sur notre ordinateur. Pour cela, cliquez sur l’onglet <em>Clone</em> et choisissez <em>Clone with SSH</em>. Cliquez sur <em>Copy URL</em>.</p>
+<p><img src="img/git_16.png" class="img-fluid"></p>
+</section>
+<section id="dans-rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="dans-rstudio">Dans RStudio</h2>
+<p>Dans la barre de menu supérieure, cliquez sur <em>File</em> &gt; <em>New project</em>.<br>
+Dans la fenêtre <em>Create Project</em>, choisissez <em>Version Control</em>.</p>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="img/git_17.png" class="img-fluid"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="img/git_18.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+<p>Dans la fenêtre <em>Create Project from Version Control</em>, choisissez <em>Git</em>.</p>
+<p>Dans la fenêtre <em>Clone Git Repository</em>, remplissez les champs : - <em>Repository URL</em> : collez le lien SSH copié dans GitLab<br>
+- <em>Project directory name</em> : se remplit automatiquement<br>
+- <em>Create project as subdirectory of</em> : emplacement où sera créé le projet</p>
+<p>Cochez la case <em>Open in New Session</em> dans le coin inféreur gauche de la fenêtre et cliquez sur <em>Create Project</em>.</p>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="img/git_19.png" class="img-fluid"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="img/git_20.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+<p>Une nouvelle fenêtre RStudio s’ouvre. Vous remarquerez la présence d’un onglet <em>Git</em> dans votre espace de travail.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
