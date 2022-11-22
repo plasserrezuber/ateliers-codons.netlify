@@ -161,7 +161,11 @@ Dans votre espace de travail, sous l'onglet *git*, deux fichiers sont présents 
 
 Ces fichiers ont été ajoutés dans votre répertoire de travail lors de la création du projet dans RStudio, mais ils ne sont pas présents dans votre répertoire sur GitLab. L'icône `?` indique qu'il s'agit de nouveaux fichiers.
 
-Nous allons ajouter ces fichiers en cochant les cases à gauche des icônes de statut. Ces icônes deviennent un `A` vert : ces deux fichiers ont été ajoutés.
+Le workflow git permet de synchroniser le répertoire distant (sur GitLab) avec le répertoire local (notre projet RStudio). Il comprend trois étapes : 
+
+### Commit
+
+Nous allons sauvegarder les modifications apportées à nos fichiers (que ce soit des modifications dans un fichier, l'ajout ou la suppression de fichiers). Nous cochons pour cela les cases à gauche des icônes de statut, qui deviennent un `A` vert. Les deux fichiers sont maintenant prêts à être mis en ligne dans notre répertoire sur GitLab. C'est la première étape du workflow git, qu'on appelle un *commit*.
 
 Cliquez sur *Commit* et ajoutez un commentaire dans la fenêtre qui s'ouvre.
 
@@ -177,10 +181,18 @@ Cliquez ensuite sur *Commit* : un résumé de votre soumission s'affiche. Fermez
 
 ![](img/git_26.png)
 
-Dans la fenêtre *RStudio: Review Changes*, vous pouvez lire *Your branch is ahead of 'origin/main' by 1 commit'*. Cela indique que votre branche locale est en avance d'une étape sur la branche distance sur GitLab. Il vous reste à *pousser* votre soumission vers la brache distance en cliquant sur *Push*. 
+Dans la fenêtre *RStudio: Review Changes*, vous pouvez lire *Your branch is ahead of 'origin/main' by 1 commit'*. Cela indique que votre branche locale est en avance d'une étape sur la branche distance sur GitLab. 
+
+### Pull
+
+Cela peut paraître contre-intuitif, mais il est important de nous assurer que notre répertoire local contient bien les dernières modifications sauvegardées dans notre répertoire distant. Pour cela, nous cliquons sur *Pull*.
+
+### Push
+
+Il nous reste à *pousser* nos modifications locales vers le répertoire distant en cliquant sur *Push*. 
 
 ![](img/git_27.png)
-Rafraîchissez votre page GitLab : les deux fichiers apparaissent maintenant dans l'arborescence.
+Assurons-nous que nos modifications ont bien été exportées en rafraîchissant notre page GitLab.
 
 ![](img/git_28.png)
 
