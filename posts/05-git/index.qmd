@@ -70,3 +70,26 @@ Dans le menu déroulant, choisissez *INRAE* et cliquez sur *Sélectionner*. Dans
 ![](img/git_09.png){width="50%"}
 
 :::
+
+<br>
+
+Cliquez sur l'icône dans le coin supérieur droit puis sur *Preferences*.
+
+![](img/git_10.png){width="50%"}
+
+Dans la barre de menu à gauche, cliquez sur la première icône en forme de clé. Collez dans le champ *Key* la clé SSH copiée dans RStudio. Le champ *Title* devrait se remplir automatiquement. Si ce n'est pas le cas, renseignez ce champ. Vous pouvez choisir une date d'expiration de votre clé dans *Expiration date*. Pour terminer, cliquez sur *Add key*. Assurez-vous que votre clé apparaisse bien en base de la page sous *Your SSH keys*.
+
+![](img/git_11.png)
+
+# De GitLab vers RStudio
+
+Dans la barre de menu supérieure, cliquez sur l'icône *plus* et sélectionnez *New project/repository*.
+Dans le menu suivant, choisissez *Create blank project*.
+
+::: {layout-ncol=2}
+
+![](img/git_12.png){width="50%"}
+
+![](img/git_13.png){width="50%"}
+
+:::
