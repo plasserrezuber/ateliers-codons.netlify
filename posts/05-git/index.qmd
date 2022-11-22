@@ -161,6 +161,19 @@ Dans votre espace de travail, sous l'onglet *git*, deux fichiers sont présents 
 
 Ces fichiers ont été ajoutés dans votre répertoire de travail lors de la création du projet dans RStudio, mais ils ne sont pas présents dans votre répertoire sur GitLab. L'icône `?` indique qu'il s'agit de nouveaux fichiers.
 
+::: {.callout-tip icon="true"}
+## Le statut des fichiers
+
+L'icône à gauche du nom d'un fichier dans l'onglet *git* de votre espace de travail indique le statut de ce fichier : 
+
+|                     |                  |
+| ------------------- | ---------------- |
+| ![](img/git_22.png) | nouveau fichier  |
+| ![](img/git_23.png) | fichier ajouté   |
+| ![](img/git_29.png) | fichier modifié  |
+
+:::
+
 Le workflow git permet de synchroniser le répertoire distant (sur GitLab) avec le répertoire local (notre projet RStudio). Il comprend trois étapes : 
 
 ### Commit
@@ -196,16 +209,119 @@ Assurons-nous que nos modifications ont bien été exportées en rafraîchissant
 
 ![](img/git_28.png)
 
+<br>
+
+Nous allons modifier le fichier `README.md` : ouvrons-le en cliquant dessus dans le panneau de navigation. Le fichier s'ouvre dans le panneau *scripts*. Remplaçons le texte par la ligne suivante : 
+```{r, eval=FALSE}
+# Connecter RStudio à GitLab
+```
+
+Sauvegardons le fichier (**Ctrl + S** ou icône disquette) : le fichier apparaît dans l'onglet *git* de notre espace de travail avec une icône `M` bleue, indiquant qu'il a été modifié.
+
+Nous allons effectuer les mêmes opérations que ci-dessus pour exporter nos modifications vers la branche distante du répertoire sur GitLab : *Commit* > *Pull* > *Push*.
+
+<br>
+
+## Historique des modifications
+
+Travailler avec un suivi de version permet de retracer toutes les modifications apportées aux fichiers d'un répertoire. 
+
+### Dans RStudio
+
+Cliquez sur l'icône horloge dans l'onglet `Git`
+
+![](img/git_30.png)
+
+L'hitorique contient toutes les mofications apportées, ainsi qu'une clé *SHA*, encore appelée *commit hash*. Il s'agit d'un identifiant unique attribué par Git à chacun des commits.
+
+### Dans GitLab
+
+Sur la page d'accueil de votre répertoire disant sur GitLab, cliquez sur *3 Commits* pour accéder à l'historique des modifications.
+
+![](img/git_31.png)
+
+Vous retrouverez les clés SHA à droite des commits listés dans l'historique, ainsi que deux icônes vous permettant de :
+
+- copier la clé SHA du commit 
+
+- ouvrir l'arborescence correspond au commit
+
+# De RStudio vers GitLab
+
+Nous avons jusqu'ici vu comment utiliser le suivi de version en partant d'un nouveau répertoire sur GitLab. 
+
+## Dans RStudio
+
+Si nous souhaitons utiliser le suivi de version pour un répertoire présent sur notre ordinateur, deux cas de figure se présentent :
+
+### Répertoire associé à un projet RStudio
+
+Si votre répertoire est déjà associé à un projet RStudio, ouvrez ce projet. Dans notre exemple, nous utilisons le projet *ateliers_codons* créés dans [ce tutoriel](https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/#cr%C3%A9er-un-projet). 
+
+Cliquez sur *Tools* > *Project Options* > *Git/SVN*.
+
+Dans la fenêtre *Project Options*, choisissez *Git* dans le menu déroulant *Version control system*.
+
+Dans la fenêtre qui s'ouvre, cliquez sur *Yes* en réponse à la question *Do you want to initialize a new git repository for this project?*.
+
+Dans la fenêtre *Restart RStudio*, cliquez sur *Yes*.
+
+::: {layout-ncol=2}
+
+![](img/git_34.png)
+
+![](img/git_35.png)
+
+:::
+
+RStudio redémarre et vous remarquerez l'onglet `Git` dans l'espace de travail de votre projet. 
+
+## Dans GitLab
+
+Créez un nouveau projet dans GitLab, portant le même nom que le projet RStudio pour lequel vous souhaitez utiliser le suivi de version. 
+
+Faites attention à décocher la case *Initialize repository with a README*.
+
+## Dans RStudio
+
+Nous allons utiliser les lignes de commandes affichées sur la page d'accueil de notre projet GitLab : 
+![](img/git_40.png)
+
+Ouvrez un terminal dans l'onglet `Git` en cliquant sur la roue crantée puis sur *Shell*.
+
+
+
+Dans l'onglet `git`, sélectionnez l'ensemble des fichiers à ajouter.
 
 ::: {.callout-tip icon="true"}
-## Le statut des fichiers
+## Ajouter plusieurs fichiers
 
-L'icône à gauche du nom d'un fichier dans l'onglet *git* de votre espace de travail indique le statut de ce fichier : 
+Pour éviter d'avoir à cocher de nombres cases, vous pouvez cliquer sur le nom du premier fichier de la liste, puis utiliser la combinaison **Ctrl + A**. Cochez ensuite la case en face du premier fichier.
+:::
 
-|                     |                 |
-| ------------------- | --------------- |
-| ![](img/git_22.png) | nouveau fichier |
-| ![](img/git_23.png) | fichier ajouté  |
+Cliquez sur *Commit*, ajoutez un commentaire dans la fenêtre qui s'ouvre et cliquez sur *Commit*. Pour l'instant, vous n'avez pas accès aux boutons *Pull* et *Push*.
+
+Cliquez sur l'icône à droite du panneau `Git` : 
+
+![](img/git_36.png)
+
+Dans le fenêtre qui s'ouvre, cliquez sur *Add Remote*, puis renseignez les deux champs dans la fenêtre : 
+
+- *Remote Name* -> "origin"
+
+- *Remote URL* -> collez le lien SSH copié dans GitLab
+
+Cliquez ensuite sur *Add*.
+
+![](img/git_37.png)
+
+Dans la fenêtre *New Branch*, indiquez "master" dans le champ *Branch Name*, et assurez-vous que la case *Sync branch with remote* est bien cochée. Cliquez sur *Create*. Dans la fenêtre *Local Branch Already Exists*, cliquez sur *Overwrite*.
+
+::: {layout-ncol=2}
+
+![](img/git_38.png)
+
+![](img/git_39.png)
 
 :::
 
