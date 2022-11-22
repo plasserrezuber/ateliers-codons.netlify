@@ -271,7 +271,10 @@ Dans la fenêtre <em>Create Project</em>, choisissez <em>Version Control</em>.</
 <li><code>test_gitlab_rstudio.Rproj</code></li>
 </ul>
 <p>Ces fichiers ont été ajoutés dans votre répertoire de travail lors de la création du projet dans RStudio, mais ils ne sont pas présents dans votre répertoire sur GitLab. L’icône <code>?</code> indique qu’il s’agit de nouveaux fichiers.</p>
-<p>Nous allons ajouter ces fichiers en cochant les cases à gauche des icônes de statut. Ces icônes deviennent un <code>A</code> vert : ces deux fichiers ont été ajoutés.</p>
+<p>Le workflow git permet de synchroniser le répertoire distant (sur GitLab) avec le répertoire local (notre projet RStudio). Il comprend trois étapes :</p>
+<section id="commit" class="level3">
+<h3 class="anchored" data-anchor-id="commit">Commit</h3>
+<p>Nous allons sauvegarder les modifications apportées à nos fichiers (que ce soit des modifications dans un fichier, l’ajout ou la suppression de fichiers). Nous cochons pour cela les cases à gauche des icônes de statut, qui deviennent un <code>A</code> vert. Les deux fichiers sont maintenant prêts à être mis en ligne dans notre répertoire sur GitLab. C’est la première étape du workflow git, qu’on appelle un <em>commit</em>.</p>
 <p>Cliquez sur <em>Commit</em> et ajoutez un commentaire dans la fenêtre qui s’ouvre.</p>
 <div class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
@@ -285,8 +288,16 @@ Dans la fenêtre <em>Create Project</em>, choisissez <em>Version Control</em>.</
 </div>
 <p>Cliquez ensuite sur <em>Commit</em> : un résumé de votre soumission s’affiche. Fermez cette fenêtre en cliquant sur <em>Close</em>.</p>
 <p><img src="img/git_26.png" class="img-fluid"></p>
-<p>Dans la fenêtre <em>RStudio: Review Changes</em>, vous pouvez lire <em>Your branch is ahead of ‘origin/main’ by 1 commit’</em>. Cela indique que votre branche locale est en avance d’une étape sur la branche distance sur GitLab. Il vous reste à <em>pousser</em> votre soumission vers la brache distance en cliquant sur <em>Push</em>.</p>
-<p><img src="img/git_27.png" class="img-fluid"> Rafraîchissez votre page GitLab : les deux fichiers apparaissent maintenant dans l’arborescence.</p>
+<p>Dans la fenêtre <em>RStudio: Review Changes</em>, vous pouvez lire <em>Your branch is ahead of ‘origin/main’ by 1 commit’</em>. Cela indique que votre branche locale est en avance d’une étape sur la branche distance sur GitLab.</p>
+</section>
+<section id="pull" class="level3">
+<h3 class="anchored" data-anchor-id="pull">Pull</h3>
+<p>Cela peut paraître contre-intuitif, mais il est important de nous assurer que notre répertoire local contient bien les dernières modifications sauvegardées dans notre répertoire distant. Pour cela, nous cliquons sur <em>Pull</em>.</p>
+</section>
+<section id="push" class="level3">
+<h3 class="anchored" data-anchor-id="push">Push</h3>
+<p>Il nous reste à <em>pousser</em> nos modifications locales vers le répertoire distant en cliquant sur <em>Push</em>.</p>
+<p><img src="img/git_27.png" class="img-fluid"> Assurons-nous que nos modifications ont bien été exportées en rafraîchissant notre page GitLab.</p>
 <p><img src="img/git_28.png" class="img-fluid"></p>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -315,6 +326,7 @@ Le statut des fichiers
 </div>
 
 
+</section>
 </section>
 </section>
 
