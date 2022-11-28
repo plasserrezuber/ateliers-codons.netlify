@@ -424,6 +424,65 @@ La fonction `ungroup()` permet de dégrouper les données
 
 <br>
 
+::: {.callout-important icon="false" collapse="true"}
+## Exercice 1 - énoncé
+
+Reprenons depuis le début et utilisons le pipe pour enchaîner les fonctions. Les commentaires ci-dessous indiquent les étapes :
+
+```{r ex1, eval=FALSE}
+# Importer le fichier gapminder.csv
+
+# Explorer les donnees 
+
+# Creer une copie de travail
+
+# Nettoyer les noms de colonnes
+
+# Deplacer la colonne "continent" en premiere position
+
+# Ajouter une colonne contenant le PIB global
+
+# Filtrer les donnees pour 2007 et trier par ordre decroissant de PIB global
+
+# Calculer la mediane du PIB par habitant en 2007 par continent
+```
+:::
+
+::: {.callout-important icon="false" collapse="true"}
+## Exercice 1 - solution
+
+```{r ex1 sol, eval=FALSE}
+# Importer le fichier gapminder.csv
+gapminder <- readr::read_csv("raw/gapminder.csv")
+
+# Explorer les donnees 
+dplyr::glimpse(gapminder)
+
+# Creer une copie de travail
+gapminder_tmp <- gapminder
+
+# Nettoyer les noms de colonnes
+gapminder_tmp <- janitor::clean_names(gapminder_tmp)
+
+# Deplacer la colonne "continent" en premiere position
+gapminder_tmp <- dplyr::select(gapminder_tmp, continent, dplyr::everything())
+
+# Ajouter une colonne contenant le PIB global
+gapminder_tmp <- dplyr::mutate(gapminder_tmp, 
+                               gdp_global = pop * gdp_percap)
+
+# Filtrer les donnees pour 2007 et trier par ordre decroissant de PIB global
+gapminder_2007 <- dplyr::filter(gapminder_tmp, year == 2007)
+gapminder_2007_tri <- dplyr::arrange(gapminder_2007, -gdp_global)
+
+# Calculer la mediane du PIB par habitant en 2007 par continent
+summarise(dplyr::group_by(gapminder_2007, continent),
+          median_gdp_global = median(gdp_percap, na.rm = TRUE))
+```
+:::
+
+<br>
+
 # "Ceci n'est pas un pipe"
 
 Jusqu'à présent, nous avons utilisé les fonctions une par une, en créant si nécessaire des objets intermédiaires. Cette façon de procéder peut rapidement encombrer notre environnement.
@@ -438,24 +497,22 @@ L'enchaînement des fonctions s'effectue à l'aide de ce que l'on appelle un *pi
 
 ![](img/pipe_logo.png){width="20%"}
 
-Un pipe s'écrit `%>%` et se place à la fin d'une ligne : 
+Un pipe s'écrit `%>%` et se place à la fin d'une ligne :
 
 ```{r pipe, eval=FALSE}
 pingouins %>%
   janitor::clean_names()
 ```
 
-
 ::: {.callout-tip icon="true"}
 ## Raccourci clavier : le pipe
 
 Pour insérer un pipe, utilisez la combinaison *Ctrl + Shift + M*
-
 :::
 
 <br>
 
-Nous pouvons ainsi enchaîner les fonctions sans avoir à créer des objets intermédiaires : 
+Nous pouvons ainsi enchaîner les fonctions sans avoir à créer des objets intermédiaires :
 
 ```{r pipe 2, eval=FALSE}
 pingouins %>%
@@ -465,61 +522,60 @@ pingouins %>%
 
 <br>
 
-::: {.callout-important icon="false" collapse="true"}
-## Exercice 1 - énoncé
+::: {.callout-note icon="true"}
+## Le pipe "natif" `|>`
 
-Reprenons depuis le début et utilisons le pipe pour enchaîner les fonctions. 
-Les commentaires ci-dessous indiquent les étapes : 
+Les versions les plus récentes de R (à partir de 4.1) proposent un pipe "natif", qui ne nécessite pas de faire appel au package `magrittr`. Ce pipe s'écrit sous la forme `|>`.
 
-```{r ex1, eval=FALSE}
-# Assigner les étapes suivantes dans un objet pingouins_tmp
-# Importer les donnees brutes
-# Nettoyer les noms de colonnes
-# Selectionner les colonnes espece, ile ainsi que les variables numeriques
-# Supprimer les lignes contenant des donnees manquantes
-# Ajouter une colonne ratio_bec contenant le rapport entre la longueur et la hauteur des becs
-```
+Pour utiliser le pipe `|>`, cliquez sur *Tools* \> *Global Options*. Dans le menu *Code* et l'onglet *Editing*,cochez la case *Use native pipe operator*.
 
-:::
+![](img/tidyverse_intro_02.png){width="\"50%"}
 
-::: {.callout-important icon="false" collapse="true"}
-## Exercice 1 - solution
-
-```{r ex1 sol, eval=FALSE}
-pingouins_tmp <- readr::read_csv("raw/pingouins.csv") %>%
-  janitor::clean_names() %>%
-  dplyr::select(espece, ile, ends_with(c("mm", "g"))) %>%
-  tidyr::drop_na() %>%
-  dplyr::mutate(ratio_bec = longueur_bec_mm / hauteur_bec_mm)
-```
-
+Le raccourci clavier **Ctrl + Shift + M** insérera alors un pipe `|>`.
 :::
 
 <br>
 
-::: {.callout-note icon="true"}
-## Le pipe "natif" `|>`
+::: {.callout-important icon="false" collapse="true"}
+## Exercice 2 - énoncé
 
-Les versions les plus récentes de R (à partir de 4.1) proposent un pipe "natif", qui ne nécessite pas de faire appel au package `magrittr`. Ce pipe s'écrit sous la forme `|>`. 
+Effectuez les opérations suivantes à l'aide d'un pipe :
 
-Pour utiliser le pipe `|>`, cliquez sur *Tools* > *Global Options*. Dans le menu *Code* et l'onglet *Editing*,cochez la case *Use native pipe operator*.
+```{r ex2, eval=FALSE}
+# Importer le fichier gapminder.csv
 
-![](img/tidyverse_intro_02.png){width="50%}
+# Nettoyer les noms de colonnes
 
-Le raccourci clavier **Ctrl + Shift + M** insérera alors un pipe `|>`.
+# Deplacer la colonne "continent" en premiere position
 
+# Ajouter une colonne contenant le PIB global
+
+# Filtrer les donnees pour 2007 et trier par ordre decroissant de PIB global
+```
+:::
+
+::: {.callout-important icon="false" collapse="true"}
+## Exercice 2 - solution
+
+```{r ex2 sol, eval=FALSE}
+gapminder_tmp <- 
+  readr::read_csv("raw/gapminder.csv") %>%
+  janitor::clean_names() %>%
+  dplyr::select(continent, dplyr::everything()) %>%
+  dplyr::mutate(gdp_global = pop * gdp_percap)
+```
 :::
 
 <br>
 
 # Manipuler des chaînes de caractères
 
-Le package `stringr` est dédié à la manipulation de chaînes de caractères. Nous aimerions séparer la colonne *espece* en deux colonnes : 
+Le package `stringr` est dédié à la manipulation de chaînes de caractères. Nous aimerions séparer la colonne *espece* en deux colonnes :
 
-- une colonne contenant le nom de l'espèce (*Adelie* par exemple)  
-- une colonne contenant le nom latin de l'espèce (*Pygoscelis adeliae*)
+-   une colonne contenant le nom de l'espèce (*Adelie* par exemple)\
+-   une colonne contenant le nom latin de l'espèce (*Pygoscelis adeliae*)
 
-La fonction `str_detect()` permet de rechercher un motif dans une chaîne de caractères : 
+La fonction `str_detect()` permet de rechercher un motif dans une chaîne de caractères :
 
 ```{r stringr 1, eval=FALSE}
 stringr::str_detect(string = pingouins_tmp$espece, pattern = "Adelie")
@@ -552,29 +608,28 @@ pingouins_tmp <- pingouins_tmp %>%
 
 <br>
 
-Exportons maintenant nos données nettoyées à l'aide de la fonction `write_csv()` : 
+Exportons maintenant nos données nettoyées à l'aide de la fonction `write_csv()` :
 
 ```{r stringr 5, eval=FALSE}
 write_csv(pingouins_tmp, "data/pinggouins_propre.csv")
 ```
 
+<br>
 
 ::: {.callout-tip icon="true"}
 ## Les expressions régulières
 
-Pour en savoir plus sur les expressions régulières, vous pouvez lire [cet article](https://thinkr.fr/r-les-expressions-regulieres/).
-Il existe souvent plusieurs façons d'arriver au même résultat. Pour le nom latin, nous aurions pu extraire la chaîne de caractères située entre les parenthèses : 
+Pour en savoir plus sur les expressions régulières, vous pouvez lire [cet article](https://thinkr.fr/r-les-expressions-regulieres/). Il existe souvent plusieurs façons d'arriver au même résultat. Pour le nom latin, nous aurions pu extraire la chaîne de caractères située entre les parenthèses :
 
 ```{r stringr 6, eval=FALSE}
 stringr::str_extract(pingouins$Espece, "(?<=\\().+?(?=\\))")
 ```
 
-Pour extraire le nom de l'espèce, nous pouvons utiliser une expression régulière pour extraire les caractères précédent le premier espace vide : 
+Pour extraire le nom de l'espèce, nous pouvons utiliser une expression régulière pour extraire les caractères précédent le premier espace vide :
 
 ```{r stringr 7, eval=FALSE}
 stringr::str_extract(pingouins$Espece, "\\w+")
 ```
-
 :::
 
 <br>
@@ -583,18 +638,18 @@ stringr::str_extract(pingouins$Espece, "\\w+")
 
 Le package `dplyr` propose plusieurs fonctions pour joindre deux tableaux. Les lignes des deux tableaux seront associées en fonction de *clés*, c'est-à-dire des colonnes communes.
 
-Le schéma ci-dessous (tiré du livre [R for Data Science](https://r4ds.had.co.nz/relational-data.html)) représente les différentes fonctions `..._join()` : 
+Le schéma ci-dessous (tiré du livre [R for Data Science](https://r4ds.had.co.nz/relational-data.html)) représente les différentes fonctions `..._join()` :
 
 ![](img/join-venn.png){width="50%"}
 
 <br>
 
-Pour bien comprendre ces différentes fonctions, nous allons créer deux sous-ensembles de données : 
+Pour bien comprendre ces différentes fonctions, nous allons créer deux sous-ensembles de données :
 
-- `d1` : lignes 1 à 3 du tableau, variable *longueur_bec_mm*  
-- `d2` : lignes 2 à 4 du tableau, variable *hauteur_bec_mm*
+-   `d1` : lignes 1 à 3 du tableau, variable *longueur_bec_mm*\
+-   `d2` : lignes 2 à 4 du tableau, variable *hauteur_bec_mm*
 
-Nous commençons par ajouter une colonne contenant les numéros de ligne, à l'aide de la fonction `rowid_to_column()` du package `tibble`. Par défaut, cette fonction la colonne d'index au début du tableau, et l'argument `var = ` permet de choisir le nom de cette colonne. La fonction `slice()` permet de créer un sous-ensemble de lignes à l'aide de leurs positions.
+Nous commençons par ajouter une colonne contenant les numéros de ligne, à l'aide de la fonction `rowid_to_column()` du package `tibble`. Par défaut, cette fonction la colonne d'index au début du tableau, et l'argument `var =` permet de choisir le nom de cette colonne. La fonction `slice()` permet de créer un sous-ensemble de lignes à l'aide de leurs positions.
 
 ```{r, join 1, eval=TRUE}
 d1 <- pingouins_tmp %>%
@@ -608,45 +663,77 @@ d2 <- pingouins_tmp %>%
   dplyr::slice(2:4)
 ```
 
-|                      |                                      | 
-| -------------------- | ------------------------------------ |
-| `inner_join(d1, d2)` | ![](img/inner_join.png){width="50%"} |
-| `full_join(d1, d2)`  | ![](img/full_join.png){width="50%"}  |
-| `left_join(d1, d2)`  | ![](img/left_join.png){width="50%"}  |
-| `right_join(d1, d2)` | ![](img/right_join.png){width="50%"} |
-| `anti_join(d1, d2)`  | ![](img/anti_join_1.png){width="50%"}|
-| `anti_join(d2, d1)`  | ![](img/anti_join_2.png){width="50%"}|
+|                      |                                       |
+|----------------------|---------------------------------------|
+| `inner_join(d1, d2)` | ![](img/inner_join.png){width="50%"}  |
+| `full_join(d1, d2)`  | ![](img/full_join.png){width="50%"}   |
+| `left_join(d1, d2)`  | ![](img/left_join.png){width="50%"}   |
+| `right_join(d1, d2)` | ![](img/right_join.png){width="50%"}  |
+| `anti_join(d1, d2)`  | ![](img/anti_join_1.png){width="50%"} |
+| `anti_join(d2, d1)`  | ![](img/anti_join_2.png){width="50%"} |
 
 <br>
 
 ::: {.callout-tip icon="true"}
 ## Les clés de jointure
 
-La colonne commune porte le même nom dans nos deux tableaux `d1` et `d2`. Si ce n'était pas le cas, nous devrions préciser la *clé* de jointure. Dans ce cas, la colonne de jointure du tableau résultant prendra le nom de cette colonne dans le premier tableau : 
+La colonne commune porte le même nom dans nos deux tableaux `d1` et `d2`. Si ce n'était pas le cas, nous devrions préciser la *clé* de jointure. Dans ce cas, la colonne de jointure du tableau résultant prendra le nom de cette colonne dans le premier tableau :
 
 ```{r, join 2, eval=FALSE}
 names(d1) <- "numero_ind"
 inner_join(d1, d2, by = c("numero_ind" = "ind_num"))
 ```
-
 :::
+
+<br>
+
+::: {.callout-important icon="false" collapse="true"}
+## Exercice 3 - énoncé
+
+```{r ex3, eval=FALSE}
+# Importer le fichier codes_pays.csv
+
+# Ajouter les colonnes de ce tableau au tableau gapminder_tmp
+
+# Placer les colonnes "iso_alpha" et "iso_num" apres la colonne "country"
+
+# Exporter ce tableau au format csv
+```
+:::
+
+::: {.callout-important icon="false" collapse="true"}
+## Exercice 3 - solution
+
+```{r ex3 sol, eval=FALSE}
+# Importer le fichier codes_pays.csv
+codes_pays <- readr::read_csv("raw/codes_pays.csv")
+
+# Ajouter les colonnes de ce tableau au tableau gapminder_tmp et deplacer les colonnes
+gapminder_codes <- gapminder_tmp %>%
+  dplyr::left_join(codes_pays)
+
+# Exporter ce tableau au format csv
+readr::write_csv(gapminder_codes, "data/gapminder_codes.csv")
+```
+:::
+
+<br>
 
 # Transformer des tableaux
 
-La suite de packages `tidyverse` se base sur le principe des [*tidy data*](https://www.jstatsoft.org/article/view/v059i10) : 
+La suite de packages `tidyverse` se base sur le principe des [*tidy data*](https://www.jstatsoft.org/article/view/v059i10) :
 
-- chaque variable est située dans sa propre colonne  
-- chaque observation est située sur sa propre ligne  
-- chaque valeur est située dans sa cellule
+-   chaque variable est située dans sa propre colonne\
+-   chaque observation est située sur sa propre ligne\
+-   chaque valeur est située dans sa cellule
 
-Ces trois principes sont résumés dans la figure suivante, tirée de [R for Data Science](https://r4ds.had.co.nz/tidy-data.html) : 
+Ces trois principes sont résumés dans la figure suivante, tirée de [R for Data Science](https://r4ds.had.co.nz/tidy-data.html) :
 
 ![](img/tidy-1.png){width="75%"}
 
 <br>
 
-Le package `tidyr` proprose des fonctions permettant de transformer un tableau dans un format *tidy*.
-Nos données étant déjà dans ce format, nous allons créer un sous-ensemble de données pour les transformer dans un format *non-tidy* puis les transformer à nouveau dans un format *tidy*.
+Le package `tidyr` proprose des fonctions permettant de transformer un tableau dans un format *tidy*. Nos données étant déjà dans ce format, nous allons créer un sous-ensemble de données pour les transformer dans un format *non-tidy* puis les transformer à nouveau dans un format *tidy*.
 
 Ce sous-ensemble contient les dix premières lignes du tableau et les variables *espece* et *ratio_bec* (nous ajoutons également un index des lignes)
 
@@ -661,20 +748,22 @@ d3 <- pingouins_tmp %>%
 
 Nos données sont dans ce que l'on appelle également un format *long*. Pour les transformer dans un format *non-tidy* ou encore format *large*, nous utilisons la fonction `pivot_wider()`.
 
-Deux arguments sont obligatoires : 
+Les arguments suivants doivent être précisés :
 
+- `id_cols` : colonnes servant à identifier les individus  
 - `names_from` : colonne qui servira à nommer les colonnes dans le tableau au format large  
-- `values_from` : colonne qui contient les valeurs qui nous intéressent  
+- `values_from` : colonne qui contient les valeurs qui nous intéressent
 
 ```{r tidy2, eval=FALSE}
 tidyr::pivot_wider(data = d3,
+                   id_cols = 
                    names_from = ind_num,
                    values_from = ratio_bec)
 ```
 
 <br>
 
-Pour rendre les noms des colonnes plus facilement utilisables et supprimer les "`", nous ajoutons un l'argument `names_prefix` : 
+Pour rendre les noms des colonnes plus facilement utilisables et supprimer les "`", nous ajoutons un l'argument`names_prefix\` :
 
 ```{r tidy3, eval=FALSE}
 tidyr::pivot_wider(data = d3,
@@ -683,7 +772,7 @@ tidyr::pivot_wider(data = d3,
                    values_from = ratio_bec)
 ```
 
-Assignons ce tableau transformé au format *large* dans un objet : 
+Assignons ce tableau transformé au format *large* dans un objet :
 
 ```{r tidy4, eval=FALSE}
 d3_wide <- tidyr::pivot_wider(data = d3,
@@ -694,12 +783,12 @@ d3_wide <- tidyr::pivot_wider(data = d3,
 
 <br>
 
-La fonction `pivot_longer()` va nous permettre de revenir dans un format *tidy* (*long*). Nous utilisons les arguments suivants : 
+La fonction `pivot_longer()` va nous permettre de revenir dans un format *tidy* (*long*). Nous utilisons les arguments suivants :
 
-- `cols` : colonnes du format large à regrouper  
-- `names_to` : nom de la colonne dans laquelle seront regroupés les noms des colonnes indiqués dans `cols`  
-- `names_prefix` : préfixe à supprimer
-- `values_to` : nom de la colonne qui contiendra les valeurs  
+-   `cols` : colonnes du format large à regrouper\
+-   `names_to` : nom de la colonne dans laquelle seront regroupés les noms des colonnes indiqués dans `cols`\
+-   `names_prefix` : préfixe à supprimer
+-   `values_to` : nom de la colonne qui contiendra les valeurs
 
 ```{r tidy5, eval=FALSE}
 tidyr::pivot_longer(data = d3_wide,
@@ -713,11 +802,45 @@ Le format *tidy* facilite les analyses en permettant de filtrer les données, de
 
 <br>
 
+::: {.callout-important icon="false" collapse="true"}
+## Exercice 4 - énoncé
+
+A partir du tableau `gapminder_tmp` : 
+
+```{r ex4, eval=FALSE}
+# Filtrer les donnees pour les pays d'Europe
+
+# En utilisant la variable "life_exp", transformer le tableau au format large
+
+# Placer les colonnes "iso_alpha" et "iso_num" apres la colonne "country"
+
+# Exporter ce tableau au format csv
+```
+:::
+
+::: {.callout-important icon="false" collapse="true"}
+## Exercice 3 - solution
+
+```{r ex4 sol, eval=FALSE}
+# Importer le fichier codes_pays.csv
+codes_pays <- readr::read_csv("raw/codes_pays.csv")
+
+# Ajouter les colonnes de ce tableau au tableau gapminder_tmp et deplacer les colonnes
+gapminder_codes <- gapminder_tmp %>%
+  dplyr::left_join(codes_pays)
+
+# Exporter ce tableau au format csv
+readr::write_csv(gapminder_codes, "data/gapminder_codes.csv")
+```
+:::
+
+<br>
+
 # Défi
 
-L'exercice suivant vous permettra de revoir l'utilisation de l'ensemble des fonctions abordées dans ce tutoriel. 
+L'exercice suivant vous permettra de revoir l'utilisation de l'ensemble des fonctions abordées dans ce tutoriel.
 
-Une solution est proposée en-dessous, ne la regardez pas avant d'avoir essayé ! Et gardez à l'esprit qu'il existe souvent plusieurs manières d'obtenir le même résultat. 
+Une solution est proposée en-dessous, ne la regardez pas avant d'avoir essayé ! Et gardez à l'esprit qu'il existe souvent plusieurs manières d'obtenir le même résultat.
 
 Le jeu de données `gapminder` contient les données d'espérance de vie (*lifeExp*), de population (*pop*) et de PIB par habitant (*gdpPercap*) pour 142 pays entre 1952 et 2007.
 
