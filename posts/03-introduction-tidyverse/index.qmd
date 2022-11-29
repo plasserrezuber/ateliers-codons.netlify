@@ -119,6 +119,16 @@ as.data.frame(pingouins)
 
 <br>
 
+::: {.callout-tip icon="true"}
+
+## Exporter des données
+
+Pour exporter des données au format *csv*, utiliser la fonction `write_csv()`
+
+:::
+
+<br>
+
 ## Explorer les données
 
 Plusieurs fonctions incluses dans R permettent d'explorer rapidement des données pour s'assurer qu'elles ont été correctement importées :
@@ -217,11 +227,13 @@ dplyr::select(pingouins_tmp, espece:ile, longueur_bec_mm:masse_corporelle_g)
 dplyr::select(pingouins_tmp, espece:ile, longueur_bec_mm:masse_corporelle_g)
 ```
 
+<br>
+
 D'autres fonctions du package `dplyr` permettent de sélectionner des colonnes :
 
--   `contains()` : sélectionner les noms de colonnes qui contiennent un motif\
--   `starts_width()` : sélectionner les noms de colonnes qui commencent par un motif\
--   `ends_width()` : sélectionner les noms de colonnes qui se terminent par un motif
+- `contains()` : sélectionner les noms de colonnes qui contiennent un motif  
+- `starts_width()` : sélectionner les noms de colonnes qui commencent par un motif  
+- `ends_width()` : sélectionner les noms de colonnes qui se terminent par un motif  
 
 Dans notre cas, nous pouvons sélectionner les colonnes *espece* et *ile*, puis les colonnes dont le nom se termine par *mm* ou par *g* :
 
@@ -289,6 +301,8 @@ dplyr::filter(pingouins_tmp, ile == "Biscoe", masse_corporelle_g >= 5000)
 dplyr::filter(pingouins_tmp, ile %in% c("Biscoe", "Torgersen"))
 ```
 
+<br>
+
 La fonction `between()` permet de garder les valeurs numériques entre deux bornes :
 
 ```{r between, eval=FALSE}
@@ -313,9 +327,22 @@ tidyr::drop_na(pingouins_tmp)
 
 <br>
 
+::: {.callout-tip icon="true"}
+## Extraire les lignes uniques
+
+La fonction `distinct()` permet d'extraire les observations uniques présentes dans une colonne ou une combinaison de colonnes : 
+
+```{r distinct, eval=FALSE}
+dplyr::distinct(pingouins_tmp, ile, espece)
+```
+
+:::
+
+<br>
+
 ## Trier des données
 
-La fonction `arrange()` permet de trier des données. Par défaut, le tri s'effectue par ordre croissant. Pour trier des données par ordre décroissant, il faut ajouter la fonction `desc()`.
+La fonction `arrange()` permet de trier des données. Par défaut, le tri s'effectue par ordre croissant. Pour trier des données par ordre décroissant, il faut ajouter la fonction `desc()` ou utiliser un *moins* `-` devant le nom de la colonne : 
 
 ```{r tri, eval=FALSE}
 # Trier les données par ordre croisant de longueur de bec
@@ -323,13 +350,18 @@ dplyr::arrange(pingouins_tmp, longueur_bec_mm)
 
 # Trier les données par ordre décroissant de masse corporelle
 dplyr::arrange(pingouins_tmp, dplyr::desc(masse_corporelle_g))
+dplyr::arrange(pingouins_tmp, -masse_corporelle_g)
 ```
+
+<br>
 
 Il est possible de trier sur plusieurs colonnes : nous pouvons trier les individus par ordre décroissant de hauteur de bec puis par ordre décroissant de longueur de bec. Cela peut être utile pour départager des individus "ex-aequo" pour une variable :
 
 ```{r tri 2, eval=FALSE}
 dplyr::arrange(pingouins_tmp, dplyr::desc(hauteur_bec_mm), dplyr::desc(longueur_bec_mm))
 ```
+
+<br>
 
 ## Créer ou modifier des colonnes
 
@@ -369,6 +401,8 @@ L'argument `sort = TRUE` permet d'afficher le résultat par ordre décroissant :
 dplyr::count(pingouins_tmp, espece, sort = TRUE)
 ```
 
+<br>
+
 Nous pouvons également compter les individus par île et par espèce :
 
 ```{r count 3, eval=FALSE}
@@ -376,6 +410,22 @@ dplyr::count(pingouins_tmp, ile, espece, sort = TRUE)
 ```
 
 <br>
+
+Dans le dernier cas, seuls les combinaisons de variables pour lesquelles il existe des combinaisons sont affichées. Il peut être intéressant d'afficher tous les cas de figure, à l'aide de la fonction `complete()`. Il faut préciser les variables à utiliser pour compléter les combinaisons : 
+
+```{r count 4, eval=FALSE}
+nb_ind_ile_espece <- dplyr::count(pingouins_tmp, ile, espece, sort = TRUE)
+tidyr::complete(nb_ind_ile_espece, ile, espece)
+```
+
+La variable `n` prend comme valeur `NA` lorsque la combinaison n'est pas présente dans le tableau. Nous pouvons remplacer ces `NA` par des zéros : 
+
+```{r count 5, eval=FALSE}
+tidyr::complete(nb_ind_ile_espece, ile, espece, fill = list(n = 0))
+```
+
+<br>
+
 
 ## Agréger des lignes
 
@@ -433,6 +483,8 @@ Reprenons depuis le début et utilisons le pipe pour enchaîner les fonctions. L
 # Importer le fichier gapminder.csv
 
 # Explorer les donnees 
+
+# Compter le nombre de pays par continent
 
 # Creer une copie de travail
 
@@ -539,15 +591,15 @@ Le raccourci clavier **Ctrl + Shift + M** insérera alors un pipe `|>`.
 ::: {.callout-important icon="false" collapse="true"}
 ## Exercice 2 - énoncé
 
-Effectuez les opérations suivantes à l'aide d'un pipe :
+1. Importer le jeu de données `gapminder.csv`  
+
+2. Compter le nombre de pays par continent et trier les résultats par ordre décroissant
+
+3. Effectuer les opérations suivantes à l'aide d'un pipe et les assigner dans un objet `gapminder_tmp`
 
 ```{r ex2, eval=FALSE}
-# Importer le fichier gapminder.csv
-
 # Nettoyer les noms de colonnes
-
 # Deplacer la colonne "continent" en premiere position
-
 # Ajouter une colonne contenant le PIB global
 
 # Filtrer les donnees pour 2007 et trier par ordre decroissant de PIB global
@@ -558,8 +610,16 @@ Effectuez les opérations suivantes à l'aide d'un pipe :
 ## Exercice 2 - solution
 
 ```{r ex2 sol, eval=FALSE}
-gapminder_tmp <- 
-  readr::read_csv("raw/gapminder.csv") %>%
+# 1. Importer le jeu de donnees
+gapminder <- readr::read_csv("raw/gapminder.csv")
+
+# 2. Compter le nombre de pays par continent
+gapminder %>%
+  dplyr::distinct(continent, country) %>%
+  dplyr::count(continent, sort = TRUE)
+
+# 3. Nettoyer les donnnes
+gapminder_tmp <- gapminder %>%
   janitor::clean_names() %>%
   dplyr::select(continent, dplyr::everything()) %>%
   dplyr::mutate(gdp_global = pop * gdp_percap)
@@ -581,13 +641,17 @@ La fonction `str_detect()` permet de rechercher un motif dans une chaîne de car
 stringr::str_detect(string = pingouins_tmp$espece, pattern = "Adelie")
 ```
 
-Utilisons la fonction `word()` pour extraire les troisèmes et quatrièmes mots de la variable espèce. Cette fonction s'utilise de la manière suivante : `str_word(chaine, debut, fin)`.
+<br>
+
+Utilisons la fonction `word()` pour extraire les mots en position 3 et 4 de la variable espèce. Cette fonction s'utilise de la manière suivante : `str_word(chaine, debut, fin)`.
 
 ```{r stringr 2, eval=FALSE}
 pingouins_tmp <- pingouins_tmp %>%
   dplyr::mutate(nom_latin = stringr::word(string = espece,
                                           start = 3, end = 4))
 ```
+
+<br>
 
 Notre nouvelle variable *nom_latin* a bien été créée, mais elle contient des parenthèses. Pour les supprimer, nous utilisons la fonction `str_remove_all()` en combinaison avec une expression régulière (regex) : les parenthèses à supprimer sont placées entre crochets, eux-mêmes placés entre des guillemets.
 
@@ -611,7 +675,7 @@ pingouins_tmp <- pingouins_tmp %>%
 Exportons maintenant nos données nettoyées à l'aide de la fonction `write_csv()` :
 
 ```{r stringr 5, eval=FALSE}
-write_csv(pingouins_tmp, "data/pinggouins_propre.csv")
+write_csv(pingouins_tmp, "data/pingouins_propre.csv")
 ```
 
 <br>
@@ -619,13 +683,13 @@ write_csv(pingouins_tmp, "data/pinggouins_propre.csv")
 ::: {.callout-tip icon="true"}
 ## Les expressions régulières
 
-Pour en savoir plus sur les expressions régulières, vous pouvez lire [cet article](https://thinkr.fr/r-les-expressions-regulieres/). Il existe souvent plusieurs façons d'arriver au même résultat. Pour le nom latin, nous aurions pu extraire la chaîne de caractères située entre les parenthèses :
+Pour en savoir plus sur les expressions régulières, vous pouvez lire [cet article](https://dridk.me/expression-reguliere.html). Il existe souvent plusieurs façons d'arriver au même résultat. Pour le nom latin, nous aurions pu extraire la chaîne de caractères située entre les parenthèses :
 
 ```{r stringr 6, eval=FALSE}
 stringr::str_extract(pingouins$Espece, "(?<=\\().+?(?=\\))")
 ```
 
-Pour extraire le nom de l'espèce, nous pouvons utiliser une expression régulière pour extraire les caractères précédent le premier espace vide :
+Pour extraire le nom de l'espèce, nous pouvons utiliser une expression régulière pour extraire les caractères précédant le premier espace vide :
 
 ```{r stringr 7, eval=FALSE}
 stringr::str_extract(pingouins$Espece, "\\w+")
@@ -649,7 +713,9 @@ Pour bien comprendre ces différentes fonctions, nous allons créer deux sous-en
 -   `d1` : lignes 1 à 3 du tableau, variable *longueur_bec_mm*\
 -   `d2` : lignes 2 à 4 du tableau, variable *hauteur_bec_mm*
 
-Nous commençons par ajouter une colonne contenant les numéros de ligne, à l'aide de la fonction `rowid_to_column()` du package `tibble`. Par défaut, cette fonction la colonne d'index au début du tableau, et l'argument `var =` permet de choisir le nom de cette colonne. La fonction `slice()` permet de créer un sous-ensemble de lignes à l'aide de leurs positions.
+<br>
+
+Nous commençons par ajouter une colonne contenant les numéros de ligne, à l'aide de la fonction `rowid_to_column()` du package `tibble`. Par défaut, cette fonction ajoute la colonne d'index au début du tableau, et l'argument `var =` permet de choisir le nom de cette colonne. La fonction `slice()` permet de créer un sous-ensemble de lignes à l'aide de leurs positions.
 
 ```{r, join 1, eval=TRUE}
 d1 <- pingouins_tmp %>%
@@ -680,7 +746,9 @@ d2 <- pingouins_tmp %>%
 La colonne commune porte le même nom dans nos deux tableaux `d1` et `d2`. Si ce n'était pas le cas, nous devrions préciser la *clé* de jointure. Dans ce cas, la colonne de jointure du tableau résultant prendra le nom de cette colonne dans le premier tableau :
 
 ```{r, join 2, eval=FALSE}
-names(d1) <- "numero_ind"
+d1 <- d1 %>%
+  dplyr::rename(numero_ind = ind_num)
+
 inner_join(d1, d2, by = c("numero_ind" = "ind_num"))
 ```
 :::
@@ -710,7 +778,8 @@ codes_pays <- readr::read_csv("raw/codes_pays.csv")
 
 # Ajouter les colonnes de ce tableau au tableau gapminder_tmp et deplacer les colonnes
 gapminder_codes <- gapminder_tmp %>%
-  dplyr::left_join(codes_pays)
+  dplyr::left_join(codes_pays) %>%
+  dplyr::select(continent, country, iso_alpha, iso_num, dplyr::everything())
 
 # Exporter ce tableau au format csv
 readr::write_csv(gapminder_codes, "data/gapminder_codes.csv")
@@ -740,7 +809,7 @@ Ce sous-ensemble contient les dix premières lignes du tableau et les variables 
 ```{r tidy1, eval=FALSE}
 d3 <- pingouins_tmp %>%
   tibble::rowid_to_column(var = "ind_num") %>%
-  dplyr::select(ind_num, espece, ratio_bec) %>%
+  dplyr::select(ind_num, espece, ile, longueur_bec_mm) %>%
   dplyr::slice(1:10)
 ```
 
@@ -750,16 +819,16 @@ Nos données sont dans ce que l'on appelle également un format *long*. Pour les
 
 Les arguments suivants doivent être précisés :
 
-- `id_cols` : colonnes servant à identifier les individus  
 - `names_from` : colonne qui servira à nommer les colonnes dans le tableau au format large  
 - `values_from` : colonne qui contient les valeurs qui nous intéressent
 
 ```{r tidy2, eval=FALSE}
 tidyr::pivot_wider(data = d3,
-                   id_cols = 
                    names_from = ind_num,
-                   values_from = ratio_bec)
+                   values_from = longueur_bec_mm)
 ```
+
+Un autre argument, `id_cols`, permet de préciser les colonnes qui permettent d'identifier chaque individu. Par défaut, il s'agit de toutes les colonnes autres que celles précisées dans `names_from` et `values_from`. Dans certains cas, il peut être nécessaire de déclarer explicitement ces colonnes d'identification.
 
 <br>
 
@@ -769,7 +838,7 @@ Pour rendre les noms des colonnes plus facilement utilisables et supprimer les "
 tidyr::pivot_wider(data = d3,
                    names_from = ind_num,
                    names_prefix = "ind",
-                   values_from = ratio_bec)
+                   values_from = longueur_bec_mm)
 ```
 
 Assignons ce tableau transformé au format *large* dans un objet :
@@ -778,21 +847,21 @@ Assignons ce tableau transformé au format *large* dans un objet :
 d3_wide <- tidyr::pivot_wider(data = d3,
                               names_from = ind_num,
                               names_prefix = "ind",
-                              values_from = ratio_bec)
+                              values_from = longueur_bec_mm)
 ```
 
 <br>
 
 La fonction `pivot_longer()` va nous permettre de revenir dans un format *tidy* (*long*). Nous utilisons les arguments suivants :
 
--   `cols` : colonnes du format large à regrouper\
--   `names_to` : nom de la colonne dans laquelle seront regroupés les noms des colonnes indiqués dans `cols`\
--   `names_prefix` : préfixe à supprimer
--   `values_to` : nom de la colonne qui contiendra les valeurs
+- `cols` : colonnes du format large à regrouper  
+- `names_to` : nom de la colonne dans laquelle seront regroupés les noms des colonnes indiqués dans `cols`  
+- `names_prefix` : préfixe à supprimer  
+- `values_to` : nom de la colonne qui contiendra les valeurs  
 
 ```{r tidy5, eval=FALSE}
 tidyr::pivot_longer(data = d3_wide,
-                    cols = -espece,
+                    cols = -c(espece, ile),
                     names_to = "ind_num",
                     names_prefix = "ind",
                     values_to = "ratio_bec")
@@ -812,95 +881,32 @@ A partir du tableau `gapminder_tmp` :
 
 # En utilisant la variable "life_exp", transformer le tableau au format large
 
-# Placer les colonnes "iso_alpha" et "iso_num" apres la colonne "country"
-
-# Exporter ce tableau au format csv
+# Transformer ce tableau au format long
 ```
 :::
 
 ::: {.callout-important icon="false" collapse="true"}
-## Exercice 3 - solution
+## Exercice 4 - solution
 
 ```{r ex4 sol, eval=FALSE}
-# Importer le fichier codes_pays.csv
-codes_pays <- readr::read_csv("raw/codes_pays.csv")
+# Filtrer les donnees pour les pays d'Europe
+europe <- gapminder_tmp %>%
+  dplyr::filter(continent == "Europe")
 
-# Ajouter les colonnes de ce tableau au tableau gapminder_tmp et deplacer les colonnes
-gapminder_codes <- gapminder_tmp %>%
-  dplyr::left_join(codes_pays)
+# En utilisant la variable "life_exp", transformer le tableau au format large
+europe_wide <- europe %>%
+  tidyr::pivot_wider(id_cols = c(country, continent),
+                     names_from = year,
+                     names_prefix = "year",
+                     values_from = life_exp)
 
-# Exporter ce tableau au format csv
-readr::write_csv(gapminder_codes, "data/gapminder_codes.csv")
+# Transformer ce tableau au format long
+europe_long <- europe_wide %>%
+  tidyr::pivot_longer(cols = -c(country, continent),
+                      names_to = "year",
+                      names_prefix = "year",
+                      values_to = "life_exp")
 ```
 :::
 
 <br>
-
-# Défi
-
-L'exercice suivant vous permettra de revoir l'utilisation de l'ensemble des fonctions abordées dans ce tutoriel.
-
-Une solution est proposée en-dessous, ne la regardez pas avant d'avoir essayé ! Et gardez à l'esprit qu'il existe souvent plusieurs manières d'obtenir le même résultat.
-
-Le jeu de données `gapminder` contient les données d'espérance de vie (*lifeExp*), de population (*pop*) et de PIB par habitant (*gdpPercap*) pour 142 pays entre 1952 et 2007.
-
-```{r defi, eval=FALSE}
-# Installer et charger le package gapminder ----
-
-install.packages("gapminder")
-library(gapminder)
-
-# Exploration rapide des données ----
-
-# Compter le nombre de pays par continent ----
-
-# Attention, il y a un piège, voire deux !
-
-# Calculer le PIB global et l'ajouter dans une colonne ----
-
-# Transformer les données d'espérance de PIB global au format long (une année par colonne) ----
-
-# Calculer la moyenne de l'espérance de vie en 2007 par continent et trier les résultats par ordre décroissant ----
-
-```
-
-::: {.callout-important icon="false" collapse="true"}
-## Solution du défi
-
-```{r défi solution, eval=FALSE}
-# Installer et charger le package gapminder ----
-
-install.packages("gapminder")
-library(gapminder)
-
-# Exploration rapide des données ----
-
-glimpse(gapminder)
-
-# Compter le nombre de pays par continent ----
-
-gapminder %>%
-  dplyr::group_by(country) %>%
-  dplyr::slice(1) %>%
-  dplyr::ungroup() %>%
-  dplyr::count(continent)
-
-# Calculer le PIB global et l'ajouter dans une colonne ----
-
-gapminder_tmp <- gapminder %>%
-  dplyr::mutate(gdpGlobal = pop * gdpPercap)
-
-# Transformer les données d'espérance de PIB global au format long (une année par colonne) ----
-
-gdp_global <- gapminder_tmp %>%
-  tidyr::pivot_wider(id_cols = country, names_from = year, values_from = gdpGlobal)
-
-# Calculer la moyenne de l'espérance de vie en 2007 par continent et trier les résultats par ordre décroissant ----
-
-gapminder_tmp %>%
-  dplyr::filter(year == "2007") %>%
-  dplyr::group_by(continent) %>%
-  dplyr::summarise(lifeExp_moy = mean(lifeExp, na.rm = TRUE)) %>%
-  dplyr::arrange(dplyr::desc(lifeExp_moy))
-```
-:::
