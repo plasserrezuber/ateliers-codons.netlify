@@ -615,8 +615,8 @@ gapminder <- readr::read_csv("raw/gapminder.csv")
 
 # 2. Compter le nombre de pays par continent
 gapminder %>%
-  dplyr::distinct(continent, country) %>%
-  dplyr::count(continent, sort = TRUE)
+  dplyr::distinct(Continent, Country) %>%
+  dplyr::count(Continent, sort = TRUE)
 
 # 3. Nettoyer les donnnes
 gapminder_tmp <- gapminder %>%
@@ -966,12 +966,14 @@ pingouins_tmp <- pingouins_tmp %>%
 
 <br>
 
-La fonction `fct_infreq()` permet de trier les modalités d'un facteur selon les effectifs : 
+La fonction `fct_infreq()` permet de trier les modalités d'un facteur selon les effectifs (par défaut par ordre décroissant) : 
 
 ```{r, forcats 6, eval=FALSE}
 pingouins_tmp <- pingouins_tmp %>%
   dplyr::mutate(espece = forcats::fct_infreq(espece))
 ```
+
+<br>
 
 ::: {.callout-tip icon="true"}
 ## Intérêt de la gestion des niveaux d'un facteur
@@ -979,4 +981,45 @@ pingouins_tmp <- pingouins_tmp %>%
 Les fonctions du package `forcats` permettent de gérer dynamiquement les niveaux d'un facteur, en fonction de ce que l'on recherche (trier par ordre d'apparition, par effectifs, ...).
 Ces fonctions sont particulièrement intéressantes lorsque l'on souhaite représenter graphiquement des variables catégorielles.
 
+:::
+
+<br>
+
+::: {.callout-important icon="false" collapse="true"}
+## Exercice 5 - énoncé
+
+A partir du tableau `gapminder_tmp`
+
+```{r ex5, eval=FALSE}
+# Extraire les donnees pour l'annee 2002
+
+# Transformer les variables "continent" et "country" en facteurs
+
+# Trier les niveaux la variable "continent" par effectif
+
+# Trier les niveaux de la variable "country" par population
+```
+:::
+
+::: {.callout-important icon="false" collapse="true"}
+## Exercice 5 - solution
+
+```{r ex5 sol, eval=FALSE}
+# Extraire les donnees pour l'annee 2002
+year2002 <- gapminder_tmp %>%
+  dplyr::filter(year == 2002)
+
+# Transformer les variables "continent" et "country" en facteurs
+year2002 <- year2002 %>%
+  dplyr::mutate(continent = forcats::fct(continent),
+                country = forcats::fct(country))
+
+# Trier les niveaux la variable "continent" par effectif
+year2002 <- year2002 %>%
+  dplyr::mutate(continent = forcats::fct_infreq(continent))
+
+# Trier les niveaux de la variable "country" par population decroissante
+year2002 <- year2002 %>%
+  dplyr::mutate(country = forcats::fct_reorder(country, -pop))
+```
 :::
