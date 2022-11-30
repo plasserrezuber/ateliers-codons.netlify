@@ -477,8 +477,6 @@ La fonction `ungroup()` permet de dégrouper les données
 ::: {.callout-important icon="false" collapse="true"}
 ## Exercice 1 - énoncé
 
-Reprenons depuis le début et utilisons le pipe pour enchaîner les fonctions. Les commentaires ci-dessous indiquent les étapes :
-
 ```{r ex1, eval=FALSE}
 # Importer le fichier gapminder.csv
 
@@ -591,18 +589,15 @@ Le raccourci clavier **Ctrl + Shift + M** insérera alors un pipe `|>`.
 ::: {.callout-important icon="false" collapse="true"}
 ## Exercice 2 - énoncé
 
-1. Importer le jeu de données `gapminder.csv`  
+1. Compter le nombre de pays par continent
 
-2. Compter le nombre de pays par continent et trier les résultats par ordre décroissant
-
-3. Effectuer les opérations suivantes à l'aide d'un pipe et les assigner dans un objet `gapminder_tmp`
+2. Effectuer les opérations suivantes à l'aide d'un pipe et les assigner dans un objet `gapminder_tmp`
 
 ```{r ex2, eval=FALSE}
+# Creer une copie de travail
 # Nettoyer les noms de colonnes
 # Deplacer la colonne "continent" en premiere position
 # Ajouter une colonne contenant le PIB global
-
-# Filtrer les donnees pour 2007 et trier par ordre decroissant de PIB global
 ```
 :::
 
@@ -610,15 +605,12 @@ Le raccourci clavier **Ctrl + Shift + M** insérera alors un pipe `|>`.
 ## Exercice 2 - solution
 
 ```{r ex2 sol, eval=FALSE}
-# 1. Importer le jeu de donnees
-gapminder <- readr::read_csv("raw/gapminder.csv")
-
-# 2. Compter le nombre de pays par continent
+# 1. Compter le nombre de pays par continent
 gapminder %>%
   dplyr::distinct(Continent, Country) %>%
   dplyr::count(Continent, sort = TRUE)
 
-# 3. Nettoyer les donnnes
+# 2. Nettoyer les donnnes
 gapminder_tmp <- gapminder %>%
   janitor::clean_names() %>%
   dplyr::select(continent, dplyr::everything()) %>%
