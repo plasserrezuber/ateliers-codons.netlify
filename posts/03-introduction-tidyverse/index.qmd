@@ -910,3 +910,73 @@ europe_long <- europe_wide %>%
 :::
 
 <br>
+
+# Manipuler des facteurs
+
+Le package `forcats` propose des fonctions permettant de manipuler des facteurs.
+
+Commençons par transformer les variables qui ont un nombre de modalités limité en facteurs à l'aide de la fonction `fct()`. Par défaut, cette fonction crée des niveaux de facteur selon l'ordre d'apparition des modalités dans le tableau :  
+
+```{r, forcats 1, eval=FALSE}
+pingouins_tmp <- pingouins_tmp %>%
+  dplyr::mutate(espece = forcats::fct(espece),
+                nom_latin = forcats::fct(nom_latin),
+                ile = forcats::fct(ile))
+```
+
+<br>
+
+La fonction `fct_recode()` permet de recoder les niveaux d'un facteur : 
+
+```{r, forcats 2, eval=FALSE}
+pingouins_tmp <- pingouins_tmp %>%
+  dplyr::mutate(espece = forcats::fct_recode(espece,
+                                             "espece_Adelie" = "Adelie",
+                                             "espece_Gentoo" = "Gentoo",
+                                             "espece_Chinstrap" = "Chinstrap"))
+```
+
+<br>
+
+La fonction `fct_relevel()` permet d'ordonner manuellement les niveaux d'un facteur : 
+
+```{r, forcats 3, eval=FALSE}
+pingouins_tmp <- pingouins_tmp %>%
+  dplyr::mutate(ile = forcats::fct_relevel(ile,
+                                           "Dream", "Biscoe", "Torgersen"))
+```
+
+<br>
+
+La fonction `fct_rev()` permet d'inverser l'ordre des niveaux d'un facteur : 
+
+```{r, forcats 4, eval=FALSE}
+pingouins_tmp <- pingouins_tmp %>%
+  dplyr::mutate(ile = forcats::fct_rev(ile))
+```
+
+<br>
+
+La fonction `fct_reorder()` permet de trier les modalités d'un facteur selon une autre variable. Nous pouvons par exemple trier les modalités de la variable *espece* en fonction de la médiane de la variable *hauteur_bec_mm" : 
+
+```{r, forcats 5, eval=FALSE}
+pingouins_tmp <- pingouins_tmp %>%
+  dplyr::mutate(espece = forcats::fct_reorder(espece, hauteur_bec_mm, median, na.rm = TRUE))
+```
+
+<br>
+
+La fonction `fct_infreq()` permet de trier les modalités d'un facteur selon les effectifs : 
+
+```{r, forcats 6, eval=FALSE}
+pingouins_tmp <- pingouins_tmp %>%
+  dplyr::mutate(espece = forcats::fct_infreq(espece))
+```
+
+::: {.callout-tip icon="true"}
+## Intérêt de la gestion des niveaux d'un facteur
+
+Les fonctions du package `forcats` permettent de gérer dynamiquement les niveaux d'un facteur, en fonction de ce que l'on recherche (trier par ordre d'apparition, par effectifs, ...).
+Ces fonctions sont particulièrement intéressantes lorsque l'on souhaite représenter graphiquement des variables catégorielles.
+
+:::
