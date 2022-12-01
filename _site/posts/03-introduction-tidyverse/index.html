@@ -330,7 +330,7 @@ Les conflits
 - le <em>séparateur</em> de colonnes<br>
 - les <em>types</em> et les <em>noms</em> des variables</p>
 <p><br></p>
-<p>Tapez <code>pingouins</code> dans la console et appuyze sur <code>Entrée</code> : vos données s’affichent et vous pouvez voir qu’il s’agit d’un <em>tibble</em>, qui présente quelques particularités par rapport à un tableau “classique” :</p>
+<p>Tapez <code>pingouins</code> dans la console et appuyez sur <code>Entrée</code> : vos données s’affichent et vous pouvez voir qu’il s’agit d’un <em>tibble</em>, qui présente quelques particularités par rapport à un tableau “classique” :</p>
 <ul>
 <li>les dimensions du <em>tibble</em> sont précisées<br>
 </li>
@@ -449,7 +449,7 @@ Explorer les arguments d’une fonction
 <span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">select</span>(pingouins_tmp, espece<span class="sc">:</span>ile, longueur_bec_mm<span class="sc">:</span>masse_corporelle_g)</span>
 <span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Supprimer des colonnes</span></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">select</span>(pingouins_tmp, espece<span class="sc">:</span>ile, longueur_bec_mm<span class="sc">:</span>masse_corporelle_g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">select</span>(pingouins_tmp, <span class="sc">-</span><span class="fu">c</span>(etude_numero, echantillon_numero, id_individu))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 <p>D’autres fonctions du package <code>dplyr</code> permettent de sélectionner des colonnes :</p>
@@ -671,7 +671,7 @@ Extraire les lignes uniques
 <p>La fonction <code>group_by()</code>, utilisée en combinaison avec la fonction <code>summarise()</code>, permet de regrouper les données pour effectuer des calculs par groupe.</p>
 <p>Calculons la longueur moyenne du bec par espece :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="fu">group_by</span>(pingouins_tmp, espece),</span>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">summarise</span>(dplyr<span class="sc">::</span><span class="fu">group_by</span>(pingouins_tmp, espece),</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">longueur_bec_mm_moy =</span> <span class="fu">mean</span>(longueur_bec_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Cette fonction permet de définir des sous-groupes. Calculons la longueur moyenne du bec par île et par espèce :</p>
@@ -809,7 +809,7 @@ Raccourci clavier : le pipe
 <div class="cell">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>pingouins <span class="sc">%&gt;%</span></span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  janitor<span class="sc">::</span><span class="fu">clean_names</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">drop_na</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">drop_na</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 <div class="callout-note callout callout-style-default callout-captioned">
@@ -1107,7 +1107,7 @@ Exercice 3 - solution
 </div>
 <p>Un autre argument, <code>id_cols</code>, permet de préciser les colonnes qui permettent d’identifier chaque individu. Par défaut, il s’agit de toutes les colonnes autres que celles précisées dans <code>names_from</code> et <code>values_from</code>. Dans certains cas, il peut être nécessaire de déclarer explicitement ces colonnes d’identification.</p>
 <p><br></p>
-<p>Pour rendre les noms des colonnes plus facilement utilisables et supprimer les “<code>", nous ajoutons un l'argument</code>names_prefix` :</p>
+<p>Pour rendre les noms des colonnes plus facilement utilisables et supprimer les “`", nous ajoutons l’argument<code>names_prefix</code> :</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>tidyr<span class="sc">::</span><span class="fu">pivot_wider</span>(<span class="at">data =</span> d3,</span>
 <span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">names_from =</span> ind_num,</span>
@@ -1137,7 +1137,7 @@ Exercice 3 - solution
 <span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">cols =</span> <span class="sc">-</span><span class="fu">c</span>(espece, ile),</span>
 <span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">names_to =</span> <span class="st">"ind_num"</span>,</span>
 <span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">names_prefix =</span> <span class="st">"ind"</span>,</span>
-<span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">values_to =</span> <span class="st">"ratio_bec"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">values_to =</span> <span class="st">"longueur_bec_mm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Le format <em>tidy</em> facilite les analyses en permettant de filtrer les données, de les regrouper, …</p>
 <p><br></p>
@@ -1203,7 +1203,7 @@ Exercice 4 - solution
 <section id="manipuler-des-facteurs" class="level1">
 <h1>Manipuler des facteurs</h1>
 <p>Le package <code>forcats</code> propose des fonctions permettant de manipuler des facteurs.</p>
-<p>Commençons par transformer les variables qui ont un nombre de modalités limité en facteurs à l’aide de la fonction <code>fct()</code>. Par défaut, cette fonction crée des niveaux de facteur selon l’ordre d’apparition des modalités dans le tableau :</p>
+<p>Commençons par transformer les variables qui ont un nombre limité de modalités en facteurs à l’aide de la fonction <code>fct()</code>. Par défaut, cette fonction crée des niveaux de facteur selon l’ordre d’apparition des modalités dans le tableau :</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>pingouins_tmp <span class="ot">&lt;-</span> pingouins_tmp <span class="sc">%&gt;%</span></span>
 <span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">espece =</span> forcats<span class="sc">::</span><span class="fu">fct</span>(espece),</span>

@@ -101,7 +101,7 @@ Vous pouvez voir dans la console des informations concernant vos données :\
 
 <br>
 
-Tapez `pingouins` dans la console et appuyze sur `Entrée` : vos données s'affichent et vous pouvez voir qu'il s'agit d'un *tibble*, qui présente quelques particularités par rapport à un tableau "classique" :
+Tapez `pingouins` dans la console et appuyez sur `Entrée` : vos données s'affichent et vous pouvez voir qu'il s'agit d'un *tibble*, qui présente quelques particularités par rapport à un tableau "classique" :
 
 -   les dimensions du *tibble* sont précisées\
 -   les *types* des variables sont indiquées sous les noms des colonnes\
@@ -224,7 +224,7 @@ dplyr::select(pingouins_tmp, espece, ile, longueur_bec_mm, hauteur_bec_mm,
 dplyr::select(pingouins_tmp, espece:ile, longueur_bec_mm:masse_corporelle_g)
 
 # Supprimer des colonnes
-dplyr::select(pingouins_tmp, espece:ile, longueur_bec_mm:masse_corporelle_g)
+dplyr::select(pingouins_tmp, -c(etude_numero, echantillon_numero, id_individu))
 ```
 
 <br>
@@ -455,7 +455,7 @@ La fonction `group_by()`, utilisée en combinaison avec la fonction `summarise()
 Calculons la longueur moyenne du bec par espece :
 
 ```{r group, eval=FALSE}
-dplyr::summarise(group_by(pingouins_tmp, espece),
+dplyr::summarise(dplyr::group_by(pingouins_tmp, espece),
                  longueur_bec_mm_moy = mean(longueur_bec_mm, na.rm = TRUE))
 ```
 
@@ -567,7 +567,7 @@ Nous pouvons ainsi enchaîner les fonctions sans avoir à créer des objets inte
 ```{r pipe 2, eval=FALSE}
 pingouins %>%
   janitor::clean_names() %>%
-  dplyr::drop_na()
+  tidyr::drop_na()
 ```
 
 <br>
@@ -824,7 +824,7 @@ Un autre argument, `id_cols`, permet de préciser les colonnes qui permettent d'
 
 <br>
 
-Pour rendre les noms des colonnes plus facilement utilisables et supprimer les "`", nous ajoutons un l'argument`names_prefix\` :
+Pour rendre les noms des colonnes plus facilement utilisables et supprimer les "\`\", nous ajoutons l'argument`names_prefix` :
 
 ```{r tidy3, eval=FALSE}
 tidyr::pivot_wider(data = d3,
@@ -856,7 +856,7 @@ tidyr::pivot_longer(data = d3_wide,
                     cols = -c(espece, ile),
                     names_to = "ind_num",
                     names_prefix = "ind",
-                    values_to = "ratio_bec")
+                    values_to = "longueur_bec_mm")
 ```
 
 Le format *tidy* facilite les analyses en permettant de filtrer les données, de les regrouper, ...
@@ -907,7 +907,7 @@ europe_long <- europe_wide %>%
 
 Le package `forcats` propose des fonctions permettant de manipuler des facteurs.
 
-Commençons par transformer les variables qui ont un nombre de modalités limité en facteurs à l'aide de la fonction `fct()`. Par défaut, cette fonction crée des niveaux de facteur selon l'ordre d'apparition des modalités dans le tableau :  
+Commençons par transformer les variables qui ont un nombre limité de modalités en facteurs à l'aide de la fonction `fct()`. Par défaut, cette fonction crée des niveaux de facteur selon l'ordre d'apparition des modalités dans le tableau :  
 
 ```{r, forcats 1, eval=FALSE}
 pingouins_tmp <- pingouins_tmp %>%
