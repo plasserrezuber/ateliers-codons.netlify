@@ -482,8 +482,6 @@ La fonction `ungroup()` permet de dégrouper les données
 
 # Explorer les donnees 
 
-# Compter le nombre de pays par continent
-
 # Creer une copie de travail
 
 # Nettoyer les noms de colonnes
