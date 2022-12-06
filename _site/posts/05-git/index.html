@@ -368,6 +368,28 @@ rm -r
 </div>
 <p>Affichons l’historique de nos commits à l’aide de la commande <code>git log</code> :</p>
 <p><img src="img/git_cmd_05.png" class="img-fluid"></p>
+<p>Ajoutons une ligne de texte dans notre fichier <code>README.md</code> et sauvegardons-le :</p>
+<p><img src="img/git_cmd_06.png" class="img-fluid"> Tapons les commandes suivantes :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>git add README.md</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>git commit <span class="sc">-</span>m <span class="st">"ajout d'une ligne de texte dans le fichier README.md"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Affichons à nouveau l’historique avec <code>git log</code>.</p>
+<p>Nous allons revenir au commit précédent dans notre historique. Pour cela, nous copions l’identifiant unique du commit auquel nous souhaitons revenir :</p>
+<p><img src="img/git_cmd_07.png" class="img-fluid"></p>
+<p>Dans le terminal, nous tapons la commande suivante (en collant l’identifiant du commit à la place de <em>commit_id</em>) :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>git checkout commit_id</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Nous pouvons remarquer que dans notre fichier <code>README.md</code>, la ligne que nous avions ajoutée n’est plus visible : nous sommes revenus au commit précédent de notre historique.</p>
+<p>Git a ajouté une branche au niveau du précédent commit, et nous nous trouvons à présent sur cette branche. Pour le vérifier, nous pouvons taper la commande <code>git branch</code> dans le terminal :</p>
+<p><img src="img/git_cmd_08.png" class="img-fluid"></p>
+<p>Nous voyons qu’il existe maintenant deux branches : - <em>(HEAD detached at #####)</em> : nouvelle branche au niveau du commit précédent<br>
+- <em>master</em> : la branche principale</p>
+<p>Si nous tapons la commande <code>git log</code>, nous voyons qu’il n’y a que deux commits dans l’historique (nous sommes revenus un commit en arrière).</p>
+<p>Ajoutons une ligne de texte dans le fichier <code>README.md</code> sur cette nouvelle branche :</p>
+<p><img src="img/git_cmd_09.png" class="img-fluid"></p>
+<p>Sauvegardons le fichier et effectuons un <code>add</code> puis un <code>commit</code>.</p>
 <section id="paramétrer-rstudio" class="level3">
 <h3 class="anchored" data-anchor-id="paramétrer-rstudio">Paramétrer RStudio</h3>
 <p>Ouvrez une session dans RStudio, puis cliquez sur <em>Tools</em> &gt; <em>Global Options</em> &gt; <em>Git/SVN</em>.</p>
@@ -534,7 +556,7 @@ Le statut des fichiers
 <p><br></p>
 <p>Nous allons modifier le fichier <code>README.md</code> : ouvrons-le en cliquant dessus dans le panneau de navigation. Le fichier s’ouvre dans le panneau <em>scripts</em>. Remplaçons le texte par la ligne suivante :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Connecter RStudio à GitLab</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Connecter RStudio à GitLab</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Sauvegardons le fichier (<strong>Ctrl + S</strong> ou icône disquette) : le fichier apparaît dans l’onglet <em>git</em> de notre espace de travail avec une icône <code>M</code> bleue, indiquant qu’il a été modifié.</p>
 <p>Nous allons effectuer les mêmes opérations que ci-dessus pour exporter nos modifications vers la branche distante du répertoire sur GitLab : <em>Commit</em> &gt; <em>Pull</em> &gt; <em>Push</em>.</p>
