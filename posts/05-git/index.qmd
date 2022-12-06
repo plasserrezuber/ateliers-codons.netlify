@@ -208,9 +208,45 @@ Affichons l'historique de nos commits à l'aide de la commande `git log` :
 
 ![](img/git_cmd_05.png)
 
+Ajoutons une ligne de texte dans notre fichier `README.md` et sauvegardons-le : 
 
+![](img/git_cmd_06.png)
+Tapons les commandes suivantes : 
 
+```{r, git cmd 9, eval=FALSE}
+git add README.md
+git commit -m "ajout d'une ligne de texte dans le fichier README.md"
+```
 
+Affichons à nouveau l'historique avec `git log`.
+
+Nous allons revenir au commit précédent dans notre historique. Pour cela, nous copions l'identifiant unique du commit auquel nous souhaitons revenir : 
+
+![](img/git_cmd_07.png)
+
+Dans le terminal, nous tapons la commande suivante (en collant l'identifiant du commit à la place de *commit_id*) : 
+
+```{r, git cmd 10, eval=FALSE}
+git checkout commit_id
+```
+
+Nous pouvons remarquer que dans notre fichier `README.md`, la ligne que nous avions ajoutée n'est plus visible : nous sommes revenus au commit précédent de notre historique.
+
+Git a ajouté une branche au niveau du précédent commit, et nous nous trouvons à présent sur cette branche. Pour le vérifier, nous pouvons taper la commande `git branch` dans le terminal : 
+
+![](img/git_cmd_08.png)
+
+Nous voyons qu'il existe maintenant deux branches : 
+- *(HEAD detached at #####)* : nouvelle branche au niveau du commit précédent  
+- *master* : la branche principale
+
+Si nous tapons la commande `git log`, nous voyons qu'il n'y a que deux commits dans l'historique (nous sommes revenus un commit en arrière).
+
+Ajoutons une ligne de texte dans le fichier `README.md` sur cette nouvelle branche : 
+
+![](img/git_cmd_09.png)
+
+Sauvegardons le fichier et effectuons un `add` puis un `commit`.
 
 ### Paramétrer RStudio
 
