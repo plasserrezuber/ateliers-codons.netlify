@@ -270,6 +270,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>git <span class="sc">--</span>version</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p><br></p>
+<section id="paramétrer-git" class="level3">
+<h3 class="anchored" data-anchor-id="paramétrer-git">Paramétrer git</h3>
 <p>Dans un premier temps, nous allons paramétrer <em>git</em> en renseignant un nom d’utilisateur et un e-mail qui seront utilisés pour nous identifier dans l’historique (cela nous permettra si nous travaillons à plusieurs sur un même projet de savoir qui a fait quoi). Dans la suite du turoriel nous verrons comment connecter RStudio à GitLab, nous allons donc utiliser nos identifiants LDAP :</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>git config <span class="sc">--</span>global <span class="sc">--</span>user.name <span class="st">"prenom.nom"</span>  </span>
@@ -279,6 +282,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>git config <span class="sc">--</span>global <span class="sc">--</span>list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p><br></p>
+</section>
+<section id="initialiser-git" class="level3">
+<h3 class="anchored" data-anchor-id="initialiser-git">Initialiser git</h3>
 <p>Pour l’instant, notre répertoire de travail (le projet RStudio) n’est pas versionné. Il nous faut pour cela associer un répertoire git à notre répertoire de travail, en <strong>initialisant</strong> git :</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>git init</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -287,6 +294,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ls <span class="sc">-</span>la</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+<section id="ignorer-des-fichiers" class="level3">
+<h3 class="anchored" data-anchor-id="ignorer-des-fichiers">Ignorer des fichiers</h3>
+<p>Parmi les fichiers et répertoires listés ci-dessus, le répertoire <code>.Rproj.user</code> n’a pas besoin d’être versionné. Nous allons pour cela ajouter à notre répertoire de travail un fichier dans lequel nous pourrons lister les fichiers et répertoires que git devra ignorer. Créons un fichier texte basique en cliquant sur <em>File &gt; New File &gt; Text File</em>. Sauvegardons ce fichier à la racine de notre répertoire de travail en le nommant <code>.gitignore</code>. Ajoutons une ligne à ce fichier comme ci-dessous :</p>
+<p><img src="img/git_cmd_10.png" class="img-fluid"></p>
+<p><br></p>
 <p>Vérifions l’état dans lequel notre répertoire se trouve :</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>git status</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -300,14 +313,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><em>nothing added to commit but untracked files present</em> : redite de la ligne précédente</p></li>
 <li><p><em>use “git add” to track</em> : pour figer l’état de ces fichiers et tracer l’historique des modifications, nous utiliserons la commande <code>git add</code>.</p></li>
 </ul>
+<p>Pour afficher également les fichiers ignorés, nous utilisons la commande <code>git status --ignored</code>.</p>
 <p><br></p>
-<p>Ajoutons nos deux fichiers, soit en précisant leurs noms, soit en utilisant le symbole <code>*</code> (pour ajouter tous les fichiers présents dans notre répertoire de travail) :</p>
+</section>
+<section id="git-add" class="level3">
+<h3 class="anchored" data-anchor-id="git-add">git add</h3>
+<p>Ajoutons nos deux fichiers, soit en précisant leurs noms, soit en utilisant le symbole <code>*</code> (pour ajouter tous les fichiers présents dans notre répertoire de travail) ou encore un point <code>.</code> (pour ajouter le répertoire actuel) :</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajouter les fichiers un a un</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>git add .Rproj.user<span class="sc">/</span> tutoriel_git.Rproj</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>git add .gitignore tutoriel_git.Rproj</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajouter tous les fichiers du repertoire de travail</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>git add <span class="sc">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>git add <span class="sc">*</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajouter le répertoire actuel</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>git add .</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Affichons l’état de notre répertoire à l’aide de la commande <code>git status</code>. Nous pouvons remarquer que les noms des fichiers ajoutés apparaissent en vert.</p>
 <p>De nouvelles informations sont affichées dans le terminal :</p>
@@ -338,6 +358,9 @@ rm -r
 </div>
 </div>
 <p><br></p>
+</section>
+<section id="git-commit" class="level3">
+<h3 class="anchored" data-anchor-id="git-commit">git commit</h3>
 <p>Nous allons maintenant figer l’état de notre répertoire de travail à l’aide de la commande <code>git commit -m ...</code>. Un commit est toujours associé à un message (<code>-m</code>) à écrire entre guillemets (<code>"message"</code>) pour préciser ce que nous faisons. Soyez le plus précis possible dans vos messages de commits, cela vous permettra de vous y retrouver dans l’historique des modifications !</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -374,6 +397,10 @@ rm -r
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>git add README.md</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>git commit <span class="sc">-</span>m <span class="st">"ajout d'une ligne de texte dans le fichier README.md"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p><br></p>
+</section>
+<section id="naviguer-dans-les-commits" class="level3">
+<h3 class="anchored" data-anchor-id="naviguer-dans-les-commits">Naviguer dans les commits</h3>
 <p>Affichons à nouveau l’historique avec <code>git log</code>.</p>
 <p>Nous allons revenir au commit précédent dans notre historique. Pour cela, nous copions l’identifiant unique du commit auquel nous souhaitons revenir :</p>
 <p><img src="img/git_cmd_07.png" class="img-fluid"></p>
@@ -397,6 +424,10 @@ git checkout <commit_id> .
 <p><br></p>
 <p>Nous pouvons remarquer que dans notre fichier <code>README.md</code>, la ligne que nous avions ajoutée n’est plus visible : nous sommes revenus au commit précédent de notre historique.</p>
 <p>Pour revenir au dernier commit effectué, nous pouvons procéder de la même façon en copiant l’identifiant du commit et en utilisant la commande <code>git checkout &lt;commit_id&gt; .</code>. Nous pouvons également utiliser la commande <code>git reset --hard HEAD</code>. Cette commande change l’emplacement et nous replace au niveau du commit le plus récent (imaginez que vos différents commits sont représentés pas des noeuds le long d’un segment).</p>
+</section>
+<section id="créer-une-branche" class="level3">
+<h3 class="anchored" data-anchor-id="créer-une-branche">Créer une branche</h3>
+</section>
 <section id="paramétrer-rstudio" class="level3">
 <h3 class="anchored" data-anchor-id="paramétrer-rstudio">Paramétrer RStudio</h3>
 <p>Ouvrez une session dans RStudio, puis cliquez sur <em>Tools</em> &gt; <em>Global Options</em> &gt; <em>Git/SVN</em>.</p>

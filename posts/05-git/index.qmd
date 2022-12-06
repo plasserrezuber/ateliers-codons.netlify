@@ -81,6 +81,10 @@ Dans votre session RStudio, ouvrez un *terminal* :
 git --version
 ```
 
+<br>
+
+### Paramétrer git
+
 Dans un premier temps, nous allons paramétrer *git* en renseignant un nom d'utilisateur et un e-mail qui seront utilisés pour nous identifier dans l'historique (cela nous permettra si nous travaillons à plusieurs sur un même projet de savoir qui a fait quoi). Dans la suite du turoriel nous verrons comment connecter RStudio à GitLab, nous allons donc utiliser nos identifiants LDAP : 
 
 ```{r config git, eval=FALSE}
@@ -94,6 +98,10 @@ Assurons-nous que ces paramètres ont bien été pris en compte :
 git config --global --list
 ```
 
+<br>
+
+### Initialiser git
+
 Pour l'instant, notre répertoire de travail (le projet RStudio) n'est pas versionné. Il nous faut pour cela associer un répertoire git à notre répertoire de travail, en **initialisant** git :
 
 ```{r, git cmd 2, eval=FALSE}
@@ -105,6 +113,17 @@ Assurons-nous que le répertoire *git* a bien été créé. La commande `ls` per
 ```{r, git cmd 3, eval=FALSE}
 ls -la
 ```
+
+### Ignorer des fichiers
+
+Parmi les fichiers et répertoires listés ci-dessus, le répertoire `.Rproj.user` n'a pas besoin d'être versionné. Nous allons pour cela ajouter à notre répertoire de travail un fichier dans lequel nous pourrons lister les fichiers et répertoires que git devra ignorer.
+Créons un fichier texte basique en cliquant sur *File > New File > Text File*. Sauvegardons ce fichier à la racine de notre répertoire de travail en le nommant `.gitignore`.
+Ajoutons une ligne à ce fichier comme ci-dessous : 
+
+![](img/git_cmd_10.png)
+
+<br>
+
 
 Vérifions l'état dans lequel notre répertoire se trouve :
 
@@ -126,16 +145,23 @@ Le terminal affiche plusieurs informations :
 
 -   *use "git add" to track* : pour figer l'état de ces fichiers et tracer l'historique des modifications, nous utiliserons la commande `git add`.
 
+Pour afficher également les fichiers ignorés, nous utilisons la commande `git status --ignored`.
+
 <br>
 
-Ajoutons nos deux fichiers, soit en précisant leurs noms, soit en utilisant le symbole `*` (pour ajouter tous les fichiers présents dans notre répertoire de travail) :
+### git add
+
+Ajoutons nos deux fichiers, soit en précisant leurs noms, soit en utilisant le symbole `*` (pour ajouter tous les fichiers présents dans notre répertoire de travail) ou encore un point `.` (pour ajouter le répertoire actuel) :
 
 ```{r, git cmd 5, eval=FALSE}
 # Ajouter les fichiers un a un
-git add .Rproj.user/ tutoriel_git.Rproj
+git add .gitignore tutoriel_git.Rproj
 
 # Ajouter tous les fichiers du repertoire de travail
 git add *
+  
+# Ajouter le répertoire actuel
+git add .
 ```
 
 Affichons l'état de notre répertoire à l'aide de la commande `git status`. Nous pouvons remarquer que les noms des fichiers ajoutés apparaissent en vert.
@@ -165,6 +191,8 @@ L'argument `-r` permet de supprimer de façon récursive un dossier.
 :::
 
 <br>
+
+### git commit
 
 Nous allons maintenant figer l'état de notre répertoire de travail à l'aide de la commande `git commit -m ...`. Un commit est toujours associé à un message (`-m`) à écrire entre guillemets (`"message"`) pour préciser ce que nous faisons. Soyez le plus précis possible dans vos messages de commits, cela vous permettra de vous y retrouver dans l'historique des modifications !
 
@@ -218,6 +246,10 @@ git add README.md
 git commit -m "ajout d'une ligne de texte dans le fichier README.md"
 ```
 
+<br>
+
+### Naviguer dans les commits
+
 Affichons à nouveau l'historique avec `git log`.
 
 Nous allons revenir au commit précédent dans notre historique. Pour cela, nous copions l'identifiant unique du commit auquel nous souhaitons revenir : 
@@ -241,6 +273,8 @@ N'oubliez pas le point à la fin de la ligne de commande !
 Nous pouvons remarquer que dans notre fichier `README.md`, la ligne que nous avions ajoutée n'est plus visible : nous sommes revenus au commit précédent de notre historique.
 
 Pour revenir au dernier commit effectué, nous pouvons procéder de la même façon en copiant l'identifiant du commit et en utilisant la commande `git checkout <commit_id> .`. Nous pouvons également utiliser la commande `git reset --hard HEAD`. Cette commande change l'emplacement et nous replace au niveau du commit le plus récent (imaginez que vos différents commits sont représentés pas des noeuds le long d'un segment).
+
+### Créer une branche
 
 
 ### Paramétrer RStudio
