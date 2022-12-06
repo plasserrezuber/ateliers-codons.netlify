@@ -227,26 +227,21 @@ Nous allons revenir au commit précédent dans notre historique. Pour cela, nous
 Dans le terminal, nous tapons la commande suivante (en collant l'identifiant du commit à la place de *commit_id*) : 
 
 ```{r, git cmd 10, eval=FALSE}
-git checkout commit_id
+git checkout <commit_id> .
 ```
+
+::: {.callout-caution icon="true"}
+## git checkout <commit_id> .
+
+N'oubliez pas le point à la fin de la ligne de commande !
+:::
+
+<br>
 
 Nous pouvons remarquer que dans notre fichier `README.md`, la ligne que nous avions ajoutée n'est plus visible : nous sommes revenus au commit précédent de notre historique.
 
-Git a ajouté une branche au niveau du précédent commit, et nous nous trouvons à présent sur cette branche. Pour le vérifier, nous pouvons taper la commande `git branch` dans le terminal : 
+Pour revenir au dernier commit effectué, nous pouvons procéder de la même façon en copiant l'identifiant du commit et en utilisant la commande `git checkout <commit_id> .`. Nous pouvons également utiliser la commande `git reset --hard HEAD`. Cette commande change l'emplacement et nous replace au niveau du commit le plus récent (imaginez que vos différents commits sont représentés pas des noeuds le long d'un segment).
 
-![](img/git_cmd_08.png)
-
-Nous voyons qu'il existe maintenant deux branches : 
-- *(HEAD detached at #####)* : nouvelle branche au niveau du commit précédent  
-- *master* : la branche principale
-
-Si nous tapons la commande `git log`, nous voyons qu'il n'y a que deux commits dans l'historique (nous sommes revenus un commit en arrière).
-
-Ajoutons une ligne de texte dans le fichier `README.md` sur cette nouvelle branche : 
-
-![](img/git_cmd_09.png)
-
-Sauvegardons le fichier et effectuons un `add` puis un `commit`.
 
 ### Paramétrer RStudio
 
