@@ -198,6 +198,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#premiers-pas-avec-git" id="toc-premiers-pas-avec-git" class="nav-link" data-scroll-target="#premiers-pas-avec-git">Premiers pas avec git</a>
   <ul class="collapse">
   <li><a href="#en-ligne-de-commande" id="toc-en-ligne-de-commande" class="nav-link" data-scroll-target="#en-ligne-de-commande">En ligne de commande</a></li>
+  <li><a href="#en-clique-bouton" id="toc-en-clique-bouton" class="nav-link" data-scroll-target="#en-clique-bouton">En “clique-bouton”</a></li>
   </ul></li>
   <li><a href="#de-gitlab-vers-rstudio" id="toc-de-gitlab-vers-rstudio" class="nav-link" data-scroll-target="#de-gitlab-vers-rstudio">De GitLab vers RStudio</a>
   <ul class="collapse">
@@ -474,6 +475,18 @@ Il nous incombe de choisir quelle version conservée : nous allons supprimer les
 <p>En affichant l’historique avec <code>git log</code> nous voyons maintenant l’ensemble des commits effectués sur les deux branches.</p>
 <p><img src="img/git_cmd_18.png" class="img-fluid"></p>
 <p>Nous pouvons maintenant supprimer la branche <em>dev</em> : <code>git branch -d dev</code></p>
+</section>
+</section>
+<section id="en-clique-bouton" class="level2">
+<h2 class="anchored" data-anchor-id="en-clique-bouton">En “clique-bouton”</h2>
+<section id="initialiser-git-1" class="level3">
+<h3 class="anchored" data-anchor-id="initialiser-git-1">Initialiser git</h3>
+<p>Créons un nouveau RStudio pour refaire ce que nous avons fait en ligne de commande, mais cette fois-ci à l’aide de l’interface graphique de RStudio.</p>
+<p>Pour initialiser git, cliquons sur <em>Tools &gt; Project Options</em>, puis dans le menu <em>Git/SVN</em> sélectionnons <em>Git</em> :</p>
+<p><img src="img/git_ide_01.png" class="img-fluid"></p>
+<p>Dans les fenêtres qui s’ouvrent, cliquons sur <em>Yes</em>.</p>
+<p>RStudio redémarre, et nous pouvons remarquer la présence d’un onglet <em>Git</em> dans notre espace de travail. En cliquant dessus, nous pouvons voir qu’un fichier <code>.gitignore</code> a été ajouté automatiquement :</p>
+<p><img src="img/git_ide_02.png" class="img-fluid"> <img src="img/git_ide_03.png" class="img-fluid"> ### Ajouter des fichiers</p>
 </section>
 <section id="paramétrer-rstudio" class="level3">
 <h3 class="anchored" data-anchor-id="paramétrer-rstudio">Paramétrer RStudio</h3>

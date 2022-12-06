@@ -355,6 +355,23 @@ En affichant l'historique avec `git log` nous voyons maintenant l'ensemble des c
 
 Nous pouvons maintenant supprimer la branche *dev* : `git branch -d dev`
 
+## En "clique-bouton"
+
+### Initialiser git
+
+Créons un nouveau RStudio pour refaire ce que nous avons fait en ligne de commande, mais cette fois-ci à l'aide de l'interface graphique de RStudio.
+
+Pour initialiser git, cliquons sur *Tools > Project Options*, puis dans le menu *Git/SVN* sélectionnons *Git* : 
+
+![](img/git_ide_01.png)
+
+Dans les fenêtres qui s'ouvrent, cliquons sur *Yes*.
+
+RStudio redémarre, et nous pouvons remarquer la présence d'un onglet *Git* dans notre espace de travail. En cliquant dessus, nous pouvons voir qu'un fichier `.gitignore` a été ajouté automatiquement : 
+
+![](img/git_ide_02.png)
+![](img/git_ide_03.png)
+### Ajouter des fichiers
 
 ### Paramétrer RStudio
 
