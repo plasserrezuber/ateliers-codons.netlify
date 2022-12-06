@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.32">
+<meta name="generator" content="quarto-1.0.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Jonathan Kitt">
-<meta name="dcterms.date" content="2022-11-21">
+<meta name="dcterms.date" content="2022-12-12">
 
 <title>Ateliers codons - Introduction à GitLab</title>
 <style>
@@ -175,7 +175,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">November 21, 2022</p>
+        <p class="date">December 12, 2022</p>
       </div>
     </div>
       
@@ -192,8 +192,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
   <ul class="collapse">
-  <li><a href="#git-gitlab-et-suivi-de-version" id="toc-git-gitlab-et-suivi-de-version" class="nav-link" data-scroll-target="#git-gitlab-et-suivi-de-version">Git, GitLab et suivi de version</a></li>
-  <li><a href="#pré-requis" id="toc-pré-requis" class="nav-link" data-scroll-target="#pré-requis">Pré-requis</a></li>
+  <li><a href="#git-github-et-gitlab" id="toc-git-github-et-gitlab" class="nav-link" data-scroll-target="#git-github-et-gitlab">Git, GitHub et GitLab</a></li>
+  <li><a href="#installer-git" id="toc-installer-git" class="nav-link" data-scroll-target="#installer-git">Installer git</a></li>
+  </ul></li>
+  <li><a href="#premiers-pas-avec-git" id="toc-premiers-pas-avec-git" class="nav-link" data-scroll-target="#premiers-pas-avec-git">Premiers pas avec git</a>
+  <ul class="collapse">
+  <li><a href="#en-ligne-de-commande" id="toc-en-ligne-de-commande" class="nav-link" data-scroll-target="#en-ligne-de-commande">En ligne de commande</a></li>
   </ul></li>
   <li><a href="#de-gitlab-vers-rstudio" id="toc-de-gitlab-vers-rstudio" class="nav-link" data-scroll-target="#de-gitlab-vers-rstudio">De GitLab vers RStudio</a>
   <ul class="collapse">
@@ -219,22 +223,119 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
-<section id="git-gitlab-et-suivi-de-version" class="level2">
-<h2 class="anchored" data-anchor-id="git-gitlab-et-suivi-de-version">Git, GitLab et suivi de version</h2>
+<section id="git-github-et-gitlab" class="level2">
+<h2 class="anchored" data-anchor-id="git-github-et-gitlab">Git, GitHub et GitLab</h2>
+<p>Lorsqu’on travaille sur des données ou qu’on rédige un rapport, on peut rapidement se retrouver avec beaucoup de fichiers aux noms plus ou moins explicites : <code>fichier.txt</code>, <code>fichier2.txt</code>, <code>fichier2_modifs.txt</code>, <code>fichier2_version1.txt</code>, … Difficile de s’y retrouver !</p>
+<p><img src="img/git_notfinal.gif" class="img-fluid"></p>
+<p><strong>Git</strong> est un <em>gestionnaire de versions</em>, gratuit et open source. Il permet de garder une trace de toutes les modifications apportées à un fichier.</p>
+<p>Git nous permet de “figer” l’état de notre répertoire de travail à un instant donné, à l’aide de <strong>commits</strong>. Nous pourrons ainsi naviguer dans l’historique des modifications d’un fichier, savoir quand une modification a été faite et en quoi consiste cette modification. Nous pourrons revenir à un état antérieur de notre fichier en remontant dans l’historique des modifications.</p>
+<p>Git nous permet également de travailler sur des <strong>branches</strong>. La branche principale sur laquelle se situe notre travail “propre” se nomme la branche <strong>master</strong>. Nous pouvons créer une seconde branche pour effectuer des tests, faire du développement, tout en laissant intacte la branche master. Nous pourrons inclure les modifications apportées sur la seconde branche dans la branche master en les fusionnant : c’est ce qu’on appelle un <strong>merge</strong>.</p>
+<p>Git nous permet également de faire une sauvegarde de nos modifications sur un serveur distant : <strong>Github</strong> ou <strong>Gitlab</strong>. Ces outils permettent de travailler à plusieurs sur un même projet, de synchroniser nos répertoires locaux et distants, de partager notre code, …</p>
 </section>
-<section id="pré-requis" class="level2">
-<h2 class="anchored" data-anchor-id="pré-requis">Pré-requis</h2>
-<section id="installer-git" class="level3">
-<h3 class="anchored" data-anchor-id="installer-git">Installer git</h3>
-<p>Sur le site de <a href="https://git-scm.com/downloads">git</a>, téléchargez la dernière version pour votre système d’exploitation.</p>
+<section id="installer-git" class="level2">
+<h2 class="anchored" data-anchor-id="installer-git">Installer git</h2>
+<section id="windows" class="level3">
+<h3 class="anchored" data-anchor-id="windows">Windows</h3>
+<p>Sur le site de <a href="https://gitforwindows.org/">git</a>, téléchargez la dernière version de git.</p>
 <p><img src="img/git_01.png" class="img-fluid" style="width:100.0%"></p>
-<p><img src="img/git_02.png" class="img-fluid" style="width:100.0%"></p>
 <p>Double-cliquez sur l’exécutable <code>Git-xxxx.exe</code> :</p>
 <p><img src="img/git_03.png" class="img-fluid" style="width:100.0%"></p>
 <p>Laissez les paramètres par défaut proposés par l’assistant d’installation. Dans le menu <em>Choosing the default editor used by Git</em>, vous pouvez laisser l’éditeur de texte proposé par défaut (Vim) ou choisir l’éditeur de texte que vous avez l’habitude d’utiliser.</p>
 <p><img src="img/git_04.png" class="img-fluid" style="width:50.0%"></p>
 <p>Dans les menus suivants, laissez les paramètres suivants jusqu’à ce que l’installation de <code>git</code> soit complétée.</p>
+<p><br></p>
 </section>
+<section id="linux" class="level3">
+<h3 class="anchored" data-anchor-id="linux">Linux</h3>
+<p>Suivez les instructions sur <a href="https://git-scm.com/download/linux">ce lien</a>.</p>
+<p><br></p>
+</section>
+<section id="macos" class="level3">
+<h3 class="anchored" data-anchor-id="macos">MacOS</h3>
+<p>Suivez les instructions sur <a href="https://git-scm.com/download/mac">ce lien</a>.</p>
+<p><br></p>
+</section>
+</section>
+</section>
+<section id="premiers-pas-avec-git" class="level1">
+<h1>Premiers pas avec git</h1>
+<p>Une fois git installé, ouvrez RStudio et <a href="https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/#créer-un-projet">créez un nouveau projet</a>. Cliquez sur <em>Tools &gt; Global Options &gt; Git/SVN</em>. Assurez-vous que la case <em>Enable version control interface for RStudio projects</em> est cochée, et que le chemin vers l’exécutable <em>git</em> est bien renseigné. Si ce n’est pas le cas, cliquez sur <em>Browse</em> et indiquez-le. Validez en cliquant sur <em>Apply</em>.</p>
+<p><img src="img/git_05.png" class="img-fluid" style="width:50.0%"></p>
+<p><br></p>
+<section id="en-ligne-de-commande" class="level2">
+<h2 class="anchored" data-anchor-id="en-ligne-de-commande">En ligne de commande</h2>
+<p>Dans votre session RStudio, ouvrez un <em>terminal</em> :</p>
+<p><img src="img/git_cmd_01.png" class="img-fluid" style="width:50.0%"></p>
+<p><br> Tapez la ligne de commande suivante pour afficher la version de <em>git</em> installée sur votre ordinateur :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>git <span class="sc">--</span>version</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Pour l’instant, notre répertoire de travail (le projet RStudio) n’est pas versionné. Il nous faut pour cela associer un répertoire git à notre répertoire de travail, en <strong>initialisant</strong> git :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>git init</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Assurons-nous que le répertoire <em>git</em> a bien été créé. La commande <code>ls</code> permet de lister les fichiers du répertoire actuel, et les options <code>-la</code> permettent d’afficher le détail (droits, date, …) et d’inclure les dossiers cachés (dont le nom commence par un point <code>.</code>)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ls <span class="sc">-</span>la</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Vérifions l’état dans lequel notre répertoire se trouve :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>git status</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><img src="img/git_cmd_02.png" class="img-fluid" style="width:50.0%"></p>
+<p>Le terminal affiche plusieurs informations :</p>
+<ul>
+<li><p><em>On branch master</em> : nous nous trouvons sur la branche principale (et la seule pour le moment)</p></li>
+<li><p><em>No commits yet</em> : nous n’avons pas encore figé l’état de notre répertoire à l’aide d’un commit</p></li>
+<li><p><em>Untracked files</em> : des fichiers non versionnés sont présents dans le répertoire de travail</p></li>
+<li><p><em>nothing added to commit but untracked files present</em> : redite de la ligne précédente</p></li>
+<li><p><em>use “git add” to track</em> : pour figer l’état de ces fichiers et tracer l’historique des modifications, nous utiliserons la commande <code>git add</code>.</p></li>
+</ul>
+<p><br></p>
+<p>Ajoutons nos deux fichiers, soit en précisant leurs noms, soit en utilisant le symbole <code>*</code> (pour ajouter tous les fichiers présents dans notre répertoire de travail) :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajouter les fichiers un a un</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>git add .Rproj.user<span class="sc">/</span> tutoriel_git.Rproj</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajouter tous les fichiers du repertoire de travail</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>git add <span class="sc">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Affichons l’état de notre répertoire à l’aide de la commande <code>git status</code>. Nous pouvons remarquer que les noms des fichiers ajoutés apparaissent en vert.</p>
+<p>De nouvelles informations sont affichées dans le terminal :</p>
+<ul>
+<li><p><em>No commits yet</em> : les fichiers ont été ajoutés mais leur état n’a pas encore été figé par un commit</p></li>
+<li><p><em>Changes to be commited</em> : liste des fichiers ajoutés mais pas encore figés</p></li>
+</ul>
+<p>Nous voyons également la commande à utiliser pour annuler l’ajout des fichiers :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Annuler l'ajout de fichiers un par un</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>git rm <span class="sc">-</span>r <span class="sc">--</span>cached .Rproj.user<span class="sc">/</span> tutoriel_git.Rproj</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Annuler l'ajout de tous les fichiers du repertoire de travail</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>git rm <span class="sc">--</span>cached <span class="sc">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+rm -r
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>L’argument <code>-r</code> permet de supprimer de façon récursive un dossier.</p>
+</div>
+</div>
+<p><br></p>
+<p>Nous allons maintenant figer l’état de notre répertoire de travail à l’aide de la commande <code>git commit -m ...</code>. Un commit est toujours associé à un message (<code>-m</code>) à écrire entre guillemets (<code>"message"</code>) pour préciser ce que nous faisons. Soyez le plus précis possible dans vos messages de commits, cela vous permettra de vous y retrouver dans l’historique des modifications !</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/git_commit_2x.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Dessin de <span class="citation" data-cites="xkcd">@xkcd</span></figcaption><p></p>
+</figure>
+</div>
 <section id="paramétrer-rstudio" class="level3">
 <h3 class="anchored" data-anchor-id="paramétrer-rstudio">Paramétrer RStudio</h3>
 <p>Ouvrez une session dans RStudio, puis cliquez sur <em>Tools</em> &gt; <em>Global Options</em> &gt; <em>Git/SVN</em>.</p>
@@ -401,7 +502,7 @@ Le statut des fichiers
 <p><br></p>
 <p>Nous allons modifier le fichier <code>README.md</code> : ouvrons-le en cliquant dessus dans le panneau de navigation. Le fichier s’ouvre dans le panneau <em>scripts</em>. Remplaçons le texte par la ligne suivante :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Connecter RStudio à GitLab</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Connecter RStudio à GitLab</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Sauvegardons le fichier (<strong>Ctrl + S</strong> ou icône disquette) : le fichier apparaît dans l’onglet <em>git</em> de notre espace de travail avec une icône <code>M</code> bleue, indiquant qu’il a été modifié.</p>
 <p>Nous allons effectuer les mêmes opérations que ci-dessus pour exporter nos modifications vers la branche distante du répertoire sur GitLab : <em>Commit</em> &gt; <em>Pull</em> &gt; <em>Push</em>.</p>
