@@ -81,6 +81,19 @@ Dans votre session RStudio, ouvrez un *terminal* :
 git --version
 ```
 
+Dans un premier temps, nous allons paramétrer *git* en renseignant un nom d'utilisateur et un e-mail qui seront utilisés pour nous identifier dans l'historique (cela nous permettra si nous travaillons à plusieurs sur un même projet de savoir qui a fait quoi). Dans la suite du turoriel nous verrons comment connecter RStudio à GitLab, nous allons donc utiliser nos identifiants LDAP : 
+
+```{r config git, eval=FALSE}
+git config --global --user.name "prenom.nom"  
+git config --global --user.email prenom.nom@inrae.fr
+```
+
+Assurons-nous que ces paramètres ont bien été pris en compte : 
+
+```{r check config git, eval=FALSE}
+git config --global --list
+```
+
 Pour l'instant, notre répertoire de travail (le projet RStudio) n'est pas versionné. Il nous faut pour cela associer un répertoire git à notre répertoire de travail, en **initialisant** git :
 
 ```{r, git cmd 2, eval=FALSE}
@@ -156,6 +169,48 @@ L'argument `-r` permet de supprimer de façon récursive un dossier.
 Nous allons maintenant figer l'état de notre répertoire de travail à l'aide de la commande `git commit -m ...`. Un commit est toujours associé à un message (`-m`) à écrire entre guillemets (`"message"`) pour préciser ce que nous faisons. Soyez le plus précis possible dans vos messages de commits, cela vous permettra de vous y retrouver dans l'historique des modifications !
 
 ![Dessin de @xkcd](img/git_commit_2x.png)
+
+<br>
+
+Nous effectuons le premier commit à l'aide de la commande suivante : 
+
+```{r, git cmd 7, eval=FALSE}
+git commit -m "premier commit"
+```
+
+![](img/git_cmd_03.png)
+
+Si nous tapons `git status` dans le terminal, celui-ci affiche *nothing to commit, working tree clean*. Cela indique que notre commit a bien été effectué.
+
+La commande `git log` permet d'afficher l'historique de notre répertoire :
+
+![](img/git_cmd_04.png)
+
+- *commit ### (HEAD -> master)* nous donne lidentifiant unique du commit et indique où pointe notre dernier commit (sur la branche master)  
+
+- *auteur* (avec les identifiants renseignés plus haut), *date* et *message* du commit
+
+
+<br>
+
+Ajoutons un fichier README dans notre répertoire : *File > New File > Markdown File*. Ajoutons une ligne et sauvegardons le fichier à la racine de notre répertoire : 
+
+![](img/git_md_01.png)
+
+Nous allons ajouter ce fichier et effectuer un commit : 
+
+```{r, git cmd 8, eval=FALSE}
+git add README.md
+git commit -m "ajout d'un fichier README.md"
+```
+
+Affichons l'historique de nos commits à l'aide de la commande `git log` : 
+
+![](img/git_cmd_05.png)
+
+
+
+
 
 ### Paramétrer RStudio
 

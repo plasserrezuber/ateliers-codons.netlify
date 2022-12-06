@@ -270,17 +270,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>git <span class="sc">--</span>version</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>Dans un premier temps, nous allons paramétrer <em>git</em> en renseignant un nom d’utilisateur et un e-mail qui seront utilisés pour nous identifier dans l’historique (cela nous permettra si nous travaillons à plusieurs sur un même projet de savoir qui a fait quoi). Dans la suite du turoriel nous verrons comment connecter RStudio à GitLab, nous allons donc utiliser nos identifiants LDAP :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>git config <span class="sc">--</span>global <span class="sc">--</span>user.name <span class="st">"prenom.nom"</span>  </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>git config <span class="sc">--</span>global <span class="sc">--</span>user.email prenom.nom<span class="sc">@</span>inrae.fr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Assurons-nous que ces paramètres ont bien été pris en compte :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>git config <span class="sc">--</span>global <span class="sc">--</span>list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Pour l’instant, notre répertoire de travail (le projet RStudio) n’est pas versionné. Il nous faut pour cela associer un répertoire git à notre répertoire de travail, en <strong>initialisant</strong> git :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>git init</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>git init</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Assurons-nous que le répertoire <em>git</em> a bien été créé. La commande <code>ls</code> permet de lister les fichiers du répertoire actuel, et les options <code>-la</code> permettent d’afficher le détail (droits, date, …) et d’inclure les dossiers cachés (dont le nom commence par un point <code>.</code>)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ls <span class="sc">-</span>la</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ls <span class="sc">-</span>la</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Vérifions l’état dans lequel notre répertoire se trouve :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>git status</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>git status</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><img src="img/git_cmd_02.png" class="img-fluid" style="width:50.0%"></p>
 <p>Le terminal affiche plusieurs informations :</p>
@@ -294,11 +303,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><br></p>
 <p>Ajoutons nos deux fichiers, soit en précisant leurs noms, soit en utilisant le symbole <code>*</code> (pour ajouter tous les fichiers présents dans notre répertoire de travail) :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajouter les fichiers un a un</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>git add .Rproj.user<span class="sc">/</span> tutoriel_git.Rproj</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajouter tous les fichiers du repertoire de travail</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>git add <span class="sc">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajouter les fichiers un a un</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>git add .Rproj.user<span class="sc">/</span> tutoriel_git.Rproj</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajouter tous les fichiers du repertoire de travail</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>git add <span class="sc">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Affichons l’état de notre répertoire à l’aide de la commande <code>git status</code>. Nous pouvons remarquer que les noms des fichiers ajoutés apparaissent en vert.</p>
 <p>De nouvelles informations sont affichées dans le terminal :</p>
@@ -308,11 +317,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>Nous voyons également la commande à utiliser pour annuler l’ajout des fichiers :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Annuler l'ajout de fichiers un par un</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>git rm <span class="sc">-</span>r <span class="sc">--</span>cached .Rproj.user<span class="sc">/</span> tutoriel_git.Rproj</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Annuler l'ajout de tous les fichiers du repertoire de travail</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>git rm <span class="sc">--</span>cached <span class="sc">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Annuler l'ajout de fichiers un par un</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>git rm <span class="sc">-</span>r <span class="sc">--</span>cached .Rproj.user<span class="sc">/</span> tutoriel_git.Rproj</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Annuler l'ajout de tous les fichiers du repertoire de travail</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>git rm <span class="sc">--</span>cached <span class="sc">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 <div class="callout-note callout callout-style-default callout-captioned">
@@ -336,6 +345,29 @@ rm -r
 <p></p><figcaption class="figure-caption">Dessin de <span class="citation" data-cites="xkcd">@xkcd</span></figcaption><p></p>
 </figure>
 </div>
+<p><br></p>
+<p>Nous effectuons le premier commit à l’aide de la commande suivante :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>git commit <span class="sc">-</span>m <span class="st">"premier commit"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><img src="img/git_cmd_03.png" class="img-fluid"></p>
+<p>Si nous tapons <code>git status</code> dans le terminal, celui-ci affiche <em>nothing to commit, working tree clean</em>. Cela indique que notre commit a bien été effectué.</p>
+<p>La commande <code>git log</code> permet d’afficher l’historique de notre répertoire :</p>
+<p><img src="img/git_cmd_04.png" class="img-fluid"></p>
+<ul>
+<li><p><em>commit ### (HEAD -&gt; master)</em> nous donne lidentifiant unique du commit et indique où pointe notre dernier commit (sur la branche master)</p></li>
+<li><p><em>auteur</em> (avec les identifiants renseignés plus haut), <em>date</em> et <em>message</em> du commit</p></li>
+</ul>
+<p><br></p>
+<p>Ajoutons un fichier README dans notre répertoire : <em>File &gt; New File &gt; Markdown File</em>. Ajoutons une ligne et sauvegardons le fichier à la racine de notre répertoire :</p>
+<p><img src="img/git_md_01.png" class="img-fluid"></p>
+<p>Nous allons ajouter ce fichier et effectuer un commit :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>git add README.md</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>git commit <span class="sc">-</span>m <span class="st">"ajout d'un fichier README.md"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Affichons l’historique de nos commits à l’aide de la commande <code>git log</code> :</p>
+<p><img src="img/git_cmd_05.png" class="img-fluid"></p>
 <section id="paramétrer-rstudio" class="level3">
 <h3 class="anchored" data-anchor-id="paramétrer-rstudio">Paramétrer RStudio</h3>
 <p>Ouvrez une session dans RStudio, puis cliquez sur <em>Tools</em> &gt; <em>Global Options</em> &gt; <em>Git/SVN</em>.</p>
@@ -502,7 +534,7 @@ Le statut des fichiers
 <p><br></p>
 <p>Nous allons modifier le fichier <code>README.md</code> : ouvrons-le en cliquant dessus dans le panneau de navigation. Le fichier s’ouvre dans le panneau <em>scripts</em>. Remplaçons le texte par la ligne suivante :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Connecter RStudio à GitLab</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Connecter RStudio à GitLab</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Sauvegardons le fichier (<strong>Ctrl + S</strong> ou icône disquette) : le fichier apparaît dans l’onglet <em>git</em> de notre espace de travail avec une icône <code>M</code> bleue, indiquant qu’il a été modifié.</p>
 <p>Nous allons effectuer les mêmes opérations que ci-dessus pour exporter nos modifications vers la branche distante du répertoire sur GitLab : <em>Commit</em> &gt; <em>Pull</em> &gt; <em>Push</em>.</p>
