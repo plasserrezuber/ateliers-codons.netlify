@@ -274,7 +274,86 @@ Nous pouvons remarquer que dans notre fichier `README.md`, la ligne que nous avi
 
 Pour revenir au dernier commit effectué, nous pouvons procéder de la même façon en copiant l'identifiant du commit et en utilisant la commande `git checkout <commit_id> .`. Nous pouvons également utiliser la commande `git reset --hard HEAD`. Cette commande change l'emplacement et nous replace au niveau du commit le plus récent (imaginez que vos différents commits sont représentés pas des noeuds le long d'un segment).
 
+<br>
+
 ### Créer une branche
+
+Les branches nous permettent de travailler sur nos fichiers sans impacter la branche principale qui contient notre répertoire "propre". 
+
+Créons une branche que nous appelons "dev" : `git branch dev`.
+
+Pour afficher les différentes branches, utilisons la commande `git branch` : 
+![](img/git_cmd_11.png).
+
+L'astérisque indique la branche sur laquelle nous nous situons, pour l'instant la branche *master*.
+
+Pour changer de branche, utilisons la commande `git switch <nom-de-la-branche>`. Exécutons les commandes suivantes : 
+
+![](img/git_cmd_12.png)
+
+Nous nous situons bien sur la branche *dev*.
+
+Pour supprimer une branche, nous utilisons la commande `git branch -d <nom-de-la-branche>`. Avant de pouvoir supprimer la branche *dev*, il faut se placer sur la branche *master* : 
+
+![](img/git_cmd_13.png)
+
+La commande `git checkout -b <nom-de-la-nouvelle-branche>` permet de créer une branche et de s'y placer. Cette fonction permet également de changer de branche : `git checkout master` par exemple.
+
+Nous pouvons créer une nouvelle branche à partir d'un commit précis, en précisant l'identifiant du commit : `git checkout -b <nom-de-la-branche> <commit_id>`.
+
+Modifions le fichier README.md sur la branche dev : 
+
+![](img/git_cmd_14.png)
+
+Effectuons un `add + commit` sur cette branche dev : 
+```{r, git cmd 11, eval=FALSE}
+git add README.md
+git commit -m "modification du fichier README.md sur la branche dev"
+```
+
+En naviguant entre les branches à l'aide de `git checkout` (ou `git switch`) pour afficher l'historique avec `git log`, nous remarquons que l'historique varie en fonction de la branche sur laquelle on se trouve.
+
+### Fusionner les branches et résoudre les conflits
+
+Nous avons terminé de travailler sur la branche dev, nous aimerions maintenant rappatrier les modifications apportées sur cette branche sur notre branche principale, en "fusionnant" les deux branches.
+
+Commençons par nous placer sur la branche *master* : `git checkout master`
+
+Pour fusionner la branche dev sur la branche master, nous utilisons la commande `git merge` : 
+
+![](img/git_cmd_15.png)
+
+Le terminal nous indique qu'il y a un conflit : le fichier README.md diffère entre les deux branches, et nous sommes invités à résoudre ce conflit avant de fusionner les branches.
+
+Regardons à quoi ressemble notre fichier README.md : 
+
+![](img/git_cmd_16.png)
+
+- Les marqueurs de conflit indiquent le début (`<<<<`) et la fin (`>>>`) du conflit  
+
+- Les noms des branches sont indiqués à côté de ces marqueurs de conflit  
+
+- L'indicateur `=====` montre la séparation entre les modifications des deux branches  
+Il nous incombe de choisir quelle version conservée : nous allons supprimer les indicateurs `<<<`, `>>>` et `===` et ne garder que le texte présent dans le fichier de la branche *dev*.
+
+Vérifions l'état de notre branche *master* à l'aide de la commande `git status` : 
+
+![](img/git_cmd_17.png)
+
+Les deux branches ne sont pas fusionnées, mais les modifications ont bien été prises en compte.
+
+Ajoutons le fichier `README.md` et effectuons un commit : 
+
+```{r, git cmd 12, eval=FALSE}
+git add README.md
+git commit -m "resolution de conflit entre les branches master et dev"
+```
+
+En affichant l'historique avec `git log` nous voyons maintenant l'ensemble des commits effectués sur les deux branches.
+
+![](img/git_cmd_18.png)
+
+Nous pouvons maintenant supprimer la branche *dev* : `git branch -d dev`
 
 
 ### Paramétrer RStudio

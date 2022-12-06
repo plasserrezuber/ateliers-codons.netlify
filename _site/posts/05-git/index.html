@@ -424,9 +424,56 @@ git checkout <commit_id> .
 <p><br></p>
 <p>Nous pouvons remarquer que dans notre fichier <code>README.md</code>, la ligne que nous avions ajoutée n’est plus visible : nous sommes revenus au commit précédent de notre historique.</p>
 <p>Pour revenir au dernier commit effectué, nous pouvons procéder de la même façon en copiant l’identifiant du commit et en utilisant la commande <code>git checkout &lt;commit_id&gt; .</code>. Nous pouvons également utiliser la commande <code>git reset --hard HEAD</code>. Cette commande change l’emplacement et nous replace au niveau du commit le plus récent (imaginez que vos différents commits sont représentés pas des noeuds le long d’un segment).</p>
+<p><br></p>
 </section>
 <section id="créer-une-branche" class="level3">
 <h3 class="anchored" data-anchor-id="créer-une-branche">Créer une branche</h3>
+<p>Les branches nous permettent de travailler sur nos fichiers sans impacter la branche principale qui contient notre répertoire “propre”.</p>
+<p>Créons une branche que nous appelons “dev” : <code>git branch dev</code>.</p>
+<p>Pour afficher les différentes branches, utilisons la commande <code>git branch</code> : <img src="img/git_cmd_11.png" class="img-fluid">.</p>
+<p>L’astérisque indique la branche sur laquelle nous nous situons, pour l’instant la branche <em>master</em>.</p>
+<p>Pour changer de branche, utilisons la commande <code>git switch &lt;nom-de-la-branche&gt;</code>. Exécutons les commandes suivantes :</p>
+<p><img src="img/git_cmd_12.png" class="img-fluid"></p>
+<p>Nous nous situons bien sur la branche <em>dev</em>.</p>
+<p>Pour supprimer une branche, nous utilisons la commande <code>git branch -d &lt;nom-de-la-branche&gt;</code>. Avant de pouvoir supprimer la branche <em>dev</em>, il faut se placer sur la branche <em>master</em> :</p>
+<p><img src="img/git_cmd_13.png" class="img-fluid"></p>
+<p>La commande <code>git checkout -b &lt;nom-de-la-nouvelle-branche&gt;</code> permet de créer une branche et de s’y placer. Cette fonction permet également de changer de branche : <code>git checkout master</code> par exemple.</p>
+<p>Nous pouvons créer une nouvelle branche à partir d’un commit précis, en précisant l’identifiant du commit : <code>git checkout -b &lt;nom-de-la-branche&gt; &lt;commit_id&gt;</code>.</p>
+<p>Modifions le fichier README.md sur la branche dev :</p>
+<p><img src="img/git_cmd_14.png" class="img-fluid"></p>
+<p>Effectuons un <code>add + commit</code> sur cette branche dev :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>git add README.md</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>git commit <span class="sc">-</span>m <span class="st">"modification du fichier README.md sur la branche dev"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>En naviguant entre les branches à l’aide de <code>git checkout</code> (ou <code>git switch</code>) pour afficher l’historique avec <code>git log</code>, nous remarquons que l’historique varie en fonction de la branche sur laquelle on se trouve.</p>
+</section>
+<section id="fusionner-les-branches-et-résoudre-les-conflits" class="level3">
+<h3 class="anchored" data-anchor-id="fusionner-les-branches-et-résoudre-les-conflits">Fusionner les branches et résoudre les conflits</h3>
+<p>Nous avons terminé de travailler sur la branche dev, nous aimerions maintenant rappatrier les modifications apportées sur cette branche sur notre branche principale, en “fusionnant” les deux branches.</p>
+<p>Commençons par nous placer sur la branche <em>master</em> : <code>git checkout master</code></p>
+<p>Pour fusionner la branche dev sur la branche master, nous utilisons la commande <code>git merge</code> :</p>
+<p><img src="img/git_cmd_15.png" class="img-fluid"></p>
+<p>Le terminal nous indique qu’il y a un conflit : le fichier README.md diffère entre les deux branches, et nous sommes invités à résoudre ce conflit avant de fusionner les branches.</p>
+<p>Regardons à quoi ressemble notre fichier README.md :</p>
+<p><img src="img/git_cmd_16.png" class="img-fluid"></p>
+<ul>
+<li><p>Les marqueurs de conflit indiquent le début (<code>&lt;&lt;&lt;&lt;</code>) et la fin (<code>&gt;&gt;&gt;</code>) du conflit</p></li>
+<li><p>Les noms des branches sont indiqués à côté de ces marqueurs de conflit</p></li>
+<li><p>L’indicateur <code>=====</code> montre la séparation entre les modifications des deux branches<br>
+Il nous incombe de choisir quelle version conservée : nous allons supprimer les indicateurs <code>&lt;&lt;&lt;</code>, <code>&gt;&gt;&gt;</code> et <code>===</code> et ne garder que le texte présent dans le fichier de la branche <em>dev</em>.</p></li>
+</ul>
+<p>Vérifions l’état de notre branche <em>master</em> à l’aide de la commande <code>git status</code> :</p>
+<p><img src="img/git_cmd_17.png" class="img-fluid"></p>
+<p>Les deux branches ne sont pas fusionnées, mais les modifications ont bien été prises en compte.</p>
+<p>Ajoutons le fichier <code>README.md</code> et effectuons un commit :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>git add README.md</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>git commit <span class="sc">-</span>m <span class="st">"resolution de conflit entre les branches master et dev"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>En affichant l’historique avec <code>git log</code> nous voyons maintenant l’ensemble des commits effectués sur les deux branches.</p>
+<p><img src="img/git_cmd_18.png" class="img-fluid"></p>
+<p>Nous pouvons maintenant supprimer la branche <em>dev</em> : <code>git branch -d dev</code></p>
 </section>
 <section id="paramétrer-rstudio" class="level3">
 <h3 class="anchored" data-anchor-id="paramétrer-rstudio">Paramétrer RStudio</h3>
@@ -594,7 +641,7 @@ Le statut des fichiers
 <p><br></p>
 <p>Nous allons modifier le fichier <code>README.md</code> : ouvrons-le en cliquant dessus dans le panneau de navigation. Le fichier s’ouvre dans le panneau <em>scripts</em>. Remplaçons le texte par la ligne suivante :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Connecter RStudio à GitLab</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Connecter RStudio à GitLab</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Sauvegardons le fichier (<strong>Ctrl + S</strong> ou icône disquette) : le fichier apparaît dans l’onglet <em>git</em> de notre espace de travail avec une icône <code>M</code> bleue, indiquant qu’il a été modifié.</p>
 <p>Nous allons effectuer les mêmes opérations que ci-dessus pour exporter nos modifications vers la branche distante du répertoire sur GitLab : <em>Commit</em> &gt; <em>Pull</em> &gt; <em>Push</em>.</p>
