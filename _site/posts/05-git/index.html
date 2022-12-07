@@ -486,7 +486,51 @@ Il nous incombe de choisir quelle version conservée : nous allons supprimer les
 <p><img src="img/git_ide_01.png" class="img-fluid"></p>
 <p>Dans les fenêtres qui s’ouvrent, cliquons sur <em>Yes</em>.</p>
 <p>RStudio redémarre, et nous pouvons remarquer la présence d’un onglet <em>Git</em> dans notre espace de travail. En cliquant dessus, nous pouvons voir qu’un fichier <code>.gitignore</code> a été ajouté automatiquement :</p>
-<p><img src="img/git_ide_02.png" class="img-fluid"> <img src="img/git_ide_03.png" class="img-fluid"> ### Ajouter des fichiers</p>
+<p><img src="img/git_ide_02.png" class="img-fluid"><br>
+<img src="img/git_ide_03.png" class="img-fluid"></p>
+<p><br></p>
+</section>
+<section id="ajouter-des-fichiers" class="level3">
+<h3 class="anchored" data-anchor-id="ajouter-des-fichiers">Ajouter des fichiers</h3>
+<p>Pour ajouter des fichiers (ce que nous avons fait avec <code>git add</code>), cochez-les dans l’onglet git. Leur statut passe de <em>??</em> à <em>A</em> (pour Added).</p>
+<p><img src="img/git_ordi_vide_01.png" class="img-fluid"></p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Sélectionner plusieurs fichiers
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Quand nous travaillons avec beaucoup de fichiers versionnés, nous pouvons tous les sélectionner : cliquons sur le nom d’un des fichiers dans l’onglet git, puis utilisons la combinaison <em>Ctrl + A</em> et enfin cochons la case à côté du premier fichier sur lequel nous avions cliqué.</p>
+</div>
+</div>
+<p>Nous allons maintenant effectuer un <em>commit</em> (<code>git commit -m</code>) : cliquons sur <em>Commit</em>. Dans la fenêtre qui s’ouvre, nous allons écrire le message du commit (ce que nous mettions après <code>-m</code>) et cliquons à nouveau sur <em>Commit</em>.</p>
+<p><img src="img/git_ordi_vide_02.png" class="img-fluid"> En cliquant sur l’icône <em>horloge</em> nous pouvons voir l’historique de nos commits.</p>
+<p><img src="img/git_ordi_vide_03.png" class="img-fluid"></p>
+</section>
+<section id="créer-une-branche-1" class="level3">
+<h3 class="anchored" data-anchor-id="créer-une-branche-1">Créer une branche</h3>
+<p>Nous pouvons créer une nouvelle branche en cliquant sur l’icône à gauche du nom de la branche actuelle, en précisant le nom et en cliquant sur <em>Create</em> :</p>
+<p><img src="img/git_ordi_vide_04.png" class="img-fluid"></p>
+<p>Nous pouvons maintenant naviguer entre les branches directement en cliquant sur leurs noms :</p>
+<p><img src="img/git_ordi_vide_05.png" class="img-fluid"></p>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Limites de l’approche clique-bouton
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Nous ne pourrons pas revenir à un commit précédent, créer une branche à partir d’un commit précis ou résoudre des conflits lors de la fusion de branches dans l’onglet <em>Git</em> de RStudio. Il nous faudra utiliser la ligne de commande.</p>
+</div>
+</div>
+<p><br></p>
 </section>
 <section id="paramétrer-rstudio" class="level3">
 <h3 class="anchored" data-anchor-id="paramétrer-rstudio">Paramétrer RStudio</h3>

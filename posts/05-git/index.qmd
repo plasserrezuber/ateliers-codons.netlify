@@ -364,7 +364,51 @@ Dans les fenêtres qui s'ouvrent, cliquons sur *Yes*.
 
 RStudio redémarre, et nous pouvons remarquer la présence d'un onglet *Git* dans notre espace de travail. En cliquant dessus, nous pouvons voir qu'un fichier `.gitignore` a été ajouté automatiquement :
 
-![](img/git_ide_02.png) ![](img/git_ide_03.png) \### Ajouter des fichiers
+![](img/git_ide_02.png)  
+![](img/git_ide_03.png)  
+
+<br>
+
+### Ajouter des fichiers
+
+Pour ajouter des fichiers (ce que nous avons fait avec `git add`), cochez-les dans l'onglet git. Leur statut passe de *??* à *A* (pour Added).
+
+![](img/git_ordi_vide_01.png)
+
+::: {.callout-tip icon="true"}
+
+## Sélectionner plusieurs fichiers
+
+Quand nous travaillons avec beaucoup de fichiers versionnés, nous pouvons tous les sélectionner : cliquons sur le nom d'un des fichiers dans l'onglet git, puis utilisons la combinaison *Ctrl + A* et enfin cochons la case à côté du premier fichier sur lequel nous avions cliqué.
+
+:::
+
+Nous allons maintenant effectuer un *commit* (`git commit -m`) : cliquons sur *Commit*. Dans la fenêtre qui s'ouvre, nous allons écrire le message du commit (ce que nous mettions après `-m`) et cliquons à nouveau sur *Commit*. 
+
+![](img/git_ordi_vide_02.png)
+En cliquant sur l'icône *horloge* nous pouvons voir l'historique de nos commits.
+
+![](img/git_ordi_vide_03.png)
+
+### Créer une branche
+
+Nous pouvons créer une nouvelle branche en cliquant sur l'icône à gauche du nom de la branche actuelle, en précisant le nom et en cliquant sur *Create* : 
+
+![](img/git_ordi_vide_04.png)
+
+Nous pouvons maintenant naviguer entre les branches directement en cliquant sur leurs noms : 
+
+![](img/git_ordi_vide_05.png)
+
+::: {.callout-important icon="true"}
+
+## Limites de l'approche clique-bouton
+
+Nous ne pourrons pas revenir à un commit précédent, créer une branche à partir d'un commit précis ou résoudre des conflits lors de la fusion de branches dans l'onglet *Git* de RStudio. Il nous faudra utiliser la ligne de commande.
+
+:::
+
+<br>
 
 ### Paramétrer RStudio
 
