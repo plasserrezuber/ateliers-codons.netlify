@@ -85,14 +85,14 @@ git --version
 
 ### Paramétrer git
 
-Dans un premier temps, nous allons paramétrer *git* en renseignant un nom d'utilisateur et un e-mail qui seront utilisés pour nous identifier dans l'historique (cela nous permettra si nous travaillons à plusieurs sur un même projet de savoir qui a fait quoi). Dans la suite du turoriel nous verrons comment connecter RStudio à GitLab, nous allons donc utiliser nos identifiants LDAP : 
+Dans un premier temps, nous allons paramétrer *git* en renseignant un nom d'utilisateur et un e-mail qui seront utilisés pour nous identifier dans l'historique (cela nous permettra si nous travaillons à plusieurs sur un même projet de savoir qui a fait quoi). Dans la suite du turoriel nous verrons comment connecter RStudio à GitLab, nous allons donc utiliser nos identifiants LDAP :
 
 ```{r config git, eval=FALSE}
 git config --global --user.name "prenom.nom"  
 git config --global --user.email prenom.nom@inrae.fr
 ```
 
-Assurons-nous que ces paramètres ont bien été pris en compte : 
+Assurons-nous que ces paramètres ont bien été pris en compte :
 
 ```{r check config git, eval=FALSE}
 git config --global --list
@@ -116,14 +116,11 @@ ls -la
 
 ### Ignorer des fichiers
 
-Parmi les fichiers et répertoires listés ci-dessus, le répertoire `.Rproj.user` n'a pas besoin d'être versionné. Nous allons pour cela ajouter à notre répertoire de travail un fichier dans lequel nous pourrons lister les fichiers et répertoires que git devra ignorer.
-Créons un fichier texte basique en cliquant sur *File > New File > Text File*. Sauvegardons ce fichier à la racine de notre répertoire de travail en le nommant `.gitignore`.
-Ajoutons une ligne à ce fichier comme ci-dessous : 
+Parmi les fichiers et répertoires listés ci-dessus, le répertoire `.Rproj.user` n'a pas besoin d'être versionné. Nous allons pour cela ajouter à notre répertoire de travail un fichier dans lequel nous pourrons lister les fichiers et répertoires que git devra ignorer. Créons un fichier texte basique en cliquant sur *File \> New File \> Text File*. Sauvegardons ce fichier à la racine de notre répertoire de travail en le nommant `.gitignore`. Ajoutons une ligne à ce fichier comme ci-dessous :
 
 ![](img/git_cmd_10.png)
 
 <br>
-
 
 Vérifions l'état dans lequel notre répertoire se trouve :
 
@@ -176,7 +173,7 @@ Nous voyons également la commande à utiliser pour annuler l'ajout des fichiers
 
 ```{r, git cmd 6, eval=FALSE}
 # Annuler l'ajout de fichiers un par un
-git rm -r --cached .Rproj.user/ tutoriel_git.Rproj
+git rm --cached .gitignore tutoriel_git.Rproj
 
 # Annuler l'ajout de tous les fichiers du repertoire de travail
 git rm --cached *
@@ -200,7 +197,7 @@ Nous allons maintenant figer l'état de notre répertoire de travail à l'aide d
 
 <br>
 
-Nous effectuons le premier commit à l'aide de la commande suivante : 
+Nous effectuons le premier commit à l'aide de la commande suivante :
 
 ```{r, git cmd 7, eval=FALSE}
 git commit -m "premier commit"
@@ -214,32 +211,30 @@ La commande `git log` permet d'afficher l'historique de notre répertoire :
 
 ![](img/git_cmd_04.png)
 
-- *commit ### (HEAD -> master)* nous donne lidentifiant unique du commit et indique où pointe notre dernier commit (sur la branche master)  
+-   *commit \### (HEAD -\> master)* nous donne lidentifiant unique du commit et indique où pointe notre dernier commit (sur la branche master)
 
-- *auteur* (avec les identifiants renseignés plus haut), *date* et *message* du commit
-
+-   *auteur* (avec les identifiants renseignés plus haut), *date* et *message* du commit
 
 <br>
 
-Ajoutons un fichier README dans notre répertoire : *File > New File > Markdown File*. Ajoutons une ligne et sauvegardons le fichier à la racine de notre répertoire : 
+Ajoutons un fichier README dans notre répertoire : *File \> New File \> Markdown File*. Ajoutons une ligne et sauvegardons le fichier à la racine de notre répertoire :
 
 ![](img/git_md_01.png)
 
-Nous allons ajouter ce fichier et effectuer un commit : 
+Nous allons ajouter ce fichier et effectuer un commit :
 
 ```{r, git cmd 8, eval=FALSE}
 git add README.md
 git commit -m "ajout d'un fichier README.md"
 ```
 
-Affichons l'historique de nos commits à l'aide de la commande `git log` : 
+Affichons l'historique de nos commits à l'aide de la commande `git log` :
 
 ![](img/git_cmd_05.png)
 
-Ajoutons une ligne de texte dans notre fichier `README.md` et sauvegardons-le : 
+Ajoutons une ligne de texte dans notre fichier `README.md` et sauvegardons-le :
 
-![](img/git_cmd_06.png)
-Tapons les commandes suivantes : 
+![](img/git_cmd_06.png) Tapons les commandes suivantes :
 
 ```{r, git cmd 9, eval=FALSE}
 git add README.md
@@ -252,11 +247,11 @@ git commit -m "ajout d'une ligne de texte dans le fichier README.md"
 
 Affichons à nouveau l'historique avec `git log`.
 
-Nous allons revenir au commit précédent dans notre historique. Pour cela, nous copions l'identifiant unique du commit auquel nous souhaitons revenir : 
+Nous allons revenir au commit précédent dans notre historique. Pour cela, nous copions l'identifiant unique du commit auquel nous souhaitons revenir :
 
 ![](img/git_cmd_07.png)
 
-Dans le terminal, nous tapons la commande suivante (en collant l'identifiant du commit à la place de *commit_id*) : 
+Dans le terminal, nous tapons la commande suivante (en collant l'identifiant du commit à la place de *commit_id*) :
 
 ```{r, git cmd 10, eval=FALSE}
 git checkout <commit_id> .
@@ -278,22 +273,21 @@ Pour revenir au dernier commit effectué, nous pouvons procéder de la même fa�
 
 ### Créer une branche
 
-Les branches nous permettent de travailler sur nos fichiers sans impacter la branche principale qui contient notre répertoire "propre". 
+Les branches nous permettent de travailler sur nos fichiers sans impacter la branche principale qui contient notre répertoire "propre".
 
 Créons une branche que nous appelons "dev" : `git branch dev`.
 
-Pour afficher les différentes branches, utilisons la commande `git branch` : 
-![](img/git_cmd_11.png).
+Pour afficher les différentes branches, utilisons la commande `git branch` : ![](img/git_cmd_11.png).
 
 L'astérisque indique la branche sur laquelle nous nous situons, pour l'instant la branche *master*.
 
-Pour changer de branche, utilisons la commande `git switch <nom-de-la-branche>`. Exécutons les commandes suivantes : 
+Pour changer de branche, utilisons la commande `git switch <nom-de-la-branche>`. Exécutons les commandes suivantes :
 
 ![](img/git_cmd_12.png)
 
 Nous nous situons bien sur la branche *dev*.
 
-Pour supprimer une branche, nous utilisons la commande `git branch -d <nom-de-la-branche>`. Avant de pouvoir supprimer la branche *dev*, il faut se placer sur la branche *master* : 
+Pour supprimer une branche, nous utilisons la commande `git branch -d <nom-de-la-branche>`. Avant de pouvoir supprimer la branche *dev*, il faut se placer sur la branche *master* :
 
 ![](img/git_cmd_13.png)
 
@@ -301,11 +295,12 @@ La commande `git checkout -b <nom-de-la-nouvelle-branche>` permet de créer une 
 
 Nous pouvons créer une nouvelle branche à partir d'un commit précis, en précisant l'identifiant du commit : `git checkout -b <nom-de-la-branche> <commit_id>`.
 
-Modifions le fichier README.md sur la branche dev : 
+Modifions le fichier README.md sur la branche dev :
 
 ![](img/git_cmd_14.png)
 
-Effectuons un `add + commit` sur cette branche dev : 
+Effectuons un `add + commit` sur cette branche dev :
+
 ```{r, git cmd 11, eval=FALSE}
 git add README.md
 git commit -m "modification du fichier README.md sur la branche dev"
@@ -319,30 +314,30 @@ Nous avons terminé de travailler sur la branche dev, nous aimerions maintenant 
 
 Commençons par nous placer sur la branche *master* : `git checkout master`
 
-Pour fusionner la branche dev sur la branche master, nous utilisons la commande `git merge` : 
+Pour fusionner la branche dev sur la branche master, nous utilisons la commande `git merge` :
 
 ![](img/git_cmd_15.png)
 
 Le terminal nous indique qu'il y a un conflit : le fichier README.md diffère entre les deux branches, et nous sommes invités à résoudre ce conflit avant de fusionner les branches.
 
-Regardons à quoi ressemble notre fichier README.md : 
+Regardons à quoi ressemble notre fichier README.md :
 
 ![](img/git_cmd_16.png)
 
-- Les marqueurs de conflit indiquent le début (`<<<<`) et la fin (`>>>`) du conflit  
+-   Les marqueurs de conflit indiquent le début (`<<<<`) et la fin (`>>>`) du conflit
 
-- Les noms des branches sont indiqués à côté de ces marqueurs de conflit  
+-   Les noms des branches sont indiqués à côté de ces marqueurs de conflit
 
-- L'indicateur `=====` montre la séparation entre les modifications des deux branches  
-Il nous incombe de choisir quelle version conservée : nous allons supprimer les indicateurs `<<<`, `>>>` et `===` et ne garder que le texte présent dans le fichier de la branche *dev*.
+-   L'indicateur `=====` montre la séparation entre les modifications des deux branches\
+    Il nous incombe de choisir quelle version conservée : nous allons supprimer les indicateurs `<<<`, `>>>` et `===` et ne garder que le texte présent dans le fichier de la branche *dev*.
 
-Vérifions l'état de notre branche *master* à l'aide de la commande `git status` : 
+Vérifions l'état de notre branche *master* à l'aide de la commande `git status` :
 
 ![](img/git_cmd_17.png)
 
 Les deux branches ne sont pas fusionnées, mais les modifications ont bien été prises en compte.
 
-Ajoutons le fichier `README.md` et effectuons un commit : 
+Ajoutons le fichier `README.md` et effectuons un commit :
 
 ```{r, git cmd 12, eval=FALSE}
 git add README.md
@@ -361,17 +356,15 @@ Nous pouvons maintenant supprimer la branche *dev* : `git branch -d dev`
 
 Créons un nouveau RStudio pour refaire ce que nous avons fait en ligne de commande, mais cette fois-ci à l'aide de l'interface graphique de RStudio.
 
-Pour initialiser git, cliquons sur *Tools > Project Options*, puis dans le menu *Git/SVN* sélectionnons *Git* : 
+Pour initialiser git, cliquons sur *Tools \> Project Options*, puis dans le menu *Git/SVN* sélectionnons *Git* :
 
 ![](img/git_ide_01.png)
 
 Dans les fenêtres qui s'ouvrent, cliquons sur *Yes*.
 
-RStudio redémarre, et nous pouvons remarquer la présence d'un onglet *Git* dans notre espace de travail. En cliquant dessus, nous pouvons voir qu'un fichier `.gitignore` a été ajouté automatiquement : 
+RStudio redémarre, et nous pouvons remarquer la présence d'un onglet *Git* dans notre espace de travail. En cliquant dessus, nous pouvons voir qu'un fichier `.gitignore` a été ajouté automatiquement :
 
-![](img/git_ide_02.png)
-![](img/git_ide_03.png)
-### Ajouter des fichiers
+![](img/git_ide_02.png) ![](img/git_ide_03.png) \### Ajouter des fichiers
 
 ### Paramétrer RStudio
 
