@@ -340,8 +340,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Pour afficher également les fichiers ignorés, utilisez la commande <code>git status --ignored</code>.</p>
 <p><br></p>
 </section>
-<section id="git-add" class="level3">
-<h3 class="anchored" data-anchor-id="git-add"><code>git add</code></h3>
+<section id="ajouter-des-fichiers-git-add" class="level3">
+<h3 class="anchored" data-anchor-id="ajouter-des-fichiers-git-add">Ajouter des fichiers (<code>git add</code>)</h3>
 <p><br></p>
 <p>Pour versionner des fichiers, vous pouvez les ajouter à l’aide de la commande <code>git add</code> :</p>
 <ul>
@@ -391,53 +391,58 @@ rm -r
 </div>
 <p><br></p>
 </section>
-<section id="git-commit" class="level3">
-<h3 class="anchored" data-anchor-id="git-commit"><code>git commit</code></h3>
+<section id="figer-létat-du-répertoire-git-commit" class="level3">
+<h3 class="anchored" data-anchor-id="figer-létat-du-répertoire-git-commit">Figer l’état du répertoire (<code>git commit</code>)</h3>
 <p><br></p>
 <p>Nous allons maintenant figer l’état de notre répertoire de travail à l’aide de la commande <code>git commit -m ...</code>. Un commit est toujours associé à un message (<code>-m</code>) à écrire entre guillemets (<code>"message"</code>) pour préciser ce que nous faisons. Soyez le plus précis possible dans vos messages de commits, cela vous permettra de vous y retrouver dans l’historique des modifications !</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="img/git_commit_2x.png" class="img-fluid figure-img"></p>
+<p><img src="img/git_commit_2x.png" class="img-fluid figure-img" style="width:50.0%"></p>
 <p></p><figcaption class="figure-caption">Dessin de <span class="citation" data-cites="xkcd">@xkcd</span></figcaption><p></p>
 </figure>
 </div>
 <p><br></p>
-<p>Nous effectuons le premier commit à l’aide de la commande suivante :</p>
+<p>Effectuez le premier commit à l’aide de la commande suivante :</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>git commit <span class="sc">-</span>m <span class="st">"premier commit"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><img src="img/git_cmd_03.png" class="img-fluid"></p>
-<p>Si nous tapons <code>git status</code> dans le terminal, celui-ci affiche <em>nothing to commit, working tree clean</em>. Cela indique que notre commit a bien été effectué.</p>
-<p>La commande <code>git log</code> permet d’afficher l’historique de notre répertoire :</p>
+<p>Si vous tapez <code>git status</code> dans le terminal, celui-ci affiche <em>nothing to commit, working tree clean</em>. Cela indique que votre commit a bien été effectué.</p>
+<p><br></p>
+<p>La commande <code>git log</code> permet d’afficher l’historique de votre répertoire :</p>
 <p><img src="img/git_cmd_04.png" class="img-fluid"></p>
 <ul>
-<li><p><em>commit ### (HEAD -&gt; master)</em> nous donne lidentifiant unique du commit et indique où pointe notre dernier commit (sur la branche master)</p></li>
+<li><p><em>commit ### (HEAD -&gt; master)</em> vous donne lidentifiant unique du commit (qu’on appelle <strong>hash</strong>) et indique où pointe votre dernier commit (sur la branche master)</p></li>
 <li><p><em>auteur</em> (avec les identifiants renseignés plus haut), <em>date</em> et <em>message</em> du commit</p></li>
 </ul>
 <p><br></p>
-<p>Ajoutons un fichier README dans notre répertoire : <em>File &gt; New File &gt; Markdown File</em>. Ajoutons une ligne et sauvegardons le fichier à la racine de notre répertoire :</p>
-<p><img src="img/git_md_01.png" class="img-fluid"></p>
-<p>Nous allons ajouter ce fichier et effectuer un commit :</p>
+<p>Ajoutez un fichier README dans votre répertoire : <em>File &gt; New File &gt; Markdown File</em>. Ajoutez une ligne et sauvegardez le fichier à la racine de votre répertoire :</p>
+<p><img src="img/git_md_01.png" class="img-fluid" style="width:50.0%"></p>
+<p><br></p>
+<p>Ajoutez ce fichier et effectuez un commit :</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>git add README.md</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>git commit <span class="sc">-</span>m <span class="st">"ajout d'un fichier README.md"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Affichons l’historique de nos commits à l’aide de la commande <code>git log</code> :</p>
-<p><img src="img/git_cmd_05.png" class="img-fluid"></p>
-<p>Ajoutons une ligne de texte dans notre fichier <code>README.md</code> et sauvegardons-le :</p>
-<p><img src="img/git_cmd_06.png" class="img-fluid"> Tapons les commandes suivantes :</p>
+<p>Affichez l’historique de vos commits à l’aide de la commande <code>git log</code>.</p>
+<p><br></p>
+<p>Ajoutez une ligne de texte dans votre fichier <code>README.md</code> et sauvegardez-le :</p>
+<p><img src="img/git_cmd_06.png" class="img-fluid" style="width:50.0%"></p>
+<p>Tapez les commandes suivantes :</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>git add README.md</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>git commit <span class="sc">-</span>m <span class="st">"ajout d'une ligne de texte dans le fichier README.md"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 </section>
-<section id="naviguer-dans-les-commits" class="level3">
-<h3 class="anchored" data-anchor-id="naviguer-dans-les-commits">Naviguer dans les commits</h3>
-<p>Affichons à nouveau l’historique avec <code>git log</code>.</p>
-<p>Nous allons revenir au commit précédent dans notre historique. Pour cela, nous copions l’identifiant unique du commit auquel nous souhaitons revenir :</p>
-<p><img src="img/git_cmd_07.png" class="img-fluid"></p>
-<p>Dans le terminal, nous tapons la commande suivante (en collant l’identifiant du commit à la place de <em>commit_id</em>) :</p>
+<section id="naviguer-dans-les-commits-git-chekout-et-git-switch" class="level3">
+<h3 class="anchored" data-anchor-id="naviguer-dans-les-commits-git-chekout-et-git-switch">Naviguer dans les commits (<code>git chekout</code> et <code>git switch</code>)</h3>
+<p><br></p>
+<p>Affichez à nouveau l’historique avec <code>git log</code>.</p>
+<p>Nous allons revenir au commit précédent dans notre historique.</p>
+<p>Pour cela, copiez l’identifiant unique du commit auquel vous souhaitez revenir :</p>
+<p><img src="img/git_cmd_07.png" class="img-fluid" style="width:50.0%"></p>
+<p><br></p>
+<p>Dans le terminal, tapez la commande suivante (en collant l’identifiant du commit à la place de <em><commit_id></commit_id></em>) :</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>git checkout <span class="sc">&lt;</span>commit_id<span class="sc">&gt;</span> .</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -455,34 +460,43 @@ git checkout <commit_id> .
 </div>
 </div>
 <p><br></p>
-<p>Nous pouvons remarquer que dans notre fichier <code>README.md</code>, la ligne que nous avions ajoutée n’est plus visible : nous sommes revenus au commit précédent de notre historique.</p>
-<p>Pour revenir au dernier commit effectué, nous pouvons procéder de la même façon en copiant l’identifiant du commit et en utilisant la commande <code>git checkout &lt;commit_id&gt; .</code>. Nous pouvons également utiliser la commande <code>git reset --hard HEAD</code>. Cette commande change l’emplacement et nous replace au niveau du commit le plus récent (imaginez que vos différents commits sont représentés pas des noeuds le long d’un segment).</p>
+<p>Vous remarquerez que dans votre fichier <code>README.md</code>, la ligne que vous aviez ajoutée n’est plus visible.</p>
+<p>Pour revenir au dernier commit effectué, vous pouvez procéder de la même façon en copiant l’identifiant du commit et en utilisant la commande <code>git checkout &lt;commit_id&gt; .</code>.</p>
+<p>Vous pouvez également utiliser la commande <code>git reset --hard HEAD</code>.</p>
 <p><br></p>
 </section>
-<section id="créer-une-branche" class="level3">
-<h3 class="anchored" data-anchor-id="créer-une-branche">Créer une branche</h3>
-<p>Les branches nous permettent de travailler sur nos fichiers sans impacter la branche principale qui contient notre répertoire “propre”.</p>
-<p>Créons une branche que nous appelons “dev” : <code>git branch dev</code>.</p>
-<p>Pour afficher les différentes branches, utilisons la commande <code>git branch</code> : <img src="img/git_cmd_11.png" class="img-fluid">.</p>
-<p>L’astérisque indique la branche sur laquelle nous nous situons, pour l’instant la branche <em>master</em>.</p>
-<p>Pour changer de branche, utilisons la commande <code>git switch &lt;nom-de-la-branche&gt;</code>. Exécutons les commandes suivantes :</p>
-<p><img src="img/git_cmd_12.png" class="img-fluid"></p>
-<p>Nous nous situons bien sur la branche <em>dev</em>.</p>
-<p>Pour supprimer une branche, nous utilisons la commande <code>git branch -d &lt;nom-de-la-branche&gt;</code>. Avant de pouvoir supprimer la branche <em>dev</em>, il faut se placer sur la branche <em>master</em> :</p>
-<p><img src="img/git_cmd_13.png" class="img-fluid"></p>
-<p>La commande <code>git checkout -b &lt;nom-de-la-nouvelle-branche&gt;</code> permet de créer une branche et de s’y placer. Cette fonction permet également de changer de branche : <code>git checkout master</code> par exemple.</p>
-<p>Nous pouvons créer une nouvelle branche à partir d’un commit précis, en précisant l’identifiant du commit : <code>git checkout -b &lt;nom-de-la-branche&gt; &lt;commit_id&gt;</code>.</p>
-<p>Modifions le fichier README.md sur la branche dev :</p>
-<p><img src="img/git_cmd_14.png" class="img-fluid"></p>
-<p>Effectuons un <code>add + commit</code> sur cette branche dev :</p>
+<section id="créer-une-branche-git-branch" class="level3">
+<h3 class="anchored" data-anchor-id="créer-une-branche-git-branch">Créer une branche (<code>git branch</code>)</h3>
+<p><br></p>
+<p>Les branches vous permettent de travailler sur vos fichiers sans impacter la branche principale.</p>
+<p>Créez une branche “dev” : <code>git branch dev</code>.</p>
+<p>Pour afficher les différentes branches, utilisez la commande <code>git branch</code> :</p>
+<p><img src="img/git_cmd_11.png" class="img-fluid" style="width:50.0%"></p>
+<p>L’astérisque indique la branche sur laquelle vous vous situez.</p>
+<p>Pour changer de branche, utilisez la commande <code>git checkout &lt;nom-de-la-branche&gt;</code> ou <code>git switch &lt;nom-de-la-branche&gt;</code>.</p>
+<p>Exécutez les commandes suivantes :</p>
+<p><img src="img/git_cmd_12.png" class="img-fluid" style="width:50.0%"></p>
+<p><br></p>
+<p>Pour supprimer une branche, utilisez la commande <code>git branch -d &lt;nom-de-la-branche&gt;</code>. Avant de pouvoir supprimer la branche <em>dev</em>, il faut se placer sur la branche <em>master</em>.</p>
+<p><br></p>
+<p>La commande <code>git checkout -b &lt;nom-de-la-nouvelle-branche&gt;</code> permet de créer une branche et de s’y placer. Cette fonction permet également de changer de branche.</p>
+<p><br></p>
+<p>Pour créer une nouvelle branche à partir d’un commit précis, précisez l’identifiant du commit : <code>git checkout -b &lt;nom-de-la-branche&gt; &lt;commit_id&gt;</code>.</p>
+<p><br></p>
+<p>Modifiez le fichier README.md sur la branche dev :</p>
+<p><img src="img/git_cmd_14.png" class="img-fluid" style="width:50.0%"></p>
+<p>Effectuez un <code>add + commit</code> sur cette branche dev :</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>git add README.md</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>git commit <span class="sc">-</span>m <span class="st">"modification du fichier README.md sur la branche dev"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>En naviguant entre les branches à l’aide de <code>git checkout</code> (ou <code>git switch</code>) pour afficher l’historique avec <code>git log</code>, nous remarquons que l’historique varie en fonction de la branche sur laquelle on se trouve.</p>
+<p><br></p>
+<p>En naviguant entre les branches à l’aide de <code>git checkout</code> (ou de <code>git switch</code>) pour afficher l’historique avec <code>git log</code>, vous remarquerez que l’historique varie en fonction de la branche.</p>
+<p><br></p>
 </section>
-<section id="fusionner-les-branches-et-résoudre-les-conflits" class="level3">
-<h3 class="anchored" data-anchor-id="fusionner-les-branches-et-résoudre-les-conflits">Fusionner les branches et résoudre les conflits</h3>
+<section id="fusionner-les-branches-et-résoudre-les-conflits-git-merge" class="level3">
+<h3 class="anchored" data-anchor-id="fusionner-les-branches-et-résoudre-les-conflits-git-merge">Fusionner les branches et résoudre les conflits (<code>git merge</code>)</h3>
+<p><br></p>
 <p>Nous avons terminé de travailler sur la branche dev, nous aimerions maintenant rappatrier les modifications apportées sur cette branche sur notre branche principale, en “fusionnant” les deux branches.</p>
 <p>Commençons par nous placer sur la branche <em>master</em> : <code>git checkout master</code></p>
 <p>Pour fusionner la branche dev sur la branche master, nous utilisons la commande <code>git merge</code> :</p>
@@ -543,8 +557,8 @@ Sélectionner plusieurs fichiers
 <p><img src="img/git_ordi_vide_02.png" class="img-fluid"> En cliquant sur l’icône <em>horloge</em> nous pouvons voir l’historique de nos commits.</p>
 <p><img src="img/git_ordi_vide_03.png" class="img-fluid"></p>
 </section>
-<section id="créer-une-branche-1" class="level3">
-<h3 class="anchored" data-anchor-id="créer-une-branche-1">Créer une branche</h3>
+<section id="créer-une-branche" class="level3">
+<h3 class="anchored" data-anchor-id="créer-une-branche">Créer une branche</h3>
 <p>Nous pouvons créer une nouvelle branche en cliquant sur l’icône à gauche du nom de la branche actuelle, en précisant le nom et en cliquant sur <em>Create</em> :</p>
 <p><img src="img/git_ordi_vide_04.png" class="img-fluid"></p>
 <p>Nous pouvons maintenant naviguer entre les branches directement en cliquant sur leurs noms :</p>
