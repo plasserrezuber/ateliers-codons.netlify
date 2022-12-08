@@ -539,25 +539,46 @@ L'onglet *Git* dans l'interface RStudio ne vous permettra pas d'effectuer les op
 
 <br>
 
-### Paramétrer RStudio
+# Connecter RStudio à GitLab
 
-Ouvrez une session dans RStudio, puis cliquez sur *Tools* \> *Global Options* \> *Git/SVN*.
+<br>
 
-![](img/git_06.png){width="50%"}
+Nous avons jusqu'ici utilisé *git* en local pour suivre les modifications apportées à des fichiers sur notre ordinateur. 
 
-1.  Assurez-vous que la case *Enable version control interface for RStudio projects* est cochée.
+Nous allons maintenant voir comment connecter RStudio à *Gitlab* afin de pouvoir : 
 
-2.  Assurez-vous que le chemin vers l'exécutable `git` est bien renseigné. Le cas échéant, cliquez sur *Browse* et indiquez le chemin vers son emplacement.
+- synchroniser nos répertoires entre plusieurs ordinateurs  
+- travailler à plusieurs sur un même projet  
+- rapatrier en local un répertoire distant pour travailler dessus
 
-3.  Si aucune clé SSH n'est indiquée, cliquez sur *Create RSA Key...*.
+La première chose à faire est de créer un paire de clés SSH qui nous permettra de communiquer entre notre ordinateur et le serveur distant *Gitlab*.
 
-4.  Validez en cliquant sur *Apply*.
+<br>
+
+## Créer des clés SSH
+
+<br>
+
+Dans RStudio, puis cliquez sur *Tools* \> *Global Options* \> *Git/SVN*.
+
+Si aucune clé n'est indiquée dans *SSH key*, cliquez sur *Create SSH Key ...*.
+
+![](img/git_06bis.png){width="50%"}
+Dans *SSH key type*, sélectionnez *RSA* puis validez en cliquant sur *Create*.
+
+![](img/git_ordi_vide_07.png){width="50%"}
 
 <br>
 
 Cliquez sur *View public key* et copiez la clé qui s'affiche.
 
-### Paramétrer GitLab
+![](img/git_06ter.png){width="50%"}
+
+<br>
+
+## Paramétrer GitLab
+
+<br>
 
 Ouvrez [ce lien](https://forgemia.inra.fr) dans votre navigateur internet et cliquez sur *Connexion SSO*.
 
@@ -575,13 +596,19 @@ Dans le menu déroulant, choisissez *INRAE* et cliquez sur *Sélectionner*. Dans
 
 Cliquez sur l'icône dans le coin supérieur droit puis sur *Preferences*.
 
-![](img/git_10.png){width="50%"}
+![](img/git_10.png){width="25%"}
 
 Dans la barre de menu à gauche, cliquez sur la première icône en forme de clé. Collez dans le champ *Key* la clé SSH copiée dans RStudio. Le champ *Title* devrait se remplir automatiquement. Si ce n'est pas le cas, renseignez ce champ. Vous pouvez choisir une date d'expiration de votre clé dans *Expiration date*. Pour terminer, cliquez sur *Add key*. Assurez-vous que votre clé apparaisse bien en base de la page sous *Your SSH keys*.
 
 ![](img/git_11.png)
 
-# De GitLab vers RStudio
+<br>
+
+# Exporter un répertoire local vers Gitlab
+
+Nous allons exporter vers Gitlab le projet RStudio existant.
+
+<br>
 
 ## Dans GitLab
 
@@ -597,7 +624,7 @@ Dans la barre de menu supérieure, cliquez sur l'icône *plus* et sélectionnez 
 
 Dans le menu *Create blank project*, remplissez les différents champs :
 
--   *Project name* : nom du projet (avec les mêmes conventions d'écriture que si vous étiez en train de [créer un projet dans RStudio](https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/#cr%C3%A9er-un-projet)).
+-   *Project name* : le même nom que votre projet RStudio.  
 
 -   *Project URL* : en fonction des groupes dont vous faites partie, vous pourrez choisir l'emplacement du projet. Pour l'instant, choisissez votre espace utilisateur.
 
@@ -605,19 +632,55 @@ Dans le menu *Create blank project*, remplissez les différents champs :
 
 -   *Visibility Level* : qui a accès au projet. Pour notre exemple, choisissez *Public*.
 
--   *Project Configuration* : cochez la case *Initialize repository with a README*.
+-   *Project Configuration* : décochez la case *Initialize repository with a README*.
 
-Cliquez sur *Create project*. Le projet s'ouvre et vous pouvez voir qu'il contient un ficher `README.md`. Ce fichier s'affiche sur la page d'accueil de votre projet et contient par défaut des informations sur l'utilisation de GitLab.
+Cliquez sur *Create project*.
 
-![](img/git_15.png)
+![](img/gitlab_01.png){width="50%"}
 
 <br>
 
-Nous allons maintenant "rapatrier" ce projet sur notre ordinateur. Pour cela, cliquez sur l'onglet *Clone* et choisissez *Clone with SSH*. Cliquez sur *Copy URL*.
+Dans la fenêtre qui s'ouvre, vous verrez une liste de commandes  : 
 
-![](img/git_16.png)
+- *Git global setup* : nous l'avons fait au début du tutoriel  
+
+- *Create a new repository* : télécharger votre répertoire *Gitlab* en local  
+
+- *Push an existing folder* : exporter un dossier local vers *Gitlab*  
+
+- *Push an existing Git repository* : exporter un répertoire *Git* local vers *Gitlab (c'est ce qui nous intéresse)
+
+<br>
+
 
 ## Dans RStudio
+
+Dans votre projet, ouvrez un terminal, et exécutez les lignes de commande suivantes (vous pouvez les copier directement depuis *Gitlab*) : 
+
+```{r gitlab01, eval=FALSE}
+git remote add origin git@forgemia.inra.fr:<prenom.nom>/<nom_projet>.git
+git push -u origin --all
+```
+
+Si c'est la première fois que vous vous connectez à Gitlab depuis RStudio, vous verrez un message dans le terminal si demandant si vous êtes certain de vouloir continuer la connexion. Tapez *yes* et appuyez sur *Entrée*.
+
+![](img/git_ordi_vide_08.png){width="50%"}
+
+Le terminal vous indiquera des détails comme le nombre de fichiers à exporter et la progression de la connexion.
+
+<br>
+
+Dans l'onglet *Git* de RStudio, deux flèches sont maintenant accessibles : 
+
+- *Flèche bleue* pour récupérer en local les dernières modifications du répertoire distant (**Pull**)  
+
+- *Flèche verte* pour exporter les dernières modifications effectuées en local sur le serveur distant (**Push**)
+
+![](img/gitlab_02.png){width="50%"}
+
+<br>
+
+Si vous rafraîchissez votre page *Gitlab*, les fichiers `.gitignore`, `README.md` et `<nom_projet>.Rproj` devraient apparaître.
 
 Dans la barre de menu supérieure, cliquez sur *File* \> *New project*.\
 Dans la fenêtre *Create Project*, choisissez *Version Control*.
