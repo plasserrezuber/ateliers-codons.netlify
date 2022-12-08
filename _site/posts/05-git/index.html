@@ -209,14 +209,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul class="collapse">
   <li><a href="#dans-gitlab" id="toc-dans-gitlab" class="nav-link" data-scroll-target="#dans-gitlab">Dans GitLab</a></li>
   <li><a href="#dans-rstudio" id="toc-dans-rstudio" class="nav-link" data-scroll-target="#dans-rstudio">Dans RStudio</a></li>
-  <li><a href="#workflow" id="toc-workflow" class="nav-link" data-scroll-target="#workflow">Workflow</a></li>
-  <li><a href="#historique-des-modifications" id="toc-historique-des-modifications" class="nav-link" data-scroll-target="#historique-des-modifications">Historique des modifications</a></li>
   </ul></li>
-  <li><a href="#de-rstudio-vers-gitlab" id="toc-de-rstudio-vers-gitlab" class="nav-link" data-scroll-target="#de-rstudio-vers-gitlab">De RStudio vers GitLab</a>
+  <li><a href="#importer-un-répertoire-distant-vers-rstudio" id="toc-importer-un-répertoire-distant-vers-rstudio" class="nav-link" data-scroll-target="#importer-un-répertoire-distant-vers-rstudio">Importer un répertoire distant vers RStudio</a>
   <ul class="collapse">
-  <li><a href="#dans-rstudio-2" id="toc-dans-rstudio-2" class="nav-link" data-scroll-target="#dans-rstudio-2">Dans RStudio</a></li>
-  <li><a href="#dans-gitlab-2" id="toc-dans-gitlab-2" class="nav-link" data-scroll-target="#dans-gitlab-2">Dans GitLab</a></li>
-  <li><a href="#dans-rstudio-3" id="toc-dans-rstudio-3" class="nav-link" data-scroll-target="#dans-rstudio-3">Dans RStudio</a></li>
+  <li><a href="#dans-gitlab-1" id="toc-dans-gitlab-1" class="nav-link" data-scroll-target="#dans-gitlab-1">Dans Gitlab</a></li>
+  <li><a href="#dans-rstudio-1" id="toc-dans-rstudio-1" class="nav-link" data-scroll-target="#dans-rstudio-1">Dans RStudio</a></li>
+  <li><a href="#le-statut-des-fichiers" id="toc-le-statut-des-fichiers" class="nav-link" data-scroll-target="#le-statut-des-fichiers">Le statut des fichiers</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -720,10 +718,27 @@ Limites de l’approche clique-bouton
 <li><p><em>Flèche verte</em> pour exporter les dernières modifications effectuées en local sur le serveur distant (<strong>Push</strong>)</p></li>
 </ul>
 <p><img src="img/gitlab_02.png" class="img-fluid" style="width:50.0%"></p>
-<p><br></p>
 <p>Si vous rafraîchissez votre page <em>Gitlab</em>, les fichiers <code>.gitignore</code>, <code>README.md</code> et <code>&lt;nom_projet&gt;.Rproj</code> devraient apparaître.</p>
-<p>Dans la barre de menu supérieure, cliquez sur <em>File</em> &gt; <em>New project</em>.<br>
-Dans la fenêtre <em>Create Project</em>, choisissez <em>Version Control</em>.</p>
+<p><br></p>
+</section>
+</section>
+<section id="importer-un-répertoire-distant-vers-rstudio" class="level1">
+<h1>Importer un répertoire distant vers RStudio</h1>
+<p><br></p>
+<p>Nous allons voir comment importer un répertoire distant présent sur <em>Gitlab</em> vers notre ordinateur. Fermez votre sessions RStudio et supprimez le dossier contenant le projet local sur votre ordinateur.</p>
+<p><br></p>
+<section id="dans-gitlab-1" class="level2">
+<h2 class="anchored" data-anchor-id="dans-gitlab-1">Dans Gitlab</h2>
+<p><br></p>
+<p>Sur la page d’accueil du répertoire, cliquez sur <em>Clone</em> puis copiez le lien <em>SSH</em> :</p>
+<p><img src="img/gitlab_03.png" class="img-fluid" style="width:50.0%"></p>
+<p><br></p>
+</section>
+<section id="dans-rstudio-1" class="level2">
+<h2 class="anchored" data-anchor-id="dans-rstudio-1">Dans RStudio</h2>
+<p><br></p>
+<p>Ouvrez une nouvelle session RStudio. Dans la barre de menu supérieure, cliquez sur <em>File</em> &gt; <em>New project</em>.</p>
+<p>Dans la fenêtre <em>Create Project</em>, choisissez <em>Version Control</em>.</p>
 <div class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
@@ -735,9 +750,12 @@ Dans la fenêtre <em>Create Project</em>, choisissez <em>Version Control</em>.</
 </div>
 </div>
 <p>Dans la fenêtre <em>Create Project from Version Control</em>, choisissez <em>Git</em>.</p>
-<p>Dans la fenêtre <em>Clone Git Repository</em>, remplissez les champs : - <em>Repository URL</em> : collez le lien SSH copié dans GitLab<br>
-- <em>Project directory name</em> : se remplit automatiquement<br>
-- <em>Create project as subdirectory of</em> : emplacement où sera créé le projet</p>
+<p>Dans la fenêtre <em>Clone Git Repository</em>, remplissez les champs :</p>
+<ul>
+<li><p><em>Repository URL</em> : collez le lien SSH copié dans GitLab</p></li>
+<li><p><em>Project directory name</em> : se remplit automatiquement</p></li>
+<li><p><em>Create project as subdirectory of</em> : emplacement où sera créé le projet</p></li>
+</ul>
 <p>Cochez la case <em>Open in New Session</em> dans le coin inféreur gauche de la fenêtre et cliquez sur <em>Create Project</em>.</p>
 <div class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
@@ -749,27 +767,11 @@ Dans la fenêtre <em>Create Project</em>, choisissez <em>Version Control</em>.</
 </div>
 </div>
 </div>
-<p>Une nouvelle fenêtre RStudio s’ouvre. Vous remarquerez la présence d’un onglet <em>Git</em> dans votre espace de travail.</p>
+<p><br></p>
+<p>Le projet s’ouvre dans une nouvelle fenêtre.</p>
 </section>
-<section id="workflow" class="level2">
-<h2 class="anchored" data-anchor-id="workflow">Workflow</h2>
-<p>Dans votre espace de travail, sous l’onglet <em>git</em>, deux fichiers sont présents :</p>
-<ul>
-<li><code>.gitignore</code><br>
-</li>
-<li><code>test_gitlab_rstudio.Rproj</code></li>
-</ul>
-<p>Ces fichiers ont été ajoutés dans votre répertoire de travail lors de la création du projet dans RStudio, mais ils ne sont pas présents dans votre répertoire sur GitLab. L’icône <code>?</code> indique qu’il s’agit de nouveaux fichiers.</p>
-<div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Le statut des fichiers
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<section id="le-statut-des-fichiers" class="level2">
+<h2 class="anchored" data-anchor-id="le-statut-des-fichiers">Le statut des fichiers</h2>
 <p>L’icône à gauche du nom d’un fichier dans l’onglet <em>git</em> de votre espace de travail indique le statut de ce fichier :</p>
 <table class="table">
 <tbody>
@@ -787,137 +789,7 @@ Le statut des fichiers
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<p>Le workflow git permet de synchroniser le répertoire distant (sur GitLab) avec le répertoire local (notre projet RStudio). Il comprend trois étapes :</p>
-<section id="commit" class="level3">
-<h3 class="anchored" data-anchor-id="commit">Commit</h3>
-<p>Nous allons sauvegarder les modifications apportées à nos fichiers (que ce soit des modifications dans un fichier, l’ajout ou la suppression de fichiers). Nous cochons pour cela les cases à gauche des icônes de statut, qui deviennent un <code>A</code> vert. Les deux fichiers sont maintenant prêts à être mis en ligne dans notre répertoire sur GitLab. C’est la première étape du workflow git, qu’on appelle un <em>commit</em>.</p>
-<p>Cliquez sur <em>Commit</em> et ajoutez un commentaire dans la fenêtre qui s’ouvre.</p>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="img/git_24.png" class="img-fluid"></p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="img/git_25.png" class="img-fluid"></p>
-</div>
-</div>
-</div>
-<p>Cliquez ensuite sur <em>Commit</em> : un résumé de votre soumission s’affiche. Fermez cette fenêtre en cliquant sur <em>Close</em>.</p>
-<p><img src="img/git_26.png" class="img-fluid"></p>
-<p>Dans la fenêtre <em>RStudio: Review Changes</em>, vous pouvez lire <em>Your branch is ahead of ‘origin/main’ by 1 commit’</em>. Cela indique que votre branche locale est en avance d’une étape sur la branche distance sur GitLab.</p>
-</section>
-<section id="pull" class="level3">
-<h3 class="anchored" data-anchor-id="pull">Pull</h3>
-<p>Cela peut paraître contre-intuitif, mais il est important de nous assurer que notre répertoire local contient bien les dernières modifications sauvegardées dans notre répertoire distant. Pour cela, nous cliquons sur <em>Pull</em>.</p>
-</section>
-<section id="push" class="level3">
-<h3 class="anchored" data-anchor-id="push">Push</h3>
-<p>Il nous reste à <em>pousser</em> nos modifications locales vers le répertoire distant en cliquant sur <em>Push</em>.</p>
-<p><img src="img/git_27.png" class="img-fluid"> Assurons-nous que nos modifications ont bien été exportées en rafraîchissant notre page GitLab.</p>
-<p><img src="img/git_28.png" class="img-fluid"></p>
-<p><br></p>
-<p>Nous allons modifier le fichier <code>README.md</code> : ouvrons-le en cliquant dessus dans le panneau de navigation. Le fichier s’ouvre dans le panneau <em>scripts</em>. Remplaçons le texte par la ligne suivante :</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Connecter RStudio à GitLab</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Sauvegardons le fichier (<strong>Ctrl + S</strong> ou icône disquette) : le fichier apparaît dans l’onglet <em>git</em> de notre espace de travail avec une icône <code>M</code> bleue, indiquant qu’il a été modifié.</p>
-<p>Nous allons effectuer les mêmes opérations que ci-dessus pour exporter nos modifications vers la branche distante du répertoire sur GitLab : <em>Commit</em> &gt; <em>Pull</em> &gt; <em>Push</em>.</p>
-<p><br></p>
-</section>
-</section>
-<section id="historique-des-modifications" class="level2">
-<h2 class="anchored" data-anchor-id="historique-des-modifications">Historique des modifications</h2>
-<p>Travailler avec un suivi de version permet de retracer toutes les modifications apportées aux fichiers d’un répertoire.</p>
-<section id="dans-rstudio-1" class="level3">
-<h3 class="anchored" data-anchor-id="dans-rstudio-1">Dans RStudio</h3>
-<p>Cliquez sur l’icône horloge dans l’onglet <code>Git</code></p>
-<p><img src="img/git_30.png" class="img-fluid"></p>
-<p>L’hitorique contient toutes les mofications apportées, ainsi qu’une clé <em>SHA</em>, encore appelée <em>commit hash</em>. Il s’agit d’un identifiant unique attribué par Git à chacun des commits.</p>
-</section>
-<section id="dans-gitlab-1" class="level3">
-<h3 class="anchored" data-anchor-id="dans-gitlab-1">Dans GitLab</h3>
-<p>Sur la page d’accueil de votre répertoire disant sur GitLab, cliquez sur <em>3 Commits</em> pour accéder à l’historique des modifications.</p>
-<p><img src="img/git_31.png" class="img-fluid"></p>
-<p>Vous retrouverez les clés SHA à droite des commits listés dans l’historique, ainsi que deux icônes vous permettant de :</p>
-<ul>
-<li><p>copier la clé SHA du commit</p></li>
-<li><p>ouvrir l’arborescence correspond au commit</p></li>
-</ul>
-</section>
-</section>
-</section>
-<section id="de-rstudio-vers-gitlab" class="level1">
-<h1>De RStudio vers GitLab</h1>
-<p>Nous avons jusqu’ici vu comment utiliser le suivi de version en partant d’un nouveau répertoire sur GitLab.</p>
-<section id="dans-rstudio-2" class="level2">
-<h2 class="anchored" data-anchor-id="dans-rstudio-2">Dans RStudio</h2>
-<p>Si nous souhaitons utiliser le suivi de version pour un répertoire présent sur notre ordinateur, deux cas de figure se présentent :</p>
-<section id="répertoire-associé-à-un-projet-rstudio" class="level3">
-<h3 class="anchored" data-anchor-id="répertoire-associé-à-un-projet-rstudio">Répertoire associé à un projet RStudio</h3>
-<p>Si votre répertoire est déjà associé à un projet RStudio, ouvrez ce projet. Dans notre exemple, nous utilisons le projet <em>ateliers_codons</em> créés dans <a href="https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/#cr%C3%A9er-un-projet">ce tutoriel</a>.</p>
-<p>Cliquez sur <em>Tools</em> &gt; <em>Project Options</em> &gt; <em>Git/SVN</em>.</p>
-<p>Dans la fenêtre <em>Project Options</em>, choisissez <em>Git</em> dans le menu déroulant <em>Version control system</em>.</p>
-<p>Dans la fenêtre qui s’ouvre, cliquez sur <em>Yes</em> en réponse à la question <em>Do you want to initialize a new git repository for this project?</em>.</p>
-<p>Dans la fenêtre <em>Restart RStudio</em>, cliquez sur <em>Yes</em>.</p>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="img/git_34.png" class="img-fluid"></p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="img/git_35.png" class="img-fluid"></p>
-</div>
-</div>
-</div>
-<p>RStudio redémarre et vous remarquerez l’onglet <code>Git</code> dans l’espace de travail de votre projet.</p>
-</section>
-</section>
-<section id="dans-gitlab-2" class="level2">
-<h2 class="anchored" data-anchor-id="dans-gitlab-2">Dans GitLab</h2>
-<p>Créez un nouveau projet dans GitLab, portant le même nom que le projet RStudio pour lequel vous souhaitez utiliser le suivi de version.</p>
-<p>Faites attention à décocher la case <em>Initialize repository with a README</em>.</p>
-</section>
-<section id="dans-rstudio-3" class="level2">
-<h2 class="anchored" data-anchor-id="dans-rstudio-3">Dans RStudio</h2>
-<p>Nous allons utiliser les lignes de commandes affichées sur la page d’accueil de notre projet GitLab : <img src="img/git_40.png" class="img-fluid"></p>
-<p>Ouvrez un terminal dans l’onglet <code>Git</code> en cliquant sur la roue crantée puis sur <em>Shell</em>.</p>
-<p>Dans l’onglet <code>git</code>, sélectionnez l’ensemble des fichiers à ajouter.</p>
-<div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Ajouter plusieurs fichiers
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Pour éviter d’avoir à cocher de nombres cases, vous pouvez cliquer sur le nom du premier fichier de la liste, puis utiliser la combinaison <strong>Ctrl + A</strong>. Cochez ensuite la case en face du premier fichier.</p>
-</div>
-</div>
-<p>Cliquez sur <em>Commit</em>, ajoutez un commentaire dans la fenêtre qui s’ouvre et cliquez sur <em>Commit</em>. Pour l’instant, vous n’avez pas accès aux boutons <em>Pull</em> et <em>Push</em>.</p>
-<p>Cliquez sur l’icône à droite du panneau <code>Git</code> :</p>
-<p><img src="img/git_36.png" class="img-fluid"></p>
-<p>Dans le fenêtre qui s’ouvre, cliquez sur <em>Add Remote</em>, puis renseignez les deux champs dans la fenêtre :</p>
-<ul>
-<li><p><em>Remote Name</em> -&gt; “origin”</p></li>
-<li><p><em>Remote URL</em> -&gt; collez le lien SSH copié dans GitLab</p></li>
-</ul>
-<p>Cliquez ensuite sur <em>Add</em>.</p>
-<p><img src="img/git_37.png" class="img-fluid"></p>
-<p>Dans la fenêtre <em>New Branch</em>, indiquez “master” dans le champ <em>Branch Name</em>, et assurez-vous que la case <em>Sync branch with remote</em> est bien cochée. Cliquez sur <em>Create</em>. Dans la fenêtre <em>Local Branch Already Exists</em>, cliquez sur <em>Overwrite</em>.</p>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="img/git_38.png" class="img-fluid"></p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="img/git_39.png" class="img-fluid"></p>
-</div>
-</div>
-</div>
+<p>:::</p>
 
 
 </section>
