@@ -52,43 +52,45 @@ Ces outils permettent de travailler à plusieurs sur un même projet, de synchro
 
 <br>
 
-Sur le site de [git](https://gitforwindows.org/), téléchargez la dernière version de git.
-
-![](img/git_01.png){width="100%"}
-
-Double-cliquez sur l'exécutable `Git-xxxx.exe` :
-
-![](img/git_03.png){width="100%"}
-
-Laissez les paramètres par défaut proposés par l'assistant d'installation. Dans le menu *Choosing the default editor used by Git*, vous pouvez laisser l'éditeur de texte proposé par défaut (Vim) ou choisir l'éditeur de texte que vous avez l'habitude d'utiliser.
-
-![](img/git_04.png){width="50%"}
-
-Dans les menus suivants, laissez les paramètres suivants jusqu'à ce que l'installation de `git` soit complétée.
+Cliquez sur [ce lien](https://gitforwindows.org/) pour télécharger et installer la dernière version de git pour Windows. Lors de l'installation, laissez les paramètres par défaut.
 
 <br>
 
 ### Linux
 
-Suivez les instructions sur [ce lien](https://git-scm.com/download/linux).
+<br>
+
+Pour installer git sur Linux, suivez les instructions sur [ce lien](https://git-scm.com/download/linux).
 
 <br>
 
 ### MacOS
 
-Suivez les instructions sur [ce lien](https://git-scm.com/download/mac).
+<br>
+
+Pour installer git sur MacOS, suivez les instructions sur [ce lien](https://git-scm.com/download/mac).
 
 <br>
 
 # Premiers pas avec git
 
-Une fois git installé, ouvrez RStudio et [créez un nouveau projet](https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/#créer-un-projet). Cliquez sur *Tools \> Global Options \> Git/SVN*. Assurez-vous que la case *Enable version control interface for RStudio projects* est cochée, et que le chemin vers l'exécutable *git* est bien renseigné. Si ce n'est pas le cas, cliquez sur *Browse* et indiquez-le. Validez en cliquant sur *Apply*.
+<br>
+
+Ouvrez RStudio, et cliquez sur *Tools > Global Options > Git/SVN*. 
+
+Assurez-vous que la case *Enable version control interface for RStudio projects* est cochée, et que le chemin vers l'exécutable *git* est bien renseigné. Si ce n'est pas le cas, cliquez sur *Browse* et indiquez-le. Validez en cliquant sur *Apply*.
 
 ![](img/git_05.png){width="50%"}
 
 <br>
 
-## En ligne de commande
+Créez un [nouveau projet RStudio](https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/#créer-un-projet).
+
+<br>
+
+## Workflow git en ligne de commande
+
+<br>
 
 Dans votre session RStudio, ouvrez un *terminal* :
 
@@ -104,14 +106,16 @@ git --version
 
 ### Paramétrer git
 
+<br>
+
 Dans un premier temps, nous allons paramétrer *git* en renseignant un nom d'utilisateur et un e-mail qui seront utilisés pour nous identifier dans l'historique (cela nous permettra si nous travaillons à plusieurs sur un même projet de savoir qui a fait quoi). Dans la suite du turoriel nous verrons comment connecter RStudio à GitLab, nous allons donc utiliser nos identifiants LDAP :
 
 ```{r config git, eval=FALSE}
-git config --global --user.name "prenom.nom"  
+git config --global --user.name "Prenom Nom"  
 git config --global --user.email prenom.nom@inrae.fr
 ```
 
-Assurons-nous que ces paramètres ont bien été pris en compte :
+Assurez-vous que ces paramètres ont bien été pris en compte :
 
 ```{r check config git, eval=FALSE}
 git config --global --list
@@ -121,27 +125,37 @@ git config --global --list
 
 ### Initialiser git
 
-Pour l'instant, notre répertoire de travail (le projet RStudio) n'est pas versionné. Il nous faut pour cela associer un répertoire git à notre répertoire de travail, en **initialisant** git :
+<br>
+
+Votre répertoire de travail (le projet RStudio) n'est pour le moment pas versionné.
+
+Il vous faut pour cela associer un répertoire git à votre répertoire de travail, en **initialisant** git :
 
 ```{r, git cmd 2, eval=FALSE}
 git init
 ```
 
-Assurons-nous que le répertoire *git* a bien été créé. La commande `ls` permet de lister les fichiers du répertoire actuel, et les options `-la` permettent d'afficher le détail (droits, date, ...) et d'inclure les dossiers cachés (dont le nom commence par un point `.`)
+Assurez-vous que le répertoire *git* a bien été créé. La commande `ls` permet de lister les fichiers du répertoire actuel, et les options `-la` permettent d'afficher le détail (droits, date, ...) et d'inclure les dossiers cachés (dont le nom commence par un point `.`)
 
 ```{r, git cmd 3, eval=FALSE}
 ls -la
 ```
 
+<br>
+
 ### Ignorer des fichiers
 
-Parmi les fichiers et répertoires listés ci-dessus, le répertoire `.Rproj.user` n'a pas besoin d'être versionné. Nous allons pour cela ajouter à notre répertoire de travail un fichier dans lequel nous pourrons lister les fichiers et répertoires que git devra ignorer. Créons un fichier texte basique en cliquant sur *File \> New File \> Text File*. Sauvegardons ce fichier à la racine de notre répertoire de travail en le nommant `.gitignore`. Ajoutons une ligne à ce fichier comme ci-dessous :
+<br>
+
+Parmi les fichiers et répertoires listés ci-dessus, le répertoire `.Rproj.user` n'a pas besoin d'être versionné. Nous allons pour cela ajouter à notre répertoire de travail un fichier dans lequel nous pourrons lister les fichiers et répertoires que git devra ignorer.
+
+Créez un fichier texte basique en cliquant sur *File > New File > Text File*. Sauvegardez ce fichier à la racine de votre répertoire de travail en le nommant `.gitignore`. Ajoutez une ligne à ce fichier :
 
 ![](img/git_cmd_10.png)
 
 <br>
 
-Vérifions l'état dans lequel notre répertoire se trouve :
+Vérifiez l'état dans lequel se trouve votre répertoire :
 
 ```{r, git cmd 4, eval=FALSE}
 git status
@@ -149,25 +163,38 @@ git status
 
 ![](img/git_cmd_02.png){width="50%"}
 
+<br>
+
 Le terminal affiche plusieurs informations :
 
--   *On branch master* : nous nous trouvons sur la branche principale (et la seule pour le moment)
+-   *On branch master* : vous vous trouvez sur la branche principale (la seule pour le moment)
 
--   *No commits yet* : nous n'avons pas encore figé l'état de notre répertoire à l'aide d'un commit
+-   *No commits yet* : vous n'avez pas encore figé l'état de votre répertoire à l'aide d'un commit
 
 -   *Untracked files* : des fichiers non versionnés sont présents dans le répertoire de travail
 
--   *nothing added to commit but untracked files present* : redite de la ligne précédente
+-   *nothing added to commit but untracked files present* : résumé des lignes précédentes
 
 -   *use "git add" to track* : pour figer l'état de ces fichiers et tracer l'historique des modifications, nous utiliserons la commande `git add`.
 
-Pour afficher également les fichiers ignorés, nous utilisons la commande `git status --ignored`.
+<br>
+
+Pour afficher également les fichiers ignorés, utilisez la commande `git status --ignored`.
 
 <br>
 
-### git add
+### `git add`
 
-Ajoutons nos deux fichiers, soit en précisant leurs noms, soit en utilisant le symbole `*` (pour ajouter tous les fichiers présents dans notre répertoire de travail) ou encore un point `.` (pour ajouter le répertoire actuel) :
+<br>
+
+Pour versionner des fichiers, vous pouvez les ajouter à l'aide de la commande `git add` :  
+
+- soit en précisant les noms des fichiers les uns à la suite des autres  
+
+- soit à l'aide du symbole `*` pour ajouter tous les fichiers présents dans le répertoire de travail  
+
+- soit à l'aide d'un point `.` pour ajouter l'ensemble du répertoire actuel
+
 
 ```{r, git cmd 5, eval=FALSE}
 # Ajouter les fichiers un a un
@@ -180,7 +207,9 @@ git add *
 git add .
 ```
 
-Affichons l'état de notre répertoire à l'aide de la commande `git status`. Nous pouvons remarquer que les noms des fichiers ajoutés apparaissent en vert.
+Affichez l'état de votre répertoire à l'aide de la commande `git status`. Vous remarquerez que les noms des fichiers ajoutés apparaissent en vert.
+
+<br>
 
 De nouvelles informations sont affichées dans le terminal :
 
@@ -188,7 +217,9 @@ De nouvelles informations sont affichées dans le terminal :
 
 -   *Changes to be commited* : liste des fichiers ajoutés mais pas encore figés
 
-Nous voyons également la commande à utiliser pour annuler l'ajout des fichiers :
+<br>
+
+La commande à utiliser pour annuler l'ajout des fichiers est indiquée :
 
 ```{r, git cmd 6, eval=FALSE}
 # Annuler l'ajout de fichiers un par un
@@ -208,7 +239,9 @@ L'argument `-r` permet de supprimer de façon récursive un dossier.
 
 <br>
 
-### git commit
+### `git commit`
+
+<br>
 
 Nous allons maintenant figer l'état de notre répertoire de travail à l'aide de la commande `git commit -m ...`. Un commit est toujours associé à un message (`-m`) à écrire entre guillemets (`"message"`) pour préciser ce que nous faisons. Soyez le plus précis possible dans vos messages de commits, cela vous permettra de vous y retrouver dans l'historique des modifications !
 
