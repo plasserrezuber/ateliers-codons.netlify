@@ -56,7 +56,7 @@ Il a été développé par Ross Ihaka et Robert Gentleman, du Département de St
 ## Quelques dates
 
 |      |                                                                                                                                     |
-|--------------------|----------------------------------------------------|
+|------------|------------------------------------------------------------|
 | 1991 | Création du langage R                                                                                                               |
 | 1993 | R est dévoilé au public                                                                                                             |
 | 1996 | [Article dans le *Journal of Computational and Graphical Statistics*](https://www.stat.auckland.ac.nz/~ihaka/downloads/R-paper.pdf) |

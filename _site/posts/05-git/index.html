@@ -198,7 +198,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#premiers-pas-avec-git" id="toc-premiers-pas-avec-git" class="nav-link" data-scroll-target="#premiers-pas-avec-git">Premiers pas avec git</a>
   <ul class="collapse">
   <li><a href="#workflow-git-en-ligne-de-commande" id="toc-workflow-git-en-ligne-de-commande" class="nav-link" data-scroll-target="#workflow-git-en-ligne-de-commande">Workflow git en ligne de commande</a></li>
-  <li><a href="#en-clique-bouton" id="toc-en-clique-bouton" class="nav-link" data-scroll-target="#en-clique-bouton">En “clique-bouton”</a></li>
+  <li><a href="#workflow-git-en-clique-bouton" id="toc-workflow-git-en-clique-bouton" class="nav-link" data-scroll-target="#workflow-git-en-clique-bouton">Workflow git en “clique-bouton”</a></li>
   </ul></li>
   <li><a href="#de-gitlab-vers-rstudio" id="toc-de-gitlab-vers-rstudio" class="nav-link" data-scroll-target="#de-gitlab-vers-rstudio">De GitLab vers RStudio</a>
   <ul class="collapse">
@@ -497,49 +497,64 @@ git checkout <commit_id> .
 <section id="fusionner-les-branches-et-résoudre-les-conflits-git-merge" class="level3">
 <h3 class="anchored" data-anchor-id="fusionner-les-branches-et-résoudre-les-conflits-git-merge">Fusionner les branches et résoudre les conflits (<code>git merge</code>)</h3>
 <p><br></p>
-<p>Nous avons terminé de travailler sur la branche dev, nous aimerions maintenant rappatrier les modifications apportées sur cette branche sur notre branche principale, en “fusionnant” les deux branches.</p>
-<p>Commençons par nous placer sur la branche <em>master</em> : <code>git checkout master</code></p>
-<p>Pour fusionner la branche dev sur la branche master, nous utilisons la commande <code>git merge</code> :</p>
-<p><img src="img/git_cmd_15.png" class="img-fluid"></p>
-<p>Le terminal nous indique qu’il y a un conflit : le fichier README.md diffère entre les deux branches, et nous sommes invités à résoudre ce conflit avant de fusionner les branches.</p>
+<p>Une fois que vous avez terminé de travailler sur votre branche <em>dev</em>, vous pouvez “rapatrier” les modifications apportées sur cette branche sur votre branche <em>master</em>.</p>
+<p>Placez-vous sur la branche <em>master</em> : <code>git checkout master</code>.</p>
+<p>Pour fusionner la branche dev sur la branche master, utilisez la commande <code>git merge</code> :</p>
+<p><img src="img/git_cmd_15.png" class="img-fluid" style="width:50.0%"></p>
+<p>Le terminal nous indique qu’il y a un <strong>conflit</strong> : le fichier README.md diffère entre les deux branches. Il vous faut résoudre ce conflit avant de pouvoir fusionner les deux branches.</p>
+<p><br></p>
 <p>Regardons à quoi ressemble notre fichier README.md :</p>
-<p><img src="img/git_cmd_16.png" class="img-fluid"></p>
+<p><img src="img/git_cmd_16.png" class="img-fluid" style="width:50.0%"></p>
 <ul>
 <li><p>Les marqueurs de conflit indiquent le début (<code>&lt;&lt;&lt;&lt;</code>) et la fin (<code>&gt;&gt;&gt;</code>) du conflit</p></li>
 <li><p>Les noms des branches sont indiqués à côté de ces marqueurs de conflit</p></li>
-<li><p>L’indicateur <code>=====</code> montre la séparation entre les modifications des deux branches<br>
-Il nous incombe de choisir quelle version conservée : nous allons supprimer les indicateurs <code>&lt;&lt;&lt;</code>, <code>&gt;&gt;&gt;</code> et <code>===</code> et ne garder que le texte présent dans le fichier de la branche <em>dev</em>.</p></li>
+<li><p>L’indicateur <code>=====</code> montre la séparation entre les modifications des deux branches</p></li>
 </ul>
-<p>Vérifions l’état de notre branche <em>master</em> à l’aide de la commande <code>git status</code> :</p>
-<p><img src="img/git_cmd_17.png" class="img-fluid"></p>
+<p>Il vous incombe de choisir quelle version conserver : supprimez les indicateurs <code>&lt;&lt;&lt;</code>, <code>&gt;&gt;&gt;</code> et <code>===</code> et ne gardez que le texte présent dans le fichier de la branche <em>dev</em>.</p>
+<p><br></p>
+<p>Vérifiez l’état de notre branche <em>master</em> à l’aide de la commande <code>git status</code> :</p>
+<p><img src="img/git_cmd_17.png" class="img-fluid" style="width:50.0%"></p>
 <p>Les deux branches ne sont pas fusionnées, mais les modifications ont bien été prises en compte.</p>
-<p>Ajoutons le fichier <code>README.md</code> et effectuons un commit :</p>
+<p><br></p>
+<p>Ajoutez le fichier <code>README.md</code> et effectez un commit :</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>git add README.md</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>git commit <span class="sc">-</span>m <span class="st">"resolution de conflit entre les branches master et dev"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>En affichant l’historique avec <code>git log</code> nous voyons maintenant l’ensemble des commits effectués sur les deux branches.</p>
-<p><img src="img/git_cmd_18.png" class="img-fluid"></p>
-<p>Nous pouvons maintenant supprimer la branche <em>dev</em> : <code>git branch -d dev</code></p>
+<p>En affichant l’historique avec <code>git log</code> vous verrez maintenant l’ensemble des commits effectués sur les deux branches.</p>
+<p><img src="img/git_cmd_18.png" class="img-fluid" style="width:50.0%"></p>
+<p>Vous pouvons maintenant supprimer la branche <em>dev</em> : <code>git branch -d dev</code></p>
+<p><br></p>
 </section>
 </section>
-<section id="en-clique-bouton" class="level2">
-<h2 class="anchored" data-anchor-id="en-clique-bouton">En “clique-bouton”</h2>
+<section id="workflow-git-en-clique-bouton" class="level2">
+<h2 class="anchored" data-anchor-id="workflow-git-en-clique-bouton">Workflow git en “clique-bouton”</h2>
+<p><br></p>
+<p>Nous allons voir comment effectuer les mêmes étapes à l’aide de l’interface RStudio.</p>
+<p>Créez un nouveau projet RStudio.</p>
+<p><br></p>
 <section id="initialiser-git-1" class="level3">
 <h3 class="anchored" data-anchor-id="initialiser-git-1">Initialiser git</h3>
-<p>Créons un nouveau RStudio pour refaire ce que nous avons fait en ligne de commande, mais cette fois-ci à l’aide de l’interface graphique de RStudio.</p>
-<p>Pour initialiser git, cliquons sur <em>Tools &gt; Project Options</em>, puis dans le menu <em>Git/SVN</em> sélectionnons <em>Git</em> :</p>
-<p><img src="img/git_ide_01.png" class="img-fluid"></p>
-<p>Dans les fenêtres qui s’ouvrent, cliquons sur <em>Yes</em>.</p>
-<p>RStudio redémarre, et nous pouvons remarquer la présence d’un onglet <em>Git</em> dans notre espace de travail. En cliquant dessus, nous pouvons voir qu’un fichier <code>.gitignore</code> a été ajouté automatiquement :</p>
-<p><img src="img/git_ide_02.png" class="img-fluid"><br>
-<img src="img/git_ide_03.png" class="img-fluid"></p>
+<p><br></p>
+<p>Pour initialiser git, cliquez sur <em>Tools &gt; Project Options</em>, puis dans le menu <em>Git/SVN</em> sélectionnez <em>Git</em> :</p>
+<p><img src="img/git_ide_01.png" class="img-fluid" style="width:50.0%"></p>
+<p>Dans les fenêtres qui s’ouvrent, cliquez sur <em>Yes</em>.</p>
+<p>RStudio redémarre, et vous remarquerez la présence d’un onglet <em>Git</em> dans votre espace de travail. En cliquant dessus, vous verrez qu’un fichier <code>.gitignore</code> a été ajouté automatiquement :</p>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="img/git_ide_02.png" class="img-fluid" style="width:50.0%"><br>
+<img src="img/git_ide_03.png" class="img-fluid" style="width:50.0%"></p>
+</div>
+</div>
+</div>
 <p><br></p>
 </section>
 <section id="ajouter-des-fichiers" class="level3">
 <h3 class="anchored" data-anchor-id="ajouter-des-fichiers">Ajouter des fichiers</h3>
-<p>Pour ajouter des fichiers (ce que nous avons fait avec <code>git add</code>), cochez-les dans l’onglet git. Leur statut passe de <em>??</em> à <em>A</em> (pour Added).</p>
-<p><img src="img/git_ordi_vide_01.png" class="img-fluid"></p>
+<p><br></p>
+<p>Pour ajouter des fichiers, cochez-les dans l’onglet git. Leur statut change et une icône <em>A</em> (pour <em>added</em>) s’affiche à côté des noms de fichiers.</p>
+<p><img src="img/git_ordi_vide_01.png" class="img-fluid" style="width:50.0%"></p>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -553,16 +568,29 @@ Sélectionner plusieurs fichiers
 <p>Quand nous travaillons avec beaucoup de fichiers versionnés, nous pouvons tous les sélectionner : cliquons sur le nom d’un des fichiers dans l’onglet git, puis utilisons la combinaison <em>Ctrl + A</em> et enfin cochons la case à côté du premier fichier sur lequel nous avions cliqué.</p>
 </div>
 </div>
-<p>Nous allons maintenant effectuer un <em>commit</em> (<code>git commit -m</code>) : cliquons sur <em>Commit</em>. Dans la fenêtre qui s’ouvre, nous allons écrire le message du commit (ce que nous mettions après <code>-m</code>) et cliquons à nouveau sur <em>Commit</em>.</p>
-<p><img src="img/git_ordi_vide_02.png" class="img-fluid"> En cliquant sur l’icône <em>horloge</em> nous pouvons voir l’historique de nos commits.</p>
-<p><img src="img/git_ordi_vide_03.png" class="img-fluid"></p>
+<p><br></p>
+</section>
+<section id="effectuer-un-commit" class="level3">
+<h3 class="anchored" data-anchor-id="effectuer-un-commit">Effectuer un commit</h3>
+<p><br></p>
+<p>Cliquez sur <em>Commit</em>.</p>
+<p><img src="img/git_ordi_vide_01bis.png" class="img-fluid" style="width:50.0%"></p>
+<p><br></p>
+<p>Dans la fenêtre qui s’ouvre, nous allons écrire le message du commit (ce que nous mettions après <code>-m</code>) et cliquons à nouveau sur <em>Commit</em>.</p>
+<p><img src="img/git_ordi_vide_02.png" class="img-fluid" style="width:50.0%"></p>
+<p><br></p>
+<p>En cliquant sur l’icône <em>horloge</em> vous pouvez voir l’historique de nos commits.</p>
+<p><img src="img/git_ordi_vide_01ter.png" class="img-fluid" style="width:50.0%"></p>
+<p><br></p>
 </section>
 <section id="créer-une-branche" class="level3">
 <h3 class="anchored" data-anchor-id="créer-une-branche">Créer une branche</h3>
-<p>Nous pouvons créer une nouvelle branche en cliquant sur l’icône à gauche du nom de la branche actuelle, en précisant le nom et en cliquant sur <em>Create</em> :</p>
-<p><img src="img/git_ordi_vide_04.png" class="img-fluid"></p>
-<p>Nous pouvons maintenant naviguer entre les branches directement en cliquant sur leurs noms :</p>
-<p><img src="img/git_ordi_vide_05.png" class="img-fluid"></p>
+<p><br></p>
+<p>Vous pouvons créer une nouvelle branche en cliquant sur l’icône à gauche du nom de la branche actuelle, en précisant le nom et en cliquant sur <em>Create</em> :</p>
+<p><img src="img/git_ordi_vide_04.png" class="img-fluid" style="width:50.0%"></p>
+<p><br></p>
+<p>Vous pouvez maintenant naviguer entre les branches en cliquant sur leurs noms :</p>
+<p><img src="img/git_ordi_vide_05.png" class="img-fluid" style="width:50.0%"></p>
 <div class="callout-important callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -573,7 +601,9 @@ Limites de l’approche clique-bouton
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Nous ne pourrons pas revenir à un commit précédent, créer une branche à partir d’un commit précis ou résoudre des conflits lors de la fusion de branches dans l’onglet <em>Git</em> de RStudio. Il nous faudra utiliser la ligne de commande.</p>
+<p>L’onglet <em>Git</em> dans l’interface RStudio ne vous permettra pas d’effectuer les opérations suivantes, pour lesquelles vous devrez passer par la ligne de commande : - revenir à un commit précédent<br>
+- créer une branche à partir d’un commit précis<br>
+- résoudre des conflits entre branches</p>
 </div>
 </div>
 <p><br></p>
