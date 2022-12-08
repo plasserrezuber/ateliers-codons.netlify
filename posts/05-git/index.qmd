@@ -183,7 +183,7 @@ Pour afficher également les fichiers ignorés, utilisez la commande `git status
 
 <br>
 
-### `git add`
+### Ajouter des fichiers (`git add`)
 
 <br>
 
@@ -239,54 +239,59 @@ L'argument `-r` permet de supprimer de façon récursive un dossier.
 
 <br>
 
-### `git commit`
+### Figer l'état du répertoire (`git commit`)
 
 <br>
 
 Nous allons maintenant figer l'état de notre répertoire de travail à l'aide de la commande `git commit -m ...`. Un commit est toujours associé à un message (`-m`) à écrire entre guillemets (`"message"`) pour préciser ce que nous faisons. Soyez le plus précis possible dans vos messages de commits, cela vous permettra de vous y retrouver dans l'historique des modifications !
 
-![Dessin de @xkcd](img/git_commit_2x.png)
+![Dessin de @xkcd](img/git_commit_2x.png){width="50%"}
 
 <br>
 
-Nous effectuons le premier commit à l'aide de la commande suivante :
+Effectuez le premier commit à l'aide de la commande suivante :
 
 ```{r, git cmd 7, eval=FALSE}
 git commit -m "premier commit"
 ```
 
-![](img/git_cmd_03.png)
+Si vous tapez `git status` dans le terminal, celui-ci affiche *nothing to commit, working tree clean*. Cela indique que votre commit a bien été effectué.
 
-Si nous tapons `git status` dans le terminal, celui-ci affiche *nothing to commit, working tree clean*. Cela indique que notre commit a bien été effectué.
+<br>
 
-La commande `git log` permet d'afficher l'historique de notre répertoire :
+La commande `git log` permet d'afficher l'historique de votre répertoire :
 
 ![](img/git_cmd_04.png)
 
--   *commit \### (HEAD -\> master)* nous donne lidentifiant unique du commit et indique où pointe notre dernier commit (sur la branche master)
+-   *commit \### (HEAD -\> master)* vous donne lidentifiant unique du commit (qu'on appelle **hash**) et indique où pointe votre dernier commit (sur la branche master)
 
 -   *auteur* (avec les identifiants renseignés plus haut), *date* et *message* du commit
 
 <br>
 
-Ajoutons un fichier README dans notre répertoire : *File \> New File \> Markdown File*. Ajoutons une ligne et sauvegardons le fichier à la racine de notre répertoire :
+Ajoutez un fichier README dans votre répertoire : *File > New File > Markdown File*. 
+Ajoutez une ligne et sauvegardez le fichier à la racine de votre répertoire :
 
-![](img/git_md_01.png)
+![](img/git_md_01.png){width="50%"}
 
-Nous allons ajouter ce fichier et effectuer un commit :
+<br>
+
+Ajoutez ce fichier et effectuez un commit :
 
 ```{r, git cmd 8, eval=FALSE}
 git add README.md
 git commit -m "ajout d'un fichier README.md"
 ```
 
-Affichons l'historique de nos commits à l'aide de la commande `git log` :
+Affichez l'historique de vos commits à l'aide de la commande `git log`.
 
-![](img/git_cmd_05.png)
+<br>
 
-Ajoutons une ligne de texte dans notre fichier `README.md` et sauvegardons-le :
+Ajoutez une ligne de texte dans votre fichier `README.md` et sauvegardez-le :
 
-![](img/git_cmd_06.png) Tapons les commandes suivantes :
+![](img/git_cmd_06.png){width="50%"}  
+
+Tapez les commandes suivantes :
 
 ```{r, git cmd 9, eval=FALSE}
 git add README.md
@@ -295,15 +300,21 @@ git commit -m "ajout d'une ligne de texte dans le fichier README.md"
 
 <br>
 
-### Naviguer dans les commits
+### Naviguer dans les commits (`git chekout` et `git switch`)
 
-Affichons à nouveau l'historique avec `git log`.
+<br>
 
-Nous allons revenir au commit précédent dans notre historique. Pour cela, nous copions l'identifiant unique du commit auquel nous souhaitons revenir :
+Affichez à nouveau l'historique avec `git log`.
 
-![](img/git_cmd_07.png)
+Nous allons revenir au commit précédent dans notre historique. 
 
-Dans le terminal, nous tapons la commande suivante (en collant l'identifiant du commit à la place de *commit_id*) :
+Pour cela, copiez l'identifiant unique du commit auquel vous souhaitez revenir :
+
+![](img/git_cmd_07.png){width="50%"}
+
+<br>
+
+Dans le terminal, tapez la commande suivante (en collant l'identifiant du commit à la place de *<commit_id>*) :
 
 ```{r, git cmd 10, eval=FALSE}
 git checkout <commit_id> .
@@ -317,50 +328,69 @@ N'oubliez pas le point à la fin de la ligne de commande !
 
 <br>
 
-Nous pouvons remarquer que dans notre fichier `README.md`, la ligne que nous avions ajoutée n'est plus visible : nous sommes revenus au commit précédent de notre historique.
+Vous remarquerez que dans votre fichier `README.md`, la ligne que vous aviez ajoutée n'est plus visible.
 
-Pour revenir au dernier commit effectué, nous pouvons procéder de la même façon en copiant l'identifiant du commit et en utilisant la commande `git checkout <commit_id> .`. Nous pouvons également utiliser la commande `git reset --hard HEAD`. Cette commande change l'emplacement et nous replace au niveau du commit le plus récent (imaginez que vos différents commits sont représentés pas des noeuds le long d'un segment).
+Pour revenir au dernier commit effectué, vous pouvez procéder de la même façon en copiant l'identifiant du commit et en utilisant la commande `git checkout <commit_id> .`. 
+
+Vous pouvez également utiliser la commande `git reset --hard HEAD`.
 
 <br>
 
-### Créer une branche
+### Créer une branche (`git branch`)
 
-Les branches nous permettent de travailler sur nos fichiers sans impacter la branche principale qui contient notre répertoire "propre".
+<br>
 
-Créons une branche que nous appelons "dev" : `git branch dev`.
+Les branches vous permettent de travailler sur vos fichiers sans impacter la branche principale.
 
-Pour afficher les différentes branches, utilisons la commande `git branch` : ![](img/git_cmd_11.png).
+Créez une branche "dev" : `git branch dev`.
 
-L'astérisque indique la branche sur laquelle nous nous situons, pour l'instant la branche *master*.
+Pour afficher les différentes branches, utilisez la commande `git branch` :
 
-Pour changer de branche, utilisons la commande `git switch <nom-de-la-branche>`. Exécutons les commandes suivantes :
+![](img/git_cmd_11.png){width="50%"}
 
-![](img/git_cmd_12.png)
+L'astérisque indique la branche sur laquelle vous vous situez.
 
-Nous nous situons bien sur la branche *dev*.
+Pour changer de branche, utilisez la commande `git checkout <nom-de-la-branche>` ou `git switch <nom-de-la-branche>`. 
 
-Pour supprimer une branche, nous utilisons la commande `git branch -d <nom-de-la-branche>`. Avant de pouvoir supprimer la branche *dev*, il faut se placer sur la branche *master* :
+Exécutez les commandes suivantes :
 
-![](img/git_cmd_13.png)
+![](img/git_cmd_12.png){width="50%"}
 
-La commande `git checkout -b <nom-de-la-nouvelle-branche>` permet de créer une branche et de s'y placer. Cette fonction permet également de changer de branche : `git checkout master` par exemple.
+<br>
 
-Nous pouvons créer une nouvelle branche à partir d'un commit précis, en précisant l'identifiant du commit : `git checkout -b <nom-de-la-branche> <commit_id>`.
+Pour supprimer une branche, utilisez la commande `git branch -d <nom-de-la-branche>`. 
+Avant de pouvoir supprimer la branche *dev*, il faut se placer sur la branche *master*.
 
-Modifions le fichier README.md sur la branche dev :
+<br>
 
-![](img/git_cmd_14.png)
+La commande `git checkout -b <nom-de-la-nouvelle-branche>` permet de créer une branche et de s'y placer. Cette fonction permet également de changer de branche.
 
-Effectuons un `add + commit` sur cette branche dev :
+<br>
+
+Pour créer une nouvelle branche à partir d'un commit précis, précisez l'identifiant du commit : `git checkout -b <nom-de-la-branche> <commit_id>`.
+
+<br>
+
+Modifiez le fichier README.md sur la branche dev :
+
+![](img/git_cmd_14.png){width="50%"}
+
+Effectuez un `add + commit` sur cette branche dev :
 
 ```{r, git cmd 11, eval=FALSE}
 git add README.md
 git commit -m "modification du fichier README.md sur la branche dev"
 ```
 
-En naviguant entre les branches à l'aide de `git checkout` (ou `git switch`) pour afficher l'historique avec `git log`, nous remarquons que l'historique varie en fonction de la branche sur laquelle on se trouve.
+<br>
 
-### Fusionner les branches et résoudre les conflits
+En naviguant entre les branches à l'aide de `git checkout` (ou de `git switch`) pour afficher l'historique avec `git log`, vous remarquerez que l'historique varie en fonction de la branche.
+
+<br>
+
+### Fusionner les branches et résoudre les conflits (`git merge`)
+
+<br>
 
 Nous avons terminé de travailler sur la branche dev, nous aimerions maintenant rappatrier les modifications apportées sur cette branche sur notre branche principale, en "fusionnant" les deux branches.
 
