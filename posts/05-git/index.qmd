@@ -577,6 +577,8 @@ Nous allons voir comment connecter RStudio à *Gitlab* afin de pouvoir :
 - travailler à plusieurs sur un même projet  
 - rapatrier en local un répertoire distant pour travailler dessus
 
+Le répertoire distant présent sur *Github* ou *Gitlab* s'appelle le **remote**.
+
 La première chose à faire est de créer un paire de clés SSH qui nous permettra de communiquer entre notre ordinateur et le serveur distant *Gitlab*.
 
 <br>
@@ -782,3 +784,132 @@ cd <dossier-dans-lequel-cloner>
 git clone git@gitlab.com:<user-id>/<nom-du-projet>
 ```
 
+:::
+
+<br>
+
+# Commit, pull, push
+
+<br>
+
+Lorsque nous travaillons uniquement en local, le workflow *git* se limite aux opérations suivantes : 
+
+- ajouter des fichiers  
+
+- effectuer des commits  
+
+- créer des branches, fusionner des branches et résoudre les conflits
+
+<br>
+
+Quand nous travaillons en synchronisant notre répertoire local avec un répertoire distant (*remote*), deux opérations s'ajoutent au workflow : 
+
+- **pull** pour récupérer en local les modifications apportées dans le répertoire distant  
+
+- **push** pour exporter les modifications apportées dans le répertoire local vers le répertoire distant
+
+<br>
+
+De manière générale, si vous travaillez seul et que vous utilisez le répertoire distant pour garder une copie de votre travail sur votre serveur, vous n'aurez pas vraiment besoin d'effectuer des **pull**. 
+
+Si vous travaillez sur plusieurs ordinateurs, par exemple un ordinateur de bureau et un ordinateur portable de télétravail, les commandes **pull** et **push** vous seront très utiles : vous exporterez la version la plus récente de votre répertoire sur le répertoire distant à l'aide d'un **push**, et vous récupérerez cette dernière version sur votre deuxième ordinateur à l'aide d'un **pull**.
+
+Si vous travaillez à plusieurs sur un même projet, ces utiliserez ces commandes **pull** et **push** très fréquemment : 
+- pour travailler en local avec les dernières modifications apportées par vos collègues  
+- pour que vos collègues travaillent dans leurs répertoires locaux avec vos dernières modifications
+
+<br>
+
+# Gestion des branches locales et distantes
+
+<br>
+
+## Créer une branche en local et l'exporter
+
+<br>
+
+Dans votre projet RStudio, créez une nouvelle branche que vous appelerez *dev*.
+
+Assurez-vous que la case *Sync branch with remote* est bien cochée et cliquez sur *Create*.
+
+::: {layout-ncol="2"}
+
+![](img/git_ordi_vide_04.png){width="50%"}
+
+![](img/gitlab_04.png){width="50%"}
+
+:::
+
+<br>
+
+Pour exporter la branche *dev* sur *Gitlab*, ouvrez un terminal et tapez la commande suivante : 
+
+```{r push local branch, eval=FALSE}
+git push --set-upstream origin dev
+```
+
+<br>
+
+Les différentes branches locales et distantes apparaissent maintenant dans l'onglet *git* dans RStudio : 
+
+![](img/gitlab_06.png)
+
+En rafraîchissant votre page *Gitlab* vous verrez que la branche *dev* a bien été exportée : 
+
+![](img/gitlab_05.png)
+
+<br>
+
+Dans RStudio, placez-vous sur la branche *dev* et modifiez le fichier README.md : 
+
+![](img/gitlab_07.png)
+
+Effectuez un *add - commit - push* de cette modification. 
+
+## Fusionner des branches sur le serveur distant
+
+Dans *Gitlab*, cliquez sur *2 branches* puis sur *dev*. Vous remarquerez que le fichier README.md contient bien la dernière modification apportée en local. Cliquez ensuite sur *Create merge request* : nous allons fusionner les deux branches et inclure les modifications apportées à la branche *dev* dans la branche *master*.
+
+![](img/gitlab_08.png)
+
+<br>
+
+::: {.callout-note icon="true"}
+
+## Merge request et Pull request
+
+Il s'agit de la même opération, qui porte deux noms différents selon qu'on utilise **Github** (**Pull request**) ou **Gitlab** (**Merge request**).
+
+:::
+
+<br>
+
+Dans la fenêtre *New merge request* renseignez un titre (normalement pré-rempli avec le message du dernier commit) et une description. Soyez le plus explicite possible : vous saurez précisément ce que vous avez fait et les collègues qui travaillent sur le même projet auront toutes les informations nécessaires.
+
+![](img/gitlab_09.png)
+
+<br>
+
+Dans la suite de la fenêtre, vous pouvez renseigner plusieurs champs : 
+
+- *Assignee* : qui doit valider la requête  
+
+- *Reviewer* : solliciter une vérification de la part d'autres personnes  
+
+- *Milestone* : vous pouvez préciser une date limite  
+
+- *Labels* : pour ajouter des étiquettes à vos requêtes  
+
+Dans *Merge options*, vous pouvez choisir de supprimer la branche source quand la requête sera acceptée (*Delete source branch when merge request is accepted*, case cochée par défaut) et d'écraser les commits (case décochée par défaut).
+
+![](img/gitlab_10.png)
+
+<br>
+
+Dans la fenêtre suivante, cliquez sur *Approve* (cette étape n'est pas obligatoire) puis sur *Merge* pour valider la fusion des branches.
+
+Une fois la fusion terminée, revenez sur la page d'accueil du répertoire sur *Gitlab* : il n'y a qu'une branche et le fichier README.md contient bien les dernières modifications.
+
+<br>
+
+Dans RStudio, placez-vous sur la branche *master* et cliquez sur *Pull*. Votre répertoire local est désormais à jour.
