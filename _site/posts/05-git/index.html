@@ -214,7 +214,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul class="collapse">
   <li><a href="#dans-gitlab-1" id="toc-dans-gitlab-1" class="nav-link" data-scroll-target="#dans-gitlab-1">Dans Gitlab</a></li>
   <li><a href="#dans-rstudio-1" id="toc-dans-rstudio-1" class="nav-link" data-scroll-target="#dans-rstudio-1">Dans RStudio</a></li>
-  <li><a href="#le-statut-des-fichiers" id="toc-le-statut-des-fichiers" class="nav-link" data-scroll-target="#le-statut-des-fichiers">Le statut des fichiers</a></li>
+  <li><a href="#cloner-un-répertoire-distant-en-ligne-de-commande" id="toc-cloner-un-répertoire-distant-en-ligne-de-commande" class="nav-link" data-scroll-target="#cloner-un-répertoire-distant-en-ligne-de-commande">Cloner un répertoire distant en ligne de commande</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -617,7 +617,7 @@ Sélectionner plusieurs fichiers
 <p>Cliquez sur <em>Commit</em>.</p>
 <p><img src="img/git_ordi_vide_01bis.png" class="img-fluid" style="width:50.0%"></p>
 <p><br></p>
-<p>Dans la fenêtre qui s’ouvre, nous allons écrire le message du commit (ce que nous mettions après <code>-m</code>) et cliquons à nouveau sur <em>Commit</em>.</p>
+<p>Dans la fenêtre qui s’ouvre, écrivez le message du commit et cliquez à nouveau sur <em>Commit</em>.</p>
 <p><img src="img/git_ordi_vide_02.png" class="img-fluid" style="width:50.0%"></p>
 <p><br></p>
 <p>En cliquant sur l’icône <em>horloge</em> vous pouvez voir l’historique de nos commits.</p>
@@ -627,7 +627,7 @@ Sélectionner plusieurs fichiers
 <section id="créer-une-branche" class="level3">
 <h3 class="anchored" data-anchor-id="créer-une-branche">Créer une branche</h3>
 <p><br></p>
-<p>Vous pouvons créer une nouvelle branche en cliquant sur l’icône à gauche du nom de la branche actuelle, en précisant le nom et en cliquant sur <em>Create</em> :</p>
+<p>Vous pouvez créer une nouvelle branche en cliquant sur l’icône à gauche du nom de la branche actuelle, en précisant le nom et en cliquant sur <em>Create</em> :</p>
 <p><img src="img/git_ordi_vide_04.png" class="img-fluid" style="width:50.0%"></p>
 <p><br></p>
 <p>Vous pouvez maintenant naviguer entre les branches en cliquant sur leurs noms :</p>
@@ -642,9 +642,12 @@ Limites de l’approche clique-bouton
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>L’onglet <em>Git</em> dans l’interface RStudio ne vous permettra pas d’effectuer les opérations suivantes, pour lesquelles vous devrez passer par la ligne de commande : - revenir à un commit précédent<br>
-- créer une branche à partir d’un commit précis<br>
-- résoudre des conflits entre branches</p>
+<p>L’onglet <em>Git</em> dans l’interface RStudio ne vous permettra pas d’effectuer les opérations suivantes, pour lesquelles vous devrez passer par la ligne de commande :</p>
+<ul>
+<li><p>revenir à un commit précédent</p></li>
+<li><p>créer une branche à partir d’un commit précis</p></li>
+<li><p>résoudre des conflits entre branches</p></li>
+</ul>
 </div>
 </div>
 <p><br></p>
@@ -655,7 +658,7 @@ Limites de l’approche clique-bouton
 <h1>Connecter RStudio à GitLab</h1>
 <p><br></p>
 <p>Nous avons jusqu’ici utilisé <em>git</em> en local pour suivre les modifications apportées à des fichiers sur notre ordinateur.</p>
-<p>Nous allons maintenant voir comment connecter RStudio à <em>Gitlab</em> afin de pouvoir :</p>
+<p>Nous allons voir comment connecter RStudio à <em>Gitlab</em> afin de pouvoir :</p>
 <ul>
 <li>synchroniser nos répertoires entre plusieurs ordinateurs<br>
 </li>
@@ -670,7 +673,8 @@ Limites de l’approche clique-bouton
 <p><br></p>
 <p>Dans RStudio, puis cliquez sur <em>Tools</em> &gt; <em>Global Options</em> &gt; <em>Git/SVN</em>.</p>
 <p>Si aucune clé n’est indiquée dans <em>SSH key</em>, cliquez sur <em>Create SSH Key …</em>.</p>
-<p><img src="img/git_06bis.png" class="img-fluid" style="width:50.0%"> Dans <em>SSH key type</em>, sélectionnez <em>RSA</em> puis validez en cliquant sur <em>Create</em>.</p>
+<p><img src="img/git_06bis.png" class="img-fluid" style="width:50.0%"></p>
+<p>Dans <em>SSH key type</em>, sélectionnez <em>RSA</em> puis validez en cliquant sur <em>Create</em>.</p>
 <p><img src="img/git_ordi_vide_07.png" class="img-fluid" style="width:50.0%"></p>
 <p><br></p>
 <p>Cliquez sur <em>View public key</em> et copiez la clé qui s’affiche.</p>
@@ -696,7 +700,10 @@ Limites de l’approche clique-bouton
 <p><br></p>
 <p>Cliquez sur l’icône dans le coin supérieur droit puis sur <em>Preferences</em>.</p>
 <p><img src="img/git_10.png" class="img-fluid" style="width:25.0%"></p>
-<p>Dans la barre de menu à gauche, cliquez sur la première icône en forme de clé. Collez dans le champ <em>Key</em> la clé SSH copiée dans RStudio. Le champ <em>Title</em> devrait se remplir automatiquement. Si ce n’est pas le cas, renseignez ce champ. Vous pouvez choisir une date d’expiration de votre clé dans <em>Expiration date</em>. Pour terminer, cliquez sur <em>Add key</em>. Assurez-vous que votre clé apparaisse bien en base de la page sous <em>Your SSH keys</em>.</p>
+<p>Dans la barre de menu à gauche, cliquez sur la première icône en forme de clé. Collez dans le champ <em>Key</em> la clé SSH copiée dans RStudio.</p>
+<p>Le champ <em>Title</em> devrait se remplir automatiquement. Si ce n’est pas le cas, renseignez ce champ.</p>
+<p>Vous pouvez choisir une date d’expiration de votre clé dans <em>Expiration date</em>.</p>
+<p>Pour terminer, cliquez sur <em>Add key</em>. Assurez-vous que votre clé apparaisse bien en bas de la page sous <em>Your SSH keys</em>.</p>
 <p><img src="img/git_11.png" class="img-fluid"></p>
 <p><br></p>
 </section>
@@ -735,7 +742,7 @@ Limites de l’approche clique-bouton
 <li><p><em>Git global setup</em> : nous l’avons fait au début du tutoriel</p></li>
 <li><p><em>Create a new repository</em> : télécharger votre répertoire <em>Gitlab</em> en local</p></li>
 <li><p><em>Push an existing folder</em> : exporter un dossier local vers <em>Gitlab</em></p></li>
-<li><p><em>Push an existing Git repository</em> : exporter un répertoire <em>Git</em> local vers *Gitlab (c’est ce qui nous intéresse)</p></li>
+<li><p><em>Push an existing Git repository</em> : exporter un répertoire <em>Git</em> local vers <em>Gitlab</em> (c’est ce qui nous intéresse)</p></li>
 </ul>
 <p><br></p>
 </section>
@@ -746,7 +753,7 @@ Limites de l’approche clique-bouton
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>git remote add origin git<span class="sc">@</span>forgemia.inra.fr<span class="sc">:</span><span class="er">&lt;</span>prenom.nom<span class="sc">&gt;</span><span class="er">/&lt;</span>nom_projet<span class="sc">&gt;</span>.git</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>git push <span class="sc">-</span>u origin <span class="sc">--</span>all</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Si c’est la première fois que vous vous connectez à Gitlab depuis RStudio, vous verrez un message dans le terminal si demandant si vous êtes certain de vouloir continuer la connexion. Tapez <em>yes</em> et appuyez sur <em>Entrée</em>.</p>
+<p>Si c’est la première fois que vous vous connectez à Gitlab depuis RStudio, vous verrez un message dans le terminal vous demandant si vous êtes certain de vouloir continuer la connexion. Tapez <em>yes</em> et appuyez sur <em>Entrée</em>.</p>
 <p><img src="img/git_ordi_vide_08.png" class="img-fluid" style="width:50.0%"></p>
 <p>Le terminal vous indiquera des détails comme le nombre de fichiers à exporter et la progression de la connexion.</p>
 <p><br></p>
@@ -807,27 +814,16 @@ Limites de l’approche clique-bouton
 </div>
 <p><br></p>
 <p>Le projet s’ouvre dans une nouvelle fenêtre.</p>
+<p><br></p>
+<p>::: {.callout-note icon=“true”}</p>
 </section>
-<section id="le-statut-des-fichiers" class="level2">
-<h2 class="anchored" data-anchor-id="le-statut-des-fichiers">Le statut des fichiers</h2>
-<p>L’icône à gauche du nom d’un fichier dans l’onglet <em>git</em> de votre espace de travail indique le statut de ce fichier :</p>
-<table class="table">
-<tbody>
-<tr class="odd">
-<td><img src="img/git_22.png" class="img-fluid"></td>
-<td>nouveau fichier</td>
-</tr>
-<tr class="even">
-<td><img src="img/git_23.png" class="img-fluid"></td>
-<td>fichier ajouté</td>
-</tr>
-<tr class="odd">
-<td><img src="img/git_29.png" class="img-fluid"></td>
-<td>fichier modifié</td>
-</tr>
-</tbody>
-</table>
-<p>:::</p>
+<section id="cloner-un-répertoire-distant-en-ligne-de-commande" class="level2">
+<h2 class="anchored" data-anchor-id="cloner-un-répertoire-distant-en-ligne-de-commande">Cloner un répertoire distant en ligne de commande</h2>
+<p>Vous pouvez également cloner le répertoire distant en ligne de commande, en utilisant le lien SSH copié dans <em>Gitlab</em>. Placez-vous au niveau du dossier dans lequel vous souhaitez cloner le répertoire à l’aide de la commande <code>cd</code> (pour <em>change directory</em> puis utilisez la commande <code>git clone</code>).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>cd <span class="sc">&lt;</span>dossier<span class="sc">-</span>dans<span class="sc">-</span>lequel<span class="sc">-</span>cloner<span class="sc">&gt;</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>git clone git<span class="sc">@</span>gitlab.com<span class="sc">:</span><span class="er">&lt;</span>user<span class="sc">-</span>id<span class="sc">&gt;</span><span class="er">/&lt;</span>nom<span class="sc">-</span>du<span class="sc">-</span>projet<span class="sc">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
 </section>
