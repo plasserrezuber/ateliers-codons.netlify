@@ -506,10 +506,10 @@ Les fichiers présents dans l'onglet *Git* de votre espace de travail peuvent av
 
 |                                           |                  |
 | ----------------------------------------- | ---------------- |
-| ![](img/status_new.png){width="25%"}      | nouveau fichier  |
-| ![](img/status_added.png){width="25%"}    | fichier ajouté   |
-| ![](img/status_modified.png){width="25%"} | fichier modifié  |
-| ![](img/status_deleted.png){width="25%"}  | fichier supprimé |
+| ![](img/status_new.png){width="10%"}      | nouveau fichier  |
+| ![](img/status_added.png){width="10%"}    | fichier ajouté   |
+| ![](img/status_modified.png){width="10%"} | fichier modifié  |
+| ![](img/status_deleted.png){width="10%"}  | fichier supprimé |
 
 <br>
 
