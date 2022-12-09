@@ -504,12 +504,12 @@ Quand vous travaillez avec beaucoup de fichiers versionnés, vous pouvez tous le
 
 Les fichiers présents dans l'onglet *Git* de votre espace de travail peuvent avoir différents *statuts* : 
 
-|                              |                  |
-| ---------------------------- | ---------------- |
-| ![](img/status_new.png)      | nouveau fichier  |
-| ![](img/status_added.png)    | fichier ajouté   |
-| ![](img/status_modified.png) | fichier modifié  |
-| ![](img/status_deleted.png)  | fichier supprimé |
+|                                           |                  |
+| ----------------------------------------- | ---------------- |
+| ![](img/status_new.png){width="25%"}      | nouveau fichier  |
+| ![](img/status_added.png){width="25%"}    | fichier ajouté   |
+| ![](img/status_modified.png){width="25%"} | fichier modifié  |
+| ![](img/status_deleted.png){width="25%"}  | fichier supprimé |
 
 <br>
 
