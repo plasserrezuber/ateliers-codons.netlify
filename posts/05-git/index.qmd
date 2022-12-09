@@ -263,7 +263,7 @@ La commande `git log` permet d'afficher l'historique de votre répertoire :
 
 ![](img/git_cmd_04.png)
 
--   *commit \### (HEAD -\> master)* vous donne lidentifiant unique du commit (qu'on appelle **hash**) et indique où pointe votre dernier commit (sur la branche master)
+-   *commit \### (HEAD -\> master)* vous donne l'identifiant unique du commit (qu'on appelle **hash**) et indique où pointe votre dernier commit (sur la branche master)
 
 -   *auteur* (avec les identifiants renseignés plus haut), *date* et *message* du commit
 
@@ -363,11 +363,12 @@ Avant de pouvoir supprimer la branche *dev*, il faut se placer sur la branche *m
 
 <br>
 
-La commande `git checkout -b <nom-de-la-nouvelle-branche>` permet de créer une branche et de s'y placer. Cette fonction permet également de changer de branche.
+La commande `git checkout -b <nom-de-la-nouvelle-branche>` permet de créer une branche et de s'y placer.
 
 <br>
 
 Pour créer une nouvelle branche à partir d'un commit précis, précisez l'identifiant du commit : `git checkout -b <nom-de-la-branche> <commit_id>`.
+Utilisez cette commande pour créer une branche *dev* au niveau de l'avant-dernier commit de votre historique.
 
 <br>
 
@@ -396,7 +397,7 @@ Une fois que vous avez terminé de travailler sur votre branche *dev*, vous pouv
 
 Placez-vous sur la branche *master* : `git checkout master`.
 
-Pour fusionner la branche dev sur la branche master, utilisez la commande `git merge` :
+Pour fusionner la branche dev sur la branche master, utilisez la commande `git merge dev` :
 
 ![](img/git_cmd_15.png){width="50%"}
 
@@ -455,7 +456,7 @@ Créez un nouveau projet RStudio.
 
 <br>
 
-Pour initialiser git, cliquez sur *Tools \> Project Options*, puis dans le menu *Git/SVN* sélectionnez *Git* :
+Pour initialiser git, cliquez sur *Tools > Project Options*, puis dans le menu *Git/SVN* sélectionnez *Git* :
 
 ![](img/git_ide_01.png){width="50%"}
 
@@ -466,7 +467,18 @@ RStudio redémarre, et vous remarquerez la présence d'un onglet *Git* dans votr
 ::: {layout-ncol="2"}
 
 ![](img/git_ide_02.png){width="50%"}  
+
 ![](img/git_ide_03.png){width="50%"}
+
+:::
+
+<br>
+
+::: {.callout-tip icon="true"}
+
+## Initialiser git lors de la création d'un projet
+
+Lorsque vous créez un nouveau projet RStudio, vous pouvez cocher la case *Create a git repository*
 
 :::
 
@@ -484,9 +496,20 @@ Pour ajouter des fichiers, cochez-les dans l'onglet git. Leur statut change et u
 
 ## Sélectionner plusieurs fichiers
 
-Quand nous travaillons avec beaucoup de fichiers versionnés, nous pouvons tous les sélectionner : cliquons sur le nom d'un des fichiers dans l'onglet git, puis utilisons la combinaison *Ctrl + A* et enfin cochons la case à côté du premier fichier sur lequel nous avions cliqué.
+Quand vous travaillez avec beaucoup de fichiers versionnés, vous pouvez tous les sélectionner : cliquez sur le nom d'un des fichiers dans l'onglet git, puis utilisez la combinaison **Ctrl + A** et enfin cochez la case à côté du premier fichier.
 
 :::
+
+<br>
+
+Les fichiers présents dans l'onglet *Git* de votre espace de travail peuvent avoir différents *statuts* : 
+
+|                              |                  |
+| ---------------------------- | ---------------- |
+| ![](img/status_new.png)      | nouveau fichier  |
+| ![](img/status_added.png)    | fichier ajouté   |
+| ![](img/status_modified.png) | fichier modifié  |
+| ![](img/status_deleted.png)  | fichier supprimé |
 
 <br>
 

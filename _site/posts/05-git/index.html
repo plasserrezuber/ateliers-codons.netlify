@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.32">
+<meta name="generator" content="quarto-1.0.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -414,7 +414,7 @@ rm -r
 <p>La commande <code>git log</code> permet d’afficher l’historique de votre répertoire :</p>
 <p><img src="img/git_cmd_04.png" class="img-fluid"></p>
 <ul>
-<li><p><em>commit ### (HEAD -&gt; master)</em> vous donne lidentifiant unique du commit (qu’on appelle <strong>hash</strong>) et indique où pointe votre dernier commit (sur la branche master)</p></li>
+<li><p><em>commit ### (HEAD -&gt; master)</em> vous donne l’identifiant unique du commit (qu’on appelle <strong>hash</strong>) et indique où pointe votre dernier commit (sur la branche master)</p></li>
 <li><p><em>auteur</em> (avec les identifiants renseignés plus haut), <em>date</em> et <em>message</em> du commit</p></li>
 </ul>
 <p><br></p>
@@ -482,9 +482,9 @@ git checkout <commit_id> .
 <p><br></p>
 <p>Pour supprimer une branche, utilisez la commande <code>git branch -d &lt;nom-de-la-branche&gt;</code>. Avant de pouvoir supprimer la branche <em>dev</em>, il faut se placer sur la branche <em>master</em>.</p>
 <p><br></p>
-<p>La commande <code>git checkout -b &lt;nom-de-la-nouvelle-branche&gt;</code> permet de créer une branche et de s’y placer. Cette fonction permet également de changer de branche.</p>
+<p>La commande <code>git checkout -b &lt;nom-de-la-nouvelle-branche&gt;</code> permet de créer une branche et de s’y placer.</p>
 <p><br></p>
-<p>Pour créer une nouvelle branche à partir d’un commit précis, précisez l’identifiant du commit : <code>git checkout -b &lt;nom-de-la-branche&gt; &lt;commit_id&gt;</code>.</p>
+<p>Pour créer une nouvelle branche à partir d’un commit précis, précisez l’identifiant du commit : <code>git checkout -b &lt;nom-de-la-branche&gt; &lt;commit_id&gt;</code>. Utilisez cette commande pour créer une branche <em>dev</em> au niveau de l’avant-dernier commit de votre historique.</p>
 <p><br></p>
 <p>Modifiez le fichier README.md sur la branche dev :</p>
 <p><img src="img/git_cmd_14.png" class="img-fluid" style="width:50.0%"></p>
@@ -502,7 +502,7 @@ git checkout <commit_id> .
 <p><br></p>
 <p>Une fois que vous avez terminé de travailler sur votre branche <em>dev</em>, vous pouvez “rapatrier” les modifications apportées sur cette branche sur votre branche <em>master</em>.</p>
 <p>Placez-vous sur la branche <em>master</em> : <code>git checkout master</code>.</p>
-<p>Pour fusionner la branche dev sur la branche master, utilisez la commande <code>git merge</code> :</p>
+<p>Pour fusionner la branche dev sur la branche master, utilisez la commande <code>git merge dev</code> :</p>
 <p><img src="img/git_cmd_15.png" class="img-fluid" style="width:50.0%"></p>
 <p>Le terminal nous indique qu’il y a un <strong>conflit</strong> : le fichier README.md diffère entre les deux branches. Il vous faut résoudre ce conflit avant de pouvoir fusionner les deux branches.</p>
 <p><br></p>
@@ -546,9 +546,25 @@ git checkout <commit_id> .
 <div class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="img/git_ide_02.png" class="img-fluid" style="width:50.0%"><br>
-<img src="img/git_ide_03.png" class="img-fluid" style="width:50.0%"></p>
+<p><img src="img/git_ide_02.png" class="img-fluid"></p>
 </div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="img/git_ide_03.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+<p><br></p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Initialiser git lors de la création d’un projet
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Lorsque vous créez un nouveau projet RStudio, vous pouvez cocher la case <em>Create a git repository</em></p>
 </div>
 </div>
 <p><br></p>
@@ -568,9 +584,31 @@ Sélectionner plusieurs fichiers
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Quand nous travaillons avec beaucoup de fichiers versionnés, nous pouvons tous les sélectionner : cliquons sur le nom d’un des fichiers dans l’onglet git, puis utilisons la combinaison <em>Ctrl + A</em> et enfin cochons la case à côté du premier fichier sur lequel nous avions cliqué.</p>
+<p>Quand vous travaillez avec beaucoup de fichiers versionnés, vous pouvez tous les sélectionner : cliquez sur le nom d’un des fichiers dans l’onglet git, puis utilisez la combinaison <strong>Ctrl + A</strong> et enfin cochez la case à côté du premier fichier.</p>
 </div>
 </div>
+<p><br></p>
+<p>Les fichiers présents dans l’onglet <em>Git</em> de votre espace de travail peuvent avoir différents <em>statuts</em> :</p>
+<table class="table">
+<tbody>
+<tr class="odd">
+<td><img src="img/status_new.png" class="img-fluid"></td>
+<td>nouveau fichier</td>
+</tr>
+<tr class="even">
+<td><img src="img/status_added.png" class="img-fluid"></td>
+<td>fichier ajouté</td>
+</tr>
+<tr class="odd">
+<td><img src="img/status_modified.png" class="img-fluid"></td>
+<td>fichier modifié</td>
+</tr>
+<tr class="even">
+<td><img src="img/status_deleted.png" class="img-fluid"></td>
+<td>fichier supprimé</td>
+</tr>
+</tbody>
+</table>
 <p><br></p>
 </section>
 <section id="effectuer-un-commit" class="level3">
