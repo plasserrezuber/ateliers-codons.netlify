@@ -214,7 +214,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul class="collapse">
   <li><a href="#dans-gitlab-1" id="toc-dans-gitlab-1" class="nav-link" data-scroll-target="#dans-gitlab-1">Dans Gitlab</a></li>
   <li><a href="#dans-rstudio-1" id="toc-dans-rstudio-1" class="nav-link" data-scroll-target="#dans-rstudio-1">Dans RStudio</a></li>
-  <li><a href="#cloner-un-répertoire-distant-en-ligne-de-commande" id="toc-cloner-un-répertoire-distant-en-ligne-de-commande" class="nav-link" data-scroll-target="#cloner-un-répertoire-distant-en-ligne-de-commande">Cloner un répertoire distant en ligne de commande</a></li>
+  </ul></li>
+  <li><a href="#commit-pull-push" id="toc-commit-pull-push" class="nav-link" data-scroll-target="#commit-pull-push">Commit, pull, push</a></li>
+  <li><a href="#gestion-des-branches-locales-et-distantes" id="toc-gestion-des-branches-locales-et-distantes" class="nav-link" data-scroll-target="#gestion-des-branches-locales-et-distantes">Gestion des branches locales et distantes</a>
+  <ul class="collapse">
+  <li><a href="#créer-une-branche-en-local-et-lexporter" id="toc-créer-une-branche-en-local-et-lexporter" class="nav-link" data-scroll-target="#créer-une-branche-en-local-et-lexporter">Créer une branche en local et l’exporter</a></li>
+  <li><a href="#fusionner-des-branches-sur-le-serveur-distant" id="toc-fusionner-des-branches-sur-le-serveur-distant" class="nav-link" data-scroll-target="#fusionner-des-branches-sur-le-serveur-distant">Fusionner des branches sur le serveur distant</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -666,6 +671,7 @@ Limites de l’approche clique-bouton
 </li>
 <li>rapatrier en local un répertoire distant pour travailler dessus</li>
 </ul>
+<p>Le répertoire distant présent sur <em>Github</em> ou <em>Gitlab</em> s’appelle le <strong>remote</strong>.</p>
 <p>La première chose à faire est de créer un paire de clés SSH qui nous permettra de communiquer entre notre ordinateur et le serveur distant <em>Gitlab</em>.</p>
 <p><br></p>
 <section id="créer-des-clés-ssh" class="level2">
@@ -815,15 +821,117 @@ Limites de l’approche clique-bouton
 <p><br></p>
 <p>Le projet s’ouvre dans une nouvelle fenêtre.</p>
 <p><br></p>
-<p>::: {.callout-note icon=“true”}</p>
-</section>
-<section id="cloner-un-répertoire-distant-en-ligne-de-commande" class="level2">
-<h2 class="anchored" data-anchor-id="cloner-un-répertoire-distant-en-ligne-de-commande">Cloner un répertoire distant en ligne de commande</h2>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Cloner un répertoire distant en ligne de commande
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Vous pouvez également cloner le répertoire distant en ligne de commande, en utilisant le lien SSH copié dans <em>Gitlab</em>. Placez-vous au niveau du dossier dans lequel vous souhaitez cloner le répertoire à l’aide de la commande <code>cd</code> (pour <em>change directory</em> puis utilisez la commande <code>git clone</code>).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>cd <span class="sc">&lt;</span>dossier<span class="sc">-</span>dans<span class="sc">-</span>lequel<span class="sc">-</span>cloner<span class="sc">&gt;</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>git clone git<span class="sc">@</span>gitlab.com<span class="sc">:</span><span class="er">&lt;</span>user<span class="sc">-</span>id<span class="sc">&gt;</span><span class="er">/&lt;</span>nom<span class="sc">-</span>du<span class="sc">-</span>projet<span class="sc">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</div>
+</div>
+<p><br></p>
+</section>
+</section>
+<section id="commit-pull-push" class="level1">
+<h1>Commit, pull, push</h1>
+<p><br></p>
+<p>Lorsque nous travaillons uniquement en local, le workflow <em>git</em> se limite aux opérations suivantes :</p>
+<ul>
+<li><p>ajouter des fichiers</p></li>
+<li><p>effectuer des commits</p></li>
+<li><p>créer des branches, fusionner des branches et résoudre les conflits</p></li>
+</ul>
+<p><br></p>
+<p>Quand nous travaillons en synchronisant notre répertoire local avec un répertoire distant (<em>remote</em>), deux opérations s’ajoutent au workflow :</p>
+<ul>
+<li><p><strong>pull</strong> pour récupérer en local les modifications apportées dans le répertoire distant</p></li>
+<li><p><strong>push</strong> pour exporter les modifications apportées dans le répertoire local vers le répertoire distant</p></li>
+</ul>
+<p><br></p>
+<p>De manière générale, si vous travaillez seul et que vous utilisez le répertoire distant pour garder une copie de votre travail sur votre serveur, vous n’aurez pas vraiment besoin d’effectuer des <strong>pull</strong>.</p>
+<p>Si vous travaillez sur plusieurs ordinateurs, par exemple un ordinateur de bureau et un ordinateur portable de télétravail, les commandes <strong>pull</strong> et <strong>push</strong> vous seront très utiles : vous exporterez la version la plus récente de votre répertoire sur le répertoire distant à l’aide d’un <strong>push</strong>, et vous récupérerez cette dernière version sur votre deuxième ordinateur à l’aide d’un <strong>pull</strong>.</p>
+<p>Si vous travaillez à plusieurs sur un même projet, ces utiliserez ces commandes <strong>pull</strong> et <strong>push</strong> très fréquemment : - pour travailler en local avec les dernières modifications apportées par vos collègues<br>
+- pour que vos collègues travaillent dans leurs répertoires locaux avec vos dernières modifications</p>
+<p><br></p>
+</section>
+<section id="gestion-des-branches-locales-et-distantes" class="level1">
+<h1>Gestion des branches locales et distantes</h1>
+<p><br></p>
+<section id="créer-une-branche-en-local-et-lexporter" class="level2">
+<h2 class="anchored" data-anchor-id="créer-une-branche-en-local-et-lexporter">Créer une branche en local et l’exporter</h2>
+<p><br></p>
+<p>Dans votre projet RStudio, créez une nouvelle branche que vous appelerez <em>dev</em>.</p>
+<p>Assurez-vous que la case <em>Sync branch with remote</em> est bien cochée et cliquez sur <em>Create</em>.</p>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="img/git_ordi_vide_04.png" class="img-fluid"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="img/gitlab_04.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+<p><br></p>
+<p>Pour exporter la branche <em>dev</em> sur <em>Gitlab</em>, ouvrez un terminal et tapez la commande suivante :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>git push <span class="sc">--</span>set<span class="sc">-</span>upstream origin dev</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<p>Les différentes branches locales et distantes apparaissent maintenant dans l’onglet <em>git</em> dans RStudio :</p>
+<p><img src="img/gitlab_06.png" class="img-fluid"></p>
+<p>En rafraîchissant votre page <em>Gitlab</em> vous verrez que la branche <em>dev</em> a bien été exportée :</p>
+<p><img src="img/gitlab_05.png" class="img-fluid"></p>
+<p><br></p>
+<p>Dans RStudio, placez-vous sur la branche <em>dev</em> et modifiez le fichier README.md :</p>
+<p><img src="img/gitlab_07.png" class="img-fluid"></p>
+<p>Effectuez un <em>add - commit - push</em> de cette modification.</p>
+</section>
+<section id="fusionner-des-branches-sur-le-serveur-distant" class="level2">
+<h2 class="anchored" data-anchor-id="fusionner-des-branches-sur-le-serveur-distant">Fusionner des branches sur le serveur distant</h2>
+<p>Dans <em>Gitlab</em>, cliquez sur <em>2 branches</em> puis sur <em>dev</em>. Vous remarquerez que le fichier README.md contient bien la dernière modification apportée en local. Cliquez ensuite sur <em>Create merge request</em> : nous allons fusionner les deux branches et inclure les modifications apportées à la branche <em>dev</em> dans la branche <em>master</em>.</p>
+<p><img src="img/gitlab_08.png" class="img-fluid"></p>
+<p><br></p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Merge request et Pull request
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Il s’agit de la même opération, qui porte deux noms différents selon qu’on utilise <strong>Github</strong> (<strong>Pull request</strong>) ou <strong>Gitlab</strong> (<strong>Merge request</strong>).</p>
+</div>
+</div>
+<p><br></p>
+<p>Dans la fenêtre <em>New merge request</em> renseignez un titre (normalement pré-rempli avec le message du dernier commit) et une description. Soyez le plus explicite possible : vous saurez précisément ce que vous avez fait et les collègues qui travaillent sur le même projet auront toutes les informations nécessaires.</p>
+<p><img src="img/gitlab_09.png" class="img-fluid"></p>
+<p><br></p>
+<p>Dans la suite de la fenêtre, vous pouvez renseigner plusieurs champs :</p>
+<ul>
+<li><p><em>Assignee</em> : qui doit valider la requête</p></li>
+<li><p><em>Reviewer</em> : solliciter une vérification de la part d’autres personnes</p></li>
+<li><p><em>Milestone</em> : vous pouvez préciser une date limite</p></li>
+<li><p><em>Labels</em> : pour ajouter des étiquettes à vos requêtes</p></li>
+</ul>
+<p>Dans <em>Merge options</em>, vous pouvez choisir de supprimer la branche source quand la requête sera acceptée (<em>Delete source branch when merge request is accepted</em>, case cochée par défaut) et d’écraser les commits (case décochée par défaut).</p>
+<p><img src="img/gitlab_10.png" class="img-fluid"></p>
+<p><br></p>
+<p>Dans la fenêtre suivante, cliquez sur <em>Approve</em> (cette étape n’est pas obligatoire) puis sur <em>Merge</em> pour valider la fusion des branches.</p>
+<p>Une fois la fusion terminée, revenez sur la page d’accueil du répertoire sur <em>Gitlab</em> : il n’y a qu’une branche et le fichier README.md contient bien les dernières modifications.</p>
+<p><br></p>
+<p>Dans RStudio, placez-vous sur la branche <em>master</em> et cliquez sur <em>Pull</em>. Votre répertoire local est désormais à jour.</p>
 
 
 </section>
