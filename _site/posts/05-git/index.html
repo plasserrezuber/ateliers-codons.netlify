@@ -932,6 +932,14 @@ Merge request et Pull request
 <p>Une fois la fusion terminée, revenez sur la page d’accueil du répertoire sur <em>Gitlab</em> : il n’y a qu’une branche et le fichier README.md contient bien les dernières modifications.</p>
 <p><br></p>
 <p>Dans RStudio, placez-vous sur la branche <em>master</em> et cliquez sur <em>Pull</em>. Votre répertoire local est désormais à jour.</p>
+<p>Cependant, les branches <em>dev</em> locale et distante sont toujours présentes dans l’onglet <em>Git</em> de RStudio …</p>
+<p><img src="img/gitlab_12.png" class="img-fluid"></p>
+<p>Pour les supprimer, utilisez les commandes suivantes :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>git fetch <span class="sc">-</span>p</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>git branch <span class="sc">-</span>d dev</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Rafraîchissez l’onglet <em>Git</em>, il ne devrait rester que la branche <em>master</em> locale et distante.</p>
 
 
 </section>

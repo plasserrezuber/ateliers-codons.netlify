@@ -913,3 +913,17 @@ Une fois la fusion terminée, revenez sur la page d'accueil du répertoire sur *
 <br>
 
 Dans RStudio, placez-vous sur la branche *master* et cliquez sur *Pull*. Votre répertoire local est désormais à jour.
+
+Cependant, les branches *dev* locale et distante sont toujours présentes dans l'onglet *Git* de RStudio ... 
+
+![](img/gitlab_12.png)
+
+Pour les supprimer, utilisez les commandes suivantes : 
+
+```{r delete remote branches, eval=FALSE}
+git fetch -p
+git branch -d dev
+```
+
+Rafraîchissez l'onglet *Git*, il ne devrait rester que la branche *master* locale et distante.
+
