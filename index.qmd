@@ -10,6 +10,8 @@ page-layout: article
 [![](img/banniere_premiers_pas_avec_r.png){width="50%"}](https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/)
 
 [![](img/banniere_introduction_tidyverse.png){width="50%"}](https://ateliers-codons.netlify.app/posts/03-introduction-tidyverse/)
+
+[![](img/banniere_ggplot.png){width="50%"}](https://ateliers-codons.netlify.app/posts/06-intro-ggplot/)
 :::
 
 ::: {.callout-caution collapse="true" icon="false"}
