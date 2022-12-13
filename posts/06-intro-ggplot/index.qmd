@@ -17,60 +17,62 @@ format:
 
 <br>
 
-## Git, GitHub et GitLab
+## La grammaire des graphiques
 
 <br>
 
-Lorsqu'on travaille sur des données ou qu'on rédige un rapport, on peut rapidement se retrouver avec beaucoup de fichiers aux noms plus ou moins explicites : `fichier.txt`, `fichier2.txt`, `fichier2_modifs.txt`, `fichier2_version1.txt`, ... Difficile de s'y retrouver !
+Le package [`{ggplot2}`](https://ggplot2.tidyverse.org/) (qui fait partie du [Tidyverse](https://www.tidyverse.org/)) repose sur le principe de **grammaire des graphiques** : un graphique se construit couche par couche.
+
+![](img/ggplot-grammar-of-graphics.png){width="50%"}
 
 <br>
 
-![Dessing de PHDComics](img/git_notfinal.gif){width="50%"}
+## Pré-requis
 
 <br>
 
-[**Git**](https://git-scm.com/) est un *gestionnaire de versions*, gratuit et open source qui permet de garder une trace de toutes les modifications apportées à un fichier.
+Si vous n'avez pas suivi les autres tutoriels, vous pouvez [créer un projet RStudio](https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/#créer-un-projet) et [une arborescence](https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/#créer-une-arborescence).
 
-Git vous permet de "figer" l'état de votre répertoire de travail à un instant donné à l'aide de **commits**. 
+Commencez par installer le package `{ggplot2}`. Vous pouvez également installer et charger le `{tidyverse}` (préférez cette solution si vous comptez manipuler les données avant de créer les graphiques).
 
-Vous pourrez ainsi naviguer dans l'historique des modifications d'un fichier, savoir quand une modification a été faite et en quoi consiste cette modification. 
+```{r install and load, eval=FALSE}
+# Installer et charger le package {ggplot2}
+install.packages("ggplot2")
+library(ggplot2)
 
-Vous pourrez revenir à un état antérieur de votre fichier en remontant dans l'historique des modifications.
+# Installer et charger la suite {tidyverse}
+install.packages("tidyverse")
+library(tidyverse)
+```
 
-Git vous permet également de travailler sur des **branches**. La branche principale sur laquelle se situe votre travail "propre" se nomme la branche **master**. Vous pouvez créer une seconde branche pour effectuer des tests, faire du développement, tout en laissant intacte la branche master. Vous pourrez inclure les modifications apportées sur la seconde branche dans la branche master en les fusionnant : c'est ce qu'on appelle un **merge**.
-
-Git vous permet également de faire une sauvegarde de vos modifications sur un serveur distant : [**Github**](https://github.com/) ou [**Gitlab**](https://gitlab.com). 
-Ces outils permettent de travailler à plusieurs sur un même projet, de synchroniser vos répertoires locaux et distants, de partager votre code, ...
-
-<br>
-
-## Installer git
-
-<br>
-
-### Windows
+```{r load tidyverse, echo=FALSE, eval=TRUE, warning=FALSE, message=FALSE}
+library(tidyverse)
+```
 
 <br>
 
-Cliquez sur [ce lien](https://gitforwindows.org/) pour télécharger et installer la dernière version de git pour Windows. Lors de l'installation, laissez les paramètres par défaut.
+# Graphiques simples
 
 <br>
 
-### Linux
+## Le jeu de données
 
 <br>
 
-Pour installer git sur Linux, suivez les instructions sur [ce lien](https://git-scm.com/download/linux).
+Nous allons utiliser le jeu de données tiré du package [`{Palmer penguins}`](https://allisonhorst.github.io/palmerpenguins/).  
 
-<br>
+Pour importer ce jeu de données, utilisez la commande suivante : 
 
-### MacOS
+```{r import data, message=FALSE, warning=FALSE}
+pingouins <- readr::read_csv("https://raw.githubusercontent.com/codons-blog/ateliers_codons/main/data/pingouins_propre.csv")
+```
 
-<br>
+Explorons rapidement ces données : 
 
-Pour installer git sur MacOS, suivez les instructions sur [ce lien](https://git-scm.com/download/mac).
+```{r EDA, eval=FALSE}
+dplyr::glimpse(pingouins)
+```
 
-<br>
 
 # Premiers pas avec git
 
