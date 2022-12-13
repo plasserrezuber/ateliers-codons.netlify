@@ -73,6 +73,48 @@ Explorons rapidement ces données :
 dplyr::glimpse(pingouins)
 ```
 
+<br>
+
+## Un premier graphique : *nuage de points* 
+
+<br>
+
+Un `{ggplot2}` nécessite au minimum les trois éléments suivants :   
+
+- les données utilisées (**data**)  
+
+- l'apparence esthétique des éléments du graphique, comme la position, la couleur, la taille, la forme, et la transparence (**aesthetics**)  
+
+- les formes utilisées pour représenter les données (**geometries**)
+
+Ces trois éléments suffisent pour créer un graphique simple. Il existe beaucoup d'autres éléments permettant la personnalisation du graphique.
+
+<br>
+
+Créons un nuage de points représentant la longueur du bec en fonction de la longueur des ailes.
+
+```{r basic plot 01}
+ggplot(data = pingouins)
+```
+
+Cette commande permet d'initialiser notre graphique. Seul l'arrière-plan gris est visible pour le moment.
+
+Ajoutons les deux variables que nous souhaitons représenter : 
+
+```{r basic plot 02}
+ggplot(data = pingouins,
+       mapping = aes(x = longueur_aile_mm, y = longueur_bec_mm))
+```
+
+Les deux variables ont été ajoutées, et les échelles des deux axes ont été calculées automatiquement.
+
+Pour finir, nous allons préciser que nous souhaitons représenter la relation entre ces deux variables à l'aide d'un nuage de points : 
+
+```{r basic plot 03}
+ggplot(data = pingouins,
+       mapping = aes(x = longueur_aile_mm, y = longueur_bec_mm)) +
+  geom_point()
+```
 
 # Premiers pas avec git
 
