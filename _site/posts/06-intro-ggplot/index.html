@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Jonathan Kitt">
+<meta name="dcterms.date" content="2022-12-12">
+
+<title>Ateliers codons - Introduction à ggplot2</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Ateliers codons</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/codons-blog/"><i class="bi bi-github" role="img">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Introduction à ggplot2</h1>
+            <p class="subtitle lead">Créer des graphiques à l’aide du package {ggplot2}</p>
+                                <div class="quarto-categories">
+                <div class="quarto-category">R</div>
+                <div class="quarto-category">RStudio</div>
+                <div class="quarto-category">Graphiques</div>
+                <div class="quarto-category">ggplot2</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Jonathan Kitt </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">December 12, 2022</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Sommaire</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <ul class="collapse">
+  <li><a href="#la-grammaire-des-graphiques" id="toc-la-grammaire-des-graphiques" class="nav-link" data-scroll-target="#la-grammaire-des-graphiques">La grammaire des graphiques</a></li>
+  <li><a href="#pré-requis" id="toc-pré-requis" class="nav-link" data-scroll-target="#pré-requis">Pré-requis</a></li>
+  </ul></li>
+  <li><a href="#graphiques-simples" id="toc-graphiques-simples" class="nav-link" data-scroll-target="#graphiques-simples">Graphiques simples</a>
+  <ul class="collapse">
+  <li><a href="#le-jeu-de-données" id="toc-le-jeu-de-données" class="nav-link" data-scroll-target="#le-jeu-de-données">Le jeu de données</a></li>
+  </ul></li>
+  <li><a href="#premiers-pas-avec-git" id="toc-premiers-pas-avec-git" class="nav-link" data-scroll-target="#premiers-pas-avec-git">Premiers pas avec git</a>
+  <ul class="collapse">
+  <li><a href="#workflow-git-en-ligne-de-commande" id="toc-workflow-git-en-ligne-de-commande" class="nav-link" data-scroll-target="#workflow-git-en-ligne-de-commande">Workflow git en ligne de commande</a></li>
+  <li><a href="#workflow-git-en-clique-bouton" id="toc-workflow-git-en-clique-bouton" class="nav-link" data-scroll-target="#workflow-git-en-clique-bouton">Workflow git en “clique-bouton”</a></li>
+  </ul></li>
+  <li><a href="#connecter-rstudio-à-gitlab" id="toc-connecter-rstudio-à-gitlab" class="nav-link" data-scroll-target="#connecter-rstudio-à-gitlab">Connecter RStudio à GitLab</a>
+  <ul class="collapse">
+  <li><a href="#créer-des-clés-ssh" id="toc-créer-des-clés-ssh" class="nav-link" data-scroll-target="#créer-des-clés-ssh">Créer des clés SSH</a></li>
+  <li><a href="#paramétrer-gitlab" id="toc-paramétrer-gitlab" class="nav-link" data-scroll-target="#paramétrer-gitlab">Paramétrer GitLab</a></li>
+  </ul></li>
+  <li><a href="#exporter-un-répertoire-local-vers-gitlab" id="toc-exporter-un-répertoire-local-vers-gitlab" class="nav-link" data-scroll-target="#exporter-un-répertoire-local-vers-gitlab">Exporter un répertoire local vers Gitlab</a>
+  <ul class="collapse">
+  <li><a href="#dans-gitlab" id="toc-dans-gitlab" class="nav-link" data-scroll-target="#dans-gitlab">Dans GitLab</a></li>
+  <li><a href="#dans-rstudio" id="toc-dans-rstudio" class="nav-link" data-scroll-target="#dans-rstudio">Dans RStudio</a></li>
+  </ul></li>
+  <li><a href="#importer-un-répertoire-distant-vers-rstudio" id="toc-importer-un-répertoire-distant-vers-rstudio" class="nav-link" data-scroll-target="#importer-un-répertoire-distant-vers-rstudio">Importer un répertoire distant vers RStudio</a>
+  <ul class="collapse">
+  <li><a href="#dans-gitlab-1" id="toc-dans-gitlab-1" class="nav-link" data-scroll-target="#dans-gitlab-1">Dans Gitlab</a></li>
+  <li><a href="#dans-rstudio-1" id="toc-dans-rstudio-1" class="nav-link" data-scroll-target="#dans-rstudio-1">Dans RStudio</a></li>
+  </ul></li>
+  <li><a href="#commit-pull-push" id="toc-commit-pull-push" class="nav-link" data-scroll-target="#commit-pull-push">Commit, pull, push</a></li>
+  <li><a href="#gestion-des-branches-locales-et-distantes" id="toc-gestion-des-branches-locales-et-distantes" class="nav-link" data-scroll-target="#gestion-des-branches-locales-et-distantes">Gestion des branches locales et distantes</a>
+  <ul class="collapse">
+  <li><a href="#créer-une-branche-en-local-et-lexporter" id="toc-créer-une-branche-en-local-et-lexporter" class="nav-link" data-scroll-target="#créer-une-branche-en-local-et-lexporter">Créer une branche en local et l’exporter</a></li>
+  <li><a href="#fusionner-des-branches-sur-le-serveur-distant" id="toc-fusionner-des-branches-sur-le-serveur-distant" class="nav-link" data-scroll-target="#fusionner-des-branches-sur-le-serveur-distant">Fusionner des branches sur le serveur distant</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p><br></p>
+<section id="la-grammaire-des-graphiques" class="level2">
+<h2 class="anchored" data-anchor-id="la-grammaire-des-graphiques">La grammaire des graphiques</h2>
+<p><br></p>
+<p>Le package <a href="https://ggplot2.tidyverse.org/"><code>{ggplot2}</code></a> (qui fait partie du <a href="https://www.tidyverse.org/">Tidyverse</a>) repose sur le principe de <strong>grammaire des graphiques</strong> : un graphique se construit couche par couche.</p>
+<p><img src="img/ggplot-grammar-of-graphics.png" class="img-fluid" style="width:50.0%"></p>
+<p><br></p>
+</section>
+<section id="pré-requis" class="level2">
+<h2 class="anchored" data-anchor-id="pré-requis">Pré-requis</h2>
+<p><br></p>
+<p>Si vous n’avez pas suivi les autres tutoriels, vous pouvez <a href="https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/#créer-un-projet">créer un projet RStudio</a> et <a href="https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/#créer-une-arborescence">une arborescence</a>.</p>
+<p>Commencez par installer le package <code>{ggplot2}</code>. Vous pouvez également installer et charger le <code>{tidyverse}</code> (préférez cette solution si vous comptez manipuler les données avant de créer les graphiques).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Installer et charger le package {ggplot2}</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"ggplot2"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Installer et charger la suite {tidyverse}</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+
+</div>
+<p><br></p>
+</section>
+</section>
+<section id="graphiques-simples" class="level1">
+<h1>Graphiques simples</h1>
+<p><br></p>
+<section id="le-jeu-de-données" class="level2">
+<h2 class="anchored" data-anchor-id="le-jeu-de-données">Le jeu de données</h2>
+<p><br></p>
+<p>Nous allons utiliser le jeu de données tiré du package <a href="https://allisonhorst.github.io/palmerpenguins/"><code>{Palmer penguins}</code></a>.</p>
+<p>Pour importer ce jeu de données, utilisez la commande suivante :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>pingouins <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/codons-blog/ateliers_codons/main/data/pingouins_propre.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Explorons rapidement ces données :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">glimpse</span>(pingouins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="premiers-pas-avec-git" class="level1">
+<h1>Premiers pas avec git</h1>
+<p><br></p>
+<p>Ouvrez RStudio, et cliquez sur <em>Tools &gt; Global Options &gt; Git/SVN</em>.</p>
+<p>Assurez-vous que la case <em>Enable version control interface for RStudio projects</em> est cochée, et que le chemin vers l’exécutable <em>git</em> est bien renseigné. Si ce n’est pas le cas, cliquez sur <em>Browse</em> et indiquez-le. Validez en cliquant sur <em>Apply</em>.</p>
+<p><img src="img/git_05.png" class="img-fluid" style="width:50.0%"></p>
+<p><br></p>
+<p>Créez un <a href="https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/#créer-un-projet">nouveau projet RStudio</a>.</p>
+<p><br></p>
+<section id="workflow-git-en-ligne-de-commande" class="level2">
+<h2 class="anchored" data-anchor-id="workflow-git-en-ligne-de-commande">Workflow git en ligne de commande</h2>
+<p><br></p>
+<p>Dans votre session RStudio, ouvrez un <em>terminal</em> :</p>
+<p><img src="img/git_cmd_01.png" class="img-fluid" style="width:50.0%"></p>
+<p><br> Tapez la ligne de commande suivante pour afficher la version de <em>git</em> installée sur votre ordinateur :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>git <span class="sc">--</span>version</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<section id="paramétrer-git" class="level3">
+<h3 class="anchored" data-anchor-id="paramétrer-git">Paramétrer git</h3>
+<p><br></p>
+<p>Dans un premier temps, nous allons paramétrer <em>git</em> en renseignant un nom d’utilisateur et un e-mail qui seront utilisés pour nous identifier dans l’historique (cela nous permettra si nous travaillons à plusieurs sur un même projet de savoir qui a fait quoi). Dans la suite du turoriel nous verrons comment connecter RStudio à GitLab, nous allons donc utiliser nos identifiants LDAP :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>git config <span class="sc">--</span>global <span class="sc">--</span>user.name <span class="st">"Prenom Nom"</span>  </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>git config <span class="sc">--</span>global <span class="sc">--</span>user.email prenom.nom<span class="sc">@</span>inrae.fr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Assurez-vous que ces paramètres ont bien été pris en compte :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>git config <span class="sc">--</span>global <span class="sc">--</span>list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+</section>
+<section id="initialiser-git" class="level3">
+<h3 class="anchored" data-anchor-id="initialiser-git">Initialiser git</h3>
+<p><br></p>
+<p>Votre répertoire de travail (le projet RStudio) n’est pour le moment pas versionné.</p>
+<p>Il vous faut pour cela associer un répertoire git à votre répertoire de travail, en <strong>initialisant</strong> git :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>git init</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Assurez-vous que le répertoire <em>git</em> a bien été créé. La commande <code>ls</code> permet de lister les fichiers du répertoire actuel, et les options <code>-la</code> permettent d’afficher le détail (droits, date, …) et d’inclure les dossiers cachés (dont le nom commence par un point <code>.</code>)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>ls <span class="sc">-</span>la</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+</section>
+<section id="ignorer-des-fichiers" class="level3">
+<h3 class="anchored" data-anchor-id="ignorer-des-fichiers">Ignorer des fichiers</h3>
+<p><br></p>
+<p>Parmi les fichiers et répertoires listés ci-dessus, le répertoire <code>.Rproj.user</code> n’a pas besoin d’être versionné. Nous allons pour cela ajouter à notre répertoire de travail un fichier dans lequel nous pourrons lister les fichiers et répertoires que git devra ignorer.</p>
+<p>Créez un fichier texte basique en cliquant sur <em>File &gt; New File &gt; Text File</em>. Sauvegardez ce fichier à la racine de votre répertoire de travail en le nommant <code>.gitignore</code>. Ajoutez une ligne à ce fichier :</p>
+<p><img src="img/git_cmd_10.png" class="img-fluid"></p>
+<p><br></p>
+<p>Vérifiez l’état dans lequel se trouve votre répertoire :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>git status</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><img src="img/git_cmd_02.png" class="img-fluid" style="width:50.0%"></p>
+<p><br></p>
+<p>Le terminal affiche plusieurs informations :</p>
+<ul>
+<li><p><em>On branch master</em> : vous vous trouvez sur la branche principale (la seule pour le moment)</p></li>
+<li><p><em>No commits yet</em> : vous n’avez pas encore figé l’état de votre répertoire à l’aide d’un commit</p></li>
+<li><p><em>Untracked files</em> : des fichiers non versionnés sont présents dans le répertoire de travail</p></li>
+<li><p><em>nothing added to commit but untracked files present</em> : résumé des lignes précédentes</p></li>
+<li><p><em>use “git add” to track</em> : pour figer l’état de ces fichiers et tracer l’historique des modifications, nous utiliserons la commande <code>git add</code>.</p></li>
+</ul>
+<p><br></p>
+<p>Pour afficher également les fichiers ignorés, utilisez la commande <code>git status --ignored</code>.</p>
+<p><br></p>
+</section>
+<section id="ajouter-des-fichiers-git-add" class="level3">
+<h3 class="anchored" data-anchor-id="ajouter-des-fichiers-git-add">Ajouter des fichiers (<code>git add</code>)</h3>
+<p><br></p>
+<p>Pour versionner des fichiers, vous pouvez les ajouter à l’aide de la commande <code>git add</code> :</p>
+<ul>
+<li><p>soit en précisant les noms des fichiers les uns à la suite des autres</p></li>
+<li><p>soit à l’aide du symbole <code>*</code> pour ajouter tous les fichiers présents dans le répertoire de travail</p></li>
+<li><p>soit à l’aide d’un point <code>.</code> pour ajouter l’ensemble du répertoire actuel</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajouter les fichiers un a un</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>git add .gitignore tutoriel_git.Rproj</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajouter tous les fichiers du repertoire de travail</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>git add <span class="sc">*</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajouter le répertoire actuel</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>git add .</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Affichez l’état de votre répertoire à l’aide de la commande <code>git status</code>. Vous remarquerez que les noms des fichiers ajoutés apparaissent en vert.</p>
+<p><br></p>
+<p>De nouvelles informations sont affichées dans le terminal :</p>
+<ul>
+<li><p><em>No commits yet</em> : les fichiers ont été ajoutés mais leur état n’a pas encore été figé par un commit</p></li>
+<li><p><em>Changes to be commited</em> : liste des fichiers ajoutés mais pas encore figés</p></li>
+</ul>
+<p><br></p>
+<p>La commande à utiliser pour annuler l’ajout des fichiers est indiquée :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Annuler l'ajout de fichiers un par un</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>git rm <span class="sc">--</span>cached .gitignore tutoriel_git.Rproj</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Annuler l'ajout de tous les fichiers du repertoire de travail</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>git rm <span class="sc">--</span>cached <span class="sc">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+rm -r
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>L’argument <code>-r</code> permet de supprimer de façon récursive un dossier.</p>
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="figer-létat-du-répertoire-git-commit" class="level3">
+<h3 class="anchored" data-anchor-id="figer-létat-du-répertoire-git-commit">Figer l’état du répertoire (<code>git commit</code>)</h3>
+<p><br></p>
+<p>Nous allons maintenant figer l’état de notre répertoire de travail à l’aide de la commande <code>git commit -m ...</code>. Un commit est toujours associé à un message (<code>-m</code>) à écrire entre guillemets (<code>"message"</code>) pour préciser ce que nous faisons. Soyez le plus précis possible dans vos messages de commits, cela vous permettra de vous y retrouver dans l’historique des modifications !</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/git_commit_2x.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<p></p><figcaption class="figure-caption">Dessin de <span class="citation" data-cites="xkcd">@xkcd</span></figcaption><p></p>
+</figure>
+</div>
+<p><br></p>
+<p>Effectuez le premier commit à l’aide de la commande suivante :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>git commit <span class="sc">-</span>m <span class="st">"premier commit"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Si vous tapez <code>git status</code> dans le terminal, celui-ci affiche <em>nothing to commit, working tree clean</em>. Cela indique que votre commit a bien été effectué.</p>
+<p><br></p>
+<p>La commande <code>git log</code> permet d’afficher l’historique de votre répertoire :</p>
+<p><img src="img/git_cmd_04.png" class="img-fluid"></p>
+<ul>
+<li><p><em>commit ### (HEAD -&gt; master)</em> vous donne l’identifiant unique du commit (qu’on appelle <strong>hash</strong>) et indique où pointe votre dernier commit (sur la branche master)</p></li>
+<li><p><em>auteur</em> (avec les identifiants renseignés plus haut), <em>date</em> et <em>message</em> du commit</p></li>
+</ul>
+<p><br></p>
+<p>Ajoutez un fichier README dans votre répertoire : <em>File &gt; New File &gt; Markdown File</em>. Ajoutez une ligne et sauvegardez le fichier à la racine de votre répertoire :</p>
+<p><img src="img/git_md_01.png" class="img-fluid" style="width:50.0%"></p>
+<p><br></p>
+<p>Ajoutez ce fichier et effectuez un commit :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>git add README.md</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>git commit <span class="sc">-</span>m <span class="st">"ajout d'un fichier README.md"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Affichez l’historique de vos commits à l’aide de la commande <code>git log</code>.</p>
+<p><br></p>
+<p>Ajoutez une ligne de texte dans votre fichier <code>README.md</code> et sauvegardez-le :</p>
+<p><img src="img/git_cmd_06.png" class="img-fluid" style="width:50.0%"></p>
+<p>Tapez les commandes suivantes :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>git add README.md</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>git commit <span class="sc">-</span>m <span class="st">"ajout d'une ligne de texte dans le fichier README.md"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+</section>
+<section id="naviguer-dans-les-commits-git-chekout-et-git-switch" class="level3">
+<h3 class="anchored" data-anchor-id="naviguer-dans-les-commits-git-chekout-et-git-switch">Naviguer dans les commits (<code>git chekout</code> et <code>git switch</code>)</h3>
+<p><br></p>
+<p>Affichez à nouveau l’historique avec <code>git log</code>.</p>
+<p>Nous allons revenir au commit précédent dans notre historique.</p>
+<p>Pour cela, copiez l’identifiant unique du commit auquel vous souhaitez revenir :</p>
+<p><img src="img/git_cmd_07.png" class="img-fluid" style="width:50.0%"></p>
+<p><br></p>
+<p>Dans le terminal, tapez la commande suivante (en collant l’identifiant du commit à la place de <em><commit_id></commit_id></em>) :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>git checkout <span class="sc">&lt;</span>commit_id<span class="sc">&gt;</span> .</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout-caution callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+git checkout <commit_id> .
+</commit_id></div>
+</div>
+<div class="callout-body-container callout-body">
+<p>N’oubliez pas le point à la fin de la ligne de commande !</p>
+</div>
+</div>
+<p><br></p>
+<p>Vous remarquerez que dans votre fichier <code>README.md</code>, la ligne que vous aviez ajoutée n’est plus visible.</p>
+<p>Pour revenir au dernier commit effectué, vous pouvez procéder de la même façon en copiant l’identifiant du commit et en utilisant la commande <code>git checkout &lt;commit_id&gt; .</code>.</p>
+<p>Vous pouvez également utiliser la commande <code>git reset --hard HEAD</code>.</p>
+<p><br></p>
+</section>
+<section id="créer-une-branche-git-branch" class="level3">
+<h3 class="anchored" data-anchor-id="créer-une-branche-git-branch">Créer une branche (<code>git branch</code>)</h3>
+<p><br></p>
+<p>Les branches vous permettent de travailler sur vos fichiers sans impacter la branche principale.</p>
+<p>Créez une branche “dev” : <code>git branch dev</code>.</p>
+<p>Pour afficher les différentes branches, utilisez la commande <code>git branch</code> :</p>
+<p><img src="img/git_cmd_11.png" class="img-fluid" style="width:50.0%"></p>
+<p>L’astérisque indique la branche sur laquelle vous vous situez.</p>
+<p>Pour changer de branche, utilisez la commande <code>git checkout &lt;nom-de-la-branche&gt;</code> ou <code>git switch &lt;nom-de-la-branche&gt;</code>.</p>
+<p>Exécutez les commandes suivantes :</p>
+<p><img src="img/git_cmd_12.png" class="img-fluid" style="width:50.0%"></p>
+<p><br></p>
+<p>Pour supprimer une branche, utilisez la commande <code>git branch -d &lt;nom-de-la-branche&gt;</code>. Avant de pouvoir supprimer la branche <em>dev</em>, il faut se placer sur la branche <em>master</em>.</p>
+<p><br></p>
+<p>La commande <code>git checkout -b &lt;nom-de-la-nouvelle-branche&gt;</code> permet de créer une branche et de s’y placer.</p>
+<p><br></p>
+<p>Pour créer une nouvelle branche à partir d’un commit précis, précisez l’identifiant du commit : <code>git checkout -b &lt;nom-de-la-branche&gt; &lt;commit_id&gt;</code>. Utilisez cette commande pour créer une branche <em>dev</em> au niveau de l’avant-dernier commit de votre historique.</p>
+<p><br></p>
+<p>Modifiez le fichier README.md sur la branche dev :</p>
+<p><img src="img/git_cmd_14.png" class="img-fluid" style="width:50.0%"></p>
+<p>Effectuez un <code>add + commit</code> sur cette branche dev :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>git add README.md</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>git commit <span class="sc">-</span>m <span class="st">"modification du fichier README.md sur la branche dev"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<p>En naviguant entre les branches à l’aide de <code>git checkout</code> (ou de <code>git switch</code>) pour afficher l’historique avec <code>git log</code>, vous remarquerez que l’historique varie en fonction de la branche.</p>
+<p><br></p>
+</section>
+<section id="fusionner-les-branches-et-résoudre-les-conflits-git-merge" class="level3">
+<h3 class="anchored" data-anchor-id="fusionner-les-branches-et-résoudre-les-conflits-git-merge">Fusionner les branches et résoudre les conflits (<code>git merge</code>)</h3>
+<p><br></p>
+<p>Une fois que vous avez terminé de travailler sur votre branche <em>dev</em>, vous pouvez “rapatrier” les modifications apportées sur cette branche sur votre branche <em>master</em>.</p>
+<p>Placez-vous sur la branche <em>master</em> : <code>git checkout master</code>.</p>
+<p>Pour fusionner la branche dev sur la branche master, utilisez la commande <code>git merge dev</code> :</p>
+<p><img src="img/git_cmd_15.png" class="img-fluid" style="width:50.0%"></p>
+<p>Le terminal nous indique qu’il y a un <strong>conflit</strong> : le fichier README.md diffère entre les deux branches. Il vous faut résoudre ce conflit avant de pouvoir fusionner les deux branches.</p>
+<p><br></p>
+<p>Regardons à quoi ressemble notre fichier README.md :</p>
+<p><img src="img/git_cmd_16.png" class="img-fluid" style="width:50.0%"></p>
+<ul>
+<li><p>Les marqueurs de conflit indiquent le début (<code>&lt;&lt;&lt;&lt;</code>) et la fin (<code>&gt;&gt;&gt;</code>) du conflit</p></li>
+<li><p>Les noms des branches sont indiqués à côté de ces marqueurs de conflit</p></li>
+<li><p>L’indicateur <code>=====</code> montre la séparation entre les modifications des deux branches</p></li>
+</ul>
+<p>Il vous incombe de choisir quelle version conserver : supprimez les indicateurs <code>&lt;&lt;&lt;</code>, <code>&gt;&gt;&gt;</code> et <code>===</code> et ne gardez que le texte présent dans le fichier de la branche <em>dev</em>.</p>
+<p><br></p>
+<p>Vérifiez l’état de notre branche <em>master</em> à l’aide de la commande <code>git status</code> :</p>
+<p><img src="img/git_cmd_17.png" class="img-fluid" style="width:50.0%"></p>
+<p>Les deux branches ne sont pas fusionnées, mais les modifications ont bien été prises en compte.</p>
+<p><br></p>
+<p>Ajoutez le fichier <code>README.md</code> et effectez un commit :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>git add README.md</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>git commit <span class="sc">-</span>m <span class="st">"resolution de conflit entre les branches master et dev"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>En affichant l’historique avec <code>git log</code> vous verrez maintenant l’ensemble des commits effectués sur les deux branches.</p>
+<p><img src="img/git_cmd_18.png" class="img-fluid" style="width:50.0%"></p>
+<p>Vous pouvons maintenant supprimer la branche <em>dev</em> : <code>git branch -d dev</code></p>
+<p><br></p>
+</section>
+</section>
+<section id="workflow-git-en-clique-bouton" class="level2">
+<h2 class="anchored" data-anchor-id="workflow-git-en-clique-bouton">Workflow git en “clique-bouton”</h2>
+<p><br></p>
+<p>Nous allons voir comment effectuer les mêmes étapes à l’aide de l’interface RStudio.</p>
+<p>Créez un nouveau projet RStudio.</p>
+<p><br></p>
+<section id="initialiser-git-1" class="level3">
+<h3 class="anchored" data-anchor-id="initialiser-git-1">Initialiser git</h3>
+<p><br></p>
+<p>Pour initialiser git, cliquez sur <em>Tools &gt; Project Options</em>, puis dans le menu <em>Git/SVN</em> sélectionnez <em>Git</em> :</p>
+<p><img src="img/git_ide_01.png" class="img-fluid" style="width:50.0%"></p>
+<p>Dans les fenêtres qui s’ouvrent, cliquez sur <em>Yes</em>.</p>
+<p>RStudio redémarre, et vous remarquerez la présence d’un onglet <em>Git</em> dans votre espace de travail. En cliquant dessus, vous verrez qu’un fichier <code>.gitignore</code> a été ajouté automatiquement :</p>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="img/git_ide_02.png" class="img-fluid"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="img/git_ide_03.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+<p><br></p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Initialiser git lors de la création d’un projet
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Lorsque vous créez un nouveau projet RStudio, vous pouvez cocher la case <em>Create a git repository</em></p>
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="ajouter-des-fichiers" class="level3">
+<h3 class="anchored" data-anchor-id="ajouter-des-fichiers">Ajouter des fichiers</h3>
+<p><br></p>
+<p>Pour ajouter des fichiers, cochez-les dans l’onglet git. Leur statut change et une icône <em>A</em> (pour <em>added</em>) s’affiche à côté des noms de fichiers.</p>
+<p><img src="img/git_ordi_vide_01.png" class="img-fluid" style="width:50.0%"></p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Sélectionner plusieurs fichiers
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Quand vous travaillez avec beaucoup de fichiers versionnés, vous pouvez tous les sélectionner : cliquez sur le nom d’un des fichiers dans l’onglet git, puis utilisez la combinaison <strong>Ctrl + A</strong> et enfin cochez la case à côté du premier fichier.</p>
+</div>
+</div>
+<p><br></p>
+<p>Les fichiers présents dans l’onglet <em>Git</em> de votre espace de travail peuvent avoir différents <em>statuts</em> :</p>
+<table class="table">
+<tbody>
+<tr class="odd">
+<td><img src="img/status_new.png" class="img-fluid" style="width:10.0%"></td>
+<td>nouveau fichier</td>
+</tr>
+<tr class="even">
+<td><img src="img/status_added.png" class="img-fluid" style="width:10.0%"></td>
+<td>fichier ajouté</td>
+</tr>
+<tr class="odd">
+<td><img src="img/status_modified.png" class="img-fluid" style="width:10.0%"></td>
+<td>fichier modifié</td>
+</tr>
+<tr class="even">
+<td><img src="img/status_deleted.png" class="img-fluid" style="width:10.0%"></td>
+<td>fichier supprimé</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+</section>
+<section id="effectuer-un-commit" class="level3">
+<h3 class="anchored" data-anchor-id="effectuer-un-commit">Effectuer un commit</h3>
+<p><br></p>
+<p>Cliquez sur <em>Commit</em>.</p>
+<p><img src="img/git_ordi_vide_01bis.png" class="img-fluid" style="width:50.0%"></p>
+<p><br></p>
+<p>Dans la fenêtre qui s’ouvre, écrivez le message du commit et cliquez à nouveau sur <em>Commit</em>.</p>
+<p><img src="img/git_ordi_vide_02.png" class="img-fluid" style="width:50.0%"></p>
+<p><br></p>
+<p>En cliquant sur l’icône <em>horloge</em> vous pouvez voir l’historique de nos commits.</p>
+<p><img src="img/git_ordi_vide_01ter.png" class="img-fluid" style="width:50.0%"></p>
+<p><br></p>
+</section>
+<section id="créer-une-branche" class="level3">
+<h3 class="anchored" data-anchor-id="créer-une-branche">Créer une branche</h3>
+<p><br></p>
+<p>Vous pouvez créer une nouvelle branche en cliquant sur l’icône à gauche du nom de la branche actuelle, en précisant le nom et en cliquant sur <em>Create</em> :</p>
+<p><img src="img/git_ordi_vide_04.png" class="img-fluid" style="width:50.0%"></p>
+<p><br></p>
+<p>Vous pouvez maintenant naviguer entre les branches en cliquant sur leurs noms :</p>
+<p><img src="img/git_ordi_vide_05.png" class="img-fluid" style="width:50.0%"></p>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Limites de l’approche clique-bouton
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>L’onglet <em>Git</em> dans l’interface RStudio ne vous permettra pas d’effectuer les opérations suivantes, pour lesquelles vous devrez passer par la ligne de commande :</p>
+<ul>
+<li><p>revenir à un commit précédent</p></li>
+<li><p>créer une branche à partir d’un commit précis</p></li>
+<li><p>résoudre des conflits entre branches</p></li>
+</ul>
+</div>
+</div>
+<p><br></p>
+</section>
+</section>
+</section>
+<section id="connecter-rstudio-à-gitlab" class="level1">
+<h1>Connecter RStudio à GitLab</h1>
+<p><br></p>
+<p>Nous avons jusqu’ici utilisé <em>git</em> en local pour suivre les modifications apportées à des fichiers sur notre ordinateur.</p>
+<p>Nous allons voir comment connecter RStudio à <em>Gitlab</em> afin de pouvoir :</p>
+<ul>
+<li>synchroniser nos répertoires entre plusieurs ordinateurs<br>
+</li>
+<li>travailler à plusieurs sur un même projet<br>
+</li>
+<li>rapatrier en local un répertoire distant pour travailler dessus</li>
+</ul>
+<p>Le répertoire distant présent sur <em>Github</em> ou <em>Gitlab</em> s’appelle le <strong>remote</strong>.</p>
+<p>La première chose à faire est de créer un paire de clés SSH qui nous permettra de communiquer entre notre ordinateur et le serveur distant <em>Gitlab</em>.</p>
+<p><br></p>
+<section id="créer-des-clés-ssh" class="level2">
+<h2 class="anchored" data-anchor-id="créer-des-clés-ssh">Créer des clés SSH</h2>
+<p><br></p>
+<p>Dans RStudio, puis cliquez sur <em>Tools</em> &gt; <em>Global Options</em> &gt; <em>Git/SVN</em>.</p>
+<p>Si aucune clé n’est indiquée dans <em>SSH key</em>, cliquez sur <em>Create SSH Key …</em>.</p>
+<p><img src="img/git_06bis.png" class="img-fluid" style="width:50.0%"></p>
+<p>Dans <em>SSH key type</em>, sélectionnez <em>RSA</em> puis validez en cliquant sur <em>Create</em>.</p>
+<p><img src="img/git_ordi_vide_07.png" class="img-fluid" style="width:50.0%"></p>
+<p><br></p>
+<p>Cliquez sur <em>View public key</em> et copiez la clé qui s’affiche.</p>
+<p><img src="img/git_06ter.png" class="img-fluid" style="width:50.0%"></p>
+<p><br></p>
+</section>
+<section id="paramétrer-gitlab" class="level2">
+<h2 class="anchored" data-anchor-id="paramétrer-gitlab">Paramétrer GitLab</h2>
+<p><br></p>
+<p>Ouvrez <a href="https://forgemia.inra.fr">ce lien</a> dans votre navigateur internet et cliquez sur <em>Connexion SSO</em>.</p>
+<p><img src="img/git_07.png" class="img-fluid" style="width:50.0%"></p>
+<p>Dans le menu déroulant, choisissez <em>INRAE</em> et cliquez sur <em>Sélectionner</em>. Dans le menu suivant, renseignez les champs à l’aide de votre identifiant LDAP puis cliquez sur <em>Se connecter</em>.</p>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="img/git_08.png" class="img-fluid"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="img/git_09.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+<p><br></p>
+<p>Cliquez sur l’icône dans le coin supérieur droit puis sur <em>Preferences</em>.</p>
+<p><img src="img/git_10.png" class="img-fluid" style="width:25.0%"></p>
+<p>Dans la barre de menu à gauche, cliquez sur la première icône en forme de clé. Collez dans le champ <em>Key</em> la clé SSH copiée dans RStudio.</p>
+<p>Le champ <em>Title</em> devrait se remplir automatiquement. Si ce n’est pas le cas, renseignez ce champ.</p>
+<p>Vous pouvez choisir une date d’expiration de votre clé dans <em>Expiration date</em>.</p>
+<p>Pour terminer, cliquez sur <em>Add key</em>. Assurez-vous que votre clé apparaisse bien en bas de la page sous <em>Your SSH keys</em>.</p>
+<p><img src="img/git_11.png" class="img-fluid"></p>
+<p><br></p>
+</section>
+</section>
+<section id="exporter-un-répertoire-local-vers-gitlab" class="level1">
+<h1>Exporter un répertoire local vers Gitlab</h1>
+<p>Nous allons exporter vers Gitlab le projet RStudio existant.</p>
+<p><br></p>
+<section id="dans-gitlab" class="level2">
+<h2 class="anchored" data-anchor-id="dans-gitlab">Dans GitLab</h2>
+<p>Dans la barre de menu supérieure, cliquez sur l’icône <em>plus</em> et sélectionnez <em>New project/repository</em>. Dans le menu suivant, choisissez <em>Create blank project</em>.</p>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="img/git_12.png" class="img-fluid"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="img/git_13.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+<p><br></p>
+<p>Dans le menu <em>Create blank project</em>, remplissez les différents champs :</p>
+<ul>
+<li><p><em>Project name</em> : le même nom que votre projet RStudio.</p></li>
+<li><p><em>Project URL</em> : en fonction des groupes dont vous faites partie, vous pourrez choisir l’emplacement du projet. Pour l’instant, choisissez votre espace utilisateur.</p></li>
+<li><p><em>Project slug</em> : identique au nom du projet.</p></li>
+<li><p><em>Visibility Level</em> : qui a accès au projet. Pour notre exemple, choisissez <em>Public</em>.</p></li>
+<li><p><em>Project Configuration</em> : décochez la case <em>Initialize repository with a README</em>.</p></li>
+</ul>
+<p>Cliquez sur <em>Create project</em>.</p>
+<p><img src="img/gitlab_01.png" class="img-fluid" style="width:50.0%"></p>
+<p><br></p>
+<p>Dans la fenêtre qui s’ouvre, vous verrez une liste de commandes :</p>
+<ul>
+<li><p><em>Git global setup</em> : nous l’avons fait au début du tutoriel</p></li>
+<li><p><em>Create a new repository</em> : télécharger votre répertoire <em>Gitlab</em> en local</p></li>
+<li><p><em>Push an existing folder</em> : exporter un dossier local vers <em>Gitlab</em></p></li>
+<li><p><em>Push an existing Git repository</em> : exporter un répertoire <em>Git</em> local vers <em>Gitlab</em> (c’est ce qui nous intéresse)</p></li>
+</ul>
+<p><br></p>
+</section>
+<section id="dans-rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="dans-rstudio">Dans RStudio</h2>
+<p>Dans votre projet, ouvrez un terminal, et exécutez les lignes de commande suivantes (vous pouvez les copier directement depuis <em>Gitlab</em>) :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>git remote add origin git<span class="sc">@</span>forgemia.inra.fr<span class="sc">:</span><span class="er">&lt;</span>prenom.nom<span class="sc">&gt;</span><span class="er">/&lt;</span>nom_projet<span class="sc">&gt;</span>.git</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>git push <span class="sc">-</span>u origin <span class="sc">--</span>all</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Si c’est la première fois que vous vous connectez à Gitlab depuis RStudio, vous verrez un message dans le terminal vous demandant si vous êtes certain de vouloir continuer la connexion. Tapez <em>yes</em> et appuyez sur <em>Entrée</em>.</p>
+<p><img src="img/git_ordi_vide_08.png" class="img-fluid" style="width:50.0%"></p>
+<p>Le terminal vous indiquera des détails comme le nombre de fichiers à exporter et la progression de la connexion.</p>
+<p><br></p>
+<p>Dans l’onglet <em>Git</em> de RStudio, deux flèches sont maintenant accessibles :</p>
+<ul>
+<li><p><em>Flèche bleue</em> pour récupérer en local les dernières modifications du répertoire distant (<strong>Pull</strong>)</p></li>
+<li><p><em>Flèche verte</em> pour exporter les dernières modifications effectuées en local sur le serveur distant (<strong>Push</strong>)</p></li>
+</ul>
+<p><img src="img/gitlab_02.png" class="img-fluid" style="width:50.0%"></p>
+<p>Si vous rafraîchissez votre page <em>Gitlab</em>, les fichiers <code>.gitignore</code>, <code>README.md</code> et <code>&lt;nom_projet&gt;.Rproj</code> devraient apparaître.</p>
+<p><br></p>
+</section>
+</section>
+<section id="importer-un-répertoire-distant-vers-rstudio" class="level1">
+<h1>Importer un répertoire distant vers RStudio</h1>
+<p><br></p>
+<p>Nous allons voir comment importer un répertoire distant présent sur <em>Gitlab</em> vers notre ordinateur. Fermez votre sessions RStudio et supprimez le dossier contenant le projet local sur votre ordinateur.</p>
+<p><br></p>
+<section id="dans-gitlab-1" class="level2">
+<h2 class="anchored" data-anchor-id="dans-gitlab-1">Dans Gitlab</h2>
+<p><br></p>
+<p>Sur la page d’accueil du répertoire, cliquez sur <em>Clone</em> puis copiez le lien <em>SSH</em> :</p>
+<p><img src="img/gitlab_03.png" class="img-fluid" style="width:50.0%"></p>
+<p><br></p>
+</section>
+<section id="dans-rstudio-1" class="level2">
+<h2 class="anchored" data-anchor-id="dans-rstudio-1">Dans RStudio</h2>
+<p><br></p>
+<p>Ouvrez une nouvelle session RStudio. Dans la barre de menu supérieure, cliquez sur <em>File</em> &gt; <em>New project</em>.</p>
+<p>Dans la fenêtre <em>Create Project</em>, choisissez <em>Version Control</em>.</p>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="img/git_17.png" class="img-fluid"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="img/git_18.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+<p>Dans la fenêtre <em>Create Project from Version Control</em>, choisissez <em>Git</em>.</p>
+<p>Dans la fenêtre <em>Clone Git Repository</em>, remplissez les champs :</p>
+<ul>
+<li><p><em>Repository URL</em> : collez le lien SSH copié dans GitLab</p></li>
+<li><p><em>Project directory name</em> : se remplit automatiquement</p></li>
+<li><p><em>Create project as subdirectory of</em> : emplacement où sera créé le projet</p></li>
+</ul>
+<p>Cochez la case <em>Open in New Session</em> dans le coin inféreur gauche de la fenêtre et cliquez sur <em>Create Project</em>.</p>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="img/git_19.png" class="img-fluid"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="img/git_20.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+<p><br></p>
+<p>Le projet s’ouvre dans une nouvelle fenêtre.</p>
+<p><br></p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Cloner un répertoire distant en ligne de commande
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Vous pouvez également cloner le répertoire distant en ligne de commande, en utilisant le lien SSH copié dans <em>Gitlab</em>. Placez-vous au niveau du dossier dans lequel vous souhaitez cloner le répertoire à l’aide de la commande <code>cd</code> (pour <em>change directory</em> puis utilisez la commande <code>git clone</code>).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>cd <span class="sc">&lt;</span>dossier<span class="sc">-</span>dans<span class="sc">-</span>lequel<span class="sc">-</span>cloner<span class="sc">&gt;</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>git clone git<span class="sc">@</span>gitlab.com<span class="sc">:</span><span class="er">&lt;</span>user<span class="sc">-</span>id<span class="sc">&gt;</span><span class="er">/&lt;</span>nom<span class="sc">-</span>du<span class="sc">-</span>projet<span class="sc">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p><br></p>
+</section>
+</section>
+<section id="commit-pull-push" class="level1">
+<h1>Commit, pull, push</h1>
+<p><br></p>
+<p>Lorsque nous travaillons uniquement en local, le workflow <em>git</em> se limite aux opérations suivantes :</p>
+<ul>
+<li><p>ajouter des fichiers</p></li>
+<li><p>effectuer des commits</p></li>
+<li><p>créer des branches, fusionner des branches et résoudre les conflits</p></li>
+</ul>
+<p><br></p>
+<p>Quand nous travaillons en synchronisant notre répertoire local avec un répertoire distant (<em>remote</em>), deux opérations s’ajoutent au workflow :</p>
+<ul>
+<li><p><strong>pull</strong> pour récupérer en local les modifications apportées dans le répertoire distant</p></li>
+<li><p><strong>push</strong> pour exporter les modifications apportées dans le répertoire local vers le répertoire distant</p></li>
+</ul>
+<p><br></p>
+<p>De manière générale, si vous travaillez seul et que vous utilisez le répertoire distant pour garder une copie de votre travail sur votre serveur, vous n’aurez pas vraiment besoin d’effectuer des <strong>pull</strong>.</p>
+<p>Si vous travaillez sur plusieurs ordinateurs, par exemple un ordinateur de bureau et un ordinateur portable de télétravail, les commandes <strong>pull</strong> et <strong>push</strong> vous seront très utiles : vous exporterez la version la plus récente de votre répertoire sur le répertoire distant à l’aide d’un <strong>push</strong>, et vous récupérerez cette dernière version sur votre deuxième ordinateur à l’aide d’un <strong>pull</strong>.</p>
+<p>Si vous travaillez à plusieurs sur un même projet, ces utiliserez ces commandes <strong>pull</strong> et <strong>push</strong> très fréquemment : - pour travailler en local avec les dernières modifications apportées par vos collègues<br>
+- pour que vos collègues travaillent dans leurs répertoires locaux avec vos dernières modifications</p>
+<p><br></p>
+</section>
+<section id="gestion-des-branches-locales-et-distantes" class="level1">
+<h1>Gestion des branches locales et distantes</h1>
+<p><br></p>
+<section id="créer-une-branche-en-local-et-lexporter" class="level2">
+<h2 class="anchored" data-anchor-id="créer-une-branche-en-local-et-lexporter">Créer une branche en local et l’exporter</h2>
+<p><br></p>
+<p>Dans votre projet RStudio, créez une nouvelle branche que vous appelerez <em>dev</em>.</p>
+<p>Assurez-vous que la case <em>Sync branch with remote</em> est bien cochée et cliquez sur <em>Create</em>.</p>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="img/git_ordi_vide_04.png" class="img-fluid"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="img/gitlab_04.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+<p><br></p>
+<p>Pour exporter la branche <em>dev</em> sur <em>Gitlab</em>, ouvrez un terminal et tapez la commande suivante :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>git push <span class="sc">--</span>set<span class="sc">-</span>upstream origin dev</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<p>Les différentes branches locales et distantes apparaissent maintenant dans l’onglet <em>git</em> dans RStudio :</p>
+<p><img src="img/gitlab_06.png" class="img-fluid"></p>
+<p>En rafraîchissant votre page <em>Gitlab</em> vous verrez que la branche <em>dev</em> a bien été exportée :</p>
+<p><img src="img/gitlab_05.png" class="img-fluid"></p>
+<p><br></p>
+<p>Dans RStudio, placez-vous sur la branche <em>dev</em> et modifiez le fichier README.md :</p>
+<p><img src="img/gitlab_07.png" class="img-fluid"></p>
+<p>Effectuez un <em>add - commit - push</em> de cette modification.</p>
+</section>
+<section id="fusionner-des-branches-sur-le-serveur-distant" class="level2">
+<h2 class="anchored" data-anchor-id="fusionner-des-branches-sur-le-serveur-distant">Fusionner des branches sur le serveur distant</h2>
+<p>Dans <em>Gitlab</em>, cliquez sur <em>2 branches</em> puis sur <em>dev</em>. Vous remarquerez que le fichier README.md contient bien la dernière modification apportée en local. Cliquez ensuite sur <em>Create merge request</em> : nous allons fusionner les deux branches et inclure les modifications apportées à la branche <em>dev</em> dans la branche <em>master</em>.</p>
+<p><img src="img/gitlab_08.png" class="img-fluid"></p>
+<p><br></p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Merge request et Pull request
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Il s’agit de la même opération, qui porte deux noms différents selon qu’on utilise <strong>Github</strong> (<strong>Pull request</strong>) ou <strong>Gitlab</strong> (<strong>Merge request</strong>).</p>
+</div>
+</div>
+<p><br></p>
+<p>Dans la fenêtre <em>New merge request</em> renseignez un titre (normalement pré-rempli avec le message du dernier commit) et une description. Soyez le plus explicite possible : vous saurez précisément ce que vous avez fait et les collègues qui travaillent sur le même projet auront toutes les informations nécessaires.</p>
+<p><img src="img/gitlab_09.png" class="img-fluid"></p>
+<p><br></p>
+<p>Dans la suite de la fenêtre, vous pouvez renseigner plusieurs champs :</p>
+<ul>
+<li><p><em>Assignee</em> : qui doit valider la requête</p></li>
+<li><p><em>Reviewer</em> : solliciter une vérification de la part d’autres personnes</p></li>
+<li><p><em>Milestone</em> : vous pouvez préciser une date limite</p></li>
+<li><p><em>Labels</em> : pour ajouter des étiquettes à vos requêtes</p></li>
+</ul>
+<p>Dans <em>Merge options</em>, vous pouvez choisir de supprimer la branche source quand la requête sera acceptée (<em>Delete source branch when merge request is accepted</em>, case cochée par défaut) et d’écraser les commits (case décochée par défaut).</p>
+<p><img src="img/gitlab_10.png" class="img-fluid"></p>
+<p><br></p>
+<p>Dans la fenêtre suivante, cliquez sur <em>Approve</em> (cette étape n’est pas obligatoire) puis sur <em>Merge</em> pour valider la fusion des branches.</p>
+<p>Une fois la fusion terminée, revenez sur la page d’accueil du répertoire sur <em>Gitlab</em> : il n’y a qu’une branche et le fichier README.md contient bien les dernières modifications.</p>
+<p><br></p>
+<p>Dans RStudio, placez-vous sur la branche <em>master</em> et cliquez sur <em>Pull</em>. Votre répertoire local est désormais à jour.</p>
+<p>Cependant, les branches <em>dev</em> locale et distante sont toujours présentes dans l’onglet <em>Git</em> de RStudio …</p>
+<p><img src="img/gitlab_12.png" class="img-fluid"></p>
+<p>Pour les supprimer, utilisez les commandes suivantes :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>git fetch <span class="sc">-</span>p</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>git branch <span class="sc">-</span>d dev</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Rafraîchissez l’onglet <em>Git</em>, il ne devrait rester que la branche <em>master</em> locale et distante.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

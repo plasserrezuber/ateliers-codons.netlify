@@ -1,0 +1,931 @@
+---
+title: "Introduction à ggplot2"
+subtitle: "Créer des graphiques à l'aide du package {ggplot2}"
+author:
+  - Jonathan Kitt
+date: "2022-12-12"
+draft: true
+categories: [R, RStudio, Graphiques, ggplot2]
+format: 
+  html: 
+    toc: true
+    toc-depth: 2
+    toc-title: "Sommaire"
+---
+
+# Introduction
+
+<br>
+
+## La grammaire des graphiques
+
+<br>
+
+Le package [`{ggplot2}`](https://ggplot2.tidyverse.org/) (qui fait partie du [Tidyverse](https://www.tidyverse.org/)) repose sur le principe de **grammaire des graphiques** : un graphique se construit couche par couche.
+
+![](img/ggplot-grammar-of-graphics.png){width="50%"}
+
+<br>
+
+## Pré-requis
+
+<br>
+
+Si vous n'avez pas suivi les autres tutoriels, vous pouvez [créer un projet RStudio](https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/#créer-un-projet) et [une arborescence](https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/#créer-une-arborescence).
+
+Commencez par installer le package `{ggplot2}`. Vous pouvez également installer et charger le `{tidyverse}` (préférez cette solution si vous comptez manipuler les données avant de créer les graphiques).
+
+```{r install and load, eval=FALSE}
+# Installer et charger le package {ggplot2}
+install.packages("ggplot2")
+library(ggplot2)
+
+# Installer et charger la suite {tidyverse}
+install.packages("tidyverse")
+library(tidyverse)
+```
+
+```{r load tidyverse, echo=FALSE, eval=TRUE, warning=FALSE, message=FALSE}
+library(tidyverse)
+```
+
+<br>
+
+# Graphiques simples
+
+<br>
+
+## Le jeu de données
+
+<br>
+
+Nous allons utiliser le jeu de données tiré du package [`{Palmer penguins}`](https://allisonhorst.github.io/palmerpenguins/).  
+
+Pour importer ce jeu de données, utilisez la commande suivante : 
+
+```{r import data, message=FALSE, warning=FALSE}
+pingouins <- readr::read_csv("https://raw.githubusercontent.com/codons-blog/ateliers_codons/main/data/pingouins_propre.csv")
+```
+
+Explorons rapidement ces données : 
+
+```{r EDA, eval=FALSE}
+dplyr::glimpse(pingouins)
+```
+
+
+# Premiers pas avec git
+
+<br>
+
+Ouvrez RStudio, et cliquez sur *Tools > Global Options > Git/SVN*. 
+
+Assurez-vous que la case *Enable version control interface for RStudio projects* est cochée, et que le chemin vers l'exécutable *git* est bien renseigné. Si ce n'est pas le cas, cliquez sur *Browse* et indiquez-le. Validez en cliquant sur *Apply*.
+
+![](img/git_05.png){width="50%"}
+
+<br>
+
+Créez un [nouveau projet RStudio](https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/#créer-un-projet).
+
+<br>
+
+## Workflow git en ligne de commande
+
+<br>
+
+Dans votre session RStudio, ouvrez un *terminal* :
+
+![](img/git_cmd_01.png){width="50%"}
+
+<br> Tapez la ligne de commande suivante pour afficher la version de *git* installée sur votre ordinateur :
+
+```{r, git cmd 1, eval=FALSE}
+git --version
+```
+
+<br>
+
+### Paramétrer git
+
+<br>
+
+Dans un premier temps, nous allons paramétrer *git* en renseignant un nom d'utilisateur et un e-mail qui seront utilisés pour nous identifier dans l'historique (cela nous permettra si nous travaillons à plusieurs sur un même projet de savoir qui a fait quoi). Dans la suite du turoriel nous verrons comment connecter RStudio à GitLab, nous allons donc utiliser nos identifiants LDAP :
+
+```{r config git, eval=FALSE}
+git config --global --user.name "Prenom Nom"  
+git config --global --user.email prenom.nom@inrae.fr
+```
+
+Assurez-vous que ces paramètres ont bien été pris en compte :
+
+```{r check config git, eval=FALSE}
+git config --global --list
+```
+
+<br>
+
+### Initialiser git
+
+<br>
+
+Votre répertoire de travail (le projet RStudio) n'est pour le moment pas versionné.
+
+Il vous faut pour cela associer un répertoire git à votre répertoire de travail, en **initialisant** git :
+
+```{r, git cmd 2, eval=FALSE}
+git init
+```
+
+Assurez-vous que le répertoire *git* a bien été créé. La commande `ls` permet de lister les fichiers du répertoire actuel, et les options `-la` permettent d'afficher le détail (droits, date, ...) et d'inclure les dossiers cachés (dont le nom commence par un point `.`)
+
+```{r, git cmd 3, eval=FALSE}
+ls -la
+```
+
+<br>
+
+### Ignorer des fichiers
+
+<br>
+
+Parmi les fichiers et répertoires listés ci-dessus, le répertoire `.Rproj.user` n'a pas besoin d'être versionné. Nous allons pour cela ajouter à notre répertoire de travail un fichier dans lequel nous pourrons lister les fichiers et répertoires que git devra ignorer.
+
+Créez un fichier texte basique en cliquant sur *File > New File > Text File*. Sauvegardez ce fichier à la racine de votre répertoire de travail en le nommant `.gitignore`. Ajoutez une ligne à ce fichier :
+
+![](img/git_cmd_10.png)
+
+<br>
+
+Vérifiez l'état dans lequel se trouve votre répertoire :
+
+```{r, git cmd 4, eval=FALSE}
+git status
+```
+
+![](img/git_cmd_02.png){width="50%"}
+
+<br>
+
+Le terminal affiche plusieurs informations :
+
+-   *On branch master* : vous vous trouvez sur la branche principale (la seule pour le moment)
+
+-   *No commits yet* : vous n'avez pas encore figé l'état de votre répertoire à l'aide d'un commit
+
+-   *Untracked files* : des fichiers non versionnés sont présents dans le répertoire de travail
+
+-   *nothing added to commit but untracked files present* : résumé des lignes précédentes
+
+-   *use "git add" to track* : pour figer l'état de ces fichiers et tracer l'historique des modifications, nous utiliserons la commande `git add`.
+
+<br>
+
+Pour afficher également les fichiers ignorés, utilisez la commande `git status --ignored`.
+
+<br>
+
+### Ajouter des fichiers (`git add`)
+
+<br>
+
+Pour versionner des fichiers, vous pouvez les ajouter à l'aide de la commande `git add` :  
+
+- soit en précisant les noms des fichiers les uns à la suite des autres  
+
+- soit à l'aide du symbole `*` pour ajouter tous les fichiers présents dans le répertoire de travail  
+
+- soit à l'aide d'un point `.` pour ajouter l'ensemble du répertoire actuel
+
+
+```{r, git cmd 5, eval=FALSE}
+# Ajouter les fichiers un a un
+git add .gitignore tutoriel_git.Rproj
+
+# Ajouter tous les fichiers du repertoire de travail
+git add *
+  
+# Ajouter le répertoire actuel
+git add .
+```
+
+Affichez l'état de votre répertoire à l'aide de la commande `git status`. Vous remarquerez que les noms des fichiers ajoutés apparaissent en vert.
+
+<br>
+
+De nouvelles informations sont affichées dans le terminal :
+
+-   *No commits yet* : les fichiers ont été ajoutés mais leur état n'a pas encore été figé par un commit
+
+-   *Changes to be commited* : liste des fichiers ajoutés mais pas encore figés
+
+<br>
+
+La commande à utiliser pour annuler l'ajout des fichiers est indiquée :
+
+```{r, git cmd 6, eval=FALSE}
+# Annuler l'ajout de fichiers un par un
+git rm --cached .gitignore tutoriel_git.Rproj
+
+# Annuler l'ajout de tous les fichiers du repertoire de travail
+git rm --cached *
+```
+
+<br>
+
+::: {.callout-note icon="true"}
+## rm -r
+
+L'argument `-r` permet de supprimer de façon récursive un dossier.
+:::
+
+<br>
+
+### Figer l'état du répertoire (`git commit`)
+
+<br>
+
+Nous allons maintenant figer l'état de notre répertoire de travail à l'aide de la commande `git commit -m ...`. Un commit est toujours associé à un message (`-m`) à écrire entre guillemets (`"message"`) pour préciser ce que nous faisons. Soyez le plus précis possible dans vos messages de commits, cela vous permettra de vous y retrouver dans l'historique des modifications !
+
+![Dessin de @xkcd](img/git_commit_2x.png){width="50%"}
+
+<br>
+
+Effectuez le premier commit à l'aide de la commande suivante :
+
+```{r, git cmd 7, eval=FALSE}
+git commit -m "premier commit"
+```
+
+Si vous tapez `git status` dans le terminal, celui-ci affiche *nothing to commit, working tree clean*. Cela indique que votre commit a bien été effectué.
+
+<br>
+
+La commande `git log` permet d'afficher l'historique de votre répertoire :
+
+![](img/git_cmd_04.png)
+
+-   *commit \### (HEAD -\> master)* vous donne l'identifiant unique du commit (qu'on appelle **hash**) et indique où pointe votre dernier commit (sur la branche master)
+
+-   *auteur* (avec les identifiants renseignés plus haut), *date* et *message* du commit
+
+<br>
+
+Ajoutez un fichier README dans votre répertoire : *File > New File > Markdown File*. 
+Ajoutez une ligne et sauvegardez le fichier à la racine de votre répertoire :
+
+![](img/git_md_01.png){width="50%"}
+
+<br>
+
+Ajoutez ce fichier et effectuez un commit :
+
+```{r, git cmd 8, eval=FALSE}
+git add README.md
+git commit -m "ajout d'un fichier README.md"
+```
+
+Affichez l'historique de vos commits à l'aide de la commande `git log`.
+
+<br>
+
+Ajoutez une ligne de texte dans votre fichier `README.md` et sauvegardez-le :
+
+![](img/git_cmd_06.png){width="50%"}  
+
+Tapez les commandes suivantes :
+
+```{r, git cmd 9, eval=FALSE}
+git add README.md
+git commit -m "ajout d'une ligne de texte dans le fichier README.md"
+```
+
+<br>
+
+### Naviguer dans les commits (`git chekout` et `git switch`)
+
+<br>
+
+Affichez à nouveau l'historique avec `git log`.
+
+Nous allons revenir au commit précédent dans notre historique. 
+
+Pour cela, copiez l'identifiant unique du commit auquel vous souhaitez revenir :
+
+![](img/git_cmd_07.png){width="50%"}
+
+<br>
+
+Dans le terminal, tapez la commande suivante (en collant l'identifiant du commit à la place de *<commit_id>*) :
+
+```{r, git cmd 10, eval=FALSE}
+git checkout <commit_id> .
+```
+
+::: {.callout-caution icon="true"}
+## git checkout <commit_id> .
+
+N'oubliez pas le point à la fin de la ligne de commande !
+:::
+
+<br>
+
+Vous remarquerez que dans votre fichier `README.md`, la ligne que vous aviez ajoutée n'est plus visible.
+
+Pour revenir au dernier commit effectué, vous pouvez procéder de la même façon en copiant l'identifiant du commit et en utilisant la commande `git checkout <commit_id> .`. 
+
+Vous pouvez également utiliser la commande `git reset --hard HEAD`.
+
+<br>
+
+### Créer une branche (`git branch`)
+
+<br>
+
+Les branches vous permettent de travailler sur vos fichiers sans impacter la branche principale.
+
+Créez une branche "dev" : `git branch dev`.
+
+Pour afficher les différentes branches, utilisez la commande `git branch` :
+
+![](img/git_cmd_11.png){width="50%"}
+
+L'astérisque indique la branche sur laquelle vous vous situez.
+
+Pour changer de branche, utilisez la commande `git checkout <nom-de-la-branche>` ou `git switch <nom-de-la-branche>`. 
+
+Exécutez les commandes suivantes :
+
+![](img/git_cmd_12.png){width="50%"}
+
+<br>
+
+Pour supprimer une branche, utilisez la commande `git branch -d <nom-de-la-branche>`. 
+Avant de pouvoir supprimer la branche *dev*, il faut se placer sur la branche *master*.
+
+<br>
+
+La commande `git checkout -b <nom-de-la-nouvelle-branche>` permet de créer une branche et de s'y placer.
+
+<br>
+
+Pour créer une nouvelle branche à partir d'un commit précis, précisez l'identifiant du commit : `git checkout -b <nom-de-la-branche> <commit_id>`.
+Utilisez cette commande pour créer une branche *dev* au niveau de l'avant-dernier commit de votre historique.
+
+<br>
+
+Modifiez le fichier README.md sur la branche dev :
+
+![](img/git_cmd_14.png){width="50%"}
+
+Effectuez un `add + commit` sur cette branche dev :
+
+```{r, git cmd 11, eval=FALSE}
+git add README.md
+git commit -m "modification du fichier README.md sur la branche dev"
+```
+
+<br>
+
+En naviguant entre les branches à l'aide de `git checkout` (ou de `git switch`) pour afficher l'historique avec `git log`, vous remarquerez que l'historique varie en fonction de la branche.
+
+<br>
+
+### Fusionner les branches et résoudre les conflits (`git merge`)
+
+<br>
+
+Une fois que vous avez terminé de travailler sur votre branche *dev*, vous pouvez "rapatrier" les modifications apportées sur cette branche sur votre branche *master*.
+
+Placez-vous sur la branche *master* : `git checkout master`.
+
+Pour fusionner la branche dev sur la branche master, utilisez la commande `git merge dev` :
+
+![](img/git_cmd_15.png){width="50%"}
+
+Le terminal nous indique qu'il y a un **conflit** : le fichier README.md diffère entre les deux branches. Il vous faut résoudre ce conflit avant de pouvoir fusionner les deux branches.
+
+<br>
+
+Regardons à quoi ressemble notre fichier README.md :
+
+![](img/git_cmd_16.png){width="50%"}
+
+-   Les marqueurs de conflit indiquent le début (`<<<<`) et la fin (`>>>`) du conflit
+
+-   Les noms des branches sont indiqués à côté de ces marqueurs de conflit
+
+-   L'indicateur `=====` montre la séparation entre les modifications des deux branches
+
+Il vous incombe de choisir quelle version conserver : supprimez les indicateurs `<<<`, `>>>` et `===` et ne gardez que le texte présent dans le fichier de la branche *dev*.
+
+<br>
+
+Vérifiez l'état de notre branche *master* à l'aide de la commande `git status` :
+
+![](img/git_cmd_17.png){width="50%"}
+
+Les deux branches ne sont pas fusionnées, mais les modifications ont bien été prises en compte.
+
+<br>
+
+Ajoutez le fichier `README.md` et effectez un commit :
+
+```{r, git cmd 12, eval=FALSE}
+git add README.md
+git commit -m "resolution de conflit entre les branches master et dev"
+```
+
+En affichant l'historique avec `git log` vous verrez maintenant l'ensemble des commits effectués sur les deux branches.
+
+![](img/git_cmd_18.png){width="50%"}
+
+Vous pouvons maintenant supprimer la branche *dev* : `git branch -d dev`
+
+<br>
+
+## Workflow git en "clique-bouton"
+
+<br>
+
+Nous allons voir comment effectuer les mêmes étapes à l'aide de l'interface RStudio.
+
+Créez un nouveau projet RStudio.
+
+<br>
+
+### Initialiser git
+
+<br>
+
+Pour initialiser git, cliquez sur *Tools > Project Options*, puis dans le menu *Git/SVN* sélectionnez *Git* :
+
+![](img/git_ide_01.png){width="50%"}
+
+Dans les fenêtres qui s'ouvrent, cliquez sur *Yes*.
+
+RStudio redémarre, et vous remarquerez la présence d'un onglet *Git* dans votre espace de travail. En cliquant dessus, vous verrez qu'un fichier `.gitignore` a été ajouté automatiquement :
+
+::: {layout-ncol="2"}
+
+![](img/git_ide_02.png){width="50%"}  
+
+![](img/git_ide_03.png){width="50%"}
+
+:::
+
+<br>
+
+::: {.callout-tip icon="true"}
+
+## Initialiser git lors de la création d'un projet
+
+Lorsque vous créez un nouveau projet RStudio, vous pouvez cocher la case *Create a git repository*
+
+:::
+
+<br>
+
+### Ajouter des fichiers
+
+<br>
+
+Pour ajouter des fichiers, cochez-les dans l'onglet git. Leur statut change et une icône *A* (pour *added*) s'affiche à côté des noms de fichiers.
+
+![](img/git_ordi_vide_01.png){width="50%"}
+
+::: {.callout-tip icon="true"}
+
+## Sélectionner plusieurs fichiers
+
+Quand vous travaillez avec beaucoup de fichiers versionnés, vous pouvez tous les sélectionner : cliquez sur le nom d'un des fichiers dans l'onglet git, puis utilisez la combinaison **Ctrl + A** et enfin cochez la case à côté du premier fichier.
+
+:::
+
+<br>
+
+Les fichiers présents dans l'onglet *Git* de votre espace de travail peuvent avoir différents *statuts* : 
+
+|                                           |                  |
+| ----------------------------------------- | ---------------- |
+| ![](img/status_new.png){width="10%"}      | nouveau fichier  |
+| ![](img/status_added.png){width="10%"}    | fichier ajouté   |
+| ![](img/status_modified.png){width="10%"} | fichier modifié  |
+| ![](img/status_deleted.png){width="10%"}  | fichier supprimé |
+
+<br>
+
+### Effectuer un commit
+
+<br>
+
+Cliquez sur *Commit*.
+
+![](img/git_ordi_vide_01bis.png){width="50%"}
+
+<br>
+
+Dans la fenêtre qui s'ouvre, écrivez le message du commit et cliquez à nouveau sur *Commit*.
+
+![](img/git_ordi_vide_02.png){width="50%"}
+
+<br>
+
+En cliquant sur l'icône *horloge* vous pouvez voir l'historique de nos commits.
+
+![](img/git_ordi_vide_01ter.png){width="50%"}
+
+<br>
+
+### Créer une branche
+
+<br>
+
+Vous pouvez créer une nouvelle branche en cliquant sur l'icône à gauche du nom de la branche actuelle, en précisant le nom et en cliquant sur *Create* :
+
+![](img/git_ordi_vide_04.png){width="50%"}
+
+<br>
+
+Vous pouvez maintenant naviguer entre les branches en cliquant sur leurs noms :
+
+![](img/git_ordi_vide_05.png){width="50%"}
+
+::: {.callout-important icon="true"}
+
+## Limites de l'approche clique-bouton
+
+L'onglet *Git* dans l'interface RStudio ne vous permettra pas d'effectuer les opérations suivantes, pour lesquelles vous devrez passer par la ligne de commande : 
+
+- revenir à un commit précédent  
+
+- créer une branche à partir d'un commit précis  
+
+- résoudre des conflits entre branches
+
+:::
+
+<br>
+
+# Connecter RStudio à GitLab
+
+<br>
+
+Nous avons jusqu'ici utilisé *git* en local pour suivre les modifications apportées à des fichiers sur notre ordinateur. 
+
+Nous allons voir comment connecter RStudio à *Gitlab* afin de pouvoir : 
+
+- synchroniser nos répertoires entre plusieurs ordinateurs  
+- travailler à plusieurs sur un même projet  
+- rapatrier en local un répertoire distant pour travailler dessus
+
+Le répertoire distant présent sur *Github* ou *Gitlab* s'appelle le **remote**.
+
+La première chose à faire est de créer un paire de clés SSH qui nous permettra de communiquer entre notre ordinateur et le serveur distant *Gitlab*.
+
+<br>
+
+## Créer des clés SSH
+
+<br>
+
+Dans RStudio, puis cliquez sur *Tools* > *Global Options* > *Git/SVN*.
+
+Si aucune clé n'est indiquée dans *SSH key*, cliquez sur *Create SSH Key ...*.
+
+![](img/git_06bis.png){width="50%"}
+
+Dans *SSH key type*, sélectionnez *RSA* puis validez en cliquant sur *Create*.
+
+![](img/git_ordi_vide_07.png){width="50%"}
+
+<br>
+
+Cliquez sur *View public key* et copiez la clé qui s'affiche.
+
+![](img/git_06ter.png){width="50%"}
+
+<br>
+
+## Paramétrer GitLab
+
+<br>
+
+Ouvrez [ce lien](https://forgemia.inra.fr) dans votre navigateur internet et cliquez sur *Connexion SSO*.
+
+![](img/git_07.png){width="50%"}
+
+Dans le menu déroulant, choisissez *INRAE* et cliquez sur *Sélectionner*. Dans le menu suivant, renseignez les champs à l'aide de votre identifiant LDAP puis cliquez sur *Se connecter*.
+
+::: {layout-ncol="2"}
+![](img/git_08.png){width="50%"}
+
+![](img/git_09.png){width="50%"}
+:::
+
+<br>
+
+Cliquez sur l'icône dans le coin supérieur droit puis sur *Preferences*.
+
+![](img/git_10.png){width="25%"}
+
+Dans la barre de menu à gauche, cliquez sur la première icône en forme de clé. Collez dans le champ *Key* la clé SSH copiée dans RStudio. 
+
+Le champ *Title* devrait se remplir automatiquement. Si ce n'est pas le cas, renseignez ce champ. 
+
+Vous pouvez choisir une date d'expiration de votre clé dans *Expiration date*. 
+
+Pour terminer, cliquez sur *Add key*. Assurez-vous que votre clé apparaisse bien en bas de la page sous *Your SSH keys*.
+
+![](img/git_11.png)
+
+<br>
+
+# Exporter un répertoire local vers Gitlab
+
+Nous allons exporter vers Gitlab le projet RStudio existant.
+
+<br>
+
+## Dans GitLab
+
+Dans la barre de menu supérieure, cliquez sur l'icône *plus* et sélectionnez *New project/repository*. Dans le menu suivant, choisissez *Create blank project*.
+
+::: {layout-ncol="2"}
+![](img/git_12.png){width="50%"}
+
+![](img/git_13.png){width="50%"}
+:::
+
+<br>
+
+Dans le menu *Create blank project*, remplissez les différents champs :
+
+-   *Project name* : le même nom que votre projet RStudio.  
+
+-   *Project URL* : en fonction des groupes dont vous faites partie, vous pourrez choisir l'emplacement du projet. Pour l'instant, choisissez votre espace utilisateur.
+
+-   *Project slug* : identique au nom du projet.
+
+-   *Visibility Level* : qui a accès au projet. Pour notre exemple, choisissez *Public*.
+
+-   *Project Configuration* : décochez la case *Initialize repository with a README*.
+
+Cliquez sur *Create project*.
+
+![](img/gitlab_01.png){width="50%"}
+
+<br>
+
+Dans la fenêtre qui s'ouvre, vous verrez une liste de commandes  : 
+
+- *Git global setup* : nous l'avons fait au début du tutoriel  
+
+- *Create a new repository* : télécharger votre répertoire *Gitlab* en local  
+
+- *Push an existing folder* : exporter un dossier local vers *Gitlab*  
+
+- *Push an existing Git repository* : exporter un répertoire *Git* local vers *Gitlab* (c'est ce qui nous intéresse)
+
+<br>
+
+
+## Dans RStudio
+
+Dans votre projet, ouvrez un terminal, et exécutez les lignes de commande suivantes (vous pouvez les copier directement depuis *Gitlab*) : 
+
+```{r gitlab01, eval=FALSE}
+git remote add origin git@forgemia.inra.fr:<prenom.nom>/<nom_projet>.git
+git push -u origin --all
+```
+
+Si c'est la première fois que vous vous connectez à Gitlab depuis RStudio, vous verrez un message dans le terminal vous demandant si vous êtes certain de vouloir continuer la connexion. Tapez *yes* et appuyez sur *Entrée*.
+
+![](img/git_ordi_vide_08.png){width="50%"}
+
+Le terminal vous indiquera des détails comme le nombre de fichiers à exporter et la progression de la connexion.
+
+<br>
+
+Dans l'onglet *Git* de RStudio, deux flèches sont maintenant accessibles : 
+
+- *Flèche bleue* pour récupérer en local les dernières modifications du répertoire distant (**Pull**)  
+
+- *Flèche verte* pour exporter les dernières modifications effectuées en local sur le serveur distant (**Push**)
+
+![](img/gitlab_02.png){width="50%"}
+
+Si vous rafraîchissez votre page *Gitlab*, les fichiers `.gitignore`, `README.md` et `<nom_projet>.Rproj` devraient apparaître.
+
+<br>
+
+# Importer un répertoire distant vers RStudio
+
+<br>
+
+Nous allons voir comment importer un répertoire distant présent sur *Gitlab* vers notre ordinateur. Fermez votre sessions RStudio et supprimez le dossier contenant le projet local sur votre ordinateur.
+
+<br>
+
+## Dans Gitlab
+
+<br>
+
+Sur la page d'accueil du répertoire, cliquez sur *Clone* puis copiez le lien *SSH* : 
+
+![](img/gitlab_03.png){width="50%"}
+
+<br>
+
+## Dans RStudio
+
+<br>
+
+Ouvrez une nouvelle session RStudio. Dans la barre de menu supérieure, cliquez sur *File* > *New project*.
+
+Dans la fenêtre *Create Project*, choisissez *Version Control*.
+
+::: {layout-ncol="2"}
+![](img/git_17.png)
+
+![](img/git_18.png)
+:::
+
+Dans la fenêtre *Create Project from Version Control*, choisissez *Git*.
+
+Dans la fenêtre *Clone Git Repository*, remplissez les champs : 
+
+- *Repository URL* : collez le lien SSH copié dans GitLab  
+
+- *Project directory name* : se remplit automatiquement  
+
+- *Create project as subdirectory of* : emplacement où sera créé le projet
+
+Cochez la case *Open in New Session* dans le coin inféreur gauche de la fenêtre et cliquez sur *Create Project*.
+
+::: {layout-ncol="2"}
+![](img/git_19.png)
+
+![](img/git_20.png)
+:::
+
+<br>
+
+Le projet s'ouvre dans une nouvelle fenêtre.
+
+<br>
+
+::: {.callout-note icon="true"}
+
+## Cloner un répertoire distant en ligne de commande
+
+Vous pouvez également cloner le répertoire distant en ligne de commande, en utilisant le lien SSH copié dans *Gitlab*. Placez-vous au niveau du dossier dans lequel vous souhaitez cloner le répertoire à l'aide de la commande `cd` (pour *change directory* puis utilisez la commande `git clone`).
+
+```{r clone repo, eval=FALSE}
+cd <dossier-dans-lequel-cloner>
+git clone git@gitlab.com:<user-id>/<nom-du-projet>
+```
+
+:::
+
+<br>
+
+# Commit, pull, push
+
+<br>
+
+Lorsque nous travaillons uniquement en local, le workflow *git* se limite aux opérations suivantes : 
+
+- ajouter des fichiers  
+
+- effectuer des commits  
+
+- créer des branches, fusionner des branches et résoudre les conflits
+
+<br>
+
+Quand nous travaillons en synchronisant notre répertoire local avec un répertoire distant (*remote*), deux opérations s'ajoutent au workflow : 
+
+- **pull** pour récupérer en local les modifications apportées dans le répertoire distant  
+
+- **push** pour exporter les modifications apportées dans le répertoire local vers le répertoire distant
+
+<br>
+
+De manière générale, si vous travaillez seul et que vous utilisez le répertoire distant pour garder une copie de votre travail sur votre serveur, vous n'aurez pas vraiment besoin d'effectuer des **pull**. 
+
+Si vous travaillez sur plusieurs ordinateurs, par exemple un ordinateur de bureau et un ordinateur portable de télétravail, les commandes **pull** et **push** vous seront très utiles : vous exporterez la version la plus récente de votre répertoire sur le répertoire distant à l'aide d'un **push**, et vous récupérerez cette dernière version sur votre deuxième ordinateur à l'aide d'un **pull**.
+
+Si vous travaillez à plusieurs sur un même projet, ces utiliserez ces commandes **pull** et **push** très fréquemment : 
+- pour travailler en local avec les dernières modifications apportées par vos collègues  
+- pour que vos collègues travaillent dans leurs répertoires locaux avec vos dernières modifications
+
+<br>
+
+# Gestion des branches locales et distantes
+
+<br>
+
+## Créer une branche en local et l'exporter
+
+<br>
+
+Dans votre projet RStudio, créez une nouvelle branche que vous appelerez *dev*.
+
+Assurez-vous que la case *Sync branch with remote* est bien cochée et cliquez sur *Create*.
+
+::: {layout-ncol="2"}
+
+![](img/git_ordi_vide_04.png){width="50%"}
+
+![](img/gitlab_04.png){width="50%"}
+
+:::
+
+<br>
+
+Pour exporter la branche *dev* sur *Gitlab*, ouvrez un terminal et tapez la commande suivante : 
+
+```{r push local branch, eval=FALSE}
+git push --set-upstream origin dev
+```
+
+<br>
+
+Les différentes branches locales et distantes apparaissent maintenant dans l'onglet *git* dans RStudio : 
+
+![](img/gitlab_06.png)
+
+En rafraîchissant votre page *Gitlab* vous verrez que la branche *dev* a bien été exportée : 
+
+![](img/gitlab_05.png)
+
+<br>
+
+Dans RStudio, placez-vous sur la branche *dev* et modifiez le fichier README.md : 
+
+![](img/gitlab_07.png)
+
+Effectuez un *add - commit - push* de cette modification. 
+
+## Fusionner des branches sur le serveur distant
+
+Dans *Gitlab*, cliquez sur *2 branches* puis sur *dev*. Vous remarquerez que le fichier README.md contient bien la dernière modification apportée en local. Cliquez ensuite sur *Create merge request* : nous allons fusionner les deux branches et inclure les modifications apportées à la branche *dev* dans la branche *master*.
+
+![](img/gitlab_08.png)
+
+<br>
+
+::: {.callout-note icon="true"}
+
+## Merge request et Pull request
+
+Il s'agit de la même opération, qui porte deux noms différents selon qu'on utilise **Github** (**Pull request**) ou **Gitlab** (**Merge request**).
+
+:::
+
+<br>
+
+Dans la fenêtre *New merge request* renseignez un titre (normalement pré-rempli avec le message du dernier commit) et une description. Soyez le plus explicite possible : vous saurez précisément ce que vous avez fait et les collègues qui travaillent sur le même projet auront toutes les informations nécessaires.
+
+![](img/gitlab_09.png)
+
+<br>
+
+Dans la suite de la fenêtre, vous pouvez renseigner plusieurs champs : 
+
+- *Assignee* : qui doit valider la requête  
+
+- *Reviewer* : solliciter une vérification de la part d'autres personnes  
+
+- *Milestone* : vous pouvez préciser une date limite  
+
+- *Labels* : pour ajouter des étiquettes à vos requêtes  
+
+Dans *Merge options*, vous pouvez choisir de supprimer la branche source quand la requête sera acceptée (*Delete source branch when merge request is accepted*, case cochée par défaut) et d'écraser les commits (case décochée par défaut).
+
+![](img/gitlab_10.png)
+
+<br>
+
+Dans la fenêtre suivante, cliquez sur *Approve* (cette étape n'est pas obligatoire) puis sur *Merge* pour valider la fusion des branches.
+
+Une fois la fusion terminée, revenez sur la page d'accueil du répertoire sur *Gitlab* : il n'y a qu'une branche et le fichier README.md contient bien les dernières modifications.
+
+<br>
+
+Dans RStudio, placez-vous sur la branche *master* et cliquez sur *Pull*. Votre répertoire local est désormais à jour.
+
+Cependant, les branches *dev* locale et distante sont toujours présentes dans l'onglet *Git* de RStudio ... 
+
+![](img/gitlab_12.png)
+
+Pour les supprimer, utilisez les commandes suivantes : 
+
+```{r delete remote branches, eval=FALSE}
+git fetch -p
+git branch -d dev
+```
+
+Rafraîchissez l'onglet *Git*, il ne devrait rester que la branche *master* locale et distante.
+
