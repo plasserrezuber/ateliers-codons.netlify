@@ -279,7 +279,32 @@ g +
   geom_point(aes(col = espece, shape = ile, size = masse_corporelle_g))
 ```
 
+<br>
 
+### Ajouter et modifier des titres
+
+<br>
+
+La fonction `labs()` permet d'ajouter ou de modifier des titres à notre graphique : 
+```{r basic plot 11}
+g +
+  geom_point(aes(col = espece)) +
+  labs(title = "Pingouins de l'archipel Palmer",
+       subtitle = "Données pour 3 espèces sur 3 îles",
+       x = "Longueur des ailes (mm)",
+       y = "Longueur du bec (mm)")
+```
+
+Nous pouvons également utiliser les fonctions `ggtitle()`, `xlab()` et `ylab()` :
+
+```{r basic plot 12, eval=FALSE}
+g +
+  geom_point(aes(col = espece)) +
+  ggtitle(label = "Pingouins de l'archipel Palmer",
+          subtitle = "Donnnées pour 3 espèces sur 3 îles") +
+  xlab("Longueur des ailes (mm)") +
+  ylab("Longueur du bec (mm)")
+```
 
 # Premiers pas avec git
 
