@@ -75,7 +75,7 @@ dplyr::glimpse(pingouins)
 
 <br>
 
-## Un premier graphique : *nuage de points* 
+## Premier graphique : nuage de points 
 
 <br>
 
@@ -108,13 +108,178 @@ ggplot(data = pingouins,
 
 Les deux variables ont été ajoutées, et les échelles des deux axes ont été calculées automatiquement.
 
+::: {.callout-note icon="true"}
+
+## mapping = aes() ou aes()
+
+L'argument `mapping =` n'est pas nécessaire, le code suivante donnera le même résultat : 
+```{r aes, eval=FALSE}
+ggplot(data = pingouins,
+       aes(x = longueur_aile_mm, y = longueur_bec_mm))
+```
+
+:::
+
 Pour finir, nous allons préciser que nous souhaitons représenter la relation entre ces deux variables à l'aide d'un nuage de points : 
 
 ```{r basic plot 03}
 ggplot(data = pingouins,
-       mapping = aes(x = longueur_aile_mm, y = longueur_bec_mm)) +
+       aes(x = longueur_aile_mm, y = longueur_bec_mm)) +
   geom_point()
 ```
+
+Un graphique `{ggplot2}` peut être stocké dans un objet. Cela permet de définir le graphique basique puis d'y apporter des modifications.
+
+```{r save to variable}
+g <- ggplot(data = pingouins,
+       aes(x = longueur_aile_mm, y = longueur_bec_mm))
+```
+
+
+::: {.callout-caution icon="true"}
+
+## Le `+`
+
+Lorsque vous créez un graphique avec `{ggplot2}`, l'ajout d'une nouvelle couche s'effectue à l'aide d'un `+` à la fin de la ligne.
+
+:::
+
+<br>
+
+### Ajouter des couleurs
+
+<br>
+
+Le nuage de points ci-dessus représente la relation entre deux variables, mais ne nous donne aucune indication sur l'identité de chaque point (quelle espèce ?). Nous aimerions colorer chaque point en fonction de l'espèce de l'individu.
+
+Il existe deux façons d'ajouter de la couleur à un graphique `{ggplot2}` : 
+
+- colorer l'ensemble des éléments (points, lignes, ...) avec une même couleur  
+
+- colorer chaque élément en fonction d'une autre variable (ici l'espèce)  
+
+<br>
+
+Pour colorer l'ensemble des points, nous ajoutons un argument `color` (`colour` et `col` fonctionnent également) en dehors des parenthèses définissant l'esthétique du graphique : 
+
+```{r basic plot 04}
+g +
+  geom_point(col = "darkblue")
+```
+
+L'argument `alpha` permet de définir la transparence des points. Il prend une valeur numérique entre 0 (transparent) et 1 (opaque) : 
+
+```{r basic plot 05}
+g +
+  geom_point(col = "darkblue", alpha = 0.5)
+```
+
+::: {.callout-tip icon="true"}
+
+## Les couleurs
+
+Vous pouvez utiliser des couleurs prédéfinies (voir la liste [ici](www.stat.columbia.edu/~tzheng/files/Rcolor.pdf)).  
+
+VOus pouvez également utiliser des codes hexadécimaux ou encore des couleurs RGB à l'aide de la fonction `rgb()` :
+ 
+```{r colors, eval=FALSE}
+g + geom_point(col = "darkblue")
+g + geom_point(col = "#00008b")
+g + geom_point(col = rgb(red = 0, green = 0, blue = 139, maxColorValue = 255))
+```
+
+:::
+
+<br>
+
+Pour colorer les points selon l'espèce, nous plaçons cet argument `color` dans une parenthèse `aes()` en précisant la variable à utiliser pour définir les groupes d'individus : 
+
+```{r basic plot 06}
+g +
+  geom_point(aes(col = espece))
+```
+
+Une légende permettant de différencier les gorupes a été ajoutée à droite du graphique.
+
+<br>
+
+::: {.callout-note icon="true"}
+
+## L'ordre des arguments
+
+Lorsque vous créez un graphique avec `{ggplot2}`, l'ordre des arguments peut varier. Si vous n'utilisez qu'un seul jeu de données, vous pouvez définir plusieurs arguments dans la parenthèse `ggplot()`. Si votre graphique utilisera plusieurs jeu de données, vous précisera dans chaque couche quelles données utiliser.
+Les paramètres esthétiques définis dans la parenthèse `ggplot()` seront appliqués à l'ensemble des couches, alors que ceux définis dans une parenthèse `geom()` ne concerneront que cette couche.
+
+Voici plusieurs manières d'écrire le code pour créer un même graphique : 
+
+```{r arg order, eval=FALSE}
+ggplot(data = pingouins) +
+  geom_point(aes(x = longueur_aile_mm, y = longueur_bec_mm, col = espece))
+
+ggplot(data = pingouins, aes(x = longueur_aile_mm, y = longueur_bec_mm)) +
+  geom_point(aes(col = espece))
+
+ggplot(data = pingouins, aes(x = longueur_aile_mm, y = longueur_bec_mm,
+                             col = espece)) +
+  geom_point()
+
+ggplot() +
+  geom_point(data = pingouins, aes(x = longueur_aile_mm, y = longueur_bec_mm,
+                                   col = espece))
+```
+
+:::
+
+<br>
+
+### Modifier l'apparence des points
+
+<br>
+
+L'argument `shape` permet de changer la forme des points. Comme pour la couleur, vous pouvez utiliser une seule forme pour l'ensemble des points, ou utiliser différentes formes pour représenter des groupes.
+
+Les formes de points peuvent être précisées à l'aide :  
+
+- d'un code numérique :  
+![](img/points-symbols.png){width="50%"}  
+
+- d'un nom (`square`, `circle`, `diamond`, ...)
+
+Modifions la forme de l'ensemble des points : 
+
+```{r basic plot 07}
+g +
+  geom_point(shape = 5,
+             aes(col = espece))
+```
+
+Utilisons différentes formes en fonction de l'île : 
+
+```{r basic plot 08}
+g +
+  geom_point(aes(col = espece, shape = ile))
+```
+
+<br>
+
+L'argument `size` permet de modificer la taille des points. Là encore, nous pouvons définir une même taille pour l'ensemble des points, ou représenter une variable continue de nos données à l'aide de la taille.
+
+Augmentons la taille de l'ensemble des points : 
+
+```{r basic plot 09}
+g +
+  geom_point(shape = 5, size = 3,
+             aes(col = espece))
+```
+
+Utilisons la taille pour représenter la masse des pingouins : 
+
+```{r basic plot 10}
+g +
+  geom_point(aes(col = espece, shape = ile, size = masse_corporelle_g))
+```
+
+
 
 # Premiers pas avec git
 
