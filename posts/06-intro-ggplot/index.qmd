@@ -413,3 +413,144 @@ ggplot(data = pingouins,
                  binwidth = 200,
                  show.legend = FALSE)
 ```
+
+<br>
+
+Ajoutons des titres à notre graphique et modifions les titres des axes :  
+
+```{r basic plot 18d, eval=TRUE, message=FALSE, warning=FALSE, echo=FALSE}
+ggplot(data = pingouins,
+       aes(x = masse_corporelle_g)) +
+  geom_histogram(aes(fill = espece),
+                 position = "stack",
+                 alpha = 0.5,
+                 binwidth = 200) +
+  labs(title = "Distribution de la masse corporelle",
+       subtitle = "Données pour 3 espèces de pingouins sur 3 îles de l'archipel Palmer",
+       caption = "Données issues du package {Palmer penguins}",
+       x = "Masse corporelle (g)",
+       y = "Fréquence")
+```
+
+## Boîtes à moustaches
+
+<br>
+
+Les trois espèces ont-elles des hauteurs de becs similaires ? Pour répondre à cette question, nous allons utiliser un graphique en boites à moustaches à l'aide de `geom_boxplot()` : 
+
+```{r basic plot 19a, eval=TRUE, message=FALSE, warning=FALSE}
+ggplot(data = pingouins,
+       aes(x = espece, y = hauteur_bec_mm, col = espece)) +
+  geom_boxplot()
+```
+
+
+Dans le cas présent, la légende n'est pas nécessaire, car les noms des espèces sont indiqués le long de l'axe x. Pour supprimer la légende, nous utilisons l'argument `show.legend = FALSE` : 
+
+```{r basic plot 19b, eval=TRUE, message=FALSE, warning=FALSE}
+ggplot(data = pingouins,
+       aes(x = espece, y = hauteur_bec_mm, col = espece)) +
+  geom_boxplot(show.legend = FALSE)
+```
+
+
+Nous aimerions inverser les axes de notre graphique. Nous pouvons le faire de deux façons : 
+
+- inverser les axes x et y dans les paramètres esthétiques
+```{r basic plot 19c, eval=FALSE, message=FALSE, warning=FALSE}
+ggplot(data = pingouins,
+       aes(x = hauteur_bec_mm, y = espece, col = espece)) +
+  geom_boxplot(show.legend = FALSE)
+```
+
+- utiliser la fonction `coord_flip()`
+```{r basic plot 19d, eval=TRUE, message=FALSE, warning=FALSE}
+ggplot(data = pingouins,
+       aes(x = espece, y = hauteur_bec_mm, col = espece)) +
+  geom_boxplot(show.legend = FALSE) +
+  coord_flip()
+```
+
+<br>
+
+L'argument `width` permet de modifier la taille des boîtes : 
+```{r basic plot 19e, eval=TRUE, message=FALSE, warning=FALSE}
+ggplot(data = pingouins,
+       aes(x = espece, y = hauteur_bec_mm, col = espece)) +
+  geom_boxplot(width = 0.25, show.legend = FALSE) +
+  coord_flip()
+```
+
+Ajoutons des titres à notre graphique et modifions les titres des axes : 
+```{r basic plot 19f, eval=TRUE, message=FALSE, warning=FALSE}
+ggplot(data = pingouins,
+       aes(x = espece, y = hauteur_bec_mm, col = espece)) +
+  geom_boxplot(width = 0.25, show.legend = FALSE) +
+  labs(title = "Hauteur des becs",
+       subtitle = "Données pour 3 espèces de pingouins sur 3 îles de l'archipel Palmer",
+       caption = "Données issues du package {Palmer penguins}",
+       x = "",
+       y = "Hauteur du bec (mm)") +
+  coord_flip()
+```
+
+<br>
+
+## Diagramme en barres
+
+<br>
+
+Nous allons visualiser le nombre d'individus par espèce à l'aide de `geom_bar()` : 
+```{r basic plot 20a, eval=TRUE, message=FALSE, warning=FALSE}
+ggplot(data = pingouins,
+       aes(x = espece)) +
+  geom_bar(aes(fill = espece),
+           width = 0.75,
+           show.legend = FALSE)
+```
+
+Nous aimerions classer les espèces apr ordre décroissant de nombre d'individus. Pour cela, nous allons utliser la fonction `fct_infreq()` du package `{forcats}` qui permet de trier les niveaux d'un facteur. Cette approche est intéressante car elle est dynamique : R effectue directement le tri dans passer par un objet intermédiaire.
+
+```{r basic plot 20b, eval=TRUE, message=FALSE, warning=FALSE}
+ggplot(data = pingouins,
+       aes(x = fct_infreq(espece))) +
+  geom_bar(aes(fill = espece),
+           width = 0.75,
+           show.legend = FALSE)
+```
+
+Comme vu précédemment, nous pouvons modifier l'orientation des barres à l'aide de `coord_flip()`. 
+
+::: {.callout-tip icon="true"}
+
+## Ordre des niveaux et orientation
+
+Gardez bien à l'esprit que sur votre graphique, le premier niveau d'un facteur se situe au plus près de l'origine. 
+
+Dans notre cas, si nous représentons des barres horizontales, l'espèce ayant le plus grand nombre d'individus se situera donc en bas du graphique. Pour corriger cela, nous utilisons la fonction `fct_rev()`
+
+:::
+
+```{r basic plot 20c, eval=TRUE, message=FALSE, warning=FALSE}
+ggplot(data = pingouins,
+       aes(x = fct_rev(fct_infreq(espece)))) +
+  geom_bar(aes(fill = espece),
+           width = 0.75,
+           show.legend = FALSE) +
+  coord_flip()
+```
+
+Ajoutons des titres à notre graphique et modifions les titres des axes : 
+```{r basic plot 20d, eval=TRUE, message=FALSE, warning=FALSE}
+ggplot(data = pingouins,
+       aes(x = fct_rev(fct_infreq(espece)))) +
+  geom_bar(aes(fill = espece),
+           width = 0.75,
+           show.legend = FALSE) +
+  labs(title = "Nombre d'individus",
+       subtitle = "Données pour 3 espèces de pingouins sur 3 îles de l'archipel Palmer",
+       caption = "Données issues du package {Palmer penguins}",
+       x = "",
+       y = "") +
+  coord_flip()
+```
