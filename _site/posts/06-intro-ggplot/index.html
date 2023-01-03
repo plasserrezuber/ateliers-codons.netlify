@@ -556,6 +556,44 @@ L’argument <code>stroke</code>
 <p><img src="index_files/figure-html/basic%20plot%2016-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+<p><br></p>
+<p>Cet histogramme ne nous renseigne sur la distribution de notre variable d’intérêt en fonction de l’espèce. Nous allons pour cela ajouter de la couleur à nos barres :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> pingouins,</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> masse_corporelle_g)) <span class="sc">+</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">fill =</span> espece),</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">alpha =</span> <span class="fl">0.5</span>,</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">binwidth =</span> <span class="dv">200</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/basic%20plot%2017-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><br></p>
+<p>Les barres des histogrammes peuvent être arrangées de trois façons différentes à l’aide de l’argument <code>position</code> :</p>
+<ul>
+<li><code>position = "stack"</code> :</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/basic%20plot%2018a-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<ul>
+<li><code>position = "identity"</code> :</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/basic%20plot%2018b-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<ul>
+<li><code>position = "dodge"</code> :</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/basic%20plot%2018c-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
 
 
 </section>
