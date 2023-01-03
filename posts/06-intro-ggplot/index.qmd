@@ -21,7 +21,7 @@ format:
 
 <br>
 
-Le package [`{ggplot2}`](https://ggplot2.tidyverse.org/) (qui fait partie du [Tidyverse](https://www.tidyverse.org/)) repose sur le principe de **grammaire des graphiques** : un graphique se construit couche par couche.
+Le package [`{ggplot2}`](https://ggplot2.tidyverse.org/) (qui fait partie du [Tidyverse](https://www.tidyverse.org/)) repose sur le principe de la **grammaire des graphiques** : un graphique se construit couche par couche.
 
 ![](img/ggplot-grammar-of-graphics.png){width="50%"}
 
@@ -51,10 +51,6 @@ library(tidyverse)
 
 <br>
 
-# Graphiques simples
-
-<br>
-
 ## Le jeu de données
 
 <br>
@@ -75,7 +71,11 @@ dplyr::glimpse(pingouins)
 
 <br>
 
-## Premier graphique : nuage de points 
+# Graphiques simples
+
+<br>
+
+## Nuage de points 
 
 <br>
 
@@ -106,13 +106,13 @@ ggplot(data = pingouins,
        mapping = aes(x = longueur_aile_mm, y = longueur_bec_mm))
 ```
 
-Les deux variables ont été ajoutées, et les échelles des deux axes ont été calculées automatiquement.
+Les deux variables ont été ajoutées, et les échelles des deux axes ont été automatiquement calculées.
 
 ::: {.callout-note icon="true"}
 
 ## mapping = aes() ou aes()
 
-L'argument `mapping =` n'est pas nécessaire, le code suivante donnera le même résultat : 
+L'argument `mapping =` n'est pas indispensable, le code suivant fonctionnera de la même façon : 
 ```{r aes, eval=FALSE}
 ggplot(data = pingouins,
        aes(x = longueur_aile_mm, y = longueur_bec_mm))
@@ -150,7 +150,7 @@ Lorsque vous créez un graphique avec `{ggplot2}`, l'ajout d'une nouvelle couche
 
 <br>
 
-Le nuage de points ci-dessus représente la relation entre deux variables, mais ne nous donne aucune indication sur l'identité de chaque point (quelle espèce ?). Nous aimerions colorer chaque point en fonction de l'espèce de l'individu.
+Le nuage de points ci-dessus représente la relation entre deux variables, mais ne nous donne aucune indication sur l'identité de chaque point. Nous aimerions colorer chaque point en fonction de l'espèce de l'individu.
 
 Il existe deux façons d'ajouter de la couleur à un graphique `{ggplot2}` : 
 
@@ -180,7 +180,7 @@ g +
 
 Vous pouvez utiliser des couleurs prédéfinies (voir la liste [ici](www.stat.columbia.edu/~tzheng/files/Rcolor.pdf)).  
 
-VOus pouvez également utiliser des codes hexadécimaux ou encore des couleurs RGB à l'aide de la fonction `rgb()` :
+Vous pouvez également utiliser des codes hexadécimaux ou encore des couleurs RGB à l'aide de la fonction `rgb()` :
  
 ```{r colors, eval=FALSE}
 g + geom_point(col = "darkblue")
@@ -192,7 +192,7 @@ g + geom_point(col = rgb(red = 0, green = 0, blue = 139, maxColorValue = 255))
 
 <br>
 
-Pour colorer les points selon l'espèce, nous plaçons cet argument `color` dans une parenthèse `aes()` en précisant la variable à utiliser pour définir les groupes d'individus : 
+Pour colorer les points selon l'espèce, nous plaçons l'argument `color` dans une parenthèse `aes()` en précisant la variable à utiliser pour définir les groupes d'individus : 
 
 ```{r basic plot 06}
 g +
@@ -207,7 +207,7 @@ Une légende permettant de différencier les gorupes a été ajoutée à droite 
 
 ## L'ordre des arguments
 
-Lorsque vous créez un graphique avec `{ggplot2}`, l'ordre des arguments peut varier. Si vous n'utilisez qu'un seul jeu de données, vous pouvez définir plusieurs arguments dans la parenthèse `ggplot()`. Si votre graphique utilisera plusieurs jeu de données, vous précisera dans chaque couche quelles données utiliser.
+Lorsque vous créez un graphique avec `{ggplot2}`, l'ordre des arguments peut varier. Si vous n'utilisez qu'un seul jeu de données, vous pouvez définir plusieurs arguments dans la parenthèse `ggplot()`. Si votre graphique utilisera plusieurs jeux de données, vous préciserez dans chaque couche quelles données utiliser.
 Les paramètres esthétiques définis dans la parenthèse `ggplot()` seront appliqués à l'ensemble des couches, alors que ceux définis dans une parenthèse `geom()` ne concerneront que cette couche.
 
 Voici plusieurs manières d'écrire le code pour créer un même graphique : 
@@ -238,7 +238,7 @@ ggplot() +
 
 L'argument `shape` permet de changer la forme des points. Comme pour la couleur, vous pouvez utiliser une seule forme pour l'ensemble des points, ou utiliser différentes formes pour représenter des groupes.
 
-Les formes de points peuvent être précisées à l'aide :  
+La forme des points peut être précisées à l'aide :  
 
 - d'un code numérique :  
 ![](img/points-symbols.png){width="50%"}  
@@ -281,6 +281,20 @@ g +
 
 <br>
 
+::: {.callout-tip icon="true"}
+
+## L'argument `stroke`
+
+Les formes 21 à 25 peuvent prendre plusieurs arguments :  
+
+- `color` : couleur du contour  
+- `fill` : couleur de remplissage  
+- `stroke` : largeur du contour
+
+:::
+
+<br>
+
 ### Ajouter et modifier des titres
 
 <br>
@@ -291,6 +305,7 @@ g +
   geom_point(aes(col = espece)) +
   labs(title = "Pingouins de l'archipel Palmer",
        subtitle = "Données pour 3 espèces sur 3 îles",
+       caption = "Données issues du package {Palmer penguins}",
        x = "Longueur des ailes (mm)",
        y = "Longueur du bec (mm)")
 ```
@@ -302,6 +317,7 @@ g +
   geom_point(aes(col = espece)) +
   ggtitle(label = "Pingouins de l'archipel Palmer",
           subtitle = "Donnnées pour 3 espèces sur 3 îles") +
+  labs(caption = "Données issues du package {Palmer penguins}") +
   xlab("Longueur des ailes (mm)") +
   ylab("Longueur du bec (mm)")
 ```
@@ -314,7 +330,7 @@ g +
 
 Nous souhaitons visualiser la distribution de la masse des pingouins. Nous allons pour cela utiliser la fonction `geom_histogram()` : 
 
-```{r basic plot 13, eval=FALSE}
+```{r basic plot 13, eval=TRUE, message=FALSE, warning=FALSE}
 ggplot(data = pingouins,
        aes(x = masse_corporelle_g)) +
   geom_histogram()
@@ -322,7 +338,7 @@ ggplot(data = pingouins,
 
 Pour bien différencier les barres, nous utilisons l'argument `col` pour colorer leur contour (l'argument `fill` permet de colorer l'intérieur) : 
 
-```{r basic plot 14, eval=FALSE}
+```{r basic plot 14, eval=TRUE, message=FALSE, warning=FALSE}
 ggplot(data = pingouins,
        aes(x = masse_corporelle_g)) +
   geom_histogram(col = "white")
@@ -332,10 +348,16 @@ Lorsque vous exécutez le code ci-dessus, la console affiche le message suivant 
 
 Par défaut, un histogramme contient 30 classes. L'argument `bins` permet de changer le nombre de classes. N'hésitez pas à en essayer plusieurs !
 
-```{r basic plot 15, eval=FALSE}
+```{r basic plot 15, eval=TRUE, message=FALSE, warning=FALSE}
 ggplot(data = pingouins,
        aes(x = masse_corporelle_g)) +
   geom_histogram(col = "white", bins = 20)
 ```
 
-L'argument `bin_width` permet de modifier la largeur de chaque classe sur l'axe x.
+L'argument `bin_width` permet de modifier la largeur de chaque classe le long de l'axe x : 
+
+```{r basic plot 16, eval=TRUE, message=FALSE, warning=FALSE}
+ggplot(data = pingouins,
+       aes(x = masse_corporelle_g)) +
+  geom_histogram(col = "white", binwidth = 200)
+```

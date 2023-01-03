@@ -195,11 +195,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul class="collapse">
   <li><a href="#la-grammaire-des-graphiques" id="toc-la-grammaire-des-graphiques" class="nav-link" data-scroll-target="#la-grammaire-des-graphiques">La grammaire des graphiques</a></li>
   <li><a href="#pré-requis" id="toc-pré-requis" class="nav-link" data-scroll-target="#pré-requis">Pré-requis</a></li>
+  <li><a href="#le-jeu-de-données" id="toc-le-jeu-de-données" class="nav-link" data-scroll-target="#le-jeu-de-données">Le jeu de données</a></li>
   </ul></li>
   <li><a href="#graphiques-simples" id="toc-graphiques-simples" class="nav-link" data-scroll-target="#graphiques-simples">Graphiques simples</a>
   <ul class="collapse">
-  <li><a href="#le-jeu-de-données" id="toc-le-jeu-de-données" class="nav-link" data-scroll-target="#le-jeu-de-données">Le jeu de données</a></li>
-  <li><a href="#premier-graphique-nuage-de-points" id="toc-premier-graphique-nuage-de-points" class="nav-link" data-scroll-target="#premier-graphique-nuage-de-points">Premier graphique : nuage de points</a></li>
+  <li><a href="#nuage-de-points" id="toc-nuage-de-points" class="nav-link" data-scroll-target="#nuage-de-points">Nuage de points</a></li>
   <li><a href="#histogramme" id="toc-histogramme" class="nav-link" data-scroll-target="#histogramme">Histogramme</a></li>
   </ul></li>
   </ul>
@@ -217,7 +217,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="la-grammaire-des-graphiques" class="level2">
 <h2 class="anchored" data-anchor-id="la-grammaire-des-graphiques">La grammaire des graphiques</h2>
 <p><br></p>
-<p>Le package <a href="https://ggplot2.tidyverse.org/"><code>{ggplot2}</code></a> (qui fait partie du <a href="https://www.tidyverse.org/">Tidyverse</a>) repose sur le principe de <strong>grammaire des graphiques</strong> : un graphique se construit couche par couche.</p>
+<p>Le package <a href="https://ggplot2.tidyverse.org/"><code>{ggplot2}</code></a> (qui fait partie du <a href="https://www.tidyverse.org/">Tidyverse</a>) repose sur le principe de la <strong>grammaire des graphiques</strong> : un graphique se construit couche par couche.</p>
 <p><img src="img/ggplot-grammar-of-graphics.png" class="img-fluid" style="width:50.0%"></p>
 <p><br></p>
 </section>
@@ -240,10 +240,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p><br></p>
 </section>
-</section>
-<section id="graphiques-simples" class="level1">
-<h1>Graphiques simples</h1>
-<p><br></p>
 <section id="le-jeu-de-données" class="level2">
 <h2 class="anchored" data-anchor-id="le-jeu-de-données">Le jeu de données</h2>
 <p><br></p>
@@ -258,8 +254,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p><br></p>
 </section>
-<section id="premier-graphique-nuage-de-points" class="level2">
-<h2 class="anchored" data-anchor-id="premier-graphique-nuage-de-points">Premier graphique : nuage de points</h2>
+</section>
+<section id="graphiques-simples" class="level1">
+<h1>Graphiques simples</h1>
+<p><br></p>
+<section id="nuage-de-points" class="level2">
+<h2 class="anchored" data-anchor-id="nuage-de-points">Nuage de points</h2>
 <p><br></p>
 <p>Un <code>{ggplot2}</code> nécessite au minimum les trois éléments suivants :</p>
 <ul>
@@ -285,7 +285,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="index_files/figure-html/basic%20plot%2002-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Les deux variables ont été ajoutées, et les échelles des deux axes ont été calculées automatiquement.</p>
+<p>Les deux variables ont été ajoutées, et les échelles des deux axes ont été automatiquement calculées.</p>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -296,7 +296,7 @@ mapping = aes() ou aes()
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>L’argument <code>mapping =</code> n’est pas nécessaire, le code suivante donnera le même résultat :</p>
+<p>L’argument <code>mapping =</code> n’est pas indispensable, le code suivant fonctionnera de la même façon :</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> pingouins,</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> longueur_aile_mm, <span class="at">y =</span> longueur_bec_mm))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -334,7 +334,7 @@ Le <code>+</code>
 <section id="ajouter-des-couleurs" class="level3">
 <h3 class="anchored" data-anchor-id="ajouter-des-couleurs">Ajouter des couleurs</h3>
 <p><br></p>
-<p>Le nuage de points ci-dessus représente la relation entre deux variables, mais ne nous donne aucune indication sur l’identité de chaque point (quelle espèce ?). Nous aimerions colorer chaque point en fonction de l’espèce de l’individu.</p>
+<p>Le nuage de points ci-dessus représente la relation entre deux variables, mais ne nous donne aucune indication sur l’identité de chaque point. Nous aimerions colorer chaque point en fonction de l’espèce de l’individu.</p>
 <p>Il existe deux façons d’ajouter de la couleur à un graphique <code>{ggplot2}</code> :</p>
 <ul>
 <li><p>colorer l’ensemble des éléments (points, lignes, …) avec une même couleur</p></li>
@@ -368,7 +368,7 @@ Les couleurs
 </div>
 <div class="callout-body-container callout-body">
 <p>Vous pouvez utiliser des couleurs prédéfinies (voir la liste <a href="www.stat.columbia.edu/~tzheng/files/Rcolor.pdf">ici</a>).</p>
-<p>VOus pouvez également utiliser des codes hexadécimaux ou encore des couleurs RGB à l’aide de la fonction <code>rgb()</code> :</p>
+<p>Vous pouvez également utiliser des codes hexadécimaux ou encore des couleurs RGB à l’aide de la fonction <code>rgb()</code> :</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>g <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">col =</span> <span class="st">"darkblue"</span>)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>g <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">col =</span> <span class="st">"#00008b"</span>)</span>
@@ -377,7 +377,7 @@ Les couleurs
 </div>
 </div>
 <p><br></p>
-<p>Pour colorer les points selon l’espèce, nous plaçons cet argument <code>color</code> dans une parenthèse <code>aes()</code> en précisant la variable à utiliser pour définir les groupes d’individus :</p>
+<p>Pour colorer les points selon l’espèce, nous plaçons l’argument <code>color</code> dans une parenthèse <code>aes()</code> en précisant la variable à utiliser pour définir les groupes d’individus :</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>g <span class="sc">+</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">col =</span> espece))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -397,7 +397,7 @@ L’ordre des arguments
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Lorsque vous créez un graphique avec <code>{ggplot2}</code>, l’ordre des arguments peut varier. Si vous n’utilisez qu’un seul jeu de données, vous pouvez définir plusieurs arguments dans la parenthèse <code>ggplot()</code>. Si votre graphique utilisera plusieurs jeu de données, vous précisera dans chaque couche quelles données utiliser. Les paramètres esthétiques définis dans la parenthèse <code>ggplot()</code> seront appliqués à l’ensemble des couches, alors que ceux définis dans une parenthèse <code>geom()</code> ne concerneront que cette couche.</p>
+<p>Lorsque vous créez un graphique avec <code>{ggplot2}</code>, l’ordre des arguments peut varier. Si vous n’utilisez qu’un seul jeu de données, vous pouvez définir plusieurs arguments dans la parenthèse <code>ggplot()</code>. Si votre graphique utilisera plusieurs jeux de données, vous préciserez dans chaque couche quelles données utiliser. Les paramètres esthétiques définis dans la parenthèse <code>ggplot()</code> seront appliqués à l’ensemble des couches, alors que ceux définis dans une parenthèse <code>geom()</code> ne concerneront que cette couche.</p>
 <p>Voici plusieurs manières d’écrire le code pour créer un même graphique :</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> pingouins) <span class="sc">+</span></span>
@@ -422,7 +422,7 @@ L’ordre des arguments
 <h3 class="anchored" data-anchor-id="modifier-lapparence-des-points">Modifier l’apparence des points</h3>
 <p><br></p>
 <p>L’argument <code>shape</code> permet de changer la forme des points. Comme pour la couleur, vous pouvez utiliser une seule forme pour l’ensemble des points, ou utiliser différentes formes pour représenter des groupes.</p>
-<p>Les formes de points peuvent être précisées à l’aide :</p>
+<p>La forme des points peut être précisées à l’aide :</p>
 <ul>
 <li><p>d’un code numérique :<br>
 <img src="img/points-symbols.png" class="img-fluid" style="width:50.0%"></p></li>
@@ -465,6 +465,27 @@ L’ordre des arguments
 </div>
 </div>
 <p><br></p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+L’argument <code>stroke</code>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Les formes 21 à 25 peuvent prendre plusieurs arguments :</p>
+<ul>
+<li><code>color</code> : couleur du contour<br>
+</li>
+<li><code>fill</code> : couleur de remplissage<br>
+</li>
+<li><code>stroke</code> : largeur du contour</li>
+</ul>
+</div>
+</div>
+<p><br></p>
 </section>
 <section id="ajouter-et-modifier-des-titres" class="level3">
 <h3 class="anchored" data-anchor-id="ajouter-et-modifier-des-titres">Ajouter et modifier des titres</h3>
@@ -475,8 +496,9 @@ L’ordre des arguments
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">col =</span> espece)) <span class="sc">+</span></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Pingouins de l'archipel Palmer"</span>,</span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Données pour 3 espèces sur 3 îles"</span>,</span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Longueur des ailes (mm)"</span>,</span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Longueur du bec (mm)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Données issues du package {Palmer penguins}"</span>,</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Longueur des ailes (mm)"</span>,</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Longueur du bec (mm)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/basic%20plot%2011-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -487,8 +509,9 @@ L’ordre des arguments
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">col =</span> espece)) <span class="sc">+</span></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="at">label =</span> <span class="st">"Pingouins de l'archipel Palmer"</span>,</span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">subtitle =</span> <span class="st">"Donnnées pour 3 espèces sur 3 îles"</span>) <span class="sc">+</span></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Longueur des ailes (mm)"</span>) <span class="sc">+</span></span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Longueur du bec (mm)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">caption =</span> <span class="st">"Données issues du package {Palmer penguins}"</span>) <span class="sc">+</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Longueur des ailes (mm)"</span>) <span class="sc">+</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Longueur du bec (mm)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 </section>
@@ -501,12 +524,18 @@ L’ordre des arguments
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> pingouins,</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> masse_corporelle_g)) <span class="sc">+</span></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/basic%20plot%2013-1.png" class="img-fluid" width="672"></p>
+</div>
 </div>
 <p>Pour bien différencier les barres, nous utilisons l’argument <code>col</code> pour colorer leur contour (l’argument <code>fill</code> permet de colorer l’intérieur) :</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> pingouins,</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> masse_corporelle_g)) <span class="sc">+</span></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">col =</span> <span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/basic%20plot%2014-1.png" class="img-fluid" width="672"></p>
+</div>
 </div>
 <p>Lorsque vous exécutez le code ci-dessus, la console affiche le message suivant : <code>stat_bin() using bins = 30. Pick better value with binwidth</code>.</p>
 <p>Par défaut, un histogramme contient 30 classes. L’argument <code>bins</code> permet de changer le nombre de classes. N’hésitez pas à en essayer plusieurs !</p>
@@ -514,8 +543,19 @@ L’ordre des arguments
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> pingouins,</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> masse_corporelle_g)) <span class="sc">+</span></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">col =</span> <span class="st">"white"</span>, <span class="at">bins =</span> <span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/basic%20plot%2015-1.png" class="img-fluid" width="672"></p>
 </div>
-<p>L’argument <code>bin_width</code> permet de modifier la largeur de chaque classe sur l’axe x.</p>
+</div>
+<p>L’argument <code>bin_width</code> permet de modifier la largeur de chaque classe le long de l’axe x :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> pingouins,</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> masse_corporelle_g)) <span class="sc">+</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">col =</span> <span class="st">"white"</span>, <span class="at">binwidth =</span> <span class="dv">200</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/basic%20plot%2016-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
 
 
 </section>
