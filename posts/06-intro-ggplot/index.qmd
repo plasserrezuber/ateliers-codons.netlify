@@ -361,3 +361,55 @@ ggplot(data = pingouins,
        aes(x = masse_corporelle_g)) +
   geom_histogram(col = "white", binwidth = 200)
 ```
+
+<br>
+
+Cet histogramme ne nous renseigne sur la distribution de notre variable d'intérêt en fonction de l'espèce. Nous allons pour cela ajouter de la couleur à nos barres : 
+
+```{r basic plot 17, eval=TRUE, message=FALSE, warning=FALSE}
+ggplot(data = pingouins,
+       aes(x = masse_corporelle_g)) +
+  geom_histogram(aes(fill = espece),
+                 alpha = 0.5,
+                 binwidth = 200)
+```
+
+<br>
+
+Les barres des histogrammes peuvent être arrangées de trois façons différentes à l'aide de l'argument `position` : 
+
+- `position = "stack"` :  
+
+```{r basic plot 18a, eval=TRUE, message=FALSE, warning=FALSE, echo=FALSE}
+ggplot(data = pingouins,
+       aes(x = masse_corporelle_g)) +
+  geom_histogram(aes(fill = espece),
+                 position = "stack",
+                 alpha = 0.5,
+                 binwidth = 200,
+                 show.legend = FALSE)
+```
+
+- `position = "identity"` :  
+
+```{r basic plot 18b, eval=TRUE, message=FALSE, warning=FALSE, echo=FALSE}
+ggplot(data = pingouins,
+       aes(x = masse_corporelle_g)) +
+  geom_histogram(aes(fill = espece),
+                 position = "identity",
+                 alpha = 0.5,
+                 binwidth = 200,
+                 show.legend = FALSE)
+```
+
+- `position = "dodge"` :  
+
+```{r basic plot 18c, eval=TRUE, message=FALSE, warning=FALSE, echo=FALSE}
+ggplot(data = pingouins,
+       aes(x = masse_corporelle_g)) +
+  geom_histogram(aes(fill = espece),
+                 position = "dodge",
+                 alpha = 0.5,
+                 binwidth = 200,
+                 show.legend = FALSE)
+```
