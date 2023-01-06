@@ -1051,12 +1051,12 @@ La fonction `element_blank()` permet de supprimer un élément du graphique.
 
 Nous allons effectuer les modifications suivantes : 
 
-|     |     |
-| --- | --- |
-| modifier la couleur de l'arrière-plan | `panel.background = element_rect()` |
-| modifier la couleur de la bordure     | `panel.border = element_rect()` |  
-| supprimer les graduations mineures     | `panel.grid.minor = element_blank()` |  
-| modifier les graduations majeures     | `panel.grid.major = element_line()` | 
+|                                       |                                      |
+| ------------------------------------- | ------------------------------------ |
+| modifier la couleur de l'arrière-plan | `panel.background = element_rect()`  |
+| modifier la couleur de la bordure     | `panel.border = element_rect()`      |  
+| supprimer les graduations mineures    | `panel.grid.minor = element_blank()` |  
+| modifier les graduations majeures     | `panel.grid.major = element_line()`  | 
 
 ```{r basic plot 26d, eval=TRUE, message=FALSE, warning=FALSE}
 (p1 <- p +
@@ -1069,3 +1069,111 @@ Nous allons effectuer les modifications suivantes :
 )
 ```
 
+<br>
+
+### Le "plot"
+
+<br>
+
+![](img/ggplot_themes_plot.png)
+
+Les options `plot.title()`, `plot.subtitle()` et `plot.caption()` permettent de modifier la taille, la couleur et l'alignement du texte des titres et sous-titres du graphique.
+
+L'option `plot.margin` permet de modifier la marge entre la zone de "plot" et les bords du graphiques. Une marge se définit à l'aide de quatre valeurs numériques, une pour chaque côté du graphique (ou de l'élément autour duquel on modifie les marges). La fonction `plot.margin` s'utilise de la manière suivante : `plot.margin = margin(top = ..., right = ..., bottom = ..., left = ...)`. On peut également utiliser les abbréviations `margin(t = ..., r = ..., b = ..., l = ...)` ou simplement indiquer les quatre valeurs numériques dans l'ordre. Pour ne modifier la marge que d'un seul côté, il suffit de préciser quel côté est concerné : `margin(l = ...)`. 
+
+La fonction `margin()` peut également être utilisée pour modifier les marges autour du texte du graphique (titre, axes, ...).
+
+<br>
+
+Nous allons effectuer les modifications suivantes : 
+
+|                                       |                                    |
+| ------------------------------------- | ---------------------------------- |
+| modifier la couleur de l'arrière-plan | `plot.background = element_rect()` |
+| augmenter les marges                  | `plot.margin = margin()`           |  
+| modifier le titre                     | `plot.title = element_text()`      |  
+| modifier le sous-titre                | `plot.subtitle = element_text()`   | 
+
+::: {.callout-tip icon="true"}
+
+## Aligner le titre et le sous-titre sur l'ensemble du graphique
+
+Par défaut, l'alignement du titre et du sous-titre se sont par rapport à la zone "panel". Pour que l'alignement se fasse par rapport à la zone "plot", c'est-à-dire l'ensemble du graphique, nous pouvons ajouter l'option `plot.title.position = "plot"`
+
+:::
+
+```{r basic plot 26e, eval=TRUE, message=FALSE, warning=FALSE}
+(p2 <- p1 +
+  theme(
+    plot.background = element_rect(fill = "lightcyan"),
+    plot.margin = margin(10, 10, 10, 10),
+    plot.title.position = "plot",
+    plot.title = element_text(color = "steelblue4",
+                              size = 20,
+                              hjust = 0.5),
+    plot.subtitle = element_text(color = "steelblue4",
+                                 size = 15,
+                                 hjust = 0.5,
+                                 margin = margin(b = 10))
+  )
+)
+```
+
+<br>
+
+### Les axes
+
+<br>
+
+![](img/ggplot_themes_axis.png)
+
+Nous allons effectuer les modifications suivantes : 
+
+|                                       |                                    |
+| ------------------------------------- | ---------------------------------- |
+| modifier les titres des axes          | `axis.title = element_text()`      |
+| modifier le texte des axes            | `axis.text = element_text()`       |  
+| supprimer les marques de graduation   | `axis.ticks = element_blank()`     |  
+
+Nous pouvons modifier ces paramètres de différentes manières : 
+
+- `axis.title.x` : modifier le texte de l'axe x  
+- `axis.title.y` : modifier le texte de l'axe y  
+- `axis.title` : modifier le texte des deux axes 
+
+La façon de procéder dépendra de ce que l'on souhaite modifier. Si nous voulons seulement augmenter la taille de la police des titres, nous utiliserons `axis.title`. Si nous souhaitons modifier les marges autour des titres des deux axes, il nous faudra utiliser `axis.title.x` et `axis.title.y`. En effet, les marges ne tiennent pas compte de l'orientation du texte. Pour augmenter l'espace entre les titres des deux axes et la zone "panel", il nous faudra procéder en deux étapes : 
+
+- augmenter la marge supérieure (top) pour le titre de l'axe x  
+- augmenter la marge à droite (right) pour le titre de l'axe y  
+
+::: {.callout-tip icon="true"}
+
+## `hjust` et `vjust` 
+
+A la différence de `margin`, `hjust` et `vjust` prennent en compte l'orientation du texte. 
+
+:::
+
+```{r basic plot 26f, eval=TRUE, message=FALSE, warning=FALSE}
+(p3 <- p2 +
+    theme(
+      axis.title.x = element_text(color = "steelblue",
+                                  size = 15,
+                                  margin = margin(t = 10)),
+      axis.title.y = element_text(color = "steelblue",
+                                  size = 15,
+                                  margin = margin(r = 10)),
+      axis.text = element_text(color = "steelblue",
+                               size = 15),
+      axis.ticks = element_blank()
+    )
+)
+```
+
+<br>
+
+### La légende
+
+<br>
+
+![](img/ggplot_themes_legend.png)   
