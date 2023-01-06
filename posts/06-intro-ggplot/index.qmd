@@ -1059,12 +1059,13 @@ Nous allons effectuer les modifications suivantes :
 | modifier les graduations majeures     | `panel.grid.major = element_line()` | 
 
 ```{r basic plot 26d, eval=TRUE, message=FALSE, warning=FALSE}
-p1 <- p +
+(p1 <- p +
   theme(
     panel.background = element_rect(fill = "lightcyan"),
     panel.border = element_rect(fill = NA, color = "black", linewidth = 1.5),
     panel.grid.minor = element_blank(),
     panel.grid.major = element_line(color = "black", linetype = "dotted")
   )
+)
 ```
 
