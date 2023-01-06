@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.36">
+<meta name="generator" content="quarto-1.2.269">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -13,10 +13,15 @@
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-span.underline{text-decoration: underline;}
-div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -55,7 +60,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -68,7 +73,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -129,9 +134,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <a class="navbar-brand" href="../../index.html">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Ateliers codons</span>
-  </a>
+    </a>
+  </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -140,7 +147,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/codons-blog/"><i class="bi bi-github" role="img">
 </i> 
- </a>
+ <span class="menu-text"></span></a>
   </li>  
 </ul>
               <div id="quarto-search" class="" title="Search"></div>
@@ -179,6 +186,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <p class="date">December 12, 2022</p>
       </div>
     </div>
+    
       
     </div>
     
@@ -187,10 +195,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc">
+        <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Sommaire</h2>
    
-  <ul>
+  <ul class="collapse">
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
   <ul class="collapse">
   <li><a href="#la-grammaire-des-graphiques" id="toc-la-grammaire-des-graphiques" class="nav-link" data-scroll-target="#la-grammaire-des-graphiques">La grammaire des graphiques</a></li>
@@ -204,6 +212,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#boîtes-à-moustaches" id="toc-boîtes-à-moustaches" class="nav-link" data-scroll-target="#boîtes-à-moustaches">Boîtes à moustaches</a></li>
   <li><a href="#diagramme-en-barres" id="toc-diagramme-en-barres" class="nav-link" data-scroll-target="#diagramme-en-barres">Diagramme en barres</a></li>
   </ul></li>
+  <li><a href="#graphiques-multiples" id="toc-graphiques-multiples" class="nav-link" data-scroll-target="#graphiques-multiples">Graphiques multiples</a>
+  <ul class="collapse">
+  <li><a href="#facet_wrap" id="toc-facet_wrap" class="nav-link" data-scroll-target="#facet_wrap"><code>facet_wrap()</code></a></li>
+  <li><a href="#facet_grid" id="toc-facet_grid" class="nav-link" data-scroll-target="#facet_grid"><code>facet_grid()</code></a></li>
+  </ul></li>
+  <li><a href="#utilisation-du-pipe" id="toc-utilisation-du-pipe" class="nav-link" data-scroll-target="#utilisation-du-pipe">Utilisation du pipe <code>%&gt;%</code></a></li>
   </ul>
 </nav>
     </div>
@@ -275,7 +289,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> pingouins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/basic%20plot%2001-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/basic plot 01-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Cette commande permet d’initialiser notre graphique. Seul l’arrière-plan gris est visible pour le moment.</p>
@@ -284,7 +298,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> pingouins,</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> longueur_aile_mm, <span class="at">y =</span> longueur_bec_mm))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/basic%20plot%2002-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/basic plot 02-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Les deux variables ont été ajoutées, et les échelles des deux axes ont été automatiquement calculées.</p>
@@ -311,7 +325,7 @@ mapping = aes() ou aes()
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> longueur_aile_mm, <span class="at">y =</span> longueur_bec_mm)) <span class="sc">+</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/basic%20plot%2003-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/basic plot 03-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Un graphique <code>{ggplot2}</code> peut être stocké dans un objet. Cela permet de définir le graphique basique puis d’y apporter des modifications.</p>
@@ -348,7 +362,7 @@ Le <code>+</code>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>g <span class="sc">+</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">col =</span> <span class="st">"darkblue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/basic%20plot%2004-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/basic plot 04-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>L’argument <code>alpha</code> permet de définir la transparence des points. Il prend une valeur numérique entre 0 (transparent) et 1 (opaque) :</p>
@@ -356,7 +370,7 @@ Le <code>+</code>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>g <span class="sc">+</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">col =</span> <span class="st">"darkblue"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/basic%20plot%2005-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/basic plot 05-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="callout-tip callout callout-style-default callout-captioned">
@@ -384,7 +398,7 @@ Les couleurs
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>g <span class="sc">+</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">col =</span> espece))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/basic%20plot%2006-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/basic plot 06-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Une légende permettant de différencier les gorupes a été ajoutée à droite du graphique.</p>
@@ -436,7 +450,7 @@ L’ordre des arguments
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">5</span>,</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">col =</span> espece))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/basic%20plot%2007-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/basic plot 07-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Utilisons différentes formes en fonction de l’île :</p>
@@ -444,7 +458,7 @@ L’ordre des arguments
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>g <span class="sc">+</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">col =</span> espece, <span class="at">shape =</span> ile))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/basic%20plot%2008-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/basic plot 08-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p><br></p>
@@ -455,7 +469,7 @@ L’ordre des arguments
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">5</span>, <span class="at">size =</span> <span class="dv">3</span>,</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">col =</span> espece))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/basic%20plot%2009-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/basic plot 09-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Utilisons la taille pour représenter la masse des pingouins :</p>
@@ -463,7 +477,7 @@ L’ordre des arguments
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>g <span class="sc">+</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">col =</span> espece, <span class="at">shape =</span> ile, <span class="at">size =</span> masse_corporelle_g))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/basic%20plot%2010-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/basic plot 10-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p><br></p>
@@ -502,7 +516,7 @@ L’argument <code>stroke</code>
 <span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Longueur des ailes (mm)"</span>,</span>
 <span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Longueur du bec (mm)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/basic%20plot%2011-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/basic plot 11-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Nous pouvons également utiliser les fonctions <code>ggtitle()</code>, <code>xlab()</code> et <code>ylab()</code> :</p>
@@ -527,7 +541,7 @@ L’argument <code>stroke</code>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> masse_corporelle_g)) <span class="sc">+</span></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/basic%20plot%2013-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/basic plot 13-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Pour bien différencier les barres, nous utilisons l’argument <code>col</code> pour colorer leur contour (l’argument <code>fill</code> permet de colorer l’intérieur) :</p>
@@ -536,7 +550,7 @@ L’argument <code>stroke</code>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> masse_corporelle_g)) <span class="sc">+</span></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">col =</span> <span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/basic%20plot%2014-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/basic plot 14-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Lorsque vous exécutez le code ci-dessus, la console affiche le message suivant : <code>stat_bin() using bins = 30. Pick better value with binwidth</code>.</p>
@@ -546,7 +560,7 @@ L’argument <code>stroke</code>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> masse_corporelle_g)) <span class="sc">+</span></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">col =</span> <span class="st">"white"</span>, <span class="at">bins =</span> <span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/basic%20plot%2015-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/basic plot 15-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>L’argument <code>bin_width</code> permet de modifier la largeur de chaque classe le long de l’axe x :</p>
@@ -555,7 +569,7 @@ L’argument <code>stroke</code>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> masse_corporelle_g)) <span class="sc">+</span></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">col =</span> <span class="st">"white"</span>, <span class="at">binwidth =</span> <span class="dv">200</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/basic%20plot%2016-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/basic plot 16-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p><br></p>
@@ -567,7 +581,7 @@ L’argument <code>stroke</code>
 <span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">alpha =</span> <span class="fl">0.5</span>,</span>
 <span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">binwidth =</span> <span class="dv">200</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/basic%20plot%2017-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/basic plot 17-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p><br></p>
@@ -577,7 +591,7 @@ L’argument <code>stroke</code>
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/basic%20plot%2018a-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/basic plot 18a-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <ul>
@@ -585,7 +599,7 @@ L’argument <code>stroke</code>
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/basic%20plot%2018b-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/basic plot 18b-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <ul>
@@ -593,14 +607,14 @@ L’argument <code>stroke</code>
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/basic%20plot%2018c-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/basic plot 18c-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p><br></p>
 <p>Ajoutons des titres à notre graphique et modifions les titres des axes :</p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/basic%20plot%2018d-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/basic plot 18d-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -613,7 +627,7 @@ L’argument <code>stroke</code>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> espece, <span class="at">y =</span> hauteur_bec_mm, <span class="at">col =</span> espece)) <span class="sc">+</span></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/basic%20plot%2019a-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/basic plot 19a-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Dans le cas présent, la légende n’est pas nécessaire, car les noms des espèces sont indiqués le long de l’axe x. Pour supprimer la légende, nous utilisons l’argument <code>show.legend = FALSE</code> :</p>
@@ -622,7 +636,7 @@ L’argument <code>stroke</code>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> espece, <span class="at">y =</span> hauteur_bec_mm, <span class="at">col =</span> espece)) <span class="sc">+</span></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/basic%20plot%2019b-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/basic plot 19b-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Nous aimerions inverser les axes de notre graphique. Nous pouvons le faire de deux façons :</p>
@@ -643,7 +657,7 @@ L’argument <code>stroke</code>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
 <span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/basic%20plot%2019d-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/basic plot 19d-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p><br></p>
@@ -654,7 +668,7 @@ L’argument <code>stroke</code>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.25</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
 <span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/basic%20plot%2019e-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/basic plot 19e-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Ajoutons des titres à notre graphique et modifions les titres des axes :</p>
@@ -669,7 +683,7 @@ L’argument <code>stroke</code>
 <span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Hauteur du bec (mm)"</span>) <span class="sc">+</span></span>
 <span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/basic%20plot%2019f-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/basic plot 19f-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p><br></p>
@@ -685,7 +699,7 @@ L’argument <code>stroke</code>
 <span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">width =</span> <span class="fl">0.75</span>,</span>
 <span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">show.legend =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/basic%20plot%2020a-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/basic plot 20a-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Nous aimerions classer les espèces apr ordre décroissant de nombre d’individus. Pour cela, nous allons utliser la fonction <code>fct_infreq()</code> du package <code>{forcats}</code> qui permet de trier les niveaux d’un facteur. Cette approche est intéressante car elle est dynamique : R effectue directement le tri dans passer par un objet intermédiaire.</p>
@@ -696,7 +710,7 @@ L’argument <code>stroke</code>
 <span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">width =</span> <span class="fl">0.75</span>,</span>
 <span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">show.legend =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/basic%20plot%2020b-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/basic plot 20b-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Comme vu précédemment, nous pouvons modifier l’orientation des barres à l’aide de <code>coord_flip()</code>.</p>
@@ -722,7 +736,7 @@ Ordre des niveaux et orientation
 <span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
 <span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/basic%20plot%2020c-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/basic plot 20c-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Ajoutons des titres à notre graphique et modifions les titres des axes :</p>
@@ -739,12 +753,171 @@ Ordre des niveaux et orientation
 <span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">""</span>) <span class="sc">+</span></span>
 <span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/basic%20plot%2020d-1.png" class="img-fluid" width="672"></p>
+<p><img src="index_files/figure-html/basic plot 20d-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-
-
+<p><br></p>
 </section>
+</section>
+<section id="graphiques-multiples" class="level1">
+<h1>Graphiques multiples</h1>
+<p><br></p>
+<p>Reprenons notre graphique représentant le rapport entre la longueur et la hauteur du bec :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> pingouins,</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> longueur_aile_mm, <span class="at">y =</span> longueur_bec_mm)) <span class="sc">+</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">col =</span> espece)) <span class="sc">+</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Pingouins de l'archipel Palmer"</span>,</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Données pour 3 espèces sur 3 îles"</span>,</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Données issues du package {Palmer penguins}"</span>,</span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Longueur des ailes (mm)"</span>,</span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Longueur du bec (mm)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Nous souhaitons séparer ce graphique afin de représenter les données par espèce ou encore par espèce et par île. Nous allons utiliser pour cela les fonctions <code>facet_wrap()</code> et <code>facet_grid()</code>.</p>
+<p><br></p>
+<section id="facet_wrap" class="level2">
+<h2 class="anchored" data-anchor-id="facet_wrap"><code>facet_wrap()</code></h2>
+<p><br></p>
+<p>Nous ajoutons simplement une couche à notre code, en précisant à l’aide d’un tilde <code>~</code> quelle variable utiliser pour séparer les données :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> pingouins,</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> longueur_aile_mm, <span class="at">y =</span> longueur_bec_mm)) <span class="sc">+</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">col =</span> espece)) <span class="sc">+</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Pingouins de l'archipel Palmer"</span>,</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Données pour 3 espèces sur 3 îles"</span>,</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Données issues du package {Palmer penguins}"</span>,</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Longueur des ailes (mm)"</span>,</span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Longueur du bec (mm)"</span>) <span class="sc">+</span></span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>espece)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/basic plot 21b-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Des étiquettes sont automatiquement ajoutées pour indiquer les différentes espèces représentées. Nous pouvons donc supprimer la légende :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> pingouins,</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> longueur_aile_mm, <span class="at">y =</span> longueur_bec_mm)) <span class="sc">+</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">col =</span> espece),</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Pingouins de l'archipel Palmer"</span>,</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Données pour 3 espèces sur 3 îles"</span>,</span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Données issues du package {Palmer penguins}"</span>,</span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Longueur des ailes (mm)"</span>,</span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Longueur du bec (mm)"</span>) <span class="sc">+</span></span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>espece)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/basic plot 21c-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>L’option <code>dir</code> permet de modifier l’orientation des graphiques :<br>
+- <code>dir = "h"</code> : oritentation horizontale (par défaut)<br>
+- <code>dir = "v"</code> : orientation verticale</p>
+<p>L’option <code>strip.position</code> permet de modifier l’emplacement des étiquettes : - <code>strip.position = "top"</code> : au-dessus des graphiques (par défaut)<br>
+- <code>strip.position = "right"</code> : à droite des graphiques<br>
+- <code>strip.position = "bottom"</code> : en-dessous des graphiques<br>
+- <code>strip.position = "left"</code> : à gauche des graphiques</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> pingouins,</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> longueur_aile_mm, <span class="at">y =</span> longueur_bec_mm)) <span class="sc">+</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">col =</span> espece),</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Pingouins de l'archipel Palmer"</span>,</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Données pour 3 espèces sur 3 îles"</span>,</span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Données issues du package {Palmer penguins}"</span>,</span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Longueur des ailes (mm)"</span>,</span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Longueur du bec (mm)"</span>) <span class="sc">+</span></span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>espece,</span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>             <span class="at">dir =</span> <span class="st">"v"</span>,</span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a>             <span class="at">strip.position =</span> <span class="st">"right"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/basic plot 21d-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>L’option <code>scales</code> permet d’ajuster l’échelle des graphiques :</p>
+<ul>
+<li><code>scales = "fixed"</code> : même échelle pour tous les graphiques (par défaut)<br>
+</li>
+<li><code>scales = "free"</code> : ajuster l’échelle des deux axes pour chaque graphique<br>
+</li>
+<li><code>scales = "free_x"</code> : même échelle sur l’axe y et échelle ajustée sur l’axe x<br>
+</li>
+<li><code>scales = "free_y"</code> : même échelle sur l’axe x et échelle ajustée sur l’axe y</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> pingouins,</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> longueur_aile_mm, <span class="at">y =</span> longueur_bec_mm)) <span class="sc">+</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">col =</span> espece),</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Pingouins de l'archipel Palmer"</span>,</span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Données pour 3 espèces sur 3 îles"</span>,</span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Données issues du package {Palmer penguins}"</span>,</span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Longueur des ailes (mm)"</span>,</span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Longueur du bec (mm)"</span>) <span class="sc">+</span></span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>espece,</span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>             <span class="at">dir =</span> <span class="st">"v"</span>,</span>
+<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a>             <span class="at">strip.position =</span> <span class="st">"right"</span>,</span>
+<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a>             <span class="at">scales =</span> <span class="st">"free_y"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/basic plot 21e-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="facet_grid" class="level2">
+<h2 class="anchored" data-anchor-id="facet_grid"><code>facet_grid()</code></h2>
+<p><br></p>
+<p>La fonction <code>facet_grid()</code> permet de séparer un graphique selon deux variables discrètes (ou variables catégorielles). La syntaxe est la même que pour la fonction <code>facet_wrap()</code> : nous précisons à l’aide d’un tilde <code>~</code> les variables à utiliser pour séparer les données selon des lignes et des colonnes : <code>facet_grid(lignes ~ colonnes)</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> pingouins,</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> longueur_aile_mm, <span class="at">y =</span> longueur_bec_mm)) <span class="sc">+</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">col =</span> espece),</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Pingouins de l'archipel Palmer"</span>,</span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Données pour 3 espèces sur 3 îles"</span>,</span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Données issues du package {Palmer penguins}"</span>,</span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Longueur des ailes (mm)"</span>,</span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Longueur du bec (mm)"</span>) <span class="sc">+</span></span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(espece <span class="sc">~</span> ile)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/basic plot 21f-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Toutes les combinaisons possibles sont affichées, c’est la raison pour laquelle certaines cases sont vides (aucune observation pour la combinaison).</p>
+<p>L’option <code>switch</code> permet de modifier la position des étiquettes :<br>
+- <code>switch = "x"</code> : étiquettes de l’axe x en bas du graphique<br>
+- <code>switch = "y"</code> : étiquettes de l’axe y à gauche du graphique<br>
+- <code>switch = "both"</code> pour effectuer les deux modifications simultanément</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> pingouins,</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> longueur_aile_mm, <span class="at">y =</span> longueur_bec_mm)) <span class="sc">+</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">col =</span> espece),</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Pingouins de l'archipel Palmer"</span>,</span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Données pour 3 espèces sur 3 îles"</span>,</span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Données issues du package {Palmer penguins}"</span>,</span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Longueur des ailes (mm)"</span>,</span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Longueur du bec (mm)"</span>) <span class="sc">+</span></span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(espece <span class="sc">~</span> ile, <span class="at">switch =</span> <span class="st">"x"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/basic plot 21g-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><br></p>
+</section>
+</section>
+<section id="utilisation-du-pipe" class="level1">
+<h1>Utilisation du pipe <code>%&gt;%</code></h1>
+<p><br></p>
+<p>Nous avions vu <a href="https://ateliers-codons.netlify.app/posts/03-introduction-tidyverse/#ceci-nest-pas-un-pipe">dans un autre tutoriel</a> comment enchaîner les opérations à l’aide du pipe <code>%&gt;%</code>.</p>
+<p>Nous pouvons utiliser le pipe pour générer un graphique. Cette façon de procéder permet de manipuler les données utilisées pour créer le graphique sans avoir besoin de multiplier les objets intermédiaires. En utilisant le pipe <code>%&gt;%</code> pour créer un graphique, nous pouvons également profiter de l’auto-complétion à l’aide de la touche <code>Tab</code> pour préciser les variables :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>pingouins <span class="sc">%&gt;%</span> </span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> longueur_aile_mm, <span class="at">y =</span> longueur_bec_mm,</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">col =</span> espece)) <span class="sc">+</span></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
 </section>
 
 </main> <!-- /main -->
@@ -789,7 +962,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -817,31 +1007,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      let href = ref.getAttribute('href');
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
     });
   }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>
