@@ -218,6 +218,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#facet_grid" id="toc-facet_grid" class="nav-link" data-scroll-target="#facet_grid"><code>facet_grid()</code></a></li>
   </ul></li>
   <li><a href="#utilisation-du-pipe" id="toc-utilisation-du-pipe" class="nav-link" data-scroll-target="#utilisation-du-pipe">Utilisation du pipe <code>%&gt;%</code></a></li>
+  <li><a href="#améliorer-ses-graphiques" id="toc-améliorer-ses-graphiques" class="nav-link" data-scroll-target="#améliorer-ses-graphiques">Améliorer ses graphiques</a>
+  <ul class="collapse">
+  <li><a href="#les-couleurs-1" id="toc-les-couleurs-1" class="nav-link" data-scroll-target="#les-couleurs-1">Les couleurs</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -383,7 +387,7 @@ Les couleurs
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Vous pouvez utiliser des couleurs prédéfinies (voir la liste <a href="www.stat.columbia.edu/~tzheng/files/Rcolor.pdf">ici</a>).</p>
+<p>Vous pouvez utiliser des couleurs prédéfinies (voir la liste <a href="https://www.datanovia.com/en/blog/awesome-list-of-657-r-color-names/">ici</a>).</p>
 <p>Vous pouvez également utiliser des codes hexadécimaux ou encore des couleurs RGB à l’aide de la fonction <code>rgb()</code> :</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>g <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">col =</span> <span class="st">"darkblue"</span>)</span>
@@ -916,8 +920,76 @@ Ordre des niveaux et orientation
 <span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">col =</span> espece)) <span class="sc">+</span></span>
 <span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p><br></p>
+</section>
+<section id="améliorer-ses-graphiques" class="level1">
+<h1>Améliorer ses graphiques</h1>
+<p><br></p>
+<p><code>{ggplot2}</code> propose une multitude de paramètres permettant la personnalisation des graphiques. Les possibilités sont quasimment infinies ! Nous allons voir comment améliorer nos graphiques avec certaines de ces options.</p>
+<p><br></p>
+<section id="les-couleurs-1" class="level2">
+<h2 class="anchored" data-anchor-id="les-couleurs-1">Les couleurs</h2>
+<p><br></p>
+<section id="utiliser-des-palettes" class="level3">
+<h3 class="anchored" data-anchor-id="utiliser-des-palettes">Utiliser des palettes</h3>
+<p><br></p>
+<p>Il existe plusieurs palettes de couleurs :</p>
+<p><img src="img/rcolorbrewer.png" class="img-fluid"></p>
+<p>Deux fonctions permettent d’utiliser ces palettes :</p>
+<ul>
+<li><code>scale_color_brewer()</code> : appliquer la palette au paramètre <code>col</code><br>
+</li>
+<li><code>scale_fill_brewer()</code> : appliquer la palette au paramètre <code>fill</code></li>
+</ul>
+<p>Nous utiliserons l’une ou l’autre de ces fonctions ou les deux selon les paramètres esthétiques de notre graphique. Nous pouvons par exemple choisir d’appliquer une palette pour remplir des points en gardant un contour noir :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>pingouins <span class="sc">%&gt;%</span> </span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> longueur_aile_mm, <span class="at">y =</span> longueur_bec_mm)) <span class="sc">+</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">21</span>, <span class="at">size =</span> <span class="dv">5</span>, <span class="at">col =</span> <span class="st">"black"</span>,</span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">fill =</span> espece)) <span class="sc">+</span></span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Accent"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/basic plot 23a-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Il existe beaucoup d’autres palettes, accessibles via des packages, dont la liste est <a href="https://github.com/EmilHvitfeldt/r-color-palettes">accessible ici</a>.</p>
+<p><br></p>
+</section>
+<section id="définir-des-couleurs" class="level3">
+<h3 class="anchored" data-anchor-id="définir-des-couleurs">Définir des couleurs</h3>
+<p><br></p>
+<p>Deux fonctions permettent de définir nous-mêmes les couleurs à utiliser :</p>
+<ul>
+<li><code>scale_color_manual()</code> : appliquer les couleurs au paramètre <code>col</code><br>
+</li>
+<li><code>scale_fill_manual()</code> : appliquer les couleurs au paramètre <code>fill</code></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>pingouins <span class="sc">%&gt;%</span> </span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> longueur_aile_mm, <span class="at">y =</span> longueur_bec_mm)) <span class="sc">+</span></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">col =</span> espece)) <span class="sc">+</span></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Adelie"</span> <span class="ot">=</span> <span class="st">"darkorange"</span>,</span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">"Chinstrap"</span> <span class="ot">=</span> <span class="st">"purple"</span>,</span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">"Gentoo"</span> <span class="ot">=</span> <span class="st">"cyan4"</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/basic plot 23b-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Si notre graphique contient plusieurs couches utilisant les mêmes couleurs, nous pouvons créer un vecteur de couleurs pour éviter de devoir taper plusieurs fois le même code :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>custom.cols <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"darkorange"</span>, <span class="st">"purple"</span>, <span class="st">"cyan4"</span>)</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(custom.cols) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Adelie"</span>, <span class="st">"Chinstrap"</span>, <span class="st">"Gentoo"</span>)</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>pingouins <span class="sc">%&gt;%</span> </span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> longueur_aile_mm, <span class="at">y =</span> longueur_bec_mm)) <span class="sc">+</span></span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">col =</span> espece)) <span class="sc">+</span></span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> custom.cols) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Il est important d’associer un niveau (un nom d’espèce) à chaque couleur. Cela évitera que les couleurs soient appliquées à différentes espèces selon les manipulations de données faites avant de générer le graphique.</p>
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->
