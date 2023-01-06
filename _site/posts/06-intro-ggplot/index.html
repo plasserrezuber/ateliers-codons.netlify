@@ -1249,7 +1249,7 @@ Modifier le titre de la légende
 <table class="table">
 <colgroup>
 <col style="width: 50%">
-<col style="width: 50%">
+<col style="width: 49%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -1283,6 +1283,151 @@ Modifier le titre de la légende
 <p><img src="index_files/figure-html/basic plot 26d-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+<p><br></p>
+</section>
+<section id="le-plot" class="level3">
+<h3 class="anchored" data-anchor-id="le-plot">Le “plot”</h3>
+<p><br></p>
+<p><img src="img/ggplot_themes_plot.png" class="img-fluid"></p>
+<p>Les options <code>plot.title()</code>, <code>plot.subtitle()</code> et <code>plot.caption()</code> permettent de modifier la taille, la couleur et l’alignement du texte des titres et sous-titres du graphique.</p>
+<p>L’option <code>plot.margin</code> permet de modifier la marge entre la zone de “plot” et les bords du graphiques. Une marge se définit à l’aide de quatre valeurs numériques, une pour chaque côté du graphique (ou de l’élément autour duquel on modifie les marges). La fonction <code>plot.margin</code> s’utilise de la manière suivante : <code>plot.margin = margin(top = ..., right = ..., bottom = ..., left = ...)</code>. On peut également utiliser les abbréviations <code>margin(t = ..., r = ..., b = ..., l = ...)</code> ou simplement indiquer les quatre valeurs numériques dans l’ordre. Pour ne modifier la marge que d’un seul côté, il suffit de préciser quel côté est concerné : <code>margin(l = ...)</code>.</p>
+<p>La fonction <code>margin()</code> peut également être utilisée pour modifier les marges autour du texte du graphique (titre, axes, …).</p>
+<p><br></p>
+<p>Nous allons effectuer les modifications suivantes :</p>
+<table class="table">
+<colgroup>
+<col style="width: 52%">
+<col style="width: 47%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>modifier la couleur de l’arrière-plan</td>
+<td><code>plot.background = element_rect()</code></td>
+</tr>
+<tr class="even">
+<td>augmenter les marges</td>
+<td><code>plot.margin = margin()</code></td>
+</tr>
+<tr class="odd">
+<td>modifier le titre</td>
+<td><code>plot.title = element_text()</code></td>
+</tr>
+<tr class="even">
+<td>modifier le sous-titre</td>
+<td><code>plot.subtitle = element_text()</code></td>
+</tr>
+</tbody>
+</table>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Aligner le titre et le sous-titre sur l’ensemble du graphique
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Par défaut, l’alignement du titre et du sous-titre se sont par rapport à la zone “panel”. Pour que l’alignement se fasse par rapport à la zone “plot”, c’est-à-dire l’ensemble du graphique, nous pouvons ajouter l’option <code>plot.title.position = "plot"</code></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>(p2 <span class="ot">&lt;-</span> p1 <span class="sc">+</span></span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"lightcyan"</span>),</span>
+<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>),</span>
+<span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title.position =</span> <span class="st">"plot"</span>,</span>
+<span id="cb57-6"><a href="#cb57-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"steelblue4"</span>,</span>
+<span id="cb57-7"><a href="#cb57-7" aria-hidden="true" tabindex="-1"></a>                              <span class="at">size =</span> <span class="dv">20</span>,</span>
+<span id="cb57-8"><a href="#cb57-8" aria-hidden="true" tabindex="-1"></a>                              <span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb57-9"><a href="#cb57-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"steelblue4"</span>,</span>
+<span id="cb57-10"><a href="#cb57-10" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">size =</span> <span class="dv">15</span>,</span>
+<span id="cb57-11"><a href="#cb57-11" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">hjust =</span> <span class="fl">0.5</span>,</span>
+<span id="cb57-12"><a href="#cb57-12" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">b =</span> <span class="dv">10</span>))</span>
+<span id="cb57-13"><a href="#cb57-13" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb57-14"><a href="#cb57-14" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/basic plot 26e-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="les-axes" class="level3">
+<h3 class="anchored" data-anchor-id="les-axes">Les axes</h3>
+<p><br></p>
+<p><img src="img/ggplot_themes_axis.png" class="img-fluid"></p>
+<p>Nous allons effectuer les modifications suivantes :</p>
+<table class="table">
+<colgroup>
+<col style="width: 52%">
+<col style="width: 47%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>modifier les titres des axes</td>
+<td><code>axis.title = element_text()</code></td>
+</tr>
+<tr class="even">
+<td>modifier le texte des axes</td>
+<td><code>axis.text = element_text()</code></td>
+</tr>
+<tr class="odd">
+<td>supprimer les marques de graduation</td>
+<td><code>axis.ticks = element_blank()</code></td>
+</tr>
+</tbody>
+</table>
+<p>Nous pouvons modifier ces paramètres de différentes manières :</p>
+<ul>
+<li><code>axis.title.x</code> : modifier le texte de l’axe x<br>
+</li>
+<li><code>axis.title.y</code> : modifier le texte de l’axe y<br>
+</li>
+<li><code>axis.title</code> : modifier le texte des deux axes</li>
+</ul>
+<p>La façon de procéder dépendra de ce que l’on souhaite modifier. Si nous voulons seulement augmenter la taille de la police des titres, nous utiliserons <code>axis.title</code>. Si nous souhaitons modifier les marges autour des titres des deux axes, il nous faudra utiliser <code>axis.title.x</code> et <code>axis.title.y</code>. En effet, les marges ne tiennent pas compte de l’orientation du texte. Pour augmenter l’espace entre les titres des deux axes et la zone “panel”, il nous faudra procéder en deux étapes :</p>
+<ul>
+<li>augmenter la marge supérieure (top) pour le titre de l’axe x<br>
+</li>
+<li>augmenter la marge à droite (right) pour le titre de l’axe y</li>
+</ul>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+<code>hjust</code> et <code>vjust</code>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A la différence de <code>margin</code>, <code>hjust</code> et <code>vjust</code> prennent en compte l’orientation du texte.</p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>(p3 <span class="ot">&lt;-</span> p2 <span class="sc">+</span></span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(</span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"steelblue"</span>,</span>
+<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">size =</span> <span class="dv">15</span>,</span>
+<span id="cb58-5"><a href="#cb58-5" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> <span class="dv">10</span>)),</span>
+<span id="cb58-6"><a href="#cb58-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"steelblue"</span>,</span>
+<span id="cb58-7"><a href="#cb58-7" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">size =</span> <span class="dv">15</span>,</span>
+<span id="cb58-8"><a href="#cb58-8" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">r =</span> <span class="dv">10</span>)),</span>
+<span id="cb58-9"><a href="#cb58-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"steelblue"</span>,</span>
+<span id="cb58-10"><a href="#cb58-10" aria-hidden="true" tabindex="-1"></a>                               <span class="at">size =</span> <span class="dv">15</span>),</span>
+<span id="cb58-11"><a href="#cb58-11" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.ticks =</span> <span class="fu">element_blank</span>()</span>
+<span id="cb58-12"><a href="#cb58-12" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb58-13"><a href="#cb58-13" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/basic plot 26f-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="la-légende" class="level3">
+<h3 class="anchored" data-anchor-id="la-légende">La légende</h3>
+<p><br></p>
+<p><img src="img/ggplot_themes_legend.png" class="img-fluid"></p>
 
 
 </section>
