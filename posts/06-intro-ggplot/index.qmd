@@ -178,7 +178,7 @@ g +
 
 ## Les couleurs
 
-Vous pouvez utiliser des couleurs prédéfinies (voir la liste [ici](www.stat.columbia.edu/~tzheng/files/Rcolor.pdf)).  
+Vous pouvez utiliser des couleurs prédéfinies (voir la liste [ici](https://www.datanovia.com/en/blog/awesome-list-of-657-r-color-names/)).  
 
 Vous pouvez également utiliser des codes hexadécimaux ou encore des couleurs RGB à l'aide de la fonction `rgb()` :
  
@@ -716,3 +716,76 @@ pingouins %>%
              col = espece)) +
   geom_point()
 ```
+
+<br>
+
+# Améliorer ses graphiques 
+
+<br>
+
+`{ggplot2}` propose une multitude de paramètres permettant la personnalisation des graphiques. Les possibilités sont quasimment infinies ! Nous allons voir comment améliorer nos graphiques avec certaines de ces options.
+
+<br>
+
+## Les couleurs
+
+<br>
+
+### Utiliser des palettes
+
+<br>
+
+Il existe plusieurs palettes de couleurs : 
+
+![](img/rcolorbrewer.png)
+
+Deux fonctions permettent d'utiliser ces palettes : 
+
+- `scale_color_brewer()` : appliquer la palette au paramètre `col`  
+- `scale_fill_brewer()` : appliquer la palette au paramètre `fill`
+
+Nous utiliserons l'une ou l'autre de ces fonctions ou les deux selon les paramètres esthétiques de notre graphique. Nous pouvons par exemple choisir d'appliquer une palette pour remplir des points en gardant un contour noir : 
+
+```{r basic plot 23a, eval=TRUE, message=FALSE, warning=FALSE}
+pingouins %>% 
+  ggplot(aes(x = longueur_aile_mm, y = longueur_bec_mm)) +
+  geom_point(shape = 21, size = 5, col = "black",
+             aes(fill = espece)) +
+  scale_fill_brewer(palette = "Accent")
+```
+
+Il existe beaucoup d'autres palettes, accessibles via des packages, dont la liste est [accessible ici](https://github.com/EmilHvitfeldt/r-color-palettes).
+
+<br>
+
+### Définir des couleurs 
+
+<br>
+
+Deux fonctions permettent de définir nous-mêmes les couleurs à utiliser : 
+
+- `scale_color_manual()` : appliquer les couleurs au paramètre `col`  
+- `scale_fill_manual()` : appliquer les couleurs au paramètre `fill`
+
+```{r basic plot 23b, eval=TRUE, message=FALSE, warning=FALSE}
+pingouins %>% 
+  ggplot(aes(x = longueur_aile_mm, y = longueur_bec_mm)) +
+  geom_point(aes(col = espece)) +
+  scale_color_manual(values = c("Adelie" = "darkorange",
+                                 "Chinstrap" = "purple",
+                                 "Gentoo" = "cyan4")) 
+```
+
+Si notre graphique contient plusieurs couches utilisant les mêmes couleurs, nous pouvons créer un vecteur de couleurs pour éviter de devoir taper plusieurs fois le même code : 
+
+```{r basic plot 23c, eval=FALSE, message=FALSE, warning=FALSE}
+custom.cols <- c("darkorange", "purple", "cyan4")
+names(custom.cols) <- c("Adelie", "Chinstrap", "Gentoo")
+
+pingouins %>% 
+  ggplot(aes(x = longueur_aile_mm, y = longueur_bec_mm)) +
+  geom_point(aes(col = espece)) +
+  scale_color_manual(values = custom.cols) 
+```
+
+Il est important d'associer un niveau (un nom d'espèce) à chaque couleur. Cela évitera que les couleurs soient appliquées à différentes espèces selon les manipulations de données faites avant de générer le graphique.
