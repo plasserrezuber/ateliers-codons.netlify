@@ -1230,6 +1230,55 @@ Modifier le titre de la légende
 <h3 class="anchored" data-anchor-id="le-panel">Le “panel”</h3>
 <p><br></p>
 <p><img src="img/ggplot_themes_panel.png" class="img-fluid"></p>
+<p>Les modifications s’effectuent à l’aide de la syntaxe suivante :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">theme</span>(</span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>  nom<span class="sc">-</span>du<span class="sc">-</span>parametre<span class="dv">-1</span> <span class="ot">=</span> <span class="fu">element_...</span>(),</span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>  nom<span class="sc">-</span>du<span class="sc">-</span>parametre<span class="dv">-2</span> <span class="ot">=</span> <span class="fu">element_...</span>()</span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>La fonction <code>element_...()</code> dépendra de ce que nous souhaitons modifier :</p>
+<ul>
+<li><p><code>element_rect()</code> pour modifier une zone rectangulaire (<em>panel.background</em>)</p></li>
+<li><p><code>element_line()</code> pour modifier des lignes (<em>panel.border</em>)</p></li>
+<li><p><code>element_text()</code> pour modifier du texte</p></li>
+</ul>
+<p>La fonction <code>element_blank()</code> permet de supprimer un élément du graphique.</p>
+<p><br></p>
+<p>Nous allons effectuer les modifications suivantes :</p>
+<table class="table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>modifier la couleur de l’arrière-plan</td>
+<td><code>panel.background = element_rect()</code></td>
+</tr>
+<tr class="even">
+<td>modifier la couleur de la bordure</td>
+<td><code>panel.border = element_rect()</code></td>
+</tr>
+<tr class="odd">
+<td>supprimer les graduations mineures</td>
+<td><code>panel.grid.minor = element_blank()</code></td>
+</tr>
+<tr class="even">
+<td>modifier les graduations majeures</td>
+<td><code>panel.grid.major = element_line()</code></td>
+</tr>
+</tbody>
+</table>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> p <span class="sc">+</span></span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"lightcyan"</span>),</span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.border =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="cn">NA</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">linewidth =</span> <span class="fl">1.5</span>),</span>
+<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.major =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>)</span>
+<span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
 </section>
