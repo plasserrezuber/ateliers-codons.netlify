@@ -1028,3 +1028,43 @@ Par défaut, le titre de la légende reprend le nom de la variable utilisée pou
 <br>
 
 ![](img/ggplot_themes_panel.png)
+
+Les modifications s'effectuent à l'aide de la syntaxe suivante : 
+```{r basic plot 26c, eval=FALSE, message=FALSE, warning=FALSE}
+theme(
+  nom-du-parametre-1 = element_...(),
+  nom-du-parametre-2 = element_...()
+)
+```
+
+La fonction `element_...()` dépendra de ce que nous souhaitons modifier : 
+
+- `element_rect()` pour modifier une zone rectangulaire (*panel.background*)  
+
+- `element_line()` pour modifier des lignes (*panel.border*)  
+
+- `element_text()` pour modifier du texte
+
+La fonction `element_blank()` permet de supprimer un élément du graphique.
+
+<br>
+
+Nous allons effectuer les modifications suivantes : 
+
+|     |     |
+| --- | --- |
+| modifier la couleur de l'arrière-plan | `panel.background = element_rect()` |
+| modifier la couleur de la bordure     | `panel.border = element_rect()` |  
+| supprimer les graduations mineures     | `panel.grid.minor = element_blank()` |  
+| modifier les graduations majeures     | `panel.grid.major = element_line()` | 
+
+```{r basic plot 26d, eval=TRUE, message=FALSE, warning=FALSE}
+p1 <- p +
+  theme(
+    panel.background = element_rect(fill = "lightcyan"),
+    panel.border = element_rect(fill = NA, color = "black", linewidth = 1.5),
+    panel.grid.minor = element_blank(),
+    panel.grid.major = element_line(color = "black", linetype = "dotted")
+  )
+```
+
