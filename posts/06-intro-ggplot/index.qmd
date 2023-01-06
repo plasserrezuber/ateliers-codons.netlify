@@ -883,6 +883,64 @@ L'utilisation de `width` ou `height` dépendra de la répartition des variables 
 
 <br>
 
+## Ajouter du texte
+
+<br>
+
+Reprenons notre graphique en barres et modifions les couleurs comme nous l'avons fait pour les autres graphiques : 
+
+```{r basic plot 24a, eval=TRUE, message=FALSE, warning=FALSE}
+custom.cols <- c("darkorange", "purple", "cyan4")
+names(custom.cols) <- c("Adelie", "Chinstrap", "Gentoo")
+
+pingouins %>% 
+  ggplot(aes(x = fct_rev(fct_infreq(espece)),
+             fill = espece)) +
+  geom_bar(width = 0.75,
+           show.legend = FALSE) +
+  scale_fill_manual(values = custom.cols) +
+  labs(title = "Nombre d'individus",
+       subtitle = "Données pour 3 espèces de pingouins sur 3 îles de l'archipel Palmer",
+       caption = "Données issues du package {Palmer penguins}",
+       x = "",
+       y = "") +
+  coord_flip()
+```
+
+Nous aimerions ajouter des étiquettes indiquant le nombre d'individus par espèce. Nous utilisons pour cela la fonction `geom_text()` avec les options suivantes : 
+
+- `aes(label = ..count..)` : indique que les étiquettes contiendront le nombre d'observations par niveau de variable utilisé pour générer les barres (ici les espèces)  
+- `stat = "count"` : indique le calcul à effectuer, ici un simple comptage  
+- `hjust = 1.5` : alignement horizontal des étiquettes, que nous souhaitons placer à l'intérieur des barres  
+- `col = "white"` : couleur du texte des étiquettes  
+- `size = 5` : taille de la police du texte
+
+```{r basic plot 24b, eval=TRUE, message=FALSE, warning=FALSE}
+custom.cols <- c("darkorange", "purple", "cyan4")
+names(custom.cols) <- c("Adelie", "Chinstrap", "Gentoo")
+
+pingouins %>% 
+  ggplot(aes(x = fct_rev(fct_infreq(espece)),
+             fill = espece)) +
+  geom_bar(width = 0.75,
+           show.legend = FALSE) +
+  geom_text(aes(label = ..count..),
+            stat = "count",
+            hjust = 1.5,
+            col = "white", size = 5) +
+  scale_fill_manual(values = custom.cols) +
+  labs(title = "Nombre d'individus",
+       subtitle = "Données pour 3 espèces de pingouins sur 3 îles de l'archipel Palmer",
+       caption = "Données issues du package {Palmer penguins}",
+       x = "",
+       y = "") +
+  coord_flip()
+```
+
+
+
+<br>
+
 ## Les thèmes de `{ggplot2}`
 
 <br>
@@ -891,7 +949,7 @@ Le fond grisé du graphique est proposé par défaut par `{ggplot2}` : il s'agit
 
 Il existe plusieurs thèmes prédéfinis qui peuvent être appliqués à un graphique à l'aide de la fonction `theme_...()` : 
 
-```{r basic plot 24a, eval=FALSE, message=FALSE, warning=FALSE}
+```{r basic plot 25a, eval=FALSE, message=FALSE, warning=FALSE}
 custom.cols <- c("darkorange", "purple", "cyan4")
 names(custom.cols) <- c("Adelie", "Chinstrap", "Gentoo")
 
@@ -903,3 +961,70 @@ pingouins %>%
 ```
 
 ![](img/ggplot2_themes.png)
+
+<br>
+
+## Les quatre composants d'un `ggplot`  
+
+<br>
+
+Un graphique est composé de quatre éléments, dont chacun peut être paramatré à l'aide de multiples options : 
+
+- Le **"panel"** : zone contenant les éléments géométriques de notre graphique (nuage de points, barres, ...)  
+
+- Le **"plot"** : zone qui entoure le panel et qui contient le titre, le sous-titre, ...  
+
+- Les **axes** du graphiques avec leurs titres, les graduations, ...  
+
+- La **légende** qui permet d'expliquer à quoi correspondent les couleurs, les formes , ...
+
+Ces paramètres sont précisés dans une parenthèse `theme()` à ajouter à la suite du code servant à générer notre graphique.
+
+<br>
+
+Commençons par créer un graphique simple :  
+
+```{r basic plot 26a, eval=TRUE, message=FALSE, warning=FALSE}
+(p <- pingouins %>% 
+  ggplot(aes(x = longueur_bec_mm, y = hauteur_bec_mm)) +
+  geom_point(aes(col = espece),
+             size = 3, alpha = 0.5) +
+  scale_color_manual(values = custom.cols) +
+  labs(title = "Rapport entre la hauteur et la longueur du bec",
+       subtitle = "pour trois espèces de pingouins de l'archipel Palmer",
+       x = "Longueur du bec (mm)",
+       y = "Hauteur du bec (mm)")
+)
+```
+
+Les parenthèses qui entourent le code ci-dessus permettent de l'exécuter et d'afficher le résultat.
+
+::: {.callout-tip icon="true"}
+
+## Modifier le titre de la légende
+
+Par défaut, le titre de la légende reprend le nom de la variable utilisée pour définir les groupes. Nous pouvons modifier ce titre à l'intérieur de la parenthèse `labs()`. Dans le graphique ci-dessus, nous avions défini les paramètres esthétiques suivants : `geom_point(aes(col = espece))`. Nous allons donc renommer l'élément `col` de notre légende (si nous avions utilisé `geom_point(aes(fill = espece))` nous renommerions l'élément `fill`) :
+
+```{r basic plot 26b, eval=FALSE, message=FALSE, warning=FALSE}
+(p <- pingouins %>% 
+  ggplot(aes(x = longueur_bec_mm, y = hauteur_bec_mm)) +
+  geom_point(aes(col = espece),
+             size = 3, alpha = 0.5) +
+  scale_color_manual(values = custom.cols) +
+  labs(title = "Rapport entre la hauteur et la longueur du bec",
+       subtitle = "pour trois espèces de pingouins de l'archipel Palmer",
+       x = "Longueur du bec (mm)",
+       y = "Hauteur du bec (mm)",
+       col = "ESPECES")
+)
+```
+
+:::
+
+<br>
+
+### Le "panel"
+
+<br>
+
+![](img/ggplot_themes_panel.png)
