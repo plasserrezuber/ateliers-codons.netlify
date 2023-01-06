@@ -554,3 +554,165 @@ ggplot(data = pingouins,
        y = "") +
   coord_flip()
 ```
+
+<br>
+
+# Graphiques multiples
+
+<br>
+
+Reprenons notre graphique représentant le rapport entre la longueur et la hauteur du bec : 
+
+```{r basic plot 21a, eval=FALSE, message=FALSE, warning=FALSE}
+ggplot(data = pingouins,
+       aes(x = longueur_aile_mm, y = longueur_bec_mm)) +
+  geom_point(aes(col = espece)) +
+  labs(title = "Pingouins de l'archipel Palmer",
+       subtitle = "Données pour 3 espèces sur 3 îles",
+       caption = "Données issues du package {Palmer penguins}",
+       x = "Longueur des ailes (mm)",
+       y = "Longueur du bec (mm)")
+```
+
+Nous souhaitons séparer ce graphique afin de représenter les données par espèce ou encore par espèce et par île. Nous allons utiliser pour cela les fonctions `facet_wrap()` et `facet_grid()`.
+
+<br>
+
+## `facet_wrap()`  
+
+<br>
+
+Nous ajoutons simplement une couche à notre code, en précisant à l'aide d'un tilde `~` quelle variable utiliser pour séparer les données : 
+
+```{r basic plot 21b, eval=TRUE, message=FALSE, warning=FALSE}
+ggplot(data = pingouins,
+       aes(x = longueur_aile_mm, y = longueur_bec_mm)) +
+  geom_point(aes(col = espece)) +
+  labs(title = "Pingouins de l'archipel Palmer",
+       subtitle = "Données pour 3 espèces sur 3 îles",
+       caption = "Données issues du package {Palmer penguins}",
+       x = "Longueur des ailes (mm)",
+       y = "Longueur du bec (mm)") +
+  facet_wrap(~espece)
+```
+
+Des étiquettes sont automatiquement ajoutées pour indiquer les différentes espèces représentées. Nous pouvons donc supprimer la légende : 
+
+```{r basic plot 21c, eval=TRUE, message=FALSE, warning=FALSE}
+ggplot(data = pingouins,
+       aes(x = longueur_aile_mm, y = longueur_bec_mm)) +
+  geom_point(aes(col = espece),
+             show.legend = FALSE) +
+  labs(title = "Pingouins de l'archipel Palmer",
+       subtitle = "Données pour 3 espèces sur 3 îles",
+       caption = "Données issues du package {Palmer penguins}",
+       x = "Longueur des ailes (mm)",
+       y = "Longueur du bec (mm)") +
+  facet_wrap(~espece)
+```
+
+L'option `dir` permet de modifier l'orientation des graphiques :  
+- `dir = "h"` : oritentation horizontale (par défaut)  
+- `dir = "v"` : orientation verticale
+
+L'option `strip.position` permet de modifier l'emplacement des étiquettes : 
+- `strip.position = "top"` : au-dessus des graphiques (par défaut)  
+- `strip.position = "right"` : à droite des graphiques    
+- `strip.position = "bottom"` : en-dessous des graphiques  
+- `strip.position = "left"` : à gauche des graphiques  
+
+```{r basic plot 21d, eval=TRUE, message=FALSE, warning=FALSE}
+ggplot(data = pingouins,
+       aes(x = longueur_aile_mm, y = longueur_bec_mm)) +
+  geom_point(aes(col = espece),
+             show.legend = FALSE) +
+  labs(title = "Pingouins de l'archipel Palmer",
+       subtitle = "Données pour 3 espèces sur 3 îles",
+       caption = "Données issues du package {Palmer penguins}",
+       x = "Longueur des ailes (mm)",
+       y = "Longueur du bec (mm)") +
+  facet_wrap(~espece,
+             dir = "v",
+             strip.position = "right")
+```
+
+L'option `scales` permet d'ajuster l'échelle des graphiques : 
+
+- `scales = "fixed"` : même échelle pour tous les graphiques (par défaut)  
+- `scales = "free"` : ajuster l'échelle des deux axes pour chaque graphique  
+- `scales = "free_x"` : même échelle sur l'axe y et échelle ajustée sur l'axe x  
+- `scales = "free_y"` : même échelle sur l'axe x et échelle ajustée sur l'axe y  
+
+```{r basic plot 21e, eval=TRUE, message=FALSE, warning=FALSE}
+ggplot(data = pingouins,
+       aes(x = longueur_aile_mm, y = longueur_bec_mm)) +
+  geom_point(aes(col = espece),
+             show.legend = FALSE) +
+  labs(title = "Pingouins de l'archipel Palmer",
+       subtitle = "Données pour 3 espèces sur 3 îles",
+       caption = "Données issues du package {Palmer penguins}",
+       x = "Longueur des ailes (mm)",
+       y = "Longueur du bec (mm)") +
+  facet_wrap(~espece,
+             dir = "v",
+             strip.position = "right",
+             scales = "free_y")
+```
+
+<br>
+
+## `facet_grid()`  
+
+<br>
+
+La fonction `facet_grid()` permet de séparer un graphique selon deux variables discrètes (ou variables catégorielles). La syntaxe est la même que pour la fonction `facet_wrap()` : nous précisons à l'aide d'un tilde `~` les variables à utiliser pour séparer les données selon des lignes et des colonnes : `facet_grid(lignes ~ colonnes)`.
+
+```{r basic plot 21f, eval=TRUE, message=FALSE, warning=FALSE}
+ggplot(data = pingouins,
+       aes(x = longueur_aile_mm, y = longueur_bec_mm)) +
+  geom_point(aes(col = espece),
+             show.legend = FALSE) +
+  labs(title = "Pingouins de l'archipel Palmer",
+       subtitle = "Données pour 3 espèces sur 3 îles",
+       caption = "Données issues du package {Palmer penguins}",
+       x = "Longueur des ailes (mm)",
+       y = "Longueur du bec (mm)") +
+  facet_grid(espece ~ ile)
+```
+
+Toutes les combinaisons possibles sont affichées, c'est la raison pour laquelle certaines cases sont vides (aucune observation pour la combinaison).
+
+L'option `switch` permet de modifier la position des étiquettes :  
+- `switch = "x"` : étiquettes de l'axe x en bas du graphique  
+- `switch = "y"` : étiquettes de l'axe y à gauche du graphique  
+- `switch = "both"` pour effectuer les deux modifications simultanément
+
+```{r basic plot 21g, eval=TRUE, message=FALSE, warning=FALSE}
+ggplot(data = pingouins,
+       aes(x = longueur_aile_mm, y = longueur_bec_mm)) +
+  geom_point(aes(col = espece),
+             show.legend = FALSE) +
+  labs(title = "Pingouins de l'archipel Palmer",
+       subtitle = "Données pour 3 espèces sur 3 îles",
+       caption = "Données issues du package {Palmer penguins}",
+       x = "Longueur des ailes (mm)",
+       y = "Longueur du bec (mm)") +
+  facet_grid(espece ~ ile, switch = "x")
+```
+
+<br>
+
+# Utilisation du pipe `%>%`
+
+<br>
+
+Nous avions vu [dans un autre tutoriel](https://ateliers-codons.netlify.app/posts/03-introduction-tidyverse/#ceci-nest-pas-un-pipe) comment enchaîner les opérations à l'aide du pipe `%>%`.  
+
+Nous pouvons utiliser le pipe pour générer un graphique. Cette façon de procéder permet de manipuler les données utilisées pour créer le graphique sans avoir besoin de multiplier les objets intermédiaires. En utilisant le pipe `%>%` pour créer un graphique, nous pouvons également profiter de l'auto-complétion à l'aide de la touche `Tab` pour préciser les variables : 
+
+```{r basic plot 22a, eval=FALSE, message=FALSE, warning=FALSE}
+pingouins %>% 
+  ggplot(aes(x = longueur_aile_mm, y = longueur_bec_mm,
+             col = espece)) +
+  geom_point()
+```
