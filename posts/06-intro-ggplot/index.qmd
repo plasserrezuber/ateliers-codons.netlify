@@ -788,4 +788,118 @@ pingouins %>%
   scale_color_manual(values = custom.cols) 
 ```
 
-Il est important d'associer un niveau (un nom d'espèce) à chaque couleur. Cela évitera que les couleurs soient appliquées à différentes espèces selon les manipulations de données faites avant de générer le graphique.
+Il est important d'associer un niveau (un nom d'espèce) à chaque couleur. Cela permettra de toujours associer une certaine couleur à une même espèce, et évitera des changements de couleurs si nous manipulons les données avant de générer le graphique.
+
+<br>
+
+## Combiner plusieurs types de graphiques
+
+<br>
+
+Reprenons notre graphique en boîtes à moustaches : 
+
+```{r basic plot 23d, eval=FALSE, message=FALSE, warning=FALSE}
+ggplot(data = pingouins,
+       aes(x = espece, y = hauteur_bec_mm, col = espece)) +
+  geom_boxplot(width = 0.25, show.legend = FALSE) +
+  labs(title = "Hauteur des becs",
+       subtitle = "Données pour 3 espèces de pingouins sur 3 îles de l'archipel Palmer",
+       caption = "Données issues du package {Palmer penguins}",
+       x = "",
+       y = "Hauteur du bec (mm)") +
+  coord_flip()
+```
+
+Apportons quelques modifications et utilisons les mêmes couleurs :  
+- `lwd` permet de définir l'épaisseur des traits des boîtes  
+- `alpha` permet d'ajuster la transparence de la couleur de remplissage de la boîte (`fill`)
+
+Une option permet de supprimer les données aberrantes du graphique : `outlier.shape = NA`
+
+```{r basic plot 23e, eval=TRUE, message=FALSE, warning=FALSE}
+custom.cols <- c("darkorange", "purple", "cyan4")
+names(custom.cols) <- c("Adelie", "Chinstrap", "Gentoo")
+
+pingouins %>% 
+  ggplot(aes(x = espece, y = hauteur_bec_mm)) +
+  geom_boxplot(aes(col = espece, fill = espece),
+               width = 0.25, lwd = 0.5, alpha = 0.25,
+               show.legend = FALSE) +
+  scale_color_manual(values = custom.cols) +
+  scale_fill_manual(values = custom.cols) +
+  labs(title = "Hauteur des becs",
+       subtitle = "Données pour 3 espèces de pingouins sur 3 îles de l'archipel Palmer",
+       caption = "Données issues du package {Palmer penguins}",
+       x = "",
+       y = "Hauteur du bec (mm)") +
+  coord_flip()
+```
+
+Nous pouvons superposer à ces boîtes à moustaches l'affichage des données pour visualiser la distribution des observations. Nous ajoutons pour cela une couche `geom_point()`.
+```{r basic plot 23f, eval=TRUE, message=FALSE, warning=FALSE}
+pingouins %>% 
+  ggplot(aes(x = espece, y = hauteur_bec_mm)) +
+  geom_boxplot(aes(col = espece, fill = espece),
+               width = 0.25, lwd = 0.5, alpha = 0.25,
+               show.legend = FALSE) +
+  geom_point(aes(col = espece, fill = espece),
+             show.legend = FALSE) +
+  scale_color_manual(values = custom.cols) +
+  scale_fill_manual(values = custom.cols) +
+  labs(title = "Hauteur des becs",
+       subtitle = "Données pour 3 espèces de pingouins sur 3 îles de l'archipel Palmer",
+       caption = "Données issues du package {Palmer penguins}",
+       x = "",
+       y = "Hauteur du bec (mm)") +
+  coord_flip()
+```
+
+Nous aimerions espacer les points pour rendre le graphique plus lisible. Nous utilisons pour cela une variation du nuage de points, à l'aide de la fonction `geom_jitter()`. Les paramètres `width` et `height` permettent d'ajuster respectivement l'étalement en largeur et en hauteur du nuage.
+```{r basic plot 23g, eval=TRUE, message=FALSE, warning=FALSE}
+pingouins %>% 
+  ggplot(aes(x = espece, y = hauteur_bec_mm)) +
+  geom_boxplot(aes(col = espece, fill = espece),
+               width = 0.25, lwd = 0.5, alpha = 0.25,
+               show.legend = FALSE) +
+  geom_jitter(aes(col = espece),
+             width = 0.1, alpha = 0.25, show.legend = FALSE) +
+  scale_color_manual(values = custom.cols) +
+  scale_fill_manual(values = custom.cols) +
+  labs(title = "Hauteur des becs",
+       subtitle = "Données pour 3 espèces de pingouins sur 3 îles de l'archipel Palmer",
+       caption = "Données issues du package {Palmer penguins}",
+       x = "",
+       y = "Hauteur du bec (mm)") +
+  coord_flip()
+```
+
+::: {.callout-caution icon="true"}
+
+## Attention à l'orientation !
+
+L'utilisation de `width` ou `height` dépendra de la répartition des variables le long des axes x et y, ainsi que de l'utilisation de `coord_flip()`.
+
+:::
+
+<br>
+
+## Les thèmes de `{ggplot2}`
+
+<br>
+
+Le fond grisé du graphique est proposé par défaut par `{ggplot2}` : il s'agit d'un thème définissant l'apparence générale d'un graphique : couleur de l'arrière-plan, de la grille, présence d'un cadre, ...
+
+Il existe plusieurs thèmes prédéfinis qui peuvent être appliqués à un graphique à l'aide de la fonction `theme_...()` : 
+
+```{r basic plot 24a, eval=FALSE, message=FALSE, warning=FALSE}
+custom.cols <- c("darkorange", "purple", "cyan4")
+names(custom.cols) <- c("Adelie", "Chinstrap", "Gentoo")
+
+pingouins %>% 
+  ggplot(aes(x = longueur_aile_mm, y = longueur_bec_mm)) +
+  geom_point(aes(col = espece)) +
+  scale_color_manual(values = custom.cols) +
+  theme_...()
+```
+
+![](img/ggplot2_themes.png)
