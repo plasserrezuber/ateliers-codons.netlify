@@ -1177,3 +1177,50 @@ A la différence de `margin`, `hjust` et `vjust` prennent en compte l'orientatio
 <br>
 
 ![](img/ggplot_themes_legend.png)   
+
+Nous allons effectuer les modifications suivantes : 
+
+|                         |                                      |
+| ----------------------- | ------------------------------------ |
+| modifier l'arrière-plan | `legend.background = element_rect()` |
+| modifier la boîte       | `legend.key = element_rect()`        |
+| supprimer le titre      | `legend.title = element_blank()`     | 
+| modifier le texte       | `legend.text = element_text()`       |
+| modifier l'emplacemen   | `legend.position`                    |
+
+Nous pourrions également modifier l'orientation de la légende à l'aide de l'option `legend.direction = "horizontal`.
+
+Nous allons placer la légende sous le sous-titre et au-dessus du graphique. 
+
+Si nous avions fait le choix d'aligner le titre et le sous-titre par rapport à la zone de "plot", il nous faudrait alors supprimer ce paramètre (ou commenter la ligne de code concernée) pour que l'alignement se fasse par rapport à l'ensemble de la figure. 
+
+```{r basic plot 26g, eval=TRUE, message=FALSE, warning=FALSE}
+(p4 <- p3 +
+  theme(
+    legend.background = element_rect(fill = "lightcyan"),
+    legend.key = element_rect(fill = "lightcyan"),
+    legend.title = element_blank(),
+    legend.text = element_text(color = "steelblue",
+                               size = 15),
+    legend.position = "top"
+  )
+)
+```
+
+<br>
+
+::: {.callout-tip icon="true"}
+
+## Modifier l'apparence de la légende avec `guides`
+
+Nous pouvons remarquer que les points utilisés pour la légende reprennent les paramètres esthétiques du graphique, à savoir la taille et la transparence.
+
+Pour rendre la légende plus claire, nous pouvons appliquer des paramètres esthétiques uniquement à la légende, à l'aide des `guides` : 
+
+```{r basic plot 26h, eval=TRUE, message=FALSE, warning=FALSE}
+p4 +
+  guides(color = guide_legend(override.aes = list(alpha = 1, size = 5)))
+```
+
+
+:::

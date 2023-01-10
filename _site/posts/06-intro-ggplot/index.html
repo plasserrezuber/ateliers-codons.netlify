@@ -1428,6 +1428,71 @@ Aligner le titre et le sous-titre sur l’ensemble du graphique
 <h3 class="anchored" data-anchor-id="la-légende">La légende</h3>
 <p><br></p>
 <p><img src="img/ggplot_themes_legend.png" class="img-fluid"></p>
+<p>Nous allons effectuer les modifications suivantes :</p>
+<table class="table">
+<tbody>
+<tr class="odd">
+<td>modifier l’arrière-plan</td>
+<td><code>legend.background = element_rect()</code></td>
+</tr>
+<tr class="even">
+<td>modifier la boîte</td>
+<td><code>legend.key = element_rect()</code></td>
+</tr>
+<tr class="odd">
+<td>supprimer le titre</td>
+<td><code>legend.title = element_blank()</code></td>
+</tr>
+<tr class="even">
+<td>modifier le texte</td>
+<td><code>legend.text = element_text()</code></td>
+</tr>
+<tr class="odd">
+<td>modifier l’emplacemen</td>
+<td><code>legend.position</code></td>
+</tr>
+</tbody>
+</table>
+<p>Nous pourrions également modifier l’orientation de la légende à l’aide de l’option <code>legend.direction = "horizontal</code>.</p>
+<p>Nous allons placer la légende sous le sous-titre et au-dessus du graphique.</p>
+<p>Si nous avions fait le choix d’aligner le titre et le sous-titre par rapport à la zone de “plot”, il nous faudrait alors supprimer ce paramètre (ou commenter la ligne de code concernée) pour que l’alignement se fasse par rapport à l’ensemble de la figure.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>(p4 <span class="ot">&lt;-</span> p3 <span class="sc">+</span></span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"lightcyan"</span>),</span>
+<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.key =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"lightcyan"</span>),</span>
+<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.title =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb59-6"><a href="#cb59-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"steelblue"</span>,</span>
+<span id="cb59-7"><a href="#cb59-7" aria-hidden="true" tabindex="-1"></a>                               <span class="at">size =</span> <span class="dv">15</span>),</span>
+<span id="cb59-8"><a href="#cb59-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"top"</span></span>
+<span id="cb59-9"><a href="#cb59-9" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb59-10"><a href="#cb59-10" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/basic plot 26g-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><br></p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Modifier l’apparence de la légende avec <code>guides</code>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Nous pouvons remarquer que les points utilisés pour la légende reprennent les paramètres esthétiques du graphique, à savoir la taille et la transparence.</p>
+<p>Pour rendre la légende plus claire, nous pouvons appliquer des paramètres esthétiques uniquement à la légende, à l’aide des <code>guides</code> :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>p4 <span class="sc">+</span></span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="fu">guide_legend</span>(<span class="at">override.aes =</span> <span class="fu">list</span>(<span class="at">alpha =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">5</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/basic plot 26h-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</div>
 
 
 </section>
