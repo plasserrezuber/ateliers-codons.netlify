@@ -1218,9 +1218,78 @@ Nous pouvons remarquer que les points utilisés pour la légende reprennent les 
 Pour rendre la légende plus claire, nous pouvons appliquer des paramètres esthétiques uniquement à la légende, à l'aide des `guides` : 
 
 ```{r basic plot 26h, eval=TRUE, message=FALSE, warning=FALSE}
-p4 +
+(p5 <- p4 +
   guides(color = guide_legend(override.aes = list(alpha = 1, size = 5)))
+)
 ```
 
-
 :::
+
+<br>
+
+# Sauvegarder un graphique
+
+<br>
+
+Jusqu'à présent, nos graphiques apparaissaient dans l'onglet **Plots** mais n'étaient pas sauvegardés. 
+
+Nous pouvons sauvegarder notre graphique de deux manières :   
+
+- directement depuis l'onglet Plot  
+
+- en ligne de commande avec `ggsave()`
+
+<br>
+
+## Depuis l'onglet *Plots*
+
+<br>
+
+L'onglet **Plots** vous permet de naviguer entre vos graphiques, d'ouvrir le graphique actuellement affiché dans une nouvelle fenêtre, d'exporter votre graphique, de le supprimer ou de supprimer tous les graphiques de la session de travail.
+
+<br>
+
+![](img/export_ggplot_01.png)
+
+En cliquant sur *Export*, vous avez trois options : 
+
+- sauvegarder le graphique sous forme d'image  
+
+- sauvegarder le graphique au format PDF   
+
+- copier le graphique dans le presse-papiers (par exemple pour le coller dans un document)
+
+<br>
+
+Nous allons exporter notre graphique sous forme d'image : cliquez sur *Export* puis *Save as image*. 
+
+![](img/export_ggplot_02.png)
+
+Nous avons alors le choix entre plusieurs extensions (`.png`, `.jpeg`, ...).
+
+Nous pouvons également : 
+
+- redimensionner notre graphique (en convervant ou non le rapport des dimensions)  
+
+- choisir le dossier de destination  
+
+- modifier le nom du graphique (le nom proposé par défaut n'est pas très explicite ...)
+
+<br>
+
+## Avec `ggsave()`
+
+<br>
+
+Cette fonction permet d'exporter un graphique au format *.png* dans un répertoire, avec les dimensions et la résolution de notre choix : 
+
+```{r basic plot 26i, eval=FALSE, message=FALSE, warning=FALSE}
+ggsave("figs/pingouins_rapport_bec.png", p5, dpi = 320, width = 12, height = 6)
+```
+
+Le paramètre `dpi` indique la résolution de l'image en pixels.
+
+
+Il est toujours utile d'exporter son graphique et de vérifier le rendu pour rectifier les paramètres si nécessaire. Il n'est en effet pas rare d'avoir quelques surprises en ouvrant notre graphique exporté au format .png : taille de la police, des éléments graphiques, ...
+
+[Cet article](https://www.christophenicault.com/post/understand_size_dimension_ggplot2/) explique en détail comment paramétrer la taille et la résolution d'une image.

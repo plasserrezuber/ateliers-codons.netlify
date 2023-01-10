@@ -226,6 +226,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#les-thèmes-de-ggplot2" id="toc-les-thèmes-de-ggplot2" class="nav-link" data-scroll-target="#les-thèmes-de-ggplot2">Les thèmes de <code>{ggplot2}</code></a></li>
   <li><a href="#les-quatre-composants-dun-ggplot" id="toc-les-quatre-composants-dun-ggplot" class="nav-link" data-scroll-target="#les-quatre-composants-dun-ggplot">Les quatre composants d’un <code>ggplot</code></a></li>
   </ul></li>
+  <li><a href="#sauvegarder-un-graphique" id="toc-sauvegarder-un-graphique" class="nav-link" data-scroll-target="#sauvegarder-un-graphique">Sauvegarder un graphique</a>
+  <ul class="collapse">
+  <li><a href="#depuis-longlet-plots" id="toc-depuis-longlet-plots" class="nav-link" data-scroll-target="#depuis-longlet-plots">Depuis l’onglet <em>Plots</em></a></li>
+  <li><a href="#avec-ggsave" id="toc-avec-ggsave" class="nav-link" data-scroll-target="#avec-ggsave">Avec <code>ggsave()</code></a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -1485,17 +1490,65 @@ Modifier l’apparence de la légende avec <code>guides</code>
 <p>Nous pouvons remarquer que les points utilisés pour la légende reprennent les paramètres esthétiques du graphique, à savoir la taille et la transparence.</p>
 <p>Pour rendre la légende plus claire, nous pouvons appliquer des paramètres esthétiques uniquement à la légende, à l’aide des <code>guides</code> :</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>p4 <span class="sc">+</span></span>
-<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="fu">guide_legend</span>(<span class="at">override.aes =</span> <span class="fu">list</span>(<span class="at">alpha =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">5</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>(p5 <span class="ot">&lt;-</span> p4 <span class="sc">+</span></span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="fu">guide_legend</span>(<span class="at">override.aes =</span> <span class="fu">list</span>(<span class="at">alpha =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">5</span>)))</span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/basic plot 26h-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </div>
 </div>
-
-
+<p><br></p>
 </section>
+</section>
+</section>
+<section id="sauvegarder-un-graphique" class="level1">
+<h1>Sauvegarder un graphique</h1>
+<p><br></p>
+<p>Jusqu’à présent, nos graphiques apparaissaient dans l’onglet <strong>Plots</strong> mais n’étaient pas sauvegardés.</p>
+<p>Nous pouvons sauvegarder notre graphique de deux manières :</p>
+<ul>
+<li><p>directement depuis l’onglet Plot</p></li>
+<li><p>en ligne de commande avec <code>ggsave()</code></p></li>
+</ul>
+<p><br></p>
+<section id="depuis-longlet-plots" class="level2">
+<h2 class="anchored" data-anchor-id="depuis-longlet-plots">Depuis l’onglet <em>Plots</em></h2>
+<p><br></p>
+<p>L’onglet <strong>Plots</strong> vous permet de naviguer entre vos graphiques, d’ouvrir le graphique actuellement affiché dans une nouvelle fenêtre, d’exporter votre graphique, de le supprimer ou de supprimer tous les graphiques de la session de travail.</p>
+<p><br></p>
+<p><img src="img/export_ggplot_01.png" class="img-fluid"></p>
+<p>En cliquant sur <em>Export</em>, vous avez trois options :</p>
+<ul>
+<li><p>sauvegarder le graphique sous forme d’image</p></li>
+<li><p>sauvegarder le graphique au format PDF</p></li>
+<li><p>copier le graphique dans le presse-papiers (par exemple pour le coller dans un document)</p></li>
+</ul>
+<p><br></p>
+<p>Nous allons exporter notre graphique sous forme d’image : cliquez sur <em>Export</em> puis <em>Save as image</em>.</p>
+<p><img src="img/export_ggplot_02.png" class="img-fluid"></p>
+<p>Nous avons alors le choix entre plusieurs extensions (<code>.png</code>, <code>.jpeg</code>, …).</p>
+<p>Nous pouvons également :</p>
+<ul>
+<li><p>redimensionner notre graphique (en convervant ou non le rapport des dimensions)</p></li>
+<li><p>choisir le dossier de destination</p></li>
+<li><p>modifier le nom du graphique (le nom proposé par défaut n’est pas très explicite …)</p></li>
+</ul>
+<p><br></p>
+</section>
+<section id="avec-ggsave" class="level2">
+<h2 class="anchored" data-anchor-id="avec-ggsave">Avec <code>ggsave()</code></h2>
+<p><br></p>
+<p>Cette fonction permet d’exporter un graphique au format <em>.png</em> dans un répertoire, avec les dimensions et la résolution de notre choix :</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"figs/pingouins_rapport_bec.png"</span>, p5, <span class="at">dpi =</span> <span class="dv">320</span>, <span class="at">width =</span> <span class="dv">12</span>, <span class="at">height =</span> <span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Le paramètre <code>dpi</code> indique la résolution de l’image en pixels.</p>
+<p>Il est toujours utile d’exporter son graphique et de vérifier le rendu pour rectifier les paramètres si nécessaire. Il n’est en effet pas rare d’avoir quelques surprises en ouvrant notre graphique exporté au format .png : taille de la police, des éléments graphiques, …</p>
+<p><a href="https://www.christophenicault.com/post/understand_size_dimension_ggplot2/">Cet article</a> explique en détail comment paramétrer la taille et la résolution d’une image.</p>
+
+
 </section>
 </section>
 
