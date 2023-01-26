@@ -55,15 +55,15 @@ library(tidyverse)
 
 <br>
 
-Nous allons utiliser le jeu de données tiré du package [`{Palmer penguins}`](https://allisonhorst.github.io/palmerpenguins/).  
+Nous allons utiliser le jeu de données tiré du package [`{Palmer penguins}`](https://allisonhorst.github.io/palmerpenguins/).
 
-Pour importer ce jeu de données, utilisez la commande suivante : 
+Pour importer ce jeu de données, utilisez la commande suivante :
 
 ```{r import data, message=FALSE, warning=FALSE}
 pingouins <- readr::read_csv("https://raw.githubusercontent.com/codons-blog/ateliers_codons/main/data/pingouins_propre.csv")
 ```
 
-Explorons rapidement ces données : 
+Explorons rapidement ces données :
 
 ```{r EDA, eval=FALSE}
 dplyr::glimpse(pingouins)
@@ -75,17 +75,17 @@ dplyr::glimpse(pingouins)
 
 <br>
 
-## Nuage de points 
+## Nuage de points
 
 <br>
 
-Un `{ggplot2}` nécessite au minimum les trois éléments suivants :   
+Un `{ggplot2}` nécessite au minimum les trois éléments suivants :
 
-- les données utilisées (**data**)  
+-   les données utilisées (**data**)
 
-- l'apparence esthétique des éléments du graphique, comme la position, la couleur, la taille, la forme, et la transparence (**aesthetics**)  
+-   l'apparence esthétique des éléments du graphique, comme la position, la couleur, la taille, la forme, et la transparence (**aesthetics**)
 
-- les formes utilisées pour représenter les données (**geometries**)
+-   les formes utilisées pour représenter les données (**geometries**)
 
 Ces trois éléments suffisent pour créer un graphique simple. Il existe beaucoup d'autres éléments permettant la personnalisation du graphique.
 
@@ -99,7 +99,7 @@ ggplot(data = pingouins)
 
 Cette commande permet d'initialiser notre graphique. Seul l'arrière-plan gris est visible pour le moment.
 
-Ajoutons les deux variables que nous souhaitons représenter : 
+Ajoutons les deux variables que nous souhaitons représenter :
 
 ```{r basic plot 02}
 ggplot(data = pingouins,
@@ -109,18 +109,17 @@ ggplot(data = pingouins,
 Les deux variables ont été ajoutées, et les échelles des deux axes ont été automatiquement calculées.
 
 ::: {.callout-note icon="true"}
-
 ## mapping = aes() ou aes()
 
-L'argument `mapping =` n'est pas indispensable, le code suivant fonctionnera de la même façon : 
+L'argument `mapping =` n'est pas indispensable, le code suivant fonctionnera de la même façon :
+
 ```{r aes, eval=FALSE}
 ggplot(data = pingouins,
        aes(x = longueur_aile_mm, y = longueur_bec_mm))
 ```
-
 :::
 
-Pour finir, nous allons préciser que nous souhaitons représenter la relation entre ces deux variables à l'aide d'un nuage de points : 
+Pour finir, nous allons préciser que nous souhaitons représenter la relation entre ces deux variables à l'aide d'un nuage de points :
 
 ```{r basic plot 03}
 ggplot(data = pingouins,
@@ -135,13 +134,10 @@ g <- ggplot(data = pingouins,
        aes(x = longueur_aile_mm, y = longueur_bec_mm))
 ```
 
-
 ::: {.callout-caution icon="true"}
-
 ## Le `+`
 
 Lorsque vous créez un graphique avec `{ggplot2}`, l'ajout d'une nouvelle couche s'effectue à l'aide d'un `+` à la fin de la ligne.
-
 :::
 
 <br>
@@ -152,22 +148,22 @@ Lorsque vous créez un graphique avec `{ggplot2}`, l'ajout d'une nouvelle couche
 
 Le nuage de points ci-dessus représente la relation entre deux variables, mais ne nous donne aucune indication sur l'identité de chaque point. Nous aimerions colorer chaque point en fonction de l'espèce de l'individu.
 
-Il existe deux façons d'ajouter de la couleur à un graphique `{ggplot2}` : 
+Il existe deux façons d'ajouter de la couleur à un graphique `{ggplot2}` :
 
-- colorer l'ensemble des éléments (points, lignes, ...) avec une même couleur  
+-   colorer l'ensemble des éléments (points, lignes, ...) avec une même couleur
 
-- colorer chaque élément en fonction d'une autre variable (ici l'espèce)  
+-   colorer chaque élément en fonction d'une autre variable (ici l'espèce)
 
 <br>
 
-Pour colorer l'ensemble des points, nous ajoutons un argument `color` (`colour` et `col` fonctionnent également) en dehors des parenthèses définissant l'esthétique du graphique : 
+Pour colorer l'ensemble des points, nous ajoutons un argument `color` (`colour` et `col` fonctionnent également) en dehors des parenthèses définissant l'esthétique du graphique :
 
 ```{r basic plot 04}
 g +
   geom_point(col = "darkblue")
 ```
 
-L'argument `alpha` permet de définir la transparence des points. Il prend une valeur numérique entre 0 (transparent) et 1 (opaque) : 
+L'argument `alpha` permet de définir la transparence des points. Il prend une valeur numérique entre 0 (transparent) et 1 (opaque) :
 
 ```{r basic plot 05}
 g +
@@ -175,42 +171,38 @@ g +
 ```
 
 ::: {.callout-tip icon="true"}
-
 ## Les couleurs
 
-Vous pouvez utiliser des couleurs prédéfinies (voir la liste [ici](https://www.datanovia.com/en/blog/awesome-list-of-657-r-color-names/)).  
+Vous pouvez utiliser des couleurs prédéfinies (voir la liste [ici](https://www.datanovia.com/en/blog/awesome-list-of-657-r-color-names/)).
 
 Vous pouvez également utiliser des codes hexadécimaux ou encore des couleurs RGB à l'aide de la fonction `rgb()` :
- 
+
 ```{r colors, eval=FALSE}
 g + geom_point(col = "darkblue")
 g + geom_point(col = "#00008b")
 g + geom_point(col = rgb(red = 0, green = 0, blue = 139, maxColorValue = 255))
 ```
-
 :::
 
 <br>
 
-Pour colorer les points selon l'espèce, nous plaçons l'argument `color` dans une parenthèse `aes()` en précisant la variable à utiliser pour définir les groupes d'individus : 
+Pour colorer les points selon l'espèce, nous plaçons l'argument `color` dans une parenthèse `aes()` en précisant la variable à utiliser pour définir les groupes d'individus :
 
 ```{r basic plot 06}
 g +
   geom_point(aes(col = espece))
 ```
 
-Une légende permettant de différencier les gorupes a été ajoutée à droite du graphique.
+Une légende permettant de différencier les groupes a été ajoutée à droite du graphique.
 
 <br>
 
 ::: {.callout-note icon="true"}
-
 ## L'ordre des arguments
 
-Lorsque vous créez un graphique avec `{ggplot2}`, l'ordre des arguments peut varier. Si vous n'utilisez qu'un seul jeu de données, vous pouvez définir plusieurs arguments dans la parenthèse `ggplot()`. Si votre graphique utilisera plusieurs jeux de données, vous préciserez dans chaque couche quelles données utiliser.
-Les paramètres esthétiques définis dans la parenthèse `ggplot()` seront appliqués à l'ensemble des couches, alors que ceux définis dans une parenthèse `geom()` ne concerneront que cette couche.
+Lorsque vous créez un graphique avec `{ggplot2}`, l'ordre des arguments peut varier. Si vous n'utilisez qu'un seul jeu de données, vous pouvez définir plusieurs arguments dans la parenthèse `ggplot()`. Si votre graphique utilisera plusieurs jeux de données, vous préciserez dans chaque couche quelles données utiliser. Les paramètres esthétiques définis dans la parenthèse `ggplot()` seront appliqués à l'ensemble des couches, alors que ceux définis dans une parenthèse `geom()` ne concerneront que cette couche.
 
-Voici plusieurs manières d'écrire le code pour créer un même graphique : 
+Voici plusieurs manières d'écrire le code pour créer un même graphique :
 
 ```{r arg order, eval=FALSE}
 ggplot(data = pingouins) +
@@ -227,7 +219,6 @@ ggplot() +
   geom_point(data = pingouins, aes(x = longueur_aile_mm, y = longueur_bec_mm,
                                    col = espece))
 ```
-
 :::
 
 <br>
@@ -238,14 +229,14 @@ ggplot() +
 
 L'argument `shape` permet de changer la forme des points. Comme pour la couleur, vous pouvez utiliser une seule forme pour l'ensemble des points, ou utiliser différentes formes pour représenter des groupes.
 
-La forme des points peut être précisées à l'aide :  
+La forme des points peut être précisées à l'aide :
 
-- d'un code numérique :  
-![](img/points-symbols.png){width="50%"}  
+-   d'un code numérique :\
+    ![](img/points-symbols.png){width="50%"}
 
-- d'un nom (`square`, `circle`, `diamond`, ...)
+-   d'un nom (`square`, `circle`, `diamond`, ...)
 
-Modifions la forme de l'ensemble des points : 
+Modifions la forme de l'ensemble des points :
 
 ```{r basic plot 07}
 g +
@@ -253,7 +244,7 @@ g +
              aes(col = espece))
 ```
 
-Utilisons différentes formes en fonction de l'île : 
+Utilisons différentes formes en fonction de l'île :
 
 ```{r basic plot 08}
 g +
@@ -262,9 +253,9 @@ g +
 
 <br>
 
-L'argument `size` permet de modificer la taille des points. Là encore, nous pouvons définir une même taille pour l'ensemble des points, ou représenter une variable continue de nos données à l'aide de la taille.
+L'argument `size` permet de modifier la taille des points. Là encore, nous pouvons définir une même taille pour l'ensemble des points, ou représenter une variable continue de nos données à l'aide de la taille.
 
-Augmentons la taille de l'ensemble des points : 
+Augmentons la taille de l'ensemble des points :
 
 ```{r basic plot 09}
 g +
@@ -272,7 +263,7 @@ g +
              aes(col = espece))
 ```
 
-Utilisons la taille pour représenter la masse des pingouins : 
+Utilisons la taille pour représenter la masse des pingouins :
 
 ```{r basic plot 10}
 g +
@@ -282,15 +273,13 @@ g +
 <br>
 
 ::: {.callout-tip icon="true"}
-
 ## L'argument `stroke`
 
-Les formes 21 à 25 peuvent prendre plusieurs arguments :  
+Les formes 21 à 25 peuvent prendre plusieurs arguments :
 
-- `color` : couleur du contour  
-- `fill` : couleur de remplissage  
-- `stroke` : largeur du contour
-
+-   `color` : couleur du contour\
+-   `fill` : couleur de remplissage\
+-   `stroke` : largeur du contour
 :::
 
 <br>
@@ -299,7 +288,8 @@ Les formes 21 à 25 peuvent prendre plusieurs arguments :
 
 <br>
 
-La fonction `labs()` permet d'ajouter ou de modifier des titres à notre graphique : 
+La fonction `labs()` permet d'ajouter ou de modifier des titres à notre graphique :
+
 ```{r basic plot 11}
 g +
   geom_point(aes(col = espece)) +
@@ -328,7 +318,7 @@ g +
 
 <br>
 
-Nous souhaitons visualiser la distribution de la masse des pingouins. Nous allons pour cela utiliser la fonction `geom_histogram()` : 
+Nous souhaitons visualiser la distribution de la masse des pingouins. Nous allons pour cela utiliser la fonction `geom_histogram()` :
 
 ```{r basic plot 13, eval=TRUE, message=FALSE, warning=FALSE}
 ggplot(data = pingouins,
@@ -336,7 +326,7 @@ ggplot(data = pingouins,
   geom_histogram()
 ```
 
-Pour bien différencier les barres, nous utilisons l'argument `col` pour colorer leur contour (l'argument `fill` permet de colorer l'intérieur) : 
+Pour bien différencier les barres, nous utilisons l'argument `col` pour colorer leur contour (l'argument `fill` permet de colorer l'intérieur) :
 
 ```{r basic plot 14, eval=TRUE, message=FALSE, warning=FALSE}
 ggplot(data = pingouins,
@@ -354,7 +344,7 @@ ggplot(data = pingouins,
   geom_histogram(col = "white", bins = 20)
 ```
 
-L'argument `bin_width` permet de modifier la largeur de chaque classe le long de l'axe x : 
+L'argument `bin_width` permet de modifier la largeur de chaque classe le long de l'axe x :
 
 ```{r basic plot 16, eval=TRUE, message=FALSE, warning=FALSE}
 ggplot(data = pingouins,
@@ -364,7 +354,7 @@ ggplot(data = pingouins,
 
 <br>
 
-Cet histogramme ne nous renseigne sur la distribution de notre variable d'intérêt en fonction de l'espèce. Nous allons pour cela ajouter de la couleur à nos barres : 
+Cet histogramme ne nous renseigne pas sur la distribution de notre variable d'intérêt en fonction de l'espèce. Nous allons pour cela ajouter de la couleur à nos barres :
 
 ```{r basic plot 17, eval=TRUE, message=FALSE, warning=FALSE}
 ggplot(data = pingouins,
@@ -376,9 +366,9 @@ ggplot(data = pingouins,
 
 <br>
 
-Les barres des histogrammes peuvent être arrangées de trois façons différentes à l'aide de l'argument `position` : 
+Les barres des histogrammes peuvent être arrangées de trois façons différentes à l'aide de l'argument `position` :
 
-- `position = "stack"` :  
+-   `position = "stack"` :
 
 ```{r basic plot 18a, eval=TRUE, message=FALSE, warning=FALSE, echo=FALSE}
 ggplot(data = pingouins,
@@ -390,7 +380,7 @@ ggplot(data = pingouins,
                  show.legend = FALSE)
 ```
 
-- `position = "identity"` :  
+-   `position = "identity"` :
 
 ```{r basic plot 18b, eval=TRUE, message=FALSE, warning=FALSE, echo=FALSE}
 ggplot(data = pingouins,
@@ -402,7 +392,7 @@ ggplot(data = pingouins,
                  show.legend = FALSE)
 ```
 
-- `position = "dodge"` :  
+-   `position = "dodge"` :
 
 ```{r basic plot 18c, eval=TRUE, message=FALSE, warning=FALSE, echo=FALSE}
 ggplot(data = pingouins,
@@ -416,9 +406,9 @@ ggplot(data = pingouins,
 
 <br>
 
-Ajoutons des titres à notre graphique et modifions les titres des axes :  
+Ajoutons des titres à notre graphique et modifions les titres des axes :
 
-```{r basic plot 18d, eval=TRUE, message=FALSE, warning=FALSE, echo=FALSE}
+```{r basic plot 18d, eval=TRUE, message=FALSE, warning=FALSE, echo=TRUE}
 ggplot(data = pingouins,
        aes(x = masse_corporelle_g)) +
   geom_histogram(aes(fill = espece),
@@ -436,7 +426,7 @@ ggplot(data = pingouins,
 
 <br>
 
-Les trois espèces ont-elles des hauteurs de becs similaires ? Pour répondre à cette question, nous allons utiliser un graphique en boites à moustaches à l'aide de `geom_boxplot()` : 
+Les trois espèces ont-elles des hauteurs de becs similaires ? Pour répondre à cette question, nous allons utiliser un graphique en boites à moustaches à l'aide de `geom_boxplot()` :
 
 ```{r basic plot 19a, eval=TRUE, message=FALSE, warning=FALSE}
 ggplot(data = pingouins,
@@ -444,8 +434,7 @@ ggplot(data = pingouins,
   geom_boxplot()
 ```
 
-
-Dans le cas présent, la légende n'est pas nécessaire, car les noms des espèces sont indiqués le long de l'axe x. Pour supprimer la légende, nous utilisons l'argument `show.legend = FALSE` : 
+Dans le cas présent, la légende n'est pas nécessaire, car les noms des espèces sont indiqués le long de l'axe x. Pour supprimer la légende, nous utilisons l'argument `show.legend = FALSE` :
 
 ```{r basic plot 19b, eval=TRUE, message=FALSE, warning=FALSE}
 ggplot(data = pingouins,
@@ -453,17 +442,18 @@ ggplot(data = pingouins,
   geom_boxplot(show.legend = FALSE)
 ```
 
+Nous aimerions inverser les axes de notre graphique. Nous pouvons le faire de deux façons :
 
-Nous aimerions inverser les axes de notre graphique. Nous pouvons le faire de deux façons : 
+-   inverser les axes x et y dans les paramètres esthétiques
 
-- inverser les axes x et y dans les paramètres esthétiques
 ```{r basic plot 19c, eval=FALSE, message=FALSE, warning=FALSE}
 ggplot(data = pingouins,
        aes(x = hauteur_bec_mm, y = espece, col = espece)) +
   geom_boxplot(show.legend = FALSE)
 ```
 
-- utiliser la fonction `coord_flip()`
+-   utiliser la fonction `coord_flip()`
+
 ```{r basic plot 19d, eval=TRUE, message=FALSE, warning=FALSE}
 ggplot(data = pingouins,
        aes(x = espece, y = hauteur_bec_mm, col = espece)) +
@@ -473,7 +463,8 @@ ggplot(data = pingouins,
 
 <br>
 
-L'argument `width` permet de modifier la taille des boîtes : 
+L'argument `width` permet de modifier la taille des boîtes :
+
 ```{r basic plot 19e, eval=TRUE, message=FALSE, warning=FALSE}
 ggplot(data = pingouins,
        aes(x = espece, y = hauteur_bec_mm, col = espece)) +
@@ -481,7 +472,8 @@ ggplot(data = pingouins,
   coord_flip()
 ```
 
-Ajoutons des titres à notre graphique et modifions les titres des axes : 
+Ajoutons des titres à notre graphique et modifions les titres des axes :
+
 ```{r basic plot 19f, eval=TRUE, message=FALSE, warning=FALSE}
 ggplot(data = pingouins,
        aes(x = espece, y = hauteur_bec_mm, col = espece)) +
@@ -500,7 +492,8 @@ ggplot(data = pingouins,
 
 <br>
 
-Nous allons visualiser le nombre d'individus par espèce à l'aide de `geom_bar()` : 
+Nous allons visualiser le nombre d'individus par espèce à l'aide de `geom_bar()` :
+
 ```{r basic plot 20a, eval=TRUE, message=FALSE, warning=FALSE}
 ggplot(data = pingouins,
        aes(x = espece)) +
@@ -509,7 +502,7 @@ ggplot(data = pingouins,
            show.legend = FALSE)
 ```
 
-Nous aimerions classer les espèces apr ordre décroissant de nombre d'individus. Pour cela, nous allons utliser la fonction `fct_infreq()` du package `{forcats}` qui permet de trier les niveaux d'un facteur. Cette approche est intéressante car elle est dynamique : R effectue directement le tri dans passer par un objet intermédiaire.
+Nous aimerions classer les espèces par ordre décroissant de nombre d'individus. Pour cela, nous allons utliser la fonction `fct_infreq()` du package `{forcats}` qui permet de trier les niveaux d'un facteur. Cette approche est intéressante car elle est dynamique : R effectue directement le tri sans passer par un objet intermédiaire.
 
 ```{r basic plot 20b, eval=TRUE, message=FALSE, warning=FALSE}
 ggplot(data = pingouins,
@@ -519,16 +512,14 @@ ggplot(data = pingouins,
            show.legend = FALSE)
 ```
 
-Comme vu précédemment, nous pouvons modifier l'orientation des barres à l'aide de `coord_flip()`. 
+Comme vu précédemment, nous pouvons modifier l'orientation des barres à l'aide de `coord_flip()`.
 
 ::: {.callout-tip icon="true"}
-
 ## Ordre des niveaux et orientation
 
-Gardez bien à l'esprit que sur votre graphique, le premier niveau d'un facteur se situe au plus près de l'origine. 
+Gardez bien à l'esprit que sur votre graphique, le premier niveau d'un facteur se situe au plus près de l'origine.
 
 Dans notre cas, si nous représentons des barres horizontales, l'espèce ayant le plus grand nombre d'individus se situera donc en bas du graphique. Pour corriger cela, nous utilisons la fonction `fct_rev()`
-
 :::
 
 ```{r basic plot 20c, eval=TRUE, message=FALSE, warning=FALSE}
@@ -540,7 +531,8 @@ ggplot(data = pingouins,
   coord_flip()
 ```
 
-Ajoutons des titres à notre graphique et modifions les titres des axes : 
+Ajoutons des titres à notre graphique et modifions les titres des axes :
+
 ```{r basic plot 20d, eval=TRUE, message=FALSE, warning=FALSE}
 ggplot(data = pingouins,
        aes(x = fct_rev(fct_infreq(espece)))) +
@@ -561,7 +553,7 @@ ggplot(data = pingouins,
 
 <br>
 
-Reprenons notre graphique représentant le rapport entre la longueur et la hauteur du bec : 
+Reprenons notre graphique représentant le rapport entre la longueur et la hauteur du bec :
 
 ```{r basic plot 21a, eval=FALSE, message=FALSE, warning=FALSE}
 ggplot(data = pingouins,
@@ -578,11 +570,11 @@ Nous souhaitons séparer ce graphique afin de représenter les données par esp�
 
 <br>
 
-## `facet_wrap()`  
+## `facet_wrap()`
 
 <br>
 
-Nous ajoutons simplement une couche à notre code, en précisant à l'aide d'un tilde `~` quelle variable utiliser pour séparer les données : 
+Nous ajoutons simplement une couche à notre code, en précisant à l'aide d'un tilde `~` quelle variable utiliser pour séparer les données :
 
 ```{r basic plot 21b, eval=TRUE, message=FALSE, warning=FALSE}
 ggplot(data = pingouins,
@@ -596,7 +588,7 @@ ggplot(data = pingouins,
   facet_wrap(~espece)
 ```
 
-Des étiquettes sont automatiquement ajoutées pour indiquer les différentes espèces représentées. Nous pouvons donc supprimer la légende : 
+Des étiquettes sont automatiquement ajoutées pour indiquer les différentes espèces représentées. Nous pouvons donc supprimer la légende :
 
 ```{r basic plot 21c, eval=TRUE, message=FALSE, warning=FALSE}
 ggplot(data = pingouins,
@@ -611,15 +603,14 @@ ggplot(data = pingouins,
   facet_wrap(~espece)
 ```
 
-L'option `dir` permet de modifier l'orientation des graphiques :  
-- `dir = "h"` : oritentation horizontale (par défaut)  
+L'option `dir` permet de modifier l'orientation des graphiques :\
+- `dir = "h"` : oritentation horizontale (par défaut)\
 - `dir = "v"` : orientation verticale
 
-L'option `strip.position` permet de modifier l'emplacement des étiquettes : 
-- `strip.position = "top"` : au-dessus des graphiques (par défaut)  
-- `strip.position = "right"` : à droite des graphiques    
-- `strip.position = "bottom"` : en-dessous des graphiques  
-- `strip.position = "left"` : à gauche des graphiques  
+L'option `strip.position` permet de modifier l'emplacement des étiquettes : - `strip.position = "top"` : au-dessus des graphiques (par défaut)\
+- `strip.position = "right"` : à droite des graphiques\
+- `strip.position = "bottom"` : en-dessous des graphiques\
+- `strip.position = "left"` : à gauche des graphiques
 
 ```{r basic plot 21d, eval=TRUE, message=FALSE, warning=FALSE}
 ggplot(data = pingouins,
@@ -636,12 +627,12 @@ ggplot(data = pingouins,
              strip.position = "right")
 ```
 
-L'option `scales` permet d'ajuster l'échelle des graphiques : 
+L'option `scales` permet d'ajuster l'échelle des graphiques :
 
-- `scales = "fixed"` : même échelle pour tous les graphiques (par défaut)  
-- `scales = "free"` : ajuster l'échelle des deux axes pour chaque graphique  
-- `scales = "free_x"` : même échelle sur l'axe y et échelle ajustée sur l'axe x  
-- `scales = "free_y"` : même échelle sur l'axe x et échelle ajustée sur l'axe y  
+-   `scales = "fixed"` : même échelle pour tous les graphiques (par défaut)\
+-   `scales = "free"` : ajuster l'échelle des deux axes pour chaque graphique\
+-   `scales = "free_x"` : même échelle sur l'axe y et échelle ajustée sur l'axe x\
+-   `scales = "free_y"` : même échelle sur l'axe x et échelle ajustée sur l'axe y
 
 ```{r basic plot 21e, eval=TRUE, message=FALSE, warning=FALSE}
 ggplot(data = pingouins,
@@ -661,7 +652,7 @@ ggplot(data = pingouins,
 
 <br>
 
-## `facet_grid()`  
+## `facet_grid()`
 
 <br>
 
@@ -682,9 +673,9 @@ ggplot(data = pingouins,
 
 Toutes les combinaisons possibles sont affichées, c'est la raison pour laquelle certaines cases sont vides (aucune observation pour la combinaison).
 
-L'option `switch` permet de modifier la position des étiquettes :  
-- `switch = "x"` : étiquettes de l'axe x en bas du graphique  
-- `switch = "y"` : étiquettes de l'axe y à gauche du graphique  
+L'option `switch` permet de modifier la position des étiquettes :\
+- `switch = "x"` : étiquettes de l'axe x en bas du graphique\
+- `switch = "y"` : étiquettes de l'axe y à gauche du graphique\
 - `switch = "both"` pour effectuer les deux modifications simultanément
 
 ```{r basic plot 21g, eval=TRUE, message=FALSE, warning=FALSE}
@@ -706,9 +697,9 @@ ggplot(data = pingouins,
 
 <br>
 
-Nous avions vu [dans un autre tutoriel](https://ateliers-codons.netlify.app/posts/03-introduction-tidyverse/#ceci-nest-pas-un-pipe) comment enchaîner les opérations à l'aide du pipe `%>%`.  
+Nous avions vu [dans un autre tutoriel](https://ateliers-codons.netlify.app/posts/03-introduction-tidyverse/#ceci-nest-pas-un-pipe) comment enchaîner les opérations à l'aide du pipe `%>%`.
 
-Nous pouvons utiliser le pipe pour générer un graphique. Cette façon de procéder permet de manipuler les données utilisées pour créer le graphique sans avoir besoin de multiplier les objets intermédiaires. En utilisant le pipe `%>%` pour créer un graphique, nous pouvons également profiter de l'auto-complétion à l'aide de la touche `Tab` pour préciser les variables : 
+Nous pouvons utiliser le pipe pour générer un graphique. Cette façon de procéder permet de manipuler les données utilisées pour créer le graphique sans avoir besoin de multiplier les objets intermédiaires. En utilisant le pipe `%>%` pour créer un graphique, nous pouvons également profiter de l'auto-complétion à l'aide de la touche `Tab` pour préciser les variables :
 
 ```{r basic plot 22a, eval=FALSE, message=FALSE, warning=FALSE}
 pingouins %>% 
@@ -719,7 +710,7 @@ pingouins %>%
 
 <br>
 
-# Améliorer ses graphiques 
+# Améliorer ses graphiques
 
 <br>
 
@@ -735,16 +726,16 @@ pingouins %>%
 
 <br>
 
-Il existe plusieurs palettes de couleurs : 
+Il existe plusieurs palettes de couleurs :
 
 ![](img/rcolorbrewer.png)
 
-Deux fonctions permettent d'utiliser ces palettes : 
+Deux fonctions permettent d'utiliser ces palettes :
 
-- `scale_color_brewer()` : appliquer la palette au paramètre `col`  
-- `scale_fill_brewer()` : appliquer la palette au paramètre `fill`
+-   `scale_color_brewer()` : appliquer la palette au paramètre `col`\
+-   `scale_fill_brewer()` : appliquer la palette au paramètre `fill`
 
-Nous utiliserons l'une ou l'autre de ces fonctions ou les deux selon les paramètres esthétiques de notre graphique. Nous pouvons par exemple choisir d'appliquer une palette pour remplir des points en gardant un contour noir : 
+Nous utiliserons l'une ou l'autre de ces fonctions ou les deux selon les paramètres esthétiques de notre graphique. Nous pouvons par exemple choisir d'appliquer une palette pour remplir des points en gardant un contour noir :
 
 ```{r basic plot 23a, eval=TRUE, message=FALSE, warning=FALSE}
 pingouins %>% 
@@ -754,18 +745,18 @@ pingouins %>%
   scale_fill_brewer(palette = "Accent")
 ```
 
-Il existe beaucoup d'autres palettes, accessibles via des packages, dont la liste est [accessible ici](https://github.com/EmilHvitfeldt/r-color-palettes).
+Il existe beaucoup d'autres palettes, disponibles via des packages, dont la liste est [accessible ici](https://github.com/EmilHvitfeldt/r-color-palettes).
 
 <br>
 
-### Définir des couleurs 
+### Définir des couleurs
 
 <br>
 
-Deux fonctions permettent de définir nous-mêmes les couleurs à utiliser : 
+Deux fonctions permettent de définir nous-mêmes les couleurs à utiliser :
 
-- `scale_color_manual()` : appliquer les couleurs au paramètre `col`  
-- `scale_fill_manual()` : appliquer les couleurs au paramètre `fill`
+-   `scale_color_manual()` : appliquer les couleurs au paramètre `col`\
+-   `scale_fill_manual()` : appliquer les couleurs au paramètre `fill`
 
 ```{r basic plot 23b, eval=TRUE, message=FALSE, warning=FALSE}
 pingouins %>% 
@@ -776,7 +767,7 @@ pingouins %>%
                                  "Gentoo" = "cyan4")) 
 ```
 
-Si notre graphique contient plusieurs couches utilisant les mêmes couleurs, nous pouvons créer un vecteur de couleurs pour éviter de devoir taper plusieurs fois le même code : 
+Si notre graphique contient plusieurs couches utilisant les mêmes couleurs, nous pouvons créer un vecteur de couleurs pour éviter de devoir taper plusieurs fois le même code :
 
 ```{r basic plot 23c, eval=FALSE, message=FALSE, warning=FALSE}
 custom.cols <- c("darkorange", "purple", "cyan4")
@@ -796,7 +787,7 @@ Il est important d'associer un niveau (un nom d'espèce) à chaque couleur. Cela
 
 <br>
 
-Reprenons notre graphique en boîtes à moustaches : 
+Reprenons notre graphique en boîtes à moustaches :
 
 ```{r basic plot 23d, eval=FALSE, message=FALSE, warning=FALSE}
 ggplot(data = pingouins,
@@ -810,8 +801,8 @@ ggplot(data = pingouins,
   coord_flip()
 ```
 
-Apportons quelques modifications et utilisons les mêmes couleurs :  
-- `lwd` permet de définir l'épaisseur des traits des boîtes  
+Apportons quelques modifications et utilisons les mêmes couleurs :\
+- `lwd` permet de définir l'épaisseur des traits des boîtes\
 - `alpha` permet d'ajuster la transparence de la couleur de remplissage de la boîte (`fill`)
 
 Une option permet de supprimer les données aberrantes du graphique : `outlier.shape = NA`
@@ -836,6 +827,7 @@ pingouins %>%
 ```
 
 Nous pouvons superposer à ces boîtes à moustaches l'affichage des données pour visualiser la distribution des observations. Nous ajoutons pour cela une couche `geom_point()`.
+
 ```{r basic plot 23f, eval=TRUE, message=FALSE, warning=FALSE}
 pingouins %>% 
   ggplot(aes(x = espece, y = hauteur_bec_mm)) +
@@ -855,6 +847,7 @@ pingouins %>%
 ```
 
 Nous aimerions espacer les points pour rendre le graphique plus lisible. Nous utilisons pour cela une variation du nuage de points, à l'aide de la fonction `geom_jitter()`. Les paramètres `width` et `height` permettent d'ajuster respectivement l'étalement en largeur et en hauteur du nuage.
+
 ```{r basic plot 23g, eval=TRUE, message=FALSE, warning=FALSE}
 pingouins %>% 
   ggplot(aes(x = espece, y = hauteur_bec_mm)) +
@@ -874,11 +867,9 @@ pingouins %>%
 ```
 
 ::: {.callout-caution icon="true"}
-
 ## Attention à l'orientation !
 
 L'utilisation de `width` ou `height` dépendra de la répartition des variables le long des axes x et y, ainsi que de l'utilisation de `coord_flip()`.
-
 :::
 
 <br>
@@ -887,7 +878,7 @@ L'utilisation de `width` ou `height` dépendra de la répartition des variables 
 
 <br>
 
-Reprenons notre graphique en barres et modifions les couleurs comme nous l'avons fait pour les autres graphiques : 
+Reprenons notre graphique en barres et modifions les couleurs comme nous l'avons fait pour les autres graphiques :
 
 ```{r basic plot 24a, eval=TRUE, message=FALSE, warning=FALSE}
 custom.cols <- c("darkorange", "purple", "cyan4")
@@ -907,13 +898,13 @@ pingouins %>%
   coord_flip()
 ```
 
-Nous aimerions ajouter des étiquettes indiquant le nombre d'individus par espèce. Nous utilisons pour cela la fonction `geom_text()` avec les options suivantes : 
+Nous aimerions ajouter des étiquettes indiquant le nombre d'individus par espèce. Nous utilisons pour cela la fonction `geom_text()` avec les options suivantes :
 
-- `aes(label = ..count..)` : indique que les étiquettes contiendront le nombre d'observations par niveau de variable utilisé pour générer les barres (ici les espèces)  
-- `stat = "count"` : indique le calcul à effectuer, ici un simple comptage  
-- `hjust = 1.5` : alignement horizontal des étiquettes, que nous souhaitons placer à l'intérieur des barres  
-- `col = "white"` : couleur du texte des étiquettes  
-- `size = 5` : taille de la police du texte
+-   `aes(label = ..count..)` : indique que les étiquettes contiendront le nombre d'observations par niveau de variable utilisé pour générer les barres (ici les espèces)\
+-   `stat = "count"` : indique le calcul à effectuer, ici un simple comptage\
+-   `hjust = 1.5` : alignement horizontal des étiquettes, que nous souhaitons placer à l'intérieur des barres\
+-   `col = "white"` : couleur du texte des étiquettes\
+-   `size = 5` : taille de la police du texte
 
 ```{r basic plot 24b, eval=TRUE, message=FALSE, warning=FALSE}
 custom.cols <- c("darkorange", "purple", "cyan4")
@@ -937,8 +928,6 @@ pingouins %>%
   coord_flip()
 ```
 
-
-
 <br>
 
 ## Les thèmes de `{ggplot2}`
@@ -947,7 +936,7 @@ pingouins %>%
 
 Le fond grisé du graphique est proposé par défaut par `{ggplot2}` : il s'agit d'un thème définissant l'apparence générale d'un graphique : couleur de l'arrière-plan, de la grille, présence d'un cadre, ...
 
-Il existe plusieurs thèmes prédéfinis qui peuvent être appliqués à un graphique à l'aide de la fonction `theme_...()` : 
+Il existe plusieurs thèmes prédéfinis qui peuvent être appliqués à un graphique à l'aide de la fonction `theme_...()` :
 
 ```{r basic plot 25a, eval=FALSE, message=FALSE, warning=FALSE}
 custom.cols <- c("darkorange", "purple", "cyan4")
@@ -964,25 +953,25 @@ pingouins %>%
 
 <br>
 
-## Les quatre composants d'un `ggplot`  
+## Les quatre composants d'un `ggplot`
 
 <br>
 
-Un graphique est composé de quatre éléments, dont chacun peut être paramatré à l'aide de multiples options : 
+Un graphique est composé de quatre éléments, dont chacun peut être paramatré à l'aide de multiples options :
 
-- Le **"panel"** : zone contenant les éléments géométriques de notre graphique (nuage de points, barres, ...)  
+-   Le **"panel"** : zone contenant les éléments géométriques de notre graphique (nuage de points, barres, ...)
 
-- Le **"plot"** : zone qui entoure le panel et qui contient le titre, le sous-titre, ...  
+-   Le **"plot"** : zone qui entoure le panel et qui contient le titre, le sous-titre, ...
 
-- Les **axes** du graphiques avec leurs titres, les graduations, ...  
+-   Les **axes** du graphiques avec leurs titres, les graduations, ...
 
-- La **légende** qui permet d'expliquer à quoi correspondent les couleurs, les formes , ...
+-   La **légende** qui permet d'expliquer à quoi correspondent les couleurs, les formes , ...
 
 Ces paramètres sont précisés dans une parenthèse `theme()` à ajouter à la suite du code servant à générer notre graphique.
 
 <br>
 
-Commençons par créer un graphique simple :  
+Commençons par créer un graphique simple :
 
 ```{r basic plot 26a, eval=TRUE, message=FALSE, warning=FALSE}
 (p <- pingouins %>% 
@@ -1000,7 +989,6 @@ Commençons par créer un graphique simple :
 Les parenthèses qui entourent le code ci-dessus permettent de l'exécuter et d'afficher le résultat.
 
 ::: {.callout-tip icon="true"}
-
 ## Modifier le titre de la légende
 
 Par défaut, le titre de la légende reprend le nom de la variable utilisée pour définir les groupes. Nous pouvons modifier ce titre à l'intérieur de la parenthèse `labs()`. Dans le graphique ci-dessus, nous avions défini les paramètres esthétiques suivants : `geom_point(aes(col = espece))`. Nous allons donc renommer l'élément `col` de notre légende (si nous avions utilisé `geom_point(aes(fill = espece))` nous renommerions l'élément `fill`) :
@@ -1018,7 +1006,6 @@ Par défaut, le titre de la légende reprend le nom de la variable utilisée pou
        col = "ESPECES")
 )
 ```
-
 :::
 
 <br>
@@ -1029,7 +1016,8 @@ Par défaut, le titre de la légende reprend le nom de la variable utilisée pou
 
 ![](img/ggplot_themes_panel.png)
 
-Les modifications s'effectuent à l'aide de la syntaxe suivante : 
+Les modifications s'effectuent à l'aide de la syntaxe suivante :
+
 ```{r basic plot 26c, eval=FALSE, message=FALSE, warning=FALSE}
 theme(
   nom-du-parametre-1 = element_...(),
@@ -1037,26 +1025,26 @@ theme(
 )
 ```
 
-La fonction `element_...()` dépendra de ce que nous souhaitons modifier : 
+La fonction `element_...()` dépendra de ce que nous souhaitons modifier :
 
-- `element_rect()` pour modifier une zone rectangulaire (*panel.background*)  
+-   `element_rect()` pour modifier une zone rectangulaire (*panel.background*)
 
-- `element_line()` pour modifier des lignes (*panel.border*)  
+-   `element_line()` pour modifier des lignes (*panel.border*)
 
-- `element_text()` pour modifier du texte
+-   `element_text()` pour modifier du texte
 
 La fonction `element_blank()` permet de supprimer un élément du graphique.
 
 <br>
 
-Nous allons effectuer les modifications suivantes : 
+Nous allons effectuer les modifications suivantes :
 
 |                                       |                                      |
-| ------------------------------------- | ------------------------------------ |
+|------------------------------------|-----------------------------------|
 | modifier la couleur de l'arrière-plan | `panel.background = element_rect()`  |
-| modifier la couleur de la bordure     | `panel.border = element_rect()`      |  
-| supprimer les graduations mineures    | `panel.grid.minor = element_blank()` |  
-| modifier les graduations majeures     | `panel.grid.major = element_line()`  | 
+| modifier la couleur de la bordure     | `panel.border = element_rect()`      |
+| supprimer les graduations mineures    | `panel.grid.minor = element_blank()` |
+| modifier les graduations majeures     | `panel.grid.major = element_line()`  |
 
 ```{r basic plot 26d, eval=TRUE, message=FALSE, warning=FALSE}
 (p1 <- p +
@@ -1079,27 +1067,25 @@ Nous allons effectuer les modifications suivantes :
 
 Les options `plot.title()`, `plot.subtitle()` et `plot.caption()` permettent de modifier la taille, la couleur et l'alignement du texte des titres et sous-titres du graphique.
 
-L'option `plot.margin` permet de modifier la marge entre la zone de "plot" et les bords du graphiques. Une marge se définit à l'aide de quatre valeurs numériques, une pour chaque côté du graphique (ou de l'élément autour duquel on modifie les marges). La fonction `plot.margin` s'utilise de la manière suivante : `plot.margin = margin(top = ..., right = ..., bottom = ..., left = ...)`. On peut également utiliser les abbréviations `margin(t = ..., r = ..., b = ..., l = ...)` ou simplement indiquer les quatre valeurs numériques dans l'ordre. Pour ne modifier la marge que d'un seul côté, il suffit de préciser quel côté est concerné : `margin(l = ...)`. 
+L'option `plot.margin` permet de modifier la marge entre la zone de "plot" et les bords du graphiques. Une marge se définit à l'aide de quatre valeurs numériques, une pour chaque côté du graphique (ou de l'élément autour duquel on modifie les marges). La fonction `plot.margin` s'utilise de la manière suivante : `plot.margin = margin(top = ..., right = ..., bottom = ..., left = ...)`. On peut également utiliser les abbréviations `margin(t = ..., r = ..., b = ..., l = ...)` ou simplement indiquer les quatre valeurs numériques dans l'ordre. Pour ne modifier la marge que d'un seul côté, il suffit de préciser quel côté est concerné : `margin(l = ...)`.
 
 La fonction `margin()` peut également être utilisée pour modifier les marges autour du texte du graphique (titre, axes, ...).
 
 <br>
 
-Nous allons effectuer les modifications suivantes : 
+Nous allons effectuer les modifications suivantes :
 
 |                                       |                                    |
-| ------------------------------------- | ---------------------------------- |
+|-------------------------------------|-----------------------------------|
 | modifier la couleur de l'arrière-plan | `plot.background = element_rect()` |
-| augmenter les marges                  | `plot.margin = margin()`           |  
-| modifier le titre                     | `plot.title = element_text()`      |  
-| modifier le sous-titre                | `plot.subtitle = element_text()`   | 
+| augmenter les marges                  | `plot.margin = margin()`           |
+| modifier le titre                     | `plot.title = element_text()`      |
+| modifier le sous-titre                | `plot.subtitle = element_text()`   |
 
 ::: {.callout-tip icon="true"}
-
 ## Aligner le titre et le sous-titre sur l'ensemble du graphique
 
 Par défaut, l'alignement du titre et du sous-titre se sont par rapport à la zone "panel". Pour que l'alignement se fasse par rapport à la zone "plot", c'est-à-dire l'ensemble du graphique, nous pouvons ajouter l'option `plot.title.position = "plot"`
-
 :::
 
 ```{r basic plot 26e, eval=TRUE, message=FALSE, warning=FALSE}
@@ -1127,31 +1113,29 @@ Par défaut, l'alignement du titre et du sous-titre se sont par rapport à la zo
 
 ![](img/ggplot_themes_axis.png)
 
-Nous allons effectuer les modifications suivantes : 
+Nous allons effectuer les modifications suivantes :
 
-|                                       |                                    |
-| ------------------------------------- | ---------------------------------- |
-| modifier les titres des axes          | `axis.title = element_text()`      |
-| modifier le texte des axes            | `axis.text = element_text()`       |  
-| supprimer les marques de graduation   | `axis.ticks = element_blank()`     |  
+|                                     |                                |
+|-------------------------------------|--------------------------------|
+| modifier les titres des axes        | `axis.title = element_text()`  |
+| modifier le texte des axes          | `axis.text = element_text()`   |
+| supprimer les marques de graduation | `axis.ticks = element_blank()` |
 
-Nous pouvons modifier ces paramètres de différentes manières : 
+Nous pouvons modifier ces paramètres de différentes manières :
 
-- `axis.title.x` : modifier le texte de l'axe x  
-- `axis.title.y` : modifier le texte de l'axe y  
-- `axis.title` : modifier le texte des deux axes 
+-   `axis.title.x` : modifier le texte de l'axe x\
+-   `axis.title.y` : modifier le texte de l'axe y\
+-   `axis.title` : modifier le texte des deux axes
 
-La façon de procéder dépendra de ce que l'on souhaite modifier. Si nous voulons seulement augmenter la taille de la police des titres, nous utiliserons `axis.title`. Si nous souhaitons modifier les marges autour des titres des deux axes, il nous faudra utiliser `axis.title.x` et `axis.title.y`. En effet, les marges ne tiennent pas compte de l'orientation du texte. Pour augmenter l'espace entre les titres des deux axes et la zone "panel", il nous faudra procéder en deux étapes : 
+La façon de procéder dépendra de ce que l'on souhaite modifier. Si nous voulons seulement augmenter la taille de la police des titres, nous utiliserons `axis.title`. Si nous souhaitons modifier les marges autour des titres des deux axes, il nous faudra utiliser `axis.title.x` et `axis.title.y`. En effet, les marges ne tiennent pas compte de l'orientation du texte. Pour augmenter l'espace entre les titres des deux axes et la zone "panel", il nous faudra procéder en deux étapes :
 
-- augmenter la marge supérieure (top) pour le titre de l'axe x  
-- augmenter la marge à droite (right) pour le titre de l'axe y  
+-   augmenter la marge supérieure (top) pour le titre de l'axe x\
+-   augmenter la marge à droite (right) pour le titre de l'axe y
 
 ::: {.callout-tip icon="true"}
+## `hjust` et `vjust`
 
-## `hjust` et `vjust` 
-
-A la différence de `margin`, `hjust` et `vjust` prennent en compte l'orientation du texte. 
-
+A la différence de `margin`, `hjust` et `vjust` prennent en compte l'orientation du texte.
 :::
 
 ```{r basic plot 26f, eval=TRUE, message=FALSE, warning=FALSE}
@@ -1176,23 +1160,23 @@ A la différence de `margin`, `hjust` et `vjust` prennent en compte l'orientatio
 
 <br>
 
-![](img/ggplot_themes_legend.png)   
+![](img/ggplot_themes_legend.png)
 
-Nous allons effectuer les modifications suivantes : 
+Nous allons effectuer les modifications suivantes :
 
 |                         |                                      |
-| ----------------------- | ------------------------------------ |
+|-------------------------|--------------------------------------|
 | modifier l'arrière-plan | `legend.background = element_rect()` |
 | modifier la boîte       | `legend.key = element_rect()`        |
-| supprimer le titre      | `legend.title = element_blank()`     | 
+| supprimer le titre      | `legend.title = element_blank()`     |
 | modifier le texte       | `legend.text = element_text()`       |
 | modifier l'emplacemen   | `legend.position`                    |
 
 Nous pourrions également modifier l'orientation de la légende à l'aide de l'option `legend.direction = "horizontal`.
 
-Nous allons placer la légende sous le sous-titre et au-dessus du graphique. 
+Nous allons placer la légende sous le sous-titre et au-dessus du graphique.
 
-Si nous avions fait le choix d'aligner le titre et le sous-titre par rapport à la zone de "plot", il nous faudrait alors supprimer ce paramètre (ou commenter la ligne de code concernée) pour que l'alignement se fasse par rapport à l'ensemble de la figure. 
+Si nous avions fait le choix d'aligner le titre et le sous-titre par rapport à la zone de "plot", il nous faudrait alors supprimer ce paramètre (ou commenter la ligne de code concernée) pour que l'alignement se fasse par rapport à l'ensemble de la figure.
 
 ```{r basic plot 26g, eval=TRUE, message=FALSE, warning=FALSE}
 (p4 <- p3 +
@@ -1210,19 +1194,17 @@ Si nous avions fait le choix d'aligner le titre et le sous-titre par rapport à 
 <br>
 
 ::: {.callout-tip icon="true"}
-
 ## Modifier l'apparence de la légende avec `guides`
 
 Nous pouvons remarquer que les points utilisés pour la légende reprennent les paramètres esthétiques du graphique, à savoir la taille et la transparence.
 
-Pour rendre la légende plus claire, nous pouvons appliquer des paramètres esthétiques uniquement à la légende, à l'aide des `guides` : 
+Pour rendre la légende plus claire, nous pouvons appliquer des paramètres esthétiques uniquement à la légende, à l'aide des `guides` :
 
 ```{r basic plot 26h, eval=TRUE, message=FALSE, warning=FALSE}
 (p5 <- p4 +
   guides(color = guide_legend(override.aes = list(alpha = 1, size = 5)))
 )
 ```
-
 :::
 
 <br>
@@ -1231,13 +1213,13 @@ Pour rendre la légende plus claire, nous pouvons appliquer des paramètres esth
 
 <br>
 
-Jusqu'à présent, nos graphiques apparaissaient dans l'onglet **Plots** mais n'étaient pas sauvegardés. 
+Jusqu'à présent, nos graphiques apparaissaient dans l'onglet **Plots** mais n'étaient pas sauvegardés.
 
-Nous pouvons sauvegarder notre graphique de deux manières :   
+Nous pouvons sauvegarder notre graphique de deux manières :
 
-- directement depuis l'onglet Plot  
+-   directement depuis l'onglet Plot
 
-- en ligne de commande avec `ggsave()`
+-   en ligne de commande avec `ggsave()`
 
 <br>
 
@@ -1251,29 +1233,29 @@ L'onglet **Plots** vous permet de naviguer entre vos graphiques, d'ouvrir le gra
 
 ![](img/export_ggplot_01.png)
 
-En cliquant sur *Export*, vous avez trois options : 
+En cliquant sur *Export*, vous avez trois options :
 
-- sauvegarder le graphique sous forme d'image  
+-   sauvegarder le graphique sous forme d'image
 
-- sauvegarder le graphique au format PDF   
+-   sauvegarder le graphique au format PDF
 
-- copier le graphique dans le presse-papiers (par exemple pour le coller dans un document)
+-   copier le graphique dans le presse-papiers (par exemple pour le coller dans un document)
 
 <br>
 
-Nous allons exporter notre graphique sous forme d'image : cliquez sur *Export* puis *Save as image*. 
+Nous allons exporter notre graphique sous forme d'image : cliquez sur *Export* puis *Save as image*.
 
 ![](img/export_ggplot_02.png)
 
 Nous avons alors le choix entre plusieurs extensions (`.png`, `.jpeg`, ...).
 
-Nous pouvons également : 
+Nous pouvons également :
 
-- redimensionner notre graphique (en convervant ou non le rapport des dimensions)  
+-   redimensionner notre graphique (en convervant ou non le rapport des dimensions)
 
-- choisir le dossier de destination  
+-   choisir le dossier de destination
 
-- modifier le nom du graphique (le nom proposé par défaut n'est pas très explicite ...)
+-   modifier le nom du graphique (le nom proposé par défaut n'est pas très explicite ...)
 
 <br>
 
@@ -1281,14 +1263,13 @@ Nous pouvons également :
 
 <br>
 
-Cette fonction permet d'exporter un graphique au format *.png* dans un répertoire, avec les dimensions et la résolution de notre choix : 
+Cette fonction permet d'exporter un graphique au format *.png* dans un répertoire, avec les dimensions et la résolution de notre choix :
 
 ```{r basic plot 26i, eval=FALSE, message=FALSE, warning=FALSE}
 ggsave("figs/pingouins_rapport_bec.png", p5, dpi = 320, width = 12, height = 6)
 ```
 
 Le paramètre `dpi` indique la résolution de l'image en pixels.
-
 
 Il est toujours utile d'exporter son graphique et de vérifier le rendu pour rectifier les paramètres si nécessaire. Il n'est en effet pas rare d'avoir quelques surprises en ouvrant notre graphique exporté au format .png : taille de la police, des éléments graphiques, ...
 
