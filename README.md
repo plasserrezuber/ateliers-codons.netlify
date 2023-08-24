@@ -17,7 +17,7 @@ Les codes de ces différents ateliers sont dans le répertoire /codons.netlify/_
 
 ## Le blog
 
-Le site web de supports de cours est construit avec l'outil Netlify.  
+Le site web de supports de cours est construit avec l'outil quarto et hébergé par Netlify.  
 Lien vers le blog [ateliers codons](https://ateliers-codons.netlify.app/)
 
 ## Support  
