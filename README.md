@@ -14,7 +14,7 @@ Prochainement, ces _**ateliers codons**_ seront proposés par la formation perma
 - Introduction à Git
 - Manipuler des fichiers de grande taille (>1Go) avec data.table  
 
-Les codes de ces différents ateliers sont dans le répertoire /codons.netlify/_posts  
+Les codes de ces différents ateliers sont dans le répertoire /posts  
 
 ## Le blog
 
