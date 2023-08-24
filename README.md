@@ -2,7 +2,7 @@
 
 
 Les _**ateliers codons**_ sont des formations organisées en interne à l'UMR GDEC, pour les agents du GDEC souhaitant acquérir des compétences de programmation en langage R.  
-Prochainement, ces _**ateliers codons**_ seront proposés par la formation permanente sous forme de e-learnig accessible à tous les agents INRAe du centre Auvergne Rhone-Alpes.  
+Prochainement, ces _**ateliers codons**_ seront proposés par la formation permanente sous forme de e-learnig accessible à tous les agents du centre INRAe Auvergne Rhone-Alpes.  
 
 ## Les ateliers 
 
