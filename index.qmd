@@ -20,4 +20,6 @@ page-layout: article
 [![](img/banniere_rmarkdown.png){width="50%"}](https://ateliers-codons.netlify.app/posts/04-rmarkdown/)
 
 [![](img/banniere_git.png){width="50%"}](https://ateliers-codons.netlify.app/posts/05-git/)
+
+[![](img/banniere_datatable.png){width="50%"}](https://ateliers-codons.netlify.app/posts/07-data.table/)
 :::
