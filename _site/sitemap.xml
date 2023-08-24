@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://ateliers-codons.netlify.app/index.html</loc>
-    <lastmod>2023-01-26T14:37:30.547Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ateliers-codons.netlify.app/posts/01-installer-r-et-rstudio/index.html</loc>
-    <lastmod>2023-01-26T14:37:31.343Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/index.html</loc>
-    <lastmod>2023-01-26T14:37:34.270Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ateliers-codons.netlify.app/posts/03-introduction-tidyverse/index.html</loc>
-    <lastmod>2023-01-26T14:37:37.053Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ateliers-codons.netlify.app/posts/04-rmarkdown/index.html</loc>
-    <lastmod>2023-01-26T14:37:38.935Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ateliers-codons.netlify.app/posts/post-with-code/index.html</loc>
-    <lastmod>2023-01-26T14:37:44.640Z</lastmod>
-  </url>
-  <url>
     <loc>https://ateliers-codons.netlify.app/posts/welcome/index.html</loc>
-    <lastmod>2023-01-26T14:37:45.095Z</lastmod>
+    <lastmod>2023-08-24T08:52:00.033Z</lastmod>
   </url>
   <url>
     <loc>https://ateliers-codons.netlify.app/posts/07-data.table/index.html</loc>
-    <lastmod>2023-08-24T07:45:29.191Z</lastmod>
+    <lastmod>2023-08-24T08:51:54.203Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ateliers-codons.netlify.app/posts/03-introduction-tidyverse/index.html</loc>
+    <lastmod>2023-08-24T08:51:24.464Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ateliers-codons.netlify.app/posts/01-installer-r-et-rstudio/index.html</loc>
+    <lastmod>2023-08-24T08:51:08.405Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ateliers-codons.netlify.app/index.html</loc>
+    <lastmod>2023-08-24T08:51:06.098Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ateliers-codons.netlify.app/posts/02-premiers-pas-avec-r/index.html</loc>
+    <lastmod>2023-08-24T08:51:16.969Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ateliers-codons.netlify.app/posts/04-rmarkdown/index.html</loc>
+    <lastmod>2023-08-24T08:51:30.995Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ateliers-codons.netlify.app/posts/post-with-code/index.html</loc>
+    <lastmod>2023-08-24T08:51:57.583Z</lastmod>
   </url>
 </urlset>
