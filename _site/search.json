@@ -446,5 +446,82 @@
     "title": "Welcome To My Blog",
     "section": "",
     "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+  },
+  {
+    "objectID": "posts/07-data.table/index.html#setup",
+    "href": "posts/07-data.table/index.html#setup",
+    "title": "{data.table}",
+    "section": "Setup",
+    "text": "Setup\n\n# Chargement des packages\nlibrary(readr)\nlibrary(dplyr)\nlibrary(stringr)\n\nlibrary(data.table)\n\nTélécharger les fichiers suivants (en cliquant sur l’icône Download) et sauvegardez-les dans votre répertoire de travail :\n\nFichier 1\nFichier 2"
+  },
+  {
+    "objectID": "posts/07-data.table/index.html#table1",
+    "href": "posts/07-data.table/index.html#table1",
+    "title": "{data.table}",
+    "section": "Import table 1",
+    "text": "Import table 1\n\n# package readr de la suite tidyverse\nstart.time &lt;- Sys.time()\nd &lt;- read_tsv(\"ISBPS_REFSEQV2_vs_RENAN_PSEUDOV2_filtered.bam_summary.tsv\", col_names=T)\ntime.tidy &lt;- Sys.time() - start.time\n\n\n#package data.table\n##info systeme:\nnames(s &lt;- Sys.getenv())\nSys.getenv(\"NUMBER_OF_PROCESSORS\")\nSys.getenv(\"PROCESSOR_LEVEL\")\nSys.getenv(\"OMP_THREAD_LIMIT\")\nSys.setenv(\"OMP_THREAD_LIMIT\"=4)\nSys.getenv(\"OMP_THREAD_LIMIT\")\n\n\n##nThread=1\nsetDTthreads(threads=1, restore_after_fork=TRUE)\ngetDTthreads(verbose = getOption(\"datatable.verbose\"))\n\nstart.time &lt;- Sys.time()\ndt &lt;- fread(\"ISBPS_REFSEQV2_vs_RENAN_PSEUDOV2_filtered.bam_summary.tsv\",\n         nThread=1, sep=\"\\t\", header=TRUE, dec=\".\", encoding = \"UTF-8\", showProgress=TRUE)\ntime.dt1 &lt;- Sys.time() - start.time\ntime.dt1\ntime.tidy\n\n##nThread=4\nsetDTthreads(threads=6, restore_after_fork=TRUE)\ngetDTthreads(verbose = getOption(\"datatable.verbose\"))\n\nstart.time &lt;- Sys.time()\ndt &lt;- fread(\"ISBPS_REFSEQV2_vs_RENAN_PSEUDOV2_filtered.bam_summary.tsv\", \n         nThread=4, sep=\"\\t\", header=TRUE, dec=\".\", encoding = \"UTF-8\", showProgress=TRUE)\ntime.dt4 &lt;- Sys.time() - start.time\ntime.dt4\ntime.tidy\n\n#definition d'un deuxieme seprarteur (sep2) possible !!! :))\n#NB: option stringsAsFactors = TRUE peut ralentir sensiblement l’importation des donnees"
+  },
+  {
+    "objectID": "posts/07-data.table/index.html#table2",
+    "href": "posts/07-data.table/index.html#table2",
+    "title": "{data.table}",
+    "section": "Import table 2",
+    "text": "Import table 2\n\n#package readr de la suite tidyverse\nstart.time &lt;- Sys.time()\nfa &lt;- read_tsv(\"Tae.Chinese_Spring.refSeqv2.1.ISBPs_fasta.txt\", col_names=F)\ntime.tidy &lt;- Sys.time() - start.time\n\ncolnames(fa) &lt;- c(\"read_id\",\"seq\")\n\n#package data.table  ---&gt; nThread \nstart.time &lt;- Sys.time()\nfadt &lt;- fread(\"Tae.Chinese_Spring.refSeqv2.1.ISBPs_fasta.txt\",\n           nThread=4, sep=\"\\t\", colClasses=c(\"character\", \"character\"), header=FALSE,\n           encoding = \"UTF-8\", showProgress=TRUE)\ntime.dt4 &lt;- Sys.time() - start.time\ntime.dt4\ntime.tidy"
+  },
+  {
+    "objectID": "posts/07-data.table/index.html#col_select",
+    "href": "posts/07-data.table/index.html#col_select",
+    "title": "{data.table}",
+    "section": "Sélection des données à importer",
+    "text": "Sélection des données à importer\n\n# #package readr de la suite tidyverse\nstart.time &lt;- Sys.time()\nd &lt;- read_tsv(\"ISBPS_REFSEQV2_vs_RENAN_PSEUDOV2_filtered.bam_summary.tsv\", col_names=T,\n           col_select = -\"query_length\")\ntime.tidy &lt;- Sys.time() - start.time\n\n\n#pour selectionner des colonnes à importer: option \"col_select\" avec ou sans -\n#pour importer une portion de table: option \"skip\" et \"n_max\n\n\n#package data.table\nstart.time &lt;- Sys.time()\ndt &lt;- fread(\"ISBPS_REFSEQV2_vs_RENAN_PSEUDOV2_filtered.bam_summary.tsv\", \n         nThread=4, sep=\"\\t\", header=TRUE, dec=\".\", encoding = \"UTF-8\", showProgress=TRUE,\n         drop=\"query_length\")\ntime.dt4 &lt;- Sys.time() - start.time\ntime.dt4\ntime.tidy\n\n#pour selectionner des colonnes à importer: option \"clo_select\" avec ou sans -\n#pour importer une portion de table: option \"skip\" + \"nrows\"\n\n ## Presentation des données {#presentation}\n\n#suite tidyverse\nd\nfa\n\ndf &lt;- data.frame(d)\nfadf &lt;- data.frame(fa)\n\n#package data.table\ndt\nfadt\ncolnames(fadt) &lt;- c(\"read_id\",\"seq\")\n\noptions(\"datatable.print.keys\" = TRUE, \"datatable.print.class\" = TRUE)\ndt"
+  },
+  {
+    "objectID": "posts/07-data.table/index.html#mean",
+    "href": "posts/07-data.table/index.html#mean",
+    "title": "{data.table}",
+    "section": "Calculs par groupe selon critères",
+    "text": "Calculs par groupe selon critères\n\n# R base\nstart.time &lt;- Sys.time()\nhead(df)\naggregate(df[df[[\"alignemnt_length\"]]==150, \"mapq\"],\n          by=list(df[df[[\"alignemnt_length\"]]==150, \"missmatches\"]),\n          FUN=mean)\nSys.time() - start.time\n\n#suite tidyverse\nstart.time &lt;- Sys.time()\nprint(d %&gt;%\n  dplyr::filter(alignemnt_length==150)%&gt;%\n  dplyr::group_by(missmatches)%&gt;%\n  dplyr::summarise(mean(mapq)),\n  n=100)\nSys.time() - start.time\n\n\n#package data.table\nstart.time &lt;- Sys.time()\ndt[alignemnt_length==150, mean(mapq), by = missmatches]\nSys.time() - start.time\n\n ## Enchainer les calculs {#arrange}\nDplyr utilise l’opérateur pipe %&gt;%.\nAvec data.table, il suffit d’accoler les opérateurs []: dt[opération 1][opération 2][opération 3][…]\n\n#suite tidyverse\nprint(d %&gt;%\n        dplyr::filter(alignemnt_length==150) %&gt;%\n        dplyr::group_by(missmatches) %&gt;%\n        dplyr::summarise(mean(mapq))%&gt;%\n        arrange(`mean(mapq)`),\n      n=100)\n\n#package data.table\ndt[alignemnt_length==150, mean(mapq), by = missmatches][order(missmatches)]"
+  },
+  {
+    "objectID": "posts/07-data.table/index.html#tidyverse1",
+    "href": "posts/07-data.table/index.html#tidyverse1",
+    "title": "{data.table}",
+    "section": "tidyverse",
+    "text": "tidyverse\n\n#suite tidyverse\nd%&gt;%select(read_id, missmatches, mapq)\n\n#package data.table\ndt[, .(read_id, missmatches, mapq)]   #NB: .() est un alias pour \"list()\"\n\ndt[, .SD, .SDcols=c(\"read_id\", \"missmatches\", \"mapq\")] #ecriture a combiner avec lapply\n#SD pour Subset of Data: les colonnes listees seront aliasees par .SD avec la dimension .SDcols\n#et par defaut, toutes les colonnes sont traitees\n\n ## data.table {#data.table1}\n\n#"
+  },
+  {
+    "objectID": "posts/07-data.table/index.html#Rbase2",
+    "href": "posts/07-data.table/index.html#Rbase2",
+    "title": "{data.table}",
+    "section": "Rbase",
+    "text": "Rbase\n\n # R base\nstart.time &lt;- Sys.time()\n#df_join=base::merge(df,fadf, by=\"read_id\", all.x=TRUE)\nSys.time() - start.time\n#####Time difference of 1.373174 mins\n\n ## tydiverse {#tidyverse2}\n\n#suite tidyverse\nstart.time &lt;- Sys.time()\nd_join=d%&gt;%left_join(fa)   #NB: une seule var key commune, nul besoin de preciser la var de jointure\n#sinon: d_join=d%&gt;%left_join(y=fa, by=\"read_id\")\nSys.time() - start.time\n\n ## data.table avec ou sans index {#data.table2}\n\n#package data.table\n##avec merge, meme ecriture qu'avec la fonction de R base\n\nstart.time = Sys.time()\ndt_join=merge(dt,fadt, by=\"read_id\", all.x=T)\ntime.dt_sansindex = Sys.time() - start.time\n\nstart.time = Sys.time()\ndt_join=dt[fadt, on=\"read_id\", nomatch=NULL]\nSys.time() - start.time\n\n##indexation de tables: accelere les combinaisons de donnees\nsetkey(dt, read_id)\nsetkey(fadt, read_id)\n\nstart.time = Sys.time()\ndt_join=merge(dt,fadt, by=\"read_id\", all.x=T)\ntime.dt_avecindex = Sys.time() - start.time\ntime.dt_sansindex\ntime.dt_avecindex\n\nkey(dt)\nsetkey(dt, NULL)\nkey(dt)"
+  },
+  {
+    "objectID": "posts/07-data.table/index.html#Rbase3",
+    "href": "posts/07-data.table/index.html#Rbase3",
+    "title": "{data.table}",
+    "section": "Rbase",
+    "text": "Rbase\n\n#R base\nstart.time &lt;- Sys.time()\n#write.table(df_join, \"ISBP_REFSEQV2_vs_RENAN_with_FASTA.TAB\", col.names=T)\nSys.time() - start.time\n#Time difference of 1.977623 mins\n\n ## tydiverse {#tidyverse3}\n\n#suite tidyverse package readr\nstart.time &lt;- Sys.time()\nwrite_tsv(d_join, \"ISBP_REFSEQV2_vs_RENAN_with_FASTA.TAB\", col_names=T)\nSys.time() - start.time  # ~20 à 30sec\n\n ## data.table {#data.table3}\n\n#package data.table\nstart.time &lt;- Sys.time()\nfwrite(dt_join, \"ISBP_REFSEQV2_vs_RENAN_with_FASTA.TAB\", col.names=T)\nSys.time() - start.time  # moins de 2 secondes"
+  },
+  {
+    "objectID": "posts/07-data.table/index.html#tidyverse4",
+    "href": "posts/07-data.table/index.html#tidyverse4",
+    "title": "{data.table}",
+    "section": "tydiverse",
+    "text": "tydiverse\n\n# TRANSPOSITION \nmat_join=as.matrix(dt_join)\ndim(mat_join)\nhead(mat_join, n=1)\ncolnames(mat_join)\n\ntmat_join=as.matrix(t(mat_join))\ndim(tmat_join)\nhead(tmat_join[,c(1,2,3,4,5)], n=9)\ntmat_join=data.table(tmat_join)\n\nfwrite(tmat_join, \"ISBP_REFSEQV2_vs_RENAN_with_FASTA_transposed_dt.TAB\", sep=\"\\t\", col.names=F)\n\n#package readr de la suite tidyverse\nstart.time &lt;- Sys.time()\n#d_trans=read_tsv(\"ISBP_REFSEQV2_vs_RENAN_with_FASTA_transposed_dt.TAB\", col_names=F)\ntime.tidy &lt;- Sys.time() - start.time ## tres tres long\n\n ## data.table {#data.table4}\n\n#package data.table\nstart.time &lt;- Sys.time()\ndt_trans=fread(\"ISBP_REFSEQV2_vs_RENAN_with_FASTA_transposed_dt.TAB\", \n         nThread=4, sep=\"\\t\", header=FALSE, dec=\".\", encoding = \"UTF-8\", showProgress=TRUE)\ntime.dt &lt;- Sys.time() - start.time\ntime.dt # ~16 secondes\ntime.tidy"
+  },
+  {
+    "objectID": "posts/07-data.table/index.html#tidyverse5",
+    "href": "posts/07-data.table/index.html#tidyverse5",
+    "title": "{data.table}",
+    "section": "tydiverse",
+    "text": "tydiverse\n\n# mutate sur une colonne avec tidyverse\nstart.time &lt;- Sys.time()\nd_joinU=d_join %&gt;% head(5)%&gt;%mutate(seq=str_replace_all(seq,\"T\",\"U\"))\ntime.tidy &lt;- Sys.time() - start.time\n\n### mutate(across) sur toutes les colonnes \ntmat_d_join=tibble(tmat_join[,1:100000])\n\nstart.time &lt;- Sys.time()\ntmat_d_joinU=tmat_d_join %&gt;% mutate(across(everything(), ~gsub(\"T\",\"U\",.)))\ntime.tidy &lt;- Sys.time() - start.time\ntime.tidy\n\nhead(tmat_d_joinU[,c(1,2,3,4,5)], n=9)"
+  },
+  {
+    "objectID": "posts/07-data.table/index.html#data.table5",
+    "href": "posts/07-data.table/index.html#data.table5",
+    "title": "{data.table}",
+    "section": "data.table",
+    "text": "data.table\n\n# str_replace sur une colonne\nstart.time &lt;- Sys.time()\ndt_joinU=dt_join[1:5,][,seq:=str_replace_all(seq,\"T\",\"U\")]\ntime.dt &lt;- Sys.time() - start.time\ntime.dt\ntime.tidy\n\n### lapply .SD .SDcols sur 5 colonnes\ncols=c(\"V1\",\"V2\",\"V3\",\"V4\",\"V5\")\ntmat_dt_joinU=tmat_dt_join[,(cols):=lapply(.SD, function(x) gsub(\"T\",\"U\",as.character(x))), .SDcols=cols]\nhead(tmat_dt_joinU[,c(1,2,3,4,5)], n=9)\n\n### lapply .SD .SDcols sur toutes les colonnes \ncols=c(\"V1\",\"V2\",\"V3\",\"V4\",\"V5\")\nstart.time &lt;- Sys.time()\ntmat_dt_joinU=lapply(tmat_dt_join, function(x) gsub(\"T\",\"U\",as.character(x)) )\ntime.dt &lt;- Sys.time() - start.time\ntime.dt\n\nhead(tmat_dt_joinU[,c(1,2,3,4,5)], n=9)\n\n\nRéférences UtilitR"
   }
 ]
